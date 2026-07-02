@@ -1,9 +1,10 @@
 /* =========================================================================
    LT Strategy Partners — site content
    -------------------------------------------------------------------------
-   This is the single source of truth for ALL copy on the site. Edit text
-   here; components read from it. No copy is hard-coded inside components.
-   Placeholders that need client input are wrapped in [square brackets].
+   Single source of truth for ALL copy. Edit text here; components read from
+   it. Items the founder must confirm/fill are marked [[VERIFY: ...]] and live
+   in `config` below — they degrade gracefully (never rendered as invented
+   fact). See README "What the founder must supply".
    ========================================================================= */
 
 /* ------------------------------------------------------------------- Types */
@@ -11,6 +12,7 @@
 export interface CTA {
   label: string;
   href: string;
+  external?: boolean; // opens in a new tab (e.g. a booking link)
 }
 
 export interface NavItem {
@@ -26,7 +28,6 @@ export interface Card {
 export interface Service {
   title: string;
   body: string;
-  // Concrete, tangible outputs the client receives.
   deliverables: string[];
 }
 
@@ -34,8 +35,21 @@ export interface Step {
   n: string;
   title: string;
   body: string;
-  // What the client has / leaves with after this step.
   output: string;
+}
+
+export interface Testimonial {
+  quote: string;
+  name: string;
+  role: string; // e.g. "Former manager, Enovis"
+  company?: string;
+  logo?: string; // optional logo key in src/assets/... (only if permissioned)
+}
+
+export interface FaqItem {
+  q: string;
+  a: string;
+  href?: string; // optional in-page link (e.g. to the data & IP section)
 }
 
 export interface WorkProject {
@@ -43,22 +57,54 @@ export interface WorkProject {
   name: string;
   tagline: string;
   category: string;
-  accent: string; // per-project accent colour (hex), used sparingly
-  heroDark?: boolean; // dark hero band to echo the project's own style
-  oneLiner: string; // short card summary
+  // Honest label for what this proves: a product we built vs a client engagement.
+  kind: "product" | "build" | "analysis" | "client";
+  label: string; // display label for `kind`
+  accent: string;
+  heroDark?: boolean;
+  oneLiner: string;
   overview: string;
   context: string;
   delivered: string[];
   strategic: string[];
   capabilities: string[];
   stack: string[];
+  // [[VERIFY: add real, founder-supplied measurable outcomes per project when
+  // available]]. Leave empty to keep the qualitative framing — never invent.
+  impact?: string[];
   takeaway: string;
-  image?: string; // primary image key in src/assets/work (filename without ext)
-  gallery?: string[]; // extra figure image keys
-  diagram?: boolean; // render the built-in architecture diagram instead of an image
+  image?: string;
+  gallery?: string[];
+  diagram?: boolean;
 }
 
+/* -------------------------------------------------- Config / [[VERIFY]] items */
+/* Fill these when confirmed. Empty values degrade gracefully — nothing invented
+   is shown on the live page. */
+export const config = {
+  // [[VERIFY: bookingUrl]] — a scheduling link (Cal.com/Calendly). If set, the
+  // primary CTA becomes "Book a conversation" and links here; empty => the CTA
+  // reads "Start a conversation" and goes to the contact form.
+  bookingUrl: "",
+  // [[VERIFY: assessment fee]] — e.g. "€X,XXX". Empty => shown as scoped in a call.
+  assessmentFee: "",
+  // [[VERIFY: founder photo]] — set to "/brand/founder.jpg" once added; empty =>
+  // a clearly-labelled placeholder is shown.
+  founderPhoto: "",
+  // [[VERIFY: legal entity name + registration number for footer, if registered]]
+  registration: "",
+} as const;
+
 /* --------------------------------------------------------------- Site meta */
+
+const primaryCta: CTA = config.bookingUrl
+  ? { label: "Book a conversation", href: config.bookingUrl, external: true }
+  : { label: "Start a conversation", href: "/contact" };
+
+const assessmentCta: CTA = {
+  label: "Start with an assessment",
+  href: "/contact?topic=assessment",
+};
 
 export const site = {
   name: "LT Strategy Partners",
@@ -66,45 +112,47 @@ export const site = {
   domain: "ltstrategypartners.com",
   url: "https://ltstrategypartners.com",
   tagline: "Strategy that delivers.",
-  // Kept within ~155 chars so it isn't truncated in search results.
   description:
     "LT Strategy Partners helps leadership teams find where AI and technology create real, measurable business value — then advises, builds, and proves it.",
   email: "luca.tamas@ltstrategypartners.com",
-  founder: "Luca Tamas",
-  // The CTA verb is consistent everywhere it appears (brief §5).
-  primaryCta: { label: "Book a conversation", href: "/contact" } as CTA,
-} as const;
+  founder: "Luca-Ștefan Tamaș",
+  location: "Iași, Romania · Working with clients across the EU and US.",
+  links: {
+    companyLinkedin: "https://www.linkedin.com/company/lt-strategy-partners/",
+    founderLinkedin:
+      "https://www.linkedin.com/in/luca-%C8%99tefan-tama%C8%99-a40282229/",
+    github: "https://github.com/LucaStefan112",
+  },
+  primaryCta,
+  assessmentCta,
+};
 
 /* ---------------------------------------------------------------- Navigation */
+/* Canonical Services target is the /services page (Task 11) — used in header
+   AND footer. About / Work / Insights / Services / Contact appear in both. */
 
 export const nav: NavItem[] = [
-  { label: "Approach", href: "/#approach" },
-  { label: "Services", href: "/#services" },
-  { label: "Work", href: "/#work" },
-  // Hidden while the Results and About sections are commented out:
-  // { label: "Results", href: "/#results" },
-  // { label: "About", href: "/#about" },
-  { label: "Contact", href: "/contact" },
-];
-
-/* Footer navigation (concise) */
-export const footerNav: NavItem[] = [
-  { label: "Approach", href: "/#approach" },
   { label: "Services", href: "/services" },
-  // Founder/About page hidden for now:
-  // { label: "About", href: "/about" },
+  { label: "Work", href: "/#work" },
+  { label: "Insights", href: "/insights" },
+  { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
 
-// Privacy/Terms pages are disabled for now (placeholder content). Re-add when
-// the real legal text and the src/pages/_privacy.astro / _terms.astro routes
-// are restored.
-export const legalNav: NavItem[] = [
-  // { label: "Privacy", href: "/privacy" },
-  // { label: "Terms", href: "/terms" },
+export const footerNav: NavItem[] = [
+  { label: "Services", href: "/services" },
+  { label: "Work", href: "/#work" },
+  { label: "Insights", href: "/insights" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
 ];
 
-/* --------------------------------------------------------------- §6.1 Hero */
+export const legalNav: NavItem[] = [
+  { label: "Privacy", href: "/privacy" },
+  { label: "Terms", href: "/terms" },
+];
+
+/* --------------------------------------------------------------- Hero */
 
 export const hero = {
   eyebrow: "AI & Business Transformation",
@@ -112,18 +160,19 @@ export const hero = {
   subhead:
     "We help leadership teams find where AI and technology create real business value — then we advise, build, and prove it. From boardroom to deployment, and back to the numbers.",
   primaryCta: site.primaryCta,
-  secondaryCta: { label: "See how we work", href: "/#approach" } as CTA,
+  // Low-commitment path alongside the direct one (Task 5).
+  secondaryCta: site.assessmentCta,
   trustLine: "Independent · Senior-led · Outcome-focused",
 } as const;
 
-/* -------------------------------------------------- §6.2 The problem we solve */
+/* -------------------------------------------------- The problem we solve */
 
 export const intro = {
   eyebrow: "Why it matters",
   body: "Most organizations don't lack ideas about AI and technology — they lack a clear, honest view of where it actually pays off, and the ability to deliver it. Pilots stall. Vendors oversell. Strategy decks gather dust. We close the gap between ambition and results.",
 } as const;
 
-/* ------------------------------------------------------- §6.3 Value pillars */
+/* ------------------------------------------------------- Value pillars */
 
 export const pillars = {
   eyebrow: "How we're different",
@@ -143,7 +192,7 @@ export const pillars = {
   ] as Card[],
 } as const;
 
-/* ----------------------------------------------------------- §6.4 Services */
+/* ----------------------------------------------------------- Services */
 
 export const services = {
   eyebrow: "What we do",
@@ -152,7 +201,7 @@ export const services = {
   items: [
     {
       title: "Opportunity & Strategy",
-      body: "We assess where AI, data, and technology can move revenue, cost, or risk, size the value against your P&L, and separate the few opportunities worth pursuing from the many that aren't. You leave with a decision-ready plan, not a wish list.",
+      body: "We assess where AI, data, and technology can move revenue, cost, or risk, size the value against your P&L, and separate the few opportunities worth pursuing from the many that aren't. The AI Opportunity Assessment is the fixed-scope way to start here.",
       deliverables: [
         "A prioritised opportunity map, ranked by value and effort",
         "Sized business cases for the top opportunities",
@@ -186,10 +235,63 @@ export const services = {
         "Direct access to senior people between sessions",
       ],
     },
+    {
+      title: "AI Governance & EU AI Act Readiness",
+      body: "Independent help understanding where the EU AI Act and responsible-AI expectations apply to you, what you need in place, and how to adopt AI without taking on risk you can't see. Practical guidance, not theory.",
+      deliverables: [
+        "A clear read on where the EU AI Act and responsible-AI duties apply to you",
+        "A prioritised list of what to put in place, by risk",
+        "Guidance on adopting AI without taking on unseen risk",
+      ],
+    },
   ] as Service[],
 } as const;
 
-/* ----------------------------------------------------------- §6.5 Approach */
+/* ----------------------------- AI Opportunity Assessment (entry offer) */
+
+export const assessment = {
+  eyebrow: "Start here — a low-risk first step",
+  heading: "The AI Opportunity Assessment.",
+  body: "Not sure where AI or automation actually pays off in your business? Start here. In two to four weeks, we assess your operations, data, and goals and give you a clear, prioritised view of where technology can move revenue, cost, or risk — and, just as honestly, where it can't. Fixed scope. Fixed fee. No obligation to go further.",
+  getHeading: "What you get",
+  get: [
+    "A prioritised opportunity map, ranked by value and effort",
+    "Sized business cases for the top two or three opportunities",
+    "A practical, sequenced roadmap you own — whether you build it with us or not",
+  ],
+  // Shown when config.assessmentFee is empty; otherwise the fee is shown.
+  priceNote: "Fixed fee, scoped in a short introductory call.",
+  cta: site.assessmentCta,
+} as const;
+
+/* ------------------------------------------------ Your data & IP (Task 6) */
+
+export const dataIp = {
+  id: "data-ip",
+  eyebrow: "Your data, your IP",
+  heading: "Built by a security engineer — handled accordingly.",
+  body: "We come from a security and data-protection background — production security engineering at Bitdefender, and authentication and encryption work for a UK intelligence firm. That discipline is built into how we work with you.",
+  items: [
+    {
+      title: "Your data stays yours.",
+      body: "We access only what an engagement needs, work happily under your NDA, and can operate inside your own environment.",
+    },
+    {
+      title: "You own what we build.",
+      body: "Code, models, and documentation are yours, with a clean handover so your team can run everything without us.",
+    },
+    {
+      title: "Secure by design.",
+      body: "Tenant isolation, least-privilege access, and secret handling are decided at the design stage — not patched on later.",
+    },
+    {
+      title: "AI used responsibly.",
+      body: "Where confidentiality matters, we can run AI on-premise or self-hosted; where correctness matters, we keep model outputs behind validation.",
+    },
+  ] as Card[],
+} as const;
+
+/* ----------------------------------------------------------- Approach */
 
 export const approach = {
   eyebrow: "Our approach",
@@ -222,7 +324,7 @@ export const approach = {
   ] as Step[],
 } as const;
 
-/* ----------------------------------------------------- §6.6 Statement band */
+/* ----------------------------------------------------- Statement band */
 
 export const statement = {
   headline: "We're judged by outcomes, not output.",
@@ -230,30 +332,26 @@ export const statement = {
     "Every engagement is tied to results you can measure — and we tell you the truth about what's working.",
 } as const;
 
-/* ------------------------------------------------------------ §6.7 Results */
+/* --------------------------------------------------- Testimonials (Task 3) */
+/* REAL, PERMISSIONED quotes only. The section renders only when this array has
+   at least one entry — an empty array shows nothing (no placeholder).
+   [[VERIFY: add 1–2 real, permissioned testimonials — e.g. LinkedIn
+   recommendations from former managers/clients at Enovis, Aperio, or freelance
+   clients]]. Example shape (do NOT ship until real + approved):
+     { quote: "…", name: "…", role: "Former manager, Enovis", company: "Enovis" }
+*/
+export const testimonials: Testimonial[] = [];
 
-// DISABLED: the Results section is currently commented out of the home page
-// (see src/pages/index.astro). Kept here — with its placeholder — for when
-// real client outcomes exist. Re-enable the <Results /> import + usage to use.
-export const results = {
-  eyebrow: "Results",
-  intro: "What good looks like when strategy actually reaches the ground.",
-  items: [
-    "Faster, better-informed decisions on where to invest.",
-    "Solutions that reach production and get used — not pilots that stall.",
-    "Lower operational cost and effort where it counts.",
-    "A clear, honest line of sight from investment to impact.",
-  ],
-  placeholder:
-    "[Add 2–3 client outcomes or short case notes here once available]",
+export const testimonialsMeta = {
+  eyebrow: "What clients say",
+  heading: "In their words.",
 } as const;
 
-/* ------------------------------------------------- §6.8 Who we work with */
+/* ------------------------------------------------- Who we work with */
 
 export const clients = {
   eyebrow: "Who we work with",
   body: "We work with the whole organization, not just the top of it. Lasting change needs the people who set direction and the people who do the work moving together — so we partner across every level, from the boardroom to the teams on the ground.",
-  // The people we collaborate with, by level (no named companies).
   levels: [
     {
       role: "Boards and the C-suite",
@@ -270,21 +368,44 @@ export const clients = {
   ],
 } as const;
 
-/* -------------------------------------------------------- §6.9 About / founder */
+/* ------------------------------------------- About: homepage teaser (Task 1) */
 
-// DISABLED: the founder profile is hidden for now — the About section is
-// commented out of the home page and the /about route is disabled
-// (src/pages/_about.astro). Restore both to use this copy.
-export const about = {
-  eyebrow: "About",
-  body: "LT Strategy Partners is a senior-led advisory and delivery firm founded by Luca Tamas. We combine strategy, technology, and operational know-how to help leaders make confident decisions and see them through to results. We stay small and senior by design: the people who advise you are the people who deliver.",
-  bioPlaceholder: "[Founder bio — background, experience, credentials]",
-  portraitPlaceholder: "[Portrait image]",
-  // Optional supplied portrait asset (avatar). Client may replace.
-  portrait: "/brand/lt-avatar-800.png",
+export const aboutTeaser = {
+  eyebrow: "Who's behind it",
+  heading: "Founder-led, and built by someone who ships.",
+  body: "LT Strategy Partners is led by Luca-Ștefan Tamaș, a systems and security engineer who currently builds production security systems at Bitdefender, has led a multi-tenant enterprise platform spanning BI, ERP, document management, and process automation, and has founded and shipped two SaaS products on his own. The advice you get is grounded in what actually runs in production — not what looks good on a slide.",
+  link: { label: "More about Luca", href: "/about" } as CTA,
+  photoCaption: `${"Luca-Ștefan Tamaș"} · Founder`,
 } as const;
 
-/* ------------------------------------------------------- §6.10 CTA (pre-footer) */
+/* ------------------------------------------------- About: full page (Task 1) */
+
+export const aboutPage = {
+  eyebrow: "About",
+  heading: "Advice from someone who has actually built it.",
+  paragraphs: [
+    "LT Strategy Partners is founded and led by Luca-Ștefan Tamaș. It is, today, a deliberately senior, founder-led practice: the person who advises you is the person who does the work.",
+    "Luca is a systems and security engineer. He currently works as a Security Software Engineer at Bitdefender, one of the world's largest cybersecurity companies, on systems that have to scale with the trust placed in them. Before that, he was lead engineer on a multi-tenant enterprise platform spanning business intelligence, ERP, document management, and process automation — the same class of systems many organizations run their operations on — where he set the tenant-isolation model, access control, and delivery pipeline. He also spent time as a security R&D engineer for a UK intelligence firm, building authentication and encrypted payment systems with least-privilege access at their core.",
+    "Alongside this, he has founded and shipped two SaaS products — Mazely (indoor navigation for institutions) and Processly (visual process automation) — taking each from a blank page to a running, multi-tenant product single-handedly. Since 2020 he has delivered client work end to end across web, mobile, data, and AI, including apps published on the App Store and Google Play.",
+  ],
+  whyHeading: "Why this matters for you",
+  why: "Most advisors can tell you what to do but have never had to make it work in production, at scale, securely. Luca has — repeatedly. That means recommendations come from someone who has built the real thing, understands the operational and security reality behind it, and will tell you plainly what's worth doing and what isn't.",
+  glanceHeading: "Background at a glance",
+  glance: [
+    "Security engineering at Bitdefender; security R&D (auth & encryption) for a UK firm",
+    "Lead engineer on a multi-tenant BI / ERP / DMS / process-automation platform",
+    "Founder of two production SaaS products (Mazely, Processly)",
+    "B.Sc. Computer Science, Alexandru Ioan Cuza University, Iași",
+    "Security certifications (SOC Level 1, DevSecOps, Jr Penetration Tester); data credentials (Meta Data Analyst, Google Business Intelligence, Advanced SQL, Tableau)",
+    "Based in Iași, Romania · working with clients across the EU and US",
+  ],
+  photoCaption: `${"Luca-Ștefan Tamaș"} · Founder`,
+  ctaHeading: "Where is the value hiding in your business?",
+  // [[VERIFY: founder is comfortable naming Bitdefender as current employer on
+  // the consultancy site — it is already public on the CV/LinkedIn.]]
+} as const;
+
+/* ------------------------------------------------------- CTA (pre-footer) */
 
 export const ctaBand = {
   headline: "Where is the value hiding in your business?",
@@ -292,7 +413,41 @@ export const ctaBand = {
   cta: site.primaryCta,
 } as const;
 
-/* ------------------------------------------------------------ §6.11 Contact */
+/* ----------------------------------------------------------------- FAQ (Task 12) */
+
+export const faq = {
+  eyebrow: "Common questions",
+  heading: "Questions leaders ask first.",
+  items: [
+    {
+      q: "How do we start?",
+      a: "With a fixed-scope AI Opportunity Assessment — a low-risk first step that gives you a prioritised roadmap you own.",
+    },
+    {
+      q: "How do you price?",
+      a: "Assessments are a fixed fee. Larger engagements are scoped and priced per project, agreed up front.",
+    },
+    {
+      q: "Do you work remotely?",
+      a: "Yes — with clients across the EU and US, and on-site in Romania where it helps.",
+    },
+    {
+      q: "We're early on AI. Is it too soon?",
+      a: "No. The assessment is designed exactly for that starting point.",
+    },
+    {
+      q: "Who actually does the work?",
+      a: "The firm is founder-led. Luca is directly involved in every engagement — you work with a senior person, not a junior hand-off.",
+    },
+    {
+      q: "How do you handle our data and IP?",
+      a: "Your data stays yours, you own what we build, and everything is secure by design.",
+      href: "/#data-ip",
+    },
+  ] as FaqItem[],
+} as const;
+
+/* ------------------------------------------------------------ Contact */
 
 export interface FormField {
   name: string;
@@ -308,6 +463,7 @@ export const contact = {
   intro:
     "Tell us a little about your organization and what you're trying to move. We'll come back to you personally — no sales script, no pressure.",
   email: site.email,
+  location: site.location,
   // NOTE: the form is not wired to a backend. See README to connect Formspree/Resend.
   // The submit handler falls back to a mailto: link if no endpoint is configured.
   fields: [
@@ -317,32 +473,50 @@ export const contact = {
     { name: "email", label: "Email", type: "email", required: true, autocomplete: "email" },
     { name: "message", label: "How can we help?", type: "textarea", required: true },
   ] as FormField[],
+  // Query-param prefills for the message field (e.g. /contact?topic=assessment).
+  prefills: {
+    assessment: "I'd like an AI Opportunity Assessment.",
+  } as Record<string, string>,
   submitLabel: "Send message",
   successMessage:
     "Thank you — your message is ready to send. We'll reply personally within two business days.",
 } as const;
 
-/* ------------------------------------------------------------- §6.12 Footer */
+/* ------------------------------------------------------------- Footer */
 
 export const footer = {
   tagline: site.tagline,
   email: site.email,
+  location: site.location,
+  linkedin: site.links.companyLinkedin,
   blurb:
     "A senior-led advisory and delivery firm helping leadership teams turn strategy — and AI where it earns its place — into measurable results.",
+} as const;
+
+/* --------------------------------------------------------- Insights (Task 8) */
+
+export const insights = {
+  eyebrow: "Insights",
+  heading: "Plain thinking on AI and technology.",
+  intro:
+    "Short, practical pieces for leaders — not engineers — on getting real value from AI and technology.",
 } as const;
 
 /* ------------------------------------------------- Selected work / portfolio */
 
 export const work = {
   eyebrow: "Selected work",
+  // Founder-led voice (Task 2): no "team".
   intro:
-    "A few things our team has designed and built. We show them to make one point plainly: we don't just advise — we ship. Here is what each took, technically and strategically, and what it means for the work we could do with you.",
+    "A few things we've designed and built. We show them to make one point plainly: we don't just advise — we ship. Here is what each took, technically and strategically, and what it means for the work we could do with you.",
   projects: [
     {
       slug: "processly",
       name: "Processly",
       tagline: "Design your work once. Run it forever.",
       category: "Workflow automation",
+      kind: "product",
+      label: "Product · built end to end",
       accent: "#111214",
       heroDark: true,
       oneLiner:
@@ -352,7 +526,7 @@ export const work = {
       context:
         "Teams re-design and manually re-run the same recurring work, and the knowledge behind those processes lives in people's heads and slide decks. Processly captures that repeatable work as reusable systems instead.",
       delivered: [
-        "A visual workflow designer where a process is defined once and reused",
+        "A DAG-based visual workflow designer where a process is defined once and reused",
         "One-click project generation from a saved process design",
         "Scheduled generation so recurring work launches automatically",
         "Combined manual and scheduled triggers for the same process",
@@ -369,7 +543,19 @@ export const work = {
         "Scheduling & orchestration",
         "Product & UX design",
       ],
-      stack: ["Modern web application"],
+      // Versions set to match the public repos (github.com/LucaStefan112/Processly
+      // + Processly-API): Next 15.0.4 / React 18.3.1, React Flow (@xyflow/react),
+      // Prisma over PostgreSQL, MinIO; scheduling uses node-cron (no Redis).
+      // [[VERIFY: bump these if the deployed app runs newer versions.]]
+      stack: [
+        "Next.js 15",
+        "React 18",
+        "TypeScript",
+        "PostgreSQL",
+        "Prisma",
+        "React Flow",
+        "MinIO",
+      ],
       takeaway:
         "This shows we can turn a client's recurring, manual work into designed, reusable systems that run on demand or on a schedule — giving an operations team consistency and visibility without growing the team.",
       image: "processly",
@@ -379,6 +565,8 @@ export const work = {
       name: "Mazely",
       tagline: "Every visitor finds their way. Every time.",
       category: "Product engineering",
+      kind: "product",
+      label: "Product · built end to end",
       accent: "#0077B5",
       oneLiner:
         "Photo-guided indoor wayfinding for complex institutions — no app, no hardware",
@@ -388,7 +576,7 @@ export const work = {
         "Visitors get lost in large, complex institutional buildings, and staff waste time giving directions. Institutions also have no data on how people actually move through their space.",
       delivered: [
         "Photo-guided turn-by-turn navigation delivered through a scanned QR code — no app download, no installed hardware",
-        "Multi-floor and multi-building routing with accessibility-aware pathfinding",
+        "Multi-tenant architecture with multi-floor and multi-building routing and accessibility-aware pathfinding",
         "Multilingual support across English, Romanian, French, and German",
         "Admin dashboard with drag-and-drop floor design, QR management, and analytics for session tracking, destination popularity, and feedback",
         "Cloud infrastructure with TLS 1.3 in transit, AES-256 at rest, a 99.9% uptime SLA, and deployment in roughly two to four weeks",
@@ -407,11 +595,13 @@ export const work = {
         "Regulated-industry compliance",
       ],
       stack: [
-        "Cloud infrastructure",
-        "QR-based access",
-        "TLS 1.3",
-        "AES-256",
-        "Admin dashboard",
+        "Next.js 15",
+        "React 19",
+        "TypeScript",
+        "PostgreSQL",
+        "Prisma",
+        "Docker",
+        "MinIO",
       ],
       takeaway:
         "This shows we can design and ship a compliance-grade product for regulated institutions that removes physical friction while generating useful operational data — an approach that fits anywhere an organization needs a low-friction digital layer over a physical environment.",
@@ -422,6 +612,8 @@ export const work = {
       name: "Restaurant Menu Assistant",
       tagline: "Applied AI that runs on the restaurant's own hardware.",
       category: "Applied AI",
+      kind: "build",
+      label: "Self-hosted build",
       accent: "#C2410C",
       oneLiner:
         "A self-hosted AI menu assistant that answers diner questions and runs offline, on-premise",
@@ -448,12 +640,12 @@ export const work = {
         "On-premise data privacy",
         "Cost-conscious model choice",
       ],
+      // Real stack from the public repository (self-hosted / offline-capable AI).
       stack: [
+        "Self-hosted / on-premise",
         "Python",
         "TypeScript",
-        "Ollama",
-        "qwen2.5:3b",
-        "bge-m3",
+        "Ollama (qwen2.5:3b · bge-m3)",
         "PostgreSQL",
         "Qdrant",
         "MinIO",
@@ -467,6 +659,8 @@ export const work = {
       name: "Public Transport Analytics — Iași",
       tagline: "Turning fleet telemetry into operating decisions.",
       category: "Data & analytics",
+      kind: "analysis",
+      label: "Independent analysis",
       accent: "#4F63D2",
       oneLiner:
         "A Metabase dashboard that turns a city's public-transport telemetry into operating decisions",
@@ -492,7 +686,8 @@ export const work = {
         "Fleet & mobility analytics",
         "Data-to-decisions design",
       ],
-      stack: ["Metabase", "SQL", "GPS / telemetry pipeline"],
+      // [[VERIFY: full stack]] — Metabase confirmed from the dashboard export.
+      stack: ["Metabase (dashboard / BI)", "SQL", "GPS / telemetry pipeline"],
       takeaway:
         "This shows we can take raw sensor and telemetry data and turn it into operational dashboards that drive real decisions — an approach that applies to any client running a fleet, a network, or a stream of operational data.",
       image: "transit-map",
@@ -508,11 +703,6 @@ export const pageIntros = {
     eyebrow: "Services",
     title: "From boardroom to deployment.",
     lead: "One senior partner across the full journey — strategy, delivery, and the operational change that makes it stick. No handoffs, no disconnect between the plan and the people who build it.",
-  },
-  about: {
-    eyebrow: "Who we are",
-    title: "Small and senior, by design.",
-    lead: "The people who advise you are the people who deliver. We keep engagements led by experienced hands, close to your business and accountable for the outcome.",
   },
   contact: {
     eyebrow: "Contact",
@@ -532,13 +722,13 @@ export const pageMeta = {
   services: {
     title: "Services — LT Strategy Partners",
     description:
-      "Opportunity & strategy, implementation & delivery, operational performance, and advisory & oversight — one senior partner across the full journey.",
+      "Opportunity & strategy, delivery, operational performance, advisory, and AI governance — one senior partner across the full journey.",
     path: "/services",
   },
   about: {
     title: "About — LT Strategy Partners",
     description:
-      "A senior-led advisory and delivery firm founded by Luca Tamas. The people who advise you are the people who deliver.",
+      "Founder-led by Luca-Ștefan Tamaș — a systems and security engineer at Bitdefender who has led enterprise platforms and shipped two SaaS products. Advice from someone who has built it.",
     path: "/about",
   },
   contact: {
@@ -546,5 +736,21 @@ export const pageMeta = {
     description:
       "Have a direct, no-pressure conversation about where AI and technology could move your numbers.",
     path: "/contact",
+  },
+  insights: {
+    title: "Insights — LT Strategy Partners",
+    description:
+      "Short, practical pieces for leaders on getting real value from AI and technology.",
+    path: "/insights",
+  },
+  privacy: {
+    title: "Privacy — LT Strategy Partners",
+    description: "How LT Strategy Partners collects and handles your information.",
+    path: "/privacy",
+  },
+  terms: {
+    title: "Terms — LT Strategy Partners",
+    description: "The terms on which the LT Strategy Partners website is provided.",
+    path: "/terms",
   },
 } as const;

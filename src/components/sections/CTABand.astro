@@ -2,19 +2,45 @@
 import Container from "../ui/Container.astro";
 import Button from "../ui/Button.astro";
 import Reveal from "../ui/Reveal.astro";
-import { ctaBand } from "../../content/site";
+import { ctaBand, type CTA } from "../../content/site";
+
+interface Props {
+  heading?: string;
+  secondary?: CTA; // optional low-commitment path shown next to the primary CTA
+}
+const { heading = ctaBand.headline, secondary } = Astro.props;
 ---
 
 <section class="cta-band bg-paper" aria-labelledby="cta-heading">
   <Container>
     <Reveal>
       <div class="cta-inner">
-        <h2 id="cta-heading" class="cta-headline display-lg">
-          {ctaBand.headline}
-        </h2>
+        <h2 id="cta-heading" class="cta-headline display-lg">{heading}</h2>
         <p class="cta-body lead">{ctaBand.body}</p>
         <div class="cta-actions">
-          <Button href={ctaBand.cta.href} withArrow>{ctaBand.cta.label}</Button>
+          <Button
+            href={ctaBand.cta.href}
+            external={ctaBand.cta.external}
+            withArrow>{ctaBand.cta.label}</Button
+          >
+          {
+            secondary && (
+              <a href={secondary.href} class="link-arrow cta-secondary">
+                {secondary.label}
+                <span class="arrow" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path
+                      d="M3 8h9M8.5 4l3.5 4-3.5 4"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </span>
+              </a>
+            )
+          }
         </div>
       </div>
     </Reveal>
@@ -40,6 +66,11 @@ import { ctaBand } from "../../content/site";
     max-width: 48ch;
   }
   .cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem 1.75rem;
     margin-top: 2.25rem;
   }
 </style>

@@ -11,6 +11,7 @@ const endpoint = import.meta.env.PUBLIC_CONTACT_ENDPOINT ?? "";
   data-contact-form
   data-endpoint={endpoint}
   data-email={contact.email}
+  data-prefills={JSON.stringify(contact.prefills)}
   aria-label="Contact form"
   novalidate
 >
@@ -202,6 +203,18 @@ const endpoint = import.meta.env.PUBLIC_CONTACT_ENDPOINT ?? "";
         | HTMLInputElement
         | HTMLTextAreaElement
         | null;
+
+    // Prefill the message from a ?topic= query param (e.g. /contact?topic=assessment).
+    try {
+      const topic = new URLSearchParams(window.location.search).get("topic");
+      const prefills = JSON.parse(form.dataset.prefills || "{}") as Record<string, string>;
+      const msg = fieldEl("message");
+      if (topic && prefills[topic] && msg && !msg.value.trim()) {
+        msg.value = prefills[topic];
+      }
+    } catch {
+      /* no-op: prefill is best-effort */
+    }
 
     const setError = (name: string, message: string | null) => {
       const el = fieldEl(name);

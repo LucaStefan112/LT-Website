@@ -49,7 +49,10 @@ const title = `${project.name} — Selected work · LT Strategy Partners`;
         <a href="/#work" class="proj-back">
           <span aria-hidden="true">←</span> Selected work
         </a>
-        <p class="eyebrow proj-cat">{project.category}</p>
+        <div class="proj-kicker">
+          <p class="eyebrow proj-cat">{project.category}</p>
+          <span class="proj-kind">{project.label}</span>
+        </div>
         <span class="rule" aria-hidden="true"></span>
         <h1 class="display proj-name">{project.name}</h1>
         <p class="lead proj-tagline">{project.tagline}</p>
@@ -83,6 +86,19 @@ const title = `${project.name} — Selected work · LT Strategy Partners`;
       </figure>
 
       <div class="proj-body measure-wide">
+        {
+          project.impact && project.impact.length > 0 && (
+            <section class="proj-block proj-impact">
+              <h2 class="proj-h">Impact</h2>
+              <ul class="proj-impact-list" role="list">
+                {project.impact.map((m) => (
+                  <li>{m}</li>
+                ))}
+              </ul>
+            </section>
+          )
+        }
+
         <section class="proj-block">
           <h2 class="proj-h">The context</h2>
           <p class="proj-p">{project.context}</p>
@@ -187,11 +203,32 @@ const title = `${project.name} — Selected work · LT Strategy Partners`;
     color: #fff;
   }
 
+  .proj-kicker {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 0.9rem;
+  }
   .proj-cat {
     color: var(--accent);
   }
   .is-dark .proj-cat {
     color: color-mix(in srgb, var(--color-bone) 82%, transparent);
+  }
+  .proj-kind {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    padding: 0.2rem 0.6rem;
+    border: 1px solid var(--color-line);
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .is-dark .proj-kind {
+    color: color-mix(in srgb, var(--color-bone) 70%, transparent);
+    border-color: color-mix(in srgb, var(--color-bone) 25%, transparent);
   }
   .proj-hero .rule {
     background-color: var(--accent);
@@ -312,6 +349,34 @@ const title = `${project.name} — Selected work · LT Strategy Partners`;
     width: 1rem;
     height: 2px;
     background-color: var(--accent);
+  }
+
+  /* Impact — prominent when real figures exist */
+  .proj-impact {
+    padding: clamp(1.5rem, 3vw, 2rem);
+    border-radius: 14px;
+    border: 1px solid color-mix(in srgb, var(--accent) 30%, var(--color-line));
+    background-color: color-mix(in srgb, var(--accent) 6%, var(--color-paper));
+  }
+  .proj-impact .proj-h {
+    margin-top: 0;
+    border-top: 0;
+    padding-top: 0;
+  }
+  .proj-impact-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .proj-impact-list li {
+    color: var(--color-ink);
+    font-size: 1.1875rem;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
   }
 
   .proj-gallery {

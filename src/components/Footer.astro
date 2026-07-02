@@ -1,6 +1,6 @@
 ---
 import Logo from "./ui/Logo.astro";
-import { site, footer, footerNav, legalNav } from "../content/site";
+import { site, footer, footerNav, legalNav, config } from "../content/site";
 
 const year = new Date().getFullYear();
 ---
@@ -35,12 +35,20 @@ const year = new Date().getFullYear();
           <li>
             <a href={`mailto:${footer.email}`}>{footer.email}</a>
           </li>
+          <li>
+            <a href={footer.linkedin} target="_blank" rel="noopener">LinkedIn</a>
+          </li>
         </ul>
+        <p class="footer-location">{footer.location}</p>
       </div>
     </div>
 
     <div class="footer-bottom">
-      <p class="footer-copy">© {year} {site.name}. All rights reserved.</p>
+      <p class="footer-copy">
+        © {year} {site.name}. All rights reserved.{
+          config.registration ? ` · ${config.registration}` : ""
+        }
+      </p>
       <ul class="footer-legal">
         {
           legalNav.map((item) => (
@@ -117,6 +125,13 @@ const year = new Date().getFullYear();
   .footer-nav a:hover,
   .footer-contact a:hover {
     color: var(--color-steel-bright);
+  }
+  .footer-location {
+    margin-top: 1.25rem;
+    color: color-mix(in srgb, var(--color-bone) 62%, transparent);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    max-width: 26ch;
   }
 
   .footer-bottom {

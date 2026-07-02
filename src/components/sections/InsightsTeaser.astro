@@ -1,0 +1,133 @@
+---
+import { getCollection } from "astro:content";
+import Section from "../ui/Section.astro";
+import Container from "../ui/Container.astro";
+import SectionHeader from "../ui/SectionHeader.astro";
+import { insights } from "../../content/site";
+
+const all = (await getCollection("insights")).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+const latest = all.slice(0, 3);
+const fmt = (d: Date) =>
+  d.toLocaleDateString("en-US", { month: "long", year: "numeric" });
+---
+
+<Section id="insights" variant="paper" labelledby="insights-heading">
+  <Container>
+    <SectionHeader
+      eyebrow={insights.eyebrow}
+      title={insights.heading}
+      intro={insights.intro}
+      id="insights-heading"
+    />
+
+    <ul class="insights-grid" role="list">
+      {
+        latest.map((post, i) => (
+          <li class="insight-card reveal" style={`--reveal-delay:${(i % 3) * 80}ms`}>
+            <span class="insight-date">{fmt(post.data.date)}</span>
+            <h3 class="insight-title">{post.data.title}</h3>
+            <p class="insight-desc">{post.data.description}</p>
+            {post.data.draft ? (
+              <span class="insight-soon">Coming soon</span>
+            ) : (
+              <a href={`/insights/${post.id}`} class="link-arrow insight-read">
+                Read
+                <span class="arrow" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path
+                      d="M3 8h9M8.5 4l3.5 4-3.5 4"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </span>
+              </a>
+            )}
+          </li>
+        ))
+      }
+    </ul>
+
+    <div class="insights-all">
+      <a href="/insights" class="link-arrow">
+        All insights
+        <span class="arrow" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path
+              d="M3 8h9M8.5 4l3.5 4-3.5 4"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </svg>
+        </span>
+      </a>
+    </div>
+  </Container>
+</Section>
+
+<style>
+  .insights-grid {
+    list-style: none;
+    margin: clamp(2.5rem, 5vw, 3.5rem) 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .insights-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  .insight-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding-top: 1.25rem;
+    border-top: 2px solid var(--color-steel);
+  }
+  .insight-date {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+  .insight-title {
+    margin-top: 0.75rem;
+    font-size: 1.1875rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+  }
+  .insight-desc {
+    margin-top: 0.75rem;
+    color: var(--color-muted);
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+  .insight-read {
+    margin-top: 1.25rem;
+  }
+  .insight-soon {
+    margin-top: 1.25rem;
+    align-self: flex-start;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    padding: 0.25rem 0.6rem;
+    border: 1px solid var(--color-line);
+    border-radius: 999px;
+  }
+  .insights-all {
+    margin-top: clamp(2rem, 4vw, 2.75rem);
+  }
+</style>

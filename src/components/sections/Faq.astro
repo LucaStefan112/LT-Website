@@ -1,0 +1,110 @@
+---
+import Section from "../ui/Section.astro";
+import Container from "../ui/Container.astro";
+import SectionHeader from "../ui/SectionHeader.astro";
+import { faq } from "../../content/site";
+---
+
+<Section variant="bone" labelledby="faq-heading">
+  <Container>
+    <SectionHeader eyebrow={faq.eyebrow} title={faq.heading} id="faq-heading" />
+
+    <div class="faq-list">
+      {
+        faq.items.map((item) => (
+          <details class="faq-item">
+            <summary class="faq-q">
+              <span>{item.q}</span>
+              <span class="faq-icon" aria-hidden="true" />
+            </summary>
+            <div class="faq-a">
+              <p>{item.a}</p>
+              {item.href && (
+                <a href={item.href} class="faq-link">
+                  Read more
+                </a>
+              )}
+            </div>
+          </details>
+        ))
+      }
+    </div>
+  </Container>
+</Section>
+
+<style>
+  .faq-list {
+    margin: clamp(2.5rem, 5vw, 3.5rem) auto 0;
+    max-width: 48rem;
+    border-top: 1px solid var(--color-line);
+  }
+  .faq-item {
+    border-bottom: 1px solid var(--color-line);
+  }
+  .faq-q {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 1.25rem 0;
+    cursor: pointer;
+    list-style: none;
+    color: var(--color-ink);
+    font-size: 1.125rem;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+  }
+  .faq-q::-webkit-details-marker {
+    display: none;
+  }
+  .faq-q:hover {
+    color: var(--color-steel-deep);
+  }
+  /* Custom +/− indicator */
+  .faq-icon {
+    position: relative;
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+  }
+  .faq-icon::before,
+  .faq-icon::after {
+    content: "";
+    position: absolute;
+    background-color: var(--color-steel);
+    transition: transform 0.2s var(--ease-out-soft), opacity 0.2s var(--ease-out-soft);
+  }
+  .faq-icon::before {
+    top: 7px;
+    left: 0;
+    width: 16px;
+    height: 2px;
+  }
+  .faq-icon::after {
+    left: 7px;
+    top: 0;
+    width: 2px;
+    height: 16px;
+  }
+  .faq-item[open] .faq-icon::after {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+  .faq-a {
+    padding: 0 0 1.5rem;
+    max-width: 60ch;
+  }
+  .faq-a p {
+    color: var(--color-muted);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+  .faq-link {
+    display: inline-block;
+    margin-top: 0.75rem;
+    color: var(--color-steel);
+    font-weight: 500;
+    font-size: 0.9375rem;
+  }
+</style>

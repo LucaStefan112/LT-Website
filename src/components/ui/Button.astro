@@ -4,6 +4,7 @@ interface Props {
   href: string;
   variant?: "primary" | "ghost";
   withArrow?: boolean;
+  external?: boolean; // opens in a new tab (e.g. a booking link)
   class?: string;
   "aria-label"?: string;
 }
@@ -11,22 +12,26 @@ const {
   href,
   variant = "primary",
   withArrow = false,
+  external = false,
   class: className = "",
   "aria-label": ariaLabel,
 } = Astro.props;
 
 const isInternalAnchor = href.startsWith("#") || href.startsWith("/#");
+const shouldPrefetch = !external && !isInternalAnchor;
 ---
 
 <a
   href={href}
   aria-label={ariaLabel}
+  target={external ? "_blank" : undefined}
+  rel={external ? "noopener noreferrer" : undefined}
   class:list={[
     "btn",
     variant === "primary" ? "btn-primary" : "btn-ghost",
     className,
   ]}
-  data-astro-prefetch={isInternalAnchor ? undefined : ""}
+  data-astro-prefetch={shouldPrefetch ? "" : undefined}
 >
   <slot />
   {

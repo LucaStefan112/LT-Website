@@ -1,0 +1,89 @@
+---
+/* Founder photo slot. Renders the image when config.founderPhoto is set;
+   otherwise a clearly-marked [[VERIFY]] placeholder (never an invented photo).
+   Set config.founderPhoto to "/brand/founder.jpg" once the photo is added. */
+import { config, site } from "../../content/site";
+
+interface Props {
+  caption?: string;
+  class?: string;
+}
+const { caption, class: className = "" } = Astro.props;
+---
+
+<figure class:list={["founder-figure", className]}>
+  {
+    config.founderPhoto ? (
+      <img
+        src={config.founderPhoto}
+        alt={`${site.founder}, founder of ${site.name}`}
+        width="800"
+        height="800"
+        loading="lazy"
+        decoding="async"
+        class="founder-img"
+      />
+    ) : (
+      <div class="founder-placeholder" role="img" aria-label="Founder photo — to be added">
+        <span class="founder-placeholder-mark" aria-hidden="true">LT</span>
+        <span class="founder-placeholder-note">
+          [[VERIFY: add founder photo → /public/brand/founder.jpg, then set
+          config.founderPhoto]]
+        </span>
+      </div>
+    )
+  }
+  {caption && <figcaption class="founder-caption">{caption}</figcaption>}
+</figure>
+
+<style>
+  .founder-figure {
+    margin: 0;
+    max-width: 22rem;
+  }
+  .founder-img,
+  .founder-placeholder {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 14px; /* matches the .card token */
+    border: 1px solid var(--color-line);
+    display: block;
+  }
+  .founder-img {
+    object-fit: cover;
+    background-color: var(--color-paper);
+  }
+  .founder-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    text-align: center;
+    border-style: dashed;
+    border-color: color-mix(in srgb, var(--color-steel) 40%, var(--color-line));
+    background-color: color-mix(in srgb, var(--color-steel) 5%, var(--color-paper));
+  }
+  .founder-placeholder-mark {
+    font-weight: 700;
+    font-size: 2rem;
+    letter-spacing: 0.08em;
+    color: var(--color-ink);
+    opacity: 0.4;
+  }
+  .founder-placeholder-note {
+    font-size: 0.75rem;
+    font-style: italic;
+    color: var(--color-muted);
+    max-width: 22ch;
+    line-height: 1.4;
+  }
+  .founder-caption {
+    display: block;
+    margin-top: 1rem;
+    color: var(--color-ink);
+    font-weight: 600;
+    font-size: 1.0625rem;
+  }
+</style>

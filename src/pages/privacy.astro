@@ -1,0 +1,117 @@
+---
+import Base from "../layouts/Base.astro";
+import PageIntro from "../components/sections/PageIntro.astro";
+import Container from "../components/ui/Container.astro";
+import { pageMeta, site, config } from "../content/site";
+
+const meta = pageMeta.privacy;
+const controller = config.registration
+  ? config.registration
+  : `${site.name} (a founder-led practice based in Iași, Romania)`;
+---
+
+<Base title={meta.title} description={meta.description} path={meta.path}>
+  <PageIntro
+    eyebrow="Legal"
+    title="Privacy policy."
+    lead="How we collect and handle the information you share with us. Plain language, no surprises."
+    headingId="privacy-heading"
+  />
+
+  <section class="legal-section bg-paper" aria-label="Privacy policy">
+    <Container>
+      <div class="prose legal-prose">
+        <p class="legal-updated">Last updated: 3 July 2026</p>
+
+        <h2>Who we are</h2>
+        <p>
+          The data controller for this website is {controller}. If you have any
+          question about this policy or your data, contact us at
+          <a href={`mailto:${site.email}`}>{site.email}</a>.
+        </p>
+        {
+          !config.registration && (
+            <p class="legal-verify">
+              [[VERIFY: confirm the registered legal entity name and, if
+              applicable, registration number for the data-controller line — set
+              config.registration in src/content/site.ts]]
+            </p>
+          )
+        }
+
+        <h2>What we collect</h2>
+        <p>
+          We only collect the information you choose to send us through the
+          contact form: your <strong>name</strong>,
+          <strong>company</strong>, <strong>role</strong> (optional),
+          <strong>email address</strong>, and the <strong>message</strong> you
+          write. We do not run advertising, and we do not use invasive tracking
+          or third-party analytics that identify you.
+        </p>
+
+        <h2>Why we collect it, and our lawful basis</h2>
+        <p>
+          We use this information for one purpose: to read and respond to your
+          enquiry, and to follow up about a possible engagement. Our lawful
+          basis under the GDPR is our legitimate interest in responding to
+          people who contact us about our services, and — where you initiate
+          contact to discuss working together — taking steps at your request
+          prior to entering into a contract.
+        </p>
+
+        <h2>Sharing</h2>
+        <p>
+          We do not sell your information, and we do not share it with third
+          parties for their own purposes. Your enquiry reaches us by email; the
+          email and hosting providers that carry it act only as processors on
+          our behalf.
+        </p>
+
+        <h2>How long we keep it</h2>
+        <p>
+          We keep enquiry correspondence only as long as needed to deal with
+          your request and, where relevant, for the duration of any engagement
+          that follows, after which it is deleted. If a conversation does not
+          lead anywhere, we delete it once it is clearly no longer needed.
+        </p>
+
+        <h2>Your rights</h2>
+        <p>
+          Under the GDPR you have the right to access the personal data we hold
+          about you, to have it corrected if it is wrong, to have it erased, to
+          restrict or object to how we use it, and to data portability. To
+          exercise any of these, email
+          <a href={`mailto:${site.email}`}>{site.email}</a> and we will respond
+          within the time the law requires. You also have the right to lodge a
+          complaint with your local data-protection authority.
+        </p>
+
+        <h2>Changes</h2>
+        <p>
+          If we change this policy, we will update the date above. Material
+          changes will be made clear on this page.
+        </p>
+      </div>
+    </Container>
+  </section>
+</Base>
+
+<style>
+  .legal-section {
+    padding-bottom: clamp(4.5rem, 9vw, 7rem);
+  }
+  .legal-prose {
+    margin-inline: auto;
+  }
+  .legal-updated {
+    font-size: 0.875rem;
+    color: var(--color-muted);
+  }
+  .legal-verify {
+    padding: 0.875rem 1.1rem;
+    border-left: 2px solid var(--color-steel);
+    background-color: color-mix(in srgb, var(--color-steel) 5%, var(--color-paper));
+    font-style: italic;
+    font-size: 0.9375rem;
+  }
+</style>

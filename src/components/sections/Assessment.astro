@@ -1,0 +1,117 @@
+---
+import Container from "../ui/Container.astro";
+import Button from "../ui/Button.astro";
+import Reveal from "../ui/Reveal.astro";
+import { assessment, config } from "../../content/site";
+
+// Never invent a number: show the fee only if the founder set one.
+const priceText = config.assessmentFee
+  ? `Fixed fee — ${config.assessmentFee}`
+  : assessment.priceNote;
+---
+
+<section id="assessment" class="assessment" aria-labelledby="assessment-heading">
+  <Container>
+    <Reveal>
+      <div class="assessment-inner">
+        <div class="assessment-lead">
+          <p class="eyebrow">{assessment.eyebrow}</p>
+          <span class="rule" aria-hidden="true"></span>
+          <h2 id="assessment-heading" class="section-title assessment-title">
+            {assessment.heading}
+          </h2>
+          <p class="lead assessment-body">{assessment.body}</p>
+          <p class="assessment-price">{priceText}</p>
+          <div class="assessment-cta">
+            <Button href={assessment.cta.href} withArrow>
+              {assessment.cta.label}
+            </Button>
+          </div>
+        </div>
+
+        <div class="assessment-get">
+          <p class="assessment-get-label">{assessment.getHeading}</p>
+          <ul class="assessment-list" role="list">
+            {assessment.get.map((g) => <li>{g}</li>)}
+          </ul>
+        </div>
+      </div>
+    </Reveal>
+  </Container>
+</section>
+
+<style>
+  .assessment {
+    padding-block: clamp(4rem, 8vw, 7rem);
+    /* Distinct from paper/bone without being a bold dark band */
+    background-color: color-mix(in srgb, var(--color-steel) 6%, var(--color-paper));
+    border-block: 1px solid
+      color-mix(in srgb, var(--color-steel) 22%, var(--color-line));
+  }
+  .assessment-inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(2rem, 5vw, 3.5rem);
+    align-items: start;
+  }
+  @media (min-width: 900px) {
+    .assessment-inner {
+      grid-template-columns: 1.15fr 0.85fr;
+    }
+  }
+  .assessment-title {
+    margin-top: 1.25rem;
+  }
+  .assessment-body {
+    margin-top: 1.25rem;
+    max-width: 44ch;
+  }
+  .assessment-price {
+    margin-top: 1.5rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-ink);
+  }
+  .assessment-cta {
+    margin-top: 1.5rem;
+  }
+
+  .assessment-get {
+    background-color: var(--color-paper);
+    border: 1px solid var(--color-line);
+    border-radius: 14px;
+    padding: clamp(1.5rem, 3vw, 2rem);
+  }
+  .assessment-get-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-steel);
+    margin-bottom: 1.25rem;
+  }
+  .assessment-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .assessment-list li {
+    position: relative;
+    padding-left: 1.75rem;
+    color: var(--color-ink);
+    font-size: 1.0625rem;
+    line-height: 1.5;
+  }
+  .assessment-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 1rem;
+    height: 2px;
+    background-color: var(--color-steel);
+  }
+</style>

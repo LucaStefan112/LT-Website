@@ -4,14 +4,16 @@ import Hero from "../components/sections/Hero.astro";
 import IntroBand from "../components/sections/IntroBand.astro";
 import Pillars from "../components/sections/Pillars.astro";
 import Services from "../components/sections/Services.astro";
+import DataIp from "../components/sections/DataIp.astro";
 import Approach from "../components/sections/Approach.astro";
 import Work from "../components/sections/Work.astro";
 import Statement from "../components/sections/Statement.astro";
-// Temporarily hidden until real client results exist:
-// import Results from "../components/sections/Results.astro";
+import Testimonials from "../components/sections/Testimonials.astro";
 import Clients from "../components/sections/Clients.astro";
-// Founder profile temporarily hidden:
-// import About from "../components/sections/About.astro";
+import AboutTeaser from "../components/sections/AboutTeaser.astro";
+import InsightsTeaser from "../components/sections/InsightsTeaser.astro";
+import Faq from "../components/sections/Faq.astro";
+import Assessment from "../components/sections/Assessment.astro";
 import CTABand from "../components/sections/CTABand.astro";
 import { pageMeta } from "../content/site";
 
@@ -23,11 +25,15 @@ const meta = pageMeta.home;
   <IntroBand />
   <Pillars />
   <Services />
+  <DataIp />
   <Approach />
   <Work />
   <Statement />
-  {/* <Results /> */}
+  <Testimonials />
   <Clients />
-  {/* <About /> */}
+  <AboutTeaser />
+  <InsightsTeaser />
+  <Faq />
+  <Assessment />
   <CTABand />
 </Base>

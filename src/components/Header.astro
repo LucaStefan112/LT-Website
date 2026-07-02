@@ -13,21 +13,22 @@ import { nav, site } from "../content/site";
     <nav class="header-nav" aria-label="Primary">
       <ul class="header-links">
         {
-          nav
-            .filter((item) => item.href.startsWith("/#"))
-            .map((item) => (
-              <li>
-                <a href={item.href} data-nav-link class="header-link">
-                  {item.label}
-                </a>
-              </li>
-            ))
+          nav.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                class="header-link"
+                data-nav-link={item.href.startsWith("/#") ? "" : undefined}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))
         }
-        <li>
-          <a href="/contact" class="header-link">Contact</a>
-        </li>
       </ul>
-      <Button href={site.primaryCta.href}>{site.primaryCta.label}</Button>
+      <Button href={site.primaryCta.href} external={site.primaryCta.external}>
+        {site.primaryCta.label}
+      </Button>
     </nav>
 
     <button
@@ -57,9 +58,11 @@ import { nav, site } from "../content/site";
         }
       </ul>
       <div class="menu-cta">
-        <Button href={site.primaryCta.href} withArrow>
-          {site.primaryCta.label}
-        </Button>
+        <Button
+          href={site.primaryCta.href}
+          external={site.primaryCta.external}
+          withArrow>{site.primaryCta.label}</Button
+        >
       </div>
     </nav>
   </div>

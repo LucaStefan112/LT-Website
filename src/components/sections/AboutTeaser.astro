@@ -1,0 +1,68 @@
+---
+import Section from "../ui/Section.astro";
+import Container from "../ui/Container.astro";
+import Reveal from "../ui/Reveal.astro";
+import FounderPhoto from "../ui/FounderPhoto.astro";
+import { aboutTeaser } from "../../content/site";
+---
+
+<Section variant="bone" labelledby="aboutteaser-heading">
+  <Container>
+    <div class="about-teaser-grid">
+      <Reveal class="about-teaser-media">
+        <FounderPhoto caption={aboutTeaser.photoCaption} />
+      </Reveal>
+
+      <Reveal delay={90} class="about-teaser-copy">
+        <p class="eyebrow">{aboutTeaser.eyebrow}</p>
+        <span class="rule" aria-hidden="true"></span>
+        <h2 id="aboutteaser-heading" class="section-title about-teaser-heading">
+          {aboutTeaser.heading}
+        </h2>
+        <p class="about-teaser-body">{aboutTeaser.body}</p>
+        <a href={aboutTeaser.link.href} class="link-arrow about-teaser-link">
+          {aboutTeaser.link.label}
+          <span class="arrow" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path
+                d="M3 8h9M8.5 4l3.5 4-3.5 4"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
+            </svg>
+          </span>
+        </a>
+      </Reveal>
+    </div>
+  </Container>
+</Section>
+
+<style>
+  .about-teaser-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(2.5rem, 5vw, 4rem);
+    align-items: center;
+  }
+  @media (min-width: 900px) {
+    .about-teaser-grid {
+      grid-template-columns: minmax(0, 20rem) 1fr;
+      gap: clamp(3rem, 6vw, 5rem);
+    }
+  }
+  .about-teaser-heading {
+    margin-top: 1.25rem;
+    max-width: 20ch;
+  }
+  .about-teaser-body {
+    margin-top: 1.25rem;
+    color: var(--color-muted);
+    font-size: 1.125rem;
+    line-height: 1.65;
+    max-width: 54ch;
+  }
+  .about-teaser-link {
+    margin-top: 1.5rem;
+  }
+</style>

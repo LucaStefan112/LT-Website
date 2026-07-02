@@ -34,13 +34,14 @@ const intro = pageIntros.contact;
             <li>A reply within two business days.</li>
             <li>No sales script, no pressure.</li>
           </ul>
+          <p class="contact-location">{contact.location}</p>
         </aside>
 
         <div class="contact-form-col">
           <ContactForm />
           <p class="contact-privacy">
             We only use your details to reply to your enquiry, and never share
-            them with third parties.
+            them with third parties. See our <a href="/privacy">privacy policy</a>.
           </p>
         </div>
       </div>
@@ -107,6 +108,14 @@ const intro = pageIntros.contact;
     width: 1rem;
     height: 2px;
     background-color: var(--color-steel);
+  }
+  .contact-location {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-line);
+    font-size: 0.9375rem;
+    color: var(--color-muted);
+    max-width: 30ch;
   }
   .contact-privacy {
     margin-top: 1.5rem;

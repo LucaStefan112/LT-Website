@@ -339,6 +339,55 @@
     border: 0;
     border-top: 1px solid var(--color-line);
   }
+
+  /* Long-form body text (insights articles, legal pages) */
+  .prose {
+    color: var(--color-muted);
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    max-width: 40rem;
+  }
+  .prose > * + * {
+    margin-top: 1.25rem;
+  }
+  .prose h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    letter-spacing: -0.015em;
+    margin-top: 2.5rem;
+  }
+  .prose h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    margin-top: 2rem;
+  }
+  .prose a {
+    color: var(--color-steel);
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+  }
+  .prose a:hover {
+    color: var(--color-steel-deep);
+  }
+  .prose strong {
+    color: var(--color-ink);
+    font-weight: 600;
+  }
+  .prose ul,
+  .prose ol {
+    padding-left: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .prose li {
+    padding-left: 0.25rem;
+  }
+  .prose li::marker {
+    color: var(--color-steel);
+  }
 }
 
 /* ----------------------------------------------------- Scroll-reveal motion */

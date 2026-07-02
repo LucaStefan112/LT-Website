@@ -40,7 +40,9 @@ import { hero } from "../../content/site";
       </p>
 
       <div class="hero-actions hero-in" style="--d:180ms">
-        <Button href={hero.primaryCta.href}>{hero.primaryCta.label}</Button>
+        <Button href={hero.primaryCta.href} external={hero.primaryCta.external}>
+          {hero.primaryCta.label}
+        </Button>
         <a href={hero.secondaryCta.href} class="link-arrow hero-secondary">
           {hero.secondaryCta.label}
           <span class="arrow" aria-hidden="true">

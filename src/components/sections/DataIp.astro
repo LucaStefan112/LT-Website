@@ -1,0 +1,53 @@
+---
+import Section from "../ui/Section.astro";
+import Container from "../ui/Container.astro";
+import SectionHeader from "../ui/SectionHeader.astro";
+import { dataIp } from "../../content/site";
+---
+
+<Section id={dataIp.id} variant="paper" labelledby="dataip-heading">
+  <Container>
+    <SectionHeader
+      eyebrow={dataIp.eyebrow}
+      title={dataIp.heading}
+      intro={dataIp.body}
+      id="dataip-heading"
+    />
+
+    <ul class="dataip-grid" role="list">
+      {
+        dataIp.items.map((item, i) => (
+          <li class="card dataip reveal" style={`--reveal-delay:${(i % 2) * 90}ms`}>
+            <h3 class="card-title">{item.title}</h3>
+            <p class="dataip-body">{item.body}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </Container>
+</Section>
+
+<style>
+  .dataip-grid {
+    list-style: none;
+    margin: clamp(2.5rem, 5vw, 3.5rem) 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  @media (min-width: 768px) {
+    .dataip-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+  }
+  .dataip .card-title {
+    margin-bottom: 0.6rem;
+  }
+  .dataip-body {
+    color: var(--color-muted);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+</style>
