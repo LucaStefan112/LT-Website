@@ -2,12 +2,10 @@
 import Base from "../layouts/Base.astro";
 import PageIntro from "../components/sections/PageIntro.astro";
 import Container from "../components/ui/Container.astro";
-import { pageMeta, site, config } from "../content/site";
+import { pageMeta, site } from "../content/site";
 
 const meta = pageMeta.privacy;
-const controller = config.registration
-  ? config.registration
-  : `${site.name} (a founder-led practice based in Iași, Romania)`;
+const controller = `${site.name} (a founder-led practice based in Iași, Romania)`;
 ---
 
 <Base title={meta.title} description={meta.description} path={meta.path}>
@@ -29,15 +27,6 @@ const controller = config.registration
           question about this policy or your data, contact us at
           <a href={`mailto:${site.email}`}>{site.email}</a>.
         </p>
-        {
-          !config.registration && (
-            <p class="legal-verify">
-              [[VERIFY: confirm the registered legal entity name and, if
-              applicable, registration number for the data-controller line — set
-              config.registration in src/content/site.ts]]
-            </p>
-          )
-        }
 
         <h2>What we collect</h2>
         <p>

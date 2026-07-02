@@ -82,17 +82,14 @@ export interface WorkProject {
 /* Fill these when confirmed. Empty values degrade gracefully — nothing invented
    is shown on the live page. */
 export const config = {
-  // [[VERIFY: bookingUrl]] — a scheduling link (Cal.com/Calendly). If set, the
-  // primary CTA becomes "Book a conversation" and links here; empty => the CTA
-  // reads "Start a conversation" and goes to the contact form.
+  // No scheduling link — the primary CTA links to the contact form. To switch
+  // the CTA to "Book a conversation", set a Cal.com/Calendly URL here.
   bookingUrl: "",
-  // [[VERIFY: assessment fee]] — e.g. "€X,XXX". Empty => shown as scoped in a call.
+  // No published fee — the assessment is shown as "scoped in a short
+  // introductory call". To display a fixed fee, set e.g. "€4,500".
   assessmentFee: "",
-  // Founder photo (set): public/brand/founder.jpg. Empty => a labelled
-  // placeholder is shown instead.
+  // Founder photo: public/brand/founder.jpg.
   founderPhoto: "/brand/founder.jpg",
-  // [[VERIFY: legal entity name + registration number for footer, if registered]]
-  registration: "",
 } as const;
 
 /* --------------------------------------------------------------- Site meta */
@@ -333,11 +330,9 @@ export const statement = {
 } as const;
 
 /* --------------------------------------------------- Testimonials (Task 3) */
-/* REAL, PERMISSIONED quotes only. The section renders only when this array has
-   at least one entry — an empty array shows nothing (no placeholder).
-   [[VERIFY: add 1–2 real, permissioned testimonials — e.g. LinkedIn
-   recommendations from former managers/clients at Enovis, Aperio, or freelance
-   clients]]. Example shape (do NOT ship until real + approved):
+/* No testimonials yet. The section renders only when this array has at least one
+   REAL, PERMISSIONED quote — an empty array shows nothing (no placeholder). Add
+   real quotes here when available; example shape:
      { quote: "…", name: "…", role: "Former manager, Enovis", company: "Enovis" }
 */
 export const testimonials: Testimonial[] = [];
@@ -401,8 +396,6 @@ export const aboutPage = {
   ],
   photoCaption: `${"Luca-Ștefan Tamaș"} · Founder`,
   ctaHeading: "Where is the value hiding in your business?",
-  // [[VERIFY: founder is comfortable naming Bitdefender as current employer on
-  // the consultancy site — it is already public on the CV/LinkedIn.]]
 } as const;
 
 /* ------------------------------------------------------- CTA (pre-footer) */

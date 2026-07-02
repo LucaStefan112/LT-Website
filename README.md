@@ -111,21 +111,17 @@ are exposed to the client, by design.)
 
 ---
 
-## What the founder must supply (`[[VERIFY]]` items)
+## Optional settings
 
-These live in `config` at the top of [`src/content/site.ts`](src/content/site.ts) and everything degrades gracefully until you fill them — nothing invented is ever shown:
+These live in `config` at the top of [`src/content/site.ts`](src/content/site.ts). Everything degrades gracefully — nothing invented is ever shown. Current state and how to change it:
 
-| Item | Where / how | Until set |
+| Setting | Current | How to change |
 | --- | --- | --- |
-| **Founder photo** | Add `public/brand/founder.jpg`, then set `config.founderPhoto = "/brand/founder.jpg"` | A clearly-labelled placeholder box shows on `/about` + the homepage teaser |
-| **Booking link** | Set `config.bookingUrl` to a Cal.com/Calendly URL | The primary CTA reads **"Start a conversation"** → `/contact`; when set it becomes "Book a conversation" → your link |
-| **Assessment fee** | Set `config.assessmentFee` (e.g. `"€4,500"`) | Shows "Fixed fee, scoped in a short introductory call." (no number) |
-| **Company registration** | Set `config.registration` (legal entity + reg. number) | Omitted from the footer |
-| **Testimonials** | Add real, permissioned quotes to the `testimonials` array in `site.ts` | The "What clients say" section does not render at all (no placeholder) |
-| **Case-study metrics** | Add real figures to a project's optional `impact: [...]` in `work.projects` | The qualitative framing stands; no invented numbers |
-| **Bitdefender naming** | Confirm you're comfortable naming your employer (already public on your CV/LinkedIn) | Used as written in the About copy |
-
-Search the codebase for `[[VERIFY` to find every marker.
+| **Founder photo** | Set — `public/brand/founder.jpg` shows on `/about` + the homepage teaser | Replace the file, or point `config.founderPhoto` elsewhere (empty ⇒ a labelled placeholder) |
+| **Booking link** | None — the primary CTA reads **"Start a conversation"** → `/contact` | Set `config.bookingUrl` to a Cal.com/Calendly URL to switch it to "Book a conversation" → your link |
+| **Assessment fee** | No published price — shows "scoped in a short introductory call" (no number) | Set `config.assessmentFee` (e.g. `"€4,500"`) to display a fixed fee |
+| **Testimonials** | None — the "What clients say" section does not render | Add real, permissioned quotes to the `testimonials` array in `site.ts` |
+| **Case-study metrics** | None — the qualitative framing stands | Add real figures to a project's optional `impact: [...]` in `work.projects` (never invent numbers) |
 
 ## Adding an Insights article
 
