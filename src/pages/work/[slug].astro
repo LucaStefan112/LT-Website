@@ -319,6 +319,14 @@ const title = `${project.name} — Selected work · LT Strategy Partners`;
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
+  /* Two-up on wider screens so tall portrait dashboard shots stay balanced
+     with the landscape primary figure instead of becoming full-height slabs. */
+  @media (min-width: 640px) {
+    .proj-gallery {
+      grid-template-columns: 1fr 1fr;
+      align-items: start;
+    }
+  }
 
   .proj-meta {
     display: grid;

@@ -232,6 +232,9 @@ export const statement = {
 
 /* ------------------------------------------------------------ §6.7 Results */
 
+// DISABLED: the Results section is currently commented out of the home page
+// (see src/pages/index.astro). Kept here — with its placeholder — for when
+// real client outcomes exist. Re-enable the <Results /> import + usage to use.
 export const results = {
   eyebrow: "Results",
   intro: "What good looks like when strategy actually reaches the ground.",
@@ -269,6 +272,9 @@ export const clients = {
 
 /* -------------------------------------------------------- §6.9 About / founder */
 
+// DISABLED: the founder profile is hidden for now — the About section is
+// commented out of the home page and the /about route is disabled
+// (src/pages/_about.astro). Restore both to use this copy.
 export const about = {
   eyebrow: "About",
   body: "LT Strategy Partners is a senior-led advisory and delivery firm founded by Luca Tamas. We combine strategy, technology, and operational know-how to help leaders make confident decisions and see them through to results. We stay small and senior by design: the people who advise you are the people who deliver.",
