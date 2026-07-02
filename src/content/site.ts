@@ -88,9 +88,9 @@ export const config = {
   bookingUrl: "",
   // [[VERIFY: assessment fee]] — e.g. "€X,XXX". Empty => shown as scoped in a call.
   assessmentFee: "",
-  // [[VERIFY: founder photo]] — set to "/brand/founder.jpg" once added; empty =>
-  // a clearly-labelled placeholder is shown.
-  founderPhoto: "",
+  // Founder photo (set): public/brand/founder.jpg. Empty => a labelled
+  // placeholder is shown instead.
+  founderPhoto: "/brand/founder.jpg",
   // [[VERIFY: legal entity name + registration number for footer, if registered]]
   registration: "",
 } as const;
