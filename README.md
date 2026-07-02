@@ -111,6 +111,26 @@ are exposed to the client, by design.)
 
 ---
 
+## What the founder must supply (`[[VERIFY]]` items)
+
+These live in `config` at the top of [`src/content/site.ts`](src/content/site.ts) and everything degrades gracefully until you fill them — nothing invented is ever shown:
+
+| Item | Where / how | Until set |
+| --- | --- | --- |
+| **Founder photo** | Add `public/brand/founder.jpg`, then set `config.founderPhoto = "/brand/founder.jpg"` | A clearly-labelled placeholder box shows on `/about` + the homepage teaser |
+| **Booking link** | Set `config.bookingUrl` to a Cal.com/Calendly URL | The primary CTA reads **"Start a conversation"** → `/contact`; when set it becomes "Book a conversation" → your link |
+| **Assessment fee** | Set `config.assessmentFee` (e.g. `"€4,500"`) | Shows "Fixed fee, scoped in a short introductory call." (no number) |
+| **Company registration** | Set `config.registration` (legal entity + reg. number) | Omitted from the footer |
+| **Testimonials** | Add real, permissioned quotes to the `testimonials` array in `site.ts` | The "What clients say" section does not render at all (no placeholder) |
+| **Case-study metrics** | Add real figures to a project's optional `impact: [...]` in `work.projects` | The qualitative framing stands; no invented numbers |
+| **Bitdefender naming** | Confirm you're comfortable naming your employer (already public on your CV/LinkedIn) | Used as written in the About copy |
+
+Search the codebase for `[[VERIFY` to find every marker.
+
+## Adding an Insights article
+
+Add a Markdown file under [`src/content/insights/`](src/content/insights/) with frontmatter `title`, `description`, `date`, and optional `draft: true`. Published pieces get a page at `/insights/<filename>` and appear in the homepage teaser; `draft: true` pieces show as a title with a "Coming soon" tag but never generate a page (so nothing unfinished is published).
+
 ## Deploying
 
 ### GitHub Pages (configured)
