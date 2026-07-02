@@ -1,0 +1,62 @@
+---
+import Section from "../ui/Section.astro";
+import Container from "../ui/Container.astro";
+import SectionHeader from "../ui/SectionHeader.astro";
+import { pillars } from "../../content/site";
+---
+
+<Section variant="paper" labelledby="pillars-heading">
+  <Container>
+    <SectionHeader eyebrow={pillars.eyebrow} id="pillars-heading" />
+
+    <ul class="pillars-grid" role="list">
+      {
+        pillars.items.map((item, i) => (
+          <li class="card pillar reveal" style={`--reveal-delay:${i * 90}ms`}>
+            <span class="pillar-index" aria-hidden="true">
+              0{i + 1}
+            </span>
+            <h3 class="card-title">{item.title}</h3>
+            <p class="pillar-body">{item.body}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </Container>
+</Section>
+
+<style>
+  .pillars-grid {
+    list-style: none;
+    margin: clamp(2.5rem, 5vw, 3.5rem) 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  @media (min-width: 768px) {
+    .pillars-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+  }
+  .pillar {
+    display: flex;
+    flex-direction: column;
+  }
+  .pillar-index {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--color-steel);
+    margin-bottom: 1.25rem;
+  }
+  .pillar .card-title {
+    margin-bottom: 0.75rem;
+  }
+  .pillar-body {
+    color: var(--color-muted);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+</style>

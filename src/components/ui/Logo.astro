@@ -1,0 +1,62 @@
+---
+/* Renders a brand logo asset by its exact filename (brief §3.3).
+   Never recreates the logo. Sets intrinsic width/height (from each asset's
+   viewBox) so there is no layout shift. */
+type Variant =
+  | "primary"
+  | "reversed"
+  | "mono"
+  | "stacked"
+  | "monogram"
+  | "monogram-reversed";
+
+interface Props {
+  variant?: Variant;
+  height: number; // rendered height in px; width derived from aspect ratio
+  alt?: string;
+  eager?: boolean;
+  class?: string;
+}
+const {
+  variant = "primary",
+  height,
+  alt = "LT Strategy Partners",
+  eager = false,
+  class: className = "",
+} = Astro.props;
+
+// aspect ratios from each asset's viewBox
+const ratios: Record<Variant, number> = {
+  primary: 634 / 170,
+  reversed: 634 / 170,
+  mono: 634 / 170,
+  stacked: 460 / 250,
+  monogram: 1,
+  "monogram-reversed": 1,
+};
+
+const files: Record<Variant, string> = {
+  primary: "/brand/lt-logo-primary.svg",
+  reversed: "/brand/lt-logo-reversed.svg",
+  mono: "/brand/lt-logo-mono.svg",
+  stacked: "/brand/lt-logo-stacked.svg",
+  monogram: "/brand/lt-monogram.svg",
+  "monogram-reversed": "/brand/lt-monogram-reversed.svg",
+};
+
+const width = Math.round(height * ratios[variant]);
+const isDecorative = alt === "";
+---
+
+<img
+  src={files[variant]}
+  alt={alt}
+  role={isDecorative ? "presentation" : undefined}
+  width={width}
+  height={height}
+  loading={eager ? "eager" : "lazy"}
+  decoding={eager ? "auto" : "async"}
+  fetchpriority={eager ? "high" : undefined}
+  class={className}
+  style={`height:${height}px;width:${width}px`}
+/>

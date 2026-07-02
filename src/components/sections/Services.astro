@@ -1,0 +1,92 @@
+---
+import Section from "../ui/Section.astro";
+import Container from "../ui/Container.astro";
+import SectionHeader from "../ui/SectionHeader.astro";
+import { services } from "../../content/site";
+
+interface Props {
+  showHeader?: boolean;
+  variant?: "paper" | "bone";
+}
+const { showHeader = true, variant = "bone" } = Astro.props;
+---
+
+<Section id="services" variant={variant} labelledby="services-heading">
+  <Container>
+    {
+      showHeader ? (
+        <SectionHeader
+          eyebrow={services.eyebrow}
+          title="One partner, end to end."
+          intro={services.intro}
+          id="services-heading"
+        />
+      ) : (
+        /* Reused under a page <h1> (e.g. /services): keep a real h2 so heading
+           levels don't skip h1 -> h3, but hide it visually. */
+        <h2 id="services-heading" class="sr-only">
+          What we do
+        </h2>
+      )
+    }
+
+    <ul class:list={["services-grid", { "services-grid--top": !showHeader }]} role="list">
+      {
+        services.items.map((item, i) => (
+          <li class="service reveal" style={`--reveal-delay:${(i % 2) * 90}ms`}>
+            <span class="service-rule" aria-hidden="true" />
+            <h3 class="service-title">{item.title}</h3>
+            <p class="service-body">{item.body}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </Container>
+</Section>
+
+<style>
+  .services-grid {
+    list-style: none;
+    margin: clamp(2.5rem, 5vw, 3.75rem) 0 0;
+    padding: 0;
+  }
+  .services-grid.services-grid--top {
+    margin-top: 0;
+  }
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(2rem, 4vw, 3rem) clamp(2rem, 6vw, 4.5rem);
+  }
+  @media (min-width: 768px) {
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  .service {
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-line);
+    position: relative;
+  }
+  .service-rule {
+    position: absolute;
+    top: -1px;
+    left: 0;
+    width: 2.5rem;
+    height: 2px;
+    background-color: var(--color-steel);
+  }
+  .service-title {
+    font-size: 1.375rem; /* 22 */
+    font-weight: 600;
+    color: var(--color-ink);
+    letter-spacing: -0.01em;
+    margin-bottom: 0.75rem;
+  }
+  .service-body {
+    color: var(--color-muted);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    max-width: 40ch;
+  }
+</style>

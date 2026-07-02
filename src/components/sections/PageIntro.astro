@@ -1,0 +1,37 @@
+---
+import Container from "../ui/Container.astro";
+import { hero } from "../../content/site";
+
+/* Compact hero for the supporting routes (Services / About / Contact). */
+interface Props {
+  eyebrow: string;
+  title: string;
+  lead?: string;
+  headingId?: string;
+}
+const { eyebrow, title, lead, headingId = "page-heading" } = Astro.props;
+---
+
+<section class="page-intro bg-paper" aria-labelledby={headingId}>
+  <Container>
+    <p class="eyebrow">{eyebrow}</p>
+    <span class="rule" aria-hidden="true"></span>
+    <h1 id={headingId} class="display page-intro-title">{title}</h1>
+    {lead && <p class="lead page-intro-lead measure">{lead}</p>}
+  </Container>
+</section>
+
+<style>
+  .page-intro {
+    padding-top: clamp(5rem, 10vw, 8rem);
+    padding-bottom: clamp(2.5rem, 5vw, 4rem);
+  }
+  .page-intro-title {
+    margin-top: 1.5rem;
+    max-width: 18ch;
+  }
+  .page-intro-lead {
+    margin-top: 1.5rem;
+    max-width: 44rem;
+  }
+</style>

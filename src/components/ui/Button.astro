@@ -1,0 +1,47 @@
+---
+/* Primary (solid Steel) or ghost secondary action. Renders an anchor. */
+interface Props {
+  href: string;
+  variant?: "primary" | "ghost";
+  withArrow?: boolean;
+  class?: string;
+  "aria-label"?: string;
+}
+const {
+  href,
+  variant = "primary",
+  withArrow = false,
+  class: className = "",
+  "aria-label": ariaLabel,
+} = Astro.props;
+
+const isInternalAnchor = href.startsWith("#") || href.startsWith("/#");
+---
+
+<a
+  href={href}
+  aria-label={ariaLabel}
+  class:list={[
+    "btn",
+    variant === "primary" ? "btn-primary" : "btn-ghost",
+    className,
+  ]}
+  data-astro-prefetch={isInternalAnchor ? undefined : ""}
+>
+  <slot />
+  {
+    withArrow && (
+      <span class="arrow" aria-hidden="true">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path
+            d="M3 8h9M8.5 4l3.5 4-3.5 4"
+            stroke="currentColor"
+            stroke-width="1.6"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </span>
+    )
+  }
+</a>

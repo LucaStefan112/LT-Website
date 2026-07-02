@@ -1,0 +1,109 @@
+---
+import Section from "../ui/Section.astro";
+import Container from "../ui/Container.astro";
+import Reveal from "../ui/Reveal.astro";
+import { about, site } from "../../content/site";
+---
+
+<Section id="about" variant="bone" labelledby="about-heading">
+  <Container>
+    <div class="about-grid">
+      <Reveal class="about-portrait-wrap">
+        <figure class="about-figure">
+          {/* Portrait slot — swap public/brand/lt-avatar-800.png for a real
+              founder photo (keep it roughly square). See README. */}
+          <img
+            src={about.portrait}
+            alt={`${site.founder}, founder of ${site.name}`}
+            width="800"
+            height="800"
+            loading="lazy"
+            decoding="async"
+            class="about-portrait"
+          />
+          <figcaption class="about-figcaption">
+            <span class="about-figcaption-name">{site.founder}</span>
+            <span class="about-figcaption-role">Founder</span>
+          </figcaption>
+        </figure>
+        <p class="about-portrait-note">{about.portraitPlaceholder}</p>
+      </Reveal>
+
+      <Reveal delay={90} class="about-copy">
+        <h2 id="about-heading" class="eyebrow">{about.eyebrow}</h2>
+        <span class="rule" aria-hidden="true"></span>
+        <p class="about-body">{about.body}</p>
+        <p class="about-bio-placeholder">{about.bioPlaceholder}</p>
+      </Reveal>
+    </div>
+  </Container>
+</Section>
+
+<style>
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(2.5rem, 5vw, 4rem);
+    align-items: start;
+  }
+  @media (min-width: 900px) {
+    .about-grid {
+      grid-template-columns: minmax(0, 22rem) 1fr;
+      gap: clamp(3rem, 6vw, 5rem);
+    }
+  }
+
+  .about-figure {
+    margin: 0;
+    max-width: 22rem;
+  }
+  .about-portrait {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 16px;
+    border: 1px solid var(--color-line);
+    background-color: var(--color-paper);
+  }
+  .about-figcaption {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    margin-top: 1rem;
+  }
+  .about-figcaption-name {
+    color: var(--color-ink);
+    font-weight: 600;
+    font-size: 1.0625rem;
+  }
+  .about-figcaption-role {
+    color: var(--color-muted);
+    font-size: 0.9375rem;
+  }
+  .about-portrait-note {
+    margin-top: 0.75rem;
+    color: var(--color-muted);
+    font-size: 0.8125rem;
+    font-style: italic;
+    opacity: 0.85;
+  }
+
+  .about-body {
+    margin-top: 1.5rem;
+    color: var(--color-ink);
+    font-size: clamp(1.125rem, 1.8vw, 1.375rem);
+    line-height: 1.55;
+    font-weight: 400;
+    max-width: 52ch;
+    text-wrap: pretty;
+  }
+  .about-bio-placeholder {
+    margin-top: 1.75rem;
+    padding: 1rem 1.25rem;
+    border-left: 2px solid var(--color-steel);
+    color: var(--color-muted);
+    font-size: 0.9375rem;
+    font-style: italic;
+  }
+</style>

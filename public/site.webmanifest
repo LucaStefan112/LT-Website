@@ -1,0 +1,30 @@
+{
+  "name": "LT Strategy Partners",
+  "short_name": "LT Strategy",
+  "description": "Strategy that delivers. AI and business transformation — advisory and delivery.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#16304c",
+  "icons": [
+    {
+      "src": "/brand/lt-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/brand/lt-icon-1024.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/brand/lt-apple-touch-180.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+---
+import Section from "../ui/Section.astro";
+import Container from "../ui/Container.astro";
+import SectionHeader from "../ui/SectionHeader.astro";
+import { results } from "../../content/site";
+---
+
+<Section id="results" variant="bone" labelledby="results-heading">
+  <Container>
+    <SectionHeader
+      eyebrow={results.eyebrow}
+      title="What good looks like."
+      intro={results.intro}
+      id="results-heading"
+    />
+
+    <ul class="results-grid" role="list">
+      {
+        results.items.map((item, i) => (
+          <li class="card result reveal" style={`--reveal-delay:${(i % 2) * 90}ms`}>
+            <span class="result-mark" aria-hidden="true" />
+            <p class="result-text">{item}</p>
+          </li>
+        ))
+      }
+    </ul>
+
+    <p class="results-placeholder reveal" style="--reveal-delay:80ms">
+      {results.placeholder}
+    </p>
+  </Container>
+</Section>
+
+<style>
+  .results-grid {
+    list-style: none;
+    margin: clamp(2.5rem, 5vw, 3.5rem) 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  @media (min-width: 768px) {
+    .results-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+  }
+  .result {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .result-mark {
+    flex-shrink: 0;
+    width: 1.5rem;
+    height: 2px;
+    margin-top: 0.85rem;
+    background-color: var(--color-steel);
+  }
+  .result-text {
+    color: var(--color-ink);
+    font-size: 1.1875rem; /* 19 */
+    font-weight: 500;
+    line-height: 1.45;
+    letter-spacing: -0.005em;
+    text-wrap: pretty;
+  }
+  .results-placeholder {
+    margin-top: 1.5rem;
+    padding: 1.25rem 1.5rem;
+    border: 1px dashed color-mix(in srgb, var(--color-steel) 45%, var(--color-line));
+    border-radius: 12px;
+    color: var(--color-muted);
+    font-size: 0.9375rem;
+    font-style: italic;
+    background-color: color-mix(in srgb, var(--color-paper) 60%, transparent);
+  }
+</style>

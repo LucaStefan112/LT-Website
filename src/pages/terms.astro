@@ -1,0 +1,58 @@
+---
+import Base from "../layouts/Base.astro";
+import PageIntro from "../components/sections/PageIntro.astro";
+import Container from "../components/ui/Container.astro";
+import { site } from "../content/site";
+---
+
+<Base
+  title="Terms — LT Strategy Partners"
+  description="Terms of use for the LT Strategy Partners website."
+  path="/terms"
+>
+  <PageIntro
+    eyebrow="Legal"
+    title="Terms of use."
+    lead="The basis on which this website is provided."
+    headingId="terms-heading"
+  />
+  <section class="legal bg-paper" aria-label="Terms details">
+    <Container>
+      <div class="legal-body measure">
+        <p class="legal-placeholder">
+          [Placeholder — replace with your finalised terms of use.]
+        </p>
+        <p>
+          This website is provided for general information about LT Strategy
+          Partners. It does not constitute advice, and nothing on it forms a
+          contract or engagement. Any engagement is governed by a separate
+          written agreement.
+        </p>
+        <p>
+          Questions about these terms? Email
+          <a href={`mailto:${site.email}`}>{site.email}</a>.
+        </p>
+      </div>
+    </Container>
+  </section>
+</Base>
+
+<style>
+  .legal {
+    padding-bottom: clamp(4.5rem, 9vw, 7rem);
+  }
+  .legal-body p {
+    margin-bottom: 1.25rem;
+    color: var(--color-muted);
+    line-height: 1.7;
+  }
+  .legal-placeholder {
+    padding: 1rem 1.25rem;
+    border-left: 2px solid var(--color-steel);
+    color: var(--color-muted);
+    font-style: italic;
+  }
+  .legal-body a {
+    color: var(--color-steel);
+  }
+</style>

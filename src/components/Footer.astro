@@ -1,0 +1,160 @@
+---
+import Logo from "./ui/Logo.astro";
+import { site, footer, footerNav, legalNav } from "../content/site";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer band-ink on-dark">
+  <div class="container-lt">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="/" aria-label={`${site.name} — home`} class="footer-logo-link">
+          <Logo variant="reversed" height={34} alt={site.name} />
+        </a>
+        <p class="footer-blurb measure">{footer.blurb}</p>
+        <p class="footer-tagline eyebrow">{footer.tagline}</p>
+      </div>
+
+      <nav class="footer-nav" aria-label="Footer">
+        <h2 class="footer-heading">Explore</h2>
+        <ul>
+          {
+            footerNav.map((item) => (
+              <li>
+                <a href={item.href}>{item.label}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+
+      <div class="footer-contact">
+        <h2 class="footer-heading">Contact</h2>
+        <ul>
+          <li>
+            <a href={`mailto:${footer.email}`}>{footer.email}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">© {year} {site.name}. All rights reserved.</p>
+      <ul class="footer-legal">
+        {
+          legalNav.map((item) => (
+            <li>
+              <a href={item.href}>{item.label}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    padding-block: clamp(3.5rem, 6vw, 5rem) 2rem;
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  @media (min-width: 768px) {
+    .footer-top {
+      grid-template-columns: 1.6fr 1fr 1fr;
+      gap: 3rem;
+    }
+  }
+
+  .footer-logo-link {
+    display: inline-flex;
+    border-radius: 4px;
+  }
+  .footer-blurb {
+    margin-top: 1.25rem;
+    color: color-mix(in srgb, var(--color-bone) 78%, transparent);
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  .footer-tagline {
+    margin-top: 1.25rem;
+    color: var(--color-steel-bright);
+  }
+
+  .footer-heading {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--color-bone) 60%, transparent);
+    margin-bottom: 1rem;
+  }
+  .footer-nav ul,
+  .footer-contact ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+  }
+  .footer-nav a,
+  .footer-contact a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px; /* comfortable touch target */
+    color: var(--color-bone);
+    text-decoration: none;
+    font-size: 1rem;
+    overflow-wrap: anywhere;
+    transition: color 0.18s var(--ease-out-soft);
+  }
+  .footer-nav a:hover,
+  .footer-contact a:hover {
+    color: var(--color-steel-bright);
+  }
+
+  .footer-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: clamp(2.5rem, 5vw, 3.5rem);
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--color-line-dark);
+  }
+  @media (min-width: 640px) {
+    .footer-bottom {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+  .footer-copy {
+    color: color-mix(in srgb, var(--color-bone) 62%, transparent);
+    font-size: 0.875rem;
+    margin: 0;
+  }
+  .footer-legal {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .footer-legal a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    color: color-mix(in srgb, var(--color-bone) 72%, transparent);
+    text-decoration: none;
+    font-size: 0.875rem;
+  }
+  .footer-legal a:hover {
+    color: var(--color-steel-bright);
+  }
+</style>

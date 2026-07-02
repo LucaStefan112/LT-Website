@@ -1,0 +1,345 @@
+---
+import { contact } from "../../content/site";
+
+// Optional: set PUBLIC_CONTACT_ENDPOINT in a .env file to POST submissions
+// (e.g. a Formspree/Resend URL). If unset, the form falls back to mailto:.
+const endpoint = import.meta.env.PUBLIC_CONTACT_ENDPOINT ?? "";
+---
+
+<form
+  class="contact-form card"
+  data-contact-form
+  data-endpoint={endpoint}
+  data-email={contact.email}
+  aria-label="Contact form"
+  novalidate
+>
+  {
+    contact.fields.map((field) =>
+      field.type === "textarea" ? (
+        <div class="field field-full">
+          <label for={field.name}>
+            {field.label}
+            {field.required && <span aria-hidden="true"> *</span>}
+          </label>
+          <textarea
+            id={field.name}
+            name={field.name}
+            rows="5"
+            required={field.required}
+            aria-required={field.required ? "true" : "false"}
+            aria-describedby={`${field.name}-error`}
+          />
+          <span class="field-error" id={`${field.name}-error`} />
+        </div>
+      ) : (
+        <div class="field">
+          <label for={field.name}>
+            {field.label}
+            {field.required && <span aria-hidden="true"> *</span>}
+          </label>
+          <input
+            type={field.type}
+            id={field.name}
+            name={field.name}
+            required={field.required}
+            aria-required={field.required ? "true" : "false"}
+            aria-describedby={`${field.name}-error`}
+            autocomplete={field.autocomplete}
+          />
+          <span class="field-error" id={`${field.name}-error`} />
+        </div>
+      )
+    )
+  }
+
+  {/* Honeypot — hidden from users, catches naive bots */}
+  <div class="hp" aria-hidden="true">
+    <label for="company_website">Leave this field empty</label>
+    <input
+      type="text"
+      id="company_website"
+      name="company_website"
+      tabindex="-1"
+      autocomplete="off"
+    />
+  </div>
+
+  <div class="field-full form-footer">
+    <button type="submit" class="btn btn-primary contact-submit">
+      {contact.submitLabel}
+    </button>
+    <p class="form-status" data-form-status role="status" aria-live="polite"></p>
+  </div>
+</form>
+
+<style>
+  .contact-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  @media (min-width: 560px) {
+    .contact-form {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .field-full {
+    grid-column: 1 / -1;
+  }
+  .field label {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--color-ink);
+  }
+  .field label span {
+    color: var(--color-steel);
+  }
+  .field input,
+  .field textarea {
+    width: 100%;
+    font: inherit;
+    font-size: 1rem;
+    color: var(--color-near);
+    background-color: var(--color-paper);
+    border: 1px solid var(--color-line);
+    border-radius: 9px;
+    padding: 0.75rem 0.875rem;
+    transition:
+      border-color 0.16s var(--ease-out-soft),
+      box-shadow 0.16s var(--ease-out-soft);
+  }
+  .field textarea {
+    resize: vertical;
+    min-height: 7rem;
+  }
+  .field input:focus,
+  .field textarea:focus {
+    outline: none;
+    border-color: var(--color-steel);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-steel) 18%, transparent);
+  }
+  .field input[aria-invalid="true"],
+  .field textarea[aria-invalid="true"] {
+    border-color: #b3261e;
+  }
+  .field-error {
+    display: none;
+    font-size: 0.8125rem;
+    color: #b3261e;
+  }
+  .field-error.is-shown {
+    display: block;
+  }
+
+  /* Honeypot: removed from layout + a11y tree but present in DOM */
+  .hp {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
+  .form-footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem 1.5rem;
+    margin-top: 0.25rem;
+  }
+  .contact-submit {
+    min-width: 12rem;
+  }
+  .form-status {
+    margin: 0;
+    font-size: 0.9375rem;
+    color: var(--color-muted);
+  }
+  .form-status.is-success {
+    color: var(--color-steel-deep);
+    font-weight: 500;
+  }
+  .form-status.is-error {
+    color: #b3261e;
+  }
+</style>
+
+<script>
+  interface FieldRule {
+    name: string;
+    required: boolean;
+    email?: boolean;
+  }
+
+  function initContactForm(): void {
+    const form = document.querySelector<HTMLFormElement>("[data-contact-form]");
+    if (!form) return;
+
+    const status = form.querySelector<HTMLElement>("[data-form-status]");
+    const endpoint = form.dataset.endpoint || "";
+    const email = form.dataset.email || "";
+    const successMsg =
+      "Thank you — your message is ready to send. We'll reply personally within two business days.";
+
+    const rules: FieldRule[] = [
+      { name: "name", required: true },
+      { name: "company", required: true },
+      { name: "role", required: false },
+      { name: "email", required: true, email: true },
+      { name: "message", required: true },
+    ];
+
+    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    const fieldEl = (name: string) =>
+      form.elements.namedItem(name) as
+        | HTMLInputElement
+        | HTMLTextAreaElement
+        | null;
+
+    const setError = (name: string, message: string | null) => {
+      const el = fieldEl(name);
+      const err = document.getElementById(`${name}-error`);
+      if (!el) return;
+      if (message) {
+        el.setAttribute("aria-invalid", "true");
+        if (err) {
+          err.textContent = message;
+          err.classList.add("is-shown");
+        }
+      } else {
+        el.removeAttribute("aria-invalid");
+        if (err) {
+          err.textContent = "";
+          err.classList.remove("is-shown");
+        }
+      }
+    };
+
+    const validateField = (rule: FieldRule): boolean => {
+      const el = fieldEl(rule.name);
+      if (!el) return true;
+      const value = el.value.trim();
+      if (rule.required && !value) {
+        setError(rule.name, "This field is required.");
+        return false;
+      }
+      if (rule.email && value && !emailRe.test(value)) {
+        setError(rule.name, "Please enter a valid email address.");
+        return false;
+      }
+      setError(rule.name, null);
+      return true;
+    };
+
+    // Clear an error as the user corrects the field.
+    rules.forEach((rule) => {
+      const el = fieldEl(rule.name);
+      el?.addEventListener("blur", () => validateField(rule));
+      el?.addEventListener("input", () => {
+        if (el.getAttribute("aria-invalid") === "true") validateField(rule);
+      });
+    });
+
+    const setStatus = (msg: string, kind: "" | "success" | "error") => {
+      if (!status) return;
+      status.textContent = msg;
+      status.classList.toggle("is-success", kind === "success");
+      status.classList.toggle("is-error", kind === "error");
+    };
+
+    const buildMailto = (data: Record<string, string>): string => {
+      const subject = `Enquiry from ${data.name || "website"}${
+        data.company ? ` (${data.company})` : ""
+      }`;
+      const body = [
+        `Name: ${data.name}`,
+        `Company: ${data.company}`,
+        data.role ? `Role: ${data.role}` : "",
+        `Email: ${data.email}`,
+        "",
+        data.message,
+      ]
+        .filter(Boolean)
+        .join("\n");
+      return `mailto:${email}?subject=${encodeURIComponent(
+        subject
+      )}&body=${encodeURIComponent(body)}`;
+    };
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      // Bot trap: silently succeed without doing anything.
+      const hp = fieldEl("company_website");
+      if (hp && hp.value) {
+        setStatus(successMsg, "success");
+        return;
+      }
+
+      let firstInvalid: HTMLElement | null = null;
+      let ok = true;
+      for (const rule of rules) {
+        if (!validateField(rule)) {
+          ok = false;
+          if (!firstInvalid) firstInvalid = fieldEl(rule.name);
+        }
+      }
+      if (!ok) {
+        setStatus("Please correct the highlighted fields.", "error");
+        firstInvalid?.focus();
+        return;
+      }
+
+      const fd = new FormData(form);
+      const data: Record<string, string> = {};
+      fd.forEach((v, k) => (data[k] = String(v)));
+
+      // Configured endpoint (Formspree/Resend/etc.) → POST as JSON.
+      if (endpoint) {
+        try {
+          setStatus("Sending…", "");
+          const res = await fetch(endpoint, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+            },
+            body: JSON.stringify(data),
+          });
+          if (res.ok) {
+            form.reset();
+            setStatus(
+              "Thank you — your message has been sent. We'll reply personally within two business days.",
+              "success"
+            );
+          } else {
+            throw new Error(`Request failed: ${res.status}`);
+          }
+        } catch {
+          setStatus(
+            `Something went wrong. Please email us directly at ${email}.`,
+            "error"
+          );
+        }
+        return;
+      }
+
+      // No endpoint configured → open the user's mail client (graceful fallback).
+      window.location.href = buildMailto(data);
+      setStatus(successMsg, "success");
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initContactForm, { once: true });
+  } else {
+    initContactForm();
+  }
+</script>

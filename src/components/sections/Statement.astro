@@ -1,0 +1,70 @@
+---
+import Container from "../ui/Container.astro";
+import Reveal from "../ui/Reveal.astro";
+import { statement } from "../../content/site";
+---
+
+<section class="statement band-ink on-dark" aria-labelledby="statement-heading">
+  <!-- Faint ascending chevron motif, reversed accent -->
+  <svg class="statement-motif" aria-hidden="true" viewBox="0 0 600 400" preserveAspectRatio="xMidYMid meet">
+    <path
+      d="M40 320 L300 90 L560 320"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="8"
+      stroke-linecap="round"
+      stroke-linejoin="round"></path>
+  </svg>
+
+  <Container>
+    <Reveal>
+      <div class="statement-inner">
+        <p class="statement-eyebrow eyebrow">Our promise</p>
+        <h2 id="statement-heading" class="statement-headline display-lg">
+          {statement.headline}
+        </h2>
+        <p class="statement-support lead">{statement.support}</p>
+      </div>
+    </Reveal>
+  </Container>
+</section>
+
+<style>
+  .statement {
+    position: relative;
+    overflow: hidden;
+    padding-block: clamp(5rem, 11vw, 9rem);
+  }
+  .statement-motif {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(120%, 60rem);
+    height: auto;
+    color: var(--color-steel-bright);
+    opacity: 0.06;
+    pointer-events: none;
+  }
+  .statement-inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .statement-eyebrow {
+    color: var(--color-steel-bright);
+    margin-bottom: 1.25rem;
+  }
+  .statement-headline {
+    color: #fff;
+    max-width: 20ch;
+  }
+  .statement-support {
+    margin-top: 1.5rem;
+    max-width: 46ch;
+    color: color-mix(in srgb, var(--color-bone) 82%, transparent);
+  }
+</style>

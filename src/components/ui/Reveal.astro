@@ -1,0 +1,15 @@
+---
+/* Wraps content in the on-scroll reveal (fade + gentle upward lift).
+   Content is fully visible without JS and under prefers-reduced-motion. */
+interface Props {
+  as?: keyof HTMLElementTagNameMap;
+  delay?: number; // stagger, ms
+  class?: string;
+}
+const { as: Tag = "div", delay = 0, class: className = "" } = Astro.props;
+const style = delay ? `--reveal-delay:${delay}ms` : undefined;
+---
+
+<Tag class:list={["reveal", className]} style={style}>
+  <slot />
+</Tag>

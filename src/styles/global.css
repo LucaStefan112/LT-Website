@@ -1,0 +1,397 @@
+/* =========================================================================
+   LT Strategy Partners — global styles & design system
+   -------------------------------------------------------------------------
+   Everything visual reads from the tokens in @theme below. Components should
+   compose the semantic classes defined here (.eyebrow, .btn, .card, .display,
+   .section-title, .lead, .container-lt) rather than re-declaring colours,
+   so there is no per-component colour drift.
+   ========================================================================= */
+
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------ Fonts */
+/* Self-hosted Archivo (variable, weight 100–900) — one preloaded .woff2,
+   font-display: swap, no layout shift. See scripts/sync-fonts.mjs. */
+@font-face {
+  font-family: "Archivo Variable";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url("/fonts/archivo-variable.woff2") format("woff2");
+}
+
+/* ----------------------------------------------------------- Design tokens */
+@theme {
+  /* Palette — the single source of truth (brief §3.1) */
+  --color-ink: #16304c; /* Deep Blue — dark surfaces, headings */
+  --color-steel: #2f6db0; /* Steel — links, CTAs, rules, highlights */
+  --color-steel-deep: #285c97; /* Steel, pressed/hover on light */
+  --color-steel-bright: #5e9bdd; /* Steel Bright — accent on dark */
+  --color-bone: #f1efe9; /* Warm light background */
+  --color-muted: #55677d; /* Slate — body text on light */
+  --color-near: #17181a; /* Near-black — high-contrast text */
+  --color-paper: #ffffff; /* Base background */
+  --color-line: #e3e6ea; /* Hairlines / dividers */
+  --color-line-dark: #274363; /* Hairline on Deep Blue surfaces */
+
+  /* Typography */
+  --font-sans: "Archivo Variable", ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  /* Modular type scale (brief §3.2): 13 / 16 / 18 / 22 / 30 / 40 / 56 */
+  --text-eyebrow: 0.8125rem; /* 13 */
+  --text-eyebrow--line-height: 1.2;
+  --text-13: 0.8125rem;
+  --text-16: 1rem;
+  --text-18: 1.125rem;
+  --text-22: 1.375rem;
+  --text-30: 1.875rem;
+  --text-40: 2.5rem;
+  --text-56: 3.5rem;
+
+  /* Layout */
+  --spacing-header: 4.5rem; /* sticky header height (72px) */
+
+  /* Motion */
+  --ease-out-soft: cubic-bezier(0.22, 0.61, 0.28, 1);
+}
+
+/* --------------------------------------------------------------- Base layer */
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+    /* Offset for the sticky header when jumping to in-page anchors */
+    scroll-padding-top: calc(var(--spacing-header) + 1.5rem);
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-muted);
+    font-size: 1.0625rem; /* 17px */
+    line-height: 1.65;
+    font-weight: 400;
+  }
+
+  @media (min-width: 1024px) {
+    body {
+      font-size: 1.125rem; /* 18px on desktop */
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: var(--color-ink);
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  a {
+    color: var(--color-steel);
+    text-underline-offset: 0.18em;
+    text-decoration-thickness: 1px;
+  }
+
+  ::selection {
+    background-color: color-mix(in srgb, var(--color-steel) 22%, transparent);
+    color: var(--color-ink);
+  }
+
+  /* Visible, consistent keyboard focus everywhere */
+  :focus-visible {
+    outline: 2px solid var(--color-steel);
+    outline-offset: 2px;
+    border-radius: 3px;
+  }
+  /* Focus on Deep Blue surfaces uses the bright accent for contrast */
+  .on-dark :focus-visible,
+  .on-dark:focus-visible {
+    outline-color: var(--color-steel-bright);
+  }
+
+  img,
+  svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Respect reduced-motion: kill non-essential animation site-wide */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* ---------------------------------------------------------- Component layer */
+@layer components {
+  /* Layout container */
+  .container-lt {
+    width: 100%;
+    max-width: 75rem; /* 1200px */
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 5vw, 2.5rem);
+  }
+
+  /* Narrow, comfortable measure for reading (~68ch) */
+  .measure {
+    max-width: 40rem;
+  }
+  .measure-wide {
+    max-width: 52rem;
+  }
+
+  /* Section vertical rhythm — generous on desktop, comfortable on mobile */
+  .section {
+    padding-block: clamp(4.5rem, 9vw, 8.75rem);
+  }
+  .section-tight {
+    padding-block: clamp(3.5rem, 6vw, 6rem);
+  }
+
+  /* Eyebrow / kicker — spaced caps, the brand signature (brief §3.2) */
+  .eyebrow {
+    display: block;
+    font-size: var(--text-eyebrow);
+    line-height: 1.2;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+  .on-dark .eyebrow {
+    color: var(--color-steel-bright);
+  }
+
+  /* The 2px Steel rule that sits under an eyebrow — mirrors the logo underline */
+  .rule {
+    display: block;
+    width: 2.5rem;
+    height: 2px;
+    margin-top: 0.875rem;
+    background-color: var(--color-steel);
+    border: 0;
+  }
+  .on-dark .rule {
+    background-color: var(--color-steel-bright);
+  }
+
+  /* Display + heading scale */
+  .display {
+    color: var(--color-ink);
+    font-weight: 600;
+    line-height: 1.04;
+    letter-spacing: -0.02em;
+    font-size: clamp(2.5rem, 5.4vw, 3.75rem); /* 40 → 60 */
+  }
+  .display-lg {
+    color: var(--color-ink);
+    font-weight: 600;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    font-size: clamp(2rem, 4.6vw, 3.25rem); /* 32 → 52 */
+  }
+  .section-title {
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    font-size: clamp(1.875rem, 3.4vw, 2.5rem); /* 30 → 40 */
+  }
+  .card-title {
+    color: var(--color-ink);
+    font-weight: 600;
+    font-size: 1.375rem; /* 22 */
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+
+  /* Lead / subhead paragraph */
+  .lead {
+    color: var(--color-muted);
+    font-size: clamp(1.125rem, 1.6vw, 1.375rem); /* 18 → 22 */
+    line-height: 1.5;
+    font-weight: 400;
+  }
+  .on-dark .lead {
+    color: color-mix(in srgb, var(--color-bone) 82%, transparent);
+  }
+
+  /* Buttons — Steel primary (solid) + ghost/text secondary */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 2.875rem; /* 46px touch target */
+    padding: 0.75rem 1.375rem;
+    border-radius: 7px;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 1;
+    letter-spacing: 0.005em;
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+      background-color 0.18s var(--ease-out-soft),
+      color 0.18s var(--ease-out-soft),
+      border-color 0.18s var(--ease-out-soft),
+      transform 0.18s var(--ease-out-soft);
+    white-space: nowrap;
+  }
+  .btn:active {
+    transform: translateY(1px);
+  }
+
+  .btn-primary {
+    background-color: var(--color-steel);
+    color: #fff;
+    border: 1px solid var(--color-steel);
+  }
+  .btn-primary:hover {
+    background-color: var(--color-steel-deep);
+    border-color: var(--color-steel-deep);
+    color: #fff;
+  }
+
+  .btn-ghost {
+    background-color: transparent;
+    color: var(--color-ink);
+    border: 1px solid var(--color-line);
+  }
+  .btn-ghost:hover {
+    border-color: var(--color-steel);
+    color: var(--color-steel-deep);
+  }
+
+  /* Text link with a subtle arrow — the recurring secondary action */
+  .link-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    color: var(--color-steel);
+    font-weight: 500;
+    text-decoration: none;
+  }
+  .link-arrow .arrow {
+    transition: transform 0.2s var(--ease-out-soft);
+  }
+  .link-arrow:hover {
+    color: var(--color-steel-deep);
+  }
+  .link-arrow:hover .arrow {
+    transform: translateX(3px);
+  }
+  .on-dark .link-arrow {
+    color: var(--color-steel-bright);
+  }
+  .on-dark .link-arrow:hover {
+    color: #fff;
+  }
+
+  /* Cards — flat, hairline, no heavy shadow */
+  .card {
+    background-color: var(--color-paper);
+    border: 1px solid var(--color-line);
+    border-radius: 14px;
+    padding: clamp(1.5rem, 2.5vw, 2rem);
+    transition:
+      border-color 0.2s var(--ease-out-soft),
+      transform 0.3s var(--ease-out-soft);
+  }
+  .card:hover {
+    border-color: color-mix(in srgb, var(--color-steel) 45%, var(--color-line));
+  }
+
+  /* Deep Blue band helper */
+  .band-ink {
+    background-color: var(--color-ink);
+    color: var(--color-bone);
+  }
+  .band-ink h1,
+  .band-ink h2,
+  .band-ink h3 {
+    color: #fff;
+  }
+
+  /* Hairline divider */
+  .hairline {
+    border: 0;
+    border-top: 1px solid var(--color-line);
+  }
+}
+
+/* ----------------------------------------------------- Scroll-reveal motion */
+/* Content is visible by default (no-JS safe). Only when JS is present AND the
+   user has no reduced-motion preference do we hide-then-reveal on scroll. */
+@media (prefers-reduced-motion: no-preference) {
+  html.js .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition:
+      opacity 0.5s var(--ease-out-soft),
+      transform 0.5s var(--ease-out-soft);
+    transition-delay: var(--reveal-delay, 0ms);
+    will-change: opacity, transform;
+  }
+  html.js .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Lock scroll while the mobile menu is open */
+html.menu-open,
+html.menu-open body {
+  overflow: hidden;
+}
+
+/* Utility: visually-hidden but available to assistive tech */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Skip link — hidden until focused */
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -3.5rem;
+  z-index: 100;
+  background: var(--color-ink);
+  color: #fff;
+  padding: 0.625rem 1rem;
+  border-radius: 7px;
+  font-weight: 500;
+  transition: top 0.2s var(--ease-out-soft);
+}
+.skip-link:focus {
+  top: 1rem;
+}

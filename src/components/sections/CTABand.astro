@@ -1,0 +1,45 @@
+---
+import Container from "../ui/Container.astro";
+import Button from "../ui/Button.astro";
+import Reveal from "../ui/Reveal.astro";
+import { ctaBand } from "../../content/site";
+---
+
+<section class="cta-band bg-paper" aria-labelledby="cta-heading">
+  <Container>
+    <Reveal>
+      <div class="cta-inner">
+        <h2 id="cta-heading" class="cta-headline display-lg">
+          {ctaBand.headline}
+        </h2>
+        <p class="cta-body lead">{ctaBand.body}</p>
+        <div class="cta-actions">
+          <Button href={ctaBand.cta.href} withArrow>{ctaBand.cta.label}</Button>
+        </div>
+      </div>
+    </Reveal>
+  </Container>
+</section>
+
+<style>
+  .cta-band {
+    padding-block: clamp(4.5rem, 9vw, 8rem);
+    border-top: 1px solid var(--color-line);
+  }
+  .cta-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .cta-headline {
+    max-width: 18ch;
+  }
+  .cta-body {
+    margin-top: 1.25rem;
+    max-width: 48ch;
+  }
+  .cta-actions {
+    margin-top: 2.25rem;
+  }
+</style>

@@ -1,0 +1,62 @@
+---
+import Base from "../layouts/Base.astro";
+import Container from "../components/ui/Container.astro";
+import Button from "../components/ui/Button.astro";
+import { site } from "../content/site";
+---
+
+<Base
+  title="Page not found — LT Strategy Partners"
+  description="The page you were looking for could not be found. Return to the LT Strategy Partners homepage."
+  path="/404"
+>
+  <section class="notfound bg-paper" aria-labelledby="nf-heading">
+    <Container>
+      <p class="eyebrow">Error 404</p>
+      <span class="rule" aria-hidden="true"></span>
+      <h1 id="nf-heading" class="display notfound-title">
+        This page has moved on.
+      </h1>
+      <p class="lead notfound-lead measure">
+        The page you were looking for isn't here. Let's get you back to
+        something useful.
+      </p>
+      <div class="notfound-actions">
+        <Button href="/">Back to home</Button>
+        <a href={site.primaryCta.href} class="link-arrow"
+          >{site.primaryCta.label}
+          <span class="arrow" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path
+                d="M3 8h9M8.5 4l3.5 4-3.5 4"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
+            </svg>
+          </span>
+        </a>
+      </div>
+    </Container>
+  </section>
+</Base>
+
+<style>
+  .notfound {
+    padding-top: clamp(6rem, 12vw, 9rem);
+    padding-bottom: clamp(5rem, 10vw, 8rem);
+  }
+  .notfound-title {
+    margin-top: 1.5rem;
+  }
+  .notfound-lead {
+    margin-top: 1.5rem;
+  }
+  .notfound-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem 1.75rem;
+    margin-top: 2.25rem;
+  }
+</style>

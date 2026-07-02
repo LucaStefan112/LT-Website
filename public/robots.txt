@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ltstrategypartners.com/sitemap-index.xml

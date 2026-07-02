@@ -1,0 +1,51 @@
+---
+/* Consistent section header. Always renders a real heading for a11y:
+   - with `title`: eyebrow kicker (+rule) then an <h2> title, optional lead.
+   - without `title`: the eyebrow itself IS the <h2> (styled as spaced caps). */
+interface Props {
+  eyebrow: string;
+  title?: string;
+  intro?: string;
+  id?: string; // used for aria-labelledby on the parent section
+  align?: "left" | "center";
+  class?: string;
+}
+const {
+  eyebrow,
+  title,
+  intro,
+  id,
+  align = "left",
+  class: className = "",
+} = Astro.props;
+
+const alignClass = align === "center" ? "items-center text-center" : "items-start";
+---
+
+<header class:list={["flex flex-col", alignClass, className]}>
+  {
+    title ? (
+      <>
+        <p class="eyebrow">{eyebrow}</p>
+        <span class="rule" aria-hidden="true" />
+        <h2 id={id} class="section-title mt-5 max-w-[20ch]">
+          {title}
+        </h2>
+      </>
+    ) : (
+      <>
+        <h2 id={id} class="eyebrow">
+          {eyebrow}
+        </h2>
+        <span class="rule" aria-hidden="true" />
+      </>
+    )
+  }
+  {
+    intro && (
+      <p class:list={["lead mt-5 measure", align === "center" && "mx-auto"]}>
+        {intro}
+      </p>
+    )
+  }
+</header>
