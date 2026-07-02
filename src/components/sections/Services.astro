@@ -37,6 +37,12 @@ const { showHeader = true, variant = "bone" } = Astro.props;
             <span class="service-rule" aria-hidden="true" />
             <h3 class="service-title">{item.title}</h3>
             <p class="service-body">{item.body}</p>
+            <p class="service-deliv-label">What you get</p>
+            <ul class="service-deliverables" role="list">
+              {item.deliverables.map((d) => (
+                <li>{d}</li>
+              ))}
+            </ul>
           </li>
         ))
       }
@@ -87,6 +93,39 @@ const { showHeader = true, variant = "bone" } = Astro.props;
     color: var(--color-muted);
     font-size: 1.0625rem;
     line-height: 1.6;
-    max-width: 40ch;
+    max-width: 42ch;
+  }
+  .service-deliv-label {
+    margin-top: 1.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-ink);
+  }
+  .service-deliverables {
+    list-style: none;
+    margin: 0.75rem 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-width: 42ch;
+  }
+  .service-deliverables li {
+    position: relative;
+    padding-left: 1.5rem;
+    color: var(--color-muted);
+    font-size: 0.9375rem;
+    line-height: 1.45;
+  }
+  .service-deliverables li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 0.75rem;
+    height: 2px;
+    background-color: var(--color-steel);
   }
 </style>

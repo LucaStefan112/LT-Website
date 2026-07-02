@@ -23,10 +23,19 @@ export interface Card {
   body: string;
 }
 
+export interface Service {
+  title: string;
+  body: string;
+  // Concrete, tangible outputs the client receives.
+  deliverables: string[];
+}
+
 export interface Step {
   n: string;
   title: string;
   body: string;
+  // What the client has / leaves with after this step.
+  output: string;
 }
 
 /* --------------------------------------------------------------- Site meta */
@@ -95,15 +104,15 @@ export const pillars = {
   items: [
     {
       title: "Clarity before code.",
-      body: "We start with your business and your numbers, not the technology. We find where value genuinely is — and where it isn't.",
+      body: "We start with your business and your numbers, not the technology. We find where value genuinely is, where it isn't, and what it's worth before anyone writes a line of code.",
     },
     {
       title: "We advise and we build.",
-      body: "Many firms stop at recommendations. We stay through delivery — from roadmap to working solution to measured impact.",
+      body: "Most firms hand you a recommendation and leave. We stay through delivery — from roadmap, to a working solution in production, to impact measured against the numbers we agreed.",
     },
     {
       title: "AI, used judiciously.",
-      body: "AI is one capability among several. We apply it where it earns its place, choose the simpler answer when it's better, and tell you the difference.",
+      body: "AI is one capability among several. We apply it where it earns its place, choose the simpler answer when it's the better one, and tell you plainly which is which.",
     },
   ] as Card[],
 } as const;
@@ -117,21 +126,41 @@ export const services = {
   items: [
     {
       title: "Opportunity & Strategy",
-      body: "We assess where AI, data, and technology can move the business, size the value, and produce a clear, prioritised roadmap leadership can act on.",
+      body: "We assess where AI, data, and technology can move revenue, cost, or risk, size the value against your P&L, and separate the few opportunities worth pursuing from the many that aren't. You leave with a decision-ready plan, not a wish list.",
+      deliverables: [
+        "A prioritised opportunity map, ranked by value and effort",
+        "Sized business cases for the top opportunities",
+        "A sequenced roadmap with owners and decision points",
+      ],
     },
     {
       title: "Implementation & Delivery",
-      body: "We design, build, integrate, and deploy the solutions — working alongside your teams, not around them — until they're live and adopted.",
+      body: "We design, build, integrate, and deploy the solutions, working alongside your teams so the knowledge stays in-house. We ship working software over slideware, and stay until it's live, used, and handed over cleanly.",
+      deliverables: [
+        "A working solution running in production",
+        "Integration into your existing systems and workflows",
+        "Documentation and a trained team who can run it without us",
+      ],
     },
     {
       title: "Operational Performance",
-      body: "We improve the processes and ways of working around the technology, so the gains are real, durable, and measured.",
+      body: "We improve the processes and ways of working around the technology, so the gains show up in the numbers and hold once we leave. We redesign how work flows, then put measurement in place to keep it honest.",
+      deliverables: [
+        "Redesigned processes mapped to the new tools",
+        "A measurement framework tied to your KPIs",
+        "A before-and-after view of the gain",
+      ],
     },
     {
       title: "Advisory & Oversight",
-      body: "Ongoing, independent counsel for executives and boards on technology direction, investment, and risk.",
+      body: "Independent counsel for executives and boards on where to invest in technology, what to say no to, and where the real risk lies. Senior people you can trust for the decisions that matter, with no product to sell you.",
+      deliverables: [
+        "Regular reviews of direction, spend, and risk",
+        "Independent assessments of proposals and vendors",
+        "Direct access to senior people between sessions",
+      ],
     },
-  ] as Card[],
+  ] as Service[],
 } as const;
 
 /* ----------------------------------------------------------- §6.5 Approach */
@@ -143,22 +172,26 @@ export const approach = {
     {
       n: "01",
       title: "Diagnose",
-      body: "Understand your goals, operations, data, and constraints — the full picture, in plain terms.",
+      body: "We understand your goals, operations, data, and constraints, and set out the full picture in plain terms.",
+      output: "A shared, honest view of where you stand and what's in the way.",
     },
     {
       n: "02",
       title: "Prioritise",
-      body: "Identify the highest-value opportunities and build the business case. Fewer, better bets.",
+      body: "We identify the highest-value opportunities and build the business case for each. Fewer, better bets.",
+      output: "A short list of sized, sequenced bets with agreed success measures.",
     },
     {
       n: "03",
       title: "Build",
-      body: "Design and deliver the solution — pragmatically, with your teams, shipping working software over slideware.",
+      body: "We design and deliver the solution pragmatically, with your teams, shipping working software over slideware.",
+      output: "A working solution in production, used by the people it's for.",
     },
     {
       n: "04",
       title: "Prove & scale",
-      body: "Measure the impact against the numbers we agreed, embed what works, and scale it.",
+      body: "We measure the impact against the numbers we agreed, embed what works, and scale it.",
+      output: "Proven results on your KPIs, and a plan to extend what worked.",
     },
   ] as Step[],
 } as const;
