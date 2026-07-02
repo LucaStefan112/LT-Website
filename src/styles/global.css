@@ -360,6 +360,19 @@
   }
 }
 
+/* Header logo — sized responsively, larger on laptop/desktop. The Logo
+   component omits its inline size when `responsive`, so these rules control
+   it; the width/height attributes preserve aspect-ratio (no layout shift). */
+.header-logo img {
+  height: 42px;
+  width: auto;
+}
+@media (min-width: 900px) {
+  .header-logo img {
+    height: 56px;
+  }
+}
+
 /* Lock scroll while the mobile menu is open */
 html.menu-open,
 html.menu-open body {

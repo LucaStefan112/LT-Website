@@ -7,7 +7,7 @@ import { nav, site } from "../content/site";
 <header data-header class="site-header">
   <div class="container-lt header-inner">
     <a href="/" class="header-logo" aria-label={`${site.name} — home`}>
-      <Logo variant="primary" height={40} eager alt={site.name} />
+      <Logo variant="primary" height={48} eager responsive alt={site.name} />
     </a>
 
     <nav class="header-nav" aria-label="Primary">
@@ -91,6 +91,12 @@ import { nav, site } from "../content/site";
     justify-content: space-between;
     min-height: var(--spacing-header);
     gap: 1.5rem;
+  }
+  /* Taller header on laptop/desktop to give the larger logo room to breathe */
+  @media (min-width: 900px) {
+    .header-inner {
+      min-height: 5.25rem; /* 84px */
+    }
   }
 
   .header-logo {

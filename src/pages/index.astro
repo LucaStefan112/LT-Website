@@ -6,9 +6,11 @@ import Pillars from "../components/sections/Pillars.astro";
 import Services from "../components/sections/Services.astro";
 import Approach from "../components/sections/Approach.astro";
 import Statement from "../components/sections/Statement.astro";
-import Results from "../components/sections/Results.astro";
+// Temporarily hidden until real client results exist:
+// import Results from "../components/sections/Results.astro";
 import Clients from "../components/sections/Clients.astro";
-import About from "../components/sections/About.astro";
+// Founder profile temporarily hidden:
+// import About from "../components/sections/About.astro";
 import CTABand from "../components/sections/CTABand.astro";
 import { pageMeta } from "../content/site";
 
@@ -22,8 +24,8 @@ const meta = pageMeta.home;
   <Services />
   <Approach />
   <Statement />
-  <Results />
+  {/* <Results /> */}
   <Clients />
-  <About />
+  {/* <About /> */}
   <CTABand />
 </Base>

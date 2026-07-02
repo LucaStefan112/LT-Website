@@ -49,7 +49,7 @@ export const site = {
   // Kept within ~155 chars so it isn't truncated in search results.
   description:
     "LT Strategy Partners helps leadership teams find where AI and technology create real, measurable business value — then advises, builds, and proves it.",
-  email: "hello@ltstrategypartners.com",
+  email: "luca.tamas@ltstrategypartners.com",
   founder: "Luca Tamas",
   // The CTA verb is consistent everywhere it appears (brief §5).
   primaryCta: { label: "Book a conversation", href: "/contact" } as CTA,
@@ -60,8 +60,9 @@ export const site = {
 export const nav: NavItem[] = [
   { label: "Approach", href: "/#approach" },
   { label: "Services", href: "/#services" },
-  { label: "Results", href: "/#results" },
-  { label: "About", href: "/#about" },
+  // Hidden while the Results and About sections are commented out:
+  // { label: "Results", href: "/#results" },
+  // { label: "About", href: "/#about" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -69,13 +70,17 @@ export const nav: NavItem[] = [
 export const footerNav: NavItem[] = [
   { label: "Approach", href: "/#approach" },
   { label: "Services", href: "/services" },
-  { label: "About", href: "/about" },
+  // Founder/About page hidden for now:
+  // { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
 
+// Privacy/Terms pages are disabled for now (placeholder content). Re-add when
+// the real legal text and the src/pages/_privacy.astro / _terms.astro routes
+// are restored.
 export const legalNav: NavItem[] = [
-  { label: "Privacy", href: "/privacy" },
-  { label: "Terms", href: "/terms" },
+  // { label: "Privacy", href: "/privacy" },
+  // { label: "Terms", href: "/terms" },
 ];
 
 /* --------------------------------------------------------------- §6.1 Hero */
@@ -223,9 +228,22 @@ export const results = {
 
 export const clients = {
   eyebrow: "Who we work with",
-  body: "We work directly with CEOs, COOs, CTOs, CIOs, and their leadership teams — typically at organizations that are serious about turning technology into performance and want a partner who will be honest with them.",
-  // Placeholder client logos — clearly marked, grayscale, evenly spaced.
-  logoPlaceholders: ["[Client logo]", "[Client logo]", "[Client logo]", "[Client logo]"],
+  body: "We work with the whole organization, not just the top of it. Lasting change needs the people who set direction and the people who do the work moving together — so we partner across every level, from the boardroom to the teams on the ground.",
+  // The people we collaborate with, by level (no named companies).
+  levels: [
+    {
+      role: "Boards and the C-suite",
+      detail: "CEOs, COOs, CTOs, and CIOs who set direction and decide where to invest.",
+    },
+    {
+      role: "Function and department leads",
+      detail: "The heads of operations, finance, product, and technology who own the results.",
+    },
+    {
+      role: "The teams who do the work",
+      detail: "The managers, analysts, and engineers who build, adopt, and run it every day.",
+    },
+  ],
 } as const;
 
 /* -------------------------------------------------------- §6.9 About / founder */

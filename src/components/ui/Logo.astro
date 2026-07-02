@@ -16,6 +16,10 @@ interface Props {
   alt?: string;
   eager?: boolean;
   class?: string;
+  // When true, omit the inline pixel size so an external stylesheet can size
+  // the logo responsively. The width/height attributes still set the
+  // aspect-ratio, so there is no layout shift.
+  responsive?: boolean;
 }
 const {
   variant = "primary",
@@ -23,6 +27,7 @@ const {
   alt = "LT Strategy Partners",
   eager = false,
   class: className = "",
+  responsive = false,
 } = Astro.props;
 
 // aspect ratios from each asset's viewBox
@@ -58,5 +63,5 @@ const isDecorative = alt === "";
   decoding={eager ? "auto" : "async"}
   fetchpriority={eager ? "high" : undefined}
   class={className}
-  style={`height:${height}px;width:${width}px`}
+  style={responsive ? undefined : `height:${height}px;width:${width}px`}
 />
