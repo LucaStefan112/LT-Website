@@ -2,12 +2,7 @@
 import Container from "../ui/Container.astro";
 import Button from "../ui/Button.astro";
 import Reveal from "../ui/Reveal.astro";
-import { assessment, config } from "../../content/site";
-
-// Never invent a number: show the fee only if the founder set one.
-const priceText = config.assessmentFee
-  ? `Fixed fee — ${config.assessmentFee}`
-  : assessment.priceNote;
+import { assessment } from "../../content/site";
 ---
 
 <section id="assessment" class="assessment" aria-labelledby="assessment-heading">
@@ -21,7 +16,7 @@ const priceText = config.assessmentFee
             {assessment.heading}
           </h2>
           <p class="lead assessment-body">{assessment.body}</p>
-          <p class="assessment-price">{priceText}</p>
+          <p class="assessment-price">{assessment.priceNote}</p>
           <div class="assessment-cta">
             <Button href={assessment.cta.href} withArrow>
               {assessment.cta.label}

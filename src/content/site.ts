@@ -85,9 +85,6 @@ export const config = {
   // No scheduling link — the primary CTA links to the contact form. To switch
   // the CTA to "Book a conversation", set a Cal.com/Calendly URL here.
   bookingUrl: "",
-  // No published fee — the assessment is shown as "scoped in a short
-  // introductory call". To display a fixed fee, set e.g. "€4,500".
-  assessmentFee: "",
   // Founder photo: public/brand/founder.jpg.
   founderPhoto: "/brand/founder.jpg",
 } as const;
@@ -249,15 +246,15 @@ export const services = {
 export const assessment = {
   eyebrow: "Start here — a low-risk first step",
   heading: "The AI Opportunity Assessment.",
-  body: "Not sure where AI or automation actually pays off in your business? Start here. In two to four weeks, we assess your operations, data, and goals and give you a clear, prioritised view of where technology can move revenue, cost, or risk — and, just as honestly, where it can't. Fixed scope. Fixed fee. No obligation to go further.",
+  body: "Not sure where AI or automation actually pays off in your business? Start here. In two to four weeks, we assess your operations, data, and goals and give you a clear, prioritised view of where technology can move revenue, cost, or risk — and, just as honestly, where it can't. Fixed scope. No fee. No obligation to go further.",
   getHeading: "What you get",
   get: [
     "A prioritised opportunity map, ranked by value and effort",
     "Sized business cases for the top two or three opportunities",
     "A practical, sequenced roadmap you own — whether you build it with us or not",
   ],
-  // Shown when config.assessmentFee is empty; otherwise the fee is shown.
-  priceNote: "Fixed fee, scoped in a short introductory call.",
+  // The initial assessment is free (a low-risk entry offer).
+  priceNote: "Free — scoped in a short introductory call.",
   cta: site.assessmentCta,
 } as const;
 
@@ -418,7 +415,7 @@ export const faq = {
     },
     {
       q: "How do you price?",
-      a: "Assessments are a fixed fee. Larger engagements are scoped and priced per project, agreed up front.",
+      a: "The AI Opportunity Assessment is free. Larger engagements are scoped and priced per project, agreed up front.",
     },
     {
       q: "Do you work remotely?",
