@@ -38,6 +38,26 @@ export interface Step {
   output: string;
 }
 
+export interface WorkProject {
+  slug: string;
+  name: string;
+  tagline: string;
+  category: string;
+  accent: string; // per-project accent colour (hex), used sparingly
+  heroDark?: boolean; // dark hero band to echo the project's own style
+  oneLiner: string; // short card summary
+  overview: string;
+  context: string;
+  delivered: string[];
+  strategic: string[];
+  capabilities: string[];
+  stack: string[];
+  takeaway: string;
+  image?: string; // primary image key in src/assets/work (filename without ext)
+  gallery?: string[]; // extra figure image keys
+  diagram?: boolean; // render the built-in architecture diagram instead of an image
+}
+
 /* --------------------------------------------------------------- Site meta */
 
 export const site = {
@@ -60,6 +80,7 @@ export const site = {
 export const nav: NavItem[] = [
   { label: "Approach", href: "/#approach" },
   { label: "Services", href: "/#services" },
+  { label: "Work", href: "/#work" },
   // Hidden while the Results and About sections are commented out:
   // { label: "Results", href: "/#results" },
   // { label: "About", href: "/#about" },
@@ -302,6 +323,176 @@ export const footer = {
   email: site.email,
   blurb:
     "A senior-led advisory and delivery firm helping leadership teams turn strategy — and AI where it earns its place — into measurable results.",
+} as const;
+
+/* ------------------------------------------------- Selected work / portfolio */
+
+export const work = {
+  eyebrow: "Selected work",
+  intro:
+    "A few things our team has designed and built. We show them to make one point plainly: we don't just advise — we ship. Here is what each took, technically and strategically, and what it means for the work we could do with you.",
+  projects: [
+    {
+      slug: "processly",
+      name: "Processly",
+      tagline: "Design your work once. Run it forever.",
+      category: "Workflow automation",
+      accent: "#111214",
+      heroDark: true,
+      oneLiner:
+        "A work-design platform that turns repeatable work into visual processes teams can launch on demand",
+      overview:
+        "Processly is a modern web application for visual process and project orchestration. Teams design a workflow once, then generate projects from it — with one click, on a schedule, or both. The emphasis is on full ownership and visibility of how work runs.",
+      context:
+        "Teams re-design and manually re-run the same recurring work, and the knowledge behind those processes lives in people's heads and slide decks. Processly captures that repeatable work as reusable systems instead.",
+      delivered: [
+        "A visual workflow designer where a process is defined once and reused",
+        "One-click project generation from a saved process design",
+        "Scheduled generation so recurring work launches automatically",
+        "Combined manual and scheduled triggers for the same process",
+      ],
+      strategic: [
+        "Captures repeatable knowledge work as reusable systems rather than one-off effort",
+        "Delivers operational consistency without adding headcount",
+        "Gives leaders visibility into how work actually runs",
+        "Moves process knowledge out of people's heads and into an owned system",
+      ],
+      capabilities: [
+        "Process design",
+        "Workflow automation",
+        "Scheduling & orchestration",
+        "Product & UX design",
+      ],
+      stack: ["Modern web application"],
+      takeaway:
+        "This shows we can turn a client's recurring, manual work into designed, reusable systems that run on demand or on a schedule — giving an operations team consistency and visibility without growing the team.",
+      image: "processly",
+    },
+    {
+      slug: "mazely",
+      name: "Mazely",
+      tagline: "Every visitor finds their way. Every time.",
+      category: "Product engineering",
+      accent: "#0077B5",
+      oneLiner:
+        "Photo-guided indoor wayfinding for complex institutions — no app, no hardware",
+      overview:
+        "Mazely is an enterprise indoor navigation platform for public buildings, universities, hospitals, and institutions. Visitors scan a QR code and follow turn-by-turn directions built from real corridor photographs, with no app download and no on-site hardware. An admin dashboard handles floor design, QR management, and movement analytics.",
+      context:
+        "Visitors get lost in large, complex institutional buildings, and staff waste time giving directions. Institutions also have no data on how people actually move through their space.",
+      delivered: [
+        "Photo-guided turn-by-turn navigation delivered through a scanned QR code — no app download, no installed hardware",
+        "Multi-floor and multi-building routing with accessibility-aware pathfinding",
+        "Multilingual support across English, Romanian, French, and German",
+        "Admin dashboard with drag-and-drop floor design, QR management, and analytics for session tracking, destination popularity, and feedback",
+        "Cloud infrastructure with TLS 1.3 in transit, AES-256 at rest, a 99.9% uptime SLA, and deployment in roughly two to four weeks",
+      ],
+      strategic: [
+        "Turns a recurring physical frustration into a low-friction digital layer that cuts staff burden",
+        "Produces movement analytics that give institutions data they previously lacked",
+        "Built to regulated-institution standards — aligned with GDPR, HIPAA, and ADA, with anonymous session tracking and no PHI collected",
+        "The zero-app, zero-hardware model keeps adoption friction and rollout cost low",
+      ],
+      capabilities: [
+        "Indoor wayfinding systems",
+        "Accessibility-aware pathfinding",
+        "Multilingual product design",
+        "Movement analytics",
+        "Regulated-industry compliance",
+      ],
+      stack: [
+        "Cloud infrastructure",
+        "QR-based access",
+        "TLS 1.3",
+        "AES-256",
+        "Admin dashboard",
+      ],
+      takeaway:
+        "This shows we can design and ship a compliance-grade product for regulated institutions that removes physical friction while generating useful operational data — an approach that fits anywhere an organization needs a low-friction digital layer over a physical environment.",
+      image: "mazely",
+    },
+    {
+      slug: "restaurant-ai",
+      name: "Restaurant Menu Assistant",
+      tagline: "Applied AI that runs on the restaurant's own hardware.",
+      category: "Applied AI",
+      accent: "#C2410C",
+      oneLiner:
+        "A self-hosted AI menu assistant that answers diner questions and runs offline, on-premise",
+      overview:
+        "The Restaurant Menu Assistant is a self-hosted AI system for restaurants. It pairs a kiosk- and tablet-friendly chat interface that helps diners find dishes by preference or dietary need with an admin panel for managing items, categories, multi-currency prices, discounts, and images. It uses retrieval-augmented generation over the restaurant's own menu and runs entirely on the local network after setup.",
+      context:
+        "Restaurants want AI help for diners without shipping menu data to the cloud or paying a per-query fee for every question asked. This work addresses how to deliver useful, private AI on hardware a venue already owns.",
+      delivered: [
+        "A customer chat interface for kiosks and tablets that answers menu questions and finds dishes by preference or dietary need",
+        "An admin panel to manage items, categories, multi-currency prices, discounts, and images, with automatic menu reindexing after edits",
+        "A retrieval-augmented answering pipeline using Ollama with qwen2.5:3b for chat and bge-m3 for embeddings, backed by Qdrant semantic search",
+        "A self-hosted deployment via Podman / Docker Compose with PostgreSQL, MinIO image storage, an Nginx proxy, and token-authenticated admin",
+        "Operational discipline: explicit memory budgeting for 8GB hosts, health checks, automated backup and restore, per-install secrets, and LAN-only defaults",
+      ],
+      strategic: [
+        "Keeps data private and on-premise, with no per-query cloud cost",
+        "Shows retrieval-augmented generation applied judiciously and cost-consciously, with documented model tradeoffs",
+        "Demonstrates the operational rigour to run AI reliably on modest, customer-owned hardware",
+        "The same approach can bring private, offline AI to any business wary of cloud dependence",
+      ],
+      capabilities: [
+        "Retrieval-augmented generation",
+        "Self-hosted AI deployment",
+        "On-premise data privacy",
+        "Cost-conscious model choice",
+      ],
+      stack: [
+        "Python",
+        "TypeScript",
+        "Ollama",
+        "qwen2.5:3b",
+        "bge-m3",
+        "PostgreSQL",
+        "Qdrant",
+        "MinIO",
+      ],
+      takeaway:
+        "This shows we can design and ship retrieval-augmented AI that runs privately on a client's own hardware, with the memory budgeting, health checks, and backup discipline needed to keep it running in the real world.",
+      diagram: true,
+    },
+    {
+      slug: "transit-analytics",
+      name: "Public Transport Analytics — Iași",
+      tagline: "Turning fleet telemetry into operating decisions.",
+      category: "Data & analytics",
+      accent: "#4F63D2",
+      oneLiner:
+        "A Metabase dashboard that turns a city's public-transport telemetry into operating decisions",
+      overview:
+        "A live analytics dashboard for the public-transport fleet of Iași, Romania, built on Metabase over GPS and telemetry data. It reports on 238 vehicles across buses and trams — tracking speed, safety, accessibility, and congestion in one place. It shows how raw fleet telemetry becomes operational views a transport authority can act on.",
+      context:
+        "Public-transport operators sit on continuous GPS and telemetry streams but rarely turn them into daily operating decisions. The challenge is converting raw location and speed data into views that inform efficiency, safety, and compliance.",
+      delivered: [
+        "A live vehicle-location map covering the city fleet",
+        "Fleet-composition analysis across 238 vehicles (63% buses, 37% trams / light metro)",
+        "Mobility-efficiency metrics: average speed by time of day and by category (buses 27.35 km/h, trams 17.52 km/h), plus a speed-distribution histogram",
+        "Accessibility indices for wheelchair-accessible (71.85%) and bicycle-accessible (10.08%) vehicles",
+        "A congestion-point map and a recorded-speeding table of 58 events, flagging outliers up to 141 km/h as more than 50 km/h over the limit",
+      ],
+      strategic: [
+        "Converts raw telemetry into decisions across efficiency, safety, accessibility, and congestion",
+        "Gives operations and public-sector teams a single, factual view for compliance and safety oversight",
+        "Demonstrates a repeatable data-to-decisions pipeline that applies to any fleet or sensor stream",
+      ],
+      capabilities: [
+        "Telemetry data pipelines",
+        "Operational dashboarding",
+        "Fleet & mobility analytics",
+        "Data-to-decisions design",
+      ],
+      stack: ["Metabase", "SQL", "GPS / telemetry pipeline"],
+      takeaway:
+        "This shows we can take raw sensor and telemetry data and turn it into operational dashboards that drive real decisions — an approach that applies to any client running a fleet, a network, or a stream of operational data.",
+      image: "transit-map",
+      gallery: ["transit-charts", "transit-speeding"],
+    },
+  ] as WorkProject[],
 } as const;
 
 /* ------------------------------------------ Supporting-route intro copy */

@@ -1,0 +1,210 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import Section from "../ui/Section.astro";
+import Container from "../ui/Container.astro";
+import SectionHeader from "../ui/SectionHeader.astro";
+import { work } from "../../content/site";
+
+// Resolve project images from src/assets/work (optimised by astro:assets).
+const workImages = import.meta.glob<{ default: ImageMetadata }>(
+  "../../assets/work/*.png",
+  { eager: true }
+);
+const img = (key?: string) =>
+  key ? workImages[`../../assets/work/${key}.png`]?.default : undefined;
+---
+
+<Section id="work" variant="bone" labelledby="work-heading">
+  <Container>
+    <SectionHeader
+      eyebrow={work.eyebrow}
+      intro={work.intro}
+      id="work-heading"
+    />
+
+    <ul class="work-grid" role="list">
+      {
+        work.projects.map((p, i) => {
+          const thumb = img(p.image);
+          return (
+            <li class="reveal" style={`--reveal-delay:${(i % 2) * 90}ms`}>
+              <a
+                href={`/work/${p.slug}`}
+                class="work-card"
+                style={`--accent:${p.accent}`}
+                aria-label={`${p.name} — ${p.category}`}
+              >
+                <div class="work-card-media">
+                  {thumb ? (
+                    <Image
+                      src={thumb}
+                      alt={`${p.name} — ${p.oneLiner}`}
+                      widths={[400, 720]}
+                      sizes="(min-width: 768px) 46vw, 92vw"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <span class="work-card-mark" aria-hidden="true">
+                      <svg viewBox="0 0 120 70" fill="none">
+                        <circle cx="24" cy="35" r="7" fill="currentColor" />
+                        <circle cx="60" cy="18" r="7" fill="currentColor" />
+                        <circle cx="60" cy="52" r="7" fill="currentColor" />
+                        <circle cx="96" cy="35" r="7" fill="currentColor" />
+                        <path
+                          d="M31 35h1M53 22 31 33M53 48 31 37M67 22l22 11M67 48l22-11"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        />
+                      </svg>
+                    </span>
+                  )}
+                </div>
+                <div class="work-card-body">
+                  <span class="work-card-cat">{p.category}</span>
+                  <h3 class="work-card-name">{p.name}</h3>
+                  <p class="work-card-line">{p.oneLiner}</p>
+                  <span class="work-card-more">
+                    View project
+                    <svg
+                      class="arrow"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M3 8h9M8.5 4l3.5 4-3.5 4"
+                        stroke="currentColor"
+                        stroke-width="1.6"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </span>
+                </div>
+              </a>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </Container>
+</Section>
+
+<style>
+  .work-grid {
+    list-style: none;
+    margin: clamp(2.5rem, 5vw, 3.75rem) 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .work-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.75rem;
+    }
+  }
+
+  .work-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: var(--color-paper);
+    border: 1px solid var(--color-line);
+    border-radius: 14px;
+    overflow: hidden;
+    text-decoration: none;
+    transition:
+      border-color 0.2s var(--ease-out-soft),
+      transform 0.3s var(--ease-out-soft),
+      box-shadow 0.3s var(--ease-out-soft);
+  }
+  .work-card:hover {
+    border-color: color-mix(in srgb, var(--accent) 55%, var(--color-line));
+    transform: translateY(-3px);
+  }
+  .work-card:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  .work-card-media {
+    aspect-ratio: 16 / 9;
+    background-color: var(--color-bone);
+    border-bottom: 1px solid var(--color-line);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .work-card-media :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+  }
+  /* Diagram-only card (no product image) */
+  .work-card-mark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    color: var(--accent);
+    background-color: color-mix(in srgb, var(--accent) 8%, var(--color-paper));
+  }
+  .work-card-mark svg {
+    width: 42%;
+    height: auto;
+    opacity: 0.9;
+  }
+
+  .work-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: clamp(1.25rem, 2.2vw, 1.75rem);
+    flex: 1;
+  }
+  .work-card-cat {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .work-card-name {
+    font-size: 1.375rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    letter-spacing: -0.01em;
+  }
+  .work-card-line {
+    color: var(--color-muted);
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  .work-card-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: auto;
+    padding-top: 0.75rem;
+    color: var(--color-ink);
+    font-weight: 500;
+    font-size: 0.9375rem;
+  }
+  .work-card-more .arrow {
+    transition: transform 0.2s var(--ease-out-soft);
+  }
+  .work-card:hover .work-card-more {
+    color: var(--accent);
+  }
+  .work-card:hover .work-card-more .arrow {
+    transform: translateX(3px);
+  }
+</style>

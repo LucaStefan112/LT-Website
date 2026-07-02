@@ -1,0 +1,89 @@
+---
+/* Architecture diagram for the self-hosted Restaurant Menu Assistant.
+   Reflects the real stack; styled with the page accent (var(--accent)). */
+---
+
+<div class="rag" role="img" aria-label="Architecture: customer chat and admin panel connect through an Nginx proxy to a Python API, which uses Ollama (qwen2.5:3b and bge-m3), Qdrant vector search, PostgreSQL, and MinIO — all self-hosted on the venue's own network.">
+  <span class="rag-boundary-label">Runs on the venue's own network — no cloud, no per-query cost</span>
+
+  <div class="rag-row">
+    <div class="rag-node">Customer chat<span>kiosk / tablet</span></div>
+    <div class="rag-node">Admin panel<span>menu management</span></div>
+  </div>
+
+  <div class="rag-link" aria-hidden="true"></div>
+
+  <div class="rag-row">
+    <div class="rag-node rag-node--accent">Python API<span>token auth · retrieval-augmented answering</span></div>
+  </div>
+
+  <div class="rag-link" aria-hidden="true"></div>
+
+  <div class="rag-row rag-row--services">
+    <div class="rag-node">Ollama<span>qwen2.5:3b · bge-m3</span></div>
+    <div class="rag-node">Qdrant<span>vector search</span></div>
+    <div class="rag-node">PostgreSQL<span>menu &amp; config</span></div>
+    <div class="rag-node">MinIO<span>dish images</span></div>
+  </div>
+</div>
+
+<style>
+  .rag {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+    border: 1px solid var(--color-line);
+    border-radius: 14px;
+    background-color: color-mix(in srgb, var(--accent) 5%, var(--color-paper));
+  }
+  .rag-boundary-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  .rag-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    width: 100%;
+  }
+  .rag-node {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    flex: 1 1 auto;
+    min-width: 8.5rem;
+    max-width: 15rem;
+    padding: 0.875rem 1rem;
+    border: 1px solid var(--color-line);
+    border-radius: 10px;
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    text-align: center;
+  }
+  .rag-node span {
+    font-weight: 400;
+    font-size: 0.75rem;
+    color: var(--color-muted);
+  }
+  .rag-node--accent {
+    border-color: var(--accent);
+    background-color: color-mix(in srgb, var(--accent) 10%, var(--color-paper));
+    max-width: 22rem;
+  }
+  .rag-link {
+    width: 2px;
+    height: 1.75rem;
+    background-color: color-mix(in srgb, var(--accent) 55%, var(--color-line));
+    margin: 0.25rem 0;
+  }
+</style>

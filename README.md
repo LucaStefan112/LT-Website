@@ -53,6 +53,7 @@ edit the relevant export:
 - `hero`, `intro`, `pillars`, `services`, `approach`, `statement`, `results`, `clients`, `about`, `ctaBand`, `contact`, `footer` — each home section
 - `pageIntros` — the hero blocks on the Services / About / Contact routes
 - `pageMeta` — per-page `<title>`, meta description, and path (for SEO + canonical)
+- `work` — the **Selected work** portfolio. Each item in `work.projects` renders a card in the home "Work" section and a full page at `/work/<slug>`. Fields include `accent` (per-page colour), `heroDark`, `overview`, `delivered`, `strategic`, `capabilities`, `stack`, `takeaway`, and an `image` (or `diagram: true`). Project images live in `src/assets/work/<key>.png` (optimised by Astro); the `image`/`gallery` keys map to those filenames. Pages link only internally — never out to the projects themselves.
 
 Placeholders that need your input are written in `[square brackets]` (e.g. the
 client-logo strip, founder bio, portrait, and results case-notes). Search the

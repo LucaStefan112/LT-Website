@@ -1,0 +1,383 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import Base from "../../layouts/Base.astro";
+import Container from "../../components/ui/Container.astro";
+import CTABand from "../../components/sections/CTABand.astro";
+import RagDiagram from "../../components/work/RagDiagram.astro";
+import { work, type WorkProject } from "../../content/site";
+
+export function getStaticPaths() {
+  return work.projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+interface Props {
+  project: WorkProject;
+}
+const { project } = Astro.props;
+
+const workImages = import.meta.glob<{ default: ImageMetadata }>(
+  "../../assets/work/*.png",
+  { eager: true }
+);
+const img = (key?: string) =>
+  key ? workImages[`../../assets/work/${key}.png`]?.default : undefined;
+
+const primary = img(project.image);
+const galleryImages = (project.gallery ?? [])
+  .map((k) => ({ key: k, src: img(k) }))
+  .filter((g) => g.src);
+
+// Optional figure captions (used mainly for the data dashboards).
+const captions: Record<string, string> = {
+  "transit-map": "Live vehicle-location map across the city fleet",
+  "transit-charts":
+    "Fleet composition, average speed by category, and accessibility indices",
+  "transit-speeding": "Possible congestion points and recorded speeding events",
+};
+
+const title = `${project.name} — Selected work · LT Strategy Partners`;
+---
+
+<Base title={title} description={project.oneLiner} path={`/work/${project.slug}`}>
+  <article class="proj" style={`--accent:${project.accent}`}>
+    <section class:list={["proj-hero", project.heroDark ? "is-dark" : "is-light"]}>
+      <Container>
+        <a href="/#work" class="proj-back">
+          <span aria-hidden="true">←</span> Selected work
+        </a>
+        <p class="eyebrow proj-cat">{project.category}</p>
+        <span class="rule" aria-hidden="true"></span>
+        <h1 class="display proj-name">{project.name}</h1>
+        <p class="lead proj-tagline">{project.tagline}</p>
+        <p class="proj-overview measure-wide">{project.overview}</p>
+        <ul class="proj-caps" role="list">
+          {project.capabilities.map((c) => <li>{c}</li>)}
+        </ul>
+      </Container>
+    </section>
+
+    <Container>
+      <figure class="proj-figure">
+        {
+          project.diagram ? (
+            <RagDiagram />
+          ) : primary ? (
+            <Image
+              src={primary}
+              alt={`${project.name} — ${project.oneLiner}`}
+              widths={[720, 1120]}
+              sizes="(min-width: 1000px) 900px, 92vw"
+              loading="eager"
+            />
+          ) : null
+        }
+        {
+          project.image && captions[project.image] && (
+            <figcaption>{captions[project.image]}</figcaption>
+          )
+        }
+      </figure>
+
+      <div class="proj-body measure-wide">
+        <section class="proj-block">
+          <h2 class="proj-h">The context</h2>
+          <p class="proj-p">{project.context}</p>
+        </section>
+
+        <section class="proj-block">
+          <h2 class="proj-h">What we delivered</h2>
+          <ul class="proj-list" role="list">
+            {project.delivered.map((d) => <li>{d}</li>)}
+          </ul>
+        </section>
+
+        <section class="proj-block">
+          <h2 class="proj-h">Why it matters</h2>
+          <ul class="proj-list" role="list">
+            {project.strategic.map((s) => <li>{s}</li>)}
+          </ul>
+        </section>
+
+        {
+          galleryImages.length > 0 && (
+            <section class="proj-block">
+              <h2 class="proj-h">From the dashboard</h2>
+              <div class="proj-gallery">
+                {galleryImages.map((g) => (
+                  <figure class="proj-figure proj-figure--inset">
+                    <Image
+                      src={g.src!}
+                      alt={captions[g.key] ?? project.name}
+                      widths={[560, 1000]}
+                      sizes="(min-width: 1000px) 800px, 92vw"
+                      loading="lazy"
+                    />
+                    {captions[g.key] && <figcaption>{captions[g.key]}</figcaption>}
+                  </figure>
+                ))}
+              </div>
+            </section>
+          )
+        }
+
+        <div class="proj-meta">
+          <div>
+            <h3 class="proj-meta-h">Capabilities shown</h3>
+            <ul class="proj-chips" role="list">
+              {project.capabilities.map((c) => <li>{c}</li>)}
+            </ul>
+          </div>
+          {
+            project.stack.length > 0 && (
+              <div>
+                <h3 class="proj-meta-h">Built with</h3>
+                <ul class="proj-chips proj-chips--muted" role="list">
+                  {project.stack.map((s) => <li>{s}</li>)}
+                </ul>
+              </div>
+            )
+          }
+        </div>
+
+        <aside class="proj-takeaway">
+          <p class="eyebrow">What this means for you</p>
+          <p class="proj-takeaway-text">{project.takeaway}</p>
+        </aside>
+      </div>
+    </Container>
+
+    <CTABand />
+  </article>
+</Base>
+
+<style>
+  .proj-hero {
+    padding-top: clamp(5rem, 10vw, 7.5rem);
+    padding-bottom: clamp(2.5rem, 5vw, 4rem);
+  }
+  .proj-hero.is-light {
+    background-color: color-mix(in srgb, var(--accent) 6%, var(--color-paper));
+  }
+  .proj-hero.is-dark {
+    background-color: #0f1013;
+    color: var(--color-bone);
+  }
+
+  .proj-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--color-muted);
+    margin-bottom: 1.75rem;
+  }
+  .is-dark .proj-back {
+    color: color-mix(in srgb, var(--color-bone) 70%, transparent);
+  }
+  .proj-back:hover {
+    color: var(--accent);
+  }
+  .is-dark .proj-back:hover {
+    color: #fff;
+  }
+
+  .proj-cat {
+    color: var(--accent);
+  }
+  .is-dark .proj-cat {
+    color: color-mix(in srgb, var(--color-bone) 82%, transparent);
+  }
+  .proj-hero .rule {
+    background-color: var(--accent);
+  }
+  .is-dark .proj-hero .rule,
+  .is-dark .rule {
+    background-color: color-mix(in srgb, var(--color-bone) 70%, transparent);
+  }
+
+  .proj-name {
+    margin-top: 1.5rem;
+  }
+  .is-dark .proj-name {
+    color: #fff;
+  }
+  .proj-tagline {
+    margin-top: 1rem;
+    font-style: italic;
+    color: var(--color-muted);
+  }
+  .is-dark .proj-tagline {
+    color: color-mix(in srgb, var(--color-bone) 85%, transparent);
+  }
+  .proj-overview {
+    margin-top: 1.5rem;
+    font-size: 1.1875rem;
+    line-height: 1.6;
+    color: var(--color-muted);
+  }
+  .is-dark .proj-overview {
+    color: color-mix(in srgb, var(--color-bone) 80%, transparent);
+  }
+
+  .proj-caps {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 1.75rem 0 0;
+    padding: 0;
+  }
+  .proj-caps li {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    padding: 0.3rem 0.7rem;
+    border-radius: 999px;
+    border: 1px solid color-mix(in srgb, var(--accent) 40%, var(--color-line));
+    color: var(--color-ink);
+  }
+  .is-dark .proj-caps li {
+    border-color: color-mix(in srgb, var(--color-bone) 30%, transparent);
+    color: var(--color-bone);
+  }
+
+  /* Primary visual */
+  .proj-figure {
+    margin: clamp(2rem, 4vw, 3rem) 0 0;
+  }
+  .proj-figure :global(img) {
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--color-line);
+    border-radius: 14px;
+    display: block;
+  }
+  .proj-figure figcaption {
+    margin-top: 0.75rem;
+    font-size: 0.8125rem;
+    color: var(--color-muted);
+    text-align: center;
+  }
+  .proj-figure--inset {
+    margin-top: 0;
+  }
+
+  /* Body */
+  .proj-body {
+    margin: clamp(3rem, 6vw, 4.5rem) 0 clamp(4rem, 8vw, 6rem);
+  }
+  .proj-block {
+    margin-bottom: clamp(2.25rem, 4vw, 3rem);
+  }
+  .proj-h {
+    font-size: 1.375rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    letter-spacing: -0.01em;
+    margin-bottom: 1rem;
+    padding-top: 1rem;
+    border-top: 2px solid var(--accent);
+    display: inline-block;
+  }
+  .proj-p {
+    color: var(--color-muted);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+  }
+  .proj-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+  }
+  .proj-list li {
+    position: relative;
+    padding-left: 1.75rem;
+    color: var(--color-ink);
+    font-size: 1.0625rem;
+    line-height: 1.55;
+  }
+  .proj-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.62em;
+    width: 1rem;
+    height: 2px;
+    background-color: var(--accent);
+  }
+
+  .proj-gallery {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .proj-meta {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin: clamp(2.5rem, 5vw, 3.5rem) 0;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-line);
+  }
+  @media (min-width: 640px) {
+    .proj-meta {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  .proj-meta-h {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    margin-bottom: 1rem;
+  }
+  .proj-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .proj-chips li {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    padding: 0.3rem 0.7rem;
+    border-radius: 8px;
+    background-color: color-mix(in srgb, var(--accent) 10%, var(--color-paper));
+    color: var(--color-ink);
+  }
+  .proj-chips--muted li {
+    background-color: var(--color-bone);
+    color: var(--color-muted);
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 0.75rem;
+  }
+
+  .proj-takeaway {
+    padding: clamp(1.5rem, 3vw, 2rem);
+    border-radius: 14px;
+    border-left: 3px solid var(--accent);
+    background-color: color-mix(in srgb, var(--accent) 6%, var(--color-paper));
+  }
+  .proj-takeaway .eyebrow {
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+  .proj-takeaway-text {
+    color: var(--color-ink);
+    font-size: 1.1875rem;
+    line-height: 1.55;
+    font-weight: 500;
+  }
+</style>
