@@ -36,6 +36,13 @@ const links = [
           {aboutPage.paragraphs.map((p) => <p>{p}</p>)}
         </div>
 
+        <div class="about-beliefs">
+          <h2 class="about-glance-heading">{aboutPage.beliefsHeading}</h2>
+          <div class="prose">
+            {aboutPage.beliefs.map((p) => <p>{p}</p>)}
+          </div>
+        </div>
+
         <aside class="about-why">
           <p class="eyebrow">{aboutPage.whyHeading}</p>
           <p class="about-why-text">{aboutPage.why}</p>
@@ -103,6 +110,9 @@ const links = [
     margin-inline: auto;
   }
 
+  .about-beliefs {
+    margin-top: clamp(2.5rem, 5vw, 3.5rem);
+  }
   .about-why {
     margin-top: clamp(2.5rem, 5vw, 3.5rem);
     padding: clamp(1.5rem, 3vw, 2rem);

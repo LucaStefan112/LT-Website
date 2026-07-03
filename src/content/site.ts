@@ -264,7 +264,7 @@ export const dataIp = {
   id: "data-ip",
   eyebrow: "Your data, your IP",
   heading: "Built by a security engineer — handled accordingly.",
-  body: "We come from a security and data-protection background — production security engineering at Bitdefender, and authentication and encryption work for a UK intelligence firm. That discipline is built into how we work with you.",
+  body: "We come from a security and data-protection background — production security engineering at Bitdefender, and earlier security R&D in authentication and encryption. That discipline is built into how we work with you.",
   items: [
     {
       title: "Your data stays yours.",
@@ -364,8 +364,8 @@ export const clients = {
 
 export const aboutTeaser = {
   eyebrow: "Who's behind it",
-  heading: "Founder-led, and built by someone who ships.",
-  body: "LT Strategy Partners is led by Luca-Ștefan Tamaș, a systems and security engineer who currently builds production security systems at Bitdefender, has led a multi-tenant enterprise platform spanning BI, ERP, document management, and process automation, and has founded and shipped two SaaS products on his own. The advice you get is grounded in what actually runs in production — not what looks good on a slide.",
+  heading: "Founder-led, and hands-on.",
+  body: "LT Strategy Partners is led by Luca-Ștefan Tamaș — a systems and security engineer who builds production security systems at Bitdefender, has been lead architect on a multi-tenant enterprise platform spanning BI, ERP, document management, and process automation, and has founded and shipped two SaaS products of his own. You work with him directly: the person who advises you is the person who does the work.",
   link: { label: "More about Luca", href: "/about" } as CTA,
   photoCaption: `${"Luca-Ștefan Tamaș"} · Founder`,
 } as const;
@@ -374,20 +374,24 @@ export const aboutTeaser = {
 
 export const aboutPage = {
   eyebrow: "About",
-  heading: "Advice from someone who has actually built it.",
+  heading: "A hands-on partner, start to finish.",
   paragraphs: [
-    "LT Strategy Partners is founded and led by Luca-Ștefan Tamaș. It is, today, a deliberately senior, founder-led practice: the person who advises you is the person who does the work.",
-    "Luca is a systems and security engineer. He currently works as a Security Software Engineer at Bitdefender, one of the world's largest cybersecurity companies, on systems that have to scale with the trust placed in them. Before that, he was lead engineer on a multi-tenant enterprise platform spanning business intelligence, ERP, document management, and process automation — the same class of systems many organizations run their operations on — where he set the tenant-isolation model, access control, and delivery pipeline. He also spent time as a security R&D engineer for a UK intelligence firm, building authentication and encrypted payment systems with least-privilege access at their core.",
-    "Alongside this, he has founded and shipped two SaaS products — Mazely (indoor navigation for institutions) and Processly (visual process automation) — taking each from a blank page to a running, multi-tenant product single-handedly. Since 2020 he has delivered client work end to end across web, mobile, data, and AI, including apps published on the App Store and Google Play.",
+    "I'm Luca-Ștefan Tamaș, and LT Strategy Partners is my practice. It is small and senior on purpose: when you work with us, you work with me directly. The person who gives the advice is the person who does the work and stays accountable for how it turns out.",
+    "By background I'm a systems and security engineer. Today I build production security systems at Bitdefender, one of the world's larger cybersecurity companies. Before that I was lead architect on a multi-tenant enterprise platform spanning business intelligence, ERP, document management, and process automation — the kind of system an organization runs its operations on — where I set the tenant-isolation model, the access control, and the delivery pipeline. Earlier, in security R&D, I built authentication and encrypted payment systems with least-privilege access at their core.",
+    "Alongside consulting, I've founded and shipped two SaaS products of my own — Mazely (indoor navigation for institutions) and Processly (visual process automation) — taking each from a blank page to a running product single-handedly. Since 2020 I've delivered client work end to end across web, mobile, data, and AI, including apps published on the App Store and Google Play.",
   ],
-  whyHeading: "Why this matters for you",
-  why: "Most advisors can tell you what to do but have never had to make it work in production, at scale, securely. Luca has — repeatedly. That means recommendations come from someone who has built the real thing, understands the operational and security reality behind it, and will tell you plainly what's worth doing and what isn't.",
+  beliefsHeading: "What I believe about this work",
+  beliefs: [
+    "I believe software and a company's digital infrastructure are among the best investments a business can make — but only when they are made thoughtfully. Plenty of organizations spend heavily and follow whatever is trending, then wonder why the money never reached the bottom line. The technology is rarely the hard part. Spending on the right thing, for the right reason, in the right order is where the return actually comes from, and it is the part most often skipped.",
+    "I also believe the cheapest money you will ever spend is the conversation before you start. A short, honest talk with someone who has built these systems can save months of work and a lot of budget — by catching the wrong problem early, setting aside the idea that will not pay off, and pointing you at the simplest thing that actually works. That is exactly why the first step I offer costs nothing.",
+  ],
+  whyHeading: "How I like to work",
+  why: "I would rather be useful than impressive. Because I have had to make these systems work in the real world, I can tell you plainly what is worth doing, what is not, and what it will really take — and I will not recommend anything I would not be willing to build myself.",
   glanceHeading: "Background at a glance",
   glance: [
-    "Security engineering at Bitdefender; security R&D (auth & encryption) for a UK firm",
-    "Lead engineer on a multi-tenant BI / ERP / DMS / process-automation platform",
+    "Security engineering at Bitdefender; earlier security R&D in authentication and encryption",
+    "Lead architect on a multi-tenant BI / ERP / DMS / process-automation platform",
     "Founder of two production SaaS products (Mazely, Processly)",
-    "B.Sc. Computer Science, Alexandru Ioan Cuza University, Iași",
     "Security certifications (SOC Level 1, DevSecOps, Jr Penetration Tester); data credentials (Meta Data Analyst, Google Business Intelligence, Advanced SQL, Tableau)",
     "Based in Iași, Romania · working with clients across the EU and US",
   ],
@@ -718,7 +722,7 @@ export const pageMeta = {
   about: {
     title: "About — LT Strategy Partners",
     description:
-      "Founder-led by Luca-Ștefan Tamaș — a systems and security engineer at Bitdefender who has led enterprise platforms and shipped two SaaS products. Advice from someone who has built it.",
+      "Founder-led by Luca-Ștefan Tamaș, a systems and security engineer at Bitdefender who has architected enterprise platforms and shipped two SaaS products of his own.",
     path: "/about",
   },
   contact: {
