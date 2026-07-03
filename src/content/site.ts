@@ -109,6 +109,8 @@ export const site = {
   description:
     "LT Strategy Partners helps leadership teams find where AI and technology create real, measurable business value — then advises, builds, and proves it.",
   email: "luca.tamas@ltstrategypartners.com",
+  phone: "+40734950060", // used for the tel: link
+  phoneDisplay: "+40 734 950 060", // shown to readers
   founder: "Luca-Ștefan Tamaș",
   location: "Iași, Romania · Working with clients across the EU and US.",
   links: {
@@ -457,6 +459,8 @@ export const contact = {
   intro:
     "Tell us a little about your organization and what you're trying to move. We'll come back to you personally — no sales script, no pressure.",
   email: site.email,
+  phone: site.phone,
+  phoneDisplay: site.phoneDisplay,
   location: site.location,
   // NOTE: the form is not wired to a backend. See README to connect Formspree/Resend.
   // The submit handler falls back to a mailto: link if no endpoint is configured.
@@ -481,6 +485,8 @@ export const contact = {
 export const footer = {
   tagline: site.tagline,
   email: site.email,
+  phone: site.phone,
+  phoneDisplay: site.phoneDisplay,
   location: site.location,
   linkedin: site.links.companyLinkedin,
   blurb:

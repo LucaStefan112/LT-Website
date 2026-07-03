@@ -29,6 +29,9 @@ const intro = pageIntros.contact;
           <a href={`mailto:${contact.email}`} class="contact-email">
             {contact.email}
           </a>
+          <a href={`tel:${contact.phone}`} class="contact-phone">
+            {contact.phoneDisplay}
+          </a>
           <ul class="contact-points" role="list">
             <li>Independent, senior-led advice.</li>
             <li>A reply within two business days.</li>
@@ -85,6 +88,17 @@ const intro = pageIntros.contact;
   .contact-email:hover {
     color: var(--color-steel-deep);
     text-decoration: underline;
+  }
+  .contact-phone {
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: var(--color-ink);
+    font-size: 1.0625rem;
+    font-weight: 500;
+    text-decoration: none;
+  }
+  .contact-phone:hover {
+    color: var(--color-steel-deep);
   }
   .contact-points {
     list-style: none;
