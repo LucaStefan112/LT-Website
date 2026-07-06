@@ -367,7 +367,7 @@ export const clients = {
 export const aboutTeaser = {
   eyebrow: "Who's behind it",
   heading: "Founder-led, and hands-on.",
-  body: "LT Strategy Partners is led by Luca-Ștefan Tamaș — a systems and security engineer who builds production security systems at Bitdefender, has been lead architect on a multi-tenant enterprise platform spanning BI, ERP, document management, and process automation, and has founded and shipped two SaaS products of his own. You work with him directly: the person who advises you is the person who does the work.",
+  body: "LT Strategy Partners is led by Luca-Ștefan Tamaș — a systems engineer who builds and ships production AI, from self-hosted, retrieval-augmented LLM systems to full SaaS products. He builds production systems at Bitdefender, has been lead architect on a multi-tenant enterprise platform (BI, ERP, document management, process automation), and has founded two SaaS products of his own. You work with him directly: the person who advises you is the person who does the work.",
   link: { label: "More about Luca", href: "/about" } as CTA,
   photoCaption: `${"Luca-Ștefan Tamaș"} · Founder`,
 } as const;
@@ -379,8 +379,8 @@ export const aboutPage = {
   heading: "A hands-on partner, start to finish.",
   paragraphs: [
     "I'm Luca-Ștefan Tamaș, and LT Strategy Partners is my practice. It is small and senior on purpose: when you work with us, you work with me directly. The person who gives the advice is the person who does the work and stays accountable for how it turns out.",
-    "By background I'm a systems and security engineer. Today I build production security systems at Bitdefender, one of the world's larger cybersecurity companies. Before that I was lead architect on a multi-tenant enterprise platform spanning business intelligence, ERP, document management, and process automation — the kind of system an organization runs its operations on — where I set the tenant-isolation model, the access control, and the delivery pipeline. Earlier, in security R&D, I built authentication and encrypted payment systems with least-privilege access at their core.",
-    "Alongside consulting, I've founded and shipped two SaaS products of my own — Mazely (indoor navigation for institutions) and Processly (visual process automation) — taking each from a blank page to a running product single-handedly. Since 2020 I've delivered client work end to end across web, mobile, data, and AI, including apps published on the App Store and Google Play.",
+    "By background I'm a systems engineer. The work I care about most — and what this practice is built around — is AI that has to hold up in production, not just in a demo: strong retrieval and clean data, model outputs kept behind validation, sane latency and cost, and the monitoring and fallbacks that keep a system dependable once real people rely on it.",
+    "Day to day I build production systems at Bitdefender, one of the world's larger cybersecurity companies, and before that I was lead architect on a multi-tenant enterprise platform spanning business intelligence, ERP, document management, and process automation. I've founded and shipped two SaaS products of my own — Mazely and Processly — and built a self-hosted, retrieval-augmented AI assistant that runs entirely offline on hardware a venue already owns. Since 2020 I've delivered client work end to end across web, mobile, data, and AI, including apps on the App Store and Google Play. That security and platform grounding is why the AI I build stays private and dependable by default.",
   ],
   beliefsHeading: "What I believe about this work",
   beliefs: [
@@ -391,10 +391,11 @@ export const aboutPage = {
   why: "I would rather be useful than impressive. Because I have had to make these systems work in the real world, I can tell you plainly what is worth doing, what is not, and what it will really take — and I will not recommend anything I would not be willing to build myself.",
   glanceHeading: "Background at a glance",
   glance: [
-    "Security engineering at Bitdefender; earlier security R&D in authentication and encryption",
-    "Lead architect on a multi-tenant BI / ERP / DMS / process-automation platform",
-    "Founder of two production SaaS products (Mazely, Processly)",
-    "Security certifications (SOC Level 1, DevSecOps, Jr Penetration Tester); data credentials (Meta Data Analyst, Google Business Intelligence, Advanced SQL, Tableau)",
+    "Builds production AI and LLM systems — retrieval-augmented generation, self-hosted models, and outputs kept behind validation",
+    "Built a self-hosted, offline AI assistant; founder of two production SaaS products (Mazely, Processly)",
+    "Production systems engineering at Bitdefender; lead architect on a multi-tenant BI / ERP / DMS / process-automation platform",
+    "Security and data-protection foundation: authentication, encryption, least-privilege, and tenant isolation",
+    "Data & analytics credentials (Meta Data Analyst, Google Business Intelligence, Advanced SQL, Tableau); security certifications (SOC Level 1, DevSecOps, Jr Penetration Tester)",
     "Based in Iași, Romania · working with clients across the EU and US",
   ],
   photoCaption: `${"Luca-Ștefan Tamaș"} · Founder`,
@@ -728,7 +729,7 @@ export const pageMeta = {
   about: {
     title: "About — LT Strategy Partners",
     description:
-      "Founder-led by Luca-Ștefan Tamaș, a systems and security engineer at Bitdefender who has architected enterprise platforms and shipped two SaaS products of his own.",
+      "Founder-led by Luca-Ștefan Tamaș, a systems engineer who builds production AI and LLM systems and has shipped enterprise platforms and two SaaS products of his own.",
     path: "/about",
   },
   contact: {
