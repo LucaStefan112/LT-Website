@@ -108,7 +108,7 @@ export const site = {
   url: "https://ltstrategypartners.com",
   tagline: "Strategy that delivers.",
   description:
-    "An independent digital and technology advisor for leadership teams, specialized in AI — finding where technology creates real, measurable value, then advising, building, and proving it.",
+    "An independent digital and technology advisor for leadership teams — specialized in AI, from strategy through to building and proving it.",
   email: "luca.tamas@ltstrategypartners.com",
   phone: "+40734950060", // used for the tel: link
   phoneDisplay: "+40 734 950 060", // shown to readers
@@ -209,7 +209,7 @@ export const services = {
       title: "Opportunity & Strategy",
       body: "We assess where AI, data, and technology can move revenue, cost, or risk, size the value against your P&L, and separate the few opportunities worth pursuing from the many that aren't.",
       deliverables: [
-        "A prioritised opportunity map, ranked by value and effort",
+        "A prioritized opportunity map, ranked by value and effort",
         "Sized business cases for the top opportunities",
         "A sequenced roadmap with owners and decision points",
       ],
@@ -251,7 +251,7 @@ export const services = {
       },
       {
         title: "AI governance & EU AI Act readiness",
-        body: "A clear read on where the EU AI Act and responsible-AI duties apply to you, and a prioritised, risk-ranked list of what to put in place — practical guidance, not theory.",
+        body: "A clear read on where the EU AI Act and responsible-AI duties apply to you, and a prioritized, risk-ranked list of what to put in place — practical guidance, not theory.",
       },
     ] as Card[],
     note: "Most AI work starts with the AI Opportunity Assessment — free, fixed-scope, and honest about where AI won't pay off.",
@@ -264,10 +264,10 @@ export const services = {
 export const assessment = {
   eyebrow: "Start here — a low-risk first step",
   heading: "The AI Opportunity Assessment.",
-  body: "Not sure where AI or automation actually pays off in your business? Start here. In two to four weeks, we assess your operations, data, and goals and give you a clear, prioritised view of where technology can move revenue, cost, or risk — and, just as honestly, where it can't. Fixed scope. No fee. No obligation to go further.",
+  body: "Not sure where AI or automation actually pays off in your business? Start here. In two to four weeks, we assess your operations, data, and goals and give you a clear, prioritized view of where technology can move revenue, cost, or risk — and, just as honestly, where it can't. Fixed scope. No fee. No obligation to go further.",
   getHeading: "What you get",
   get: [
-    "A prioritised opportunity map, ranked by value and effort",
+    "A prioritized opportunity map, ranked by value and effort",
     "Sized business cases for the top two or three opportunities",
     "A practical, sequenced roadmap you own — whether you build it with us or not",
   ],
@@ -317,7 +317,7 @@ export const approach = {
     },
     {
       n: "02",
-      title: "Prioritise",
+      title: "Prioritize",
       body: "We identify the highest-value opportunities and build the business case for each. Fewer, better bets.",
       output: "A short list of sized, sequenced bets with agreed success measures.",
     },
@@ -434,7 +434,7 @@ export const faq = {
   items: [
     {
       q: "How do we start?",
-      a: "With a fixed-scope AI Opportunity Assessment — a low-risk first step that gives you a prioritised roadmap you own.",
+      a: "With a fixed-scope AI Opportunity Assessment — a low-risk first step that gives you a prioritized roadmap you own.",
     },
     {
       q: "How do you price?",
@@ -596,12 +596,12 @@ export const work = {
         "Multi-tenant architecture with multi-floor and multi-building routing and accessibility-aware pathfinding",
         "Multilingual support across English, Romanian, French, and German",
         "Admin dashboard with drag-and-drop floor design, QR management, and analytics for session tracking, destination popularity, and feedback",
-        "Cloud infrastructure with TLS 1.3 in transit, AES-256 at rest, a 99.9% uptime SLA, and deployment in roughly two to four weeks",
+        "Cloud infrastructure with TLS 1.3 in transit and AES-256 at rest, architected for high availability",
       ],
       strategic: [
         "Turns a recurring physical frustration into a low-friction digital layer that cuts staff burden",
         "Produces movement analytics that give institutions data they previously lacked",
-        "Built to regulated-institution standards — aligned with GDPR, HIPAA, and ADA, with anonymous session tracking and no PHI collected",
+        "Designed with regulated-institution requirements in mind — privacy-by-design, anonymous session tracking, and no personal health data collected",
         "The zero-app, zero-hardware model keeps adoption friction and rollout cost low",
       ],
       capabilities: [
@@ -609,7 +609,7 @@ export const work = {
         "Accessibility-aware pathfinding",
         "Multilingual product design",
         "Movement analytics",
-        "Regulated-industry compliance",
+        "Privacy-by-design",
       ],
       stack: [
         "Next.js 15",
@@ -621,7 +621,7 @@ export const work = {
         "MinIO",
       ],
       takeaway:
-        "This shows we can design and ship a compliance-grade product for regulated institutions that removes physical friction while generating useful operational data — an approach that fits anywhere an organization needs a low-friction digital layer over a physical environment.",
+        "This shows we can design and ship a privacy-conscious product for complex institutions that removes physical friction while generating useful operational data — an approach that fits anywhere an organization needs a low-friction digital layer over a physical environment.",
       image: "mazely",
     },
     {
@@ -648,7 +648,7 @@ export const work = {
       strategic: [
         "Keeps data private and on-premise, with no per-query cloud cost",
         "Shows retrieval-augmented generation applied judiciously and cost-consciously, with documented model tradeoffs",
-        "Demonstrates the operational rigour to run AI reliably on modest, customer-owned hardware",
+        "Demonstrates the operational rigor to run AI reliably on modest, customer-owned hardware",
         "The same approach can bring private, offline AI to any business wary of cloud dependence",
       ],
       capabilities: [

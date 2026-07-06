@@ -32,7 +32,11 @@ const fmt = (d: Date) =>
             {post.data.draft ? (
               <span class="insight-soon">Coming soon</span>
             ) : (
-              <a href={`/insights/${post.id}`} class="link-arrow insight-read">
+              <a
+                href={`/insights/${post.id}`}
+                class="link-arrow insight-read"
+                aria-label={`Read: ${post.data.title}`}
+              >
                 Read
                 <span class="arrow" aria-hidden="true">
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none">

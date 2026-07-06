@@ -9,7 +9,7 @@ Every few months a leader faces the same question about some new AI capability: 
 
 ## Buy when the problem is common
 
-Buy when the thing you need is common, well understood, and not the reason customers choose you. Plenty of good products already handle document summarisation, meeting notes, support triage, transcription, and basic drafting. These are solved problems with mature tools behind them. Building your own version is expensive, slow, and rarely better than what you can license this quarter.
+Buy when the thing you need is common, well understood, and not the reason customers choose you. Plenty of good products already handle document summarization, meeting notes, support triage, transcription, and basic drafting. These are solved problems with mature tools behind them. Building your own version is expensive, slow, and rarely better than what you can license this quarter.
 
 The test is whether the capability is a differentiator or a cost of doing business. If a competitor could buy the same tool tomorrow and it would not change your position, buy it too. Spend your scarce engineering attention on the things only you can do.
 

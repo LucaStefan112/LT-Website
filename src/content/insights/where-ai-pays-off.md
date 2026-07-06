@@ -5,13 +5,13 @@ date: 2026-06-20
 draft: false
 ---
 
-Most of the AI proposals that reach a leader's desk look reasonable. They have a plausible use case, a confident vendor, and a slide that ends with a big number. The hard part is not saying yes or no to AI in general. It is telling the investments that will actually move your business from the ones that will look busy, cost money every month, and change nothing. The difference tends to follow a few recognisable patterns.
+Most of the AI proposals that reach a leader's desk look reasonable. They have a plausible use case, a confident vendor, and a slide that ends with a big number. The hard part is not saying yes or no to AI in general. It is telling the investments that will actually move your business from the ones that will look busy, cost money every month, and change nothing. The difference tends to follow a few recognizable patterns.
 
 ## Where AI reliably pays off
 
 AI earns its keep when the work is high in volume and moderate in stakes, and when a fast, good answer beats a slow, perfect one.
 
-The clearest wins share a shape. There is a lot of the task. It repeats. It involves judgement that is real but not rare, the kind an experienced person makes many times a day without much drama. Think of sorting and routing large volumes of requests, reading through more text or data than any team could get to by hand, or pulling the three relevant facts out of a long document. In these cases the machine does not need to be flawless. It needs to be quick, consistent, and roughly as good as a tired human on a busy afternoon.
+The clearest wins share a shape. There is a lot of the task. It repeats. It involves judgment that is real but not rare, the kind an experienced person makes many times a day without much drama. Think of sorting and routing large volumes of requests, reading through more text or data than any team could get to by hand, or pulling the three relevant facts out of a long document. In these cases the machine does not need to be flawless. It needs to be quick, consistent, and roughly as good as a tired human on a busy afternoon.
 
 Drafting is another honest fit, as long as a person stays in the loop. AI is good at producing a first version that someone then checks, corrects, and signs off. The draft is not the deliverable; it is a head start. The value comes from the time saved on the blank page, not from removing the human who is accountable for the result.
 
@@ -39,4 +39,4 @@ Second: what is the cheapest thing that would solve this, and why isn't it enoug
 
 It is worth being honest that a good deal of proposed AI work does not survive these questions, and that is a feature, not a failure. Saying no to the cases where it does not belong is how you free up the budget and attention for the few where it genuinely pays.
 
-That sorting is exactly what a short, fixed-scope [AI Opportunity Assessment](/contact?topic=assessment) is for: a clear, prioritised view of where AI is worth your money, and where it would quietly drain it.
+That sorting is exactly what a short, fixed-scope [AI Opportunity Assessment](/contact?topic=assessment) is for: a clear, prioritized view of where AI is worth your money, and where it would quietly drain it.

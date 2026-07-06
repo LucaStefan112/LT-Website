@@ -18,9 +18,10 @@ const fmt = (d: Date) =>
 ---
 
 <Base
-  title={`${post.data.title} — Insights · ${site.name}`}
+  title={`${post.data.title} · ${site.name}`}
   description={post.data.description}
   path={`/insights/${post.id}`}
+  ogType="article"
 >
   <article class="article">
     <section class="article-hero bg-paper">

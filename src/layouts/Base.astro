@@ -9,15 +9,20 @@ interface Props {
   description: string;
   path: string; // e.g. "/", "/services"
   ogImage?: string;
+  ogType?: string; // "website" (default) or "article" for insight posts
 }
 const {
   title,
   description,
   path,
   ogImage = "/og-image.png",
+  ogType = "website",
 } = Astro.props;
 
-const canonical = new URL(path, site.url).href;
+// site.url has no trailing slash, and every route emits a slash-free canonical
+// (matching the sitemap and build.format: "file"). Special-case "/" so the home
+// canonical is the bare origin too, rather than URL()'s forced trailing slash.
+const canonical = path === "/" ? site.url : new URL(path, site.url).href;
 const ogImageUrl = new URL(ogImage, site.url).href;
 const logoUrl = new URL("/brand/lt-logo-primary.png", site.url).href;
 
@@ -70,7 +75,7 @@ const orgSchema = {
     <link rel="manifest" href="/site.webmanifest" />
 
     <!-- Open Graph -->
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content={site.name} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
