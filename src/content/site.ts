@@ -282,8 +282,7 @@ export const assessment = {
 /* The dedicated landing page for the free AI Opportunity Assessment, run
    through the Gate Zero Method. Honesty rules baked into this copy:
    - The capacity cap (3/month) is real for a founder-delivered offer — if
-     capacity changes, change the number here and in the private LT-Assets
-     repo (ai-opportunity-assessment/README.md).
+     capacity changes, change the number here and in offer-assets/.
    - The only statistic used is S&P Global's 2025 finding, with attribution.
    - The no-go guarantee is a commitment about future readouts, not a claim
      about past work. Never add invented clients, metrics, or history. */
