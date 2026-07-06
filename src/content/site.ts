@@ -166,7 +166,7 @@ export const hero = {
 
 export const intro = {
   eyebrow: "Why it matters",
-  body: "Most organizations don't lack ideas about AI and technology — they lack a clear, honest view of where it actually pays off, and the ability to deliver it. Pilots stall. Vendors oversell. Strategy decks gather dust. We close the gap between ambition and results.",
+  body: "Most leadership teams betting on AI don't lack ambition — they lack an independent, honest read on where it actually pays off, and someone who can take it into production safely and prove it worked. Pilots stall. Vendors oversell. The demo never survives real users. We're the technology advisor who closes that gap — and the one you keep for the decisions that come after.",
 } as const;
 
 /* ------------------------------------------------------- Value pillars */
