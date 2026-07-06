@@ -319,7 +319,7 @@ export const assessmentPage = {
       "A named section — “Where AI won't pay off for you” — with the engineering reason for every no",
       "Next steps that include actions you can take without hiring us",
     ],
-    guarantee: "Every readout names at least one use case we'd tell you not to build, or not to build yet — with the engineering reason. If every idea you have is somehow a go, we'll say that too, but no readout leaves here without an honest no where one is deserved.",
+    guarantee: "Expect at least one use case we'll tell you not to build — or not to build yet — with the engineering reason, in writing. And if every idea you bring genuinely clears the gate, the readout says that plainly instead: what it will never do is manufacture a verdict, in either direction.",
     sampleCta: { label: "Read a sample readout", href: "/assessment/sample-readout" } as CTA,
   },
 
@@ -883,7 +883,7 @@ export const pageMeta = {
   assessment: {
     title: "AI Opportunity Assessment — LT Strategy Partners",
     description:
-      "A free, founder-delivered AI assessment run through the Gate Zero Method: every use case scored for value, production viability, and EU AI Act exposure — with a blunt build / don't-build verdict.",
+      "A free, founder-delivered assessment: every AI use case scored for value, production viability, and EU AI Act exposure — verdict included: build now, not yet, or don't build.",
     path: "/assessment",
   },
   assessmentSample: {

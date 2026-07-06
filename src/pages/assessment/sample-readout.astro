@@ -21,7 +21,7 @@ interface Row {
 const ragRows: Row[] = [
   { dim: "Value at stake", a: "green", b: "amber", c: "amber" },
   { dim: "Data reality", a: "green", b: "red", c: "red" },
-  { dim: "Grounding & retrieval", a: "green", b: "amber", c: "red" },
+  { dim: "Grounding & retrieval", a: "green", b: "red", c: "red" },
   { dim: "Error tolerance vs stakes", a: "green", b: "green", c: "red" },
   { dim: "Validation & verifiability", a: "amber", b: "amber", c: "red" },
   { dim: "Cost, latency & ownership", a: "green", b: "amber", c: "amber" },
@@ -111,7 +111,7 @@ const ragLabel: Record<Rag, string> = {
         <p class="sr-sheet-tag">Page 2 · The opportunity portfolio</p>
         <h2 class="sr-sheet-title">Three use cases, one map.</h2>
 
-        <div class="sr-map" role="img" aria-label="Value versus production viability map. Document assistant: high value, high viability — build now. Support chatbot: medium value, low viability — not yet. Pricing engine: high value claimed, very low viability — don't build.">
+        <div class="sr-map" role="img" aria-label="Value versus production viability map. Document assistant: high value, high viability — build now. Support chatbot: medium value, low viability — not yet. Pricing engine: claimed value can't be validated so it can't be banked, very low viability — don't build.">
           <span class="sr-axis-y">Value at stake →</span>
           <span class="sr-axis-x">Production viability →</span>
           <div class="sr-map-grid" aria-hidden="true">
@@ -119,7 +119,7 @@ const ragLabel: Record<Rag, string> = {
             <div class="sr-quad sr-quad-tr"><span>Build now</span></div>
             <div class="sr-quad sr-quad-bl"><span>Don't build — and here's why</span></div>
             <div class="sr-quad sr-quad-br"><span>Quick wins, modest stakes</span></div>
-            <div class="sr-dot sr-dot-a" style="left: 78%; top: 22%;">
+            <div class="sr-dot sr-dot-a sr-dot--flip" style="left: 78%; top: 22%;">
               <i></i>
               <em>A · Document assistant <b class="sr-badge sr-badge-minimal">AI Act: minimal</b></em>
             </div>
@@ -127,9 +127,9 @@ const ragLabel: Record<Rag, string> = {
               <i></i>
               <em>B · Support chatbot <b class="sr-badge sr-badge-limited">AI Act: limited</b></em>
             </div>
-            <div class="sr-dot sr-dot-c" style="left: 12%; top: 30%;">
+            <div class="sr-dot sr-dot-c" style="left: 12%; top: 68%;">
               <i></i>
-              <em>C · Pricing engine <b class="sr-badge sr-badge-flag">margin-critical</b></em>
+              <em>C · Pricing engine <b class="sr-badge sr-badge-minimal">AI Act: minimal</b> <b class="sr-badge sr-badge-flag">margin-critical</b></em>
             </div>
           </div>
         </div>
@@ -164,11 +164,26 @@ const ragLabel: Record<Rag, string> = {
           <li><span class="sr-rag sr-rag-amber">A</span> {ragLabel.amber}</li>
           <li><span class="sr-rag sr-rag-red">R</span> {ragLabel.red}</li>
         </ul>
+        <p class="sr-badge-note">
+          Map badges show each use case's provisional EU AI Act tier. Additional
+          flags — like <em>margin-critical</em> on C — mark business stakes; they
+          are not AI Act tiers.
+        </p>
         <ul class="sr-nongreen" role="list">
           <li><strong>A / Validation (amber):</strong> extraction accuracy needs a 200-document ground-truth set before launch — one week of operator time, scoped in the gate checklist.</li>
           <li><strong>A / Exposure (amber):</strong> shipping documents carry personal data; processing must stay in the EU, and the extraction step should run self-hosted or in an EU region with no third-country transfer.</li>
-          <li><strong>B / Data reality (red):</strong> the grounding content is fragmented and stale; no assistant can answer from documentation that doesn't exist in one current place.</li>
+          <li><strong>B / Value (amber):</strong> the interruption cost is real but unmeasured — the base case needs two weeks of ticket counting before it can be banked.</li>
+          <li><strong>B / Data reality (red):</strong> no single, current source of the answers exists — they're scattered across seventeen inboxes and a wiki untouched for fourteen months.</li>
+          <li><strong>B / Grounding &amp; retrieval (red):</strong> fragmented, stale content is precisely what retrieval tuning cannot rescue — the score follows the anchor until the knowledge base is consolidated.</li>
+          <li><strong>B / Validation (amber):</strong> correctness is checkable by sampling against the ops team — but only once a consolidated source defines what a correct answer is.</li>
+          <li><strong>B / Cost &amp; ownership (amber):</strong> query volumes and per-answer economics can't be modeled until the assistant has a source to answer from, and no owner is named yet.</li>
+          <li><strong>B / Exposure (amber):</strong> customer-facing, so EU AI Act transparency obligations apply, and transcripts would carry customer personal data — both addressable at design time.</li>
+          <li><strong>C / Value (amber):</strong> the margin upside is plausible but can't be validated from unstructured quote history — value that can't be measured can't be banked.</li>
+          <li><strong>C / Data reality (red):</strong> spot-quote history lives in email threads; no structured record exists to train or validate against.</li>
+          <li><strong>C / Grounding &amp; retrieval (red):</strong> the pricing context that would ground a quote — lane, season, client history — isn't retrievable from any current system.</li>
           <li><strong>C / Error tolerance (red):</strong> a wrong price reaches a customer with no human between the model and the harm — the workflow as designed has no error budget.</li>
+          <li><strong>C / Validation (red):</strong> with no ground truth, the error rate cannot even be measured to the tolerance the workflow demands.</li>
+          <li><strong>C / Cost &amp; ownership (amber):</strong> per-quote economics look fine on paper, but they're meaningless while the error rate is unmeasurable.</li>
         </ul>
         <p class="sr-binding">
           The binding constraint at Arvela: <strong>data consolidation, not
@@ -501,18 +516,19 @@ const ragLabel: Record<Rag, string> = {
   .sr-quad-tr span { color: var(--color-steel); }
   .sr-quad-bl { border-right-width: 1px; background-color: color-mix(in srgb, #b3261e 4%, var(--color-paper)); }
   .sr-quad-bl span { color: color-mix(in srgb, #b3261e 70%, var(--color-ink)); }
+  /* The MARKER is the element anchored at the plotted coordinate; the label
+     hangs off it (right by default, left for .sr-dot--flip) so long labels
+     never drag the dot out of its quadrant. */
   .sr-dot {
     position: absolute;
-    transform: translate(-50%, -50%);
-    display: flex;
-    align-items: center;
-    gap: 0.45rem;
-    max-width: 46%;
-  }
-  .sr-dot i {
-    flex: none;
     width: 0.875rem;
     height: 0.875rem;
+    transform: translate(-50%, -50%);
+  }
+  .sr-dot i {
+    display: block;
+    width: 100%;
+    height: 100%;
     border-radius: 999px;
     background-color: var(--color-steel);
     border: 2px solid var(--color-paper);
@@ -521,11 +537,22 @@ const ragLabel: Record<Rag, string> = {
   .sr-dot-b i { background-color: #b8860b; box-shadow: 0 0 0 1px #b8860b; }
   .sr-dot-c i { background-color: #b3261e; box-shadow: 0 0 0 1px #b3261e; }
   .sr-dot em {
+    position: absolute;
+    left: 1.375rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: max-content;
+    max-width: min(15rem, 38vw);
     font-style: normal;
     font-size: 0.8125rem;
     font-weight: 600;
     color: var(--color-ink);
     line-height: 1.35;
+  }
+  .sr-dot--flip em {
+    left: auto;
+    right: 1.375rem;
+    text-align: right;
   }
   .sr-badge {
     display: inline-block;
@@ -602,6 +629,13 @@ const ragLabel: Record<Rag, string> = {
     display: flex;
     align-items: center;
     gap: 0.625rem;
+  }
+  .sr-badge-note {
+    margin-top: 1rem;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    color: var(--color-muted);
+    max-width: 68ch;
   }
   .sr-nongreen {
     list-style: none;
