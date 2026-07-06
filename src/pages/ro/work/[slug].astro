@@ -1,0 +1,14 @@
+---
+import WorkProjectView from "../../../views/WorkProjectView.astro";
+import { work } from "../../../content/site.ro";
+
+export function getStaticPaths() {
+  return work.projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+const { project } = Astro.props;
+---
+
+<WorkProjectView project={project} />

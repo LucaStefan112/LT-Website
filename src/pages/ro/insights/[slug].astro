@@ -1,0 +1,19 @@
+---
+import { getCollection } from "astro:content";
+import InsightsPostView from "../../../views/InsightsPostView.astro";
+
+export async function getStaticPaths() {
+  // Romanian tree: published posts under ro/, same slugs as English.
+  const posts = await getCollection(
+    "insights",
+    ({ id, data }) => !data.draft && id.startsWith("ro/")
+  );
+  return posts.map((post) => ({
+    params: { slug: post.id.replace(/^ro\//, "") },
+    props: { post },
+  }));
+}
+const { post } = Astro.props;
+---
+
+<InsightsPostView post={post} />

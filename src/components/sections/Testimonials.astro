@@ -2,7 +2,9 @@
 import Section from "../ui/Section.astro";
 import Container from "../ui/Container.astro";
 import SectionHeader from "../ui/SectionHeader.astro";
-import { testimonials, testimonialsMeta } from "../../content/site";
+import { getContent } from "../../content/i18n";
+
+const { testimonials, testimonialsMeta } = getContent(Astro.url.pathname);
 
 /* Renders ONLY when there is at least one real, permissioned testimonial.
    While `testimonials` is empty, this section outputs nothing — no empty box,

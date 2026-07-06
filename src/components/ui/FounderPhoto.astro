@@ -2,7 +2,9 @@
 /* Founder photo slot. Renders the image when config.founderPhoto is set;
    otherwise a clearly-marked [[VERIFY]] placeholder (never an invented photo).
    Set config.founderPhoto to "/brand/founder.jpg" once the photo is added. */
-import { config, site } from "../../content/site";
+import { getContent, resolveLocale } from "../../content/i18n";
+
+const { config, site } = getContent(Astro.url.pathname);
 
 interface Props {
   caption?: string;
@@ -16,7 +18,7 @@ const { caption, class: className = "" } = Astro.props;
     config.founderPhoto ? (
       <img
         src={config.founderPhoto}
-        alt={`${site.founder}, founder of ${site.name}`}
+        alt={resolveLocale(Astro.url.pathname) === "ro" ? `${site.founder}, fondatorul ${site.name}` : `${site.founder}, founder of ${site.name}`}
         width="800"
         height="800"
         loading="lazy"

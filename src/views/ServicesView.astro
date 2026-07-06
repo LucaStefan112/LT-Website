@@ -1,0 +1,24 @@
+---
+import Base from "../layouts/Base.astro";
+import PageIntro from "../components/sections/PageIntro.astro";
+import Services from "../components/sections/Services.astro";
+import Approach from "../components/sections/Approach.astro";
+import CTABand from "../components/sections/CTABand.astro";
+import { getContent } from "../content/i18n";
+
+const { pageMeta, pageIntros } = getContent(Astro.url.pathname);
+const meta = pageMeta.services;
+const intro = pageIntros.services;
+---
+
+<Base title={meta.title} description={meta.description} path={meta.path}>
+  <PageIntro
+    eyebrow={intro.eyebrow}
+    title={intro.title}
+    lead={intro.lead}
+    headingId="services-page-heading"
+  />
+  <Services showHeader={false} variant="paper" />
+  <Approach />
+  <CTABand />
+</Base>

@@ -1,7 +1,9 @@
 ---
 import Container from "../ui/Container.astro";
 import Button from "../ui/Button.astro";
-import { hero } from "../../content/site";
+import { getContent } from "../../content/i18n";
+
+const { hero } = getContent(Astro.url.pathname);
 ---
 
 <section class="hero bg-paper" aria-labelledby="hero-heading">

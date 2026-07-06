@@ -2,7 +2,9 @@
 import Section from "../ui/Section.astro";
 import Container from "../ui/Container.astro";
 import SectionHeader from "../ui/SectionHeader.astro";
-import { approach } from "../../content/site";
+import { getContent } from "../../content/i18n";
+
+const { approach } = getContent(Astro.url.pathname);
 ---
 
 <Section id="approach" variant="bone" labelledby="approach-heading">

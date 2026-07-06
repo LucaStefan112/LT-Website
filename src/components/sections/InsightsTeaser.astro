@@ -3,14 +3,21 @@ import { getCollection } from "astro:content";
 import Section from "../ui/Section.astro";
 import Container from "../ui/Container.astro";
 import SectionHeader from "../ui/SectionHeader.astro";
-import { insights } from "../../content/site";
+import { getContent, resolveLocale, localePath } from "../../content/i18n";
 
-const all = (await getCollection("insights")).sort(
+const { insights, ui } = getContent(Astro.url.pathname);
+const locale = resolveLocale(Astro.url.pathname);
+
+const all = (
+  await getCollection("insights", ({ id }) =>
+    locale === "ro" ? id.startsWith("ro/") : !id.startsWith("ro/")
+  )
+).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
 );
 const latest = all.slice(0, 3);
 const fmt = (d: Date) =>
-  d.toLocaleDateString("en-US", { month: "long", year: "numeric" });
+  d.toLocaleDateString(ui.insightsDateLocale, { month: "long", year: "numeric" });
 ---
 
 <Section id="insights" variant="paper" labelledby="insights-heading">
@@ -30,14 +37,14 @@ const fmt = (d: Date) =>
             <h3 class="insight-title">{post.data.title}</h3>
             <p class="insight-desc">{post.data.description}</p>
             {post.data.draft ? (
-              <span class="insight-soon">Coming soon</span>
+              <span class="insight-soon">{ui.comingSoon}</span>
             ) : (
               <a
-                href={`/insights/${post.id}`}
+                href={localePath(locale, `/insights/${post.id.replace(/^ro\//, "")}`)}
                 class="link-arrow insight-read"
-                aria-label={`Read: ${post.data.title}`}
+                aria-label={`${ui.readAria} ${post.data.title}`}
               >
-                Read
+                {ui.read}
                 <span class="arrow" aria-hidden="true">
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                     <path

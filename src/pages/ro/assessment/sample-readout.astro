@@ -1,0 +1,936 @@
+---
+/* ROMANIAN sample Gate Zero Readout — full translation of
+   ../../assessment/sample-readout.astro (keep the two in sync when either
+   changes; styles are shared verbatim from the English page at build time
+   via scripts — edit prose here, geometry there). "Arvela Logistics" is a
+   fictional company; every number is invented. */
+import Base from "../../../layouts/Base.astro";
+import Container from "../../../components/ui/Container.astro";
+import Button from "../../../components/ui/Button.astro";
+import { pageMeta } from "../../../content/site.ro";
+
+const meta = pageMeta.assessmentSample;
+
+type Rag = "green" | "amber" | "red";
+interface Row {
+  dim: string;
+  a: Rag;
+  b: Rag;
+  c: Rag;
+}
+const ragRows: Row[] = [
+  { dim: "Valoare în joc", a: "green", b: "amber", c: "amber" },
+  { dim: "Realitatea datelor", a: "green", b: "red", c: "red" },
+  { dim: "Ancorare și retrieval", a: "green", b: "red", c: "red" },
+  { dim: "Toleranța la erori față de miză", a: "green", b: "green", c: "red" },
+  { dim: "Validare și verificabilitate", a: "amber", b: "amber", c: "red" },
+  { dim: "Cost, latență și responsabilitate", a: "green", b: "amber", c: "amber" },
+  { dim: "Securitate și expunere EU AI Act", a: "amber", b: "amber", c: "green" },
+];
+const ragLabel: Record<Rag, string> = {
+  green: "Pe teren solid — niciun blocaj găsit la adâncimea discuției ghidate",
+  amber: "Lipsă rezolvabilă — condiția de îndeplinit este numită",
+  red: "Problemă care blochează poarta — oprește un verdict de construcție în forma actuală",
+};
+---
+
+<Base title={meta.title} description={meta.description} path={meta.path}>
+  <section class="sr-wrap bg-bone">
+    <Container>
+      <a href="/ro/assessment" class="sr-back" data-astro-prefetch>
+        <span aria-hidden="true">←</span> Evaluarea Oportunităților AI
+      </a>
+
+      <div class="sr-banner" role="note">
+        <strong>Exemplu ilustrativ.</strong> „Arvela Logistics” este o companie
+        fictivă, iar fiecare cifră de mai jos este inventată. Metoda, punctarea
+        și formatul sunt exact ce primiți — construite însă pe cifrele
+        dumneavoastră.
+      </div>
+
+      <h1 class="sr-pagetitle">Un exemplu de Raport Gate Zero.</h1>
+
+      <!-- ============================== PAGE 1 -->
+      <article class="sr-sheet" aria-label="Pagina 1 — Memo de decizie">
+        <p class="sr-sheet-tag">Pagina 1 · Memo de decizie</p>
+        <p class="sr-doc-head">
+          Raport Gate Zero — Arvela Logistics · martie 2026 · Întocmit de
+          Luca-Ștefan Tamaș, LT Strategy Partners
+        </p>
+        <h2 class="sr-verdict-title">
+          Lansați asistentul pentru documente de expediție. Consolidați baza de
+          cunoștințe înainte de orice chatbot pentru clienți. Nu construiți
+          motorul de prețuri.
+        </h2>
+        <p class="sr-body">
+          Dintre cele trei cazuri de utilizare evaluate, unul este pregătit de
+          construcție acum: un asistent care citește emailurile de booking și
+          documentele de expediție atașate și pregătește înregistrări
+          structurate, pe care echipa de operațiuni le confirmă. Celelalte două
+          nu trec astăzi de Gate Zero — unul temporar, unul din proiectare.
+        </p>
+        <ul class="sr-points" role="list">
+          <li>
+            <strong>Asistentul pentru documente trece de poartă.</strong> Cinci
+            oameni din operațiuni petrec fiecare aproximativ nouă ore pe
+            săptămână retastând date din PDF-uri și emailuri — circa 54.000 €
+            pe an într-un scenariu de bază conservator, folosind chiar cifrele
+            de cost ale Arvela. Conținutul-sursă există, este accesibil astăzi,
+            iar fiecare rezultat este confirmat de un om înainte să intre în
+            TMS — deci bugetul de eroare este unul onest.
+          </li>
+          <li>
+            <strong>Chatbotul de suport este „încă nu”, nu „nu”.</strong>
+            Răspunsurile de care au nevoie clienții trăiesc în șaptesprezece
+            inboxuri și într-un wiki actualizat ultima dată acum paisprezece
+            luni. Construit astăzi, asistentul ar repeta cu încredere răspunsuri
+            expirate. Deblocarea este organizațională, nu tehnică — și este
+            numită la pagina 4.
+          </li>
+          <li>
+            <strong>Motorul de prețuri pică pe miză, nu pe ambiție.</strong>
+            O extragere greșită e prinsă de operatorul care o confirmă. Un preț
+            greșit ajunge direct la client. Cu istoricul cotațiilor spot trăind
+            în fire de email, rata de eroare nu poate fi validată la toleranța
+            pe care fluxul de lucru o cere — aici AI nu se va amortiza pentru
+            Arvela, în forma propusă.
+          </li>
+        </ul>
+        <p class="sr-anchor">
+          Ce bănuia deja conducerea, confirmat acum cu cifre: povara
+          retastării, semnalată de doi ani de șeful operațiunilor, este cel mai
+          puternic caz de AI din companie — mai puternic decât ambele idei
+          venite din discuții cu furnizori.
+        </p>
+        <div class="sr-next">
+          <span class="sr-next-label">Responsabil și pasul pe 90 de zile</span>
+          Directorul de operațiuni. Dimensionați asistentul pentru documente
+          după lista de criterii de la pagina 3; în paralel, numiți un
+          responsabil pentru baza de cunoștințe, cu o țintă de consolidare la
+          90 de zile.
+        </div>
+      </article>
+
+      <!-- ============================== PAGE 2 -->
+      <article class="sr-sheet" aria-label="Pagina 2 — Portofoliul de oportunități">
+        <p class="sr-sheet-tag">Pagina 2 · Portofoliul de oportunități</p>
+        <h2 class="sr-sheet-title">Trei cazuri de utilizare, o singură hartă.</h2>
+
+        <div class="sr-map" role="img" aria-label="Harta valoare versus viabilitate în producție. Asistentul pentru documente: valoare mare, viabilitate mare — construiți acum. Chatbotul de suport: valoare medie, viabilitate scăzută — încă nu. Motorul de prețuri: valoarea pretinsă nu poate fi validată, deci nu poate fi contabilizată; viabilitate foarte scăzută — nu construiți.">
+          <span class="sr-axis-y">Valoare în joc →</span>
+          <span class="sr-axis-x">Viabilitate în producție →</span>
+          <div class="sr-map-grid" aria-hidden="true">
+            <div class="sr-quad sr-quad-tl"><span>Încă nu — închideți întâi lipsa</span></div>
+            <div class="sr-quad sr-quad-tr"><span>Construiți acum</span></div>
+            <div class="sr-quad sr-quad-bl"><span>Nu construiți — și iată de ce</span></div>
+            <div class="sr-quad sr-quad-br"><span>Câștiguri rapide, miză modestă</span></div>
+            <div class="sr-dot sr-dot-a sr-dot--flip" style="left: 78%; top: 22%;">
+              <i></i>
+              <em>A · Asistentul pentru documente <b class="sr-badge sr-badge-minimal">AI Act: minim</b></em>
+            </div>
+            <div class="sr-dot sr-dot-b" style="left: 30%; top: 44%;">
+              <i></i>
+              <em>B · Chatbot de suport <b class="sr-badge sr-badge-limited">AI Act: limitat</b></em>
+            </div>
+            <div class="sr-dot sr-dot-c" style="left: 12%; top: 68%;">
+              <i></i>
+              <em>C · Motor de prețuri <b class="sr-badge sr-badge-minimal">AI Act: minim</b> <b class="sr-badge sr-badge-flag">critic pentru marjă</b></em>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="sr-table-label">Punctajele pe dimensiuni, la adâncimea discuției ghidate</h3>
+        <div class="sr-table-scroll">
+          <table class="sr-table">
+            <thead>
+              <tr>
+                <th scope="col">Dimensiunea Gate Zero</th>
+                <th scope="col">A · Documente</th>
+                <th scope="col">B · Chatbot</th>
+                <th scope="col">C · Prețuri</th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                ragRows.map((r) => (
+                  <tr>
+                    <th scope="row">{r.dim}</th>
+                    <td><span class:list={["sr-rag", `sr-rag-${r.a}`]}>{r.a === "green" ? "V" : r.a === "amber" ? "G" : "R"}</span></td>
+                    <td><span class:list={["sr-rag", `sr-rag-${r.b}`]}>{r.b === "green" ? "V" : r.b === "amber" ? "G" : "R"}</span></td>
+                    <td><span class:list={["sr-rag", `sr-rag-${r.c}`]}>{r.c === "green" ? "V" : r.c === "amber" ? "G" : "R"}</span></td>
+                  </tr>
+                ))
+              }
+            </tbody>
+          </table>
+        </div>
+        <ul class="sr-legend" role="list">
+          <li><span class="sr-rag sr-rag-green">V</span> {ragLabel.green}</li>
+          <li><span class="sr-rag sr-rag-amber">G</span> {ragLabel.amber}</li>
+          <li><span class="sr-rag sr-rag-red">R</span> {ragLabel.red}</li>
+        </ul>
+        <p class="sr-badge-note">
+          Etichetele de pe hartă arată nivelul provizoriu EU AI Act al fiecărui
+          caz. Marcajele suplimentare — precum <em>critic pentru marjă</em> la C
+          — semnalează miza de business; ele nu sunt niveluri AI Act.
+        </p>
+        <ul class="sr-nongreen" role="list">
+          <li><strong>A / Validare (galben):</strong> acuratețea extragerii are nevoie, înainte de lansare, de un set de referință de 200 de documente — o săptămână de timp al operatorilor, dimensionată în lista de criterii.</li>
+          <li><strong>A / Expunere (galben):</strong> documentele de expediție conțin date personale; prelucrarea trebuie să rămână în UE, iar pasul de extragere ar trebui să ruleze self-hosted sau într-o regiune UE, fără transfer către țări terțe.</li>
+          <li><strong>B / Valoare (galben):</strong> costul întreruperilor este real, dar nemăsurat — scenariul de bază are nevoie de două săptămâni de numărat tichete înainte să poată fi contabilizat.</li>
+          <li><strong>B / Realitatea datelor (roșu):</strong> nu există o sursă unică și actuală a răspunsurilor — sunt împrăștiate în șaptesprezece inboxuri și într-un wiki neatins de paisprezece luni.</li>
+          <li><strong>B / Ancorare și retrieval (roșu):</strong> conținutul fragmentat și expirat este exact ce nu poate salva niciun tuning de retrieval — punctajul urmează criteriul până la consolidarea bazei de cunoștințe.</li>
+          <li><strong>B / Validare (galben):</strong> corectitudinea se poate verifica prin eșantionare cu echipa de operațiuni — dar abia după ce o sursă consolidată definește ce înseamnă un răspuns corect.</li>
+          <li><strong>B / Cost și responsabilitate (galben):</strong> volumele de interogări și economia per răspuns nu pot fi modelate până când asistentul nu are o sursă din care să răspundă; niciun responsabil numit încă.</li>
+          <li><strong>B / Expunere (galben):</strong> fiind orientat către clienți, se aplică obligațiile de transparență din EU AI Act, iar conversațiile ar conține date personale ale clienților — ambele rezolvabile în faza de design.</li>
+          <li><strong>C / Valoare (galben):</strong> câștigul de marjă este plauzibil, dar nu poate fi validat dintr-un istoric de cotații nestructurat — valoarea care nu se poate măsura nu se poate contabiliza.</li>
+          <li><strong>C / Realitatea datelor (roșu):</strong> istoricul cotațiilor spot trăiește în fire de email; nu există nicio evidență structurată pe care să antrenezi sau să validezi.</li>
+          <li><strong>C / Ancorare și retrieval (roșu):</strong> contextul de preț care ar ancora o cotație — rută, sezon, istoricul clientului — nu poate fi extras din niciun sistem actual.</li>
+          <li><strong>C / Toleranța la erori (roșu):</strong> un preț greșit ajunge la client fără niciun om între model și pagubă — fluxul de lucru, așa cum e proiectat, nu are buget de eroare.</li>
+          <li><strong>C / Validare (roșu):</strong> fără un adevăr de referință, rata de eroare nici măcar nu poate fi măsurată la toleranța pe care fluxul o cere.</li>
+          <li><strong>C / Cost și responsabilitate (galben):</strong> economia per cotație arată bine pe hârtie, dar nu înseamnă nimic câtă vreme rata de eroare este nemăsurabilă.</li>
+        </ul>
+        <p class="sr-binding">
+          Constrângerea care blochează la Arvela: <strong>consolidarea datelor,
+          nu ambiția, condiționează tot ce vine după cazul A.</strong>
+        </p>
+        <p class="sr-footnote">
+          Ponderile dimensiunilor au fost fixate înainte de punctarea oricărui
+          caz. Nu se raportează niciun scor agregat — dimensiunea cea mai slabă
+          blochează poarta; mediile ascund.
+        </p>
+      </article>
+
+      <!-- ============================== PAGE 3 -->
+      <article class="sr-sheet" aria-label="Pagina 3 — Cazul principal: fișă și poartă formală">
+        <p class="sr-sheet-tag">Pagina 3 · Cazul principal — fișă și poartă formală</p>
+        <h2 class="sr-sheet-title">A · Asistentul pentru documente de expediție.</h2>
+        <dl class="sr-fields">
+          <div><dt>Procesul de business</dt><dd>Cereri de booking primite: email + PDF-uri atașate (conosamente, liste de colisaj, formulare vamale), retastate în TMS de echipa de operațiuni.</dd></div>
+          <div><dt>Impact, scenariu de bază conservator</dt><dd>5 operatori × ~9 ore/săptămână de retastare × costul complet al Arvela ≈ <strong>54.000 €/an</strong>, fără timpul de corectare a erorilor. Ipoteză declarată: volumele vin din estimarea șefului de operațiuni, nu din loguri măsurate.</dd></div>
+          <div><dt>Cumpărăm / integrăm / construim</dt><dd>Integrăm: un model de extragere în spatele unei interfețe de verificare, legat la API-ul TMS existent. Antrenarea unui model propriu nu se justifică la acest volum.</dd></div>
+          <div><dt>Pregătirea datelor</dt><dd>Verde la adâncimea discuției ghidate — documentele sunt accesibile astăzi în inboxul comun; setul de referință este necesar înainte de lansare (vezi poarta).</dd></div>
+          <div><dt>Interval de cost și timp până în producție</dt><dd>Cinci cifre în zona joasă, 8–12 săptămâni până la un sistem de producție cu validare, monitorizare și predare. Un interval, nu o ofertă — prețul fix urmează unui audit dimensionat.</dd></div>
+          <div><dt>Metrica de succes</dt><dd>Ore de retastare la 100 de expedieri, măsurate înainte și la ~30 de zile după lansare.</dd></div>
+        </dl>
+
+        <h3 class="sr-gate-title">Poarta</h3>
+        <p class="sr-gate-verdict"><span class="sr-verdict-chip sr-chip-go">Construiți acum</span> — sub rezerva listei de mai jos.</p>
+        <ul class="sr-gate-list" role="list">
+          <li><strong>Ținta de capabilitate:</strong> acuratețe de extragere ≥95% la nivel de câmp, pe setul de referință de 200 de documente, înainte de go-live; fiecare rezultat confirmat de un om până atunci, apoi eșantionat.</li>
+          <li><strong>Ținta de siguranță:</strong> nicio scriere automată în TMS — confirmarea operatorului rămâne în buclă până la trei săptămâni consecutive în interiorul bugetului de eroare.</li>
+          <li><strong>Costul la scară:</strong> costul unitar per expediere procesată rămâne sub plafonul convenit la volum dublu; măsurat, nu presupus.</li>
+          <li><strong>Semnături necesare:</strong> responsabilul de operațiuni · securitate/protecția datelor · inginerie · operatorii care îl folosesc.</li>
+          <li><strong>Condiții de abandon:</strong> dacă setul de referință nu poate atinge pragul de acuratețe, sau prelucrarea exclusiv în UE nu se poate obține la un cost acceptabil, ne oprim — verdictul devine „încă nu” și raportul spune de ce.</li>
+          <li><strong>Ce ar schimba acest verdict:</strong> o migrare de TMS în timpul construcției, sau volume de trei ori sub estimarea folosită în scenariul de bază.</li>
+        </ul>
+        <p class="sr-confidence">
+          Încredere: punctajele marcate „la adâncimea discuției ghidate” au fost
+          verificate în conversație, nu în pipeline-uri inspectate. Auditul
+          plătit le testează pe inboxul și TMS-ul real, înainte de orice
+          construcție.
+        </p>
+      </article>
+
+      <!-- ============================== PAGE 4 -->
+      <article class="sr-sheet" aria-label="Pagina 4 — Unde AI nu se va amortiza">
+        <p class="sr-sheet-tag">Pagina 4 · Unde AI nu se va amortiza pentru Arvela</p>
+        <h2 class="sr-sheet-title">Refuzurile oneste — și ce le-ar schimba.</h2>
+
+        <div class="sr-no">
+          <p class="sr-no-head"><span class="sr-verdict-chip sr-chip-notyet">Încă nu</span> B · Asistent de suport pentru clienți</p>
+          <p class="sr-body">
+            Valoarea este reală — întrebările despre statusul expedierilor
+            întrerup exact echipa care retastează documente. Dar conținutul-sursă
+            pică testul Gate Zero: răspunsurile trăiesc în șaptesprezece inboxuri
+            și într-un wiki neatins de paisprezece luni. Construit pe ele, un
+            asistent ar răspunde cu încredere și greșit, în fața clienților, sub
+            obligațiile de transparență pe care EU AI Act le cere boturilor
+            orientate către clienți. <strong>Deblocarea:</strong> un responsabil,
+            o bază de cunoștințe consolidată, o țintă la 90 de zile — apoi acest
+            caz reintră în poartă cu un drum realist către „construiți”.
+          </p>
+        </div>
+
+        <div class="sr-no">
+          <p class="sr-no-head"><span class="sr-verdict-chip sr-chip-no">Nu construiți</span> C · Motor de prețuri dinamice</p>
+          <p class="sr-body">
+            Nu pentru că modelul n-ar putea produce prețuri — ci pentru că fluxul
+            de lucru nu are buget de eroare și nici cale de validare. O extragere
+            greșită e prinsă de un operator; un preț greșit ajunge direct la
+            client și costă marjă sau încredere. Istoricul cotațiilor spot, care
+            l-ar antrena și valida, trăiește în fire de email nestructurate, așa
+            că rata de eroare nici măcar nu poate fi măsurată la toleranța
+            cerută. <strong>Răspunsul mai ieftin, care rezistă la scrutin:</strong>
+            un prag de marjă bazat pe reguli, cu revizuire trimestrială — aproape
+            gratuit, fără comportament-surpriză. <strong>Ce ar schimba
+            verdictul:</strong> doi ani de date structurate cotație/rezultat și
+            un pas de aprobare umană care să nu anuleze avantajul de viteză.
+          </p>
+        </div>
+      </article>
+
+      <!-- ============================== PAGE 5 -->
+      <article class="sr-sheet" aria-label="Pagina 5 — Lipsuri, pași următori și harta înainte">
+        <p class="sr-sheet-tag">Pagina 5 · Lipsuri, pași următori și drumul înainte</p>
+        <h2 class="sr-sheet-title">Ce urmează — cu sau fără noi.</h2>
+        <ol class="sr-steps" role="list">
+          <li><strong>Numiți responsabilul bazei de cunoștințe (al dumneavoastră, săptămâna aceasta).</strong> Nu e nevoie de niciun contract — un nume, o țintă de consolidare la 90 de zile, iar cazul B încetează să mai fie blocat.</li>
+          <li><strong>Construiți setul de referință (al dumneavoastră, ~1 săptămână de timp al operatorilor).</strong> 200 de expedieri recente, cu câmpurile verificate manual. Oricine ar construi asistentul va avea nevoie de el — noi sau altcineva.</li>
+          <li><strong>Dimensionați asistentul pentru documente după poarta de la pagina 3.</strong> Întrebările rămase deschise — acuratețea reală a extragerii pe documentele dumneavoastră, costul prelucrării exclusiv în UE — sunt exact ce testează un audit de pregătire pentru producție, cu perimetru fix.</li>
+          <li><strong>Reintroduceți chatbotul în poartă peste 90 de zile.</strong> Dacă baza de cunoștințe se consolidează, B reintră drept candidat la „construiți”; dacă nu, și asta vă spune ceva.</li>
+        </ol>
+        <div class="sr-map-forward">
+          <p class="sr-foot-label">Dacă vreți ajutor, iată cum se leagă fiecare lipsă</p>
+          <ul role="list">
+            <li>Acuratețea extragerii și realitatea pipeline-ului → un <strong>audit de pregătire pentru producție</strong>, cu perimetru fix, pe cazul A.</li>
+            <li>Prelucrarea exclusiv în UE / fără transferuri → o <strong>analiză de securitate și EU AI Act</strong>, dimensionată chiar de nivelul de expunere atribuit mai sus.</li>
+            <li>Ducerea lui A de la verdict în producție → un <strong>sprint de producție</strong> cu perimetru fix, un singur flux de lucru, măsurat pe metrica de la pagina 3.</li>
+          </ul>
+        </div>
+        <p class="sr-yours">Acest document rămâne al dumneavoastră, în oricare variantă.</p>
+      </article>
+
+      <!-- ============================== APPENDIX -->
+      <article class="sr-sheet sr-sheet-appendix" aria-label="Anexă — grila de punctare Gate Zero">
+        <p class="sr-sheet-tag">Anexă · Grila de punctare Gate Zero</p>
+        <h2 class="sr-sheet-title">Criteriile sunt metoda. Nimic în spatele cortinei.</h2>
+        <p class="sr-body">
+          Fiecare dimensiune este punctată de la 1 la 5, pe criterii observabile
+          — aceleași în fiecare raport, fixate înainte de punctare. Pentru
+          fiecare dimensiune, aici sunt arătate punctajele 5 și 1; setul complet
+          de criterii însoțește raportul.
+        </p>
+        <dl class="sr-rubric">
+          <div><dt>Valoare în joc</dt><dd><strong>5:</strong> euro sau ore atașate unui flux de lucru numit, din cifrele proprii ale clientului. <strong>1:</strong> „eficiență”, fără vreun flux numit.</dd></div>
+          <div><dt>Realitatea datelor</dt><dd><strong>5:</strong> conținutul-sursă există, este curat și accesibil astăzi. <strong>1:</strong> există în capul cuiva.</dd></div>
+          <div><dt>Ancorare și retrieval</dt><dd><strong>5:</strong> conținut structurat, actual, ușor de fragmentat, pe care un sistem de retrieval îl poate servi la calitate de producție. <strong>1:</strong> conținut fragmentat sau expirat, pe care niciun tuning de retrieval nu îl poate salva.</dd></div>
+          <div><dt>Toleranța la erori față de miză</dt><dd><strong>5:</strong> răspunsurile greșite ajung la un verificator care are timp să le prindă. <strong>1:</strong> răspunsurile greșite ajung direct la un client, la un organ de reglementare sau într-un registru contabil.</dd></div>
+          <div><dt>Validare și verificabilitate</dt><dd><strong>5:</strong> corectitudinea se poate verifica automat sau prin eșantionare ieftină. <strong>1:</strong> nu ai cum să afli că greșește până nu costă ceva.</dd></div>
+          <div><dt>Cost, latență și responsabilitate</dt><dd><strong>5:</strong> economia unitară rezistă la volum dublu și există un responsabil numit. <strong>1:</strong> costul per interogare e necunoscut și n-ar fi sunat nimeni noaptea.</dd></div>
+          <div><dt>Securitate și expunere EU AI Act</dt><dd><strong>5:</strong> fără date personale, nivel de risc minim, instalare fără constrângeri. <strong>1:</strong> date personale sau reglementate cu un transfer nerezolvat, ori vecinătate de anexa III neexaminată.</dd></div>
+        </dl>
+        <p class="sr-standards">
+          Punctarea expunerii se raportează la EU AI Act (articolul 6 / anexa
+          III), la NIST AI Risk Management Framework și la OWASP Top 10 pentru
+          aplicații LLM. Ipotezele declarate în sesiune însoțesc raportul, sub
+          formă de registru.
+        </p>
+      </article>
+
+      <div class="sr-cta">
+        <p class="sr-cta-text">
+          Acesta este documentul pe care îl primește echipa dumneavoastră de
+          conducere — construit pe cifrele, sistemele și cazurile dumneavoastră
+          de utilizare.
+        </p>
+        <Button href="/ro/assessment#apply" withArrow>Aplicați pentru o evaluare</Button>
+      </div>
+    </Container>
+  </section>
+</Base>
+
+<style>
+  .sr-wrap {
+    padding-top: clamp(4.5rem, 9vw, 7rem);
+    padding-bottom: clamp(4.5rem, 9vw, 7.5rem);
+  }
+  .sr-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--color-muted);
+    margin-bottom: 1.75rem;
+  }
+  .sr-back:hover {
+    color: var(--color-steel);
+  }
+  .sr-banner {
+    padding: 1rem 1.25rem;
+    border-left: 3px solid var(--color-steel);
+    border-radius: 10px;
+    background-color: color-mix(in srgb, var(--color-steel) 8%, var(--color-paper));
+    color: var(--color-ink);
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    max-width: 62ch;
+  }
+  .sr-pagetitle {
+    margin-top: clamp(2rem, 4vw, 3rem);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--color-ink);
+  }
+
+  /* ---------- sheets ---------- */
+  .sr-sheet {
+    margin-top: clamp(1.75rem, 3.5vw, 2.5rem);
+    background-color: var(--color-paper);
+    border: 1px solid var(--color-line);
+    border-radius: 16px;
+    padding: clamp(1.5rem, 4vw, 3rem);
+    box-shadow: 0 1px 2px rgb(22 48 76 / 0.04), 0 8px 24px rgb(22 48 76 / 0.05);
+  }
+  .sr-sheet-tag {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-steel);
+    margin-bottom: 1.25rem;
+  }
+  .sr-doc-head {
+    font-size: 0.8125rem;
+    color: var(--color-muted);
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--color-line);
+    margin-bottom: 1.5rem;
+  }
+  .sr-verdict-title {
+    font-size: clamp(1.375rem, 2.8vw, 1.75rem);
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    line-height: 1.3;
+    color: var(--color-ink);
+    max-width: 30ch;
+  }
+  .sr-sheet-title {
+    font-size: clamp(1.25rem, 2.4vw, 1.5rem);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--color-ink);
+  }
+  .sr-body {
+    margin-top: 1rem;
+    color: var(--color-muted);
+    font-size: 1rem;
+    line-height: 1.65;
+    max-width: 68ch;
+  }
+  .sr-body strong {
+    color: var(--color-ink);
+  }
+  .sr-points {
+    list-style: none;
+    margin: 1.5rem 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.125rem;
+  }
+  .sr-points li {
+    position: relative;
+    padding-left: 1.75rem;
+    color: var(--color-muted);
+    font-size: 0.9688rem;
+    line-height: 1.6;
+    max-width: 70ch;
+  }
+  .sr-points li strong {
+    color: var(--color-ink);
+  }
+  .sr-points li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.62em;
+    width: 1rem;
+    height: 2px;
+    background-color: var(--color-steel);
+  }
+  .sr-anchor {
+    margin-top: 1.5rem;
+    padding: 1rem 1.25rem;
+    border-radius: 10px;
+    background-color: color-mix(in srgb, var(--color-steel) 5%, var(--color-paper));
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--color-ink);
+    font-style: italic;
+    max-width: 68ch;
+  }
+  .sr-next {
+    margin-top: 1.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--color-line);
+    font-size: 0.9688rem;
+    line-height: 1.6;
+    color: var(--color-ink);
+    max-width: 68ch;
+  }
+  .sr-next-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-steel);
+    margin-bottom: 0.375rem;
+  }
+
+  /* ---------- page 2: map ---------- */
+  .sr-map {
+    position: relative;
+    margin-top: 1.75rem;
+    padding: 0 0 2rem 2rem;
+  }
+  .sr-axis-y {
+    position: absolute;
+    left: 0;
+    top: 45%;
+    transform: rotate(180deg) translateY(50%);
+    writing-mode: vertical-rl;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+  .sr-axis-x {
+    position: absolute;
+    left: 2rem;
+    bottom: 0;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+  .sr-map-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: minmax(7rem, auto) minmax(7rem, auto);
+    border: 1px solid var(--color-line);
+    border-radius: 10px;
+    overflow: hidden;
+    min-height: 18rem;
+  }
+  .sr-quad {
+    padding: 0.75rem 0.875rem;
+    border: 0 solid var(--color-line);
+  }
+  .sr-quad span {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--color-muted) 75%, transparent);
+  }
+  .sr-quad-tl { border-right-width: 1px; border-bottom-width: 1px; }
+  .sr-quad-tr { border-bottom-width: 1px; background-color: color-mix(in srgb, var(--color-steel) 6%, var(--color-paper)); }
+  .sr-quad-tr span { color: var(--color-steel); }
+  .sr-quad-bl { border-right-width: 1px; background-color: color-mix(in srgb, #b3261e 4%, var(--color-paper)); }
+  .sr-quad-bl span { color: color-mix(in srgb, #b3261e 70%, var(--color-ink)); }
+  /* The MARKER is the element anchored at the plotted coordinate; the label
+     hangs off it (right by default, left for .sr-dot--flip) so long labels
+     never drag the dot out of its quadrant. */
+  .sr-dot {
+    position: absolute;
+    width: 0.875rem;
+    height: 0.875rem;
+    transform: translate(-50%, -50%);
+  }
+  .sr-dot i {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 999px;
+    background-color: var(--color-steel);
+    border: 2px solid var(--color-paper);
+    box-shadow: 0 0 0 1px var(--color-steel);
+  }
+  .sr-dot-b i { background-color: #b8860b; box-shadow: 0 0 0 1px #b8860b; }
+  .sr-dot-c i { background-color: #b3261e; box-shadow: 0 0 0 1px #b3261e; }
+  .sr-dot em {
+    position: absolute;
+    left: 1.375rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: max-content;
+    max-width: min(15rem, 38vw);
+    font-style: normal;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    line-height: 1.35;
+  }
+  .sr-dot--flip em {
+    left: auto;
+    right: 1.375rem;
+    text-align: right;
+  }
+  .sr-badge {
+    display: inline-block;
+    font-size: 0.6563rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    padding: 0.0625rem 0.4375rem;
+    border-radius: 999px;
+    margin-left: 0.25rem;
+    white-space: nowrap;
+  }
+  .sr-badge-minimal { background-color: color-mix(in srgb, var(--color-steel) 12%, var(--color-paper)); color: var(--color-steel-deep); }
+  .sr-badge-limited { background-color: color-mix(in srgb, #b8860b 14%, var(--color-paper)); color: #7a5a08; }
+  .sr-badge-flag { background-color: color-mix(in srgb, #b3261e 10%, var(--color-paper)); color: #8f1e17; }
+
+  /* ---------- page 2: table ---------- */
+  .sr-table-label {
+    margin-top: 2rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-steel);
+  }
+  .sr-table-scroll {
+    margin-top: 0.875rem;
+    overflow-x: auto;
+  }
+  .sr-table {
+    width: 100%;
+    min-width: 34rem;
+    border-collapse: collapse;
+    font-size: 0.9063rem;
+  }
+  .sr-table th,
+  .sr-table td {
+    text-align: left;
+    padding: 0.625rem 0.75rem;
+    border-bottom: 1px solid var(--color-line);
+  }
+  .sr-table thead th {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-ink);
+  }
+  .sr-table tbody th {
+    font-weight: 500;
+    color: var(--color-ink);
+  }
+  .sr-rag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+  .sr-rag-green { background-color: color-mix(in srgb, #1f7a4d 14%, var(--color-paper)); color: #1f7a4d; }
+  .sr-rag-amber { background-color: color-mix(in srgb, #b8860b 16%, var(--color-paper)); color: #7a5a08; }
+  .sr-rag-red { background-color: color-mix(in srgb, #b3261e 12%, var(--color-paper)); color: #8f1e17; }
+  .sr-legend {
+    list-style: none;
+    margin: 1rem 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 0.8438rem;
+    color: var(--color-muted);
+  }
+  .sr-legend li {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+  }
+  .sr-badge-note {
+    margin-top: 1rem;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    color: var(--color-muted);
+    max-width: 68ch;
+  }
+  .sr-nongreen {
+    list-style: none;
+    margin: 1.5rem 0 0;
+    padding: 1.25rem 0 0;
+    border-top: 1px solid var(--color-line);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    font-size: 0.9063rem;
+    line-height: 1.6;
+    color: var(--color-muted);
+    max-width: 70ch;
+  }
+  .sr-nongreen strong {
+    color: var(--color-ink);
+  }
+  .sr-binding {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    color: var(--color-muted);
+  }
+  .sr-binding strong {
+    color: var(--color-ink);
+  }
+  .sr-footnote {
+    margin-top: 1rem;
+    font-size: 0.8125rem;
+    color: var(--color-muted);
+    font-style: italic;
+  }
+
+  /* ---------- page 3 ---------- */
+  .sr-fields {
+    margin: 1.5rem 0 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  @media (min-width: 720px) {
+    .sr-fields {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  .sr-fields > div {
+    padding: 1rem 1.125rem;
+    border: 1px solid var(--color-line);
+    border-radius: 10px;
+  }
+  .sr-fields dt {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-steel);
+    margin-bottom: 0.375rem;
+  }
+  .sr-fields dd {
+    margin: 0;
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    color: var(--color-muted);
+  }
+  .sr-fields dd strong {
+    color: var(--color-ink);
+  }
+  .sr-gate-title {
+    margin-top: 2rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-steel);
+  }
+  .sr-gate-verdict {
+    margin-top: 0.75rem;
+    font-size: 1.0625rem;
+    color: var(--color-ink);
+    font-weight: 500;
+  }
+  .sr-verdict-chip {
+    display: inline-block;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    margin-right: 0.375rem;
+  }
+  .sr-chip-go { background-color: color-mix(in srgb, #1f7a4d 14%, var(--color-paper)); color: #1f7a4d; }
+  .sr-chip-notyet { background-color: color-mix(in srgb, #b8860b 16%, var(--color-paper)); color: #7a5a08; }
+  .sr-chip-no { background-color: color-mix(in srgb, #b3261e 12%, var(--color-paper)); color: #8f1e17; }
+  .sr-gate-list {
+    list-style: none;
+    margin: 1.25rem 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+  }
+  .sr-gate-list li {
+    position: relative;
+    padding-left: 1.75rem;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--color-muted);
+    max-width: 70ch;
+  }
+  .sr-gate-list li strong {
+    color: var(--color-ink);
+  }
+  .sr-gate-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.3em;
+    width: 0.875rem;
+    height: 0.875rem;
+    border: 2px solid var(--color-steel);
+    border-radius: 3px;
+  }
+  .sr-confidence {
+    margin-top: 1.5rem;
+    padding: 1rem 1.25rem;
+    border-left: 3px solid var(--color-steel);
+    border-radius: 10px;
+    background-color: color-mix(in srgb, var(--color-steel) 5%, var(--color-paper));
+    font-size: 0.9063rem;
+    line-height: 1.6;
+    color: var(--color-ink);
+    max-width: 68ch;
+  }
+
+  /* ---------- page 4 ---------- */
+  .sr-no {
+    margin-top: 1.75rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-line);
+  }
+  .sr-no:first-of-type {
+    margin-top: 1.25rem;
+    padding-top: 0;
+    border-top: 0;
+  }
+  .sr-no-head {
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--color-ink);
+  }
+
+  /* ---------- page 5 ---------- */
+  .sr-steps {
+    list-style: none;
+    counter-reset: srstep;
+    margin: 1.5rem 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .sr-steps li {
+    counter-increment: srstep;
+    position: relative;
+    padding-left: 2.25rem;
+    font-size: 0.9688rem;
+    line-height: 1.6;
+    color: var(--color-muted);
+    max-width: 70ch;
+  }
+  .sr-steps li strong {
+    color: var(--color-ink);
+  }
+  .sr-steps li::before {
+    content: counter(srstep);
+    position: absolute;
+    left: 0;
+    top: 0.1em;
+    width: 1.5rem;
+    height: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background-color: color-mix(in srgb, var(--color-steel) 10%, var(--color-paper));
+    color: var(--color-steel-deep);
+    font-size: 0.8125rem;
+    font-weight: 700;
+  }
+  .sr-map-forward {
+    margin-top: 1.75rem;
+    padding: 1.25rem 1.5rem;
+    border: 1px solid var(--color-line);
+    border-radius: 12px;
+  }
+  .sr-foot-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-steel);
+    margin-bottom: 0.875rem;
+  }
+  .sr-map-forward ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+  }
+  .sr-map-forward li {
+    position: relative;
+    padding-left: 1.5rem;
+    font-size: 0.9063rem;
+    line-height: 1.55;
+    color: var(--color-muted);
+  }
+  .sr-map-forward li strong {
+    color: var(--color-ink);
+  }
+  .sr-map-forward li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 0.75rem;
+    height: 2px;
+    background-color: var(--color-steel);
+  }
+  .sr-yours {
+    margin-top: 1.5rem;
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--color-ink);
+  }
+
+  /* ---------- appendix ---------- */
+  .sr-sheet-appendix {
+    background-color: color-mix(in srgb, var(--color-steel) 3%, var(--color-paper));
+  }
+  .sr-rubric {
+    margin: 1.5rem 0 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.875rem;
+  }
+  .sr-rubric > div {
+    padding: 0.875rem 1rem;
+    border: 1px solid var(--color-line);
+    border-radius: 10px;
+    background-color: var(--color-paper);
+  }
+  .sr-rubric dt {
+    font-size: 0.9063rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    margin-bottom: 0.25rem;
+  }
+  .sr-rubric dd {
+    margin: 0;
+    font-size: 0.875rem;
+    line-height: 1.55;
+    color: var(--color-muted);
+  }
+  .sr-rubric dd strong {
+    color: var(--color-steel-deep);
+  }
+  .sr-standards {
+    margin-top: 1.5rem;
+    font-size: 0.8438rem;
+    line-height: 1.6;
+    color: var(--color-muted);
+    max-width: 68ch;
+  }
+
+  /* ---------- closing CTA ---------- */
+  .sr-cta {
+    margin-top: clamp(2.5rem, 5vw, 3.5rem);
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    align-items: flex-start;
+  }
+  .sr-cta-text {
+    font-size: 1.0625rem;
+    color: var(--color-ink);
+    max-width: 52ch;
+  }
+</style>

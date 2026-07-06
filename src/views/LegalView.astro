@@ -1,0 +1,53 @@
+---
+/* Shared renderer for the privacy + terms pages, both languages. */
+import Base from "../layouts/Base.astro";
+import PageIntro from "../components/sections/PageIntro.astro";
+import Container from "../components/ui/Container.astro";
+import { getContent } from "../content/i18n";
+
+interface Props {
+  page: "privacy" | "terms";
+}
+const { page } = Astro.props;
+const { pageMeta, legalPages } = getContent(Astro.url.pathname);
+const meta = pageMeta[page];
+const content = legalPages[page];
+---
+
+<Base title={meta.title} description={meta.description} path={meta.path}>
+  <PageIntro
+    eyebrow={content.eyebrow}
+    title={content.title}
+    lead={content.lead}
+    headingId={`${page}-heading`}
+  />
+
+  <section class="legal-section bg-paper" aria-label={content.title}>
+    <Container>
+      <div class="prose legal-prose">
+        <p class="legal-updated">{content.updated}</p>
+        {
+          content.sections.map((s) => (
+            <>
+              {s.heading && <h2 id={s.id}>{s.heading}</h2>}
+              <p set:html={s.html} />
+            </>
+          ))
+        }
+      </div>
+    </Container>
+  </section>
+</Base>
+
+<style>
+  .legal-section {
+    padding-bottom: clamp(4.5rem, 9vw, 7rem);
+  }
+  .legal-prose {
+    margin-inline: auto;
+  }
+  .legal-updated {
+    font-size: 0.875rem;
+    color: var(--color-muted);
+  }
+</style>

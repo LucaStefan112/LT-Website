@@ -2,7 +2,9 @@
 import Container from "../ui/Container.astro";
 import Button from "../ui/Button.astro";
 import Reveal from "../ui/Reveal.astro";
-import { assessment } from "../../content/site";
+import { getContent } from "../../content/i18n";
+
+const { assessment } = getContent(Astro.url.pathname);
 ---
 
 <section id="assessment" class="assessment" aria-labelledby="assessment-heading">

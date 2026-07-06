@@ -3,7 +3,9 @@ import Section from "../ui/Section.astro";
 import Container from "../ui/Container.astro";
 import SectionHeader from "../ui/SectionHeader.astro";
 import Button from "../ui/Button.astro";
-import { services } from "../../content/site";
+import { getContent } from "../../content/i18n";
+
+const { services, ui } = getContent(Astro.url.pathname);
 
 interface Props {
   showHeader?: boolean;
@@ -18,7 +20,7 @@ const { showHeader = true, variant = "bone" } = Astro.props;
       showHeader ? (
         <SectionHeader
           eyebrow={services.eyebrow}
-          title="One partner, end to end."
+          title={services.headerTitle}
           intro={services.intro}
           id="services-heading"
         />
@@ -26,7 +28,7 @@ const { showHeader = true, variant = "bone" } = Astro.props;
         /* Reused under a page <h1> (e.g. /services): keep a real h2 so heading
            levels don't skip h1 -> h3, but hide it visually. */
         <h2 id="services-heading" class="sr-only">
-          What we do
+          {services.eyebrow}
         </h2>
       )
     }
@@ -38,7 +40,7 @@ const { showHeader = true, variant = "bone" } = Astro.props;
             <span class="service-rule" aria-hidden="true" />
             <h3 class="service-title">{item.title}</h3>
             <p class="service-body">{item.body}</p>
-            <p class="service-deliv-label">What you get</p>
+            <p class="service-deliv-label">{services.deliverablesLabel}</p>
             <ul class="service-deliverables" role="list">
               {item.deliverables.map((d) => (
                 <li>{d}</li>

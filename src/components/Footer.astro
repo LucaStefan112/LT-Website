@@ -1,6 +1,8 @@
 ---
 import Logo from "./ui/Logo.astro";
-import { site, footer, footerNav, legalNav } from "../content/site";
+import { getContent, resolveLocale } from "../content/i18n";
+
+const { site, footer, footerNav, legalNav, ui } = getContent(Astro.url.pathname);
 
 const year = new Date().getFullYear();
 ---
@@ -9,15 +11,15 @@ const year = new Date().getFullYear();
   <div class="container-lt">
     <div class="footer-top">
       <div class="footer-brand">
-        <a href="/" aria-label={`${site.name} — home`} class="footer-logo-link">
+        <a href={resolveLocale(Astro.url.pathname) === "ro" ? "/ro" : "/"} aria-label={`${site.name} — home`} class="footer-logo-link">
           <Logo variant="reversed" height={34} alt={site.name} />
         </a>
         <p class="footer-blurb measure">{footer.blurb}</p>
         <p class="footer-tagline eyebrow">{footer.tagline}</p>
       </div>
 
-      <nav class="footer-nav" aria-label="Footer">
-        <h2 class="footer-heading">Explore</h2>
+      <nav class="footer-nav" aria-label={ui.footerAria}>
+        <h2 class="footer-heading">{ui.footerExplore}</h2>
         <ul>
           {
             footerNav.map((item) => (
@@ -30,7 +32,7 @@ const year = new Date().getFullYear();
       </nav>
 
       <div class="footer-contact">
-        <h2 class="footer-heading">Contact</h2>
+        <h2 class="footer-heading">{ui.footerContactHeading}</h2>
         <ul>
           <li>
             <a href={`mailto:${footer.email}`}>{footer.email}</a>
@@ -47,7 +49,7 @@ const year = new Date().getFullYear();
     </div>
 
     <div class="footer-bottom">
-      <p class="footer-copy">© {year} {site.name}. All rights reserved.</p>
+      <p class="footer-copy">© {year} {site.name}. {ui.footerRights}</p>
       <ul class="footer-legal">
         {
           legalNav.map((item) => (

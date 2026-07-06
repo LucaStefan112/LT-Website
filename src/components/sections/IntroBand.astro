@@ -1,7 +1,9 @@
 ---
 import Section from "../ui/Section.astro";
 import Container from "../ui/Container.astro";
-import { intro } from "../../content/site";
+import { getContent } from "../../content/i18n";
+
+const { intro } = getContent(Astro.url.pathname);
 ---
 
 <Section variant="bone" tight labelledby="intro-heading">

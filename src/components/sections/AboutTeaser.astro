@@ -3,7 +3,9 @@ import Section from "../ui/Section.astro";
 import Container from "../ui/Container.astro";
 import Reveal from "../ui/Reveal.astro";
 import FounderPhoto from "../ui/FounderPhoto.astro";
-import { aboutTeaser } from "../../content/site";
+import { getContent } from "../../content/i18n";
+
+const { aboutTeaser } = getContent(Astro.url.pathname);
 ---
 
 <Section variant="bone" labelledby="aboutteaser-heading">

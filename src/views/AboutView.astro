@@ -1,0 +1,194 @@
+---
+import Base from "../layouts/Base.astro";
+import Container from "../components/ui/Container.astro";
+import CTABand from "../components/sections/CTABand.astro";
+import FounderPhoto from "../components/ui/FounderPhoto.astro";
+import { getContent, resolveLocale } from "../content/i18n";
+
+const locale = resolveLocale(Astro.url.pathname);
+const { pageMeta, aboutPage, site } = getContent(Astro.url.pathname);
+const meta = pageMeta.about;
+const links = [
+  { label: locale === "ro" ? "LinkedIn — companie" : "Company LinkedIn", href: site.links.companyLinkedin },
+  { label: locale === "ro" ? "Luca pe LinkedIn" : "Luca on LinkedIn", href: site.links.founderLinkedin },
+  { label: "GitHub", href: site.links.github },
+];
+---
+
+<Base title={meta.title} description={meta.description} path={meta.path}>
+  <section class="about-hero bg-paper" aria-labelledby="about-heading">
+    <Container>
+      <div class="about-hero-grid">
+        <div class="about-hero-copy">
+          <p class="eyebrow">{aboutPage.eyebrow}</p>
+          <span class="rule" aria-hidden="true"></span>
+          <h1 id="about-heading" class="display-lg about-hero-title">
+            {aboutPage.heading}
+          </h1>
+        </div>
+        <FounderPhoto caption={aboutPage.photoCaption} class="about-hero-photo" />
+      </div>
+    </Container>
+  </section>
+
+  <section class="about-body bg-paper">
+    <Container>
+      <div class="about-body-inner measure-wide">
+        <div class="prose">
+          {aboutPage.paragraphs.map((p) => <p>{p}</p>)}
+        </div>
+
+        <div class="about-beliefs">
+          <h2 class="about-glance-heading">{aboutPage.beliefsHeading}</h2>
+          <div class="prose">
+            {aboutPage.beliefs.map((p) => <p>{p}</p>)}
+          </div>
+        </div>
+
+        <aside class="about-why">
+          <p class="eyebrow">{aboutPage.whyHeading}</p>
+          <p class="about-why-text">{aboutPage.why}</p>
+        </aside>
+
+        <div class="about-glance">
+          <h2 class="about-glance-heading">{aboutPage.glanceHeading}</h2>
+          <ul class="about-glance-list" role="list">
+            {aboutPage.glance.map((g) => <li>{g}</li>)}
+          </ul>
+        </div>
+
+        <div class="about-links">
+          {
+            links.map((l) => (
+              <a href={l.href} class="about-link" target="_blank" rel="noopener">
+                {l.label}
+                <span class="arrow" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                    <path
+                      d="M4 12L12 4M6 4h6v6"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </span>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <CTABand secondary={site.assessmentCta} heading={aboutPage.ctaHeading} />
+</Base>
+
+<style>
+  .about-hero {
+    padding-top: clamp(5rem, 10vw, 8rem);
+    padding-bottom: clamp(2.5rem, 5vw, 4rem);
+  }
+  .about-hero-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(2.5rem, 5vw, 4rem);
+    align-items: center;
+  }
+  @media (min-width: 900px) {
+    .about-hero-grid {
+      grid-template-columns: 1fr minmax(0, 20rem);
+    }
+  }
+  .about-hero-title {
+    margin-top: 1.5rem;
+    max-width: 16ch;
+  }
+
+  .about-body {
+    padding-bottom: clamp(4rem, 8vw, 6rem);
+  }
+  .about-body-inner {
+    margin-inline: auto;
+  }
+
+  .about-beliefs {
+    margin-top: clamp(2.5rem, 5vw, 3.5rem);
+  }
+  .about-why {
+    margin-top: clamp(2.5rem, 5vw, 3.5rem);
+    padding: clamp(1.5rem, 3vw, 2rem);
+    border-radius: 14px;
+    border-left: 3px solid var(--color-steel);
+    background-color: color-mix(in srgb, var(--color-steel) 6%, var(--color-paper));
+  }
+  .about-why .eyebrow {
+    color: var(--color-steel);
+    margin-bottom: 0.75rem;
+  }
+  .about-why-text {
+    color: var(--color-ink);
+    font-size: 1.1875rem;
+    line-height: 1.55;
+    font-weight: 500;
+  }
+
+  .about-glance {
+    margin-top: clamp(2.5rem, 5vw, 3.5rem);
+  }
+  .about-glance-heading {
+    font-size: 1.375rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    letter-spacing: -0.01em;
+    padding-top: 1rem;
+    border-top: 2px solid var(--color-steel);
+    display: inline-block;
+    margin-bottom: 1.25rem;
+  }
+  .about-glance-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+  }
+  .about-glance-list li {
+    position: relative;
+    padding-left: 1.75rem;
+    color: var(--color-ink);
+    font-size: 1.0625rem;
+    line-height: 1.5;
+  }
+  .about-glance-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 1rem;
+    height: 2px;
+    background-color: var(--color-steel);
+  }
+
+  .about-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem 2rem;
+    margin-top: clamp(2.5rem, 5vw, 3.5rem);
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-line);
+  }
+  .about-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--color-steel);
+    font-weight: 500;
+    text-decoration: none;
+    font-size: 0.9375rem;
+  }
+  .about-link:hover {
+    color: var(--color-steel-deep);
+  }
+</style>

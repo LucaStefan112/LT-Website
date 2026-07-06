@@ -194,6 +194,8 @@ export const pillars = {
 
 export const services = {
   eyebrow: "What we do",
+  headerTitle: "One partner, end to end.",
+  deliverablesLabel: "What you get",
   intro:
     "One technology partner across the full journey — advisory through to delivery, with deep specialization in AI — so strategy and delivery never disconnect.",
   items: [
@@ -631,6 +633,15 @@ export const contact = {
     assessment: "I'd like an AI Opportunity Assessment.",
   } as Record<string, string>,
   submitLabel: "Send message",
+  asideEyebrow: "Direct line",
+  asideLead: "Prefer email, or want to reach us straight away?",
+  asidePoints: [
+    "Independent, senior-led advice.",
+    "A reply within two business days.",
+    "No sales script, no pressure.",
+  ],
+  privacyHtml:
+    'We only use your details to reply to your enquiry, and never share them with third parties. See our <a href="/privacy">privacy policy</a>.',
   successMessage:
     "Thank you — your message is ready to send. We'll reply personally within two business days.",
 } as const;
@@ -919,5 +930,219 @@ export const pageMeta = {
     title: "Terms — LT Strategy Partners",
     description: "The terms on which the LT Strategy Partners website is provided.",
     path: "/terms",
+  },
+} as const;
+
+/* ----------------------------------------------- Shared UI microcopy (i18n) */
+
+export const ui = {
+  footerExplore: "Explore",
+  footerContactHeading: "Contact",
+  footerAria: "Footer",
+  footerRights: "All rights reserved.",
+  read: "Read",
+  readAria: "Read:",
+  comingSoon: "Coming soon",
+  backToInsights: "Insights",
+  backToWork: "Selected work",
+  insightsDateLocale: "en-US",
+  workContext: "The context",
+  workDelivered: "What we delivered",
+  workStrategic: "Why it matters",
+  workImpact: "Impact",
+  workGallery: "From the dashboard",
+  workCapabilities: "Capabilities shown",
+  workStack: "Built with",
+  workTakeaway: "What this means for you",
+  workCaptions: {
+    "transit-map": "Live vehicle-location map across the city fleet",
+    "transit-charts":
+      "Fleet composition, average speed by category, and accessibility indices",
+    "transit-speeding": "Possible congestion points and recorded speeding events",
+  } as Record<string, string>,
+  founderPhotoAlt: "Portrait of",
+} as const;
+
+/* --------------------------------------- Form strings shared with client JS */
+
+export const formStrings = {
+  honeypot: "Leave this field empty",
+  contactFormAria: "Contact form",
+  sending: "Sending…",
+  fixFields: "Please correct the highlighted fields.",
+  required: "This field is required.",
+  invalidEmail: "Please enter a valid email address.",
+  failPrefix: "Something went wrong. Please email us directly at",
+  contactSubjectPrefix: "Enquiry from",
+  contactSuccessSent:
+    "Thank you — your message has been sent. We'll reply personally within two business days.",
+  assessmentSubjectPrefix: "Assessment application —",
+  assessmentSuccessMailto:
+    "Thank you — your application is ready to send. It will be read personally, and you'll hear back within two business days.",
+  assessmentSuccessSent:
+    "Thank you — your application has been sent. It will be read personally, and you'll hear back within two business days.",
+} as const;
+
+/* ------------------------------- Assessment application form (field copy) */
+
+export interface AssessmentField {
+  name: string;
+  label: string;
+  hint?: string;
+  type: "text" | "email" | "textarea" | "select";
+  required: boolean;
+  autocomplete?: string;
+  options?: string[];
+}
+
+export const assessmentForm = {
+  fields: [
+    { name: "name", label: "Your name", type: "text", required: true, autocomplete: "name" },
+    { name: "email", label: "Work email", type: "email", required: true, autocomplete: "email" },
+    {
+      name: "company",
+      label: "Company, and roughly how many people",
+      hint: "Sector and size band is enough — “130-person freight forwarder”.",
+      type: "text",
+      required: true,
+      autocomplete: "organization",
+    },
+    {
+      name: "role",
+      label: "Your role — and will an executive sponsor attend the session?",
+      hint: "The verdict is a leadership decision, so a sponsor in the room is a condition, not a preference.",
+      type: "text",
+      required: true,
+      autocomplete: "organization-title",
+    },
+    {
+      name: "usecases",
+      label: "The one or two AI use cases you most want a verdict on",
+      hint: "A sentence each. If you don't have one yet, say so — that changes what the session is for.",
+      type: "textarea",
+      required: true,
+    },
+    {
+      name: "cost",
+      label: "What are those workflows costing you today, in hours or euros?",
+      hint: "Rough is fine. “Don't know” is an acceptable answer — unknowns get scored too.",
+      type: "text",
+      required: false,
+    },
+    {
+      name: "tried",
+      label: "What have you already tried with AI — and what happened?",
+      hint: "Pilots, vendors, internal experiments. Where each one stalled is diagnostic gold.",
+      type: "textarea",
+      required: false,
+    },
+    {
+      name: "data",
+      label: "Where does the data or content that would feed this live today?",
+      hint: "SharePoint, a wiki, a database, PDFs, people's heads — all honest answers.",
+      type: "text",
+      required: true,
+    },
+    {
+      name: "sensitive",
+      label: "Would it touch personal data, customer data, or anything you'd hesitate to send to a US cloud provider?",
+      type: "text",
+      required: false,
+    },
+    {
+      name: "timeline",
+      label: "When would you realistically want a first system in production?",
+      type: "select",
+      required: false,
+      options: ["This quarter", "This year", "Someday — exploring for now"],
+    },
+  ] as AssessmentField[],
+  selectPlaceholder: "Choose one (optional)",
+  honeypotLabel: "Leave this field empty",
+  submitLabel: "Submit application",
+  formAria: "Assessment application form",
+} as const;
+
+/* ----------------------------------------------------- Legal pages (i18n) */
+
+export interface LegalSection {
+  id?: string;
+  heading: string;
+  html: string;
+}
+
+export const legalPages = {
+  privacy: {
+    eyebrow: "Legal",
+    title: "Privacy policy.",
+    lead: "How we collect and handle the information you share with us. Plain language, no surprises.",
+    updated: "Last updated: 3 July 2026",
+    sections: [
+      {
+        heading: "Who we are",
+        html: `The data controller for this website is ${site.name} (a founder-led practice based in Iași, Romania). If you have any question about this policy or your data, contact us at <a href="mailto:${site.email}">${site.email}</a>.`,
+      },
+      {
+        heading: "What we collect",
+        html: `We collect the information you choose to send us. Through the <strong>contact form</strong>, that is your <strong>name</strong>, <strong>company</strong>, <strong>role</strong> (optional), <strong>email address</strong>, and the <strong>message</strong> you write. If instead you use the “Book a conversation” button, you provide your name, email, and any details you add when scheduling — see <a href="#booking">Booking a conversation</a> below. We do not run advertising, and we do not use invasive tracking or third-party analytics that identify you.`,
+      },
+      {
+        heading: "Why we collect it, and our lawful basis",
+        html: `We use this information for one purpose: to read and respond to your enquiry, and to follow up about a possible engagement. Our lawful basis under the GDPR is our legitimate interest in responding to people who contact us about our services, and — where you initiate contact to discuss working together — taking steps at your request prior to entering into a contract.`,
+      },
+      {
+        heading: "Sharing",
+        html: `We do not sell your information, and we do not share it with third parties for their own purposes. Your enquiry reaches us by email; the email and hosting providers that carry it act only as processors on our behalf.`,
+      },
+      {
+        id: "booking",
+        heading: "Booking a conversation",
+        html: `The “Book a conversation” button opens an appointment page provided by Google Calendar. If you book a call there, the details you enter — your name, email, and anything you add — are handled by Google as part of running the scheduling, under <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google's own privacy policy</a>, and may be transferred to servers outside the EEA, including the United States. We receive those details only to arrange and hold the appointment with you. If you would rather not use Google, just email us instead at <a href="mailto:${site.email}">${site.email}</a>.`,
+      },
+      {
+        heading: "How long we keep it",
+        html: `We keep enquiry correspondence only as long as needed to deal with your request and, where relevant, for the duration of any engagement that follows, after which it is deleted. If a conversation does not lead anywhere, we delete it once it is clearly no longer needed.`,
+      },
+      {
+        heading: "Your rights",
+        html: `Under the GDPR you have the right to access the personal data we hold about you, to have it corrected if it is wrong, to have it erased, to restrict or object to how we use it, and to data portability. To exercise any of these, email <a href="mailto:${site.email}">${site.email}</a> and we will respond within the time the law requires. You also have the right to lodge a complaint with your local data-protection authority.`,
+      },
+      {
+        heading: "Changes",
+        html: `If we change this policy, we will update the date above. Material changes will be made clear on this page.`,
+      },
+    ] as LegalSection[],
+  },
+  terms: {
+    eyebrow: "Legal",
+    title: "Terms of use.",
+    lead: "The basis on which this website is provided. A short, plain starting point.",
+    updated: "Last updated: 3 July 2026",
+    sections: [
+      {
+        heading: "About this site",
+        html: `This website is published by ${site.name} to describe our services and share our thinking. It is provided for general information only.`,
+      },
+      {
+        heading: "No advice or contract",
+        html: `Nothing on this website is professional, legal, financial, or technical advice, and nothing here forms a contract or an engagement. Any work we do together is governed by a separate written agreement agreed with you in advance.`,
+      },
+      {
+        heading: "Intellectual property",
+        html: `The content, brand, and design of this website belong to ${site.name} unless stated otherwise. Product names and marks referenced in our work belong to their respective owners.`,
+      },
+      {
+        heading: "Links",
+        html: `Where this site links to external sites, we are not responsible for their content or their practices.`,
+      },
+      {
+        heading: "Contact",
+        html: `Questions about these terms? Email <a href="mailto:${site.email}">${site.email}</a>.`,
+      },
+      {
+        heading: "",
+        html: `These terms are a concise starting point and may be extended as the business grows. For any engagement, a separate written agreement takes precedence.`,
+      },
+    ] as LegalSection[],
   },
 } as const;

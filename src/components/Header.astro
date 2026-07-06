@@ -1,12 +1,27 @@
 ---
 import Logo from "./ui/Logo.astro";
 import Button from "./ui/Button.astro";
-import { nav, site } from "../content/site";
+import { getContent, resolveLocale, localePath, stripLocale } from "../content/i18n";
+
+const locale = resolveLocale(Astro.url.pathname);
+const { nav, site } = getContent(locale);
+
+// Language switcher: this page in each language. The 404 page has no RO
+// counterpart (GitHub Pages serves a single /404.html), so fall back to home.
+let barePath = stripLocale(Astro.url.pathname);
+if (barePath === "/404") barePath = "/";
+const langLinks = [
+  { code: "EN", locale: "en" as const, href: localePath("en", barePath) },
+  { code: "RO", locale: "ro" as const, href: localePath("ro", barePath) },
+];
+const homeHref = locale === "ro" ? "/ro" : "/";
+const menuLabel = locale === "ro" ? "Deschide meniul" : "Open menu";
+const langNavLabel = locale === "ro" ? "Limbă" : "Language";
 ---
 
 <header data-header class="site-header">
   <div class="container-lt header-inner">
-    <a href="/" class="header-logo" aria-label={`${site.name} — home`}>
+    <a href={homeHref} class="header-logo" aria-label={`${site.name} — home`}>
       <Logo variant="primary" height={48} eager responsive alt={site.name} />
     </a>
 
@@ -18,7 +33,7 @@ import { nav, site } from "../content/site";
               <a
                 href={item.href}
                 class="header-link"
-                data-nav-link={item.href.startsWith("/#") ? "" : undefined}
+                data-nav-link={item.href.includes("#") ? "" : undefined}
               >
                 {item.label}
               </a>
@@ -26,6 +41,20 @@ import { nav, site } from "../content/site";
           ))
         }
       </ul>
+      <div class="lang-switch" role="navigation" aria-label={langNavLabel}>
+        {
+          langLinks.map((l) => (
+            <a
+              href={l.href}
+              class:list={["lang-link", { "is-current": l.locale === locale }]}
+              aria-current={l.locale === locale ? "true" : undefined}
+              lang={l.locale}
+            >
+              {l.code}
+            </a>
+          ))
+        }
+      </div>
       <Button href={site.primaryCta.href} external={site.primaryCta.external}>
         {site.primaryCta.label}
       </Button>
@@ -37,15 +66,15 @@ import { nav, site } from "../content/site";
       class="menu-toggle"
       aria-expanded="false"
       aria-controls="mobile-menu"
-      aria-label="Open menu"
+      aria-label={menuLabel}
     >
       <span class="menu-bars" aria-hidden="true"></span>
-      <span class="sr-only">Menu</span>
+      <span class="sr-only">{locale === "ro" ? "Meniu" : "Menu"}</span>
     </button>
   </div>
 
   <div id="mobile-menu" data-menu-panel class="menu-panel" hidden>
-    <nav class="menu-nav" aria-label="Mobile">
+    <nav class="menu-nav" aria-label={locale === "ro" ? "Meniu mobil" : "Mobile"}>
       <ul>
         {
           nav.map((item) => (
@@ -57,6 +86,20 @@ import { nav, site } from "../content/site";
           ))
         }
       </ul>
+      <div class="lang-switch lang-switch--menu" role="navigation" aria-label={langNavLabel}>
+        {
+          langLinks.map((l) => (
+            <a
+              href={l.href}
+              class:list={["lang-link", { "is-current": l.locale === locale }]}
+              aria-current={l.locale === locale ? "true" : undefined}
+              lang={l.locale}
+            >
+              {l.code}
+            </a>
+          ))
+        }
+      </div>
       <div class="menu-cta">
         <Button
           href={site.primaryCta.href}
@@ -156,6 +199,43 @@ import { nav, site } from "../content/site";
   .header-link.is-active::after,
   .header-link:hover::after {
     transform: scaleX(1);
+  }
+
+  /* Language switcher */
+  .lang-switch {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.125rem;
+    padding: 0.125rem;
+    border: 1px solid var(--color-line);
+    border-radius: 999px;
+  }
+  .lang-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.125rem;
+    padding: 0.3125rem 0.5rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: var(--color-muted);
+    text-decoration: none;
+    transition:
+      color 0.18s var(--ease-out-soft),
+      background-color 0.18s var(--ease-out-soft);
+  }
+  .lang-link:hover {
+    color: var(--color-steel-deep);
+  }
+  .lang-link.is-current {
+    background-color: var(--color-ink);
+    color: var(--color-paper);
+  }
+  .lang-switch--menu {
+    align-self: flex-start;
+    margin-top: 1.25rem;
   }
 
   /* Hamburger toggle */

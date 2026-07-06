@@ -2,7 +2,10 @@
 import Container from "../ui/Container.astro";
 import Button from "../ui/Button.astro";
 import Reveal from "../ui/Reveal.astro";
-import { ctaBand, type CTA } from "../../content/site";
+import { getContent } from "../../content/i18n";
+import type { CTA } from "../../content/site";
+
+const { ctaBand } = getContent(Astro.url.pathname);
 
 interface Props {
   heading?: string;

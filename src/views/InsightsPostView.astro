@@ -1,0 +1,85 @@
+---
+import { getCollection, render } from "astro:content";
+import Base from "../layouts/Base.astro";
+import Container from "../components/ui/Container.astro";
+import CTABand from "../components/sections/CTABand.astro";
+import type { CollectionEntry } from "astro:content";
+import { getContent, resolveLocale, localePath } from "../content/i18n";
+
+interface Props {
+  post: CollectionEntry<"insights">;
+}
+const { post } = Astro.props;
+const locale = resolveLocale(Astro.url.pathname);
+const { site, ui } = getContent(Astro.url.pathname);
+const slug = post.id.replace(/^ro\//, "");
+const { Content } = await render(post);
+const fmt = (d: Date) =>
+  d.toLocaleDateString(ui.insightsDateLocale, { year: "numeric", month: "long", day: "numeric" });
+---
+
+<Base
+  title={`${post.data.title} · ${site.name}`}
+  description={post.data.description}
+  path={localePath(locale, `/insights/${slug}`)}
+  ogType="article"
+>
+  <article class="article">
+    <section class="article-hero bg-paper">
+      <Container>
+        <a href={localePath(locale, "/insights")} class="article-back">
+          <span aria-hidden="true">←</span> {ui.backToInsights}
+        </a>
+        <p class="eyebrow article-eyebrow">
+          {ui.backToInsights} · <time datetime={post.data.date.toISOString()}>{fmt(post.data.date)}</time>
+        </p>
+        <span class="rule" aria-hidden="true"></span>
+        <h1 class="display-lg article-title">{post.data.title}</h1>
+        <p class="lead article-lead measure">{post.data.description}</p>
+      </Container>
+    </section>
+
+    <section class="article-body bg-paper">
+      <Container>
+        <div class="prose article-prose">
+          <Content />
+        </div>
+      </Container>
+    </section>
+
+    <CTABand />
+  </article>
+</Base>
+
+<style>
+  .article-hero {
+    padding-top: clamp(5rem, 10vw, 7.5rem);
+    padding-bottom: clamp(1.5rem, 3vw, 2.5rem);
+  }
+  .article-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--color-muted);
+    margin-bottom: 1.75rem;
+  }
+  .article-back:hover {
+    color: var(--color-steel);
+  }
+  .article-title {
+    margin-top: 1.5rem;
+    max-width: 22ch;
+  }
+  .article-lead {
+    margin-top: 1.5rem;
+  }
+  .article-body {
+    padding-bottom: clamp(4rem, 8vw, 6rem);
+  }
+  .article-prose {
+    margin-inline: auto;
+  }
+</style>

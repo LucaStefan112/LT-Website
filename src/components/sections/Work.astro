@@ -4,7 +4,10 @@ import type { ImageMetadata } from "astro";
 import Section from "../ui/Section.astro";
 import Container from "../ui/Container.astro";
 import SectionHeader from "../ui/SectionHeader.astro";
-import { work } from "../../content/site";
+import { getContent, resolveLocale, localePath } from "../../content/i18n";
+
+const { work } = getContent(Astro.url.pathname);
+const locale = resolveLocale(Astro.url.pathname);
 
 // Resolve project images from src/assets/work (optimised by astro:assets).
 const workImages = import.meta.glob<{ default: ImageMetadata }>(
@@ -30,7 +33,7 @@ const img = (key?: string) =>
           return (
             <li class="reveal" style={`--reveal-delay:${(i % 2) * 90}ms`}>
               <a
-                href={`/work/${p.slug}`}
+                href={localePath(locale, `/work/${p.slug}`)}
                 class="work-card"
                 style={`--accent:${p.accent}`}
                 aria-label={`${p.name} — ${p.category}`}

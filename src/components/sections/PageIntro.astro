@@ -1,6 +1,8 @@
 ---
 import Container from "../ui/Container.astro";
-import { hero } from "../../content/site";
+import { getContent } from "../../content/i18n";
+
+const { hero } = getContent(Astro.url.pathname);
 
 /* Compact hero for the supporting routes (Services / About / Contact). */
 interface Props {

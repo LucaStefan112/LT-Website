@@ -1,0 +1,144 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../layouts/Base.astro";
+import PageIntro from "../components/sections/PageIntro.astro";
+import Container from "../components/ui/Container.astro";
+import { getContent, resolveLocale, localePath } from "../content/i18n";
+
+const locale = resolveLocale(Astro.url.pathname);
+const { pageMeta, insights, ui } = getContent(Astro.url.pathname);
+const meta = pageMeta.insights;
+const posts = (
+  await getCollection("insights", ({ id }) =>
+    locale === "ro" ? id.startsWith("ro/") : !id.startsWith("ro/")
+  )
+).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const postHref = (id: string) => localePath(locale, `/insights/${id.replace(/^ro\//, "")}`);
+const fmt = (d: Date) =>
+  d.toLocaleDateString(ui.insightsDateLocale, { month: "long", year: "numeric" });
+---
+
+<Base title={meta.title} description={meta.description} path={meta.path}>
+  <PageIntro
+    eyebrow={insights.eyebrow}
+    title={insights.heading}
+    lead={insights.intro}
+    headingId="insights-page-heading"
+  />
+
+  <section class="insights-list-section bg-paper" aria-label={insights.eyebrow}>
+    <Container>
+      <ul class="insights-list" role="list">
+        {
+          posts.map((post) => (
+            <li class="insights-row">
+              <span class="insights-row-date">{fmt(post.data.date)}</span>
+              <div class="insights-row-main">
+                <h2 class="insights-row-title">
+                  {post.data.draft ? (
+                    post.data.title
+                  ) : (
+                    <a href={postHref(post.id)}>{post.data.title}</a>
+                  )}
+                </h2>
+                <p class="insights-row-desc">{post.data.description}</p>
+              </div>
+              <span class="insights-row-action">
+                {post.data.draft ? (
+                  <span class="insights-soon">{ui.comingSoon}</span>
+                ) : (
+                  <a
+                    href={postHref(post.id)}
+                    class="link-arrow"
+                    aria-label={`${ui.readAria} ${post.data.title}`}
+                  >
+                    {ui.read}
+                    <span class="arrow" aria-hidden="true">
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path
+                          d="M3 8h9M8.5 4l3.5 4-3.5 4"
+                          stroke="currentColor"
+                          stroke-width="1.6"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </span>
+                  </a>
+                )}
+              </span>
+            </li>
+          ))
+        }
+      </ul>
+    </Container>
+  </section>
+</Base>
+
+<style>
+  .insights-list-section {
+    padding-bottom: clamp(4.5rem, 9vw, 8rem);
+  }
+  .insights-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--color-line);
+    max-width: 60rem;
+  }
+  .insights-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem 2rem;
+    padding: 1.75rem 0;
+    border-bottom: 1px solid var(--color-line);
+    align-items: start;
+  }
+  @media (min-width: 720px) {
+    .insights-row {
+      grid-template-columns: 9rem 1fr auto;
+      gap: 2rem;
+    }
+  }
+  .insights-row-date {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    padding-top: 0.2rem;
+  }
+  .insights-row-title {
+    font-size: 1.375rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    letter-spacing: -0.01em;
+    line-height: 1.25;
+  }
+  .insights-row-title a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .insights-row-title a:hover {
+    color: var(--color-steel-deep);
+  }
+  .insights-row-desc {
+    margin-top: 0.5rem;
+    color: var(--color-muted);
+    font-size: 1rem;
+    line-height: 1.55;
+    max-width: 52ch;
+  }
+  .insights-soon {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    padding: 0.25rem 0.6rem;
+    border: 1px solid var(--color-line);
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+</style>
