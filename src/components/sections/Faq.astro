@@ -4,7 +4,7 @@ import Container from "../ui/Container.astro";
 import SectionHeader from "../ui/SectionHeader.astro";
 import { getContent } from "../../content/i18n";
 
-const { faq } = getContent(Astro.url.pathname);
+const { faq, ui } = getContent(Astro.url.pathname);
 ---
 
 <Section variant="bone" labelledby="faq-heading">
@@ -23,7 +23,7 @@ const { faq } = getContent(Astro.url.pathname);
               <p>{item.a}</p>
               {item.href && (
                 <a href={item.href} class="faq-link">
-                  Read more
+                  {ui.readMore}
                 </a>
               )}
             </div>

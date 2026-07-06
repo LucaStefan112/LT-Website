@@ -27,7 +27,7 @@ O precauție: a construi înseamnă rareori a construi de la zero. De cele mai m
 
 Așteptați când valoarea nu este limpede, când uneltele se schimbă rapid sau când, sincer, nu ați putea adopta lucrul respectiv astăzi. Așteptarea are o reputație proastă, ca și cum ar fi totuna cu a nu face nimic. Nu este. Așteptarea este decizia de a vă cheltui banii și atenția mai târziu, când știți mai multe și terenul este mai așezat.
 
-Uneltele din zona aceasta se mișcă repede. O capabilitate care astăzi costă o avere de construit poate sosi într-un an ca produs ieftin și fiabil. Angajamentul timpuriu vă poate bloca într-o versiune mai proastă a unui lucru pe care l-ați fi putut cumpăra mai bun și mai târziu. Iar dacă echipa nu poate absorbi acum o unealtă nouă, cumpărarea sau construirea ei produce doar un raft scump. O capabilitate modestă, pe care oamenii se bazează, bate una ambițioasă pe care nu o folosește nimeni.
+Uneltele din zona aceasta se mișcă repede. O capabilitate care astăzi costă o avere de construit poate sosi într-un an ca produs ieftin și fiabil. Angajamentul timpuriu vă poate bloca într-o versiune mai proastă a unui lucru pe care l-ați fi putut cumpăra mai bun și mai târziu. Iar dacă echipa nu poate absorbi acum o unealtă nouă, cumpărarea sau construirea ei produce doar un instrument scump care stă pe raft. O capabilitate modestă, pe care oamenii se bazează, bate una ambițioasă pe care nu o folosește nimeni.
 
 Așteptarea este un răspuns legitim și, adesea, cel înțelept. Și nu este permanentă. Reveniți asupra ei când valoarea se limpezește sau când uneltele se așază.
 

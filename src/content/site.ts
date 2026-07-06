@@ -321,6 +321,7 @@ export const assessmentPage = {
       "A named section — “Where AI won't pay off for you” — with the engineering reason for every no",
       "Next steps that include actions you can take without hiring us",
     ],
+    guaranteeLabel: "The written guarantee",
     guarantee: "Expect at least one use case we'll tell you not to build — or not to build yet — with the engineering reason, in writing. And if every idea you bring genuinely clears the gate, the readout says that plainly instead: what it will never do is manufacture a verdict, in either direction.",
     sampleCta: { label: "Read a sample readout", href: "/assessment/sample-readout" } as CTA,
   },
@@ -338,11 +339,13 @@ export const assessmentPage = {
       { name: "Cost, latency & ownership", desc: "Unit economics at production volume, latency the workflow tolerates, and who gets paged after launch." },
       { name: "Security & EU AI Act exposure", desc: "Personal-data touch, attack surface, deployment constraints, and a provisional EU AI Act risk tier — scored per use case, at intake." },
     ],
+    rulesLabel: "Three rules, stated in every readout",
     rules: [
       "Dimension weights are fixed before any use case is scored.",
       "No single aggregate “AI readiness score” — the lowest dimension gates; averages hide.",
       "Every score carries a confidence level and its declared assumptions.",
     ],
+    questionsLabel: "Four of the actual gate questions",
     gateQuestions: [
       "Where would a wrong output land, and who notices?",
       "What content would ground the answers — and who keeps it current?",
@@ -376,6 +379,8 @@ export const assessmentPage = {
   fit: {
     eyebrow: "Fit",
     heading: "Who it's for — and who it isn't.",
+    forLabel: "This is for you if",
+    notForLabel: "It isn't if",
     forWho: [
       "Leadership teams with at least one candidate AI use case and a real workflow at stake",
       "Companies with a stalled pilot, a risky rollout, or AI spend that isn't landing",
@@ -941,6 +946,7 @@ export const ui = {
   footerAria: "Footer",
   footerRights: "All rights reserved.",
   read: "Read",
+  readMore: "Read more",
   readAria: "Read:",
   comingSoon: "Coming soon",
   backToInsights: "Insights",

@@ -52,7 +52,7 @@ const meta = pageMeta.assessment;
           </h2>
           <p class="az-para">{page.deliverable.intro}</p>
           <div class="az-guarantee">
-            <p class="az-guarantee-label">The written guarantee</p>
+            <p class="az-guarantee-label">{page.deliverable.guaranteeLabel}</p>
             <p class="az-guarantee-text">{page.deliverable.guarantee}</p>
           </div>
           <a href={page.deliverable.sampleCta.href} class="link-arrow az-sample-link" data-astro-prefetch>
@@ -95,13 +95,13 @@ const meta = pageMeta.assessment;
 
       <div class="az-method-foot">
         <div class="az-rules">
-          <p class="az-foot-label">Three rules, stated in every readout</p>
+          <p class="az-foot-label">{page.method.rulesLabel}</p>
           <ul role="list">
             {page.method.rules.map((r) => <li>{r}</li>)}
           </ul>
         </div>
         <div class="az-questions">
-          <p class="az-foot-label">Four of the actual gate questions</p>
+          <p class="az-foot-label">{page.method.questionsLabel}</p>
           <ul role="list">
             {page.method.gateQuestions.map((q) => <li>“{q}”</li>)}
           </ul>
@@ -168,13 +168,13 @@ const meta = pageMeta.assessment;
       <h2 id="az-fit-heading" class="section-title az-block-title">{page.fit.heading}</h2>
       <div class="az-fit-cols">
         <div class="az-fit-col">
-          <h3 class="az-fit-label">This is for you if</h3>
+          <h3 class="az-fit-label">{page.fit.forLabel}</h3>
           <ul role="list">
             {page.fit.forWho.map((f) => <li>{f}</li>)}
           </ul>
         </div>
         <div class="az-fit-col az-fit-col-not">
-          <h3 class="az-fit-label">It isn't if</h3>
+          <h3 class="az-fit-label">{page.fit.notForLabel}</h3>
           <ul role="list">
             {page.fit.notForWho.map((f) => <li>{f}</li>)}
           </ul>

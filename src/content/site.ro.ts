@@ -242,6 +242,7 @@ export const assessmentPage = {
       "O secțiune cu nume propriu — „Unde AI nu se va amortiza pentru dumneavoastră” — cu motivul ingineresc pentru fiecare nu",
       "Pași următori care includ acțiuni pe care le puteți face fără să ne angajați",
     ],
+    guaranteeLabel: "Garanția, în scris",
     guarantee: "Așteptați-vă la cel puțin un caz de utilizare despre care vă vom spune să nu îl construiți — sau să nu îl construiți încă — cu motivul ingineresc, în scris. Iar dacă fiecare idee adusă trece cu adevărat de poartă, raportul spune asta la fel de limpede: ce nu va face niciodată este să fabrice un verdict, în oricare direcție.",
     sampleCta: { label: "Citiți un raport exemplu", href: "/ro/assessment/sample-readout" } as CTA,
   },
@@ -259,11 +260,13 @@ export const assessmentPage = {
       { name: "Cost, latență și responsabilitate", desc: "Economia unitară la volum de producție, latența pe care fluxul o tolerează și cine este sunat noaptea după lansare." },
       { name: "Securitate și expunere EU AI Act", desc: "Atingerea de date personale, suprafața de atac, constrângerile de instalare și un nivel de risc provizoriu conform EU AI Act — punctate per caz, de la început." },
     ],
+    rulesLabel: "Trei reguli, prezente în fiecare raport",
     rules: [
       "Ponderile dimensiunilor sunt fixate înainte de punctarea oricărui caz.",
       "Niciun „scor de pregătire AI” agregat — dimensiunea cea mai slabă blochează poarta; mediile ascund.",
       "Fiecare punctaj poartă un nivel de încredere și ipotezele declarate.",
     ],
+    questionsLabel: "Patru dintre întrebările reale ale porții",
     gateQuestions: [
       "Unde ar ateriza un răspuns greșit — și cine observă?",
       "Ce conținut ar ancora răspunsurile — și cine îl ține la zi?",
@@ -297,6 +300,8 @@ export const assessmentPage = {
   fit: {
     eyebrow: "Potrivire",
     heading: "Pentru cine este — și pentru cine nu.",
+    forLabel: "Este pentru dumneavoastră dacă",
+    notForLabel: "Nu este dacă",
     forWho: [
       "Echipe de conducere cu cel puțin un caz de utilizare AI candidat și un flux de lucru real în joc",
       "Companii cu un pilot blocat, o lansare riscantă sau cheltuieli pe AI care nu produc rezultate",
@@ -341,7 +346,7 @@ export const assessmentPage = {
 
 export const dataIp = {
   id: "data-ip",
-  eyebrow: "Datele și proprietatea dumneavoastră intelectuală",
+  eyebrow: "Datele dumneavoastră și proprietatea intelectuală",
   heading: "Construit de un inginer de securitate — tratat ca atare.",
   body: "Venim dintr-un fundal de securitate și protecția datelor — inginerie de securitate de producție la Bitdefender și, mai devreme, cercetare de securitate în autentificare și criptare. Disciplina aceasta este construită în felul în care lucrăm cu dumneavoastră.",
   items: [
@@ -391,7 +396,7 @@ export const approach = {
     {
       n: "04",
       title: "Dovedim și scalăm",
-      body: "Măsurăm impactul față de cifrele pe care le-am convenit, consolidăm ce funcționează și extindem.",
+      body: "Măsurăm impactul față de cifrele pe care le-am convenit, consolidăm ce funcționează și îl scalăm.",
       output: "Rezultate dovedite pe KPI-urile dumneavoastră și un plan de extindere a ce a mers.",
     },
   ] as Step[],
@@ -494,7 +499,7 @@ export const faq = {
     },
     {
       q: "Cum stabiliți prețul?",
-      a: "Evaluarea Oportunităților AI este gratuită. Proiectele mai mari se dimensionează și se tarifează per proiect, convenite dinainte.",
+      a: "Evaluarea Oportunităților AI este gratuită. Proiectele mai mari se dimensionează și se tarifează per proiect, cu prețul convenit dinainte.",
     },
     {
       q: "Lucrați la distanță?",
@@ -736,7 +741,7 @@ export const work = {
       delivered: [
         "O hartă în timp real a pozițiilor vehiculelor, pentru întreaga flotă a orașului",
         "Analiza compoziției flotei: 238 de vehicule (63% autobuze, 37% tramvaie / metrou ușor)",
-        "Metrici de eficiență a mobilității: viteza medie pe ore și pe categorii (autobuze 27,35 km/h, tramvaie 17,52 km/h), plus o histogramă a distribuției vitezelor",
+        "Metrici de eficiență a mobilității: viteza medie pe intervale orare și pe categorii (autobuze 27,35 km/h, tramvaie 17,52 km/h), plus o histogramă a distribuției vitezelor",
         "Indici de accesibilitate pentru vehiculele accesibile cu scaunul rulant (71,85%) și cu bicicleta (10,08%)",
         "O hartă a punctelor de congestie și un tabel cu 58 de depășiri de viteză înregistrate, semnalând valori extreme de până la 141 km/h — cu peste 50 km/h peste limită",
       ],
@@ -839,6 +844,7 @@ export const ui = {
   footerAria: "Subsol",
   footerRights: "Toate drepturile rezervate.",
   read: "Citiți",
+  readMore: "Citiți mai mult",
   readAria: "Citiți:",
   comingSoon: "În curând",
   backToInsights: "Perspective",
