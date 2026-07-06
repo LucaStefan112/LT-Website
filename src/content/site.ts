@@ -82,9 +82,10 @@ export interface WorkProject {
 /* Fill these when confirmed. Empty values degrade gracefully — nothing invented
    is shown on the live page. */
 export const config = {
-  // No scheduling link — the primary CTA links to the contact form. To switch
-  // the CTA to "Book a conversation", set a Cal.com/Calendly URL here.
-  bookingUrl: "",
+  // Booking link (Google Calendar appointment page). Because this is set, the
+  // primary CTA reads "Book a conversation" and opens this link in a new tab;
+  // the contact form stays available as the alternative.
+  bookingUrl: "https://calendar.app.google/dAY836e79fkCiy9m6",
   // Founder photo: public/brand/founder.jpg.
   founderPhoto: "/brand/founder.jpg",
 } as const;
