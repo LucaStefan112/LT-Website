@@ -29,4 +29,4 @@ Adoption has to be designed in from the start. That means involving the people w
 
 None of these three failures are about algorithms. They are about value, judgment, and change — the parts leaders are already good at, applied to a new kind of project. Before you fund an AI initiative, ask three plain questions: What is it worth? Is this the right problem for it? And will people actually use it? If you cannot answer all three, the risk is not that the AI underperforms. It is that the project quietly costs money and delivers nothing.
 
-That is exactly what a short, fixed-scope [AI Opportunity Assessment](/contact?topic=assessment) is for: a clear, prioritized view of where technology can move your numbers — and, just as honestly, where it can't.
+That is exactly what a short, fixed-scope [AI Opportunity Assessment](/assessment) is for: a clear, prioritized view of where technology can move your numbers — and, just as honestly, where it can't.

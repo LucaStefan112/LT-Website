@@ -1,0 +1,894 @@
+---
+/* A complete, clearly-labeled SAMPLE of the Gate Zero Readout.
+   "Arvela Logistics" is a fictional company; every number is invented.
+   The method, scoring, structure, and format are exactly what a client
+   receives. Publishing the document is the credibility move: for a new
+   practice, showing the work IS the case study. */
+import Base from "../../layouts/Base.astro";
+import Container from "../../components/ui/Container.astro";
+import Button from "../../components/ui/Button.astro";
+import { pageMeta } from "../../content/site";
+
+const meta = pageMeta.assessmentSample;
+
+type Rag = "green" | "amber" | "red";
+interface Row {
+  dim: string;
+  a: Rag;
+  b: Rag;
+  c: Rag;
+}
+const ragRows: Row[] = [
+  { dim: "Value at stake", a: "green", b: "amber", c: "amber" },
+  { dim: "Data reality", a: "green", b: "red", c: "red" },
+  { dim: "Grounding & retrieval", a: "green", b: "amber", c: "red" },
+  { dim: "Error tolerance vs stakes", a: "green", b: "green", c: "red" },
+  { dim: "Validation & verifiability", a: "amber", b: "amber", c: "red" },
+  { dim: "Cost, latency & ownership", a: "green", b: "amber", c: "amber" },
+  { dim: "Security & EU AI Act exposure", a: "amber", b: "amber", c: "green" },
+];
+const ragLabel: Record<Rag, string> = {
+  green: "On footing — no blocker found at walkthrough depth",
+  amber: "Addressable gap — named condition must be met",
+  red: "Gating problem — blocks a build verdict as scoped",
+};
+---
+
+<Base title={meta.title} description={meta.description} path={meta.path}>
+  <section class="sr-wrap bg-bone">
+    <Container>
+      <a href="/assessment" class="sr-back" data-astro-prefetch>
+        <span aria-hidden="true">←</span> The AI Opportunity Assessment
+      </a>
+
+      <div class="sr-banner" role="note">
+        <strong>Illustrative sample.</strong> “Arvela Logistics” is a fictional
+        company and every number below is invented. The method, the scoring,
+        and the format are exactly what you receive — built on your numbers
+        instead.
+      </div>
+
+      <h1 class="sr-pagetitle">A sample Gate Zero Readout.</h1>
+
+      <!-- ============================== PAGE 1 -->
+      <article class="sr-sheet" aria-label="Page 1 — Decision memo">
+        <p class="sr-sheet-tag">Page 1 · Decision memo</p>
+        <p class="sr-doc-head">
+          Gate Zero Readout — Arvela Logistics · March 2026 · Prepared by
+          Luca-Ștefan Tamaș, LT Strategy Partners
+        </p>
+        <h2 class="sr-verdict-title">
+          Ship the shipment-document assistant. Consolidate the knowledge base
+          before any customer chatbot. Don't build the pricing engine.
+        </h2>
+        <p class="sr-body">
+          Of the three use cases assessed, one is ready to build now: an
+          assistant that reads booking emails and attached shipment documents
+          and drafts structured entries for the operations team to confirm.
+          The other two fail Gate Zero today — one temporarily, one on design.
+        </p>
+        <ul class="sr-points" role="list">
+          <li>
+            <strong>The document assistant clears the gate.</strong> Five
+            operations staff spend roughly nine hours a week each re-keying
+            data from PDFs and emails — about €54,000 a year at a conservative
+            base case, using Arvela's own loaded-cost figures. The grounding
+            content exists, is accessible today, and every output is confirmed
+            by a human before it enters the TMS — so the error budget is honest.
+          </li>
+          <li>
+            <strong>The support chatbot is “not yet”, not “no”.</strong> The
+            answers customers need live in seventeen inboxes and a wiki last
+            updated fourteen months ago. Built today, the assistant would
+            confidently repeat stale answers. The unlock is organizational,
+            not technical — and it's named on page 4.
+          </li>
+          <li>
+            <strong>The pricing engine fails on stakes, not on ambition.</strong>
+            A wrong extraction gets caught by the operator who confirms it. A
+            wrong price goes straight to a customer. With spot-quote history
+            living in email threads, the error rate cannot be validated to the
+            tolerance the workflow demands — this is where AI won't pay off
+            for Arvela as scoped.
+          </li>
+        </ul>
+        <p class="sr-anchor">
+          What leadership already suspected, confirmed with numbers: the
+          re-keying burden your operations lead has flagged for two years is
+          the strongest AI case in the company — stronger than either of the
+          two ideas that came from vendor conversations.
+        </p>
+        <div class="sr-next">
+          <span class="sr-next-label">Owner &amp; 90-day step</span>
+          Operations director. Scope the document assistant against the gate
+          checklist on page 3; in parallel, assign one owner to the knowledge
+          base with a 90-day consolidation target.
+        </div>
+      </article>
+
+      <!-- ============================== PAGE 2 -->
+      <article class="sr-sheet" aria-label="Page 2 — The opportunity portfolio">
+        <p class="sr-sheet-tag">Page 2 · The opportunity portfolio</p>
+        <h2 class="sr-sheet-title">Three use cases, one map.</h2>
+
+        <div class="sr-map" role="img" aria-label="Value versus production viability map. Document assistant: high value, high viability — build now. Support chatbot: medium value, low viability — not yet. Pricing engine: high value claimed, very low viability — don't build.">
+          <span class="sr-axis-y">Value at stake →</span>
+          <span class="sr-axis-x">Production viability →</span>
+          <div class="sr-map-grid" aria-hidden="true">
+            <div class="sr-quad sr-quad-tl"><span>Not yet — close the gap first</span></div>
+            <div class="sr-quad sr-quad-tr"><span>Build now</span></div>
+            <div class="sr-quad sr-quad-bl"><span>Don't build — and here's why</span></div>
+            <div class="sr-quad sr-quad-br"><span>Quick wins, modest stakes</span></div>
+            <div class="sr-dot sr-dot-a" style="left: 78%; top: 22%;">
+              <i></i>
+              <em>A · Document assistant <b class="sr-badge sr-badge-minimal">AI Act: minimal</b></em>
+            </div>
+            <div class="sr-dot sr-dot-b" style="left: 30%; top: 44%;">
+              <i></i>
+              <em>B · Support chatbot <b class="sr-badge sr-badge-limited">AI Act: limited</b></em>
+            </div>
+            <div class="sr-dot sr-dot-c" style="left: 12%; top: 30%;">
+              <i></i>
+              <em>C · Pricing engine <b class="sr-badge sr-badge-flag">margin-critical</b></em>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="sr-table-label">Dimension scores at walkthrough depth</h3>
+        <div class="sr-table-scroll">
+          <table class="sr-table">
+            <thead>
+              <tr>
+                <th scope="col">Gate Zero dimension</th>
+                <th scope="col">A · Documents</th>
+                <th scope="col">B · Chatbot</th>
+                <th scope="col">C · Pricing</th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                ragRows.map((r) => (
+                  <tr>
+                    <th scope="row">{r.dim}</th>
+                    <td><span class:list={["sr-rag", `sr-rag-${r.a}`]}>{r.a === "green" ? "G" : r.a === "amber" ? "A" : "R"}</span></td>
+                    <td><span class:list={["sr-rag", `sr-rag-${r.b}`]}>{r.b === "green" ? "G" : r.b === "amber" ? "A" : "R"}</span></td>
+                    <td><span class:list={["sr-rag", `sr-rag-${r.c}`]}>{r.c === "green" ? "G" : r.c === "amber" ? "A" : "R"}</span></td>
+                  </tr>
+                ))
+              }
+            </tbody>
+          </table>
+        </div>
+        <ul class="sr-legend" role="list">
+          <li><span class="sr-rag sr-rag-green">G</span> {ragLabel.green}</li>
+          <li><span class="sr-rag sr-rag-amber">A</span> {ragLabel.amber}</li>
+          <li><span class="sr-rag sr-rag-red">R</span> {ragLabel.red}</li>
+        </ul>
+        <ul class="sr-nongreen" role="list">
+          <li><strong>A / Validation (amber):</strong> extraction accuracy needs a 200-document ground-truth set before launch — one week of operator time, scoped in the gate checklist.</li>
+          <li><strong>A / Exposure (amber):</strong> shipping documents carry personal data; processing must stay in the EU, and the extraction step should run self-hosted or in an EU region with no third-country transfer.</li>
+          <li><strong>B / Data reality (red):</strong> the grounding content is fragmented and stale; no assistant can answer from documentation that doesn't exist in one current place.</li>
+          <li><strong>C / Error tolerance (red):</strong> a wrong price reaches a customer with no human between the model and the harm — the workflow as designed has no error budget.</li>
+        </ul>
+        <p class="sr-binding">
+          The binding constraint at Arvela: <strong>data consolidation, not
+          ambition, gates everything after use case A.</strong>
+        </p>
+        <p class="sr-footnote">
+          Dimension weights were fixed before any use case was scored. No
+          aggregate score is reported — the lowest dimension gates; averages hide.
+        </p>
+      </article>
+
+      <!-- ============================== PAGE 3 -->
+      <article class="sr-sheet" aria-label="Page 3 — Top use case brief and formal gate">
+        <p class="sr-sheet-tag">Page 3 · Top use case — brief &amp; formal gate</p>
+        <h2 class="sr-sheet-title">A · The shipment-document assistant.</h2>
+        <dl class="sr-fields">
+          <div><dt>Business process</dt><dd>Inbound booking requests: email + attached PDFs (bills of lading, packing lists, customs forms) re-keyed into the TMS by the operations team.</dd></div>
+          <div><dt>Impact, conservative base case</dt><dd>5 operators × ~9 hrs/week re-keying × Arvela's loaded cost ≈ <strong>€54,000/year</strong>, before error-correction time. Assumption declared: volumes from the ops lead's estimate, not measured logs.</dd></div>
+          <div><dt>Buy / integrate / build</dt><dd>Integrate: an extraction model behind a review UI, wired to the existing TMS API. No custom model training warranted at this volume.</dd></div>
+          <div><dt>Data readiness</dt><dd>Green at walkthrough depth — documents accessible in the shared mailbox today; ground-truth set needed pre-launch (see gate).</dd></div>
+          <div><dt>Cost band &amp; time to production</dt><dd>Low five figures, 8–12 weeks to a production system with validation, monitoring, and handover. Range, not a quote — a fixed price follows a scoped audit.</dd></div>
+          <div><dt>Success metric</dt><dd>Hours of re-keying per 100 shipments, measured before and ~30 days after launch.</dd></div>
+        </dl>
+
+        <h3 class="sr-gate-title">The gate</h3>
+        <p class="sr-gate-verdict"><span class="sr-verdict-chip sr-chip-go">Build now</span> — subject to the checklist below.</p>
+        <ul class="sr-gate-list" role="list">
+          <li><strong>Capability target:</strong> ≥95% field-level extraction accuracy on the 200-document ground-truth set before go-live; every output human-confirmed until then and sampled after.</li>
+          <li><strong>Safety target:</strong> no auto-commit to the TMS — operator confirmation stays in the loop until three consecutive weeks inside the error budget.</li>
+          <li><strong>Cost at scale:</strong> unit cost per processed shipment stays under the agreed ceiling at 2× current volume; measured, not assumed.</li>
+          <li><strong>Sign-off domains:</strong> operations owner · security/data-protection · engineering · the operators who use it.</li>
+          <li><strong>Walk-away conditions:</strong> if the ground-truth set can't reach the accuracy floor, or EU-only processing can't be met at acceptable cost, stop — the readout's verdict flips to “not yet” and says why.</li>
+          <li><strong>What would change this verdict:</strong> a TMS migration mid-build, or volumes 3× below the estimate used in the base case.</li>
+        </ul>
+        <p class="sr-confidence">
+          Confidence: scores marked at walkthrough depth only — verified
+          against described systems, not inspected pipelines. The paid audit
+          tests these against the actual mailbox and TMS before any build.
+        </p>
+      </article>
+
+      <!-- ============================== PAGE 4 -->
+      <article class="sr-sheet" aria-label="Page 4 — Where AI won't pay off">
+        <p class="sr-sheet-tag">Page 4 · Where AI won't pay off for Arvela</p>
+        <h2 class="sr-sheet-title">The honest no's — and what would change them.</h2>
+
+        <div class="sr-no">
+          <p class="sr-no-head"><span class="sr-verdict-chip sr-chip-notyet">Not yet</span> B · Customer support assistant</p>
+          <p class="sr-body">
+            The value is real — status queries interrupt the same team that
+            re-keys documents. But the grounding content fails Gate Zero: the
+            answers live in seventeen inboxes and a wiki last touched fourteen
+            months ago. An assistant built on that would answer confidently
+            and wrongly, in front of customers, under the EU AI Act's
+            transparency obligations for customer-facing bots.
+            <strong>The unlock:</strong> one owner, one consolidated knowledge
+            base, a 90-day target — then this use case re-enters the gate with
+            a realistic path to “build”.
+          </p>
+        </div>
+
+        <div class="sr-no">
+          <p class="sr-no-head"><span class="sr-verdict-chip sr-chip-no">Don't build</span> C · Dynamic pricing engine</p>
+          <p class="sr-body">
+            Not because the model can't produce prices — because the workflow
+            has no error budget and no validation path. A wrong extraction is
+            caught by an operator; a wrong price reaches a customer directly
+            and costs margin or trust. The spot-quote history that would train
+            and validate it lives in unstructured email threads, so the error
+            rate can't even be measured to the tolerance required.
+            <strong>The cheaper answer that survives scrutiny:</strong> a
+            rules-based margin floor with quarterly review — nearly free, no
+            surprise behavior. <strong>What would change the verdict:</strong>
+            two years of structured quote/outcome data and a human approval
+            step that doesn't erase the speed advantage.
+          </p>
+        </div>
+      </article>
+
+      <!-- ============================== PAGE 5 -->
+      <article class="sr-sheet" aria-label="Page 5 — Gaps, next steps, and the map forward">
+        <p class="sr-sheet-tag">Page 5 · Gaps, next steps, and the map forward</p>
+        <h2 class="sr-sheet-title">What happens next — with or without us.</h2>
+        <ol class="sr-steps" role="list">
+          <li><strong>Assign the knowledge-base owner (yours to do, this week).</strong> No engagement needed — one name, one 90-day consolidation target, and use case B stops being blocked.</li>
+          <li><strong>Build the ground-truth set (yours to do, ~1 week of operator time).</strong> 200 recent shipments, fields verified by hand. Whoever builds the assistant will need it — us or anyone else.</li>
+          <li><strong>Scope the document assistant against the page-3 gate.</strong> The open questions — actual extraction accuracy on your documents, EU-only processing cost — are exactly what a fixed-scope production-readiness audit tests.</li>
+          <li><strong>Re-gate the chatbot in 90 days.</strong> If the knowledge base lands, B re-enters at “build” candidacy; if it doesn't, that tells you something too.</li>
+        </ol>
+        <div class="sr-map-forward">
+          <p class="sr-foot-label">If you want help, this is how each gap maps</p>
+          <ul role="list">
+            <li>Extraction accuracy &amp; pipeline reality → a fixed-scope <strong>production-readiness audit</strong> on use case A.</li>
+            <li>EU-only / no-transfer processing → a <strong>security &amp; EU AI Act review</strong>, scoped by the exposure tier already assigned above.</li>
+            <li>Taking A from verdict to production → a fixed-scope <strong>production sprint</strong>, one workflow, measured against the page-3 metric.</li>
+          </ul>
+        </div>
+        <p class="sr-yours">This document is yours either way.</p>
+      </article>
+
+      <!-- ============================== APPENDIX -->
+      <article class="sr-sheet sr-sheet-appendix" aria-label="Appendix — the Gate Zero rubric">
+        <p class="sr-sheet-tag">Appendix · The Gate Zero rubric</p>
+        <h2 class="sr-sheet-title">The anchors are the method. Nothing behind the curtain.</h2>
+        <p class="sr-body">
+          Every dimension is scored 1–5 against observable anchors — the same
+          anchors in every readout, fixed before scoring begins. Score 5 and
+          score 1 are shown here for each dimension; the full anchor set
+          travels with the readout.
+        </p>
+        <dl class="sr-rubric">
+          <div><dt>Value at stake</dt><dd><strong>5:</strong> euros or hours attached to a named workflow, from the client's own figures. <strong>1:</strong> “efficiency” with no workflow named.</dd></div>
+          <div><dt>Data reality</dt><dd><strong>5:</strong> grounding content exists, is clean, and is accessible today. <strong>1:</strong> it exists in someone's head.</dd></div>
+          <div><dt>Grounding &amp; retrieval</dt><dd><strong>5:</strong> structured, current, chunkable content a retrieval system can serve at production quality. <strong>1:</strong> fragmented or stale content no retrieval tuning can rescue.</dd></div>
+          <div><dt>Error tolerance vs stakes</dt><dd><strong>5:</strong> wrong outputs land on a reviewer with time to catch them. <strong>1:</strong> wrong outputs reach a customer, a regulator, or a ledger directly.</dd></div>
+          <div><dt>Validation &amp; verifiability</dt><dd><strong>5:</strong> correctness checkable automatically or by cheap sampling. <strong>1:</strong> no way to know it's wrong until it costs something.</dd></div>
+          <div><dt>Cost, latency &amp; ownership</dt><dd><strong>5:</strong> unit economics hold at 2× volume and a named owner exists. <strong>1:</strong> per-query cost unknown and nobody would be paged.</dd></div>
+          <div><dt>Security &amp; EU AI Act exposure</dt><dd><strong>5:</strong> no personal data, minimal-risk tier, deployment unconstrained. <strong>1:</strong> personal or regulated data with an unresolved transfer, or Annex III adjacency unexamined.</dd></div>
+        </dl>
+        <p class="sr-standards">
+          Exposure scoring cross-references the EU AI Act (Article 6 / Annex
+          III), the NIST AI Risk Management Framework, and the OWASP Top 10
+          for LLM applications. Declared assumptions from the session travel
+          with the readout as a register.
+        </p>
+      </article>
+
+      <div class="sr-cta">
+        <p class="sr-cta-text">
+          This is the document your leadership team receives — built on your
+          numbers, your systems, and your use cases.
+        </p>
+        <Button href="/assessment#apply" withArrow>Apply for an assessment</Button>
+      </div>
+    </Container>
+  </section>
+</Base>
+
+<style>
+  .sr-wrap {
+    padding-top: clamp(4.5rem, 9vw, 7rem);
+    padding-bottom: clamp(4.5rem, 9vw, 7.5rem);
+  }
+  .sr-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--color-muted);
+    margin-bottom: 1.75rem;
+  }
+  .sr-back:hover {
+    color: var(--color-steel);
+  }
+  .sr-banner {
+    padding: 1rem 1.25rem;
+    border-left: 3px solid var(--color-steel);
+    border-radius: 10px;
+    background-color: color-mix(in srgb, var(--color-steel) 8%, var(--color-paper));
+    color: var(--color-ink);
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    max-width: 62ch;
+  }
+  .sr-pagetitle {
+    margin-top: clamp(2rem, 4vw, 3rem);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--color-ink);
+  }
+
+  /* ---------- sheets ---------- */
+  .sr-sheet {
+    margin-top: clamp(1.75rem, 3.5vw, 2.5rem);
+    background-color: var(--color-paper);
+    border: 1px solid var(--color-line);
+    border-radius: 16px;
+    padding: clamp(1.5rem, 4vw, 3rem);
+    box-shadow: 0 1px 2px rgb(22 48 76 / 0.04), 0 8px 24px rgb(22 48 76 / 0.05);
+  }
+  .sr-sheet-tag {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-steel);
+    margin-bottom: 1.25rem;
+  }
+  .sr-doc-head {
+    font-size: 0.8125rem;
+    color: var(--color-muted);
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--color-line);
+    margin-bottom: 1.5rem;
+  }
+  .sr-verdict-title {
+    font-size: clamp(1.375rem, 2.8vw, 1.75rem);
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    line-height: 1.3;
+    color: var(--color-ink);
+    max-width: 30ch;
+  }
+  .sr-sheet-title {
+    font-size: clamp(1.25rem, 2.4vw, 1.5rem);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--color-ink);
+  }
+  .sr-body {
+    margin-top: 1rem;
+    color: var(--color-muted);
+    font-size: 1rem;
+    line-height: 1.65;
+    max-width: 68ch;
+  }
+  .sr-body strong {
+    color: var(--color-ink);
+  }
+  .sr-points {
+    list-style: none;
+    margin: 1.5rem 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.125rem;
+  }
+  .sr-points li {
+    position: relative;
+    padding-left: 1.75rem;
+    color: var(--color-muted);
+    font-size: 0.9688rem;
+    line-height: 1.6;
+    max-width: 70ch;
+  }
+  .sr-points li strong {
+    color: var(--color-ink);
+  }
+  .sr-points li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.62em;
+    width: 1rem;
+    height: 2px;
+    background-color: var(--color-steel);
+  }
+  .sr-anchor {
+    margin-top: 1.5rem;
+    padding: 1rem 1.25rem;
+    border-radius: 10px;
+    background-color: color-mix(in srgb, var(--color-steel) 5%, var(--color-paper));
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--color-ink);
+    font-style: italic;
+    max-width: 68ch;
+  }
+  .sr-next {
+    margin-top: 1.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--color-line);
+    font-size: 0.9688rem;
+    line-height: 1.6;
+    color: var(--color-ink);
+    max-width: 68ch;
+  }
+  .sr-next-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-steel);
+    margin-bottom: 0.375rem;
+  }
+
+  /* ---------- page 2: map ---------- */
+  .sr-map {
+    position: relative;
+    margin-top: 1.75rem;
+    padding: 0 0 2rem 2rem;
+  }
+  .sr-axis-y {
+    position: absolute;
+    left: 0;
+    top: 45%;
+    transform: rotate(180deg) translateY(50%);
+    writing-mode: vertical-rl;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+  .sr-axis-x {
+    position: absolute;
+    left: 2rem;
+    bottom: 0;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+  .sr-map-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: minmax(7rem, auto) minmax(7rem, auto);
+    border: 1px solid var(--color-line);
+    border-radius: 10px;
+    overflow: hidden;
+    min-height: 18rem;
+  }
+  .sr-quad {
+    padding: 0.75rem 0.875rem;
+    border: 0 solid var(--color-line);
+  }
+  .sr-quad span {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--color-muted) 75%, transparent);
+  }
+  .sr-quad-tl { border-right-width: 1px; border-bottom-width: 1px; }
+  .sr-quad-tr { border-bottom-width: 1px; background-color: color-mix(in srgb, var(--color-steel) 6%, var(--color-paper)); }
+  .sr-quad-tr span { color: var(--color-steel); }
+  .sr-quad-bl { border-right-width: 1px; background-color: color-mix(in srgb, #b3261e 4%, var(--color-paper)); }
+  .sr-quad-bl span { color: color-mix(in srgb, #b3261e 70%, var(--color-ink)); }
+  .sr-dot {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    max-width: 46%;
+  }
+  .sr-dot i {
+    flex: none;
+    width: 0.875rem;
+    height: 0.875rem;
+    border-radius: 999px;
+    background-color: var(--color-steel);
+    border: 2px solid var(--color-paper);
+    box-shadow: 0 0 0 1px var(--color-steel);
+  }
+  .sr-dot-b i { background-color: #b8860b; box-shadow: 0 0 0 1px #b8860b; }
+  .sr-dot-c i { background-color: #b3261e; box-shadow: 0 0 0 1px #b3261e; }
+  .sr-dot em {
+    font-style: normal;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    line-height: 1.35;
+  }
+  .sr-badge {
+    display: inline-block;
+    font-size: 0.6563rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    padding: 0.0625rem 0.4375rem;
+    border-radius: 999px;
+    margin-left: 0.25rem;
+    white-space: nowrap;
+  }
+  .sr-badge-minimal { background-color: color-mix(in srgb, var(--color-steel) 12%, var(--color-paper)); color: var(--color-steel-deep); }
+  .sr-badge-limited { background-color: color-mix(in srgb, #b8860b 14%, var(--color-paper)); color: #7a5a08; }
+  .sr-badge-flag { background-color: color-mix(in srgb, #b3261e 10%, var(--color-paper)); color: #8f1e17; }
+
+  /* ---------- page 2: table ---------- */
+  .sr-table-label {
+    margin-top: 2rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-steel);
+  }
+  .sr-table-scroll {
+    margin-top: 0.875rem;
+    overflow-x: auto;
+  }
+  .sr-table {
+    width: 100%;
+    min-width: 34rem;
+    border-collapse: collapse;
+    font-size: 0.9063rem;
+  }
+  .sr-table th,
+  .sr-table td {
+    text-align: left;
+    padding: 0.625rem 0.75rem;
+    border-bottom: 1px solid var(--color-line);
+  }
+  .sr-table thead th {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-ink);
+  }
+  .sr-table tbody th {
+    font-weight: 500;
+    color: var(--color-ink);
+  }
+  .sr-rag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+  .sr-rag-green { background-color: color-mix(in srgb, #1f7a4d 14%, var(--color-paper)); color: #1f7a4d; }
+  .sr-rag-amber { background-color: color-mix(in srgb, #b8860b 16%, var(--color-paper)); color: #7a5a08; }
+  .sr-rag-red { background-color: color-mix(in srgb, #b3261e 12%, var(--color-paper)); color: #8f1e17; }
+  .sr-legend {
+    list-style: none;
+    margin: 1rem 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 0.8438rem;
+    color: var(--color-muted);
+  }
+  .sr-legend li {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+  }
+  .sr-nongreen {
+    list-style: none;
+    margin: 1.5rem 0 0;
+    padding: 1.25rem 0 0;
+    border-top: 1px solid var(--color-line);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    font-size: 0.9063rem;
+    line-height: 1.6;
+    color: var(--color-muted);
+    max-width: 70ch;
+  }
+  .sr-nongreen strong {
+    color: var(--color-ink);
+  }
+  .sr-binding {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    color: var(--color-muted);
+  }
+  .sr-binding strong {
+    color: var(--color-ink);
+  }
+  .sr-footnote {
+    margin-top: 1rem;
+    font-size: 0.8125rem;
+    color: var(--color-muted);
+    font-style: italic;
+  }
+
+  /* ---------- page 3 ---------- */
+  .sr-fields {
+    margin: 1.5rem 0 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  @media (min-width: 720px) {
+    .sr-fields {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  .sr-fields > div {
+    padding: 1rem 1.125rem;
+    border: 1px solid var(--color-line);
+    border-radius: 10px;
+  }
+  .sr-fields dt {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-steel);
+    margin-bottom: 0.375rem;
+  }
+  .sr-fields dd {
+    margin: 0;
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    color: var(--color-muted);
+  }
+  .sr-fields dd strong {
+    color: var(--color-ink);
+  }
+  .sr-gate-title {
+    margin-top: 2rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-steel);
+  }
+  .sr-gate-verdict {
+    margin-top: 0.75rem;
+    font-size: 1.0625rem;
+    color: var(--color-ink);
+    font-weight: 500;
+  }
+  .sr-verdict-chip {
+    display: inline-block;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    margin-right: 0.375rem;
+  }
+  .sr-chip-go { background-color: color-mix(in srgb, #1f7a4d 14%, var(--color-paper)); color: #1f7a4d; }
+  .sr-chip-notyet { background-color: color-mix(in srgb, #b8860b 16%, var(--color-paper)); color: #7a5a08; }
+  .sr-chip-no { background-color: color-mix(in srgb, #b3261e 12%, var(--color-paper)); color: #8f1e17; }
+  .sr-gate-list {
+    list-style: none;
+    margin: 1.25rem 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+  }
+  .sr-gate-list li {
+    position: relative;
+    padding-left: 1.75rem;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--color-muted);
+    max-width: 70ch;
+  }
+  .sr-gate-list li strong {
+    color: var(--color-ink);
+  }
+  .sr-gate-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.3em;
+    width: 0.875rem;
+    height: 0.875rem;
+    border: 2px solid var(--color-steel);
+    border-radius: 3px;
+  }
+  .sr-confidence {
+    margin-top: 1.5rem;
+    padding: 1rem 1.25rem;
+    border-left: 3px solid var(--color-steel);
+    border-radius: 10px;
+    background-color: color-mix(in srgb, var(--color-steel) 5%, var(--color-paper));
+    font-size: 0.9063rem;
+    line-height: 1.6;
+    color: var(--color-ink);
+    max-width: 68ch;
+  }
+
+  /* ---------- page 4 ---------- */
+  .sr-no {
+    margin-top: 1.75rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-line);
+  }
+  .sr-no:first-of-type {
+    margin-top: 1.25rem;
+    padding-top: 0;
+    border-top: 0;
+  }
+  .sr-no-head {
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--color-ink);
+  }
+
+  /* ---------- page 5 ---------- */
+  .sr-steps {
+    list-style: none;
+    counter-reset: srstep;
+    margin: 1.5rem 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .sr-steps li {
+    counter-increment: srstep;
+    position: relative;
+    padding-left: 2.25rem;
+    font-size: 0.9688rem;
+    line-height: 1.6;
+    color: var(--color-muted);
+    max-width: 70ch;
+  }
+  .sr-steps li strong {
+    color: var(--color-ink);
+  }
+  .sr-steps li::before {
+    content: counter(srstep);
+    position: absolute;
+    left: 0;
+    top: 0.1em;
+    width: 1.5rem;
+    height: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background-color: color-mix(in srgb, var(--color-steel) 10%, var(--color-paper));
+    color: var(--color-steel-deep);
+    font-size: 0.8125rem;
+    font-weight: 700;
+  }
+  .sr-map-forward {
+    margin-top: 1.75rem;
+    padding: 1.25rem 1.5rem;
+    border: 1px solid var(--color-line);
+    border-radius: 12px;
+  }
+  .sr-foot-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-steel);
+    margin-bottom: 0.875rem;
+  }
+  .sr-map-forward ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+  }
+  .sr-map-forward li {
+    position: relative;
+    padding-left: 1.5rem;
+    font-size: 0.9063rem;
+    line-height: 1.55;
+    color: var(--color-muted);
+  }
+  .sr-map-forward li strong {
+    color: var(--color-ink);
+  }
+  .sr-map-forward li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 0.75rem;
+    height: 2px;
+    background-color: var(--color-steel);
+  }
+  .sr-yours {
+    margin-top: 1.5rem;
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--color-ink);
+  }
+
+  /* ---------- appendix ---------- */
+  .sr-sheet-appendix {
+    background-color: color-mix(in srgb, var(--color-steel) 3%, var(--color-paper));
+  }
+  .sr-rubric {
+    margin: 1.5rem 0 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.875rem;
+  }
+  .sr-rubric > div {
+    padding: 0.875rem 1rem;
+    border: 1px solid var(--color-line);
+    border-radius: 10px;
+    background-color: var(--color-paper);
+  }
+  .sr-rubric dt {
+    font-size: 0.9063rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    margin-bottom: 0.25rem;
+  }
+  .sr-rubric dd {
+    margin: 0;
+    font-size: 0.875rem;
+    line-height: 1.55;
+    color: var(--color-muted);
+  }
+  .sr-rubric dd strong {
+    color: var(--color-steel-deep);
+  }
+  .sr-standards {
+    margin-top: 1.5rem;
+    font-size: 0.8438rem;
+    line-height: 1.6;
+    color: var(--color-muted);
+    max-width: 68ch;
+  }
+
+  /* ---------- closing CTA ---------- */
+  .sr-cta {
+    margin-top: clamp(2.5rem, 5vw, 3.5rem);
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    align-items: flex-start;
+  }
+  .sr-cta-text {
+    font-size: 1.0625rem;
+    color: var(--color-ink);
+    max-width: 52ch;
+  }
+</style>

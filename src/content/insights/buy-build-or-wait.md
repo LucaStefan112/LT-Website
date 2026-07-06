@@ -37,4 +37,4 @@ Four questions carry most of the weight. Is this our differentiator? How specifi
 
 If it is your differentiator and your data is specific, lean build. If it is common and the products are mature, buy. If the value is fuzzy, the tools are still moving, or you are not ready, wait, and set a date to look again. None of these is a life sentence; you can buy now and build later, or wait now and move fast once the picture is clear.
 
-Getting this right is less about the technology than about being honest on those four questions. A short, fixed-scope [AI Opportunity Assessment](/contact?topic=assessment) is built to answer exactly that: where to buy, where to build, and where the right move is to wait.
+Getting this right is less about the technology than about being honest on those four questions. A short, fixed-scope [AI Opportunity Assessment](/assessment) is built to answer exactly that: where to buy, where to build, and where the right move is to wait.
