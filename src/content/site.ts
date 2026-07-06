@@ -197,8 +197,17 @@ export const services = {
     "One technology partner across the full journey — advisory through to delivery, with deep specialization in AI — so strategy and delivery never disconnect.",
   items: [
     {
+      title: "Technology Advisory & Oversight",
+      body: "The role we're built for: the senior, independent technology advisor a leadership team keeps close — for where to invest, what to say no to, how to spend well, and where the real risk sits. No product to sell you, and no agenda but yours.",
+      deliverables: [
+        "An ongoing advisor for the decisions that matter, between and beyond projects",
+        "Independent review of direction, spend, roadmaps, vendors, and risk",
+        "Direct access to a senior technologist for the architecture, build-vs-buy, and AI calls",
+      ],
+    },
+    {
       title: "Opportunity & Strategy",
-      body: "We assess where AI, data, and technology can move revenue, cost, or risk, size the value against your P&L, and separate the few opportunities worth pursuing from the many that aren't. The AI Opportunity Assessment is the fixed-scope way to start here.",
+      body: "We assess where AI, data, and technology can move revenue, cost, or risk, size the value against your P&L, and separate the few opportunities worth pursuing from the many that aren't.",
       deliverables: [
         "A prioritised opportunity map, ranked by value and effort",
         "Sized business cases for the top opportunities",
@@ -207,7 +216,7 @@ export const services = {
     },
     {
       title: "Implementation & Delivery",
-      body: "We design, build, integrate, and deploy the solutions, working alongside your teams so the knowledge stays in-house. We ship working software over slideware, and stay until it's live, used, and handed over cleanly.",
+      body: "We design, build, integrate, and deploy the solutions ourselves, working alongside your teams so the knowledge stays in-house. We ship working software over slideware, and stay until it's live, used, and handed over cleanly.",
       deliverables: [
         "A working solution running in production",
         "Integration into your existing systems and workflows",
@@ -223,25 +232,31 @@ export const services = {
         "A before-and-after view of the gain",
       ],
     },
-    {
-      title: "Advisory & Oversight",
-      body: "Independent counsel for executives and boards on where to invest in technology, what to say no to, and where the real risk lies. Senior people you can trust for the decisions that matter, with no product to sell you.",
-      deliverables: [
-        "Regular reviews of direction, spend, and risk",
-        "Independent assessments of proposals and vendors",
-        "Direct access to senior people between sessions",
-      ],
-    },
-    {
-      title: "AI Governance & EU AI Act Readiness",
-      body: "Independent help understanding where the EU AI Act and responsible-AI expectations apply to you, what you need in place, and how to adopt AI without taking on risk you can't see. Practical guidance, not theory.",
-      deliverables: [
-        "A clear read on where the EU AI Act and responsible-AI duties apply to you",
-        "A prioritised list of what to put in place, by risk",
-        "Guidance on adopting AI without taking on unseen risk",
-      ],
-    },
   ] as Service[],
+  // Featured, visually distinct block that showcases the AI specialty within
+  // the single Services narrative (folds in AI governance). No prices — the
+  // free AI Opportunity Assessment is the entry point.
+  ai: {
+    eyebrow: "The specialty",
+    title: "Specialized in AI that earns its place.",
+    body: "AI is where we go deepest — not demos and pilots that stall, but production AI and LLM systems that run reliably, respect your data, and prove their worth. We've built exactly this, including retrieval-augmented assistants that run entirely on a client's own hardware.",
+    points: [
+      {
+        title: "Production AI & LLM systems",
+        body: "Retrieval-augmented assistants, agents, and automation taken past the demo — with the retrieval tuning, output validation, and monitoring that make them safe to rely on.",
+      },
+      {
+        title: "Private & self-hosted AI",
+        body: "Where confidentiality or regulation demands it, AI that runs on your own infrastructure — nothing sensitive leaving your walls.",
+      },
+      {
+        title: "AI governance & EU AI Act readiness",
+        body: "A clear read on where the EU AI Act and responsible-AI duties apply to you, and a prioritised, risk-ranked list of what to put in place — practical guidance, not theory.",
+      },
+    ] as Card[],
+    note: "Most AI work starts with the AI Opportunity Assessment — free, fixed-scope, and honest about where AI won't pay off.",
+    cta: site.assessmentCta,
+  },
 } as const;
 
 /* ----------------------------- AI Opportunity Assessment (entry offer) */
@@ -724,7 +739,7 @@ export const pageMeta = {
   services: {
     title: "Services — LT Strategy Partners",
     description:
-      "Opportunity & strategy, delivery, operational performance, advisory, and AI governance — one senior partner across the full journey.",
+      "Independent technology advisory and oversight, strategy, delivery, and operational performance — with deep specialization in AI. One senior partner across the full journey.",
     path: "/services",
   },
   about: {

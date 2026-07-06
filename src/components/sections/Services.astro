@@ -2,6 +2,7 @@
 import Section from "../ui/Section.astro";
 import Container from "../ui/Container.astro";
 import SectionHeader from "../ui/SectionHeader.astro";
+import Button from "../ui/Button.astro";
 import { services } from "../../content/site";
 
 interface Props {
@@ -47,6 +48,32 @@ const { showHeader = true, variant = "bone" } = Astro.props;
         ))
       }
     </ul>
+
+    <div class="services-ai reveal">
+      <div class="services-ai-intro">
+        <p class="eyebrow services-ai-eyebrow">{services.ai.eyebrow}</p>
+        <h3 class="services-ai-title">{services.ai.title}</h3>
+        <p class="services-ai-body">{services.ai.body}</p>
+      </div>
+
+      <ul class="services-ai-points" role="list">
+        {
+          services.ai.points.map((p) => (
+            <li>
+              <h4 class="services-ai-point-title">{p.title}</h4>
+              <p class="services-ai-point-body">{p.body}</p>
+            </li>
+          ))
+        }
+      </ul>
+
+      <div class="services-ai-foot">
+        <p class="services-ai-note">{services.ai.note}</p>
+        <Button href={services.ai.cta.href} variant="ghost" withArrow>
+          {services.ai.cta.label}
+        </Button>
+      </div>
+    </div>
   </Container>
 </Section>
 
@@ -127,5 +154,87 @@ const { showHeader = true, variant = "bone" } = Astro.props;
     width: 0.75rem;
     height: 2px;
     background-color: var(--color-steel);
+  }
+
+  /* Featured AI specialty block */
+  .services-ai {
+    margin-top: clamp(3rem, 6vw, 4.5rem);
+    padding: clamp(1.75rem, 4vw, 3rem);
+    border-radius: 18px;
+    border: 1px solid var(--color-line);
+    border-left: 3px solid var(--color-steel);
+    background-color: color-mix(in srgb, var(--color-steel) 5%, var(--color-paper));
+  }
+  .services-ai-eyebrow {
+    color: var(--color-steel);
+  }
+  .services-ai-title {
+    margin-top: 0.75rem;
+    font-size: clamp(1.5rem, 3vw, 1.875rem);
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    color: var(--color-ink);
+    max-width: 24ch;
+  }
+  .services-ai-body {
+    margin-top: 1rem;
+    color: var(--color-muted);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    max-width: 62ch;
+  }
+  .services-ai-points {
+    list-style: none;
+    margin: clamp(1.75rem, 3vw, 2.5rem) 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem 2.5rem;
+  }
+  @media (min-width: 768px) {
+    .services-ai-points {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  .services-ai-point-title {
+    display: inline-block;
+    padding-top: 0.875rem;
+    border-top: 2px solid var(--color-steel);
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    margin-bottom: 0.5rem;
+  }
+  .services-ai-point-body {
+    color: var(--color-muted);
+    font-size: 0.9375rem;
+    line-height: 1.55;
+  }
+  .services-ai-foot {
+    margin-top: clamp(1.75rem, 3vw, 2.5rem);
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-line);
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    align-items: flex-start;
+  }
+  @media (min-width: 640px) {
+    .services-ai-foot {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+  }
+  .services-ai-note {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    max-width: 48ch;
+  }
+  .services-ai-foot :global(.btn) {
+    flex-shrink: 0;
   }
 </style>
