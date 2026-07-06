@@ -33,7 +33,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" v
   <text x="118" y="470" font-family="Archivo, sans-serif" font-size="78" font-weight="600"
         fill="#FFFFFF" letter-spacing="-1">Strategy that delivers.</text>
   <text x="120" y="540" font-family="Archivo, sans-serif" font-size="27" font-weight="400"
-        fill="${BONE}" opacity="0.82">AI &amp; business transformation — advisory and delivery.</text>
+        fill="${BONE}" opacity="0.82">Independent technology advisor, specialized in AI.</text>
 </svg>`;
 
 const outPath = join(root, "public", "og-image.png");

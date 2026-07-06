@@ -23,7 +23,11 @@ import { site } from "../content/site";
       </p>
       <div class="notfound-actions">
         <Button href="/">Back to home</Button>
-        <a href={site.primaryCta.href} class="link-arrow"
+        <a
+          href={site.primaryCta.href}
+          class="link-arrow"
+          target={site.primaryCta.external ? "_blank" : undefined}
+          rel={site.primaryCta.external ? "noopener noreferrer" : undefined}
           >{site.primaryCta.label}
           <span class="arrow" aria-hidden="true">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">

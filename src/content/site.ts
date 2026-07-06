@@ -239,7 +239,7 @@ export const services = {
   ai: {
     eyebrow: "The specialty",
     title: "Specialized in AI that earns its place.",
-    body: "AI is where we go deepest — not demos and pilots that stall, but production AI and LLM systems that run reliably, respect your data, and prove their worth. We've built exactly this, including retrieval-augmented assistants that run entirely on a client's own hardware.",
+    body: "AI is where we go deepest — not demos and pilots that stall, but production AI and LLM systems that run reliably, respect your data, and prove their worth. We've built exactly this — including a retrieval-augmented assistant that runs entirely on hardware a business already owns.",
     points: [
       {
         title: "Production AI & LLM systems",
@@ -668,7 +668,7 @@ export const work = {
         "MinIO",
       ],
       takeaway:
-        "This shows we can design and ship retrieval-augmented AI that runs privately on a client's own hardware, with the memory budgeting, health checks, and backup discipline needed to keep it running in the real world.",
+        "This shows we can design and ship retrieval-augmented AI that runs privately on hardware a business already owns, with the memory budgeting, health checks, and backup discipline needed to keep it running in the real world.",
       diagram: true,
     },
     {
