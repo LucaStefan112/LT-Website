@@ -98,7 +98,7 @@ const primaryCta: CTA = config.bookingUrl
 
 const assessmentCta: CTA = {
   label: "Start with an assessment",
-  href: "/contact?topic=assessment",
+  href: "/assessment",
 };
 
 export const site = {
@@ -138,6 +138,7 @@ export const nav: NavItem[] = [
 
 export const footerNav: NavItem[] = [
   { label: "Services", href: "/services" },
+  { label: "Assessment", href: "/assessment" },
   { label: "Work", href: "/#work" },
   { label: "Insights", href: "/insights" },
   { label: "About", href: "/about" },
@@ -264,16 +265,154 @@ export const services = {
 export const assessment = {
   eyebrow: "Start here — a low-risk first step",
   heading: "The AI Opportunity Assessment.",
-  body: "Not sure where AI or automation actually pays off in your business? Start here. In two to four weeks, we assess your operations, data, and goals and give you a clear, prioritized view of where technology can move revenue, cost, or risk — and, just as honestly, where it can't. Fixed scope. No fee. No obligation to go further.",
+  body: "Not sure where AI actually pays off in your business? Start here. In two to four weeks, we put your candidate use cases through Gate Zero — the go/no-go check production systems face, applied before any money is spent — and give you a written verdict on each: build now, not yet, or don't build. Including, plainly, where AI won't pay off for you. Fixed scope. No fee. No pitch.",
   getHeading: "What you get",
   get: [
-    "A prioritized opportunity map, ranked by value and effort",
-    "Sized business cases for the top two or three opportunities",
-    "A practical, sequenced roadmap you own — whether you build it with us or not",
+    "A 3–5 page written readout, built to be shown to your board",
+    "Every use case scored and mapped by value and production viability",
+    "A blunt verdict on your top use case — with the engineering reason",
+    "A provisional EU AI Act risk tier for each use case",
   ],
   // The initial assessment is free (a low-risk entry offer).
-  priceNote: "Free — scoped in a short introductory call.",
+  priceNote: "Free — founder-delivered, capped at three per month.",
   cta: site.assessmentCta,
+} as const;
+
+/* -------------------------- Gate Zero: the /assessment offer page content */
+/* The dedicated landing page for the free AI Opportunity Assessment, run
+   through the Gate Zero Method. Honesty rules baked into this copy:
+   - The capacity cap (3/month) is real for a founder-delivered offer — if
+     capacity changes, change the number here and in the private LT-Assets
+     repo (ai-opportunity-assessment/README.md).
+   - The only statistic used is S&P Global's 2025 finding, with attribution.
+   - The no-go guarantee is a commitment about future readouts, not a claim
+     about past work. Never add invented clients, metrics, or history. */
+
+export const assessmentPage = {
+  eyebrow: "The AI Opportunity Assessment",
+  heading: "Before you spend on AI, get the verdict a paid audit would start with.",
+  lead: "A structured session with your leadership team and a written, prioritized readout — including a blunt call on where AI won't pay off for you. Free, founder-delivered, and capped.",
+  heroCta: { label: "Apply for an assessment", href: "#apply" } as CTA,
+  heroFacts: [
+    "45–60 minutes with your leadership team",
+    "One per company",
+    "No system access needed",
+    "No pitch",
+  ],
+
+  problem: {
+    eyebrow: "Why this exists",
+    heading: "The pattern behind stalled AI is a production pattern.",
+    paragraphs: [
+      "You've probably watched it happen: a promising pilot, a confident vendor, a demo that impressed everyone — and then nothing that survives contact with real users, real data, and real accountability. S&P Global found that by 2025, 42% of companies had abandoned most of their AI initiatives — almost always after the money was spent, not before.",
+      "Those aren't strategy failures. They're production failures: retrieval that can't be grounded in the data you actually have, outputs nobody can validate, costs that don't survive scale, and risk nobody scored before building. So an assessment worth your time has to be a production judgment — not a maturity survey.",
+    ],
+  },
+
+  deliverable: {
+    eyebrow: "What you get",
+    heading: "The Gate Zero Readout.",
+    intro: "Three to five pages, written personally by the founder — no juniors, no template engine. Built so page one can be forwarded to your board on its own.",
+    items: [
+      "A one-page decision memo with the verdict in the title — not buried on page four",
+      "Every candidate use case scored and plotted on one map: value at stake × production viability, each with its security and EU AI Act exposure badge",
+      "A formal gate checklist on your top use case: build now / not yet / don't build, with cost band, time-to-production, and walk-away conditions",
+      "A named section — “Where AI won't pay off for you” — with the engineering reason for every no",
+      "Next steps that include actions you can take without hiring us",
+    ],
+    guarantee: "Every readout names at least one use case we'd tell you not to build, or not to build yet — with the engineering reason. If every idea you have is somehow a go, we'll say that too, but no readout leaves here without an honest no where one is deserved.",
+    sampleCta: { label: "Read a sample readout", href: "/assessment/sample-readout" } as CTA,
+  },
+
+  method: {
+    eyebrow: "The method",
+    heading: "Gate Zero: the production gate, applied before the money.",
+    intro: "In production engineering, a gate is the formal go/no-go checkpoint a system must pass before it ships. Gate Zero applies that discipline to your use cases before anything is built. Seven dimensions, scored on published anchors:",
+    dimensions: [
+      { name: "Value at stake", desc: "Euros or hours attached to a named workflow — conservative base case, assumptions stated. No hockey sticks." },
+      { name: "Data reality", desc: "Does the grounding content actually exist, is it clean, and is it accessible today — or does it live in someone's head?" },
+      { name: "Grounding & retrieval feasibility", desc: "Can outputs be grounded in your actual documents, at retrieval quality a production system can sustain?" },
+      { name: "Error tolerance vs stakes", desc: "Where would a wrong output land, who notices, and what error rate can this workflow honestly absorb?" },
+      { name: "Validation & verifiability", desc: "Can correctness ever be checked — automatically, by sampling, or by a human step that doesn't erase the value?" },
+      { name: "Cost, latency & ownership", desc: "Unit economics at production volume, latency the workflow tolerates, and who gets paged after launch." },
+      { name: "Security & EU AI Act exposure", desc: "Personal-data touch, attack surface, deployment constraints, and a provisional EU AI Act risk tier — scored per use case, at intake." },
+    ],
+    rules: [
+      "Dimension weights are fixed before any use case is scored.",
+      "No single aggregate “AI readiness score” — the lowest dimension gates; averages hide.",
+      "Every score carries a confidence level and its declared assumptions.",
+    ],
+    gateQuestions: [
+      "Where would a wrong output land, and who notices?",
+      "What content would ground the answers — and who keeps it current?",
+      "What cost per query and latency can this workflow tolerate?",
+      "Who owns this system after launch?",
+    ],
+    standardsNote: "Exposure scoring cross-references the EU AI Act (Article 6 / Annex III), the NIST AI Risk Management Framework, and the OWASP Top 10 for LLM applications.",
+  },
+
+  process: {
+    eyebrow: "How it runs",
+    heading: "Four steps, two to four weeks.",
+    steps: [
+      { name: "Apply", time: "10 minutes", desc: "Ten questions about your business, your candidate use cases, and where your data lives. Every application is read personally — and some are declined. That's the first verdict, and it happens before any call." },
+      { name: "The production stress interview", time: "45–60 minutes", desc: "A structured session with your leadership team — not a pitch, not a maturity survey. Each use case goes under the questions production will eventually ask anyway. Walkthrough only: no credentials, no system access, nothing leaves your walls." },
+      { name: "The readout is written", time: "within a week", desc: "Each use case is scored through the seven Gate Zero dimensions and plotted on one value-by-viability map. Founder-written, on your numbers and your vocabulary." },
+      { name: "The verdict walkthrough", time: "30 minutes", desc: "You get the readout and a blunt call on your top use case: build now, not yet — and exactly what unlocks it — or don't build. The document is yours either way." },
+    ],
+  },
+
+  whyFree: {
+    eyebrow: "Why it's free",
+    heading: "It's a diagnosis, not the treatment.",
+    body: "This is how we decide whether to work together. You get the verdict and the priority order; the paid engagements do the work. It stays free because it's capped: one person runs every call and writes every readout — at most three assessments per month, one per company, ever.",
+    branches: [
+      { name: "If it's a go", desc: "and we fit, the readout maps each open gap to the engagement that closes it. You'll know the shape of the next step before you commit to anything." },
+      { name: "If it's a no-go", desc: "you keep the readout, there is no follow-up sequence, and that's the end — unless you write first. A no-go followed by nurture emails would make the verdict worthless." },
+    ],
+  },
+
+  fit: {
+    eyebrow: "Fit",
+    heading: "Who it's for — and who it isn't.",
+    forWho: [
+      "Leadership teams with at least one candidate AI use case and a real workflow at stake",
+      "Companies with a stalled pilot, a risky rollout, or AI spend that isn't landing",
+      "EU-based or EU-exposed organizations that need the AI Act read alongside the value read",
+      "Data-sensitive businesses weighing what can and cannot leave their walls",
+    ],
+    notForWho: [
+      "Companies looking for a free implementation plan — this is a verdict, not a blueprint",
+      "Teams without an executive sponsor willing to attend the session",
+      "Anyone shopping for validation of a decision already made — some readouts say don't build, and yours might",
+    ],
+  },
+
+  whoRuns: {
+    eyebrow: "Who runs it",
+    heading: "The method exists because these are the checks I run before I ship anything.",
+    facts: [
+      "Ships production AI and LLM systems — retrieval tuning, output validation, monitoring, cost and latency budgets",
+      "Built a self-hosted, retrieval-augmented AI assistant that runs fully offline on hardware a business already owns",
+      "Production security engineer at Bitdefender, with a data-protection background",
+      "Founded two SaaS products; lead architect of a multi-tenant enterprise platform",
+    ],
+    link: { label: "More about Luca", href: "/about" } as CTA,
+  },
+
+  positioning: {
+    heading: "Not a quiz. Not a slide-deck engagement.",
+    body: "This is not a ten-minute self-scoring quiz, and not a six-figure assessment delivered by junior analysts. It is the use-case verdict a paid audit would start with, delivered personally by the person who would build it. We sell no cloud, no hardware, and no licenses — a “don't build” costs us nothing, which is the only condition under which a “build” means anything.",
+    noLockIn: "The readout is written to be useful whether or not you ever hire us.",
+  },
+
+  apply: {
+    eyebrow: "Apply",
+    heading: "Apply for an assessment.",
+    intro: "Ten questions, about ten minutes. Every application is read personally — some are declined, and that's the first verdict. If accepted, you'll get the exact call agenda and a sample readout before you commit an hour of your leadership team's time.",
+    microcopy: "Free · one per company · at most three per month · walkthrough only, no system access",
+    submitLabel: "Submit application",
+  },
 } as const;
 
 /* ------------------------------------------------ Your data & IP (Task 6) */
@@ -741,6 +880,18 @@ export const pageMeta = {
     description:
       "Independent technology advisory and oversight, strategy, delivery, and operational performance — with deep specialization in AI. One senior partner across the full journey.",
     path: "/services",
+  },
+  assessment: {
+    title: "AI Opportunity Assessment — LT Strategy Partners",
+    description:
+      "A free, founder-delivered AI assessment run through the Gate Zero Method: every use case scored for value, production viability, and EU AI Act exposure — with a blunt build / don't-build verdict.",
+    path: "/assessment",
+  },
+  assessmentSample: {
+    title: "Sample Gate Zero Readout — LT Strategy Partners",
+    description:
+      "A full, clearly-labeled sample of the Gate Zero Readout — the written verdict delivered by the free AI Opportunity Assessment.",
+    path: "/assessment/sample-readout",
   },
   about: {
     title: "About — LT Strategy Partners",

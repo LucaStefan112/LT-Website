@@ -39,4 +39,4 @@ Second: what is the cheapest thing that would solve this, and why isn't it enoug
 
 It is worth being honest that a good deal of proposed AI work does not survive these questions, and that is a feature, not a failure. Saying no to the cases where it does not belong is how you free up the budget and attention for the few where it genuinely pays.
 
-That sorting is exactly what a short, fixed-scope [AI Opportunity Assessment](/contact?topic=assessment) is for: a clear, prioritized view of where AI is worth your money, and where it would quietly drain it.
+That sorting is exactly what a short, fixed-scope [AI Opportunity Assessment](/assessment) is for: a clear, prioritized view of where AI is worth your money, and where it would quietly drain it.

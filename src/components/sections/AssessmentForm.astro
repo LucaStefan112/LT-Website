@@ -1,0 +1,456 @@
+---
+/* Application-style intake for the free AI Opportunity Assessment (Gate Zero).
+   Deliberately more substantive than a booking link: the questions ARE part of
+   the method, and they double as call prep that protects the founder-time cap.
+   Submits via the same mechanism as the contact form: a configured endpoint if
+   PUBLIC_CONTACT_ENDPOINT is set, otherwise a mailto: fallback (static site —
+   nothing is collected or stored server-side). */
+import { site } from "../../content/site";
+
+const endpoint = import.meta.env.PUBLIC_CONTACT_ENDPOINT ?? "";
+
+interface Field {
+  name: string;
+  label: string;
+  hint?: string;
+  type: "text" | "email" | "textarea" | "select";
+  required: boolean;
+  autocomplete?: string;
+  options?: string[];
+}
+
+const fields: Field[] = [
+  {
+    name: "name",
+    label: "Your name",
+    type: "text",
+    required: true,
+    autocomplete: "name",
+  },
+  {
+    name: "email",
+    label: "Work email",
+    type: "email",
+    required: true,
+    autocomplete: "email",
+  },
+  {
+    name: "company",
+    label: "Company, and roughly how many people",
+    hint: "Sector and size band is enough — “130-person freight forwarder”.",
+    type: "text",
+    required: true,
+    autocomplete: "organization",
+  },
+  {
+    name: "role",
+    label: "Your role — and will an executive sponsor attend the session?",
+    hint: "The verdict is a leadership decision, so a sponsor in the room is a condition, not a preference.",
+    type: "text",
+    required: true,
+    autocomplete: "organization-title",
+  },
+  {
+    name: "usecases",
+    label: "The one or two AI use cases you most want a verdict on",
+    hint: "A sentence each. If you don't have one yet, say so — that changes what the session is for.",
+    type: "textarea",
+    required: true,
+  },
+  {
+    name: "cost",
+    label: "What are those workflows costing you today, in hours or euros?",
+    hint: "Rough is fine. “Don't know” is an acceptable answer — unknowns get scored too.",
+    type: "text",
+    required: false,
+  },
+  {
+    name: "tried",
+    label: "What have you already tried with AI — and what happened?",
+    hint: "Pilots, vendors, internal experiments. Where each one stalled is diagnostic gold.",
+    type: "textarea",
+    required: false,
+  },
+  {
+    name: "data",
+    label: "Where does the data or content that would feed this live today?",
+    hint: "SharePoint, a wiki, a database, PDFs, people's heads — all honest answers.",
+    type: "text",
+    required: true,
+  },
+  {
+    name: "sensitive",
+    label: "Would it touch personal data, customer data, or anything you'd hesitate to send to a US cloud provider?",
+    type: "text",
+    required: false,
+  },
+  {
+    name: "timeline",
+    label: "When would you realistically want a first system in production?",
+    type: "select",
+    required: false,
+    options: ["This quarter", "This year", "Someday — exploring for now"],
+  },
+];
+---
+
+<form
+  class="apply-form card"
+  data-assessment-form
+  data-endpoint={endpoint}
+  data-email={site.email}
+  aria-label="Assessment application form"
+  novalidate
+>
+  {
+    fields.map((field) => (
+      <div
+        class:list={[
+          "field",
+          { "field-full": field.type === "textarea" || field.name === "sensitive" || field.name === "role" },
+        ]}
+      >
+        <label for={`aa-${field.name}`}>
+          {field.label}
+          {field.required && <span aria-hidden="true"> *</span>}
+        </label>
+        {field.hint && <p class="field-hint">{field.hint}</p>}
+        {field.type === "textarea" ? (
+          <textarea
+            id={`aa-${field.name}`}
+            name={field.name}
+            rows="4"
+            required={field.required}
+            aria-required={field.required ? "true" : "false"}
+            aria-describedby={`aa-${field.name}-error`}
+          />
+        ) : field.type === "select" ? (
+          <select
+            id={`aa-${field.name}`}
+            name={field.name}
+            aria-required="false"
+            aria-describedby={`aa-${field.name}-error`}
+          >
+            <option value="">Choose one (optional)</option>
+            {field.options!.map((o) => (
+              <option value={o}>{o}</option>
+            ))}
+          </select>
+        ) : (
+          <input
+            type={field.type}
+            id={`aa-${field.name}`}
+            name={field.name}
+            required={field.required}
+            aria-required={field.required ? "true" : "false"}
+            aria-describedby={`aa-${field.name}-error`}
+            autocomplete={field.autocomplete}
+          />
+        )}
+        <span class="field-error" id={`aa-${field.name}-error`} />
+      </div>
+    ))
+  }
+
+  {/* Honeypot — hidden from users, catches naive bots */}
+  <div class="hp" aria-hidden="true">
+    <label for="aa-company_website">Leave this field empty</label>
+    <input
+      type="text"
+      id="aa-company_website"
+      name="company_website"
+      tabindex="-1"
+      autocomplete="off"
+    />
+  </div>
+
+  <div class="field-full form-footer">
+    <button type="submit" class="btn btn-primary apply-submit">
+      Submit application
+    </button>
+    <p class="form-status" data-form-status role="status" aria-live="polite"></p>
+  </div>
+</form>
+
+<style>
+  .apply-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.375rem;
+  }
+  @media (min-width: 560px) {
+    .apply-form {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .field-full {
+    grid-column: 1 / -1;
+  }
+  .field label {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    line-height: 1.4;
+  }
+  .field label span {
+    color: var(--color-steel);
+  }
+  .field-hint {
+    margin: 0;
+    font-size: 0.8125rem;
+    color: var(--color-muted);
+    line-height: 1.45;
+  }
+  .field input,
+  .field textarea,
+  .field select {
+    width: 100%;
+    font: inherit;
+    font-size: 1rem;
+    color: var(--color-near);
+    background-color: var(--color-paper);
+    border: 1px solid var(--color-line);
+    border-radius: 9px;
+    padding: 0.75rem 0.875rem;
+    transition:
+      border-color 0.16s var(--ease-out-soft),
+      box-shadow 0.16s var(--ease-out-soft);
+  }
+  .field textarea {
+    resize: vertical;
+    min-height: 6rem;
+  }
+  .field input:focus,
+  .field textarea:focus,
+  .field select:focus {
+    outline: none;
+    border-color: var(--color-steel);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-steel) 18%, transparent);
+  }
+  .field input[aria-invalid="true"],
+  .field textarea[aria-invalid="true"] {
+    border-color: #b3261e;
+  }
+  .field-error {
+    display: none;
+    font-size: 0.8125rem;
+    color: #b3261e;
+  }
+  .field-error.is-shown {
+    display: block;
+  }
+
+  /* Honeypot: removed from layout + a11y tree but present in DOM */
+  .hp {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
+  .form-footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem 1.5rem;
+    margin-top: 0.25rem;
+  }
+  .apply-submit {
+    min-width: 13rem;
+  }
+  .form-status {
+    margin: 0;
+    font-size: 0.9375rem;
+    color: var(--color-muted);
+  }
+  .form-status.is-success {
+    color: var(--color-steel-deep);
+    font-weight: 500;
+  }
+  .form-status.is-error {
+    color: #b3261e;
+  }
+</style>
+
+<script>
+  interface Rule {
+    name: string;
+    required: boolean;
+    email?: boolean;
+  }
+
+  function initAssessmentForm(): void {
+    const form = document.querySelector<HTMLFormElement>("[data-assessment-form]");
+    if (!form) return;
+
+    const status = form.querySelector<HTMLElement>("[data-form-status]");
+    const endpoint = form.dataset.endpoint || "";
+    const email = form.dataset.email || "";
+    const successMsg =
+      "Thank you — your application is ready to send. It will be read personally, and you'll hear back within two business days.";
+
+    const rules: Rule[] = [
+      { name: "name", required: true },
+      { name: "email", required: true, email: true },
+      { name: "company", required: true },
+      { name: "role", required: true },
+      { name: "usecases", required: true },
+      { name: "cost", required: false },
+      { name: "tried", required: false },
+      { name: "data", required: true },
+      { name: "sensitive", required: false },
+      { name: "timeline", required: false },
+    ];
+
+    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    const fieldEl = (name: string) =>
+      form.elements.namedItem(name) as
+        | HTMLInputElement
+        | HTMLTextAreaElement
+        | HTMLSelectElement
+        | null;
+
+    const setError = (name: string, message: string | null) => {
+      const el = fieldEl(name);
+      const err = document.getElementById(`aa-${name}-error`);
+      if (!el) return;
+      if (message) {
+        el.setAttribute("aria-invalid", "true");
+        if (err) {
+          err.textContent = message;
+          err.classList.add("is-shown");
+        }
+      } else {
+        el.removeAttribute("aria-invalid");
+        if (err) {
+          err.textContent = "";
+          err.classList.remove("is-shown");
+        }
+      }
+    };
+
+    const validateField = (rule: Rule): boolean => {
+      const el = fieldEl(rule.name);
+      if (!el) return true;
+      const value = el.value.trim();
+      if (rule.required && !value) {
+        setError(rule.name, "This field is required.");
+        return false;
+      }
+      if (rule.email && value && !emailRe.test(value)) {
+        setError(rule.name, "Please enter a valid email address.");
+        return false;
+      }
+      setError(rule.name, null);
+      return true;
+    };
+
+    rules.forEach((rule) => {
+      const el = fieldEl(rule.name);
+      el?.addEventListener("blur", () => validateField(rule));
+      el?.addEventListener("input", () => {
+        if (el.getAttribute("aria-invalid") === "true") validateField(rule);
+      });
+    });
+
+    const setStatus = (msg: string, kind: "" | "success" | "error") => {
+      if (!status) return;
+      status.textContent = msg;
+      status.classList.toggle("is-success", kind === "success");
+      status.classList.toggle("is-error", kind === "error");
+    };
+
+    const buildMailto = (data: Record<string, string>): string => {
+      const subject = `Assessment application — ${data.company || data.name}`;
+      const body = [
+        `Name: ${data.name}`,
+        `Email: ${data.email}`,
+        `Company: ${data.company}`,
+        `Role / sponsor: ${data.role}`,
+        "",
+        `Use cases for a verdict:`,
+        data.usecases,
+        "",
+        data.cost ? `Cost today: ${data.cost}` : "",
+        data.tried ? `Tried so far:\n${data.tried}` : "",
+        `Data lives in: ${data.data}`,
+        data.sensitive ? `Sensitive data: ${data.sensitive}` : "",
+        data.timeline ? `Timeline: ${data.timeline}` : "",
+      ]
+        .filter(Boolean)
+        .join("\n");
+      return `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    };
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      // Bot trap: silently succeed without doing anything.
+      const hp = fieldEl("company_website");
+      if (hp && hp.value) {
+        setStatus(successMsg, "success");
+        return;
+      }
+
+      let firstInvalid: HTMLElement | null = null;
+      let ok = true;
+      for (const rule of rules) {
+        if (!validateField(rule)) {
+          ok = false;
+          if (!firstInvalid) firstInvalid = fieldEl(rule.name) as HTMLElement | null;
+        }
+      }
+      if (!ok) {
+        setStatus("Please correct the highlighted fields.", "error");
+        firstInvalid?.focus();
+        return;
+      }
+
+      const fd = new FormData(form);
+      const data: Record<string, string> = {};
+      fd.forEach((v, k) => (data[k] = String(v)));
+
+      if (endpoint) {
+        try {
+          setStatus("Sending…", "");
+          const res = await fetch(endpoint, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+            },
+            body: JSON.stringify({ form: "assessment-application", ...data }),
+          });
+          if (res.ok) {
+            form.reset();
+            setStatus(
+              "Thank you — your application has been sent. It will be read personally, and you'll hear back within two business days.",
+              "success"
+            );
+          } else {
+            throw new Error(`Request failed: ${res.status}`);
+          }
+        } catch {
+          setStatus(`Something went wrong. Please email us directly at ${email}.`, "error");
+        }
+        return;
+      }
+
+      window.location.href = buildMailto(data);
+      setStatus(successMsg, "success");
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initAssessmentForm, { once: true });
+  } else {
+    initAssessmentForm();
+  }
+</script>

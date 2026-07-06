@@ -26,3 +26,7 @@ pnpm-debug.log*
 .vscode/*
 !.vscode/extensions.json
 .idea/
+
+# internal offer/delivery kits — NEVER push to the public repo
+# (call scripts, email templates, sales notes live here; keep local or in a private repo)
+offer-assets/
