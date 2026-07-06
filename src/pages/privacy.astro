@@ -30,12 +30,15 @@ const controller = `${site.name} (a founder-led practice based in Iași, Romania
 
         <h2>What we collect</h2>
         <p>
-          We only collect the information you choose to send us through the
-          contact form: your <strong>name</strong>,
+          We collect the information you choose to send us. Through the
+          <strong>contact form</strong>, that is your <strong>name</strong>,
           <strong>company</strong>, <strong>role</strong> (optional),
           <strong>email address</strong>, and the <strong>message</strong> you
-          write. We do not run advertising, and we do not use invasive tracking
-          or third-party analytics that identify you.
+          write. If instead you use the “Book a conversation” button, you
+          provide your name, email, and any details you add when scheduling —
+          see <a href="#booking">Booking a conversation</a> below. We do not run
+          advertising, and we do not use invasive tracking or third-party
+          analytics that identify you.
         </p>
 
         <h2>Why we collect it, and our lawful basis</h2>
@@ -54,6 +57,19 @@ const controller = `${site.name} (a founder-led practice based in Iași, Romania
           parties for their own purposes. Your enquiry reaches us by email; the
           email and hosting providers that carry it act only as processors on
           our behalf.
+        </p>
+
+        <h2 id="booking">Booking a conversation</h2>
+        <p>
+          The “Book a conversation” button opens an appointment page provided by
+          Google Calendar. If you book a call there, the details you enter — your
+          name, email, and anything you add — are handled by Google as part of
+          running the scheduling, under
+          <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google's own privacy policy</a>,
+          and may be transferred to servers outside the EEA, including the United
+          States. We receive those details only to arrange and hold the
+          appointment with you. If you would rather not use Google, just email us
+          instead at <a href={`mailto:${site.email}`}>{site.email}</a>.
         </p>
 
         <h2>How long we keep it</h2>

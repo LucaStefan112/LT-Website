@@ -41,7 +41,7 @@ export interface Step {
 export interface Testimonial {
   quote: string;
   name: string;
-  role: string; // e.g. "Former manager, Enovis"
+  role: string; // e.g. "Former manager, [Company]"
   company?: string;
   logo?: string; // optional logo key in src/assets/... (only if permissioned)
 }
@@ -348,7 +348,7 @@ export const statement = {
 /* No testimonials yet. The section renders only when this array has at least one
    REAL, PERMISSIONED quote — an empty array shows nothing (no placeholder). Add
    real quotes here when available; example shape:
-     { quote: "…", name: "…", role: "Former manager, Enovis", company: "Enovis" }
+     { quote: "…", name: "…", role: "COO", company: "Acme Co." }
 */
 export const testimonials: Testimonial[] = [];
 
