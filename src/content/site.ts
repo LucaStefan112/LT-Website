@@ -108,7 +108,7 @@ export const site = {
   url: "https://ltstrategypartners.com",
   tagline: "Strategy that delivers.",
   description:
-    "LT Strategy Partners helps leadership teams find where AI and technology create real, measurable business value — then advises, builds, and proves it.",
+    "An independent digital and technology advisor for leadership teams, specialized in AI — finding where technology creates real, measurable value, then advising, building, and proving it.",
   email: "luca.tamas@ltstrategypartners.com",
   phone: "+40734950060", // used for the tel: link
   phoneDisplay: "+40 734 950 060", // shown to readers
@@ -152,10 +152,10 @@ export const legalNav: NavItem[] = [
 /* --------------------------------------------------------------- Hero */
 
 export const hero = {
-  eyebrow: "AI & Business Transformation",
+  eyebrow: "Digital & technology advisory · AI solutions",
   headline: "Strategy that delivers measurable results.",
   subhead:
-    "We help leadership teams find where AI and technology create real business value — then we advise, build, and prove it. From boardroom to deployment, and back to the numbers.",
+    "An independent digital and technology advisor for leadership teams, specialized in AI. We find where technology genuinely creates value, then advise, build, and prove it — from boardroom to deployment, and back to the numbers.",
   primaryCta: site.primaryCta,
   // Low-commitment path alongside the direct one (Task 5).
   secondaryCta: site.assessmentCta,
@@ -194,7 +194,7 @@ export const pillars = {
 export const services = {
   eyebrow: "What we do",
   intro:
-    "A single partner across the full journey — so strategy and delivery never disconnect.",
+    "One technology partner across the full journey — advisory through to delivery, with deep specialization in AI — so strategy and delivery never disconnect.",
   items: [
     {
       title: "Opportunity & Strategy",
@@ -717,7 +717,7 @@ export const pageIntros = {
 
 export const pageMeta = {
   home: {
-    title: "LT Strategy Partners — Strategy that delivers.",
+    title: "LT Strategy Partners — Technology advisor, specialized in AI",
     description: site.description,
     path: "/",
   },
