@@ -1,11 +1,11 @@
 ---
 import { getContent } from "../../content/i18n";
 
-const { contact, formStrings } = getContent(Astro.url.pathname);
+const { contact, formStrings, config } = getContent(Astro.url.pathname);
 
-// Optional: set PUBLIC_CONTACT_ENDPOINT in a .env file to POST submissions
-// (e.g. a Formspree/Resend URL). If unset, the form falls back to mailto:.
-const endpoint = import.meta.env.PUBLIC_CONTACT_ENDPOINT ?? "";
+// Submissions POST to config.contactEndpoint (Google Apps Script -> Sheet;
+// setup in LT-Assets/forms-endpoint). If unset, the form falls back to mailto:.
+const endpoint = import.meta.env.PUBLIC_CONTACT_ENDPOINT ?? config.contactEndpoint ?? "";
 
 // Strings the client-side script needs, passed via a data attribute.
 const clientStrings = {
@@ -329,26 +329,32 @@ const clientStrings = {
       const data: Record<string, string> = {};
       fd.forEach((v, k) => (data[k] = String(v)));
 
-      // Configured endpoint (Formspree/Resend/etc.) → POST as JSON.
+      // Configured endpoint (Google Apps Script → Sheet) → POST the JSON as
+      // text/plain: a "simple" request that needs no CORS preflight, which
+      // Apps Script cannot answer. Falls back to mailto: if anything fails.
       if (endpoint) {
         try {
           setStatus(t.sending, "");
+          const locale =
+            location.pathname === "/ro" || location.pathname === "/ro.html" || location.pathname.startsWith("/ro/")
+              ? "ro"
+              : "en";
           const res = await fetch(endpoint, {
             method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Accept: "application/json",
-            },
-            body: JSON.stringify(data),
+            headers: { "Content-Type": "text/plain;charset=utf-8" },
+            body: JSON.stringify({ form: "contact", locale, ...data }),
           });
-          if (res.ok) {
+          const j = (await res.json().catch(() => null)) as { ok?: boolean } | null;
+          if (res.ok && j && j.ok) {
             form.reset();
             setStatus(t.successSent, "success");
-          } else {
-            throw new Error(`Request failed: ${res.status}`);
+            return;
           }
+          throw new Error(`Request failed: ${res.status}`);
         } catch {
-          setStatus(`${t.failPrefix} ${email}.`, "error");
+          // Endpoint unreachable → fall back to the visitor's mail client.
+          window.location.href = buildMailto(data);
+          setStatus(successMsg, "success");
         }
         return;
       }

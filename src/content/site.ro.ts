@@ -984,7 +984,7 @@ export const legalPages = {
       },
       {
         heading: "Transmiterea datelor",
-        html: `Nu vă vindem informațiile și nu le transmitem terților pentru scopurile lor proprii. Solicitarea dumneavoastră ajunge la noi prin email; furnizorii de email și de găzduire care o transportă acționează exclusiv ca persoane împuternicite, în numele nostru.`,
+        html: `Nu vă vindem informațiile și nu le transmitem terților pentru scopurile lor proprii. Solicitarea dumneavoastră ajunge la noi fie prin email, fie prin formularele site-ului, care sunt prelucrate de Google și stocate într-un tabel aflat în propriul nostru cont Google; Google, împreună cu furnizorii de email și de găzduire care transportă mesajul, acționează exclusiv ca persoane împuternicite, în numele nostru. Această prelucrare poate implica transferuri în afara SEE, în baza garanțiilor Google.`,
       },
       {
         id: "booking",

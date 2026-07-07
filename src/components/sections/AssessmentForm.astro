@@ -6,8 +6,8 @@
    site — nothing is collected or stored server-side). */
 import { getContent } from "../../content/i18n";
 
-const endpoint = import.meta.env.PUBLIC_CONTACT_ENDPOINT ?? "";
-const { site, assessmentForm: af, formStrings } = getContent(Astro.url.pathname);
+const { site, assessmentForm: af, formStrings, config } = getContent(Astro.url.pathname);
+const endpoint = import.meta.env.PUBLIC_CONTACT_ENDPOINT ?? config.contactEndpoint ?? "";
 const fields = af.fields;
 
 const clientStrings = {
@@ -346,25 +346,31 @@ const clientStrings = {
       const data: Record<string, string> = {};
       fd.forEach((v, k) => (data[k] = String(v)));
 
+      // POST as text/plain (no CORS preflight — Apps Script can't answer one);
+      // body is still JSON. Falls back to mailto: if anything fails.
       if (endpoint) {
         try {
           setStatus(t.sending, "");
+          const locale =
+            location.pathname === "/ro" || location.pathname === "/ro.html" || location.pathname.startsWith("/ro/")
+              ? "ro"
+              : "en";
           const res = await fetch(endpoint, {
             method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Accept: "application/json",
-            },
-            body: JSON.stringify({ form: "assessment-application", ...data }),
+            headers: { "Content-Type": "text/plain;charset=utf-8" },
+            body: JSON.stringify({ form: "assessment-application", locale, ...data }),
           });
-          if (res.ok) {
+          const j = (await res.json().catch(() => null)) as { ok?: boolean } | null;
+          if (res.ok && j && j.ok) {
             form.reset();
             setStatus(t.successSent, "success");
-          } else {
-            throw new Error(`Request failed: ${res.status}`);
+            return;
           }
+          throw new Error(`Request failed: ${res.status}`);
         } catch {
-          setStatus(`${t.failPrefix} ${email}.`, "error");
+          // Endpoint unreachable → fall back to the visitor's mail client.
+          window.location.href = buildMailto(data);
+          setStatus(successMsg, "success");
         }
         return;
       }

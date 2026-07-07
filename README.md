@@ -97,17 +97,20 @@ The form (`src/components/sections/ContactForm.astro`) is **not** wired to a bac
 by default. It validates on the client and, with no endpoint configured, falls back
 to opening the visitor's mail client (`mailto:` to the address in `contact.email`).
 
-To send submissions to a service (e.g. [Formspree](https://formspree.io) or
-[Resend](https://resend.com) via a small function), set an environment variable:
+To collect submissions in a Google Sheet (both the contact form and the
+assessment application), deploy the Apps Script in the private LT-Assets repo
+(`forms-endpoint/README.md` — ~5 minutes) and paste the web-app URL into
+`config.contactEndpoint` in `src/content/site.ts`. Each submission then lands
+as a row in the "LT — Website submissions" sheet plus an email notification,
+and the forms automatically fall back to `mailto:` if the endpoint is ever
+unreachable.
+
+A build-time environment variable overrides the config value if needed:
 
 ```bash
 # .env
-PUBLIC_CONTACT_ENDPOINT="https://formspree.io/f/your-form-id"
+PUBLIC_CONTACT_ENDPOINT="https://script.google.com/macros/s/<id>/exec"
 ```
-
-When set, the form POSTs the fields as JSON to that endpoint and shows a success or
-error message. No other code changes are needed. (Only `PUBLIC_`-prefixed variables
-are exposed to the client, by design.)
 
 ---
 

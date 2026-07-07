@@ -88,6 +88,11 @@ export const config = {
   bookingUrl: "https://calendar.app.google/dAY836e79fkCiy9m6",
   // Founder photo: public/brand/founder.jpg.
   founderPhoto: "/brand/founder.jpg",
+  // Google Apps Script web-app URL that writes form submissions into the
+  // "LT — Website submissions" Google Sheet (setup: LT-Assets/forms-endpoint).
+  // Empty = both forms fall back to mailto:. PUBLIC_CONTACT_ENDPOINT env
+  // overrides this at build time if ever needed.
+  contactEndpoint: "",
 } as const;
 
 /* --------------------------------------------------------------- Site meta */
@@ -1098,7 +1103,7 @@ export const legalPages = {
       },
       {
         heading: "Sharing",
-        html: `We do not sell your information, and we do not share it with third parties for their own purposes. Your enquiry reaches us by email; the email and hosting providers that carry it act only as processors on our behalf.`,
+        html: `We do not sell your information, and we do not share it with third parties for their own purposes. Your enquiry reaches us either by email or through our website forms, which are processed by Google and stored in a spreadsheet in our own Google account; Google, and the email and hosting providers that carry your message, act only as processors on our behalf. This processing may involve transfers outside the EEA under Google's safeguards.`,
       },
       {
         id: "booking",
