@@ -321,7 +321,7 @@ export const assessmentPage = {
     facts: [
       "Livrează sisteme AI și LLM de producție — tuning de retrieval, validarea rezultatelor, monitorizare, bugete de cost și latență",
       "A construit un asistent AI self-hosted, cu retrieval, care rulează complet offline pe hardware pe care o afacere îl deține deja",
-      "Inginer de securitate de producție la Bitdefender, cu experiență în protecția datelor",
+      "Inginer de securitate de producție, cu experiență în protecția datelor",
       "A fondat două produse SaaS; arhitect principal al unei platforme enterprise multi-tenant",
     ],
     link: { label: "Mai multe despre Luca", href: "/ro/about" } as CTA,
@@ -348,7 +348,7 @@ export const dataIp = {
   id: "data-ip",
   eyebrow: "Datele dumneavoastră și proprietatea intelectuală",
   heading: "Construit de un inginer de securitate — tratat ca atare.",
-  body: "Venim dintr-un fundal de securitate și protecția datelor — inginerie de securitate de producție la Bitdefender și, mai devreme, cercetare de securitate în autentificare și criptare. Disciplina aceasta este construită în felul în care lucrăm cu dumneavoastră.",
+  body: "Venim dintr-un fundal de securitate și protecția datelor — inginerie de securitate de producție și, mai devreme, cercetare de securitate în autentificare și criptare. Disciplina aceasta este construită în felul în care lucrăm cu dumneavoastră.",
   items: [
     {
       title: "Datele dumneavoastră rămân ale dumneavoastră.",
@@ -444,7 +444,7 @@ export const clients = {
 export const aboutTeaser = {
   eyebrow: "Cine e în spate",
   heading: "Condusă de fondator. Implicare directă.",
-  body: "LT Strategy Partners este condusă de Luca-Ștefan Tamaș — inginer de sisteme care construiește și livrează AI de producție, de la sisteme LLM self-hosted, cu retrieval, până la produse SaaS complete. Construiește sisteme de producție la Bitdefender, a fost arhitect principal al unei platforme enterprise multi-tenant (BI, ERP, gestiunea documentelor, automatizarea proceselor) și a fondat două produse SaaS proprii. Lucrați direct cu el: omul care vă consiliază este omul care face munca.",
+  body: "LT Strategy Partners este condusă de Luca-Ștefan Tamaș — inginer de sisteme care construiește și livrează AI de producție, de la sisteme LLM self-hosted, cu retrieval, până la produse SaaS complete. Construiește sisteme de producție în medii exigente, critice pentru securitate, a fost arhitect principal al unei platforme enterprise multi-tenant (BI, ERP, gestiunea documentelor, automatizarea proceselor) și a fondat două produse SaaS proprii. Lucrați direct cu el: omul care vă consiliază este omul care face munca.",
   link: { label: "Mai multe despre Luca", href: "/ro/about" } as CTA,
   photoCaption: "Luca-Ștefan Tamaș · Fondator",
 } as const;
@@ -457,7 +457,7 @@ export const aboutPage = {
   paragraphs: [
     "Sunt Luca-Ștefan Tamaș, iar LT Strategy Partners este practica mea. Este mică și de nivel senior în mod intenționat: când lucrați cu noi, lucrați direct cu mine. Omul care dă sfatul este omul care face munca și rămâne răspunzător de felul în care iese.",
     "Ca formare, sunt inginer de sisteme. Munca la care țin cel mai mult — și în jurul căreia este construită această practică — este AI-ul care trebuie să reziste în producție, nu doar în demo: retrieval solid și date curate, rezultate ținute în spatele validării, latență și costuri sănătoase, plus monitorizarea și mecanismele de rezervă care țin un sistem de încredere odată ce oameni reali se bazează pe el.",
-    "Zi de zi construiesc sisteme de producție la Bitdefender, una dintre marile companii de securitate cibernetică ale lumii, iar înainte am fost arhitect principal al unei platforme enterprise multi-tenant care acoperă business intelligence, ERP, gestiunea documentelor și automatizarea proceselor. Am fondat și livrat două produse SaaS proprii — Mazely și Processly — și am construit un asistent AI self-hosted, cu retrieval, care rulează complet offline pe hardware pe care un local îl deține deja. Din 2020 livrez proiecte pentru clienți, cap-coadă, în web, mobil, date și AI, inclusiv aplicații publicate în App Store și Google Play. Fundamentul acesta de securitate și platforme este motivul pentru care AI-ul pe care îl construiesc rămâne privat și de încredere din start.",
+    "Zi de zi construiesc sisteme de producție într-un mediu de inginerie exigent, critic pentru securitate, iar înainte am fost arhitect principal al unei platforme enterprise multi-tenant care acoperă business intelligence, ERP, gestiunea documentelor și automatizarea proceselor. Am fondat și livrat două produse SaaS proprii — Mazely și Processly — și am construit un asistent AI self-hosted, cu retrieval, care rulează complet offline pe hardware pe care un local îl deține deja. Din 2020 livrez proiecte pentru clienți, cap-coadă, în web, mobil, date și AI, inclusiv aplicații publicate în App Store și Google Play. Fundamentul acesta de securitate și platforme este motivul pentru care AI-ul pe care îl construiesc rămâne privat și de încredere din start.",
   ],
   beliefsHeading: "Ce cred despre munca aceasta",
   beliefs: [
@@ -470,7 +470,7 @@ export const aboutPage = {
   glance: [
     "Construiește sisteme AI și LLM de producție — retrieval-augmented generation, modele self-hosted și rezultate ținute în spatele validării",
     "A construit un asistent AI self-hosted, complet offline; fondator a două produse SaaS în producție (Mazely, Processly)",
-    "Inginerie de sisteme de producție la Bitdefender; arhitect principal al unei platforme multi-tenant de BI / ERP / DMS / automatizare de procese",
+    "Inginerie de sisteme de producție într-un mediu critic pentru securitate; arhitect principal al unei platforme multi-tenant de BI / ERP / DMS / automatizare de procese",
     "Fundament de securitate și protecția datelor: autentificare, criptare, privilegii minime și izolarea tenanților",
     "Certificări de date și analiză (Meta Data Analyst, Google Business Intelligence, Advanced SQL, Tableau); certificări de securitate (SOC Level 1, DevSecOps, Jr Penetration Tester)",
     "Cu sediul în Iași · lucrează cu clienți din UE și SUA",
