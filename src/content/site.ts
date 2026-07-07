@@ -92,7 +92,8 @@ export const config = {
   // "LT — Website submissions" Google Sheet (setup: LT-Assets/forms-endpoint).
   // Empty = both forms fall back to mailto:. PUBLIC_CONTACT_ENDPOINT env
   // overrides this at build time if ever needed.
-  contactEndpoint: "",
+  contactEndpoint:
+    "https://script.google.com/macros/s/AKfycbzLSRed2MODuWezvsSzL-kf98Oj3ckz8C9CRt7ZxElQVDFn82mfybfXkcgAJv_iWwF8/exec",
 } as const;
 
 /* --------------------------------------------------------------- Site meta */
