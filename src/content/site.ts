@@ -89,7 +89,7 @@ export const config = {
   // Founder photo: public/brand/founder.jpg.
   founderPhoto: "/brand/founder.jpg",
   // Google Apps Script web-app URL that writes form submissions into the
-  // "LT — Website submissions" Google Sheet (setup: LT-Assets/forms-endpoint).
+  // "Website Submissions" Google Sheet (setup: LT-Assets/forms-endpoint).
   // Empty = both forms fall back to mailto:. PUBLIC_CONTACT_ENDPOINT env
   // overrides this at build time if ever needed.
   contactEndpoint:

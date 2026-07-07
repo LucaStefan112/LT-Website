@@ -101,7 +101,7 @@ To collect submissions in a Google Sheet (both the contact form and the
 assessment application), deploy the Apps Script in the private LT-Assets repo
 (`forms-endpoint/README.md` — ~5 minutes) and paste the web-app URL into
 `config.contactEndpoint` in `src/content/site.ts`. Each submission then lands
-as a row in the "LT — Website submissions" sheet plus an email notification,
+as a row in the "Website Submissions" sheet plus an email notification,
 and the forms automatically fall back to `mailto:` if the endpoint is ever
 unreachable.
 
