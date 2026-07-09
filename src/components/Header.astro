@@ -55,7 +55,11 @@ const langNavLabel = locale === "ro" ? "Limbă" : "Language";
           ))
         }
       </div>
-      <Button href={site.primaryCta.href} external={site.primaryCta.external}>
+      <Button
+        href={site.primaryCta.href}
+        external={site.primaryCta.external}
+        plausibleEvent="Header CTA"
+      >
         {site.primaryCta.label}
       </Button>
     </nav>
@@ -104,6 +108,7 @@ const langNavLabel = locale === "ro" ? "Limbă" : "Language";
         <Button
           href={site.primaryCta.href}
           external={site.primaryCta.external}
+          plausibleEvent="Header CTA (mobile)"
           withArrow>{site.primaryCta.label}</Button
         >
       </div>

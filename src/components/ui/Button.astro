@@ -7,6 +7,7 @@ interface Props {
   external?: boolean; // opens in a new tab (e.g. a booking link)
   class?: string;
   "aria-label"?: string;
+  plausibleEvent?: string; // fires a named Plausible event on click
 }
 const {
   href,
@@ -15,10 +16,17 @@ const {
   external = false,
   class: className = "",
   "aria-label": ariaLabel,
+  plausibleEvent,
 } = Astro.props;
 
 const isInternalAnchor = href.startsWith("#") || href.startsWith("/#");
 const shouldPrefetch = !external && !isInternalAnchor;
+// Plausible reads the event name from a CSS class; spaces are encoded as "+".
+// Using the class mechanism (not a manual call) so the event is delivered even
+// when the click navigates the page away.
+const plausibleClass = plausibleEvent
+  ? `plausible-event-name=${plausibleEvent.replace(/ /g, "+")}`
+  : undefined;
 ---
 
 <a
@@ -29,6 +37,7 @@ const shouldPrefetch = !external && !isInternalAnchor;
   class:list={[
     "btn",
     variant === "primary" ? "btn-primary" : "btn-ghost",
+    plausibleClass,
     className,
   ]}
   data-astro-prefetch={shouldPrefetch ? "" : undefined}

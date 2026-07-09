@@ -318,6 +318,14 @@ const clientStrings = {
       return `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     };
 
+    const track = (name: string) => {
+      try {
+        (window as any).plausible?.(name);
+      } catch {
+        /* analytics is best-effort */
+      }
+    };
+
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
@@ -363,18 +371,21 @@ const clientStrings = {
           const j = (await res.json().catch(() => null)) as { ok?: boolean } | null;
           if (res.ok && j && j.ok) {
             form.reset();
+            track("Assessment: submitted");
             setStatus(t.successSent, "success");
             return;
           }
           throw new Error(`Request failed: ${res.status}`);
         } catch {
           // Endpoint unreachable → fall back to the visitor's mail client.
+          track("Assessment: submitted (mailto)");
           window.location.href = buildMailto(data);
           setStatus(successMsg, "success");
         }
         return;
       }
 
+      track("Assessment: submitted (mailto)");
       window.location.href = buildMailto(data);
       setStatus(successMsg, "success");
     });

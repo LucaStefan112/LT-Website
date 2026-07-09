@@ -94,6 +94,11 @@ export const config = {
   // overrides this at build time if ever needed.
   contactEndpoint:
     "https://script.google.com/macros/s/AKfycbzLSRed2MODuWezvsSzL-kf98Oj3ckz8C9CRt7ZxElQVDFn82mfybfXkcgAJv_iWwF8/exec",
+  // Plausible Analytics: cookieless, privacy-first, no consent banner needed.
+  // Set to the domain registered in your Plausible dashboard (must match).
+  // Empty = analytics off. Plausible ignores localhost, so local builds never
+  // pollute the stats — only the live site at this domain reports.
+  plausibleDomain: "ltstrategypartners.com",
 } as const;
 
 /* --------------------------------------------------------------- Site meta */

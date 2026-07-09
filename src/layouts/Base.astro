@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import { getContent, resolveLocale, localeMeta, localePath, stripLocale } from "../content/i18n";
+import { config } from "../content/site";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
@@ -110,6 +111,39 @@ const orgSchema = {
       type="application/ld+json"
       set:html={JSON.stringify(orgSchema)}
     />
+
+    {/* Plausible Analytics — cookieless, privacy-first (no consent banner).
+        Auto-tracks pageviews, outbound-link clicks and file downloads; the
+        combined script also enables named `data-analytics` events. Off unless
+        config.plausibleDomain is set; Plausible ignores localhost, so dev/
+        preview builds never report. */}
+    {config.plausibleDomain && (
+      <Fragment>
+        <script is:inline>
+          window.plausible = window.plausible || function () { (window.plausible.q = window.plausible.q || []).push(arguments); };
+        </script>
+        <script
+          is:inline
+          defer
+          data-domain={config.plausibleDomain}
+          src="https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+        ></script>
+        <script is:inline>
+          // Track meaningful clicks that don't produce their own pageview.
+          document.addEventListener("click", function (e) {
+            var t = e.target;
+            if (!t || !t.closest) return;
+            var tagged = t.closest("[data-analytics]");
+            if (tagged) { window.plausible && window.plausible(tagged.getAttribute("data-analytics")); return; }
+            var a = t.closest("a[href]");
+            if (!a) return;
+            var href = a.getAttribute("href") || "";
+            if (href.indexOf("mailto:") === 0) window.plausible && window.plausible("Email click");
+            else if (href.indexOf("tel:") === 0) window.plausible && window.plausible("Phone click");
+          });
+        </script>
+      </Fragment>
+    )}
   </head>
 
   <body>
