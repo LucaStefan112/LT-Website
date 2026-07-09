@@ -126,7 +126,7 @@ const orgSchema = {
           is:inline
           defer
           data-domain={config.plausibleDomain}
-          src="https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+          src={`${config.plausibleHost}/js/script.tagged-events.outbound-links.file-downloads.js`}
         ></script>
         <script is:inline>
           // Track meaningful clicks that don't produce their own pageview.

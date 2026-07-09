@@ -99,6 +99,10 @@ export const config = {
   // Empty = analytics off. Plausible ignores localhost, so local builds never
   // pollute the stats — only the live site at this domain reports.
   plausibleDomain: "ltstrategypartners.com",
+  // Base URL of the Plausible instance that serves the tracking script and
+  // receives events (no trailing slash). This is a self-hosted instance;
+  // use "https://plausible.io" for Plausible Cloud instead.
+  plausibleHost: "https://plausible-production-c952.up.railway.app",
 } as const;
 
 /* --------------------------------------------------------------- Site meta */
