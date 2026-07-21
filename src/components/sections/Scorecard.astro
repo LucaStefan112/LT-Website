@@ -1,0 +1,665 @@
+---
+/* Interactive AI & Tech Opportunity Scorecard.
+   Questions render server-side from the content modules (site.ts / site.ro.ts)
+   so both language trees use this same component. Client JS sums the selected
+   option points, maps to a tier, reveals the result, then email-gates a fuller
+   readout — submitted via the shared contact endpoint (config.contactEndpoint),
+   falling back to mailto: on any failure (static site, nothing stored by us). */
+import { getContent } from "../../content/i18n";
+
+const { scorecardPage: sc, formStrings, site, config } = getContent(Astro.url.pathname);
+const endpoint = import.meta.env.PUBLIC_CONTACT_ENDPOINT ?? config.contactEndpoint ?? "";
+
+const clientCfg = {
+  qCount: sc.questions.length,
+  dataGateQuestionIndex: sc.dataGateQuestionIndex,
+  dataGateNote: sc.dataGateNote,
+  tiers: sc.tiers.map((t) => ({
+    slug: t.slug,
+    min: t.min,
+    max: t.max,
+    name: t.name,
+    headline: t.headline,
+    body: t.body,
+  })),
+  endpoint,
+  email: site.email,
+  strings: {
+    sending: formStrings.sending,
+    required: formStrings.required,
+    invalidEmail: formStrings.invalidEmail,
+    incomplete: sc.ui.incomplete,
+    scoreLabel: sc.ui.scoreLabel,
+    outOf: sc.ui.outOf,
+    resultEyebrow: sc.ui.resultEyebrow,
+    subjectPrefix: formStrings.scorecardSubjectPrefix,
+    successSent: formStrings.scorecardSuccessSent,
+    successMailto: formStrings.scorecardSuccessMailto,
+  },
+};
+const lastIndex = sc.questions.length - 1;
+---
+
+<section class="sc" data-scorecard data-config={JSON.stringify(clientCfg)}>
+  <form class="sc-quiz" data-scorecard-quiz novalidate>
+    <ol class="sc-questions" role="list">
+      {
+        sc.questions.map((question, i) => (
+          <li class="sc-q card" data-question={i}>
+            <fieldset>
+              <legend class="sc-q-text">
+                <span class="sc-q-num">{String(i + 1).padStart(2, "0")}</span>
+                {question.q}
+              </legend>
+              <div class="sc-options">
+                {question.options.map((opt, j) => (
+                  <label class="sc-option">
+                    <input
+                      type="radio"
+                      name={`q${i}`}
+                      value={j}
+                      data-points={opt.points}
+                    />
+                    <span class="sc-option-label">{opt.label}</span>
+                  </label>
+                ))}
+              </div>
+              {i === lastIndex && <p class="sc-q-note">{sc.q10Note}</p>}
+            </fieldset>
+          </li>
+        ))
+      }
+    </ol>
+
+    <div class="sc-actions">
+      <button type="submit" class="btn btn-primary sc-see-result">{sc.ui.seeResult}</button>
+      <p class="sc-quiz-status" data-scorecard-status role="status" aria-live="polite"></p>
+    </div>
+  </form>
+
+  <!-- Result (revealed after scoring) -->
+  <div class="sc-result" data-scorecard-result hidden tabindex="-1" aria-labelledby="sc-result-headline">
+    <p class="sc-result-datanote" data-scorecard-datanote hidden></p>
+    <p class="eyebrow sc-result-eyebrow" data-scorecard-eyebrow></p>
+    <div class="sc-score" aria-live="polite">
+      <span class="sc-score-num" data-scorecard-score></span>
+      <span class="sc-score-out">{sc.ui.outOf}</span>
+      <span class="sc-score-tier" data-scorecard-tier></span>
+    </div>
+    <h2 class="sc-result-headline" id="sc-result-headline" data-scorecard-headline></h2>
+    <p class="sc-result-body" data-scorecard-body></p>
+    <button type="button" class="sc-retake link-arrow" data-scorecard-retake>{sc.ui.retake}</button>
+
+    <!-- Email gate -->
+    <div class="sc-gate card">
+      <h3 class="sc-gate-heading">{sc.gate.heading}</h3>
+      <p class="sc-gate-body">{sc.gate.body}</p>
+      <form class="sc-gate-form" data-scorecard-gate novalidate>
+        <div class="sc-gate-field">
+          <label for="sc-email">{sc.gate.emailLabel}<span aria-hidden="true"> *</span></label>
+          <input
+            type="email"
+            id="sc-email"
+            name="email"
+            autocomplete="email"
+            required
+            aria-required="true"
+            aria-describedby="sc-email-error"
+          />
+          <span class="sc-field-error" id="sc-email-error"></span>
+        </div>
+        <div class="sc-hp" aria-hidden="true">
+          <label for="sc-company_website">{formStrings.honeypot}</label>
+          <input type="text" id="sc-company_website" name="company_website" tabindex="-1" autocomplete="off" />
+        </div>
+        <button type="submit" class="btn btn-primary sc-gate-submit">{sc.gate.button}</button>
+        <p class="sc-gate-status" data-scorecard-gate-status role="status" aria-live="polite"></p>
+        <p class="sc-gate-privacy">
+          {sc.gate.privacy}{" "}
+          <a href={sc.gate.privacyHref}>{sc.gate.privacyLinkLabel}</a>
+        </p>
+      </form>
+    </div>
+
+    <!-- CTA into the assessment -->
+    <div class="sc-cta">
+      <a href={sc.ctaPrimary.href} class="btn btn-primary sc-cta-primary" data-astro-prefetch>
+        {sc.ctaPrimary.label}
+      </a>
+      <p class="sc-cta-microcopy">{sc.ctaPrimary.microcopy}</p>
+      <a href={sc.ctaSecondary.href} class="link-arrow sc-cta-secondary" data-astro-prefetch>
+        {sc.ctaSecondary.label}
+        <span class="arrow" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M3 8h9M8.5 4l3.5 4-3.5 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .sc {
+    margin-top: clamp(2rem, 4vw, 3rem);
+  }
+  .sc-questions {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    counter-reset: sc;
+  }
+  .sc-q {
+    padding: clamp(1.25rem, 2.6vw, 1.75rem);
+  }
+  .sc-q fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+  }
+  .sc-q-text {
+    display: flex;
+    gap: 0.75rem;
+    font-size: 1.0625rem;
+    font-weight: 600;
+    line-height: 1.45;
+    color: var(--color-ink);
+    padding: 0;
+  }
+  .sc-q-num {
+    flex: none;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--color-steel);
+    padding-top: 0.28em;
+  }
+  .sc-options {
+    margin-top: 1.125rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+    padding-left: calc(0.8125rem + 0.75rem);
+  }
+  .sc-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.75rem 0.875rem;
+    border: 1px solid var(--color-line);
+    border-radius: 10px;
+    cursor: pointer;
+    transition:
+      border-color 0.16s var(--ease-out-soft),
+      background-color 0.16s var(--ease-out-soft);
+  }
+  .sc-option:hover {
+    border-color: var(--color-steel);
+    background-color: color-mix(in srgb, var(--color-steel) 4%, var(--color-paper));
+  }
+  .sc-option:has(input:checked) {
+    border-color: var(--color-steel);
+    background-color: color-mix(in srgb, var(--color-steel) 8%, var(--color-paper));
+  }
+  .sc-option:has(input:focus-visible) {
+    outline: 2px solid var(--color-steel);
+    outline-offset: 2px;
+  }
+  .sc-option input {
+    flex: none;
+    margin-top: 0.2em;
+    accent-color: var(--color-steel);
+    width: 1.05rem;
+    height: 1.05rem;
+  }
+  .sc-option-label {
+    font-size: 0.9688rem;
+    line-height: 1.5;
+    color: var(--color-near);
+  }
+  .sc-q.is-missing {
+    border-color: #b3261e;
+    box-shadow: 0 0 0 1px #b3261e;
+  }
+  .sc-q-note {
+    margin-top: 1rem;
+    padding-left: calc(0.8125rem + 0.75rem);
+    font-size: 0.8125rem;
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--color-muted);
+  }
+
+  .sc-actions {
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem 1.5rem;
+  }
+  .sc-see-result {
+    min-width: 13rem;
+  }
+  .sc-quiz-status {
+    margin: 0;
+    font-size: 0.9375rem;
+    color: #b3261e;
+  }
+
+  /* ---------- result ---------- */
+  .sc-result {
+    margin-top: clamp(2.5rem, 5vw, 3.5rem);
+    scroll-margin-top: 5rem;
+  }
+  .sc-result:focus {
+    outline: none;
+  }
+  .sc-result-datanote {
+    margin-bottom: 1.75rem;
+    padding: clamp(1rem, 2.2vw, 1.5rem);
+    border-left: 3px solid var(--color-steel);
+    border-radius: 10px;
+    background-color: color-mix(in srgb, var(--color-steel) 7%, var(--color-paper));
+    color: var(--color-ink);
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  .sc-result-eyebrow {
+    color: var(--color-steel);
+  }
+  .sc-score {
+    margin-top: 0.75rem;
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.5rem 0.75rem;
+  }
+  .sc-score-num {
+    font-size: clamp(2.75rem, 7vw, 4rem);
+    font-weight: 650;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    color: var(--color-ink);
+  }
+  .sc-score-out {
+    font-size: 1.25rem;
+    color: var(--color-muted);
+  }
+  .sc-score-tier {
+    margin-left: 0.25rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-steel-deep);
+    background-color: color-mix(in srgb, var(--color-steel) 12%, var(--color-paper));
+    border-radius: 999px;
+    padding: 0.3rem 0.75rem;
+    align-self: center;
+  }
+  .sc-result-headline {
+    margin-top: 1.25rem;
+    font-size: clamp(1.5rem, 3.4vw, 2.125rem);
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    line-height: 1.15;
+    color: var(--color-ink);
+    max-width: 22ch;
+  }
+  .sc-result-body {
+    margin-top: 1.25rem;
+    color: var(--color-muted);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    max-width: 62ch;
+  }
+  .sc-retake {
+    margin-top: 1.5rem;
+    display: inline-flex;
+    background: none;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    font: inherit;
+    color: var(--color-steel-deep);
+  }
+
+  /* ---------- gate ---------- */
+  .sc-gate {
+    margin-top: clamp(2rem, 4vw, 3rem);
+    padding: clamp(1.5rem, 3vw, 2.25rem);
+  }
+  .sc-gate-heading {
+    font-size: 1.1875rem;
+    font-weight: 600;
+    color: var(--color-ink);
+  }
+  .sc-gate-body {
+    margin-top: 0.75rem;
+    font-size: 0.9688rem;
+    line-height: 1.6;
+    color: var(--color-muted);
+    max-width: 60ch;
+  }
+  .sc-gate-form {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    max-width: 30rem;
+  }
+  .sc-gate-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .sc-gate-field label {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--color-ink);
+  }
+  .sc-gate-field label span {
+    color: var(--color-steel);
+  }
+  .sc-gate-field input {
+    width: 100%;
+    font: inherit;
+    font-size: 1rem;
+    color: var(--color-near);
+    background-color: var(--color-paper);
+    border: 1px solid var(--color-line);
+    border-radius: 9px;
+    padding: 0.75rem 0.875rem;
+    transition:
+      border-color 0.16s var(--ease-out-soft),
+      box-shadow 0.16s var(--ease-out-soft);
+  }
+  .sc-gate-field input:focus {
+    outline: none;
+    border-color: var(--color-steel);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-steel) 18%, transparent);
+  }
+  .sc-gate-field input[aria-invalid="true"] {
+    border-color: #b3261e;
+  }
+  .sc-field-error {
+    display: none;
+    font-size: 0.8125rem;
+    color: #b3261e;
+  }
+  .sc-field-error.is-shown {
+    display: block;
+  }
+  .sc-hp {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+  .sc-gate-submit {
+    align-self: flex-start;
+    min-width: 13rem;
+  }
+  .sc-gate-status {
+    margin: 0;
+    font-size: 0.9375rem;
+    color: var(--color-muted);
+  }
+  .sc-gate-status.is-success {
+    color: var(--color-steel-deep);
+    font-weight: 500;
+  }
+  .sc-gate-status.is-error {
+    color: #b3261e;
+  }
+  .sc-gate-privacy {
+    margin: 0;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    color: var(--color-muted);
+  }
+  .sc-gate.is-done {
+    display: none;
+  }
+
+  /* ---------- cta ---------- */
+  .sc-cta {
+    margin-top: clamp(2rem, 4vw, 3rem);
+    padding-top: clamp(1.75rem, 3.5vw, 2.5rem);
+    border-top: 1px solid var(--color-line);
+  }
+  .sc-cta-microcopy {
+    margin-top: 0.875rem;
+    font-size: 0.875rem;
+    color: var(--color-muted);
+    max-width: 52ch;
+  }
+  .sc-cta-secondary {
+    margin-top: 1.25rem;
+    display: inline-flex;
+  }
+</style>
+
+<script>
+  interface Tier {
+    slug: string;
+    min: number;
+    max: number;
+    name: string;
+    headline: string;
+    body: string;
+  }
+  interface Cfg {
+    qCount: number;
+    dataGateQuestionIndex: number;
+    dataGateNote: string;
+    tiers: Tier[];
+    endpoint: string;
+    email: string;
+    strings: Record<string, string>;
+  }
+
+  function initScorecard(): void {
+    const root = document.querySelector<HTMLElement>("[data-scorecard]");
+    if (!root) return;
+
+    const cfg = JSON.parse(root.dataset.config || "{}") as Cfg;
+    const t = cfg.strings || {};
+    const quiz = root.querySelector<HTMLFormElement>("[data-scorecard-quiz]");
+    const quizStatus = root.querySelector<HTMLElement>("[data-scorecard-status]");
+    const result = root.querySelector<HTMLElement>("[data-scorecard-result]");
+    const gateForm = root.querySelector<HTMLFormElement>("[data-scorecard-gate]");
+    const gateWrap = root.querySelector<HTMLElement>(".sc-gate");
+    const gateStatus = root.querySelector<HTMLElement>("[data-scorecard-gate-status]");
+    if (!quiz || !result) return;
+
+    let lastScore = 0;
+    let lastTier: Tier | null = null;
+    const answers: string[] = [];
+
+    const track = (name: string, props?: Record<string, string>) => {
+      try {
+        (window as any).plausible?.(name, props ? { props } : undefined);
+      } catch {
+        /* analytics is best-effort */
+      }
+    };
+
+    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    quiz.addEventListener("submit", (e) => {
+      e.preventDefault();
+      let total = 0;
+      let allAnswered = true;
+      let firstMissing: HTMLElement | null = null;
+      let gateTriggered = false;
+      answers.length = 0;
+
+      for (let i = 0; i < cfg.qCount; i++) {
+        const checked = quiz.querySelector<HTMLInputElement>(`input[name="q${i}"]:checked`);
+        const card = quiz.querySelector<HTMLElement>(`[data-question="${i}"]`);
+        if (!checked) {
+          allAnswered = false;
+          card?.classList.add("is-missing");
+          if (!firstMissing) firstMissing = card;
+          continue;
+        }
+        card?.classList.remove("is-missing");
+        const pts = Number(checked.dataset.points || "0");
+        total += pts;
+        const label = checked.parentElement?.querySelector(".sc-option-label")?.textContent?.trim() || "";
+        answers[i] = label;
+        if (i === cfg.dataGateQuestionIndex && pts === 0) gateTriggered = true;
+      }
+
+      if (!allAnswered) {
+        if (quizStatus) quizStatus.textContent = t.incomplete || "";
+        firstMissing?.scrollIntoView({ behavior: "smooth", block: "center" });
+        return;
+      }
+      if (quizStatus) quizStatus.textContent = "";
+
+      const tier =
+        cfg.tiers.find((tt) => total >= tt.min && total <= tt.max) || cfg.tiers[cfg.tiers.length - 1];
+      lastScore = total;
+      lastTier = tier;
+
+      const set = (sel: string, text: string) => {
+        const el = root.querySelector<HTMLElement>(sel);
+        if (el) el.textContent = text;
+      };
+      set("[data-scorecard-eyebrow]", t.resultEyebrow || "");
+      set("[data-scorecard-score]", String(total));
+      set("[data-scorecard-tier]", tier.name);
+      set("[data-scorecard-headline]", tier.headline);
+      set("[data-scorecard-body]", tier.body);
+
+      const dataNote = root.querySelector<HTMLElement>("[data-scorecard-datanote]");
+      if (dataNote) {
+        if (gateTriggered) {
+          dataNote.textContent = cfg.dataGateNote;
+          dataNote.hidden = false;
+        } else {
+          dataNote.hidden = true;
+        }
+      }
+
+      result.hidden = false;
+      track("Scorecard: completed", { tier: tier.slug });
+      result.scrollIntoView({ behavior: "smooth", block: "start" });
+      result.focus({ preventScroll: true });
+    });
+
+    // Retake
+    const retake = root.querySelector<HTMLElement>("[data-scorecard-retake]");
+    retake?.addEventListener("click", () => {
+      quiz.reset();
+      result.hidden = true;
+      if (gateWrap) gateWrap.classList.remove("is-done");
+      quiz.querySelectorAll(".is-missing").forEach((el) => el.classList.remove("is-missing"));
+      quiz.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
+    // Gate submission
+    const setGateStatus = (msg: string, kind: "" | "success" | "error") => {
+      if (!gateStatus) return;
+      gateStatus.textContent = msg;
+      gateStatus.classList.toggle("is-success", kind === "success");
+      gateStatus.classList.toggle("is-error", kind === "error");
+    };
+
+    const buildMailto = (emailVal: string): string => {
+      const subject = `${t.subjectPrefix} ${lastTier?.name || ""} (${lastScore}/100)`;
+      const body = [
+        `Scorecard result`,
+        `Score: ${lastScore}/100 — ${lastTier?.name || ""}`,
+        "",
+        `Requested readout to: ${emailVal}`,
+        "",
+        `Answers:`,
+        ...answers.map((a, i) => `Q${i + 1}: ${a}`),
+      ].join("\n");
+      return `mailto:${cfg.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    };
+
+    gateForm?.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const emailEl = gateForm.elements.namedItem("email") as HTMLInputElement | null;
+      const errEl = document.getElementById("sc-email-error");
+      const val = (emailEl?.value || "").trim();
+
+      // Honeypot
+      const hp = gateForm.elements.namedItem("company_website") as HTMLInputElement | null;
+      if (hp && hp.value) {
+        setGateStatus(t.successMailto || "", "success");
+        return;
+      }
+
+      if (!val || !emailRe.test(val)) {
+        emailEl?.setAttribute("aria-invalid", "true");
+        if (errEl) {
+          errEl.textContent = !val ? t.required || "" : t.invalidEmail || "";
+          errEl.classList.add("is-shown");
+        }
+        emailEl?.focus();
+        return;
+      }
+      emailEl?.removeAttribute("aria-invalid");
+      errEl?.classList.remove("is-shown");
+
+      const locale =
+        location.pathname === "/ro" ||
+        location.pathname === "/ro.html" ||
+        location.pathname.startsWith("/ro/")
+          ? "ro"
+          : "en";
+      const payload = {
+        form: "scorecard-lead",
+        locale,
+        email: val,
+        score: String(lastScore),
+        tier: lastTier?.name || "",
+        tier_slug: lastTier?.slug || "",
+        answers: answers.map((a, i) => `Q${i + 1}: ${a}`).join(" | "),
+      };
+
+      if (cfg.endpoint) {
+        try {
+          setGateStatus(t.sending || "", "");
+          const res = await fetch(cfg.endpoint, {
+            method: "POST",
+            headers: { "Content-Type": "text/plain;charset=utf-8" },
+            body: JSON.stringify(payload),
+          });
+          const j = (await res.json().catch(() => null)) as { ok?: boolean } | null;
+          if (res.ok && j && j.ok) {
+            track("Scorecard: lead", { tier: lastTier?.slug || "" });
+            setGateStatus(t.successSent || "", "success");
+            gateWrap?.classList.add("is-done");
+            return;
+          }
+          throw new Error(`Request failed: ${res.status}`);
+        } catch {
+          track("Scorecard: lead (mailto)", { tier: lastTier?.slug || "" });
+          window.location.href = buildMailto(val);
+          setGateStatus(t.successMailto || "", "success");
+        }
+        return;
+      }
+
+      track("Scorecard: lead (mailto)", { tier: lastTier?.slug || "" });
+      window.location.href = buildMailto(val);
+      setGateStatus(t.successMailto || "", "success");
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initScorecard, { once: true });
+  } else {
+    initScorecard();
+  }
+</script>

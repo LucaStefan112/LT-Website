@@ -20,6 +20,8 @@ import type {
   FaqItem,
   WorkProject,
   FormField,
+  ScorecardQuestion,
+  ScorecardTier,
 } from "./site";
 // Config carries no prose — share the single source of truth.
 export { config } from "./site";
@@ -72,6 +74,7 @@ export const nav: NavItem[] = [
 export const footerNav: NavItem[] = [
   { label: "Servicii", href: "/ro/services" },
   { label: "Evaluare", href: "/ro/assessment" },
+  { label: "Scorecard", href: "/ro/scorecard" },
   { label: "Proiecte", href: "/ro#work" },
   { label: "Perspective", href: "/ro/insights" },
   { label: "Despre", href: "/ro/about" },
@@ -780,6 +783,171 @@ export const pageIntros = {
   },
 } as const;
 
+/* ------------------------------------------------ AI & Tech Opportunity Scorecard */
+
+export const scorecardPage = {
+  eyebrow: "Verificare gratuită · circa 3 minute",
+  heading: "Merită AI-ul sau un nou pariu tehnologic pentru afacerea dumneavoastră — deja?",
+  lead: "Zece întrebări simple, fără jargon, fără cont ca să începeți. Veți primi o citire onestă a faptului că o investiție în AI sau tehnologie s-ar amortiza cu adevărat pentru o companie ca a dumneavoastră chiar acum — și, la fel de des, unde mișcarea mai inteligentă e să reparați întâi ceva. Nu e un scor de maturitate menit să vă facă să vă simțiți în urmă. E un răspuns direct despre unde ar munci de fapt banii dumneavoastră.",
+  microcopy: "Nu e nevoie de cont ca să răspundeți. Cerem un email doar dacă doriți citirea scrisă, mai amplă.",
+  dataGateQuestionIndex: 2,
+  dataGateNote:
+    "Un lucru, înainte de orice altceva: chiar acum, informația de care ați avea nevoie stă mai ales în capul oamenilor și în e-mailuri. Până nu ajunge undeva unde un sistem chiar o poate atinge, niciun pariu pe AI sau tehnologie nu se poate amortiza — e singurul lucru care merită reparat înainte să cheltuiți pe orice de mai jos.",
+  q10Note:
+    "Nu există un răspuns greșit aici — munca cu miză mare nu e interzisă AI-ului, doar trebuie construită mai atent. Această întrebare modelează sfatul, nu verdictul.",
+  questions: [
+    {
+      q: "Cât din săptămâna echipei se duce în muncă manuală, repetitivă, după reguli — reintroducere de date, formatarea acelorași rapoarte, răspuns la aceleași întrebări, mutarea informației dintr-un instrument în altul?",
+      options: [
+        { label: "Aproape nimic la care să pot arăta cu degetul", points: 0 },
+        { label: "Ceva, dar împrăștiat între mai mulți oameni", points: 4 },
+        { label: "O parte clară — câteva ore de persoană, în fiecare săptămână", points: 7 },
+        { label: "Mult — e un cost real, iar unii oameni sunt angajați parțial ca să o facă", points: 10 },
+      ],
+    },
+    {
+      q: "Există o problemă anume, cu nume, pe care sperați că AI-ul sau tehnologia ar rezolva-o?",
+      options: [
+        { label: "Nu chiar — ne uităm pentru că toată lumea vorbește despre AI", points: 0 },
+        { label: "O senzație vagă că ceva ar putea merge mai bine", points: 3 },
+        { label: "Da — putem numi blocajul, dar nu și soluția", points: 7 },
+        { label: "Da — îl putem numi și știm aproximativ cât ne costă", points: 10 },
+      ],
+    },
+    {
+      q: "Când echipa are nevoie de informație ca să facă această muncă, unde stă ea de fapt?",
+      options: [
+        { label: "Mai ales în capul oamenilor și în e-mailuri", points: 0 },
+        { label: "În documente și fișiere Excel, împrăștiate", points: 4 },
+        { label: "În sisteme adevărate, dar dezordonat sau răspândit în prea multe instrumente", points: 7 },
+        { label: "În sisteme, rezonabil de curată și ușor de accesat", points: 10 },
+      ],
+    },
+    {
+      q: "Gândiți-vă la ultimul software sau instrument important pe care l-ați implementat. Cum a mers?",
+      options: [
+        { label: "L-am cumpărat și aproape nimeni nu-l folosește", points: 0 },
+        { label: "N-am făcut niciodată o implementare ca lumea", points: 2 },
+        { label: "Amestecat — ceva adopție, multă rezistență", points: 4 },
+        { label: "Bine — oamenii chiar l-au adoptat și face parte din felul în care lucrăm acum", points: 10 },
+      ],
+    },
+    {
+      q: "Împinge ceva din afara companiei în această direcție?",
+      options: [
+        { label: "Nimic la care să putem arăta — e curiozitate internă", points: 0 },
+        { label: "Simțim că încep să se miște competitorii", points: 5 },
+        { label: "Clienți sau parteneri ne-o cer", points: 8 },
+        { label: "Un contract, o afacere sau o cerință anume depinde de asta", points: 10 },
+      ],
+    },
+    {
+      q: "Dacă oportunitatea potrivită ar fi clară, ce ați putea pune realist în spatele ei în următoarele 6–12 luni?",
+      options: [
+        { label: "Nimic pus deoparte — ar trebui să găsim resursele", points: 0 },
+        { label: "Un buget mic, doar pentru un experiment", points: 4 },
+        { label: "Un buget real, dar modest, pentru un singur proiect concentrat", points: 7 },
+        { label: "Fonduri pregătite, gata să pornim pe pariul potrivit", points: 10 },
+      ],
+    },
+    {
+      q: "Dacă ați porni ceva, cine l-ar deține în interiorul companiei?",
+      options: [
+        { label: "Nimeni evident — am fi toți part-time pe el", points: 0 },
+        { label: "Cineva ar putea, peste sarcinile lui zilnice", points: 4 },
+        { label: "Avem pe cineva care l-ar putea deține, cu ceva sprijin", points: 7 },
+        { label: "Un responsabil clar, cu timpul și autoritatea de a-l duce la capăt", points: 10 },
+      ],
+    },
+    {
+      q: "Cum se iau de obicei deciziile de acest fel la dumneavoastră?",
+      options: [
+        { label: "Greu — mulți factori de decizie, greu de ajuns la un „da”", points: 2 },
+        { label: "Depinde — unele lucruri se mișcă, altele se împotmolesc", points: 5 },
+        { label: "Conducerea poate decide și se poate angaja destul de repede", points: 10 },
+      ],
+    },
+    {
+      q: "Cât de des se întâmplă de fapt lucrul pe care ați vrea să-l îmbunătățiți?",
+      options: [
+        { label: "Rar — e ocazional", points: 0 },
+        { label: "De câteva ori pe săptămână", points: 4 },
+        { label: "De multe ori pe zi, în toată echipa", points: 7 },
+        { label: "Constant — e în miezul felului în care merge afacerea", points: 10 },
+      ],
+    },
+    {
+      q: "Dacă un instrument ar greși din când în când, ce s-ar întâmpla?",
+      options: [
+        { label: "Ar putea fi periculos, sau serios din punct de vedere legal ori financiar — nu e loc de eroare", points: 2 },
+        { label: "Ar conta — cineva ar trebui să prindă greșeala", points: 6 },
+        { label: "Oricum un om verifică rezultatul înainte să fie folosit", points: 9 },
+        { label: "Greșelile mici se observă ușor și au miză mică", points: 10 },
+      ],
+    },
+  ] as ScorecardQuestion[],
+  tiers: [
+    {
+      slug: "foundations-first",
+      min: 0,
+      max: 34,
+      name: "Întâi fundația",
+      headline: "Încă nu — și e un răspuns util.",
+      body: "Chiar acum, un pariu pe AI sau pe o tehnologie mare ar fi, cel mai probabil, bani cheltuiți înaintea problemei. Nu e o critică — e cea mai ieftină lecție pe care o veți primi vreodată, pentru că o învățați înainte de factură, nu după. Primul pas onest nu e un instrument. E să puneți un lucru la punct: o problemă care merită numită, informație pe care un sistem chiar o poate atinge, sau cineva care poate deține munca. Rezolvați asta și se deschid ieftin multe opțiuni. Cheltuiți acum peste ea și veți fi, probabil, printre companiile care lasă proiectul deoparte un an mai târziu. Reveniți și refaceți testul când terenul e mai solid — veți vedea scorul mișcându-se.",
+    },
+    {
+      slug: "real-seed",
+      min: 35,
+      max: 59,
+      name: "O sămânță reală, încă nu un proiect",
+      headline: "Aveți aici ceva ce merită modelat.",
+      body: "Aveți începutul unei oportunități reale — dar e încă o sămânță, nu un plan, iar cea mai rapidă cale de a arunca bani acum e să săriți la o soluție înainte de a dimensiona problema. Mișcarea care se amortizează cu adevărat: alegeți singurul flux de lucru care vă costă cel mai mult, scrieți negru pe alb cât vă costă azi, în ore sau în euro, și fiți onești cu privire la unde stau datele pentru el. Faceți asta și fie veți găsi un pariu care merită făcut — fie vă veți scuti de un proiect care oricum nu avea cum să reușească. Dacă v-ar ajuta să testați care dintre cele două e cazul, exact pentru asta există Evaluarea gratuită a Oportunităților AI.",
+    },
+    {
+      slug: "strong-candidate",
+      min: 60,
+      max: 79,
+      name: "Candidat serios",
+      headline: "Merită o privire serioasă.",
+      body: "Aveți cea mai mare parte din ce cere un astfel de pariu — o problemă reală, date utilizabile și destulă pregătire ca să acționați. Riscul în acest punct nu e să nu faceți nimic; e să construiți bine lucrul greșit, sau să alegeți cazul care arată superb în demo și apoi moare la contactul cu utilizatori reali. Înainte să angajați buget, cea mai profitabilă jumătate de oră pe care o puteți petrece e să obțineți un verdict tranșant despre care caz de utilizare se amortizează cu adevărat în producție — și pe care să-l lăsați deoparte. Exact asta vă oferă, în scris, Evaluarea gratuită a Oportunităților AI, înainte să cheltuiți vreun ban.",
+    },
+    {
+      slug: "ready-to-move",
+      min: 80,
+      max: 100,
+      name: "Pregătiți să porniți",
+      headline: "Întrebarea nu e „dacă” — ci care pariu, și în ce ordine.",
+      body: "Pe hârtie, sunteți pregătiți: o problemă cu nume, date pe care un sistem le poate atinge, buget, un responsabil și presiunea de a vă mișca. Singurul lucru dintre dumneavoastră și un randament e să alegeți primul pariu potrivit și să-l secvențiați bine — pentru că în acest punct greșeala scumpă e să construiți trei lucruri acceptabil, în loc de unul singur care se amortizează. Exact aici își merită banii o citire scurtă, onestă, din afară. Evaluarea gratuită a Oportunităților AI vă dă un verdict scris pentru fiecare candidat — construiți acum, încă nu, sau nu construiți — inclusiv, spus limpede, oriunde AI nu se va amortiza pentru dumneavoastră. Nu avem niciun produs de vândut, așa că un „nu construiți” nu ne costă nimic să-l spunem.",
+    },
+  ] as ScorecardTier[],
+  ui: {
+    seeResult: "Vedeți rezultatul",
+    incomplete: "Vă rugăm să răspundeți la toate cele zece întrebări pentru a vedea rezultatul.",
+    retake: "Reluați testul",
+    scoreLabel: "Scorul dumneavoastră",
+    outOf: "/ 100",
+    resultEyebrow: "Rezultatul dumneavoastră",
+  },
+  gate: {
+    heading: "Vreți citirea completă, în scris?",
+    body: "Lăsați un email și vă trimit o versiune mai amplă a rezultatului: ce arată răspunsurile dumneavoastră, cele două-trei lucruri la care m-aș uita primul pentru o companie în situația dumneavoastră și — dacă se potrivește — singura întrebare la care aș căuta un răspuns înainte de a cheltui orice. Fără newsletter, fără șir de e-mailuri, fără apeluri de vânzare pe care nu le-ați cerut. Un singur email util.",
+    emailLabel: "Email de serviciu",
+    button: "Trimiteți-mi citirea",
+    privacy: "Folosim emailul dumneavoastră doar ca să trimitem această citire. Nu îl transmitem mai departe și nu vă adăugăm pe nicio listă.",
+    privacyLinkLabel: "Vedeți politica de confidențialitate.",
+    privacyHref: "/ro/privacy",
+  },
+  ctaPrimary: {
+    label: "Aplicați pentru o Evaluare gratuită a Oportunităților AI",
+    href: "/ro/assessment",
+    microcopy: "Gratuită · una per companie · livrată de fondator · un verdict scris, inclusiv unde AI nu se va amortiza.",
+  },
+  ctaSecondary: {
+    label: "Sau, pur și simplu, discutați cu mine",
+    href: "/ro/contact",
+  },
+} as const;
+
 /* --------------------------------------------------- Per-page SEO metadata */
 
 export const pageMeta = {
@@ -787,6 +955,12 @@ export const pageMeta = {
     title: "LT Strategy Partners — Consultant tehnologie & AI pentru decizii de business mai bune",
     description: site.description,
     path: "/ro",
+  },
+  scorecard: {
+    title: "Scorecard AI & Tehnologie — LT Strategy Partners",
+    description:
+      "O verificare gratuită de 3 minute: zece întrebări simple, apoi o citire onestă a faptului că un pariu pe AI sau tehnologie s-ar amortiza deja pentru afacerea dumneavoastră — sau ce merită reparat întâi.",
+    path: "/ro/scorecard",
   },
   services: {
     title: "Servicii — LT Strategy Partners",
@@ -885,6 +1059,11 @@ export const formStrings = {
     "Mulțumim — cererea dumneavoastră este gata de trimis. Va fi citită personal și primiți răspuns în cel mult două zile lucrătoare.",
   assessmentSuccessSent:
     "Mulțumim — cererea dumneavoastră a fost trimisă. Va fi citită personal și primiți răspuns în cel mult două zile lucrătoare.",
+  scorecardSubjectPrefix: "Citire scorecard —",
+  scorecardSuccessMailto:
+    "Mulțumim — cererea dumneavoastră e gata de trimis. Citirea scrisă urmează personal, de obicei în cel mult două zile lucrătoare.",
+  scorecardSuccessSent:
+    "Mulțumim — citirea dumneavoastră e pe drum. Va fi trimisă personal, de obicei în cel mult două zile lucrătoare.",
 } as const;
 
 /* ------------------------------- Assessment application form (field copy) */

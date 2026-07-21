@@ -154,6 +154,7 @@ export const nav: NavItem[] = [
 export const footerNav: NavItem[] = [
   { label: "Services", href: "/services" },
   { label: "Assessment", href: "/assessment" },
+  { label: "Scorecard", href: "/scorecard" },
   { label: "Work", href: "/#work" },
   { label: "Insights", href: "/insights" },
   { label: "About", href: "/about" },
@@ -899,11 +900,205 @@ export const pageIntros = {
 
 /* --------------------------------------------------- Per-page SEO metadata */
 
+/* ------------------------------------------------ AI & Tech Opportunity Scorecard */
+/* Free self-serve diagnostic. Reader answers 10 business questions, sees a score
+   (0–100) and tier on-screen, then can email-gate a fuller written readout that
+   routes into the free AI Opportunity Assessment. Scoring is a straight sum of
+   the selected option points. One honest override: if Q3 (where the data lives)
+   scores 0, the result leads with `dataGateNote` regardless of total. */
+
+export interface ScorecardOption {
+  label: string;
+  points: number;
+}
+export interface ScorecardQuestion {
+  q: string;
+  options: ScorecardOption[];
+}
+export interface ScorecardTier {
+  slug: string;
+  min: number;
+  max: number;
+  name: string;
+  headline: string;
+  body: string;
+}
+
+export const scorecardPage = {
+  eyebrow: "Free self-check · about 3 minutes",
+  heading: "Is AI or a new tech bet actually worth it for your business — yet?",
+  lead: "Ten plain questions, no jargon, no sign-up to start. You'll get an honest read on whether AI or a technology investment would genuinely pay off for a company like yours right now — and, just as often, where the smarter move is to fix something first. This isn't a maturity score to make you feel behind. It's a straight answer about where your money would actually go to work.",
+  microcopy: "No login to answer. We only ask for an email if you want the fuller written readout.",
+  // The Q3 index (0-based) whose zero-point answer triggers the data-gate override.
+  dataGateQuestionIndex: 2,
+  dataGateNote:
+    "One thing first, before anything else: right now the information you'd need lives mostly in people's heads and email. Until it lives somewhere a system can actually reach, no AI or tech bet can pay off — it's the one thing worth fixing before you spend on anything below.",
+  q10Note:
+    "There's no wrong answer here — high-stakes work isn't off-limits for AI, it just needs to be built more carefully. This question shapes the advice, not the verdict.",
+  questions: [
+    {
+      q: "How much of your team's week goes into repetitive, rule-based manual work — re-keying data, formatting the same reports, answering the same questions, moving information between tools?",
+      options: [
+        { label: "Barely any I could point to", points: 0 },
+        { label: "Some, but it's scattered across different people", points: 4 },
+        { label: "A clear chunk — a few hours per person, every week", points: 7 },
+        { label: "A lot — it's a real cost, and people are partly hired to do it", points: 10 },
+      ],
+    },
+    {
+      q: "Is there a specific, named problem you're hoping AI or technology would solve?",
+      options: [
+        { label: "Not really — we're looking because everyone's talking about AI", points: 0 },
+        { label: "A vague sense that something could be better", points: 3 },
+        { label: "Yes — we can name the bottleneck, but not the fix", points: 7 },
+        { label: "Yes — we can name it and roughly what it costs us", points: 10 },
+      ],
+    },
+    {
+      q: "When your team needs the information to do this work, where does it actually live?",
+      options: [
+        { label: "Mostly in people's heads and email threads", points: 0 },
+        { label: "In documents and spreadsheets, scattered around", points: 4 },
+        { label: "In proper systems, but messy or spread across too many tools", points: 7 },
+        { label: "In systems, reasonably clean and easy to get at", points: 10 },
+      ],
+    },
+    {
+      q: "Think of the last significant software or tool you rolled out. How did it go?",
+      options: [
+        { label: "We bought it and almost nobody uses it", points: 0 },
+        { label: "We've never really done a proper rollout", points: 2 },
+        { label: "Mixed — some adoption, a lot of resistance", points: 4 },
+        { label: "Well — people actually adopted it and it's part of how we work now", points: 10 },
+      ],
+    },
+    {
+      q: "Is anything outside the company pushing this?",
+      options: [
+        { label: "Nothing we can point to — it's internal curiosity", points: 0 },
+        { label: "We sense competitors starting to move", points: 5 },
+        { label: "Customers or partners are asking for it", points: 8 },
+        { label: "A specific deal, contract, or requirement depends on it", points: 10 },
+      ],
+    },
+    {
+      q: "If the right opportunity were clear, what could you realistically put behind it in the next 6–12 months?",
+      options: [
+        { label: "Nothing set aside — we'd have to go find it", points: 0 },
+        { label: "A small budget for an experiment only", points: 4 },
+        { label: "A real but modest budget for one focused project", points: 7 },
+        { label: "Funded and ready to move on the right bet", points: 10 },
+      ],
+    },
+    {
+      q: "If you started something, who would own it inside the company?",
+      options: [
+        { label: "No one obvious — we'd all be part-time on it", points: 0 },
+        { label: "Someone could, on top of their day job", points: 4 },
+        { label: "We have someone who could own it with some support", points: 7 },
+        { label: "A clear owner, with the time and the authority to see it through", points: 10 },
+      ],
+    },
+    {
+      q: "How do decisions like this usually get made here?",
+      options: [
+        { label: "Slowly — many stakeholders, hard to reach a yes", points: 2 },
+        { label: "It depends — some things move, some stall", points: 5 },
+        { label: "Leadership can decide and commit fairly quickly", points: 10 },
+      ],
+    },
+    {
+      q: "How often does the thing you'd want to improve actually happen?",
+      options: [
+        { label: "Rarely — it's occasional", points: 0 },
+        { label: "A handful of times a week", points: 4 },
+        { label: "Many times a day, across the team", points: 7 },
+        { label: "Constantly — it's core to how the business runs", points: 10 },
+      ],
+    },
+    {
+      q: "If a tool got something wrong now and then, what would happen?",
+      options: [
+        { label: "It could be dangerous, or legally or financially serious — there's no room for error", points: 2 },
+        { label: "It would matter — someone would have to catch it", points: 6 },
+        { label: "A person reviews the output anyway before it's used", points: 9 },
+        { label: "Small mistakes are easy to spot and low-stakes", points: 10 },
+      ],
+    },
+  ] as ScorecardQuestion[],
+  tiers: [
+    {
+      slug: "foundations-first",
+      min: 0,
+      max: 34,
+      name: "Foundations first",
+      headline: "Not yet — and that's a useful answer.",
+      body: "Right now, an AI or big technology bet would most likely be money spent ahead of the problem. That's not a criticism — it's the cheapest lesson you'll ever get, because you're learning it before the invoice, not after. The honest first step isn't a tool. It's getting one thing in order: a problem worth naming, information a system can actually reach, or someone who can own the work. Sort that, and a lot of options open up cheaply. Spend into it now, and you'll likely be one of the many companies that quietly shelve the project a year later. Come back and re-run this once the ground is firmer — you'll see the score move.",
+    },
+    {
+      slug: "real-seed",
+      min: 35,
+      max: 59,
+      name: "A real seed, not yet a project",
+      headline: "There's something here worth shaping.",
+      body: "You've got the beginnings of a real opportunity — but it's still a seed, not a plan, and the fastest way to waste money now is to jump to a solution before the problem is sized. The move that actually pays: pick the single workflow that costs you the most, write down what it costs today in hours or euros, and be honest about where the data for it lives. Do that and you'll either find a bet worth making — or save yourself a project that was never going to land. If it would help to pressure-test which one it is, that's exactly what the free AI Opportunity Assessment is for.",
+    },
+    {
+      slug: "strong-candidate",
+      min: 60,
+      max: 79,
+      name: "Strong candidate",
+      headline: "This is worth a serious look.",
+      body: "You have most of what a bet like this needs — a real problem, workable data, and enough readiness to act. The risk at this stage isn't doing nothing; it's building the wrong thing well, or picking the use case that demos beautifully and then dies on contact with real users. Before you commit budget, the highest-return half-hour you can spend is getting a straight verdict on which use case actually pays off in production — and which ones to leave alone. That's what the free AI Opportunity Assessment gives you, in writing, before you spend a cent.",
+    },
+    {
+      slug: "ready-to-move",
+      min: 80,
+      max: 100,
+      name: "Ready to move",
+      headline: "The question isn't whether — it's which bet, and in what order.",
+      body: "On paper, you're ready: a named problem, data a system can reach, budget, an owner, and the pressure to move. The only thing standing between you and a return is choosing the right first bet and sequencing it well — because at this stage the expensive mistake is building three things adequately instead of one thing that pays. This is exactly the point where a short, honest, outside read earns its keep. The free AI Opportunity Assessment gives you a written verdict on each candidate — build now, not yet, or don't build — including, plainly, anywhere AI won't pay off for you. No product to sell you, so a \"don't build\" costs us nothing to say.",
+    },
+  ] as ScorecardTier[],
+  ui: {
+    seeResult: "See my result",
+    incomplete: "Please answer all ten questions to see your result.",
+    retake: "Start over",
+    scoreLabel: "Your score",
+    outOf: "/ 100",
+    resultEyebrow: "Your result",
+  },
+  gate: {
+    heading: "Want the fuller readout in writing?",
+    body: "Leave an email and I'll send a longer version of your result: what your answers point to, the two or three things I'd look at first for a company in your position, and — if it fits — the one question I'd get answered before spending anything. No newsletter, no drip sequence, no sales calls you didn't ask for. One useful email.",
+    emailLabel: "Work email",
+    button: "Send me the readout",
+    privacy: "We use your email only to send this readout. We don't pass it on and we won't add you to a list.",
+    privacyLinkLabel: "See our privacy policy.",
+    privacyHref: "/privacy",
+  },
+  ctaPrimary: {
+    label: "Apply for a free AI Opportunity Assessment",
+    href: "/assessment",
+    microcopy: "Free · one per company · founder-delivered · a written verdict, including where AI won't pay off.",
+  },
+  ctaSecondary: {
+    label: "Or just talk it through",
+    href: "/contact",
+  },
+} as const;
+
 export const pageMeta = {
   home: {
     title: "LT Strategy Partners — Technology & AI advisor for smarter business decisions",
     description: site.description,
     path: "/",
+  },
+  scorecard: {
+    title: "AI & Tech Opportunity Scorecard — LT Strategy Partners",
+    description:
+      "A free 3-minute self-check: ten plain questions, then an honest read on whether AI or a technology bet would actually pay off for your business yet — or what to fix first.",
+    path: "/scorecard",
   },
   services: {
     title: "Services — LT Strategy Partners",
@@ -1002,6 +1197,11 @@ export const formStrings = {
     "Thank you — your application is ready to send. It will be read personally, and you'll hear back within two business days.",
   assessmentSuccessSent:
     "Thank you — your application has been sent. It will be read personally, and you'll hear back within two business days.",
+  scorecardSubjectPrefix: "Scorecard readout —",
+  scorecardSuccessMailto:
+    "Thank you — your request is ready to send. Your written readout will follow personally, usually within two business days.",
+  scorecardSuccessSent:
+    "Thank you — your readout is on its way. It will be sent personally, usually within two business days.",
 } as const;
 
 /* ------------------------------- Assessment application form (field copy) */

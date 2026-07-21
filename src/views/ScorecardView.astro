@@ -1,0 +1,50 @@
+---
+import Base from "../layouts/Base.astro";
+import Container from "../components/ui/Container.astro";
+import Scorecard from "../components/sections/Scorecard.astro";
+import { getContent } from "../content/i18n";
+
+const { pageMeta, scorecardPage: page } = getContent(Astro.url.pathname);
+const meta = pageMeta.scorecard;
+---
+
+<Base title={meta.title} description={meta.description} path={meta.path}>
+  <section class="scv-hero bg-paper" aria-labelledby="scv-heading">
+    <Container>
+      <p class="eyebrow">{page.eyebrow}</p>
+      <span class="rule" aria-hidden="true"></span>
+      <h1 id="scv-heading" class="display-lg scv-title">{page.heading}</h1>
+      <p class="lead scv-lead measure">{page.lead}</p>
+      <p class="scv-microcopy">{page.microcopy}</p>
+    </Container>
+  </section>
+
+  <section class="scv-body bg-bone" aria-label={page.heading}>
+    <Container>
+      <Scorecard />
+    </Container>
+  </section>
+</Base>
+
+<style>
+  .scv-hero {
+    padding-top: clamp(5.5rem, 11vw, 8.5rem);
+    padding-bottom: clamp(2.5rem, 5vw, 4rem);
+  }
+  .scv-title {
+    margin-top: 1.5rem;
+    max-width: 20ch;
+  }
+  .scv-lead {
+    margin-top: 1.5rem;
+  }
+  .scv-microcopy {
+    margin-top: 1.25rem;
+    font-size: 0.9375rem;
+    color: var(--color-muted);
+  }
+  .scv-body {
+    padding-top: clamp(2.5rem, 5vw, 4rem);
+    padding-bottom: clamp(4.5rem, 9vw, 8rem);
+  }
+</style>
