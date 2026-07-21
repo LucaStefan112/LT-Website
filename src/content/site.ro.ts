@@ -43,7 +43,7 @@ export const site = {
   url: "https://ltstrategypartners.com",
   tagline: "Strategie care livrează.",
   description:
-    "Analize independente de securitate și AI pentru companii de software B2B. Când chestionarul de securitate, date sau AI al unui client vă blochează contractul, transformăm situația reală în răspunsuri oneste, susținute cu dovezi — suficient de repede cât să salvați vânzarea.",
+    "Consultant independent în tehnologie și AI pentru echipele de conducere. Vă ajutăm să transformați AI-ul, inovația și tehnologia în decizii de business mai bune — găsind unde creează cu adevărat valoare și transformând pariurile potrivite în rezultate măsurabile.",
   email: "luca.tamas@ltstrategypartners.com",
   phone: "+40734950060",
   phoneDisplay: "+40 734 950 060",
@@ -86,20 +86,20 @@ export const legalNav: NavItem[] = [
 /* --------------------------------------------------------------- Hero */
 
 export const hero = {
-  eyebrow: "Securitate și AI pentru companii de software B2B",
-  headline: "Nu lăsați un chestionar de securitate să vă blocheze următorul contract.",
+  eyebrow: "Consultanță tehnologie & AI · inovație aplicată în business",
+  headline: "Transformați AI-ul și tehnologia în decizii de business mai bune.",
   subhead:
-    "Când chestionarul de securitate, date sau AI al unui client enterprise vă amenință contractul, vă ajutăm să treceți de el — o analiză independentă și de nivel senior a modului în care gestionați datele și AI, transformată în răspunsuri credibile și susținute cu dovezi, care mențin vânzarea în mișcare. O analiză reală, nu o simplă bifă de conformitate: vă spunem ce să reparați, nu cum să mimați.",
+    "Consultant independent în tehnologie și AI pentru echipele de conducere. Vă ajutăm să vedeți unde mută inovația cu adevărat afacerea — ce tehnologii merită și pe care să le lăsați deoparte — și apoi transformăm alegerile potrivite în rezultate pe care le puteți măsura. Judecată practică, nu hype.",
   primaryCta: site.primaryCta,
   secondaryCta: site.assessmentCta,
-  trustLine: "Independent · Nivel senior · O analiză, nu o ștampilă",
+  trustLine: "Independent · Nivel senior · Rezultatele de business, pe primul loc",
 } as const;
 
 /* -------------------------------------------------- The problem we solve */
 
 export const intro = {
-  eyebrow: "Problema pe care o rezolvăm",
-  body: "Ați convins clientul — apoi echipa lui de achiziții trimite un chestionar de securitate, protecția datelor și AI, iar contractul se blochează. Majoritatea furnizorilor B2B se împotmolesc aici: întrebările sunt detaliate, secțiunea de AI este nouă, iar „luăm securitatea în serios” nu este un răspuns. Noi transformăm situația reală în răspunsuri credibile, susținute cu dovezi — suficient de repede cât să țină contractul în viață — și vă spunem limpede ce să reparați, niciodată cum să mimați.",
+  eyebrow: "De ce contează",
+  body: "Fiecare echipă de conducere e presată să „facă ceva cu AI” — și e greu de deosebit mișcările care se amortizează de distragerile costisitoare. Noi suntem partenerul independent care vă ajută să decideți: unde creează AI-ul și tehnologia nouă valoare reală în afacerea dumneavoastră, ce să prioritizați și cum să transformați asta în rezultate măsurabile. Fără vreun produs de vândut și fără hype — doar judecată clară și practică, aplicată deciziilor dumneavoastră.",
 } as const;
 
 /* ------------------------------------------------------- Value pillars */
@@ -169,24 +169,24 @@ export const services = {
     },
   ] as Service[],
   ai: {
-    eyebrow: "Serviciul principal",
-    title: "Analiza care vă trece de chestionar.",
-    body: "Când un client enterprise trimite chestionarul de securitate, date și AI care vă blochează contractul, asta facem: o analiză independentă și de nivel senior a modului în care gestionați efectiv datele și AI, transformată în răspunsuri credibile, susținute cu dovezi — plus o listă onestă cu ce merită întărit. Putem intra în profunzime pentru că noi înșine construim astfel de sisteme.",
+    eyebrow: "Specializarea",
+    title: "AI, aplicat acolo unde chiar se amortizează.",
+    body: "AI este zona în care mergem cel mai în profunzime — trecem dincolo de hype către puținele locuri unde chiar mișcă afacerea, apoi îl construim ca să funcționeze în realitate, nu doar în demo. Am construit exact asta — inclusiv un asistent cu retrieval care rulează integral pe hardware pe care o afacere îl deține deja.",
     points: [
       {
-        title: "Analiză de securitate și gestionarea datelor",
-        body: "Unde stau datele clienților, cine ajunge la ele, cum sunt protejate — puse în oglindă cu întrebările pe care le pun de fapt cumpărătorii, plus lacunele de acoperit înainte să întrebe ei.",
+        title: "Unde se amortizează AI",
+        body: "O citire onestă a cazurilor de utilizare care creează valoare reală și a celor care sunt distrageri costisitoare — dimensionate în raport cu cifrele dumneavoastră, înainte să se cheltuiască vreun ban.",
       },
       {
-        title: "Fluxul de date în AI și pregătirea pentru EU AI Act",
-        body: "Unde trimit datele funcțiile voastre de AI, dacă se pot scurge între clienți și cum vă raportați la EU AI Act — secțiunea nouă din chestionare la care majoritatea furnizorilor nu au un răspuns.",
+        title: "Sisteme AI și LLM de producție",
+        body: "Asistenți, agenți și automatizări duse dincolo de demo — cu tuning-ul de retrieval, validarea rezultatelor și monitorizarea care le fac de încredere.",
       },
       {
-        title: "Răspunsuri pe care le puteți trimite",
-        body: "Situația reală transformată într-un set de răspunsuri gata pentru chestionarele de furnizor, plus o listă de remedieri prioritizată. O analiză, nu o certificare — ce să reparați, nu cum să mimați.",
+        title: "AI responsabil și conform",
+        body: "AI privat sau self-hosted acolo unde datele o cer, plus o citire clară a locurilor unde vi se aplică EU AI Act — îndrumare practică, nu teorie.",
       },
     ] as Card[],
-    note: "Nu știți sigur cum ați răspunde azi? Prima discuție este gratuită — o citire onestă a locurilor unde v-ați bloca, fără obligații.",
+    note: "Cele mai multe colaborări încep cu Evaluarea Oportunităților AI — gratuită, clar delimitată și onestă cu privire la locurile unde AI nu se va amortiza.",
     cta: site.assessmentCta,
   },
 } as const;
@@ -784,7 +784,7 @@ export const pageIntros = {
 
 export const pageMeta = {
   home: {
-    title: "LT Strategy Partners — Analize de securitate și AI care deblochează contracte B2B",
+    title: "LT Strategy Partners — Consultant tehnologie & AI pentru decizii de business mai bune",
     description: site.description,
     path: "/ro",
   },

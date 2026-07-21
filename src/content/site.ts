@@ -123,7 +123,7 @@ export const site = {
   url: "https://ltstrategypartners.com",
   tagline: "Strategy that delivers.",
   description:
-    "Independent security & AI reviews for B2B software companies. When a customer's security, data, or AI questionnaire is holding up your deal, we turn your real posture into honest, evidence-backed answers — fast enough to save the sale.",
+    "Independent technology & AI advisor for leadership teams. We help you turn AI, innovation, and technology into better business decisions — spotting where they genuinely create value, then turning the right bets into measurable results.",
   email: "luca.tamas@ltstrategypartners.com",
   phone: "+40734950060", // used for the tel: link
   phoneDisplay: "+40 734 950 060", // shown to readers
@@ -168,21 +168,21 @@ export const legalNav: NavItem[] = [
 /* --------------------------------------------------------------- Hero */
 
 export const hero = {
-  eyebrow: "Security & AI readiness for B2B software",
-  headline: "Don't let a security questionnaire stall your next deal.",
+  eyebrow: "Technology & AI advisory · innovation applied to the business",
+  headline: "Turn AI and technology into better business decisions.",
   subhead:
-    "When an enterprise customer's security, data, or AI questionnaire threatens your deal, we get you through it — an independent, senior review of how you handle data and AI, turned into credible, evidence-backed answers that keep the sale moving. A real review, not certification theatre: we tell you what to fix, not how to fake it.",
+    "An independent technology and AI advisor for leadership teams. We help you see where innovation genuinely moves the business — which technologies to back, which to skip — then turn the right ones into results you can measure. Practical judgment, not hype.",
   primaryCta: site.primaryCta,
   // Low-commitment path alongside the direct one (Task 5).
   secondaryCta: site.assessmentCta,
-  trustLine: "Independent · Senior-led · A review, not a rubber stamp",
+  trustLine: "Independent · Senior-led · Business outcomes first",
 } as const;
 
 /* -------------------------------------------------- The problem we solve */
 
 export const intro = {
-  eyebrow: "The problem we solve",
-  body: "You've won the customer over — then their procurement team sends a security, data-protection, and AI questionnaire, and the deal stalls. Most B2B vendors freeze here: the questions are detailed, the AI section is new, and \"we take security seriously\" isn't an answer. We're the independent, senior reviewers who turn your real posture into credible, evidence-backed answers — fast enough to keep the deal alive — and tell you plainly what to fix, never how to fake it.",
+  eyebrow: "Why it matters",
+  body: "Every leadership team is under pressure to \"do something with AI\" — and it's genuinely hard to tell the moves that will pay off from the expensive distractions. We're the independent partner who helps you decide: where AI and new technology actually create value in your business, what to prioritize, and how to turn it into results you can measure. No product to sell you, no hype — just clear, practical judgment applied to your decisions.",
 } as const;
 
 /* ------------------------------------------------------- Value pillars */
@@ -255,24 +255,24 @@ export const services = {
   // the single Services narrative (folds in AI governance). No prices — the
   // free AI Opportunity Assessment is the entry point.
   ai: {
-    eyebrow: "The flagship",
-    title: "The review that gets you through the questionnaire.",
-    body: "When an enterprise customer sends the security, data, and AI questionnaire that stalls your deal, this is what we do: an independent, senior review of how you actually handle data and AI, turned into credible, evidence-backed answers — plus an honest list of what to shore up. We can go deep because we build these systems ourselves.",
+    eyebrow: "The specialty",
+    title: "AI, applied where it actually pays off.",
+    body: "AI is where we go deepest — cutting through the hype to the handful of places it genuinely moves your business, then building it so it works in the real world, not just the demo. We've built exactly this, including a retrieval-augmented assistant that runs entirely on hardware a business already owns.",
     points: [
       {
-        title: "Security & data-handling review",
-        body: "Where customer data lives, who can reach it, how it's protected — mapped to the questions buyers actually ask, with the gaps to close before they ask them.",
+        title: "Where AI pays off",
+        body: "An honest read of which use cases create real value and which are expensive distractions — sized against your numbers, before any money is spent.",
       },
       {
-        title: "AI data-flow & EU AI Act readiness",
-        body: "Where your AI features send data, whether it can leak across customers, and how you line up with the EU AI Act — the new questionnaire section most vendors have no answer for.",
+        title: "Production AI & LLM systems",
+        body: "Assistants, agents, and automation taken past the demo — with the retrieval tuning, output validation, and monitoring that make them dependable.",
       },
       {
-        title: "Answers you can send",
-        body: "Your real posture turned into a vendor-questionnaire-ready set of answers, plus a prioritized fix list. A review, not a certification — what to fix, not how to fake it.",
+        title: "Responsible & compliant AI",
+        body: "Private or self-hosted where your data demands it, and a clear read on where the EU AI Act applies to you — practical guidance, not theory.",
       },
     ] as Card[],
-    note: "Not sure how you'd answer today? The first conversation is free — an honest read of where you'd get stuck, no obligation.",
+    note: "Most engagements start with the AI Opportunity Assessment — free, fixed-scope, and honest about where AI won't pay off.",
     cta: site.assessmentCta,
   },
 } as const;
@@ -901,7 +901,7 @@ export const pageIntros = {
 
 export const pageMeta = {
   home: {
-    title: "LT Strategy Partners — Security & AI reviews that unblock B2B deals",
+    title: "LT Strategy Partners — Technology & AI advisor for smarter business decisions",
     description: site.description,
     path: "/",
   },
