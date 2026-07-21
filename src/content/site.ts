@@ -255,24 +255,24 @@ export const services = {
   // the single Services narrative (folds in AI governance). No prices — the
   // free AI Opportunity Assessment is the entry point.
   ai: {
-    eyebrow: "The specialty",
-    title: "Specialized in AI that earns its place.",
-    body: "AI is where we go deepest — not demos and pilots that stall, but production AI and LLM systems that run reliably, respect your data, and prove their worth. We've built exactly this — including a retrieval-augmented assistant that runs entirely on hardware a business already owns.",
+    eyebrow: "The flagship",
+    title: "The review that gets you through the questionnaire.",
+    body: "When an enterprise customer sends the security, data, and AI questionnaire that stalls your deal, this is what we do: an independent, senior review of how you actually handle data and AI, turned into credible, evidence-backed answers — plus an honest list of what to shore up. We can go deep because we build these systems ourselves.",
     points: [
       {
-        title: "Production AI & LLM systems",
-        body: "Retrieval-augmented assistants, agents, and automation taken past the demo — with the retrieval tuning, output validation, and monitoring that make them safe to rely on.",
+        title: "Security & data-handling review",
+        body: "Where customer data lives, who can reach it, how it's protected — mapped to the questions buyers actually ask, with the gaps to close before they ask them.",
       },
       {
-        title: "Private & self-hosted AI",
-        body: "Where confidentiality or regulation demands it, AI that runs on your own infrastructure — nothing sensitive leaving your walls.",
+        title: "AI data-flow & EU AI Act readiness",
+        body: "Where your AI features send data, whether it can leak across customers, and how you line up with the EU AI Act — the new questionnaire section most vendors have no answer for.",
       },
       {
-        title: "AI governance & EU AI Act readiness",
-        body: "A clear read on where the EU AI Act and responsible-AI duties apply to you, and a prioritized, risk-ranked list of what to put in place — practical guidance, not theory.",
+        title: "Answers you can send",
+        body: "Your real posture turned into a vendor-questionnaire-ready set of answers, plus a prioritized fix list. A review, not a certification — what to fix, not how to fake it.",
       },
     ] as Card[],
-    note: "Most AI work starts with the AI Opportunity Assessment — free, fixed-scope, and honest about where AI won't pay off.",
+    note: "Not sure how you'd answer today? The first conversation is free — an honest read of where you'd get stuck, no obligation.",
     cta: site.assessmentCta,
   },
 } as const;

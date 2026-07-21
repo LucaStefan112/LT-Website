@@ -169,24 +169,24 @@ export const services = {
     },
   ] as Service[],
   ai: {
-    eyebrow: "Specializarea",
-    title: "Specializați în AI care își merită locul.",
-    body: "AI este zona în care mergem cel mai în profunzime — nu demo-uri și pilotări care se blochează, ci sisteme AI și LLM de producție, care rulează fiabil, vă respectă datele și își dovedesc valoarea. Am construit exact asta — inclusiv un asistent cu retrieval care rulează integral pe hardware pe care o afacere îl deține deja.",
+    eyebrow: "Serviciul principal",
+    title: "Analiza care vă trece de chestionar.",
+    body: "Când un client enterprise trimite chestionarul de securitate, date și AI care vă blochează contractul, asta facem: o analiză independentă și de nivel senior a modului în care gestionați efectiv datele și AI, transformată în răspunsuri credibile, susținute cu dovezi — plus o listă onestă cu ce merită întărit. Putem intra în profunzime pentru că noi înșine construim astfel de sisteme.",
     points: [
       {
-        title: "Sisteme AI și LLM de producție",
-        body: "Asistenți bazați pe retrieval, agenți și automatizări duse dincolo de demo — cu tuning-ul de retrieval, validarea rezultatelor și monitorizarea care le fac sigure de folosit zi de zi.",
+        title: "Analiză de securitate și gestionarea datelor",
+        body: "Unde stau datele clienților, cine ajunge la ele, cum sunt protejate — puse în oglindă cu întrebările pe care le pun de fapt cumpărătorii, plus lacunele de acoperit înainte să întrebe ei.",
       },
       {
-        title: "AI privat și self-hosted",
-        body: "Acolo unde confidențialitatea sau reglementarea o cere, AI care rulează pe infrastructura dumneavoastră — nimic sensibil nu vă părăsește perimetrul.",
+        title: "Fluxul de date în AI și pregătirea pentru EU AI Act",
+        body: "Unde trimit datele funcțiile voastre de AI, dacă se pot scurge între clienți și cum vă raportați la EU AI Act — secțiunea nouă din chestionare la care majoritatea furnizorilor nu au un răspuns.",
       },
       {
-        title: "Guvernanță AI și pregătire pentru EU AI Act",
-        body: "O citire clară a locurilor unde vi se aplică EU AI Act și obligațiile de AI responsabil, plus o listă de măsuri prioritizată după risc — îndrumare practică, nu teorie.",
+        title: "Răspunsuri pe care le puteți trimite",
+        body: "Situația reală transformată într-un set de răspunsuri gata pentru chestionarele de furnizor, plus o listă de remedieri prioritizată. O analiză, nu o certificare — ce să reparați, nu cum să mimați.",
       },
     ] as Card[],
-    note: "Cele mai multe proiecte AI încep cu Evaluarea Oportunităților AI — gratuită, clar delimitată și onestă cu privire la locurile unde AI nu se va amortiza.",
+    note: "Nu știți sigur cum ați răspunde azi? Prima discuție este gratuită — o citire onestă a locurilor unde v-ați bloca, fără obligații.",
     cta: site.assessmentCta,
   },
 } as const;
