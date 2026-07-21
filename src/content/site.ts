@@ -123,7 +123,7 @@ export const site = {
   url: "https://ltstrategypartners.com",
   tagline: "Strategy that delivers.",
   description:
-    "An independent digital and technology advisor for leadership teams — specialized in AI, from strategy through to building and proving it.",
+    "Independent security & AI reviews for B2B software companies. When a customer's security, data, or AI questionnaire is holding up your deal, we turn your real posture into honest, evidence-backed answers — fast enough to save the sale.",
   email: "luca.tamas@ltstrategypartners.com",
   phone: "+40734950060", // used for the tel: link
   phoneDisplay: "+40 734 950 060", // shown to readers
@@ -168,21 +168,21 @@ export const legalNav: NavItem[] = [
 /* --------------------------------------------------------------- Hero */
 
 export const hero = {
-  eyebrow: "Digital & technology advisory · AI solutions",
-  headline: "Strategy that delivers measurable results.",
+  eyebrow: "Security & AI readiness for B2B software",
+  headline: "Don't let a security questionnaire stall your next deal.",
   subhead:
-    "An independent digital and technology advisor for leadership teams, specialized in AI. We find where technology genuinely creates value, then advise, build, and prove it — from boardroom to deployment, and back to the numbers.",
+    "When an enterprise customer's security, data, or AI questionnaire threatens your deal, we get you through it — an independent, senior review of how you handle data and AI, turned into credible, evidence-backed answers that keep the sale moving. A real review, not certification theatre: we tell you what to fix, not how to fake it.",
   primaryCta: site.primaryCta,
   // Low-commitment path alongside the direct one (Task 5).
   secondaryCta: site.assessmentCta,
-  trustLine: "Independent · Senior-led · Outcome-focused",
+  trustLine: "Independent · Senior-led · A review, not a rubber stamp",
 } as const;
 
 /* -------------------------------------------------- The problem we solve */
 
 export const intro = {
-  eyebrow: "Why it matters",
-  body: "Most leadership teams betting on AI don't lack ambition — they lack an independent, honest read on where it actually pays off, and someone who can take it into production safely and prove it worked. Pilots stall. Vendors oversell. The demo never survives real users. We're the technology advisor who closes that gap — and the one you keep for the decisions that come after.",
+  eyebrow: "The problem we solve",
+  body: "You've won the customer over — then their procurement team sends a security, data-protection, and AI questionnaire, and the deal stalls. Most B2B vendors freeze here: the questions are detailed, the AI section is new, and \"we take security seriously\" isn't an answer. We're the independent, senior reviewers who turn your real posture into credible, evidence-backed answers — fast enough to keep the deal alive — and tell you plainly what to fix, never how to fake it.",
 } as const;
 
 /* ------------------------------------------------------- Value pillars */
@@ -901,7 +901,7 @@ export const pageIntros = {
 
 export const pageMeta = {
   home: {
-    title: "LT Strategy Partners — Technology advisor, specialized in AI",
+    title: "LT Strategy Partners — Security & AI reviews that unblock B2B deals",
     description: site.description,
     path: "/",
   },

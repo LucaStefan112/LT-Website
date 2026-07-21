@@ -43,7 +43,7 @@ export const site = {
   url: "https://ltstrategypartners.com",
   tagline: "Strategie care livrează.",
   description:
-    "Consultant tehnologic independent pentru echipele de conducere — specializat în AI, de la strategie până la construcție și rezultate dovedite.",
+    "Analize independente de securitate și AI pentru companii de software B2B. Când chestionarul de securitate, date sau AI al unui client vă blochează contractul, transformăm situația reală în răspunsuri oneste, susținute cu dovezi — suficient de repede cât să salvați vânzarea.",
   email: "luca.tamas@ltstrategypartners.com",
   phone: "+40734950060",
   phoneDisplay: "+40 734 950 060",
@@ -86,20 +86,20 @@ export const legalNav: NavItem[] = [
 /* --------------------------------------------------------------- Hero */
 
 export const hero = {
-  eyebrow: "Consultanță digitală și tehnologică · Soluții AI",
-  headline: "Strategie care livrează rezultate măsurabile.",
+  eyebrow: "Securitate și AI pentru companii de software B2B",
+  headline: "Nu lăsați un chestionar de securitate să vă blocheze următorul contract.",
   subhead:
-    "Consultant tehnologic independent pentru echipele de conducere, specializat în AI. Găsim unde creează tehnologia valoare cu adevărat, apoi consiliem, construim și dovedim rezultatul — de la nivelul boardului până în producție, și înapoi la cifre.",
+    "Când chestionarul de securitate, date sau AI al unui client enterprise vă amenință contractul, vă ajutăm să treceți de el — o analiză independentă și de nivel senior a modului în care gestionați datele și AI, transformată în răspunsuri credibile și susținute cu dovezi, care mențin vânzarea în mișcare. O analiză reală, nu o simplă bifă de conformitate: vă spunem ce să reparați, nu cum să mimați.",
   primaryCta: site.primaryCta,
   secondaryCta: site.assessmentCta,
-  trustLine: "Independent · Nivel senior · Orientat pe rezultate",
+  trustLine: "Independent · Nivel senior · O analiză, nu o ștampilă",
 } as const;
 
 /* -------------------------------------------------- The problem we solve */
 
 export const intro = {
-  eyebrow: "De ce contează",
-  body: "Echipelor de conducere care mizează pe AI nu le lipsește ambiția — le lipsește o citire independentă și onestă a locurilor unde AI chiar se amortizează, și cineva care să îl ducă în producție în siguranță și să dovedească rezultatul. Proiectele-pilot se blochează. Furnizorii promit prea mult. Demo-ul nu supraviețuiește niciodată utilizatorilor reali. Noi suntem consultantul tehnologic care închide această distanță — și cel pe care îl păstrați aproape pentru deciziile care urmează.",
+  eyebrow: "Problema pe care o rezolvăm",
+  body: "Ați convins clientul — apoi echipa lui de achiziții trimite un chestionar de securitate, protecția datelor și AI, iar contractul se blochează. Majoritatea furnizorilor B2B se împotmolesc aici: întrebările sunt detaliate, secțiunea de AI este nouă, iar „luăm securitatea în serios” nu este un răspuns. Noi transformăm situația reală în răspunsuri credibile, susținute cu dovezi — suficient de repede cât să țină contractul în viață — și vă spunem limpede ce să reparați, niciodată cum să mimați.",
 } as const;
 
 /* ------------------------------------------------------- Value pillars */
@@ -784,7 +784,7 @@ export const pageIntros = {
 
 export const pageMeta = {
   home: {
-    title: "LT Strategy Partners — Consultant tehnologic, specializat în AI",
+    title: "LT Strategy Partners — Analize de securitate și AI care deblochează contracte B2B",
     description: site.description,
     path: "/ro",
   },
