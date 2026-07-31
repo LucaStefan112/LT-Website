@@ -12,6 +12,12 @@
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev", "--", "--port", "4322"],
       "port": 4322
+    },
+    {
+      "name": "atlas-demo",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "4399", "--directory", "/Users/stamas/My Projects/LT-Public-Data/output"],
+      "port": 4399
     }
   ]
 }
