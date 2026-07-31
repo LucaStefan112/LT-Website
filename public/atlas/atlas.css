@@ -19,8 +19,8 @@ header.bar { display:flex; align-items:center; justify-content:space-between; ga
   font-weight:550; color:var(--deep); background:color-mix(in srgb,var(--steel) 5%,#fff); }
 .hero { padding:30px 0 6px; }
 .hero h1 { font-size:clamp(26px,4.4vw,38px); font-weight:640; margin-top:12px; }
-.hero p { margin-top:10px; max-width:56rem; }
-.kpis { display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:12px; margin:22px 0 4px; }
+.hero p { margin-top:10px; max-width:58rem; }
+.kpis { display:grid; grid-template-columns:repeat(auto-fit,minmax(178px,1fr)); gap:12px; margin:22px 0 4px; }
 .tile { border:1px solid var(--line); border-radius:12px; padding:14px 16px 12px;
   background:linear-gradient(170deg,color-mix(in srgb,var(--steel) 3%,#fff),#fff); }
 .tile-v { font-size:24px; font-weight:660; color:var(--ink); font-variant-numeric:tabular-nums; }
@@ -31,6 +31,8 @@ section { padding:20px 0 4px; }
 .card { border:1px solid var(--line); border-radius:14px; padding:20px 22px 14px; background:#fff; break-inside:avoid; }
 .card h2 { font-size:18px; font-weight:630; }
 .card .sub { font-size:13px; margin:3px 0 12px; }
+.note { font-size:12.5px; margin-top:10px; padding:10px 12px; border-left:2px solid var(--steel);
+  background:color-mix(in srgb,var(--steel) 4%,#fff); color:var(--ink); }
 .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
 .grid2 > * { min-width:0; }
 @media (max-width:840px) { .grid2 { grid-template-columns:1fr; } }
@@ -44,9 +46,9 @@ td { padding:7px 10px 7px 0; border-bottom:1px solid color-mix(in srgb,var(--lin
 td:first-child { max-width:280px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
 .tablewrap { overflow-x:auto; }
 .num { text-align:right; } th.num { text-align:right; }
-tr.deficit td { color:#7a3030; }
+tr.deficit td.bal { color:#8a3535; }
 footer.site { margin:32px 0 38px; border-top:1px solid var(--line); padding-top:18px; font-size:12.5px; }
-footer.site p { margin-bottom:8px; max-width:72rem; }
+footer.site p { margin-bottom:8px; max-width:74rem; }
 .cta { margin-top:14px; border:1px solid var(--line); border-radius:12px; padding:16px 18px;
   background:var(--bone); font-size:14px; color:var(--ink); }
 .backlink { font-size:13px; font-weight:550; }
