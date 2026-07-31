@@ -169,10 +169,12 @@ export const legalNav: NavItem[] = [
 /* --------------------------------------------------------------- Hero */
 
 export const hero = {
-  eyebrow: "Technology & AI advisory · innovation applied to the business",
+  eyebrow: "Independent technology & AI advisor",
   headline: "Turn AI and technology into better business decisions.",
   subhead:
-    "An independent technology and AI advisor for leadership teams. We help you see where innovation genuinely moves the business — which technologies to back, which to skip — then turn the right ones into results you can measure. Practical judgment, not hype.",
+    "An independent advisor for leadership teams. We help you see where AI and new technology genuinely move the business — then turn the right bets into results you can measure.",
+  // Role label on the hero portrait name-tag.
+  tagRole: "Founder",
   primaryCta: site.primaryCta,
   // Low-commitment path alongside the direct one (Task 5).
   secondaryCta: site.assessmentCta,

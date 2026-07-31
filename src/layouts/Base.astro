@@ -39,10 +39,19 @@ const alternates = [
 ];
 const ogImageUrl = new URL(ogImage, site.url).href;
 const logoUrl = new URL("/brand/lt-logo-primary.png", site.url).href;
+const founderPhotoUrl = config.founderPhoto
+  ? new URL(config.founderPhoto, site.url).href
+  : undefined;
+// Verified profile URLs strengthen entity disambiguation ("sameAs").
+const orgSameAs = [
+  site.links?.companyLinkedin,
+  site.links?.founderLinkedin,
+  site.links?.github,
+].filter(Boolean);
 
 const orgSchema = {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": ["Organization", "ProfessionalService"],
   name: site.name,
   url: site.url,
   logo: logoUrl,
@@ -51,7 +60,23 @@ const orgSchema = {
   email: site.email,
   telephone: site.phone,
   slogan: site.tagline,
-  founder: { "@type": "Person", name: site.founder },
+  areaServed: ["Romania", "European Union", "United States"],
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Iași",
+    addressCountry: "RO",
+  },
+  ...(orgSameAs.length ? { sameAs: orgSameAs } : {}),
+  founder: {
+    "@type": "Person",
+    name: site.founder,
+    jobTitle: "Founder",
+    worksFor: { "@type": "Organization", name: site.name },
+    ...(founderPhotoUrl ? { image: founderPhotoUrl } : {}),
+    ...(site.links?.founderLinkedin
+      ? { sameAs: [site.links.founderLinkedin, site.links.github].filter(Boolean) }
+      : {}),
+  },
 };
 ---
 

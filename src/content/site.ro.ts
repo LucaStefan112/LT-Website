@@ -89,10 +89,12 @@ export const legalNav: NavItem[] = [
 /* --------------------------------------------------------------- Hero */
 
 export const hero = {
-  eyebrow: "Consultanță tehnologie & AI · inovație aplicată în business",
+  eyebrow: "Consultant independent în tehnologie & AI",
   headline: "Transformați AI-ul și tehnologia în decizii de business mai bune.",
   subhead:
-    "Consultant independent în tehnologie și AI pentru echipele de conducere. Vă ajutăm să vedeți unde mută inovația cu adevărat afacerea — ce tehnologii merită și pe care să le lăsați deoparte — și apoi transformăm alegerile potrivite în rezultate pe care le puteți măsura. Judecată practică, nu hype.",
+    "Consultant independent pentru echipele de conducere. Vă ajutăm să vedeți unde mută cu adevărat afacerea AI-ul și tehnologia — și transformăm alegerile potrivite în rezultate pe care le puteți măsura.",
+  // Role label on the hero portrait name-tag.
+  tagRole: "Fondator",
   primaryCta: site.primaryCta,
   secondaryCta: site.assessmentCta,
   trustLine: "Independent · Nivel senior · Rezultatele de business, pe primul loc",
