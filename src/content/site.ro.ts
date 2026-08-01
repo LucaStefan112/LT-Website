@@ -744,7 +744,7 @@ export const work = {
       context:
         "Datele brute sunt publice, dar nefolosibile așa cum sunt publicate: anunțurile de atribuire nu conțin județul, instituțiile publice nu figurează în registrul comerțului, plafoanele acordurilor-cadru arată ca cheltuieli, iar același contract apare o dată per membru de asociere. Ca să răspunzi la întrebare, trebuie să localizezi cumpărătorii, să identifici sediile furnizorilor și să obții un registru care se închide.",
       delivered: [
-        "O conductă reproductibilă peste trei surse deschise — anunțuri SICAP, registrul ONRC (~3,9 milioane de entități) și clasificarea SIRUTA a INS",
+        "O conductă reproductibilă peste trei surse deschise — un an întreg de anunțuri SICAP (trei trimestre din patru există doar în Excel, iar singurul CSV publicat e trunchiat fără avertisment), registrul ONRC (~3,9 milioane de entități) și clasificarea SIRUTA a INS",
         "Un registru simetric al fluxurilor: fiecare leu care iese dintr-un județ intră în altul, verificat cu două identități structurale, la leu",
         "42 de pagini de județ plus clasamentul național, generate ca HTML static, fără dependențe externe",
         "O metodologie publicată care documentează fiecare filtru, ambele convenții posibile și fiecare eroare găsită la verificare",
@@ -768,7 +768,7 @@ export const work = {
         "Surse CC BY 4.0",
       ],
       impact: [
-        "25.313 contracte analizate (28,55 mld RON), din care 17,06 mld atribuite unui județ anume",
+        "43.591 contracte analizate (65,38 mld RON), din care 37,45 mld atribuite unui județ anume",
         "42 de județe acoperite cu o metodologie identică",
         "Trei runde de verificare adversarială cu doisprezece recenzenți independenți; două reimplementări complete au reprodus fiecare cifră publicată",
       ],

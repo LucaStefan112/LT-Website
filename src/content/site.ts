@@ -861,7 +861,7 @@ export const work = {
       context:
         "The raw data is public but unusable as published: award notices carry no county, public institutions are absent from the companies register, framework ceilings look like spending, and the same contract appears once per consortium member. Answering the question at all means resolving buyers to counties, suppliers to registered seats, and money to a ledger that balances.",
       delivered: [
-        "A reproducible pipeline over three open sources — SICAP award notices, the ONRC companies register (~3.9M entities), and the INS SIRUTA locality classifier",
+        "A reproducible pipeline over three open sources — a full year of SICAP award notices (three of the four quarters are Excel-only, and the one published CSV is silently truncated), the ONRC companies register (~3.9M entities), and the INS SIRUTA locality classifier",
         "A symmetric flow ledger: every leu leaving one county enters another, verified against two structural identities to the leu",
         "42 county pages plus a national league table, generated as static HTML with no external dependencies",
         "A published methodology that documents every filter, both possible conventions, and each failure mode found in review",
@@ -886,7 +886,7 @@ export const work = {
       ],
       // Verifiable properties of the published analysis itself, not client outcomes.
       impact: [
-        "25,313 contracts analysed (28.55 bn RON), of which 17.06 bn attributed to a specific county",
+        "43,591 contracts analysed (65.38 bn RON), of which 37.45 bn attributed to a specific county",
         "42 counties covered with one identical methodology",
         "Three rounds of adversarial review by twelve independent reviewers; two full from-scratch reimplementations reproduced every published figure",
       ],
