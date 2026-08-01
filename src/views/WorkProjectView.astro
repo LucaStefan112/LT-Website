@@ -149,6 +149,16 @@ const title = `${project.name} · LT Strategy Partners`;
           }
         </div>
 
+        {
+          project.liveUrl && (
+            <aside class="proj-live">
+              <a class="btn btn-primary" href={project.liveUrl}>
+                {project.liveLabel ?? project.liveUrl}
+              </a>
+            </aside>
+          )
+        }
+
         <aside class="proj-takeaway">
           <p class="eyebrow">{ui.workTakeaway}</p>
           <p class="proj-takeaway-text">{project.takeaway}</p>
@@ -425,6 +435,10 @@ const title = `${project.name} · LT Strategy Partners`;
     color: var(--color-muted);
     font-family: ui-monospace, "SF Mono", Menlo, monospace;
     font-size: 0.75rem;
+  }
+
+  .proj-live {
+    margin-top: 2rem;
   }
 
   .proj-takeaway {

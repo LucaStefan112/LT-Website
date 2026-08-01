@@ -6,7 +6,7 @@ import Container from "../ui/Container.astro";
 import SectionHeader from "../ui/SectionHeader.astro";
 import { getContent, resolveLocale, localePath } from "../../content/i18n";
 
-const { work } = getContent(Astro.url.pathname);
+const { work, ui } = getContent(Astro.url.pathname);
 const locale = resolveLocale(Astro.url.pathname);
 
 // Resolve project images from src/assets/work (optimised by astro:assets).
@@ -70,6 +70,7 @@ const img = (key?: string) =>
                   </div>
                   <h3 class="work-card-name">{p.name}</h3>
                   <p class="work-card-line">{p.oneLiner}</p>
+                  {p.liveUrl && <span class="work-card-live">{ui.workLiveBadge}</span>}
                   <span class="work-card-more">
                     View project
                     <svg
@@ -206,6 +207,21 @@ const img = (key?: string) =>
     color: var(--color-ink);
     letter-spacing: -0.01em;
   }
+  .work-card-live {
+    display: inline-block;
+    align-self: flex-start;
+    width: max-content;
+    margin-top: 0.6rem;
+    font-size: 0.6875rem;
+    font-weight: 650;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid color-mix(in srgb, var(--accent) 40%, var(--color-line));
+    border-radius: 999px;
+    padding: 0.15rem 0.55rem;
+  }
+
   .work-card-line {
     color: var(--color-muted);
     font-size: 1rem;

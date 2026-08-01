@@ -730,6 +730,55 @@ export const work = {
       diagram: true,
     },
     {
+      slug: "atlas-economic",
+      name: "Atlas Economic",
+      tagline: "Banii publici, județ cu județ.",
+      category: "Date & analiză",
+      kind: "analysis",
+      label: "Analiză independentă · microsite public",
+      accent: "#2f6db0",
+      oneLiner:
+        "Un microsite public care arată cum circulă banii din achiziții publice între toate cele 42 de județe ale României, construit exclusiv din date deschise",
+      overview:
+        "Atlas Economic răspunde la o întrebare pe care nicio instituție românească nu o publică: pentru fiecare județ, cât din valoarea atribuită de cumpărătorii publici de acolo rămâne la furnizori cu sediul în județ, unde pleacă restul și cât câștigă firmele locale de la autorități din alte județe. Combină trei surse deschise — sistemul de achiziții, registrul comerțului și clasificarea oficială a localităților — într-un registru simetric, cu o pagină per județ pe care oricine o poate verifica.",
+      context:
+        "Datele brute sunt publice, dar nefolosibile așa cum sunt publicate: anunțurile de atribuire nu conțin județul, instituțiile publice nu figurează în registrul comerțului, plafoanele acordurilor-cadru arată ca cheltuieli, iar același contract apare o dată per membru de asociere. Ca să răspunzi la întrebare, trebuie să localizezi cumpărătorii, să identifici sediile furnizorilor și să obții un registru care se închide.",
+      delivered: [
+        "O conductă reproductibilă peste trei surse deschise — anunțuri SICAP, registrul ONRC (~3,9 milioane de entități) și clasificarea SIRUTA a INS",
+        "Un registru simetric al fluxurilor: fiecare leu care iese dintr-un județ intră în altul, verificat cu două identități structurale, la leu",
+        "42 de pagini de județ plus clasamentul național, generate ca HTML static, fără dependențe externe",
+        "O metodologie publicată care documentează fiecare filtru, ambele convenții posibile și fiecare eroare găsită la verificare",
+        "Un fișier de audit cu atribuirile slabe și cu tot ce metoda lasă deliberat neatribuit",
+      ],
+      strategic: [
+        "Transformă date publice fragmentate într-un indicator pe care nicio instituție nu îl publică — valoarea stă în combinare, nu în datele brute",
+        "Arată o problemă de măsurare tratată onest: limitele sunt cuantificate pe pagină, nu ascunse",
+        "Demonstrează o conductă care se poate reface trimestrial, nu un studiu izolat",
+      ],
+      capabilities: [
+        "Inginerie de date deschise",
+        "Rezoluție de entități",
+        "Proiectare de indicatori economici",
+        "Analiză reproductibilă & piste de audit",
+      ],
+      stack: [
+        "Python (doar biblioteca standard)",
+        "Date deschise SICAP / ONRC / SIRUTA",
+        "HTML static & SVG inline",
+        "Surse CC BY 4.0",
+      ],
+      impact: [
+        "25.313 contracte analizate (28,55 mld RON), din care 17,06 mld atribuite unui județ anume",
+        "42 de județe acoperite cu o metodologie identică",
+        "Trei runde de verificare adversarială cu doisprezece recenzenți independenți; două reimplementări complete au reprodus fiecare cifră publicată",
+      ],
+      takeaway:
+        "Este cea mai clară demonstrație a ceea ce facem cu datele: luăm surse publice, dar nefolosibile, rezolvăm entitățile pe care nimeni nu le-a combinat până acum și publicăm rezultatul cu limitele declarate — astfel încât cifrele rezistă la verificare, în loc să cedeze la prima întrebare.",
+      image: "atlas",
+      liveUrl: "/atlas/",
+      liveLabel: "Deschide Atlasul",
+    },
+    {
       slug: "transit-analytics",
       name: "Analiza Transportului Public — Iași",
       tagline: "Telemetria flotei, transformată în decizii operaționale.",
@@ -1033,6 +1082,7 @@ export const ui = {
   workGallery: "Din dashboard",
   workCapabilities: "Capabilități demonstrate",
   workStack: "Construit cu",
+  workLiveBadge: "Live",
   workTakeaway: "Ce înseamnă pentru dumneavoastră",
   workCaptions: {
     "transit-map": "Hartă în timp real a pozițiilor vehiculelor, pentru flota orașului",

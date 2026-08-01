@@ -76,6 +76,9 @@ export interface WorkProject {
   image?: string;
   gallery?: string[];
   diagram?: boolean;
+  // Optional link to something the reader can open and inspect themselves.
+  liveUrl?: string;
+  liveLabel?: string;
 }
 
 /* -------------------------------------------------- Config / [[VERIFY]] items */
@@ -844,6 +847,56 @@ export const work = {
       diagram: true,
     },
     {
+      slug: "atlas-economic",
+      name: "Atlas Economic",
+      tagline: "Public money, county by county.",
+      category: "Data & analytics",
+      kind: "analysis",
+      label: "Independent analysis · live microsite",
+      accent: "#2f6db0",
+      oneLiner:
+        "A live microsite that maps how public-procurement money flows between all 42 Romanian counties, built entirely from open data",
+      overview:
+        "Atlas Economic answers a question no Romanian institution publishes: for each county, how much of what its public buyers award actually stays with suppliers based there, where the rest goes, and how much local firms win back from authorities elsewhere. It joins three open datasets — the procurement system, the companies register, and the official locality classifier — into one symmetric ledger, and publishes a page per county that you can open and check.",
+      context:
+        "The raw data is public but unusable as published: award notices carry no county, public institutions are absent from the companies register, framework ceilings look like spending, and the same contract appears once per consortium member. Answering the question at all means resolving buyers to counties, suppliers to registered seats, and money to a ledger that balances.",
+      delivered: [
+        "A reproducible pipeline over three open sources — SICAP award notices, the ONRC companies register (~3.9M entities), and the INS SIRUTA locality classifier",
+        "A symmetric flow ledger: every leu leaving one county enters another, verified against two structural identities to the leu",
+        "42 county pages plus a national league table, generated as static HTML with no external dependencies",
+        "A published methodology that documents every filter, both possible conventions, and each failure mode found in review",
+        "An audit trail file exposing the weak attributions and everything the method deliberately leaves unattributed",
+      ],
+      strategic: [
+        "Turns fragmented public data into an indicator no single institution publishes — the commercial value is in the joining, not the raw data",
+        "Shows a measurement problem handled honestly: the limits are quantified on the page, not hidden",
+        "Demonstrates a pipeline that re-runs each quarter as new data is published, rather than a one-off study",
+      ],
+      capabilities: [
+        "Open-data engineering",
+        "Entity resolution & record linkage",
+        "Economic indicator design",
+        "Reproducible analysis & audit trails",
+      ],
+      stack: [
+        "Python (standard library only)",
+        "SICAP / ONRC / SIRUTA open data",
+        "Static HTML & inline SVG",
+        "CC BY 4.0 sources",
+      ],
+      // Verifiable properties of the published analysis itself, not client outcomes.
+      impact: [
+        "25,313 contracts analysed (28.55 bn RON), of which 17.06 bn attributed to a specific county",
+        "42 counties covered with one identical methodology",
+        "Three rounds of adversarial review by twelve independent reviewers; two full from-scratch reimplementations reproduced every published figure",
+      ],
+      takeaway:
+        "This is the clearest demonstration of what we do with data: take sources that are public but unusable, resolve the entities nobody has joined before, and publish the result with its limits stated — so the numbers survive scrutiny instead of collapsing under it.",
+      image: "atlas",
+      liveUrl: "/atlas/",
+      liveLabel: "Open the live Atlas",
+    },
+    {
       slug: "transit-analytics",
       name: "Public Transport Analytics — Iași",
       tagline: "Turning fleet telemetry into operating decisions.",
@@ -1171,6 +1224,7 @@ export const ui = {
   workGallery: "From the dashboard",
   workCapabilities: "Capabilities shown",
   workStack: "Built with",
+  workLiveBadge: "Live",
   workTakeaway: "What this means for you",
   workCaptions: {
     "transit-map": "Live vehicle-location map across the city fleet",
