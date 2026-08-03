@@ -779,6 +779,58 @@ export const work = {
       liveLabel: "Deschide Atlasul",
     },
     {
+      slug: "atlas-company-report",
+      name: "Atlas · Raport de firmă",
+      tagline: "Un CUI la intrare, un dosar complet la ieșire.",
+      category: "Date și analiză",
+      kind: "product",
+      label: "Produs propriu · pe aceeași coloană de date ca Atlasul",
+      accent: "#285c97",
+      oneLiner:
+        "Un generator fără bază de date care transformă un singur CUI într-un dosar complet de firmă — unsprezece ani de situații financiare, poziția în sector, scor de risc de insolvență și expunerea la bani publici — exclusiv din date deschise",
+      overview:
+        "Îi dai un CUI și produce un raport de paisprezece secțiuni: identitate și stare juridică din registrul comerțului, statut fiscal interogat live la ANAF, unsprezece exerciții financiare depuse, poziția față de toate firmele din aceeași diviziune CAEN, dimensiunea pieței și cota firmei, indicatori derivați comparați cu mediana sectorului, un scor de risc de insolvență și expunerea la achiziții publice pe ambele canale — licitații și cumpărări sub prag. Rulează pe aceeași coloană de date ca Atlasul, fără bază de date și fără server: căutări punctuale direct în fișierele guvernamentale brute, pentru că un CUI este unic și o scanare îl găsește în sub o secundă în 2 GB. Distribuțiile pe sector — singurul lucru pe care o căutare punctuală nu îl poate afla — se precalculează o dată.",
+      context:
+        "Sursele sunt publice și, luate separat, aproape inutilizabile. Situațiile financiare se publică drept douăzeci de indicatori numerotați, fără nume de coloane, în trei layout-uri diferite de-a lungul anilor. Datoriile vin ca o sumă unică, deci nicio rată de lichiditate standard nu se poate calcula conform definiției. Nu există costul bunurilor vândute și nu există rezultat reportat, deci doi indicatori din manual și două componente Altman trebuie substituite. Arhiva de achiziții scrie data contractului în patru forme și lasă 98.064 dintre ele goale. Nimic din toate acestea nu e documentat nicăieri — trebuie descoperit, iar fiecare defect produce pierdere silențioasă de date, nu o eroare.",
+      delivered: [
+        "Un generator dintr-o singură comandă: CUI la intrare, HTML stilizat și PDF pregătit de tipar la ieșire, în circa douăzeci de secunde",
+        "Acoperire pentru toate cele 4.201.627 de entități din registrul comerțului, cu degradare onestă — cele 68% fără bilanț depus primesc o secțiune care explică de ce, nu tabele goale",
+        "Distribuții pe sector din 8,7 milioane de depuneri: peste 40.000 de grupuri pe diviziune CAEN, secțiune și județ, unsprezece ani, opt cuantile fiecare",
+        "Fiecare indicator tipărit cu formula în numele rândurilor din bilanț, explicația în limbaj comun și sensul în care valoarea e bună",
+        "O metodologie publicată care numește fiecare aproximare impusă de sursă și declară direcția erorii ei — sau declară că direcția nu se poate stabili, acolo unde nu se poate",
+      ],
+      strategic: [
+        "Transformă un CUI — singurul identificator pe care îl ai întotdeauna despre o contraparte — într-un document de decizie, fără abonament și fără data-room",
+        "Activul care contează este îmbinarea și verificarea, nu datele: oricine poate descărca aceleași fișiere și nu obține nimic utilizabil",
+        "Aceeași coloană de date ca Atlasul, deci analiza pe județe și analiza pe firmă nu se pot contrazice niciodată",
+      ],
+      capabilities: [
+        "Inginerie de date deschise",
+        "Analiza situațiilor financiare la scară",
+        "Proiectare de indicatori și benchmarking",
+        "Verificare adversarială",
+      ],
+      stack: [
+        "Python (doar biblioteca standard)",
+        "Date deschise MF / ONRC / ANAF / SICAP",
+        "Deflator HICP Eurostat",
+        "HTML static, SVG inline, PDF prin Chrome headless",
+      ],
+      impact: [
+        "Maparea coloanelor validată independent de legenda oficială: identitatea bilanțieră se verifică pe 100,00% din depuneri, în toate cele trei layout-uri publicate",
+        "238 de controale de reconciliere pe secțiunile financiare, recalculate din fișierele brute fără nicio abatere; 34 de constatări din două audituri adversariale, rezolvate — inclusiv o căutare care returna o altă firmă pentru 3.005 CUI-uri",
+        "O singură corecție a redus cu 32% o cifră publicată de achiziții publice — cheia de deduplicare nu putea supraviețui la patru formate de dată și 98.064 de date goale",
+      ],
+      takeaway:
+        "Raportul este partea vizibilă. Ce demonstrează de fapt este o disciplină: fiecare cifră trasabilă până la fișierul-sursă, fiecare aproximare numită împreună cu direcția erorii ei, și o rundă de verificare care presupune că propriul nostru rezultat e greșit până rezistă la recalculare pe altă cale.",
+      image: "raport-firma",
+      gallery: [
+        "raport-firma-indicatori",
+        "raport-firma-altman",
+        "raport-firma-risc",
+      ],
+    },
+    {
       slug: "transit-analytics",
       name: "Analiza Transportului Public — Iași",
       tagline: "Telemetria flotei, transformată în decizii operaționale.",
@@ -1089,6 +1141,17 @@ export const ui = {
     "transit-charts":
       "Compoziția flotei, viteza medie pe categorii și indicii de accesibilitate",
     "transit-speeding": "Posibile puncte de congestie și depășiri de viteză înregistrate",
+    // Fragmente din raport, cu identitatea redactată: cifrele sunt ale unei firme
+    // reale, denumirea și înmatricularea nu se afișează. Nu publicăm nicio firmă
+    // cu numele ei, pentru că raportul conține evaluări de risc.
+    "raport-firma":
+      "Cifrele din ultimul exercițiu depus, cu fiecare termen definit acolo unde e citit. Fragmentele sunt din raportul unei firme reale, cu identitatea redactată",
+    "raport-firma-indicatori":
+      "Fiecare indicator cu formula scrisă în numele rândurilor din bilanț, explicația în limbaj comun, firma față de mediana sectorului și sensul în care e bine",
+    "raport-firma-altman":
+      "Scorul de risc de insolvență, cu pragurile publicate desenate în grafic, contribuția fiecărei componente și rata de bază națională, ca eticheta să poată fi dimensionată",
+    "raport-firma-risc":
+      "Semnale de risc pe reguli, fiecare însoțit de cifra din care rezultă, plus verificările care nu s-au putut face pentru că datele lipsesc",
   } as Record<string, string>,
   founderPhotoAlt: "Portretul lui",
 } as const;

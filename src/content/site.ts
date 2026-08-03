@@ -897,6 +897,59 @@ export const work = {
       liveLabel: "Open the live Atlas",
     },
     {
+      slug: "atlas-company-report",
+      name: "Atlas Company Report",
+      tagline: "One fiscal code in, a full dossier out.",
+      category: "Data & analytics",
+      kind: "product",
+      label: "Own product · built on the Atlas data spine",
+      accent: "#285c97",
+      oneLiner:
+        "A stateless generator that turns a single Romanian fiscal code into a complete company dossier — eleven years of financials, sector position, insolvency score and public-money exposure — from open data only",
+      overview:
+        "Give it a CUI and it produces a fourteen-section report: identity and legal status from the companies register, fiscal status queried live from the tax authority, eleven years of filed financial statements, position against every firm in the same CAEN division, market size and share, derived indicators against sector medians, an insolvency-risk score, and public-procurement exposure across both the tender and the below-threshold channel. It runs against the same data spine as the Atlas, with no database and no server — point lookups straight at the raw government files, because a fiscal code is unique and a scan finds it in under a second across 2 GB. Peer distributions, the one thing a lookup cannot answer, are precomputed once.",
+      context:
+        "The sources are public and individually near-useless. Financial statements are published as twenty numbered indicators with no column names, in three different layouts across the years. Liabilities arrive as a single total, so no standard liquidity ratio can be computed as defined. There is no cost of goods sold and no retained earnings, so two textbook indicators and two Altman components have to be substituted. The procurement archive writes contract dates four different ways and leaves 98,064 of them blank. None of that is documented anywhere — it has to be discovered, and each defect causes silent data loss rather than an error.",
+      delivered: [
+        "A one-command generator: fiscal code in, styled HTML and print-ready PDF out, in about twenty seconds",
+        "Coverage of all 4,201,627 entities in the companies register, degrading honestly — the 68% with no filed accounts get a section explaining why, not empty tables",
+        "Peer distributions over 8.7 million filings: 40,000+ groups across CAEN division, section and county, eleven years, eight quantiles each",
+        "Every indicator printed with its formula in balance-sheet line names, a plain-language reading, and the direction that counts as better",
+        "A published methodology that names each forced approximation and states the direction of its bias — or states that the direction cannot be established, where it cannot",
+      ],
+      strategic: [
+        "Turns a fiscal code — the one identifier a business always has for a counterparty — into a decision document, without a subscription or a data-room",
+        "The defensible asset is the joining and the verification, not the data: anyone can download the same files and get nothing usable",
+        "Same spine as the Atlas, so county analysis and company analysis can never contradict each other",
+      ],
+      capabilities: [
+        "Open-data engineering",
+        "Financial-statement analysis at scale",
+        "Indicator design & peer benchmarking",
+        "Adversarial verification",
+      ],
+      stack: [
+        "Python (standard library only)",
+        "MF / ONRC / ANAF / SICAP open data",
+        "Eurostat HICP deflator",
+        "Static HTML, inline SVG, headless-Chrome PDF",
+      ],
+      // Properties of the verification itself, not client outcomes.
+      impact: [
+        "Column mapping validated independently of the official legend: the balance-sheet identity holds for 100.00% of filings across all three published layouts",
+        "238 reconciliation checks on the financial sections recomputed from the raw files with no defect; 34 findings from two adversarial audits fixed, including a lookup that returned a different company for 3,005 fiscal codes",
+        "One correction cut a published procurement figure by 32% — the deduplication key could not survive four date formats and 98,064 blank dates",
+      ],
+      takeaway:
+        "The report is the visible part. What it actually demonstrates is a discipline: every number traceable to a source file, every approximation named with the direction of its error, and a verification pass that assumes our own output is wrong until it survives being recomputed a second way.",
+      image: "raport-firma",
+      gallery: [
+        "raport-firma-indicatori",
+        "raport-firma-altman",
+        "raport-firma-risc",
+      ],
+    },
+    {
       slug: "transit-analytics",
       name: "Public Transport Analytics — Iași",
       tagline: "Turning fleet telemetry into operating decisions.",
@@ -1231,6 +1284,17 @@ export const ui = {
     "transit-charts":
       "Fleet composition, average speed by category, and accessibility indices",
     "transit-speeding": "Possible congestion points and recorded speeding events",
+    // Excerpts from a generated report, identity redacted: the figures are a real
+    // company's, the name and registration are not shown. No named company is
+    // published, because the report carries risk assessments.
+    "raport-firma":
+      "Key figures for the last filed financial year, each term defined where it is read. The report is generated in Romanian, in the accounting vocabulary its readers use — these excerpts are from a real company with its identity redacted",
+    "raport-firma-indicatori":
+      "Every indicator with its formula in balance-sheet line names, a plain-language reading, the company against its sector median, and which direction is better",
+    "raport-firma-altman":
+      "Insolvency-risk score with the published cut-offs drawn in, each component's contribution, and the national base rate so the label can be sized",
+    "raport-firma-risc":
+      "Rule-based risk flags, each carrying the figure it derives from, plus the checks that could not run because the data is absent",
   } as Record<string, string>,
   founderPhotoAlt: "Portrait of",
 } as const;
