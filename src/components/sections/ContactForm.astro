@@ -344,9 +344,9 @@ const clientStrings = {
         try {
           setStatus(t.sending, "");
           const locale =
-            location.pathname === "/ro" || location.pathname === "/ro.html" || location.pathname.startsWith("/ro/")
-              ? "ro"
-              : "en";
+            location.pathname === "/en" || location.pathname === "/en.html" || location.pathname.startsWith("/en/")
+              ? "en"
+              : "ro";
           const res = await fetch(endpoint, {
             method: "POST",
             headers: { "Content-Type": "text/plain;charset=utf-8" },

@@ -2,27 +2,29 @@
 import Base from "../layouts/Base.astro";
 import Container from "../components/ui/Container.astro";
 import Button from "../components/ui/Button.astro";
-import { site } from "../content/site";
+/* GitHub Pages serves a single /404.html for the whole domain, so this page
+   cannot be per-locale. It speaks the default locale: Romanian. */
+import { site } from "../content/site.ro";
 ---
 
 <Base
-  title="Page not found — LT Strategy Partners"
-  description="The page you were looking for could not be found. Return to the LT Strategy Partners homepage."
+  title="Pagina nu a fost găsită — LT Strategy Partners"
+  description="Pagina căutată nu există. Reveniți la pagina principală LT Strategy Partners."
   path="/404"
 >
   <section class="notfound bg-paper" aria-labelledby="nf-heading">
     <Container>
-      <p class="eyebrow">Error 404</p>
+      <p class="eyebrow">Eroare 404</p>
       <span class="rule" aria-hidden="true"></span>
       <h1 id="nf-heading" class="display notfound-title">
-        This page has moved on.
+        Pagina aceasta nu mai există.
       </h1>
       <p class="lead notfound-lead measure">
-        The page you were looking for isn't here. Let's get you back to
-        something useful.
+        Adresa pe care ați deschis-o nu duce nicăieri. Vă întorc la pagina
+        principală.
       </p>
       <div class="notfound-actions">
-        <Button href="/">Back to home</Button>
+        <Button href="/">Înapoi la pagina principală</Button>
         <a
           href={site.primaryCta.href}
           class="link-arrow"

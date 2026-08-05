@@ -112,11 +112,11 @@ export const config = {
 
 const primaryCta: CTA = config.bookingUrl
   ? { label: "Book a conversation", href: config.bookingUrl, external: true }
-  : { label: "Start a conversation", href: "/contact" };
+  : { label: "Start a conversation", href: "/en/contact" };
 
 const assessmentCta: CTA = {
   label: "Start with an assessment",
-  href: "/assessment",
+  href: "/en/assessment",
 };
 
 export const site = {
@@ -147,26 +147,26 @@ export const site = {
    AND footer. About / Work / Insights / Services / Contact appear in both. */
 
 export const nav: NavItem[] = [
-  { label: "Services", href: "/services" },
-  { label: "Work", href: "/#work" },
-  { label: "Insights", href: "/insights" },
-  { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
+  { label: "Services", href: "/en/services" },
+  { label: "Work", href: "/en#work" },
+  { label: "Insights", href: "/en/insights" },
+  { label: "About", href: "/en/about" },
+  { label: "Contact", href: "/en/contact" },
 ];
 
 export const footerNav: NavItem[] = [
-  { label: "Services", href: "/services" },
-  { label: "Assessment", href: "/assessment" },
-  { label: "Scorecard", href: "/scorecard" },
-  { label: "Work", href: "/#work" },
-  { label: "Insights", href: "/insights" },
-  { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
+  { label: "Services", href: "/en/services" },
+  { label: "Assessment", href: "/en/assessment" },
+  { label: "Scorecard", href: "/en/scorecard" },
+  { label: "Work", href: "/en#work" },
+  { label: "Insights", href: "/en/insights" },
+  { label: "About", href: "/en/about" },
+  { label: "Contact", href: "/en/contact" },
 ];
 
 export const legalNav: NavItem[] = [
-  { label: "Privacy", href: "/privacy" },
-  { label: "Terms", href: "/terms" },
+  { label: "Privacy", href: "/en/privacy" },
+  { label: "Terms", href: "/en/terms" },
 ];
 
 /* --------------------------------------------------------------- Hero */
@@ -344,7 +344,7 @@ export const assessmentPage = {
     ],
     guaranteeLabel: "The written guarantee",
     guarantee: "Expect at least one use case we'll tell you not to build — or not to build yet — with the engineering reason, in writing. And if every idea you bring genuinely clears the gate, the readout says that plainly instead: what it will never do is manufacture a verdict, in either direction.",
-    sampleCta: { label: "Read a sample readout", href: "/assessment/sample-readout" } as CTA,
+    sampleCta: { label: "Read a sample readout", href: "/en/assessment/sample-readout" } as CTA,
   },
 
   method: {
@@ -424,7 +424,7 @@ export const assessmentPage = {
       "Production security engineer with a data-protection background",
       "Founded two SaaS products; lead architect of a multi-tenant enterprise platform",
     ],
-    link: { label: "More about Luca", href: "/about" } as CTA,
+    link: { label: "More about Luca", href: "/en/about" } as CTA,
   },
 
   positioning: {
@@ -550,7 +550,7 @@ export const aboutTeaser = {
   eyebrow: "Who's behind it",
   heading: "Founder-led, and hands-on.",
   body: "LT Strategy Partners is led by Luca-Ștefan Tamaș — a systems engineer who builds and ships production AI, from self-hosted, retrieval-augmented LLM systems to full SaaS products. He builds production systems in demanding, security-critical environments, has been lead architect on a multi-tenant enterprise platform (BI, ERP, document management, process automation), and has founded two SaaS products of his own. You work with him directly: the person who advises you is the person who does the work.",
-  link: { label: "More about Luca", href: "/about" } as CTA,
+  link: { label: "More about Luca", href: "/en/about" } as CTA,
   photoCaption: `${"Luca-Ștefan Tamaș"} · Founder`,
 } as const;
 
@@ -621,7 +621,7 @@ export const faq = {
     {
       q: "How do you handle our data and IP?",
       a: "Your data stays yours, you own what we build, and everything is secure by design.",
-      href: "/#data-ip",
+      href: "/en#data-ip",
     },
   ] as FaqItem[],
 } as const;
@@ -667,7 +667,7 @@ export const contact = {
     "No sales script, no pressure.",
   ],
   privacyHtml:
-    'We only use your details to reply to your enquiry, and never share them with third parties. See our <a href="/privacy">privacy policy</a>.',
+    'We only use your details to reply to your enquiry, and never share them with third parties. See our <a href="/en/privacy">privacy policy</a>.',
   successMessage:
     "Thank you — your message is ready to send. We'll reply personally within two business days.",
 } as const;
@@ -1183,16 +1183,16 @@ export const scorecardPage = {
     button: "Send me the readout",
     privacy: "We use your email only to send this readout. We don't pass it on and we won't add you to a list.",
     privacyLinkLabel: "See our privacy policy.",
-    privacyHref: "/privacy",
+    privacyHref: "/en/privacy",
   },
   ctaPrimary: {
     label: "Apply for a free AI Opportunity Assessment",
-    href: "/assessment",
+    href: "/en/assessment",
     microcopy: "Free · one per company · founder-delivered · a written verdict, including where AI won't pay off.",
   },
   ctaSecondary: {
     label: "Or just talk it through",
-    href: "/contact",
+    href: "/en/contact",
   },
 } as const;
 
@@ -1200,59 +1200,59 @@ export const pageMeta = {
   home: {
     title: "LT Strategy Partners — Technology & AI advisor for smarter business decisions",
     description: site.description,
-    path: "/",
+    path: "/en",
   },
   scorecard: {
     title: "AI & Tech Opportunity Scorecard — LT Strategy Partners",
     description:
       "A free 3-minute self-check: ten plain questions, then an honest read on whether AI or a technology bet would actually pay off for your business yet — or what to fix first.",
-    path: "/scorecard",
+    path: "/en/scorecard",
   },
   services: {
     title: "Services — LT Strategy Partners",
     description:
       "Independent technology advisory and oversight, strategy, delivery, and operational performance — with deep specialization in AI. One senior partner across the full journey.",
-    path: "/services",
+    path: "/en/services",
   },
   assessment: {
     title: "AI Opportunity Assessment — LT Strategy Partners",
     description:
       "A free, founder-delivered assessment: every AI use case scored for value, production viability, and EU AI Act exposure — verdict included: build now, not yet, or don't build.",
-    path: "/assessment",
+    path: "/en/assessment",
   },
   assessmentSample: {
     title: "Sample Gate Zero Readout — LT Strategy Partners",
     description:
       "A full, clearly-labeled sample of the Gate Zero Readout — the written verdict delivered by the free AI Opportunity Assessment.",
-    path: "/assessment/sample-readout",
+    path: "/en/assessment/sample-readout",
   },
   about: {
     title: "About — LT Strategy Partners",
     description:
       "Founder-led by Luca-Ștefan Tamaș, a systems engineer who builds production AI and LLM systems and has shipped enterprise platforms and two SaaS products of his own.",
-    path: "/about",
+    path: "/en/about",
   },
   contact: {
     title: "Contact — LT Strategy Partners",
     description:
       "Have a direct, no-pressure conversation about where AI and technology could move your numbers.",
-    path: "/contact",
+    path: "/en/contact",
   },
   insights: {
     title: "Insights — LT Strategy Partners",
     description:
       "Short, practical pieces for leaders on getting real value from AI and technology.",
-    path: "/insights",
+    path: "/en/insights",
   },
   privacy: {
     title: "Privacy — LT Strategy Partners",
     description: "How LT Strategy Partners collects and handles your information.",
-    path: "/privacy",
+    path: "/en/privacy",
   },
   terms: {
     title: "Terms — LT Strategy Partners",
     description: "The terms on which the LT Strategy Partners website is provided.",
-    path: "/terms",
+    path: "/en/terms",
   },
 } as const;
 

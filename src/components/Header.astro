@@ -6,15 +6,15 @@ import { getContent, resolveLocale, localePath, stripLocale } from "../content/i
 const locale = resolveLocale(Astro.url.pathname);
 const { nav, site } = getContent(locale);
 
-// Language switcher: this page in each language. The 404 page has no RO
-// counterpart (GitHub Pages serves a single /404.html), so fall back to home.
+// Language switcher: this page in each language. The 404 page exists only once
+// (GitHub Pages serves a single /404.html), so fall back to home.
 let barePath = stripLocale(Astro.url.pathname);
 if (barePath === "/404") barePath = "/";
 const langLinks = [
-  { code: "EN", locale: "en" as const, href: localePath("en", barePath) },
   { code: "RO", locale: "ro" as const, href: localePath("ro", barePath) },
+  { code: "EN", locale: "en" as const, href: localePath("en", barePath) },
 ];
-const homeHref = locale === "ro" ? "/ro" : "/";
+const homeHref = localePath(locale, "/");
 const menuLabel = locale === "ro" ? "Deschide meniul" : "Open menu";
 const langNavLabel = locale === "ro" ? "Limbă" : "Language";
 ---

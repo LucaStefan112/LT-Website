@@ -612,11 +612,11 @@ const lastIndex = sc.questions.length - 1;
       errEl?.classList.remove("is-shown");
 
       const locale =
-        location.pathname === "/ro" ||
-        location.pathname === "/ro.html" ||
-        location.pathname.startsWith("/ro/")
-          ? "ro"
-          : "en";
+        location.pathname === "/en" ||
+        location.pathname === "/en.html" ||
+        location.pathname.startsWith("/en/")
+          ? "en"
+          : "ro";
       const payload = {
         form: "scorecard-lead",
         locale,

@@ -29,4 +29,4 @@ Adopția trebuie proiectată de la început. Asta înseamnă să îi implici pe 
 
 Niciunul dintre aceste trei eșecuri nu ține de algoritmi. Țin de valoare, judecată și schimbare — părțile la care liderii sunt deja buni, aplicate unui tip nou de proiect. Înainte să finanțați o inițiativă AI, puneți trei întrebări simple: Cât valorează? E problema potrivită pentru AI? Și o vor folosi oamenii cu adevărat? Dacă nu puteți răspunde la toate trei, riscul nu este ca AI-ul să performeze sub așteptări. Riscul este ca proiectul să coste bani în liniște și să nu livreze nimic.
 
-Exact pentru asta există o [Evaluare a Oportunităților AI](/ro/assessment) scurtă și cu perimetru fix: o imagine clară, cu priorități, a locurilor unde tehnologia vă poate mișca cifrele — și, la fel de onest, a locurilor unde nu poate.
+Exact pentru asta există o [Evaluare a Oportunităților AI](/assessment) scurtă și cu perimetru fix: o imagine clară, cu priorități, a locurilor unde tehnologia vă poate mișca cifrele — și, la fel de onest, a locurilor unde nu poate.

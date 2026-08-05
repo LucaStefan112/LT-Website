@@ -37,4 +37,4 @@ Patru întrebări duc cea mai mare parte din greutate. Este acesta diferențiato
 
 Dacă este diferențiatorul dumneavoastră și datele sunt specifice, înclinați spre construcție. Dacă este ceva comun și produsele sunt mature, cumpărați. Dacă valoarea este neclară, uneltele încă se mișcă sau nu sunteți pregătiți, așteptați — și fixați o dată la care vă uitați din nou. Niciuna dintre variante nu este o sentință pe viață; puteți cumpăra acum și construi mai târziu, sau aștepta acum și acționa rapid odată ce imaginea se limpezește.
 
-Alegerea corectă ține mai puțin de tehnologie și mai mult de onestitatea cu care răspundeți la cele patru întrebări. O [Evaluare a Oportunităților AI](/ro/assessment) scurtă și cu perimetru fix este construită să răspundă exact la asta: unde să cumpărați, unde să construiți și unde mutarea corectă este să așteptați.
+Alegerea corectă ține mai puțin de tehnologie și mai mult de onestitatea cu care răspundeți la cele patru întrebări. O [Evaluare a Oportunităților AI](/assessment) scurtă și cu perimetru fix este construită să răspundă exact la asta: unde să cumpărați, unde să construiți și unde mutarea corectă este să așteptați.

@@ -8,7 +8,7 @@ import Footer from "../components/Footer.astro";
 interface Props {
   title: string;
   description: string;
-  path: string; // e.g. "/", "/services", "/ro/services"
+  path: string; // e.g. "/", "/services" (Romanian, root), "/en/services"
   ogImage?: string;
   ogType?: string; // "website" (default) or "article" for insight posts
 }
@@ -29,12 +29,15 @@ const { htmlLang, ogLocale } = localeMeta[locale];
 // canonical is the bare origin too, rather than URL()'s forced trailing slash.
 const toAbs = (p: string) => (p === "/" ? site.url : new URL(p, site.url).href);
 const canonical = toAbs(path);
-// hreflang alternates: this page in each language, x-default = English.
+// hreflang alternates: this page in each language. x-default = English — it is
+// the fallback served to visitors whose language matches neither tree, and an
+// international visitor is better served English than Romanian, even though
+// Romanian is the default locale at the root.
 const barePath = stripLocale(path);
 const showAlternates = barePath !== "/404";
 const alternates = [
-  { hreflang: "en", href: toAbs(localePath("en", barePath)) },
   { hreflang: "ro", href: toAbs(localePath("ro", barePath)) },
+  { hreflang: "en", href: toAbs(localePath("en", barePath)) },
   { hreflang: "x-default", href: toAbs(localePath("en", barePath)) },
 ];
 const ogImageUrl = new URL(ogImage, site.url).href;

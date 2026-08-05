@@ -19,7 +19,9 @@ const {
   plausibleEvent,
 } = Astro.props;
 
-const isInternalAnchor = href.startsWith("#") || href.startsWith("/#");
+// Same-page anchors, in either locale tree: "#x", "/#x", "/en#x". Prefetching
+// these would just re-fetch the page the visitor is already on.
+const isInternalAnchor = href.startsWith("#") || /^\/(en)?#/.test(href);
 const shouldPrefetch = !external && !isInternalAnchor;
 // Plausible reads the event name from a CSS class; spaces are encoded as "+".
 // Using the class mechanism (not a manual call) so the event is delivered even

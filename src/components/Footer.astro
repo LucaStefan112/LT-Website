@@ -1,6 +1,6 @@
 ---
 import Logo from "./ui/Logo.astro";
-import { getContent, resolveLocale } from "../content/i18n";
+import { getContent, resolveLocale, localePath } from "../content/i18n";
 
 const { site, footer, footerNav, legalNav, ui } = getContent(Astro.url.pathname);
 
@@ -11,7 +11,7 @@ const year = new Date().getFullYear();
   <div class="container-lt">
     <div class="footer-top">
       <div class="footer-brand">
-        <a href={resolveLocale(Astro.url.pathname) === "ro" ? "/ro" : "/"} aria-label={`${site.name} — home`} class="footer-logo-link">
+        <a href={localePath(resolveLocale(Astro.url.pathname), "/")} aria-label={`${site.name} — home`} class="footer-logo-link">
           <Logo variant="reversed" height={34} alt={site.name} />
         </a>
         <p class="footer-blurb measure">{footer.blurb}</p>

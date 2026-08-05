@@ -1,13 +1,13 @@
 ---
-/* A complete, clearly-labeled SAMPLE of the Gate Zero Readout.
-   "Arvela Logistics" is a fictional company; every number is invented.
-   The method, scoring, structure, and format are exactly what a client
-   receives. Publishing the document is the credibility move: for a new
-   practice, showing the work IS the case study. */
+/* ROMANIAN sample Gate Zero Readout — full translation of
+   ../../assessment/sample-readout.astro (keep the two in sync when either
+   changes; the style block is a verbatim copy of the English page's — if
+   geometry changes there, re-copy it here). "Arvela Logistics" is a
+   fictional company; every number is invented. */
 import Base from "../../layouts/Base.astro";
 import Container from "../../components/ui/Container.astro";
 import Button from "../../components/ui/Button.astro";
-import { pageMeta } from "../../content/site";
+import { pageMeta } from "../../content/site.ro";
 
 const meta = pageMeta.assessmentSample;
 
@@ -19,18 +19,18 @@ interface Row {
   c: Rag;
 }
 const ragRows: Row[] = [
-  { dim: "Value at stake", a: "green", b: "amber", c: "amber" },
-  { dim: "Data reality", a: "green", b: "red", c: "red" },
-  { dim: "Grounding & retrieval", a: "green", b: "red", c: "red" },
-  { dim: "Error tolerance vs stakes", a: "green", b: "green", c: "red" },
-  { dim: "Validation & verifiability", a: "amber", b: "amber", c: "red" },
-  { dim: "Cost, latency & ownership", a: "green", b: "amber", c: "amber" },
-  { dim: "Security & EU AI Act exposure", a: "amber", b: "amber", c: "green" },
+  { dim: "Valoare în joc", a: "green", b: "amber", c: "amber" },
+  { dim: "Realitatea datelor", a: "green", b: "red", c: "red" },
+  { dim: "Ancorare și retrieval", a: "green", b: "red", c: "red" },
+  { dim: "Toleranța la erori față de miză", a: "green", b: "green", c: "red" },
+  { dim: "Validare și verificabilitate", a: "amber", b: "amber", c: "red" },
+  { dim: "Cost, latență și responsabilitate", a: "green", b: "amber", c: "amber" },
+  { dim: "Securitate și expunere EU AI Act", a: "amber", b: "amber", c: "green" },
 ];
 const ragLabel: Record<Rag, string> = {
-  green: "On footing — no blocker found at walkthrough depth",
-  amber: "Addressable gap — named condition must be met",
-  red: "Gating problem — blocks a build verdict as scoped",
+  green: "Pe teren solid — niciun blocaj găsit la adâncimea discuției ghidate",
+  amber: "Lipsă rezolvabilă — condiția de îndeplinit este numită",
+  red: "Problemă care blochează poarta — oprește un verdict de construcție în forma actuală",
 };
 ---
 
@@ -38,111 +38,116 @@ const ragLabel: Record<Rag, string> = {
   <section class="sr-wrap bg-bone">
     <Container>
       <a href="/assessment" class="sr-back" data-astro-prefetch>
-        <span aria-hidden="true">←</span> The AI Opportunity Assessment
+        <span aria-hidden="true">←</span> Evaluarea Oportunităților AI
       </a>
 
       <div class="sr-banner" role="note">
-        <strong>Illustrative sample.</strong> “Arvela Logistics” is a fictional
-        company and every number below is invented. The method, the scoring,
-        and the format are exactly what you receive — built on your numbers
-        instead.
+        <strong>Exemplu ilustrativ.</strong> „Arvela Logistics” este o companie
+        fictivă, iar fiecare cifră de mai jos este inventată. Metoda, punctarea
+        și formatul sunt exact ce primiți — construite însă pe cifrele
+        dumneavoastră.
       </div>
 
-      <h1 class="sr-pagetitle">A sample Gate Zero Readout.</h1>
+      <h1 class="sr-pagetitle">Un exemplu de Raport Gate Zero.</h1>
 
       <!-- ============================== PAGE 1 -->
-      <article class="sr-sheet" aria-label="Page 1 — Decision memo">
-        <p class="sr-sheet-tag">Page 1 · Decision memo</p>
+      <article class="sr-sheet" aria-label="Pagina 1 — Memo de decizie">
+        <p class="sr-sheet-tag">Pagina 1 · Memo de decizie</p>
         <p class="sr-doc-head">
-          Gate Zero Readout — Arvela Logistics · March 2026 · Prepared by
+          Raport Gate Zero — Arvela Logistics · martie 2026 · Întocmit de
           Luca-Ștefan Tamaș, LT Strategy Partners
         </p>
         <h2 class="sr-verdict-title">
-          Ship the shipment-document assistant. Consolidate the knowledge base
-          before any customer chatbot. Don't build the pricing engine.
+          Lansați asistentul pentru documente de expediție. Consolidați baza de
+          cunoștințe înainte de orice chatbot pentru clienți. Nu construiți
+          motorul de prețuri.
         </h2>
         <p class="sr-body">
-          Of the three use cases assessed, one is ready to build now: an
-          assistant that reads booking emails and attached shipment documents
-          and drafts structured entries for the operations team to confirm.
-          The other two fail Gate Zero today — one temporarily, one on design.
+          Dintre cele trei cazuri de utilizare evaluate, unul este pregătit de
+          construcție acum: un asistent care citește emailurile de booking și
+          documentele de expediție atașate și pregătește înregistrări
+          structurate, pe care echipa de operațiuni le confirmă. Celelalte două
+          nu trec astăzi de Gate Zero — unul temporar, unul din proiectare.
         </p>
         <ul class="sr-points" role="list">
           <li>
-            <strong>The document assistant clears the gate.</strong> Five
-            operations staff spend roughly nine hours a week each re-keying
-            data from PDFs and emails — about €54,000 a year at a conservative
-            base case, using Arvela's own loaded-cost figures. The grounding
-            content exists, is accessible today, and every output is confirmed
-            by a human before it enters the TMS — so the error budget is honest.
+            <strong>Asistentul pentru documente trece de poartă.</strong> Cinci
+            oameni din operațiuni petrec fiecare aproximativ nouă ore pe
+            săptămână retastând date din PDF-uri și emailuri — circa 54.000 €
+            pe an într-un scenariu de bază conservator, folosind chiar cifrele
+            de cost ale Arvela. Conținutul-sursă există, este accesibil astăzi,
+            iar fiecare rezultat este confirmat de un om înainte să intre în
+            TMS — deci bugetul de eroare este unul onest.
           </li>
           <li>
-            <strong>The support chatbot is “not yet”, not “no”.</strong> The
-            answers customers need live in seventeen inboxes and a wiki last
-            updated fourteen months ago. Built today, the assistant would
-            confidently repeat stale answers. The unlock is organizational,
-            not technical — and it's named on page 4.
+            <strong>Chatbotul de suport este „încă nu”, nu „nu”.</strong>
+            Răspunsurile de care au nevoie clienții trăiesc în șaptesprezece
+            inboxuri și într-un wiki actualizat ultima dată acum paisprezece
+            luni. Construit astăzi, asistentul ar repeta cu încredere răspunsuri
+            expirate. Deblocarea este organizațională, nu tehnică — și este
+            numită la pagina 4.
           </li>
           <li>
-            <strong>The pricing engine fails on stakes, not on ambition.</strong>
-            A wrong extraction gets caught by the operator who confirms it. A
-            wrong price goes straight to a customer. With spot-quote history
-            living in email threads, the error rate cannot be validated to the
-            tolerance the workflow demands — this is where AI won't pay off
-            for Arvela as scoped.
+            <strong>Motorul de prețuri pică pe miză, nu pe ambiție.</strong>
+            O extragere greșită e prinsă de operatorul care o confirmă. Un preț
+            greșit ajunge direct la client. Cu istoricul cotațiilor spot trăind
+            în fire de email, rata de eroare nu poate fi validată la toleranța
+            pe care fluxul de lucru o cere — aici AI nu se va amortiza pentru
+            Arvela, în forma propusă.
           </li>
         </ul>
         <p class="sr-anchor">
-          What leadership already suspected, confirmed with numbers: the
-          re-keying burden your operations lead has flagged for two years is
-          the strongest AI case in the company — stronger than either of the
-          two ideas that came from vendor conversations.
+          Ce bănuia deja conducerea, confirmat acum cu cifre: povara
+          retastării, semnalată de doi ani de șeful operațiunilor, este cel mai
+          puternic caz de AI din companie — mai puternic decât ambele idei
+          venite din discuții cu furnizori.
         </p>
         <div class="sr-next">
-          <span class="sr-next-label">Owner &amp; 90-day step</span>
-          Operations director. Scope the document assistant against the gate
-          checklist on page 3; in parallel, assign one owner to the knowledge
-          base with a 90-day consolidation target.
+          <span class="sr-next-label">Responsabil și pasul pe 90 de zile</span>
+          Directorul de operațiuni. Dimensionați asistentul pentru documente
+          după lista de criterii de la pagina 3; în paralel, numiți un
+          responsabil pentru baza de cunoștințe, cu o țintă de consolidare la
+          90 de zile.
         </div>
       </article>
 
       <!-- ============================== PAGE 2 -->
-      <article class="sr-sheet" aria-label="Page 2 — The opportunity portfolio">
-        <p class="sr-sheet-tag">Page 2 · The opportunity portfolio</p>
-        <h2 class="sr-sheet-title">Three use cases, one map.</h2>
+      <article class="sr-sheet" aria-label="Pagina 2 — Portofoliul de oportunități">
+        <p class="sr-sheet-tag">Pagina 2 · Portofoliul de oportunități</p>
+        <h2 class="sr-sheet-title">Trei cazuri de utilizare, o singură hartă.</h2>
 
-        <div class="sr-map" role="img" aria-label="Value versus production viability map. Document assistant: high value, high viability — build now. Support chatbot: medium value, low viability — not yet. Pricing engine: claimed value can't be validated so it can't be banked, very low viability — don't build.">
-          <span class="sr-axis-y">Value at stake →</span>
-          <span class="sr-axis-x">Production viability →</span>
+        <div class="sr-map" role="img" aria-label="Harta valoare versus viabilitate în producție. Asistentul pentru documente: valoare mare, viabilitate mare — construiți acum. Chatbotul de suport: valoare medie, viabilitate scăzută — încă nu. Motorul de prețuri: valoarea pretinsă nu poate fi validată, deci nu poate fi contabilizată; viabilitate foarte scăzută — nu construiți.">
+          <span class="sr-axis-y">Valoare în joc →</span>
+          <span class="sr-axis-x">Viabilitate în producție →</span>
           <div class="sr-map-grid" aria-hidden="true">
-            <div class="sr-quad sr-quad-tl"><span>Not yet — close the gap first</span></div>
-            <div class="sr-quad sr-quad-tr"><span>Build now</span></div>
-            <div class="sr-quad sr-quad-bl"><span>Don't build — and here's why</span></div>
-            <div class="sr-quad sr-quad-br"><span>Quick wins, modest stakes</span></div>
+            <div class="sr-quad sr-quad-tl"><span>Încă nu — închideți întâi lipsa</span></div>
+            <div class="sr-quad sr-quad-tr"><span>Construiți acum</span></div>
+            <div class="sr-quad sr-quad-bl"><span>Nu construiți — și iată de ce</span></div>
+            <div class="sr-quad sr-quad-br"><span>Câștiguri rapide, miză modestă</span></div>
             <div class="sr-dot sr-dot-a sr-dot--flip" style="left: 78%; top: 22%;">
               <i></i>
-              <em>A · Document assistant <b class="sr-badge sr-badge-minimal">AI Act: minimal</b></em>
+              <em>A · Asistentul pentru documente <b class="sr-badge sr-badge-minimal">AI Act: minim</b></em>
             </div>
             <div class="sr-dot sr-dot-b" style="left: 30%; top: 44%;">
               <i></i>
-              <em>B · Support chatbot <b class="sr-badge sr-badge-limited">AI Act: limited</b></em>
+              <em>B · Chatbot de suport <b class="sr-badge sr-badge-limited">AI Act: limitat</b></em>
             </div>
             <div class="sr-dot sr-dot-c" style="left: 12%; top: 68%;">
               <i></i>
-              <em>C · Pricing engine <b class="sr-badge sr-badge-minimal">AI Act: minimal</b> <b class="sr-badge sr-badge-flag">margin-critical</b></em>
+              <em>C · Motor de prețuri <b class="sr-badge sr-badge-minimal">AI Act: minim</b> <b class="sr-badge sr-badge-flag">critic pentru marjă</b></em>
             </div>
           </div>
         </div>
 
-        <h3 class="sr-table-label">Dimension scores at walkthrough depth</h3>
+        <h3 class="sr-table-label">Punctajele pe dimensiuni, la adâncimea discuției ghidate</h3>
         <div class="sr-table-scroll">
           <table class="sr-table">
             <thead>
               <tr>
-                <th scope="col">Gate Zero dimension</th>
-                <th scope="col">A · Documents</th>
+                <th scope="col">Dimensiunea Gate Zero</th>
+                <th scope="col">A · Documente</th>
                 <th scope="col">B · Chatbot</th>
-                <th scope="col">C · Pricing</th>
+                <th scope="col">C · Prețuri</th>
               </tr>
             </thead>
             <tbody>
@@ -150,9 +155,9 @@ const ragLabel: Record<Rag, string> = {
                 ragRows.map((r) => (
                   <tr>
                     <th scope="row">{r.dim}</th>
-                    <td><span class:list={["sr-rag", `sr-rag-${r.a}`]}>{r.a === "green" ? "G" : r.a === "amber" ? "A" : "R"}</span></td>
-                    <td><span class:list={["sr-rag", `sr-rag-${r.b}`]}>{r.b === "green" ? "G" : r.b === "amber" ? "A" : "R"}</span></td>
-                    <td><span class:list={["sr-rag", `sr-rag-${r.c}`]}>{r.c === "green" ? "G" : r.c === "amber" ? "A" : "R"}</span></td>
+                    <td><span class:list={["sr-rag", `sr-rag-${r.a}`]}>{r.a === "green" ? "V" : r.a === "amber" ? "G" : "R"}</span></td>
+                    <td><span class:list={["sr-rag", `sr-rag-${r.b}`]}>{r.b === "green" ? "V" : r.b === "amber" ? "G" : "R"}</span></td>
+                    <td><span class:list={["sr-rag", `sr-rag-${r.c}`]}>{r.c === "green" ? "V" : r.c === "amber" ? "G" : "R"}</span></td>
                   </tr>
                 ))
               }
@@ -160,163 +165,166 @@ const ragLabel: Record<Rag, string> = {
           </table>
         </div>
         <ul class="sr-legend" role="list">
-          <li><span class="sr-rag sr-rag-green">G</span> {ragLabel.green}</li>
-          <li><span class="sr-rag sr-rag-amber">A</span> {ragLabel.amber}</li>
+          <li><span class="sr-rag sr-rag-green">V</span> {ragLabel.green}</li>
+          <li><span class="sr-rag sr-rag-amber">G</span> {ragLabel.amber}</li>
           <li><span class="sr-rag sr-rag-red">R</span> {ragLabel.red}</li>
         </ul>
         <p class="sr-badge-note">
-          Map badges show each use case's provisional EU AI Act tier. Additional
-          flags — like <em>margin-critical</em> on C — mark business stakes; they
-          are not AI Act tiers.
+          Etichetele de pe hartă arată nivelul provizoriu EU AI Act al fiecărui
+          caz. Marcajele suplimentare — precum <em>critic pentru marjă</em> la C
+          — semnalează miza de business; ele nu sunt niveluri AI Act.
         </p>
         <ul class="sr-nongreen" role="list">
-          <li><strong>A / Validation (amber):</strong> extraction accuracy needs a 200-document ground-truth set before launch — one week of operator time, scoped in the gate checklist.</li>
-          <li><strong>A / Exposure (amber):</strong> shipping documents carry personal data; processing must stay in the EU, and the extraction step should run self-hosted or in an EU region with no third-country transfer.</li>
-          <li><strong>B / Value (amber):</strong> the interruption cost is real but unmeasured — the base case needs two weeks of ticket counting before it can be banked.</li>
-          <li><strong>B / Data reality (red):</strong> no single, current source of the answers exists — they're scattered across seventeen inboxes and a wiki untouched for fourteen months.</li>
-          <li><strong>B / Grounding &amp; retrieval (red):</strong> fragmented, stale content is precisely what retrieval tuning cannot rescue — the score follows the anchor until the knowledge base is consolidated.</li>
-          <li><strong>B / Validation (amber):</strong> correctness is checkable by sampling against the ops team — but only once a consolidated source defines what a correct answer is.</li>
-          <li><strong>B / Cost &amp; ownership (amber):</strong> query volumes and per-answer economics can't be modeled until the assistant has a source to answer from, and no owner is named yet.</li>
-          <li><strong>B / Exposure (amber):</strong> customer-facing, so EU AI Act transparency obligations apply, and transcripts would carry customer personal data — both addressable at design time.</li>
-          <li><strong>C / Value (amber):</strong> the margin upside is plausible but can't be validated from unstructured quote history — value that can't be measured can't be banked.</li>
-          <li><strong>C / Data reality (red):</strong> spot-quote history lives in email threads; no structured record exists to train or validate against.</li>
-          <li><strong>C / Grounding &amp; retrieval (red):</strong> the pricing context that would ground a quote — lane, season, client history — isn't retrievable from any current system.</li>
-          <li><strong>C / Error tolerance (red):</strong> a wrong price reaches a customer with no human between the model and the harm — the workflow as designed has no error budget.</li>
-          <li><strong>C / Validation (red):</strong> with no ground truth, the error rate cannot even be measured to the tolerance the workflow demands.</li>
-          <li><strong>C / Cost &amp; ownership (amber):</strong> per-quote economics look fine on paper, but they're meaningless while the error rate is unmeasurable.</li>
+          <li><strong>A / Validare (galben):</strong> acuratețea extragerii are nevoie, înainte de lansare, de un set de referință de 200 de documente — o săptămână de timp al operatorilor, dimensionată în lista de criterii.</li>
+          <li><strong>A / Expunere (galben):</strong> documentele de expediție conțin date personale; prelucrarea trebuie să rămână în UE, iar pasul de extragere ar trebui să ruleze self-hosted sau într-o regiune UE, fără transfer către țări terțe.</li>
+          <li><strong>B / Valoare (galben):</strong> costul întreruperilor este real, dar nemăsurat — scenariul de bază are nevoie de două săptămâni de numărat tichete înainte să poată fi contabilizat.</li>
+          <li><strong>B / Realitatea datelor (roșu):</strong> nu există o sursă unică și actuală a răspunsurilor — sunt împrăștiate în șaptesprezece inboxuri și într-un wiki neatins de paisprezece luni.</li>
+          <li><strong>B / Ancorare și retrieval (roșu):</strong> conținutul fragmentat și expirat este exact ce nu poate salva niciun tuning de retrieval — punctajul urmează criteriul până la consolidarea bazei de cunoștințe.</li>
+          <li><strong>B / Validare (galben):</strong> corectitudinea se poate verifica prin eșantionare cu echipa de operațiuni — dar abia după ce o sursă consolidată definește ce înseamnă un răspuns corect.</li>
+          <li><strong>B / Cost și responsabilitate (galben):</strong> volumele de interogări și economia per răspuns nu pot fi modelate până când asistentul nu are o sursă din care să răspundă; niciun responsabil numit încă.</li>
+          <li><strong>B / Expunere (galben):</strong> fiind orientat către clienți, se aplică obligațiile de transparență din EU AI Act, iar conversațiile ar conține date personale ale clienților — ambele rezolvabile în faza de design.</li>
+          <li><strong>C / Valoare (galben):</strong> câștigul de marjă este plauzibil, dar nu poate fi validat dintr-un istoric de cotații nestructurat — valoarea care nu se poate măsura nu se poate contabiliza.</li>
+          <li><strong>C / Realitatea datelor (roșu):</strong> istoricul cotațiilor spot trăiește în fire de email; nu există nicio evidență structurată pe care să antrenezi sau să validezi.</li>
+          <li><strong>C / Ancorare și retrieval (roșu):</strong> contextul de preț care ar ancora o cotație — rută, sezon, istoricul clientului — nu poate fi extras din niciun sistem actual.</li>
+          <li><strong>C / Toleranța la erori (roșu):</strong> un preț greșit ajunge la client fără niciun om între model și pagubă — fluxul de lucru, așa cum e proiectat, nu are buget de eroare.</li>
+          <li><strong>C / Validare (roșu):</strong> fără un adevăr de referință, rata de eroare nici măcar nu poate fi măsurată la toleranța pe care fluxul o cere.</li>
+          <li><strong>C / Cost și responsabilitate (galben):</strong> economia per cotație arată bine pe hârtie, dar nu înseamnă nimic câtă vreme rata de eroare este nemăsurabilă.</li>
         </ul>
         <p class="sr-binding">
-          The binding constraint at Arvela: <strong>data consolidation, not
-          ambition, gates everything after use case A.</strong>
+          Constrângerea care blochează la Arvela: <strong>consolidarea datelor,
+          nu ambiția, condiționează tot ce vine după cazul A.</strong>
         </p>
         <p class="sr-footnote">
-          Dimension weights were fixed before any use case was scored. No
-          aggregate score is reported — the lowest dimension gates; averages hide.
+          Ponderile dimensiunilor au fost fixate înainte de punctarea oricărui
+          caz. Nu se raportează niciun scor agregat — dimensiunea cea mai slabă
+          blochează poarta; mediile ascund.
         </p>
       </article>
 
       <!-- ============================== PAGE 3 -->
-      <article class="sr-sheet" aria-label="Page 3 — Top use case brief and formal gate">
-        <p class="sr-sheet-tag">Page 3 · Top use case — brief &amp; formal gate</p>
-        <h2 class="sr-sheet-title">A · The shipment-document assistant.</h2>
+      <article class="sr-sheet" aria-label="Pagina 3 — Cazul principal: fișă și poartă formală">
+        <p class="sr-sheet-tag">Pagina 3 · Cazul principal — fișă și poartă formală</p>
+        <h2 class="sr-sheet-title">A · Asistentul pentru documente de expediție.</h2>
         <dl class="sr-fields">
-          <div><dt>Business process</dt><dd>Inbound booking requests: email + attached PDFs (bills of lading, packing lists, customs forms) re-keyed into the TMS by the operations team.</dd></div>
-          <div><dt>Impact, conservative base case</dt><dd>5 operators × ~9 hrs/week re-keying × Arvela's loaded cost ≈ <strong>€54,000/year</strong>, before error-correction time. Assumption declared: volumes from the ops lead's estimate, not measured logs.</dd></div>
-          <div><dt>Buy / integrate / build</dt><dd>Integrate: an extraction model behind a review UI, wired to the existing TMS API. No custom model training warranted at this volume.</dd></div>
-          <div><dt>Data readiness</dt><dd>Green at walkthrough depth — documents accessible in the shared mailbox today; ground-truth set needed pre-launch (see gate).</dd></div>
-          <div><dt>Cost band &amp; time to production</dt><dd>Low five figures, 8–12 weeks to a production system with validation, monitoring, and handover. Range, not a quote — a fixed price follows a scoped audit.</dd></div>
-          <div><dt>Success metric</dt><dd>Hours of re-keying per 100 shipments, measured before and ~30 days after launch.</dd></div>
+          <div><dt>Procesul de business</dt><dd>Cereri de booking primite: email + PDF-uri atașate (conosamente, liste de colisaj, formulare vamale), retastate în TMS de echipa de operațiuni.</dd></div>
+          <div><dt>Impact, scenariu de bază conservator</dt><dd>5 operatori × ~9 ore/săptămână de retastare × costul complet al Arvela ≈ <strong>54.000 €/an</strong>, fără timpul de corectare a erorilor. Ipoteză declarată: volumele vin din estimarea șefului de operațiuni, nu din loguri măsurate.</dd></div>
+          <div><dt>Cumpărăm / integrăm / construim</dt><dd>Integrăm: un model de extragere în spatele unei interfețe de verificare, legat la API-ul TMS existent. Antrenarea unui model propriu nu se justifică la acest volum.</dd></div>
+          <div><dt>Pregătirea datelor</dt><dd>Verde la adâncimea discuției ghidate — documentele sunt accesibile astăzi în inboxul comun; setul de referință este necesar înainte de lansare (vezi poarta).</dd></div>
+          <div><dt>Interval de cost și timp până în producție</dt><dd>Cinci cifre în zona joasă, 8–12 săptămâni până la un sistem de producție cu validare, monitorizare și predare. Un interval, nu o ofertă — prețul fix urmează unui audit dimensionat.</dd></div>
+          <div><dt>Metrica de succes</dt><dd>Ore de retastare la 100 de expedieri, măsurate înainte și la ~30 de zile după lansare.</dd></div>
         </dl>
 
-        <h3 class="sr-gate-title">The gate</h3>
-        <p class="sr-gate-verdict"><span class="sr-verdict-chip sr-chip-go">Build now</span> — subject to the checklist below.</p>
+        <h3 class="sr-gate-title">Poarta</h3>
+        <p class="sr-gate-verdict"><span class="sr-verdict-chip sr-chip-go">Construiți acum</span> — sub rezerva listei de mai jos.</p>
         <ul class="sr-gate-list" role="list">
-          <li><strong>Capability target:</strong> ≥95% field-level extraction accuracy on the 200-document ground-truth set before go-live; every output human-confirmed until then and sampled after.</li>
-          <li><strong>Safety target:</strong> no auto-commit to the TMS — operator confirmation stays in the loop until three consecutive weeks inside the error budget.</li>
-          <li><strong>Cost at scale:</strong> unit cost per processed shipment stays under the agreed ceiling at 2× current volume; measured, not assumed.</li>
-          <li><strong>Sign-off domains:</strong> operations owner · security/data-protection · engineering · the operators who use it.</li>
-          <li><strong>Walk-away conditions:</strong> if the ground-truth set can't reach the accuracy floor, or EU-only processing can't be met at acceptable cost, stop — the readout's verdict flips to “not yet” and says why.</li>
-          <li><strong>What would change this verdict:</strong> a TMS migration mid-build, or volumes 3× below the estimate used in the base case.</li>
+          <li><strong>Ținta de capabilitate:</strong> acuratețe de extragere ≥95% la nivel de câmp, pe setul de referință de 200 de documente, înainte de go-live; fiecare rezultat confirmat de un om până atunci, apoi eșantionat.</li>
+          <li><strong>Ținta de siguranță:</strong> nicio scriere automată în TMS — confirmarea operatorului rămâne în buclă până la trei săptămâni consecutive în interiorul bugetului de eroare.</li>
+          <li><strong>Costul la scară:</strong> costul unitar per expediere procesată rămâne sub plafonul convenit la volum dublu; măsurat, nu presupus.</li>
+          <li><strong>Semnături necesare:</strong> responsabilul de operațiuni · securitate/protecția datelor · inginerie · operatorii care îl folosesc.</li>
+          <li><strong>Condiții de abandon:</strong> dacă setul de referință nu poate atinge pragul de acuratețe, sau prelucrarea exclusiv în UE nu se poate obține la un cost acceptabil, ne oprim — verdictul devine „încă nu” și raportul spune de ce.</li>
+          <li><strong>Ce ar schimba acest verdict:</strong> o migrare de TMS în timpul construcției, sau volume de trei ori sub estimarea folosită în scenariul de bază.</li>
         </ul>
         <p class="sr-confidence">
-          Confidence: scores marked at walkthrough depth only — verified
-          against described systems, not inspected pipelines. The paid audit
-          tests these against the actual mailbox and TMS before any build.
+          Încredere: punctajele marcate „la adâncimea discuției ghidate” au fost
+          verificate în conversație, nu în pipeline-uri inspectate. Auditul
+          plătit le testează pe inboxul și TMS-ul real, înainte de orice
+          construcție.
         </p>
       </article>
 
       <!-- ============================== PAGE 4 -->
-      <article class="sr-sheet" aria-label="Page 4 — Where AI won't pay off">
-        <p class="sr-sheet-tag">Page 4 · Where AI won't pay off for Arvela</p>
-        <h2 class="sr-sheet-title">The honest no's — and what would change them.</h2>
+      <article class="sr-sheet" aria-label="Pagina 4 — Unde AI nu se va amortiza">
+        <p class="sr-sheet-tag">Pagina 4 · Unde AI nu se va amortiza pentru Arvela</p>
+        <h2 class="sr-sheet-title">Refuzurile oneste — și ce le-ar schimba.</h2>
 
         <div class="sr-no">
-          <p class="sr-no-head"><span class="sr-verdict-chip sr-chip-notyet">Not yet</span> B · Customer support assistant</p>
+          <p class="sr-no-head"><span class="sr-verdict-chip sr-chip-notyet">Încă nu</span> B · Asistent de suport pentru clienți</p>
           <p class="sr-body">
-            The value is real — status queries interrupt the same team that
-            re-keys documents. But the grounding content fails Gate Zero: the
-            answers live in seventeen inboxes and a wiki last touched fourteen
-            months ago. An assistant built on that would answer confidently
-            and wrongly, in front of customers, under the EU AI Act's
-            transparency obligations for customer-facing bots.
-            <strong>The unlock:</strong> one owner, one consolidated knowledge
-            base, a 90-day target — then this use case re-enters the gate with
-            a realistic path to “build”.
+            Valoarea este reală — întrebările despre statusul expedierilor
+            întrerup exact echipa care retastează documente. Dar conținutul-sursă
+            pică testul Gate Zero: răspunsurile trăiesc în șaptesprezece inboxuri
+            și într-un wiki neatins de paisprezece luni. Construit pe ele, un
+            asistent ar răspunde cu încredere și greșit, în fața clienților, sub
+            obligațiile de transparență pe care EU AI Act le cere boturilor
+            orientate către clienți. <strong>Deblocarea:</strong> un responsabil,
+            o bază de cunoștințe consolidată, o țintă la 90 de zile — apoi acest
+            caz reintră în poartă cu un drum realist către „construiți”.
           </p>
         </div>
 
         <div class="sr-no">
-          <p class="sr-no-head"><span class="sr-verdict-chip sr-chip-no">Don't build</span> C · Dynamic pricing engine</p>
+          <p class="sr-no-head"><span class="sr-verdict-chip sr-chip-no">Nu construiți</span> C · Motor de prețuri dinamice</p>
           <p class="sr-body">
-            Not because the model can't produce prices — because the workflow
-            has no error budget and no validation path. A wrong extraction is
-            caught by an operator; a wrong price reaches a customer directly
-            and costs margin or trust. The spot-quote history that would train
-            and validate it lives in unstructured email threads, so the error
-            rate can't even be measured to the tolerance required.
-            <strong>The cheaper answer that survives scrutiny:</strong> a
-            rules-based margin floor with quarterly review — nearly free, no
-            surprise behavior. <strong>What would change the verdict:</strong>
-            two years of structured quote/outcome data and a human approval
-            step that doesn't erase the speed advantage.
+            Nu pentru că modelul n-ar putea produce prețuri — ci pentru că fluxul
+            de lucru nu are buget de eroare și nici cale de validare. O extragere
+            greșită e prinsă de un operator; un preț greșit ajunge direct la
+            client și costă marjă sau încredere. Istoricul cotațiilor spot, care
+            l-ar antrena și valida, trăiește în fire de email nestructurate, așa
+            că rata de eroare nici măcar nu poate fi măsurată la toleranța
+            cerută. <strong>Răspunsul mai ieftin, care rezistă la scrutin:</strong>
+            un prag de marjă bazat pe reguli, cu revizuire trimestrială — aproape
+            gratuit, fără comportament-surpriză. <strong>Ce ar schimba
+            verdictul:</strong> doi ani de date structurate cotație/rezultat și
+            un pas de aprobare umană care să nu anuleze avantajul de viteză.
           </p>
         </div>
       </article>
 
       <!-- ============================== PAGE 5 -->
-      <article class="sr-sheet" aria-label="Page 5 — Gaps, next steps, and the map forward">
-        <p class="sr-sheet-tag">Page 5 · Gaps, next steps, and the map forward</p>
-        <h2 class="sr-sheet-title">What happens next — with or without us.</h2>
+      <article class="sr-sheet" aria-label="Pagina 5 — Lipsuri, pași următori și harta înainte">
+        <p class="sr-sheet-tag">Pagina 5 · Lipsuri, pași următori și drumul înainte</p>
+        <h2 class="sr-sheet-title">Ce urmează — cu sau fără noi.</h2>
         <ol class="sr-steps" role="list">
-          <li><strong>Assign the knowledge-base owner (yours to do, this week).</strong> No engagement needed — one name, one 90-day consolidation target, and use case B stops being blocked.</li>
-          <li><strong>Build the ground-truth set (yours to do, ~1 week of operator time).</strong> 200 recent shipments, fields verified by hand. Whoever builds the assistant will need it — us or anyone else.</li>
-          <li><strong>Scope the document assistant against the page-3 gate.</strong> The open questions — actual extraction accuracy on your documents, EU-only processing cost — are exactly what a fixed-scope production-readiness audit tests.</li>
-          <li><strong>Re-gate the chatbot in 90 days.</strong> If the knowledge base lands, B re-enters at “build” candidacy; if it doesn't, that tells you something too.</li>
+          <li><strong>Numiți responsabilul bazei de cunoștințe (al dumneavoastră, săptămâna aceasta).</strong> Nu e nevoie de niciun contract — un nume, o țintă de consolidare la 90 de zile, iar cazul B încetează să mai fie blocat.</li>
+          <li><strong>Construiți setul de referință (al dumneavoastră, ~1 săptămână de timp al operatorilor).</strong> 200 de expedieri recente, cu câmpurile verificate manual. Oricine ar construi asistentul va avea nevoie de el — noi sau altcineva.</li>
+          <li><strong>Dimensionați asistentul pentru documente după poarta de la pagina 3.</strong> Întrebările rămase deschise — acuratețea reală a extragerii pe documentele dumneavoastră, costul prelucrării exclusiv în UE — sunt exact ce testează un audit de pregătire pentru producție, cu perimetru fix.</li>
+          <li><strong>Reintroduceți chatbotul în poartă peste 90 de zile.</strong> Dacă baza de cunoștințe se consolidează, B reintră drept candidat la „construiți”; dacă nu, și asta vă spune ceva.</li>
         </ol>
         <div class="sr-map-forward">
-          <p class="sr-foot-label">If you want help, this is how each gap maps</p>
+          <p class="sr-foot-label">Dacă vreți ajutor, iată cum se leagă fiecare lipsă</p>
           <ul role="list">
-            <li>Extraction accuracy &amp; pipeline reality → a fixed-scope <strong>production-readiness audit</strong> on use case A.</li>
-            <li>EU-only / no-transfer processing → a <strong>security &amp; EU AI Act review</strong>, scoped by the exposure tier already assigned above.</li>
-            <li>Taking A from verdict to production → a fixed-scope <strong>production sprint</strong>, one workflow, measured against the page-3 metric.</li>
+            <li>Acuratețea extragerii și realitatea pipeline-ului → un <strong>audit de pregătire pentru producție</strong>, cu perimetru fix, pe cazul A.</li>
+            <li>Prelucrarea exclusiv în UE / fără transferuri → o <strong>analiză de securitate și EU AI Act</strong>, dimensionată chiar de nivelul de expunere atribuit mai sus.</li>
+            <li>Ducerea lui A de la verdict în producție → un <strong>sprint de producție</strong> cu perimetru fix, un singur flux de lucru, măsurat pe metrica de la pagina 3.</li>
           </ul>
         </div>
-        <p class="sr-yours">This document is yours either way.</p>
+        <p class="sr-yours">Acest document rămâne al dumneavoastră, în oricare variantă.</p>
       </article>
 
       <!-- ============================== APPENDIX -->
-      <article class="sr-sheet sr-sheet-appendix" aria-label="Appendix — the Gate Zero rubric">
-        <p class="sr-sheet-tag">Appendix · The Gate Zero rubric</p>
-        <h2 class="sr-sheet-title">The anchors are the method. Nothing behind the curtain.</h2>
+      <article class="sr-sheet sr-sheet-appendix" aria-label="Anexă — grila de punctare Gate Zero">
+        <p class="sr-sheet-tag">Anexă · Grila de punctare Gate Zero</p>
+        <h2 class="sr-sheet-title">Criteriile sunt metoda. Nimic în spatele cortinei.</h2>
         <p class="sr-body">
-          Every dimension is scored 1–5 against observable anchors — the same
-          anchors in every readout, fixed before scoring begins. Score 5 and
-          score 1 are shown here for each dimension; the full anchor set
-          travels with the readout.
+          Fiecare dimensiune este punctată de la 1 la 5, pe criterii observabile
+          — aceleași în fiecare raport, fixate înainte de punctare. Pentru
+          fiecare dimensiune, aici sunt arătate punctajele 5 și 1; setul complet
+          de criterii însoțește raportul.
         </p>
         <dl class="sr-rubric">
-          <div><dt>Value at stake</dt><dd><strong>5:</strong> euros or hours attached to a named workflow, from the client's own figures. <strong>1:</strong> “efficiency” with no workflow named.</dd></div>
-          <div><dt>Data reality</dt><dd><strong>5:</strong> grounding content exists, is clean, and is accessible today. <strong>1:</strong> it exists in someone's head.</dd></div>
-          <div><dt>Grounding &amp; retrieval</dt><dd><strong>5:</strong> structured, current, chunkable content a retrieval system can serve at production quality. <strong>1:</strong> fragmented or stale content no retrieval tuning can rescue.</dd></div>
-          <div><dt>Error tolerance vs stakes</dt><dd><strong>5:</strong> wrong outputs land on a reviewer with time to catch them. <strong>1:</strong> wrong outputs reach a customer, a regulator, or a ledger directly.</dd></div>
-          <div><dt>Validation &amp; verifiability</dt><dd><strong>5:</strong> correctness checkable automatically or by cheap sampling. <strong>1:</strong> no way to know it's wrong until it costs something.</dd></div>
-          <div><dt>Cost, latency &amp; ownership</dt><dd><strong>5:</strong> unit economics hold at 2× volume and a named owner exists. <strong>1:</strong> per-query cost unknown and nobody would be paged.</dd></div>
-          <div><dt>Security &amp; EU AI Act exposure</dt><dd><strong>5:</strong> no personal data, minimal-risk tier, deployment unconstrained. <strong>1:</strong> personal or regulated data with an unresolved transfer, or Annex III adjacency unexamined.</dd></div>
+          <div><dt>Valoare în joc</dt><dd><strong>5:</strong> euro sau ore atașate unui flux de lucru numit, din cifrele proprii ale clientului. <strong>1:</strong> „eficiență”, fără vreun flux numit.</dd></div>
+          <div><dt>Realitatea datelor</dt><dd><strong>5:</strong> conținutul-sursă există, este curat și accesibil astăzi. <strong>1:</strong> există în capul cuiva.</dd></div>
+          <div><dt>Ancorare și retrieval</dt><dd><strong>5:</strong> conținut structurat, actual, ușor de fragmentat, pe care un sistem de retrieval îl poate servi la calitate de producție. <strong>1:</strong> conținut fragmentat sau expirat, pe care niciun tuning de retrieval nu îl poate salva.</dd></div>
+          <div><dt>Toleranța la erori față de miză</dt><dd><strong>5:</strong> răspunsurile greșite ajung la un verificator care are timp să le prindă. <strong>1:</strong> răspunsurile greșite ajung direct la un client, la un organ de reglementare sau într-un registru contabil.</dd></div>
+          <div><dt>Validare și verificabilitate</dt><dd><strong>5:</strong> corectitudinea se poate verifica automat sau prin eșantionare ieftină. <strong>1:</strong> nu ai cum să afli că greșește până nu costă ceva.</dd></div>
+          <div><dt>Cost, latență și responsabilitate</dt><dd><strong>5:</strong> economia unitară rezistă la volum dublu și există un responsabil numit. <strong>1:</strong> costul per interogare e necunoscut și n-ar fi sunat nimeni noaptea.</dd></div>
+          <div><dt>Securitate și expunere EU AI Act</dt><dd><strong>5:</strong> fără date personale, nivel de risc minim, instalare fără constrângeri. <strong>1:</strong> date personale sau reglementate cu un transfer nerezolvat, ori vecinătate de anexa III neexaminată.</dd></div>
         </dl>
         <p class="sr-standards">
-          Exposure scoring cross-references the EU AI Act (Article 6 / Annex
-          III), the NIST AI Risk Management Framework, and the OWASP Top 10
-          for LLM applications. Declared assumptions from the session travel
-          with the readout as a register.
+          Punctarea expunerii se raportează la EU AI Act (articolul 6 / anexa
+          III), la NIST AI Risk Management Framework și la OWASP Top 10 pentru
+          aplicații LLM. Ipotezele declarate în sesiune însoțesc raportul, sub
+          formă de registru.
         </p>
       </article>
 
       <div class="sr-cta">
         <p class="sr-cta-text">
-          This is the document your leadership team receives — built on your
-          numbers, your systems, and your use cases.
+          Acesta este documentul pe care îl primește echipa dumneavoastră de
+          conducere — construit pe cifrele, sistemele și cazurile dumneavoastră
+          de utilizare.
         </p>
-        <Button href="/assessment#apply" withArrow>Apply for an assessment</Button>
+        <Button href="/assessment#apply" withArrow>Aplicați pentru o evaluare</Button>
       </div>
     </Container>
   </section>

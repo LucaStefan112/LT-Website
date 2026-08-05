@@ -31,11 +31,11 @@ import { config } from "./site";
 
 const primaryCta: CTA = config.bookingUrl
   ? { label: "Rezervați o discuție", href: config.bookingUrl, external: true }
-  : { label: "Începeți o discuție", href: "/ro/contact" };
+  : { label: "Începeți o discuție", href: "/contact" };
 
 const assessmentCta: CTA = {
   label: "Începeți cu o evaluare",
-  href: "/ro/assessment",
+  href: "/assessment",
 };
 
 export const site = {
@@ -64,26 +64,26 @@ export const site = {
 /* ---------------------------------------------------------------- Navigation */
 
 export const nav: NavItem[] = [
-  { label: "Servicii", href: "/ro/services" },
-  { label: "Proiecte", href: "/ro#work" },
-  { label: "Perspective", href: "/ro/insights" },
-  { label: "Despre", href: "/ro/about" },
-  { label: "Contact", href: "/ro/contact" },
+  { label: "Servicii", href: "/services" },
+  { label: "Proiecte", href: "/#work" },
+  { label: "Perspective", href: "/insights" },
+  { label: "Despre", href: "/about" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export const footerNav: NavItem[] = [
-  { label: "Servicii", href: "/ro/services" },
-  { label: "Evaluare", href: "/ro/assessment" },
-  { label: "Scorecard", href: "/ro/scorecard" },
-  { label: "Proiecte", href: "/ro#work" },
-  { label: "Perspective", href: "/ro/insights" },
-  { label: "Despre", href: "/ro/about" },
-  { label: "Contact", href: "/ro/contact" },
+  { label: "Servicii", href: "/services" },
+  { label: "Evaluare", href: "/assessment" },
+  { label: "Scorecard", href: "/scorecard" },
+  { label: "Proiecte", href: "/#work" },
+  { label: "Perspective", href: "/insights" },
+  { label: "Despre", href: "/about" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export const legalNav: NavItem[] = [
-  { label: "Confidențialitate", href: "/ro/privacy" },
-  { label: "Termeni", href: "/ro/terms" },
+  { label: "Confidențialitate", href: "/privacy" },
+  { label: "Termeni", href: "/terms" },
 ];
 
 /* --------------------------------------------------------------- Hero */
@@ -249,7 +249,7 @@ export const assessmentPage = {
     ],
     guaranteeLabel: "Garanția, în scris",
     guarantee: "Așteptați-vă la cel puțin un caz de utilizare despre care vă vom spune să nu îl construiți — sau să nu îl construiți încă — cu motivul ingineresc, în scris. Iar dacă fiecare idee adusă trece cu adevărat de poartă, raportul spune asta la fel de limpede: ce nu va face niciodată este să fabrice un verdict, în oricare direcție.",
-    sampleCta: { label: "Citiți un raport exemplu", href: "/ro/assessment/sample-readout" } as CTA,
+    sampleCta: { label: "Citiți un raport exemplu", href: "/assessment/sample-readout" } as CTA,
   },
 
   method: {
@@ -329,7 +329,7 @@ export const assessmentPage = {
       "Inginer de securitate de producție, cu experiență în protecția datelor",
       "A fondat două produse SaaS; arhitect principal al unei platforme enterprise multi-tenant",
     ],
-    link: { label: "Mai multe despre Luca", href: "/ro/about" } as CTA,
+    link: { label: "Mai multe despre Luca", href: "/about" } as CTA,
   },
 
   positioning: {
@@ -450,7 +450,7 @@ export const aboutTeaser = {
   eyebrow: "Cine e în spate",
   heading: "Condusă de fondator. Implicare directă.",
   body: "LT Strategy Partners este condusă de Luca-Ștefan Tamaș — inginer de sisteme care construiește și livrează AI de producție, de la sisteme LLM self-hosted, cu retrieval, până la produse SaaS complete. Construiește sisteme de producție în medii exigente, critice pentru securitate, a fost arhitect principal al unei platforme enterprise multi-tenant (BI, ERP, gestiunea documentelor, automatizarea proceselor) și a fondat două produse SaaS proprii. Lucrați direct cu el: omul care vă consiliază este omul care face munca.",
-  link: { label: "Mai multe despre Luca", href: "/ro/about" } as CTA,
+  link: { label: "Mai multe despre Luca", href: "/about" } as CTA,
   photoCaption: "Luca-Ștefan Tamaș · Fondator",
 } as const;
 
@@ -521,7 +521,7 @@ export const faq = {
     {
       q: "Cum tratați datele și proprietatea noastră intelectuală?",
       a: "Datele dumneavoastră rămân ale dumneavoastră, dețineți ce construim, iar totul este sigur din proiectare.",
-      href: "/ro#data-ip",
+      href: "/#data-ip",
     },
   ] as FaqItem[],
 } as const;
@@ -556,7 +556,7 @@ export const contact = {
     "Fără scenarii de vânzare, fără presiune.",
   ],
   privacyHtml:
-    'Folosim datele dumneavoastră doar ca să răspundem solicitării și nu le transmitem niciodată terților. Vedeți <a href="/ro/privacy">politica de confidențialitate</a>.',
+    'Folosim datele dumneavoastră doar ca să răspundem solicitării și nu le transmitem niciodată terților. Vedeți <a href="/privacy">politica de confidențialitate</a>.',
   successMessage:
     "Mulțumim — mesajul dumneavoastră este gata de trimis. Vă răspundem personal în cel mult două zile lucrătoare.",
 } as const;
@@ -1038,16 +1038,16 @@ export const scorecardPage = {
     button: "Trimiteți-mi citirea",
     privacy: "Folosim emailul dumneavoastră doar ca să trimitem această citire. Nu îl transmitem mai departe și nu vă adăugăm pe nicio listă.",
     privacyLinkLabel: "Vedeți politica de confidențialitate.",
-    privacyHref: "/ro/privacy",
+    privacyHref: "/privacy",
   },
   ctaPrimary: {
     label: "Aplicați pentru o Evaluare gratuită a Oportunităților AI",
-    href: "/ro/assessment",
+    href: "/assessment",
     microcopy: "Gratuită · una per companie · livrată de fondator · un verdict scris, inclusiv unde AI nu se va amortiza.",
   },
   ctaSecondary: {
     label: "Sau, pur și simplu, discutați cu mine",
-    href: "/ro/contact",
+    href: "/contact",
   },
 } as const;
 
@@ -1057,59 +1057,59 @@ export const pageMeta = {
   home: {
     title: "LT Strategy Partners — Consultant tehnologie & AI pentru decizii de business mai bune",
     description: site.description,
-    path: "/ro",
+    path: "/",
   },
   scorecard: {
     title: "Scorecard AI & Tehnologie — LT Strategy Partners",
     description:
       "O verificare gratuită de 3 minute: zece întrebări simple, apoi o citire onestă a faptului că un pariu pe AI sau tehnologie s-ar amortiza deja pentru afacerea dumneavoastră — sau ce merită reparat întâi.",
-    path: "/ro/scorecard",
+    path: "/scorecard",
   },
   services: {
     title: "Servicii — LT Strategy Partners",
     description:
       "Consultanță tehnologică independentă și supervizare, strategie, livrare și performanță operațională — cu specializare aprofundată în AI. Un singur partener senior pe tot parcursul.",
-    path: "/ro/services",
+    path: "/services",
   },
   assessment: {
     title: "Evaluarea Oportunităților AI — LT Strategy Partners",
     description:
       "O evaluare gratuită, livrată de fondator: fiecare caz de utilizare AI, punctat după valoare, viabilitate în producție și expunere EU AI Act — cu verdict: construiți acum, încă nu sau nu construiți.",
-    path: "/ro/assessment",
+    path: "/assessment",
   },
   assessmentSample: {
     title: "Exemplu de Raport Gate Zero — LT Strategy Partners",
     description:
       "Un exemplu complet și clar marcat de Raport Gate Zero — verdictul scris livrat de Evaluarea gratuită a Oportunităților AI.",
-    path: "/ro/assessment/sample-readout",
+    path: "/assessment/sample-readout",
   },
   about: {
     title: "Despre — LT Strategy Partners",
     description:
       "Condusă de fondatorul Luca-Ștefan Tamaș, inginer de sisteme care construiește AI și sisteme LLM de producție și a livrat platforme enterprise și două produse SaaS proprii.",
-    path: "/ro/about",
+    path: "/about",
   },
   contact: {
     title: "Contact — LT Strategy Partners",
     description:
       "O discuție directă, fără presiune, despre unde v-ar putea mișca AI și tehnologia cifrele.",
-    path: "/ro/contact",
+    path: "/contact",
   },
   insights: {
     title: "Perspective — LT Strategy Partners",
     description:
       "Texte scurte și practice pentru lideri, despre valoarea reală din AI și tehnologie.",
-    path: "/ro/insights",
+    path: "/insights",
   },
   privacy: {
     title: "Confidențialitate — LT Strategy Partners",
     description: "Cum colectează și tratează LT Strategy Partners informațiile dumneavoastră.",
-    path: "/ro/privacy",
+    path: "/privacy",
   },
   terms: {
     title: "Termeni — LT Strategy Partners",
     description: "Termenii în care este furnizat site-ul LT Strategy Partners.",
-    path: "/ro/terms",
+    path: "/terms",
   },
 } as const;
 

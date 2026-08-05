@@ -13,10 +13,10 @@ const SITE_URL = "https://ltstrategypartners.com";
 export default defineConfig({
   site: SITE_URL,
   trailingSlash: "ignore",
-  // English at the root (unchanged URLs), Romanian under /ro.
+  // Romanian at the root (the primary market), English under /en.
   i18n: {
-    defaultLocale: "en",
-    locales: ["en", "ro"],
+    defaultLocale: "ro",
+    locales: ["ro", "en"],
     routing: {
       prefixDefaultLocale: false,
     },
@@ -46,8 +46,8 @@ export default defineConfig({
       lastmod: new Date("2026-07-02"),
       // Emit hreflang alternates for the two language trees.
       i18n: {
-        defaultLocale: "en",
-        locales: { en: "en", ro: "ro" },
+        defaultLocale: "ro",
+        locales: { ro: "ro", en: "en" },
       },
     }),
   ],

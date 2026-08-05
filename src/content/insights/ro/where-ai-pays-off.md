@@ -39,4 +39,4 @@ A doua: care este cel mai ieftin lucru care ar rezolva problema, și de ce nu es
 
 Merită spus cinstit că o bună parte din munca de AI propusă nu supraviețuiește acestor întrebări — și că asta e o calitate, nu un defect. Să spui nu cazurilor în care AI nu își are locul este felul în care eliberezi bugetul și atenția pentru puținele în care chiar se plătește.
 
-Exact această triere o face o [Evaluare a Oportunităților AI](/ro/assessment) scurtă și cu perimetru fix: o imagine clară, cu priorități, a locurilor unde AI vă merită banii — și a celor unde vi i-ar consuma în liniște.
+Exact această triere o face o [Evaluare a Oportunităților AI](/assessment) scurtă și cu perimetru fix: o imagine clară, cu priorități, a locurilor unde AI vă merită banii — și a celor unde vi i-ar consuma în liniște.
