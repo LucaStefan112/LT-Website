@@ -582,7 +582,7 @@ const lastIndex = sc.questions.length - 1;
         `${t.mail.requestedReadoutTo}: ${emailVal}`,
         "",
         `${t.mail.answers}:`,
-        ...answers.map((a, i) => `${t.mail.questionAbbrev}${i + 1}: ${a}`),
+        ...answers.map((a, i) => `${t.mail.question} ${i + 1}: ${a}`),
       ].join("\n");
       return `mailto:${cfg.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     };

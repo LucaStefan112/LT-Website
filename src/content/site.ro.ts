@@ -59,6 +59,7 @@ export const site = {
     github: "https://github.com/LucaStefan112",
   },
   primaryCta,
+  primaryCtaShort: "Programare",
   assessmentCta,
 };
 
@@ -370,7 +371,7 @@ export const dataIp = {
       body: "Izolarea tenanților, accesul cu privilegii minime și gestiunea secretelor se decid în faza de proiectare — nu se cârpesc pe urmă.",
     },
     {
-      title: "Ținut privat și ținut în frâu.",
+      title: "Confidențial, cu rezultate verificate.",
       body: "Unde contează confidențialitatea, pot rula AI on-premise sau self-hosted; unde contează acuratețea, țin rezultatele modelului în spatele unui strat de validare.",
     },
   ] as Card[],
@@ -380,7 +381,7 @@ export const dataIp = {
 
 export const approach = {
   eyebrow: "Cum lucrez",
-  outputLabel: "Plecați cu",
+  outputLabel: "Ce obțineți",
   title: "Cum se rezolvă o problemă, pas cu pas.",
   intro: "Pornesc de la firma dumneavoastră, nu de la o propunere. Mă uit cum se desfășoară munca în realitate și cât vă costă ce nu merge, apoi stabilim împreună ce merită rezolvat întâi — și abia apoi, dacă e nevoie să se construiască ceva, îl construiesc eu și rămân până când e folosit.",
   steps: [
@@ -414,7 +415,7 @@ export const approach = {
 /* ----------------------------------------------------- Statement band */
 
 export const statement = {
-  eyebrow: "Ce promit",
+  eyebrow: "Angajamentul meu",
   headline: "Judecați-mă după rezultate, nu după livrabile.",
   support:
     "Fiecare proiect este legat de rezultate pe care le puteți măsura — și vă spun deschis ce funcționează și ce nu.",
@@ -1195,11 +1196,11 @@ export const formStrings = {
     sensitiveData: "Date sensibile",
     timeline: "Termen",
     fromWebsite: "site",
-    scorecardResult: "Rezultatul scorecardului",
+    scorecardResult: "Rezultat Scorecard",
+    question: "Întrebarea",
     score: "Scor",
     requestedReadoutTo: "Raportul a fost cerut la",
     answers: "Răspunsuri",
-    questionAbbrev: "Î",
   },
   honeypot: "Lăsați acest câmp gol",
   contactFormAria: "Formular de contact",

@@ -139,6 +139,10 @@ export const site = {
     github: "https://github.com/LucaStefan112",
   },
   primaryCta,
+  // Header-only short form: the full label is 195-202px and pushed the
+  // inline nav past the container. Full label stays in the hero, the CTA
+  // band and the mobile panel, and is used as this button's aria-label.
+  primaryCtaShort: "Book a call",
   assessmentCta,
 };
 
@@ -466,7 +470,7 @@ export const dataIp = {
       body: "Tenant isolation, least-privilege access, and secret handling are decided at the design stage — not patched on later.",
     },
     {
-      title: "Kept private, and kept in check.",
+      title: "Private, and verified.",
       body: "Where confidentiality matters, I can run AI on-premise or self-hosted; where correctness matters, I keep model outputs behind validation.",
     },
   ] as Card[],
@@ -476,7 +480,7 @@ export const dataIp = {
 
 export const approach = {
   eyebrow: "How I work",
-  outputLabel: "You leave with",
+  outputLabel: "What you get",
   title: "How a problem gets solved, step by step.",
   intro: "It starts with your business, not with a proposal. I look at how the work actually runs and what the gaps cost you, agree with you on what is worth fixing first — and only then, if something should be built, I build it and stay until it is used.",
   steps: [
@@ -510,7 +514,7 @@ export const approach = {
 /* ----------------------------------------------------- Statement band */
 
 export const statement = {
-  eyebrow: "My promise",
+  eyebrow: "My commitment",
   headline: "I'm judged by outcomes, not output.",
   support:
     "Every engagement is tied to results you can measure — and I tell you plainly what's working and what isn't.",
@@ -1340,10 +1344,10 @@ export const formStrings = {
     timeline: "Timeline",
     fromWebsite: "website",
     scorecardResult: "Scorecard result",
+    question: "Question",
     score: "Score",
     requestedReadoutTo: "Readout requested to",
     answers: "Answers",
-    questionAbbrev: "Q",
   },
   honeypot: "Leave this field empty",
   contactFormAria: "Contact form",
