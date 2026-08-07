@@ -3,7 +3,7 @@ import Container from "../ui/Container.astro";
 import Button from "../ui/Button.astro";
 import { getContent } from "../../content/i18n";
 
-const { hero, site, config } = getContent(Astro.url.pathname);
+const { hero, site, config, ui } = getContent(Astro.url.pathname);
 
 // Elevate the flat trust line into discrete proof chips.
 const proof = hero.trustLine
@@ -55,7 +55,7 @@ const proof = hero.trustLine
           </a>
         </div>
 
-        <ul class="hero-proof hero-in" style="--d:300ms" aria-label="What sets the practice apart">
+        <ul class="hero-proof hero-in" style="--d:300ms" aria-label={ui.heroProofAria}>
           {
             proof.map((item) => (
               <li class="hero-proof-item">

@@ -25,9 +25,12 @@ const meta = pageMeta.home;
   <Hero />
   <IntroBand />
   <Pillars />
-  <Services />
-  <DataIp />
+  {/* Approach before Services on purpose: the page must show how a problem gets
+      diagnosed before it shows what can be built. Both sections are `bone`, so
+      the paper/bone alternation down the page is unaffected by the order. */}
   <Approach />
+  <DataIp />
+  <Services />
   <Work />
   <Statement />
   <Testimonials />

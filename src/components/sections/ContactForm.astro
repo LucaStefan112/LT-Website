@@ -17,6 +17,7 @@ const clientStrings = {
   subjectPrefix: formStrings.contactSubjectPrefix,
   successMailto: contact.successMessage,
   successSent: formStrings.contactSuccessSent,
+  mail: formStrings.mail,
 };
 ---
 
@@ -283,14 +284,14 @@ const clientStrings = {
     };
 
     const buildMailto = (data: Record<string, string>): string => {
-      const subject = `${t.subjectPrefix} ${data.name || "website"}${
+      const subject = `${t.subjectPrefix} ${data.name || t.mail.fromWebsite}${
         data.company ? ` (${data.company})` : ""
       }`;
       const body = [
-        `Name: ${data.name}`,
-        `Company: ${data.company}`,
-        data.role ? `Role: ${data.role}` : "",
-        `Email: ${data.email}`,
+        `${t.mail.name}: ${data.name}`,
+        `${t.mail.company}: ${data.company}`,
+        data.role ? `${t.mail.role}: ${data.role}` : "",
+        `${t.mail.email}: ${data.email}`,
         "",
         data.message,
       ]

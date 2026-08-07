@@ -35,6 +35,7 @@ const clientCfg = {
     subjectPrefix: formStrings.scorecardSubjectPrefix,
     successSent: formStrings.scorecardSuccessSent,
     successMailto: formStrings.scorecardSuccessMailto,
+    mail: formStrings.mail,
   },
 };
 const lastIndex = sc.questions.length - 1;
@@ -575,13 +576,13 @@ const lastIndex = sc.questions.length - 1;
     const buildMailto = (emailVal: string): string => {
       const subject = `${t.subjectPrefix} ${lastTier?.name || ""} (${lastScore}/100)`;
       const body = [
-        `Scorecard result`,
-        `Score: ${lastScore}/100 — ${lastTier?.name || ""}`,
+        `${t.mail.scorecardResult}`,
+        `${t.mail.score}: ${lastScore}/100 — ${lastTier?.name || ""}`,
         "",
-        `Requested readout to: ${emailVal}`,
+        `${t.mail.requestedReadoutTo}: ${emailVal}`,
         "",
-        `Answers:`,
-        ...answers.map((a, i) => `Q${i + 1}: ${a}`),
+        `${t.mail.answers}:`,
+        ...answers.map((a, i) => `${t.mail.questionAbbrev}${i + 1}: ${a}`),
       ].join("\n");
       return `mailto:${cfg.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     };

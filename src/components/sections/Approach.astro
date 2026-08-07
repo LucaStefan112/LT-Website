@@ -4,14 +4,14 @@ import Container from "../ui/Container.astro";
 import SectionHeader from "../ui/SectionHeader.astro";
 import { getContent } from "../../content/i18n";
 
-const { approach } = getContent(Astro.url.pathname);
+const { approach, ui } = getContent(Astro.url.pathname);
 ---
 
 <Section id="approach" variant="bone" labelledby="approach-heading">
   <Container>
     <SectionHeader
       eyebrow={approach.eyebrow}
-      title="A disciplined path to outcomes."
+      title={approach.title}
       intro={approach.intro}
       id="approach-heading"
     />
@@ -25,12 +25,12 @@ const { approach } = getContent(Astro.url.pathname);
               {step.n}
             </span>
             <h3 class="step-title">
-              <span class="sr-only">{`Step ${i + 1}: `}</span>
+              <span class="sr-only">{`${ui.stepPrefix} ${i + 1}: `}</span>
               {step.title}
             </h3>
             <p class="step-body">{step.body}</p>
             <p class="step-output">
-              <span class="step-output-label">You leave with</span>
+              <span class="step-output-label">{approach.outputLabel}</span>
               {step.output}
             </p>
           </li>

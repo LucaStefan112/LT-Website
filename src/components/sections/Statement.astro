@@ -21,7 +21,7 @@ const { statement } = getContent(Astro.url.pathname);
   <Container>
     <Reveal>
       <div class="statement-inner">
-        <p class="statement-eyebrow eyebrow">Our promise</p>
+        <p class="statement-eyebrow eyebrow">{statement.eyebrow}</p>
         <h2 id="statement-heading" class="statement-headline display-lg">
           {statement.headline}
         </h2>

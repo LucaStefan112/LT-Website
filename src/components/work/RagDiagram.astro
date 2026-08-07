@@ -1,29 +1,35 @@
 ---
 /* Architecture diagram for the self-hosted Restaurant Menu Assistant.
-   Reflects the real stack; styled with the page accent (var(--accent)). */
+   Reflects the real stack; styled with the page accent (var(--accent)).
+   NOTE: the visible node labels below are still hardcoded English. They are
+   stack names plus two prose lines; localise them via `ui` if the Romanian
+   work page needs them translated. */
+import { getContent } from "../../content/i18n";
+
+const { ui } = getContent(Astro.url.pathname);
 ---
 
-<div class="rag" role="img" aria-label="Architecture: customer chat and admin panel connect through an Nginx proxy to a Python API, which uses Ollama (qwen2.5:3b and bge-m3), Qdrant vector search, PostgreSQL, and MinIO — all self-hosted on the venue's own network.">
-  <span class="rag-boundary-label">Runs on the venue's own network — no cloud, no per-query cost</span>
+<div class="rag" role="img" aria-label={ui.ragDiagramAlt}>
+  <span class="rag-boundary-label">{ui.ragDiagram.boundary}</span>
 
   <div class="rag-row">
-    <div class="rag-node">Customer chat<span>kiosk / tablet</span></div>
-    <div class="rag-node">Admin panel<span>menu management</span></div>
+    <div class="rag-node">{ui.ragDiagram.customerChat}<span>{ui.ragDiagram.customerChatSub}</span></div>
+    <div class="rag-node">{ui.ragDiagram.adminPanel}<span>{ui.ragDiagram.adminPanelSub}</span></div>
   </div>
 
   <div class="rag-link" aria-hidden="true"></div>
 
   <div class="rag-row">
-    <div class="rag-node rag-node--accent">Python API<span>token auth · retrieval-augmented answering</span></div>
+    <div class="rag-node rag-node--accent">Python API<span>{ui.ragDiagram.apiSub}</span></div>
   </div>
 
   <div class="rag-link" aria-hidden="true"></div>
 
   <div class="rag-row rag-row--services">
     <div class="rag-node">Ollama<span>qwen2.5:3b · bge-m3</span></div>
-    <div class="rag-node">Qdrant<span>vector search</span></div>
-    <div class="rag-node">PostgreSQL<span>menu &amp; config</span></div>
-    <div class="rag-node">MinIO<span>dish images</span></div>
+    <div class="rag-node">Qdrant<span>{ui.ragDiagram.qdrantSub}</span></div>
+    <div class="rag-node">PostgreSQL<span>{ui.ragDiagram.postgresSub}</span></div>
+    <div class="rag-node">MinIO<span>{ui.ragDiagram.minioSub}</span></div>
   </div>
 </div>
 

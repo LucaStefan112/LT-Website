@@ -1,5 +1,6 @@
 ---
-/* Application-style intake for the free AI Opportunity Assessment (Gate Zero).
+/* Application-style intake for the free Business Diagnostic. (Gate Zero is now
+   the go/no-go method applied later, only if the diagnosis says build.)
    Field copy lives in the content modules (site.ts / site.ro.ts) so both
    language trees render this same component. Submits via a configured endpoint
    if PUBLIC_CONTACT_ENDPOINT is set, otherwise falls back to mailto: (static
@@ -19,6 +20,7 @@ const clientStrings = {
   subjectPrefix: formStrings.assessmentSubjectPrefix,
   successMailto: formStrings.assessmentSuccessMailto,
   successSent: formStrings.assessmentSuccessSent,
+  mail: formStrings.mail,
 };
 ---
 
@@ -299,19 +301,19 @@ const clientStrings = {
     const buildMailto = (data: Record<string, string>): string => {
       const subject = `${t.subjectPrefix} ${data.company || data.name}`;
       const body = [
-        `Name: ${data.name}`,
-        `Email: ${data.email}`,
-        `Company: ${data.company}`,
-        `Role / sponsor: ${data.role}`,
+        `${t.mail.name}: ${data.name}`,
+        `${t.mail.email}: ${data.email}`,
+        `${t.mail.company}: ${data.company}`,
+        `${t.mail.roleSponsor}: ${data.role}`,
         "",
-        `Use cases for a verdict:`,
+        `${t.mail.problems}:`,
         data.usecases,
         "",
-        data.cost ? `Cost today: ${data.cost}` : "",
-        data.tried ? `Tried so far:\n${data.tried}` : "",
-        `Data lives in: ${data.data}`,
-        data.sensitive ? `Sensitive data: ${data.sensitive}` : "",
-        data.timeline ? `Timeline: ${data.timeline}` : "",
+        data.cost ? `${t.mail.costToday}: ${data.cost}` : "",
+        data.tried ? `${t.mail.triedSoFar}:\n${data.tried}` : "",
+        `${t.mail.dataLivesIn}: ${data.data}`,
+        data.sensitive ? `${t.mail.sensitiveData}: ${data.sensitive}` : "",
+        data.timeline ? `${t.mail.timeline}: ${data.timeline}` : "",
       ]
         .filter(Boolean)
         .join("\n");

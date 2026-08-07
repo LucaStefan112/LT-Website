@@ -1,5 +1,9 @@
 ---
-/* A complete, clearly-labeled SAMPLE of the Gate Zero Readout.
+/* A complete, clearly-labeled SAMPLE of the Gate Zero Readout — the build-
+   decision stage that follows the free Business Diagnostic. It deliberately
+   keeps its AI/production dimensions: Gate Zero assesses whether a thing can
+   survive production, which is a different question from the diagnostic's
+   seven business dimensions. Do not merge the two dimension sets.
    "Arvela Logistics" is a fictional company; every number is invented.
    The method, scoring, structure, and format are exactly what a client
    receives. Publishing the document is the credibility move: for a new
@@ -38,10 +42,13 @@ const ragLabel: Record<Rag, string> = {
   <section class="sr-wrap bg-bone">
     <Container>
       <a href="/en/assessment" class="sr-back" data-astro-prefetch>
-        <span aria-hidden="true">←</span> The AI Opportunity Assessment
+        <span aria-hidden="true">←</span> The Business Diagnostic
       </a>
 
       <div class="sr-banner" role="note">
+        <strong>Where this sits.</strong> This is the Gate Zero verdict — the
+        go/no-go stage that follows the Business Diagnostic, and only when the
+        diagnosis concludes something should be built.
         <strong>Illustrative sample.</strong> “Arvela Logistics” is a fictional
         company and every number below is invented. The method, the scoring,
         and the format are exactly what you receive — built on your numbers
@@ -190,7 +197,7 @@ const ragLabel: Record<Rag, string> = {
           ambition, gates everything after use case A.</strong>
         </p>
         <p class="sr-footnote">
-          Dimension weights were fixed before any use case was scored. No
+          Gate Zero weights are fixed before scoring, by design — what matters most to your business is agreed with you earlier, during the diagnosis. No
           aggregate score is reported — the lowest dimension gates; averages hide.
         </p>
       </article>
@@ -266,10 +273,10 @@ const ragLabel: Record<Rag, string> = {
       <!-- ============================== PAGE 5 -->
       <article class="sr-sheet" aria-label="Page 5 — Gaps, next steps, and the map forward">
         <p class="sr-sheet-tag">Page 5 · Gaps, next steps, and the map forward</p>
-        <h2 class="sr-sheet-title">What happens next — with or without us.</h2>
+        <h2 class="sr-sheet-title">What happens next — with me or without me.</h2>
         <ol class="sr-steps" role="list">
           <li><strong>Assign the knowledge-base owner (yours to do, this week).</strong> No engagement needed — one name, one 90-day consolidation target, and use case B stops being blocked.</li>
-          <li><strong>Build the ground-truth set (yours to do, ~1 week of operator time).</strong> 200 recent shipments, fields verified by hand. Whoever builds the assistant will need it — us or anyone else.</li>
+          <li><strong>Build the ground-truth set (yours to do, ~1 week of operator time).</strong> 200 recent shipments, fields verified by hand. Whoever builds the assistant will need it — me or anyone else.</li>
           <li><strong>Scope the document assistant against the page-3 gate.</strong> The open questions — actual extraction accuracy on your documents, EU-only processing cost — are exactly what a fixed-scope production-readiness audit tests.</li>
           <li><strong>Re-gate the chatbot in 90 days.</strong> If the knowledge base lands, B re-enters at “build” candidacy; if it doesn't, that tells you something too.</li>
         </ol>
@@ -316,7 +323,7 @@ const ragLabel: Record<Rag, string> = {
           This is the document your leadership team receives — built on your
           numbers, your systems, and your use cases.
         </p>
-        <Button href="/en/assessment#apply" withArrow>Apply for an assessment</Button>
+        <Button href="/en/assessment#apply" withArrow>Start with the Business Diagnostic</Button>
       </div>
     </Container>
   </section>

@@ -4,7 +4,7 @@ import Button from "./ui/Button.astro";
 import { getContent, resolveLocale, localePath, stripLocale } from "../content/i18n";
 
 const locale = resolveLocale(Astro.url.pathname);
-const { nav, site } = getContent(locale);
+const { nav, site, ui } = getContent(locale);
 
 // Language switcher: this page in each language. The 404 page exists only once
 // (GitHub Pages serves a single /404.html), so fall back to home.
@@ -15,17 +15,17 @@ const langLinks = [
   { code: "EN", locale: "en" as const, href: localePath("en", barePath) },
 ];
 const homeHref = localePath(locale, "/");
-const menuLabel = locale === "ro" ? "Deschide meniul" : "Open menu";
+const menuLabel = locale === "ro" ? "Deschideți meniul" : "Open menu";
 const langNavLabel = locale === "ro" ? "Limbă" : "Language";
 ---
 
 <header data-header class="site-header">
   <div class="container-lt header-inner">
-    <a href={homeHref} class="header-logo" aria-label={`${site.name} — home`}>
+    <a href={homeHref} class="header-logo" aria-label={`${site.name} — ${locale === "ro" ? "prima pagină" : "home"}`}>
       <Logo variant="primary" height={48} eager responsive alt={site.name} />
     </a>
 
-    <nav class="header-nav" aria-label="Primary">
+    <nav class="header-nav" aria-label={ui.navPrimaryAria}>
       <ul class="header-links">
         {
           nav.map((item) => (
@@ -339,8 +339,17 @@ const langNavLabel = locale === "ro" ? "Limbă" : "Language";
     margin-top: 1.25rem;
   }
   /* Desktop: show inline nav, hide the hamburger + mobile panel.
-     Placed last so these overrides win over the base rules above. */
-  @media (min-width: 900px) {
+     Placed last so these overrides win over the base rules above.
+
+     1140px, not 900px: the inline row is logo + six nav links + the language
+     switcher + the CTA button, and the Romanian labels are the widest. Measured
+     in the browser, Romanian has ~1px of spare room at 1100 and ~40px at 1150.
+     At the old 900px breakpoint the row overflowed the container and the page
+     scrolled sideways — that was already true with five links, and adding the
+     Diagnostic made it worse. Below this width the hamburger panel carries the
+     same nav, the language switcher and the CTA, so nothing is lost.
+     If nav labels or the CTA label change materially, re-measure this. */
+  @media (min-width: 1140px) {
     .header-nav {
       display: flex;
     }

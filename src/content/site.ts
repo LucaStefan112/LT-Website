@@ -115,7 +115,7 @@ const primaryCta: CTA = config.bookingUrl
   : { label: "Start a conversation", href: "/en/contact" };
 
 const assessmentCta: CTA = {
-  label: "Start with an assessment",
+  label: "Start with the diagnostic",
   href: "/en/assessment",
 };
 
@@ -124,9 +124,9 @@ export const site = {
   shortName: "LT Strategy",
   domain: "ltstrategypartners.com",
   url: "https://ltstrategypartners.com",
-  tagline: "Strategy that delivers.",
+  tagline: "First the problem. Then the solution.",
   description:
-    "Independent technology & AI advisor for leadership teams. We help you turn AI, innovation, and technology into better business decisions — spotting where they genuinely create value, then turning the right bets into measurable results.",
+    "Independent advisor for owners and managers. I start with the problem in your business, not with a solution — then design and build the fix myself. Nothing to sell you, so “don't build this” is a real answer.",
   email: "luca.tamas@ltstrategypartners.com",
   phone: "+40734950060", // used for the tel: link
   phoneDisplay: "+40 734 950 060", // shown to readers
@@ -147,6 +147,9 @@ export const site = {
    AND footer. About / Work / Insights / Services / Contact appear in both. */
 
 export const nav: NavItem[] = [
+  // The free diagnostic leads: it is the on-ramp, and the site argues
+  // problem-first. Same label as footerNav so the two agree.
+  { label: "Diagnostic", href: "/en/assessment" },
   { label: "Services", href: "/en/services" },
   { label: "Work", href: "/en#work" },
   { label: "Insights", href: "/en/insights" },
@@ -156,7 +159,7 @@ export const nav: NavItem[] = [
 
 export const footerNav: NavItem[] = [
   { label: "Services", href: "/en/services" },
-  { label: "Assessment", href: "/en/assessment" },
+  { label: "Diagnostic", href: "/en/assessment" },
   { label: "Scorecard", href: "/en/scorecard" },
   { label: "Work", href: "/en#work" },
   { label: "Insights", href: "/en/insights" },
@@ -172,41 +175,41 @@ export const legalNav: NavItem[] = [
 /* --------------------------------------------------------------- Hero */
 
 export const hero = {
-  eyebrow: "Independent technology & AI advisor",
-  headline: "Turn AI and technology into better business decisions.",
+  eyebrow: "Independent advisor for owners and managers",
+  headline: "I start with your problem, not with a solution.",
   subhead:
-    "An independent advisor for leadership teams. We help you see where AI and new technology genuinely move the business — then turn the right bets into results you can measure.",
+    "No assumptions and no ready-made answer. First I understand how your business actually runs and what the problem is really costing you — then, if something is worth building, I design and build it myself.",
   // Role label on the hero portrait name-tag.
   tagRole: "Founder",
   primaryCta: site.primaryCta,
   // Low-commitment path alongside the direct one (Task 5).
   secondaryCta: site.assessmentCta,
-  trustLine: "Independent · Senior-led · Business outcomes first",
+  trustLine: "Independent · Senior-led · I build what I recommend",
 } as const;
 
 /* -------------------------------------------------- The problem we solve */
 
 export const intro = {
-  eyebrow: "Why it matters",
-  body: "Every leadership team is under pressure to \"do something with AI\" — and it's genuinely hard to tell the moves that will pay off from the expensive distractions. We're the independent partner who helps you decide: where AI and new technology actually create value in your business, what to prioritize, and how to turn it into results you can measure. No product to sell you, no hype — just clear, practical judgment applied to your decisions.",
+  eyebrow: "Start with the problem",
+  body: "Margin thinning and nobody can say exactly where. The same numbers re-keyed into three systems. A decision waiting on a report someone builds by hand. Problems like these are almost never where everyone assumes. So I come in to listen: how the work really flows, where it stalls, and what it costs. I have no product and no commission, which is why I can afford to conclude the answer isn't technology at all — and when something is worth building, I build it.",
 } as const;
 
 /* ------------------------------------------------------- Value pillars */
 
 export const pillars = {
-  eyebrow: "How we're different",
+  eyebrow: "How I'm different",
   items: [
     {
       title: "Clarity before code.",
-      body: "We start with your business and your numbers, not the technology. We find where value genuinely is, where it isn't, and what it's worth before anyone writes a line of code.",
+      body: "I start with your business and your numbers, not the technology. I look for where the money is actually going, where value genuinely is and where it isn't — before anyone writes a line of code.",
     },
     {
-      title: "We advise and we build.",
-      body: "Most firms hand you a recommendation and leave. We stay through delivery — from roadmap, to a working solution in production, to impact measured against the numbers we agreed.",
+      title: "I diagnose, and I build.",
+      body: "Most advisors hand over a recommendation and leave. I stay to the end — from the plan, to a working solution running in production, to the impact measured against the numbers we agreed.",
     },
     {
-      title: "AI, used judiciously.",
-      body: "AI is one capability among several. We apply it where it earns its place, choose the simpler answer when it's the better one, and tell you plainly which is which.",
+      title: "No product to sell you.",
+      body: "No software, no licenses, no vendor commission. That is exactly why I can afford to tell you a problem is one of process or people — or not worth solving yet — and why “don't build anything” is a normal outcome.",
     },
   ] as Card[],
 } as const;
@@ -214,15 +217,15 @@ export const pillars = {
 /* ----------------------------------------------------------- Services */
 
 export const services = {
-  eyebrow: "What we do",
-  headerTitle: "One partner, end to end.",
+  eyebrow: "What I do",
+  headerTitle: "From your problem to the working fix.",
   deliverablesLabel: "What you get",
   intro:
-    "One technology partner across the full journey — advisory through to delivery, with deep specialization in AI — so strategy and delivery never disconnect.",
+    "One person from the first question to the day it works. I start with the problem — the margin, the hours, the decision that keeps waiting on a report — then advise and, where it's warranted, build it myself. So the plan and the thing that gets built never disconnect.",
   items: [
     {
       title: "Technology Advisory & Oversight",
-      body: "The role we're built for: the senior, independent technology advisor a leadership team keeps close — for where to invest, what to say no to, how to spend well, and where the real risk sits. No product to sell you, and no agenda but yours.",
+      body: "You have to sign off on systems, spend and vendors you have no way to verify, and nearly everyone advising you is also selling something. I'm the senior, independent advisor you keep close for exactly those calls — where to invest, what to say no to, how to spend well, and where the real risk sits. No product, no license, no vendor commission: no agenda but yours.",
       deliverables: [
         "An ongoing advisor for the decisions that matter, between and beyond projects",
         "Independent review of direction, spend, roadmaps, vendors, and risk",
@@ -231,25 +234,25 @@ export const services = {
     },
     {
       title: "Opportunity & Strategy",
-      body: "We assess where AI, data, and technology can move revenue, cost, or risk, size the value against your P&L, and separate the few opportunities worth pursuing from the many that aren't.",
+      body: "You can usually feel where the business leaks — quotes going out late, stock sitting still, the same numbers re-keyed by hand — but not which fix is worth doing first. I put a number on each against your P&L and separate the few opportunities worth pursuing from the many that aren't. Sometimes the honest conclusion is that none of them are.",
       deliverables: [
-        "A prioritized opportunity map, ranked by value and effort",
+        "A ranked map of what's actually costing you, by value and effort",
         "Sized business cases for the top opportunities",
         "A sequenced roadmap with owners and decision points",
       ],
     },
     {
       title: "Implementation & Delivery",
-      body: "We design, build, integrate, and deploy the solutions ourselves, working alongside your teams so the knowledge stays in-house. We ship working software over slideware, and stay until it's live, used, and handed over cleanly.",
+      body: "The usual failure isn't the plan — it's that nobody builds it. I design, build, integrate and deploy the solution myself, working alongside your team so the knowledge stays in-house. Working software over slideware, and I stay until it's live, used, and handed over cleanly.",
       deliverables: [
         "A working solution running in production",
         "Integration into your existing systems and workflows",
-        "Documentation and a trained team who can run it without us",
+        "Documentation and a trained team who can run it without me",
       ],
     },
     {
       title: "Operational Performance",
-      body: "We improve the processes and ways of working around the technology, so the gains show up in the numbers and hold once we leave. We redesign how work flows, then put measurement in place to keep it honest.",
+      body: "A new tool changes nothing if the work around it stays the same — that's how a gain shows up in the demo and never in the accounts. I redesign how the work actually flows, then put measurement in place so the gain is visible and holds after I leave.",
       deliverables: [
         "Redesigned processes mapped to the new tools",
         "A measurement framework tied to your KPIs",
@@ -259,11 +262,11 @@ export const services = {
   ] as Service[],
   // Featured, visually distinct block that showcases the AI specialty within
   // the single Services narrative (folds in AI governance). No prices — the
-  // free AI Opportunity Assessment is the entry point.
+  // free Business Diagnostic is the entry point.
   ai: {
-    eyebrow: "The specialty",
-    title: "AI, applied where it actually pays off.",
-    body: "AI is where we go deepest — cutting through the hype to the handful of places it genuinely moves your business, then building it so it works in the real world, not just the demo. We've built exactly this, including a retrieval-augmented assistant that runs entirely on hardware a business already owns.",
+    eyebrow: "Where AI fits",
+    title: "AI, when it's genuinely the right answer.",
+    body: "AI is one option among several, and the one I go deepest in — which is exactly why I can tell you where it genuinely moves your numbers and where it's an expensive distraction, then build it so it survives real users, not just the demo. I've built exactly this, including a retrieval-augmented assistant that runs entirely on hardware a business already owns.",
     points: [
       {
         title: "Where AI pays off",
@@ -278,43 +281,43 @@ export const services = {
         body: "Private or self-hosted where your data demands it, and a clear read on where the EU AI Act applies to you — practical guidance, not theory.",
       },
     ] as Card[],
-    note: "Most engagements start with the AI Opportunity Assessment — free, fixed-scope, and honest about where AI won't pay off.",
+    note: "Most engagements start with the Business Diagnostic — free, fixed-scope, and just as willing to conclude that the answer isn't technology at all.",
     cta: site.assessmentCta,
   },
 } as const;
 
-/* ----------------------------- AI Opportunity Assessment (entry offer) */
+/* -------------------------------- Business Diagnostic (entry offer) */
 
 export const assessment = {
   eyebrow: "Start here — a low-risk first step",
-  heading: "The AI Opportunity Assessment.",
-  body: "Not sure where AI actually pays off in your business? Start here. In two to four weeks, we put your candidate use cases through Gate Zero — the go/no-go check production systems face, applied before any money is spent — and give you a written verdict on each: build now, not yet, or don't build. Including, plainly, where AI won't pay off for you. Fixed scope. No fee. No pitch.",
+  heading: "The Business Diagnostic.",
+  body: "Something is costing you money and you can name the symptom, not the cause. Start here. I come in to understand how your business actually runs before I propose anything — then, in two to four weeks, you get a written diagnosis: what is really holding you back, what is worth fixing first, and what each fix would take. Sometimes the answer is a system I build, sometimes a process change, sometimes nothing at all. Fixed scope. No fee. No pitch.",
   getHeading: "What you get",
   get: [
-    "A 3–5 page written readout, built to be shown to your board",
-    "Every use case scored and mapped by value and production viability",
-    "A blunt verdict on your top use case — with the engineering reason",
-    "A provisional EU AI Act risk tier for each use case",
+    "A 3–5 page written diagnosis, built to be shown to your board",
+    "Every problem I find, sized by what it costs you and how hard it is to fix",
+    "A blunt call on the one thing to fix first — and the reason behind it",
+    "The risk you are already carrying — key people, manual controls, blind spots",
   ],
   // The initial assessment is free (a low-risk entry offer).
-  priceNote: "Free — founder-delivered, capped at three per month.",
+  priceNote: "Free — I run it myself, capped at three per month.",
   cta: site.assessmentCta,
 } as const;
 
 /* -------------------------- Gate Zero: the /assessment offer page content */
-/* The dedicated landing page for the free AI Opportunity Assessment, run
+/* The dedicated landing page for the free Business Diagnostic, run
    through the Gate Zero Method. Honesty rules baked into this copy:
-   - The capacity cap (3/month) is real for a founder-delivered offer — if
+   - The capacity cap (3/month) is real for an offer he delivers himself — if
      capacity changes, change the number here and in offer-assets/.
-   - The only statistic used is S&P Global's 2025 finding, with attribution.
+   - No statistics are used on this page; if one is added, attribute it.
    - The no-go guarantee is a commitment about future readouts, not a claim
      about past work. Never add invented clients, metrics, or history. */
 
 export const assessmentPage = {
-  eyebrow: "The AI Opportunity Assessment",
-  heading: "Before you spend on AI, get the verdict a paid audit would start with.",
-  lead: "A structured session with your leadership team and a written, prioritized readout — including a blunt call on where AI won't pay off for you. Free, founder-delivered, and capped.",
-  heroCta: { label: "Apply for an assessment", href: "#apply" } as CTA,
+  eyebrow: "The Business Diagnostic",
+  heading: "Before anyone sells you a solution, find out what is actually holding you back.",
+  lead: "A structured session with your leadership team and a written, prioritized diagnosis of what is costing you most — including a blunt “don't build anything” where that is the honest answer. Free, I run it myself, and capped.",
+  heroCta: { label: "Apply for a diagnostic", href: "#apply" } as CTA,
   heroFacts: [
     "45–60 minutes with your leadership team",
     "One per company",
@@ -324,76 +327,76 @@ export const assessmentPage = {
 
   problem: {
     eyebrow: "Why this exists",
-    heading: "The pattern behind stalled AI is a production pattern.",
+    heading: "Most advice arrives with the answer already chosen.",
     paragraphs: [
-      "You've probably watched it happen: a promising pilot, a confident vendor, a demo that impressed everyone — and then nothing that survives contact with real users, real data, and real accountability. S&P Global found that by 2025, 42% of companies had abandoned most of their AI initiatives — almost always after the money was spent, not before.",
-      "Those aren't strategy failures. They're production failures: retrieval that can't be grounded in the data you actually have, outputs nobody can validate, costs that don't survive scale, and risk nobody scored before building. So an assessment worth your time has to be a production judgment — not a maturity survey.",
+      "You already know something is wrong; what you don't have is a name for it. Margin that used to be there and isn't. Stock sitting still while more of it gets ordered. The same order typed into three systems by three people. A decision on hold until someone finishes the report. Quotes going out two days late and nobody able to say why. Half of what makes the firm work living in two people's heads.",
+      "Take that to most people and you get their product back: the software company finds a software problem, the AI vendor finds an AI problem, the consultancy finds a strategy problem. I sell no product, hold no license and take no commission from anyone — which is exactly why I can afford to look at your business first and then tell you the cause is a pricing rule, a handover nobody owns, or a report nobody trusts. And when the answer is something that has to be built, I build it.",
     ],
   },
 
   deliverable: {
     eyebrow: "What you get",
-    heading: "The Gate Zero Readout.",
-    intro: "Three to five pages, written personally by the founder — no juniors, no template engine. Built so page one can be forwarded to your board on its own.",
+    heading: "The written diagnosis.",
+    intro: "Three to five pages, written personally by me — no juniors, no template engine. Built so page one can be forwarded to your board on its own.",
     items: [
       "A one-page decision memo with the verdict in the title — not buried on page four",
-      "Every candidate use case scored and plotted on one map: value at stake × production viability, each with its security and EU AI Act exposure badge",
-      "A formal gate checklist on your top use case: build now / not yet / don't build, with cost band, time-to-production, and walk-away conditions",
-      "A named section — “Where AI won't pay off for you” — with the engineering reason for every no",
-      "Next steps that include actions you can take without hiring us",
+      "Every problem I find, plotted on one map: what it costs you × how hard it is to fix, each with what you risk by leaving it alone",
+      "For anything that would have to be built, the Gate Zero check in writing: build now / not yet / don't build, with cost band, time-to-production, and walk-away conditions",
+      "A named section — “Not worth fixing yet” — with the reason for every one of them",
+      "Next steps that include the ones you can take without hiring me",
     ],
     guaranteeLabel: "The written guarantee",
-    guarantee: "Expect at least one use case we'll tell you not to build — or not to build yet — with the engineering reason, in writing. And if every idea you bring genuinely clears the gate, the readout says that plainly instead: what it will never do is manufacture a verdict, in either direction.",
-    sampleCta: { label: "Read a sample readout", href: "/en/assessment/sample-readout" } as CTA,
+    guarantee: "Expect at least one thing I'll tell you not to fix — or not to fix yet — with the reason, in writing. If what matters most turns out to be a process change and no new system, the diagnosis says exactly that. And if everything you bring genuinely holds up, it says that plainly instead: what it will never do is manufacture a verdict, in either direction.",
+    sampleCta: { label: "Read a sample Gate Zero verdict", href: "/en/assessment/sample-readout" } as CTA,
   },
 
   method: {
     eyebrow: "The method",
-    heading: "Gate Zero: the production gate, applied before the money.",
-    intro: "In production engineering, a gate is the formal go/no-go checkpoint a system must pass before it ships. Gate Zero applies that discipline to your use cases before anything is built. Seven dimensions, scored on published anchors:",
+    heading: "How I look at the business — and where Gate Zero comes in.",
+    intro: "I arrive without a candidate solution. Seven things get looked at, in your numbers and your vocabulary, and only what survives them is worth spending on. Anything that would have to be built then goes through Gate Zero — the formal go/no-go check a production system faces, applied before the money:",
     dimensions: [
       { name: "Value at stake", desc: "Euros or hours attached to a named workflow — conservative base case, assumptions stated. No hockey sticks." },
-      { name: "Data reality", desc: "Does the grounding content actually exist, is it clean, and is it accessible today — or does it live in someone's head?" },
-      { name: "Grounding & retrieval feasibility", desc: "Can outputs be grounded in your actual documents, at retrieval quality a production system can sustain?" },
-      { name: "Error tolerance vs stakes", desc: "Where would a wrong output land, who notices, and what error rate can this workflow honestly absorb?" },
-      { name: "Validation & verifiability", desc: "Can correctness ever be checked — automatically, by sampling, or by a human step that doesn't erase the value?" },
-      { name: "Cost, latency & ownership", desc: "Unit economics at production volume, latency the workflow tolerates, and who gets paged after launch." },
-      { name: "Security & EU AI Act exposure", desc: "Personal-data touch, attack surface, deployment constraints, and a provisional EU AI Act risk tier — scored per use case, at intake." },
+      { name: "Data reality", desc: "Does the information this depends on actually exist, is it clean, and can you get to it today — or does it live in someone's head?" },
+      { name: "How the work really runs", desc: "The process as people actually do it, not as the diagram says: the workarounds, the re-keying, the second spreadsheet nobody mentions." },
+      { name: "Error tolerance vs stakes", desc: "Where does a mistake land today, who notices, and what has it cost by the time someone catches it?" },
+      { name: "Whether the fix can be measured", desc: "If this changes, does the improvement show up in numbers you already have — or would you be taking my word for it?" },
+      { name: "Cost, effort & ownership", desc: "What a fix costs to run and not only to build, and who inside the firm owns it once I am gone." },
+      { name: "Exposure & dependency", desc: "Single points of failure, key-person risk, personal data nobody can account for, and the rules you are already subject to — including where the EU AI Act applies to you." },
     ],
-    rulesLabel: "Three rules, stated in every readout",
+    rulesLabel: "Three rules, stated in every diagnosis",
     rules: [
-      "Dimension weights are fixed before any use case is scored.",
-      "No single aggregate “AI readiness score” — the lowest dimension gates; averages hide.",
+      "What matters most is agreed with you before anything is scored.",
+      "No single aggregate “maturity score” — the weakest dimension decides; averages hide.",
       "Every score carries a confidence level and its declared assumptions.",
     ],
-    questionsLabel: "Four of the actual gate questions",
+    questionsLabel: "Four of the questions I actually ask",
     gateQuestions: [
-      "Where would a wrong output land, and who notices?",
-      "What content would ground the answers — and who keeps it current?",
-      "What cost per query and latency can this workflow tolerate?",
-      "Who owns this system after launch?",
+      "Where does a mistake land today — and who notices?",
+      "Which decisions are waiting on information you don't have?",
+      "What does this cost you every month it stays as it is?",
+      "What happens to this if the person who runs it leaves?",
     ],
-    standardsNote: "Exposure scoring cross-references the EU AI Act (Article 6 / Annex III), the NIST AI Risk Management Framework, and the OWASP Top 10 for LLM applications.",
+    standardsNote: "Where something does get built, the exposure read cross-references the EU AI Act (Article 6 / Annex III), the NIST AI Risk Management Framework, and the OWASP Top 10 for LLM applications.",
   },
 
   process: {
     eyebrow: "How it runs",
     heading: "Four steps, two to four weeks.",
     steps: [
-      { name: "Apply", time: "10 minutes", desc: "Ten questions about your business, your candidate use cases, and where your data lives. Every application is read personally — and some are declined. That's the first verdict, and it happens before any call." },
-      { name: "The production stress interview", time: "45–60 minutes", desc: "A structured session with your leadership team — not a pitch, not a maturity survey. Each use case goes under the questions production will eventually ask anyway. Walkthrough only: no credentials, no system access, nothing leaves your walls." },
-      { name: "The readout is written", time: "within a week", desc: "Each use case is scored through the seven Gate Zero dimensions and plotted on one value-by-viability map. Founder-written, on your numbers and your vocabulary." },
-      { name: "The verdict walkthrough", time: "30 minutes", desc: "You get the readout and a blunt call on your top use case: build now, not yet — and exactly what unlocks it — or don't build. The document is yours either way." },
+      { name: "Apply", time: "10 minutes", desc: "Ten questions about the firm, about what isn't working, and about where your numbers live. I read every application personally — and I decline some. That's the first verdict, and it happens before any call." },
+      { name: "The diagnostic session", time: "45–60 minutes", desc: "A structured session with your leadership team — I come to understand the business, not to present anything. I follow the money and the friction through the processes you actually run, and I ask the questions production would eventually ask anyway. Walkthrough only: no credentials, no system access, nothing leaves your walls." },
+      { name: "The diagnosis is written", time: "within a week", desc: "Every problem found is scored on the seven dimensions and plotted on one map: what it costs you by how hard it is to fix. Written by me, on your numbers and in your vocabulary." },
+      { name: "The verdict walkthrough", time: "30 minutes", desc: "You get the diagnosis and a blunt call on the one thing to fix first: now, not yet — and exactly what unlocks it — or leave it alone. Where the answer is something to build, it comes with the Gate Zero verdict. The document is yours either way." },
     ],
   },
 
   whyFree: {
     eyebrow: "Why it's free",
     heading: "It's a diagnosis, not the treatment.",
-    body: "This is how we decide whether to work together. You get the verdict and the priority order; the paid engagements do the work. It stays free because it's capped: one person runs every call and writes every readout — at most three assessments per month, one per company, ever.",
+    body: "This is how you and I find out whether working together makes sense. You get the diagnosis and the priority order; the paid engagements do the work. It stays free because it's capped: one person runs every session and writes every diagnosis — at most three per month, one per company, ever.",
     branches: [
-      { name: "If it's a go", desc: "and we fit, the readout maps each open gap to the engagement that closes it. You'll know the shape of the next step before you commit to anything." },
-      { name: "If it's a no-go", desc: "you keep the readout, there is no follow-up sequence, and that's the end — unless you write first. A no-go followed by nurture emails would make the verdict worthless." },
+      { name: "If it's a go", desc: "and the fit is there, the diagnosis maps each problem worth solving to the engagement that closes it — including the ones I would build myself. You'll know the shape of the next step before you commit to anything." },
+      { name: "If it's a no-go", desc: "you keep the diagnosis, there is no follow-up sequence, and that's the end — unless you write first. A no-go followed by nurture emails would make the verdict worthless." },
     ],
   },
 
@@ -403,15 +406,15 @@ export const assessmentPage = {
     forLabel: "This is for you if",
     notForLabel: "It isn't if",
     forWho: [
-      "Leadership teams with at least one candidate AI use case and a real workflow at stake",
-      "Companies with a stalled pilot, a risky rollout, or AI spend that isn't landing",
-      "EU-based or EU-exposed organizations that need the AI Act read alongside the value read",
+      "Owners and managers who can see the symptom but not the cause",
+      "Firms where margin, stock or cash is drifting and the reason isn't obvious",
+      "Companies that already bought a system or ran a pilot and have little to show for it",
       "Data-sensitive businesses weighing what can and cannot leave their walls",
     ],
     notForWho: [
       "Companies looking for a free implementation plan — this is a verdict, not a blueprint",
       "Teams without an executive sponsor willing to attend the session",
-      "Anyone shopping for validation of a decision already made — some readouts say don't build, and yours might",
+      "Anyone shopping for validation of a decision already made — some diagnoses say don't build anything, and yours might",
     ],
   },
 
@@ -419,7 +422,7 @@ export const assessmentPage = {
     eyebrow: "Who runs it",
     heading: "The method exists because these are the checks I run before I ship anything.",
     facts: [
-      "Ships production AI and LLM systems — retrieval tuning, output validation, monitoring, cost and latency budgets",
+      "Designs, builds and ships production systems — including AI and LLM systems: retrieval tuning, output validation, monitoring, cost and latency budgets",
       "Built a self-hosted, retrieval-augmented AI assistant that runs fully offline on hardware a business already owns",
       "Production security engineer with a data-protection background",
       "Founded two SaaS products; lead architect of a multi-tenant enterprise platform",
@@ -429,14 +432,14 @@ export const assessmentPage = {
 
   positioning: {
     heading: "Not a quiz. Not a slide-deck engagement.",
-    body: "This is not a ten-minute self-scoring quiz, and not a six-figure assessment delivered by junior analysts. It is the use-case verdict a paid audit would start with, delivered personally by the person who would build it. We sell no cloud, no hardware, and no licenses — a “don't build” costs us nothing, which is the only condition under which a “build” means anything.",
-    noLockIn: "The readout is written to be useful whether or not you ever hire us.",
+    body: "This is not a ten-minute self-scoring quiz, and not a six-figure assessment delivered by junior analysts. It is the diagnosis a paid audit would start with, done by the person who would also build the fix. I sell no product, no license and no hardware, and I take no commission from any vendor — which is exactly why I can afford to tell you not to build anything. A “don't build” costs me nothing, and that is the only condition under which a “build” means anything.",
+    noLockIn: "The diagnosis is written to be useful whether or not you ever hire me.",
   },
 
   apply: {
     eyebrow: "Apply",
-    heading: "Apply for an assessment.",
-    intro: "Ten questions, about ten minutes. Every application is read personally — some are declined, and that's the first verdict. If accepted, you'll get the exact call agenda and a sample readout before you commit an hour of your leadership team's time.",
+    heading: "Apply for the Business Diagnostic.",
+    intro: "Ten questions, about ten minutes. I read every application personally — some are declined, and that's the first verdict. If accepted, you'll get the exact session agenda before you commit an hour of your leadership team's time.",
     microcopy: "Free · one per company · at most three per month · walkthrough only, no system access",
     submitLabel: "Submit application",
   },
@@ -448,23 +451,23 @@ export const dataIp = {
   id: "data-ip",
   eyebrow: "Your data, your IP",
   heading: "Built by a security engineer — handled accordingly.",
-  body: "We come from a security and data-protection background — production security engineering, and earlier security R&D in authentication and encryption. That discipline is built into how we work with you.",
+  body: "I come from security and data protection — production security engineering, and before that security R&D in authentication and encryption. That discipline is built into how I work with you: what I get access to, what I build, and what never leaves your walls.",
   items: [
     {
       title: "Your data stays yours.",
-      body: "We access only what an engagement needs, work happily under your NDA, and can operate inside your own environment.",
+      body: "I access only what an engagement needs, work happily under your NDA, and can operate inside your own environment.",
     },
     {
-      title: "You own what we build.",
-      body: "Code, models, and documentation are yours, with a clean handover so your team can run everything without us.",
+      title: "You own what I build.",
+      body: "Code, models, and documentation are yours, with a clean handover so your team can run everything without me.",
     },
     {
       title: "Secure by design.",
       body: "Tenant isolation, least-privilege access, and secret handling are decided at the design stage — not patched on later.",
     },
     {
-      title: "AI used responsibly.",
-      body: "Where confidentiality matters, we can run AI on-premise or self-hosted; where correctness matters, we keep model outputs behind validation.",
+      title: "Kept private, and kept in check.",
+      body: "Where confidentiality matters, I can run AI on-premise or self-hosted; where correctness matters, I keep model outputs behind validation.",
     },
   ] as Card[],
 } as const;
@@ -472,31 +475,33 @@ export const dataIp = {
 /* ----------------------------------------------------------- Approach */
 
 export const approach = {
-  eyebrow: "Our approach",
-  intro: "A disciplined path from question to outcome.",
+  eyebrow: "How I work",
+  outputLabel: "You leave with",
+  title: "How a problem gets solved, step by step.",
+  intro: "It starts with your business, not with a proposal. I look at how the work actually runs and what the gaps cost you, agree with you on what is worth fixing first — and only then, if something should be built, I build it and stay until it is used.",
   steps: [
     {
       n: "01",
       title: "Diagnose",
-      body: "We understand your goals, operations, data, and constraints, and set out the full picture in plain terms.",
-      output: "A shared, honest view of where you stand and what's in the way.",
+      body: "I listen — to you, to the people doing the work, and to your numbers — then follow a few real processes end to end to see where the time and the margin actually go.",
+      output: "A written picture of your real problems, in plain words, ranked by what they cost you.",
     },
     {
       n: "02",
       title: "Prioritize",
-      body: "We identify the highest-value opportunities and build the business case for each. Fewer, better bets.",
-      output: "A short list of sized, sequenced bets with agreed success measures.",
+      body: "Then we separate the problems worth solving from the ones you can live with and put a number on each. Some need no software; anything built goes through Gate Zero.",
+      output: "A ranked shortlist with success measures agreed up front — and what I advise you not to build.",
     },
     {
       n: "03",
       title: "Build",
-      body: "We design and deliver the solution pragmatically, with your teams, shipping working software over slideware.",
+      body: "I don't hand over a recommendation and leave: I design it, write it, integrate it with the systems you already run, and work alongside your people.",
       output: "A working solution in production, used by the people it's for.",
     },
     {
       n: "04",
       title: "Prove & scale",
-      body: "We measure the impact against the numbers we agreed, embed what works, and scale it.",
+      body: "Then I check whether the numbers actually moved, against the measures agreed at the start, and tell you plainly what worked and what didn't.",
       output: "Proven results on your KPIs, and a plan to extend what worked.",
     },
   ] as Step[],
@@ -505,9 +510,10 @@ export const approach = {
 /* ----------------------------------------------------- Statement band */
 
 export const statement = {
-  headline: "We're judged by outcomes, not output.",
+  eyebrow: "My promise",
+  headline: "I'm judged by outcomes, not output.",
   support:
-    "Every engagement is tied to results you can measure — and we tell you the truth about what's working.",
+    "Every engagement is tied to results you can measure — and I tell you plainly what's working and what isn't.",
 } as const;
 
 /* --------------------------------------------------- Testimonials (Task 3) */
@@ -526,20 +532,20 @@ export const testimonialsMeta = {
 /* ------------------------------------------------- Who we work with */
 
 export const clients = {
-  eyebrow: "Who we work with",
-  body: "We work with the whole organization, not just the top of it. Lasting change needs the people who set direction and the people who do the work moving together — so we partner across every level, from the boardroom to the teams on the ground.",
+  eyebrow: "Who I work with",
+  body: "The problem looks different from every seat in the company. Leadership sees the number that won't budge; the person doing the work knows exactly which step breaks, and why nobody has fixed it. So I listen at all three levels — that is usually where the real cause turns up.",
   levels: [
     {
-      role: "Boards and the C-suite",
-      detail: "CEOs, COOs, CTOs, and CIOs who set direction and decide where to invest.",
+      role: "Owners and the leadership team",
+      detail: "The people who set direction and release the budget — the ones who feel a problem as a number.",
     },
     {
       role: "Function and department leads",
-      detail: "The heads of operations, finance, product, and technology who own the results.",
+      detail: "Operations, finance, production, sales, and IT — the ones who own the result and know where it slips.",
     },
     {
       role: "The teams who do the work",
-      detail: "The managers, analysts, and engineers who build, adopt, and run it every day.",
+      detail: "Managers, analysts, and engineers — the ones who know which step really breaks, and who will use whatever gets built.",
     },
   ],
 } as const;
@@ -548,8 +554,8 @@ export const clients = {
 
 export const aboutTeaser = {
   eyebrow: "Who's behind it",
-  heading: "Founder-led, and hands-on.",
-  body: "LT Strategy Partners is led by Luca-Ștefan Tamaș — a systems engineer who builds and ships production AI, from self-hosted, retrieval-augmented LLM systems to full SaaS products. He builds production systems in demanding, security-critical environments, has been lead architect on a multi-tenant enterprise platform (BI, ERP, document management, process automation), and has founded two SaaS products of his own. You work with him directly: the person who advises you is the person who does the work.",
+  heading: "One person. Directly involved.",
+  body: "LT Strategy Partners is one person: Luca-Ștefan Tamaș, a systems engineer who builds production systems in a demanding, security-critical environment. He was lead architect on a multi-tenant enterprise platform (BI, ERP, document management, process automation), has founded two SaaS products of his own, and builds self-hosted AI where it earns its place. He has no product, no license and no vendor commission to sell — so he can afford to tell you a problem isn't worth solving, and to build the answer himself when it is. You work with him directly: the person who advises you is the person who does the work.",
   link: { label: "More about Luca", href: "/en/about" } as CTA,
   photoCaption: `${"Luca-Ștefan Tamaș"} · Founder`,
 } as const;
@@ -560,17 +566,17 @@ export const aboutPage = {
   eyebrow: "About",
   heading: "A hands-on partner, start to finish.",
   paragraphs: [
-    "I'm Luca-Ștefan Tamaș, and LT Strategy Partners is my practice. It is small and senior on purpose: when you work with us, you work with me directly. The person who gives the advice is the person who does the work and stays accountable for how it turns out.",
-    "By background I'm a systems engineer. The work I care about most — and what this practice is built around — is AI that has to hold up in production, not just in a demo: strong retrieval and clean data, model outputs kept behind validation, sane latency and cost, and the monitoring and fallbacks that keep a system dependable once real people rely on it.",
+    "I'm Luca-Ștefan Tamaș, and LT Strategy Partners is my practice. It is small and senior on purpose: when you work with LT Strategy Partners, you work with me directly. I come in to understand how your business actually runs before I have any view on what should be built — and the person who gives the advice is the person who then does the work and stays accountable for how it turns out.",
+    "By background I'm a systems engineer. What I know deepest — my specialism, though not the thing every engagement has to be about — is AI that has to hold up in production, not just in a demo: strong retrieval and clean data, model outputs kept behind validation, sane latency and cost, and the monitoring and fallbacks that keep a system dependable once real people rely on it.",
     "Day to day I build production systems inside a demanding, security-critical engineering environment, and before that I was lead architect on a multi-tenant enterprise platform spanning business intelligence, ERP, document management, and process automation. I've founded and shipped two SaaS products of my own — Mazely and Processly — and built a self-hosted, retrieval-augmented AI assistant that runs entirely offline on hardware a venue already owns. Since 2020 I've delivered client work end to end across web, mobile, data, and AI, including apps on the App Store and Google Play. That security and platform grounding is why the AI I build stays private and dependable by default.",
   ],
   beliefsHeading: "What I believe about this work",
   beliefs: [
     "I believe software and a company's digital infrastructure are among the best investments a business can make — but only when they are made thoughtfully. Plenty of organizations spend heavily and follow whatever is trending, then wonder why the money never reached the bottom line. The technology is rarely the hard part. Spending on the right thing, for the right reason, in the right order is where the return actually comes from, and it is the part most often skipped.",
-    "I also believe the cheapest money you will ever spend is the conversation before you start. A short, honest talk with someone who has built these systems can save months of work and a lot of budget — by catching the wrong problem early, setting aside the idea that will not pay off, and pointing you at the simplest thing that actually works. That is exactly why the first step I offer costs nothing.",
+    "I also believe the cheapest money you will ever spend is the conversation before you start. A short, honest talk with someone who has built these systems can save months of work and a lot of budget — by catching the wrong problem early, setting aside the idea that will not pay off, and pointing you at the simplest thing that actually works. That is exactly why the first step I offer, the Business Diagnostic, costs nothing.",
   ],
   whyHeading: "How I like to work",
-  why: "I would rather be useful than impressive. Because I have had to make these systems work in the real world, I can tell you plainly what is worth doing, what is not, and what it will really take — and I will not recommend anything I would not be willing to build myself.",
+  why: "I would rather be useful than impressive. I have no product, no license and no vendor commission to sell, so telling you not to build something costs me nothing — which is the only condition under which a “build this” means anything. And because I have had to make these systems work in the real world, I can tell you plainly what is worth doing, what is not, and what it will really take — I will not recommend anything I would not be willing to build myself.",
   glanceHeading: "Background at a glance",
   glance: [
     "Builds production AI and LLM systems — retrieval-augmented generation, self-hosted models, and outputs kept behind validation",
@@ -581,14 +587,14 @@ export const aboutPage = {
     "Based in Iași, Romania · working with clients across the EU and US",
   ],
   photoCaption: `${"Luca-Ștefan Tamaș"} · Founder`,
-  ctaHeading: "Where is the value hiding in your business?",
+  ctaHeading: "What's the problem you'd most like solved?",
 } as const;
 
 /* ------------------------------------------------------- CTA (pre-footer) */
 
 export const ctaBand = {
-  headline: "Where is the value hiding in your business?",
-  body: "Let's have a direct, no-pressure conversation about where AI and technology could actually move your numbers.",
+  headline: "What's the real problem in your business?",
+  body: "Let's have a direct, no-pressure conversation about what's getting in the way — and if the answer isn't technology, I'll tell you that plainly.",
   cta: site.primaryCta,
 } as const;
 
@@ -600,27 +606,27 @@ export const faq = {
   items: [
     {
       q: "How do we start?",
-      a: "With a fixed-scope AI Opportunity Assessment — a low-risk first step that gives you a prioritized roadmap you own.",
+      a: "With the Business Diagnostic — a free, fixed-scope first step where I look at how your business actually runs and write down what is worth fixing, and what isn't.",
     },
     {
       q: "How do you price?",
-      a: "The AI Opportunity Assessment is free. Larger engagements are scoped and priced per project, agreed up front.",
+      a: "The Business Diagnostic is free. Anything that follows is scoped and priced per project, agreed up front.",
     },
     {
       q: "Do you work remotely?",
       a: "Yes — with clients across the EU and US, and on-site in Romania where it helps.",
     },
     {
-      q: "We're early on AI. Is it too soon?",
-      a: "No. The assessment is designed exactly for that starting point.",
+      q: "What if the answer isn't technology?",
+      a: "Then I say so — it's a common outcome. I have no product, no license and no commission to sell, so “don't build anything” costs me nothing.",
     },
     {
       q: "Who actually does the work?",
-      a: "The firm is founder-led. Luca is directly involved in every engagement — you work with a senior person, not a junior hand-off.",
+      a: "I do. There is no junior to hand you off to — the person who gives the advice is the person who designs and builds the answer.",
     },
     {
       q: "How do you handle our data and IP?",
-      a: "Your data stays yours, you own what we build, and everything is secure by design.",
+      a: "Your data stays yours, you own what I build, and security is decided at the design stage.",
       href: "/en#data-ip",
     },
   ] as FaqItem[],
@@ -640,7 +646,7 @@ export const contact = {
   eyebrow: "Contact",
   headline: "Let's have a direct conversation.",
   intro:
-    "Tell us a little about your organization and what you're trying to move. We'll come back to you personally — no sales script, no pressure.",
+    "Tell me a little about your company and the problem you'd most like solved. I'll come back to you personally — no sales script, no pressure.",
   email: site.email,
   phone: site.phone,
   phoneDisplay: site.phoneDisplay,
@@ -652,24 +658,24 @@ export const contact = {
     { name: "company", label: "Company", type: "text", required: true, autocomplete: "organization" },
     { name: "role", label: "Role", type: "text", required: false, autocomplete: "organization-title" },
     { name: "email", label: "Email", type: "email", required: true, autocomplete: "email" },
-    { name: "message", label: "How can we help?", type: "textarea", required: true },
+    { name: "message", label: "What's the problem you'd like solved?", type: "textarea", required: true },
   ] as FormField[],
   // Query-param prefills for the message field (e.g. /contact?topic=assessment).
   prefills: {
-    assessment: "I'd like an AI Opportunity Assessment.",
+    assessment: "I'd like the Business Diagnostic.",
   } as Record<string, string>,
   submitLabel: "Send message",
   asideEyebrow: "Direct line",
-  asideLead: "Prefer email, or want to reach us straight away?",
+  asideLead: "Prefer email, or want to reach me straight away?",
   asidePoints: [
-    "Independent, senior-led advice.",
+    "Independent and senior — no product to sell you.",
     "A reply within two business days.",
     "No sales script, no pressure.",
   ],
   privacyHtml:
-    'We only use your details to reply to your enquiry, and never share them with third parties. See our <a href="/en/privacy">privacy policy</a>.',
+    'I only use your details to reply to you, and never share them with third parties. See the <a href="/en/privacy">privacy policy</a>.',
   successMessage:
-    "Thank you — your message is ready to send. We'll reply personally within two business days.",
+    "Thank you — your message is ready to send. I'll reply personally within two business days.",
 } as const;
 
 /* ------------------------------------------------------------- Footer */
@@ -682,14 +688,14 @@ export const footer = {
   location: site.location,
   linkedin: site.links.companyLinkedin,
   blurb:
-    "A senior-led advisory and delivery firm helping leadership teams turn strategy — and AI where it earns its place — into measurable results.",
+    "Independent, senior, and one person by design: I start with the problem in your business, then design and build the answer myself — or tell you plainly that nothing needs building.",
 } as const;
 
 /* --------------------------------------------------------- Insights (Task 8) */
 
 export const insights = {
   eyebrow: "Insights",
-  heading: "Plain thinking on AI and technology.",
+  heading: "Plain thinking for owners and managers.",
   intro:
     "Short, practical pieces for leaders — not engineers — on getting real value from AI and technology.",
 } as const;
@@ -700,7 +706,7 @@ export const work = {
   eyebrow: "Selected work",
   // Founder-led voice (Task 2): no "team".
   intro:
-    "A few things we've designed and built. We show them to make one point plainly: we don't just advise — we ship. Here is what each took, technically and strategically, and what it means for the work we could do with you.",
+    "A few things I've designed and built. I show them to make one point plainly: I don't just advise — I ship. Here is what each took, technically and strategically, and what it means for the work we could do together.",
   projects: [
     {
       slug: "processly",
@@ -749,7 +755,7 @@ export const work = {
         "MinIO",
       ],
       takeaway:
-        "This shows we can turn a client's recurring, manual work into designed, reusable systems that run on demand or on a schedule — giving an operations team consistency and visibility without growing the team.",
+        "This shows I can turn a client's recurring, manual work into designed, reusable systems that run on demand or on a schedule — giving an operations team consistency and visibility without growing the team.",
       image: "processly",
     },
     {
@@ -796,7 +802,7 @@ export const work = {
         "MinIO",
       ],
       takeaway:
-        "This shows we can design and ship a privacy-conscious product for complex institutions that removes physical friction while generating useful operational data — an approach that fits anywhere an organization needs a low-friction digital layer over a physical environment.",
+        "This shows I can design and ship a privacy-conscious product for complex institutions that removes physical friction while generating useful operational data — an approach that fits anywhere an organization needs a low-friction digital layer over a physical environment.",
       image: "mazely",
     },
     {
@@ -843,7 +849,7 @@ export const work = {
         "MinIO",
       ],
       takeaway:
-        "This shows we can design and ship retrieval-augmented AI that runs privately on hardware a business already owns, with the memory budgeting, health checks, and backup discipline needed to keep it running in the real world.",
+        "This shows I can design and ship retrieval-augmented AI that runs privately on hardware a business already owns, with the memory budgeting, health checks, and backup discipline needed to keep it running in the real world.",
       diagram: true,
     },
     {
@@ -891,7 +897,7 @@ export const work = {
         "Three rounds of adversarial review by twelve independent reviewers; two full from-scratch reimplementations reproduced every published figure",
       ],
       takeaway:
-        "This is the clearest demonstration of what we do with data: take sources that are public but unusable, resolve the entities nobody has joined before, and publish the result with its limits stated — so the numbers survive scrutiny instead of collapsing under it.",
+        "This is the clearest demonstration of what I do with data: take sources that are public but unusable, resolve the entities nobody has joined before, and publish the result with its limits stated — so the numbers survive scrutiny instead of collapsing under it.",
       image: "atlas",
       liveUrl: "/atlas/",
       liveLabel: "Open the live Atlas",
@@ -941,7 +947,7 @@ export const work = {
         "One correction cut a published procurement figure by 32% — the deduplication key could not survive four date formats and 98,064 blank dates",
       ],
       takeaway:
-        "The report is the visible part. What it actually demonstrates is a discipline: every number traceable to a source file, every approximation named with the direction of its error, and a verification pass that assumes our own output is wrong until it survives being recomputed a second way.",
+        "The report is the visible part. What it actually demonstrates is a discipline: every number traceable to a source file, every approximation named with the direction of its error, and a verification pass that assumes my own output is wrong until it survives being recomputed a second way.",
       image: "raport-firma",
       gallery: [
         "raport-firma-indicatori",
@@ -984,7 +990,7 @@ export const work = {
       // [[VERIFY: full stack]] — Metabase confirmed from the dashboard export.
       stack: ["Metabase (dashboard / BI)", "SQL", "GPS / telemetry pipeline"],
       takeaway:
-        "This shows we can take raw sensor and telemetry data and turn it into operational dashboards that drive real decisions — an approach that applies to any client running a fleet, a network, or a stream of operational data.",
+        "This shows I can take raw sensor and telemetry data and turn it into operational dashboards that drive real decisions — an approach that applies to any client running a fleet, a network, or a stream of operational data.",
       image: "transit-map",
       gallery: ["transit-charts", "transit-speeding"],
     },
@@ -996,13 +1002,13 @@ export const work = {
 export const pageIntros = {
   services: {
     eyebrow: "Services",
-    title: "From boardroom to deployment.",
-    lead: "One senior partner across the full journey — strategy, delivery, and the operational change that makes it stick. No handoffs, no disconnect between the plan and the people who build it.",
+    title: "From the problem to a system in production.",
+    lead: "One senior person the whole way: the diagnosis first, then the build, then the change in how work runs that makes the gain stick. No handoffs, no gap between the plan and the person writing the code.",
   },
   contact: {
     eyebrow: "Contact",
     title: "Let's have a direct conversation.",
-    lead: "Tell us a little about your organization and what you're trying to move. We'll come back to you personally — no sales script, no pressure.",
+    lead: "Tell me a little about your company and the problem you'd most like solved. I'll come back to you personally — no sales script, no pressure.",
   },
 } as const;
 
@@ -1011,7 +1017,7 @@ export const pageIntros = {
 /* ------------------------------------------------ AI & Tech Opportunity Scorecard */
 /* Free self-serve diagnostic. Reader answers 10 business questions, sees a score
    (0–100) and tier on-screen, then can email-gate a fuller written readout that
-   routes into the free AI Opportunity Assessment. Scoring is a straight sum of
+   routes into the free Business Diagnostic. Scoring is a straight sum of
    the selected option points. One honest override: if Q3 (where the data lives)
    scores 0, the result leads with `dataGateNote` regardless of total. */
 
@@ -1034,15 +1040,15 @@ export interface ScorecardTier {
 
 export const scorecardPage = {
   eyebrow: "Free self-check · about 3 minutes",
-  heading: "Is AI or a new tech bet actually worth it for your business — yet?",
-  lead: "Ten plain questions, no jargon, no sign-up to start. You'll get an honest read on whether AI or a technology investment would genuinely pay off for a company like yours right now — and, just as often, where the smarter move is to fix something first. This isn't a maturity score to make you feel behind. It's a straight answer about where your money would actually go to work.",
-  microcopy: "No login to answer. We only ask for an email if you want the fuller written readout.",
+  heading: "Where is your business losing time and money — and is anything worth building?",
+  lead: "Ten plain questions about how the business actually runs — no jargon, no sign-up to start. You'll get an honest read on where your time and money are going, and whether an investment in technology would genuinely pay off for a company like yours right now — and, just as often, where the smarter move is to fix something first. This isn't a maturity score to make you feel behind. It's a straight answer about where your money would actually go to work.",
+  microcopy: "No login to answer. I only ask for an email if you want the fuller written readout.",
   // The Q3 index (0-based) whose zero-point answer triggers the data-gate override.
   dataGateQuestionIndex: 2,
   dataGateNote:
-    "One thing first, before anything else: right now the information you'd need lives mostly in people's heads and email. Until it lives somewhere a system can actually reach, no AI or tech bet can pay off — it's the one thing worth fixing before you spend on anything below.",
+    "One thing first, before anything else: right now the information you'd need lives mostly in people's heads and email. Until it lives somewhere a system can actually reach, nothing you buy or build on top of it can pay off — it's the one thing worth fixing before you spend on anything below.",
   q10Note:
-    "There's no wrong answer here — high-stakes work isn't off-limits for AI, it just needs to be built more carefully. This question shapes the advice, not the verdict.",
+    "There's no wrong answer here — high-stakes work isn't off-limits, it just has to be built far more carefully. This question shapes the advice, not the verdict.",
   questions: [
     {
       q: "How much of your team's week goes into repetitive, rule-based manual work — re-keying data, formatting the same reports, answering the same questions, moving information between tools?",
@@ -1054,9 +1060,9 @@ export const scorecardPage = {
       ],
     },
     {
-      q: "Is there a specific, named problem you're hoping AI or technology would solve?",
+      q: "Is there a specific, named problem you're hoping to solve?",
       options: [
-        { label: "Not really — we're looking because everyone's talking about AI", points: 0 },
+        { label: "Not really — we're looking because it feels like we should be doing something", points: 0 },
         { label: "A vague sense that something could be better", points: 3 },
         { label: "Yes — we can name the bottleneck, but not the fix", points: 7 },
         { label: "Yes — we can name it and roughly what it costs us", points: 10 },
@@ -1141,7 +1147,7 @@ export const scorecardPage = {
       max: 34,
       name: "Foundations first",
       headline: "Not yet — and that's a useful answer.",
-      body: "Right now, an AI or big technology bet would most likely be money spent ahead of the problem. That's not a criticism — it's the cheapest lesson you'll ever get, because you're learning it before the invoice, not after. The honest first step isn't a tool. It's getting one thing in order: a problem worth naming, information a system can actually reach, or someone who can own the work. Sort that, and a lot of options open up cheaply. Spend into it now, and you'll likely be one of the many companies that quietly shelve the project a year later. Come back and re-run this once the ground is firmer — you'll see the score move.",
+      body: "Right now, buying or building something would most likely be money spent ahead of the problem. That's not a criticism — it's the cheapest lesson you'll ever get, because you're learning it before the invoice, not after. The honest first step isn't a tool. It's getting one thing in order: a problem worth naming, information a system can actually reach, or someone who can own the work. Sort that, and a lot of options open up cheaply. Spend into it now, and you'll likely be one of the many companies that quietly shelve the project a year later. Come back and re-run this once the ground is firmer — you'll see the score move.",
     },
     {
       slug: "real-seed",
@@ -1149,7 +1155,7 @@ export const scorecardPage = {
       max: 59,
       name: "A real seed, not yet a project",
       headline: "There's something here worth shaping.",
-      body: "You've got the beginnings of a real opportunity — but it's still a seed, not a plan, and the fastest way to waste money now is to jump to a solution before the problem is sized. The move that actually pays: pick the single workflow that costs you the most, write down what it costs today in hours or euros, and be honest about where the data for it lives. Do that and you'll either find a bet worth making — or save yourself a project that was never going to land. If it would help to pressure-test which one it is, that's exactly what the free AI Opportunity Assessment is for.",
+      body: "You've got the beginnings of a real opportunity — but it's still a seed, not a plan, and the fastest way to waste money now is to jump to a solution before the problem is sized. The move that actually pays: pick the single workflow that costs you the most, write down what it costs today in hours or euros, and be honest about where the data for it lives. Do that and you'll either find a bet worth making — or save yourself a project that was never going to land. If it would help to pressure-test which one it is, that's exactly what the free Business Diagnostic is for.",
     },
     {
       slug: "strong-candidate",
@@ -1157,7 +1163,7 @@ export const scorecardPage = {
       max: 79,
       name: "Strong candidate",
       headline: "This is worth a serious look.",
-      body: "You have most of what a bet like this needs — a real problem, workable data, and enough readiness to act. The risk at this stage isn't doing nothing; it's building the wrong thing well, or picking the use case that demos beautifully and then dies on contact with real users. Before you commit budget, the highest-return half-hour you can spend is getting a straight verdict on which use case actually pays off in production — and which ones to leave alone. That's what the free AI Opportunity Assessment gives you, in writing, before you spend a cent.",
+      body: "You have most of what a bet like this needs — a real problem, workable data, and enough readiness to act. The risk at this stage isn't doing nothing; it's building the wrong thing well, or picking the idea that demos beautifully and then dies on contact with real users. Before you commit budget, the highest-return half-hour you can spend is getting a straight verdict on which problem is actually worth solving in production — and which ones to leave alone. That's what the free Business Diagnostic gives you, in writing, before you spend a cent.",
     },
     {
       slug: "ready-to-move",
@@ -1165,7 +1171,7 @@ export const scorecardPage = {
       max: 100,
       name: "Ready to move",
       headline: "The question isn't whether — it's which bet, and in what order.",
-      body: "On paper, you're ready: a named problem, data a system can reach, budget, an owner, and the pressure to move. The only thing standing between you and a return is choosing the right first bet and sequencing it well — because at this stage the expensive mistake is building three things adequately instead of one thing that pays. This is exactly the point where a short, honest, outside read earns its keep. The free AI Opportunity Assessment gives you a written verdict on each candidate — build now, not yet, or don't build — including, plainly, anywhere AI won't pay off for you. No product to sell you, so a \"don't build\" costs us nothing to say.",
+      body: "On paper, you're ready: a named problem, data a system can reach, budget, an owner, and the pressure to move. The only thing standing between you and a return is choosing the right first bet and sequencing it well — because at this stage the expensive mistake is building three things adequately instead of one thing that pays. This is exactly the point where a short, honest, outside read earns its keep. The free Business Diagnostic gives you a written verdict on each candidate — build now, not yet, or don't build — including, plainly, when the honest answer is that nothing here should be built. I have no product, no license and no vendor commission, so a \"don't build\" costs me nothing — which is the only reason a \"build\" from me means anything.",
     },
   ] as ScorecardTier[],
   ui: {
@@ -1181,14 +1187,14 @@ export const scorecardPage = {
     body: "Leave an email and I'll send a longer version of your result: what your answers point to, the two or three things I'd look at first for a company in your position, and — if it fits — the one question I'd get answered before spending anything. No newsletter, no drip sequence, no sales calls you didn't ask for. One useful email.",
     emailLabel: "Work email",
     button: "Send me the readout",
-    privacy: "We use your email only to send this readout. We don't pass it on and we won't add you to a list.",
-    privacyLinkLabel: "See our privacy policy.",
+    privacy: "I use your email only to send this readout. I don't pass it on and I won't add you to a list.",
+    privacyLinkLabel: "See the privacy policy.",
     privacyHref: "/en/privacy",
   },
   ctaPrimary: {
-    label: "Apply for a free AI Opportunity Assessment",
+    label: "Apply for a free Business Diagnostic",
     href: "/en/assessment",
-    microcopy: "Free · one per company · founder-delivered · a written verdict, including where AI won't pay off.",
+    microcopy: "Free · one per company · I run it personally · a written verdict, including where nothing should be built.",
   },
   ctaSecondary: {
     label: "Or just talk it through",
@@ -1198,12 +1204,12 @@ export const scorecardPage = {
 
 export const pageMeta = {
   home: {
-    title: "LT Strategy Partners — Technology & AI advisor for smarter business decisions",
+    title: "LT Strategy Partners — Independent advisor: the problem first, then the build",
     description: site.description,
     path: "/en",
   },
   scorecard: {
-    title: "AI & Tech Opportunity Scorecard — LT Strategy Partners",
+    title: "Business Opportunity Scorecard — LT Strategy Partners",
     description:
       "A free 3-minute self-check: ten plain questions, then an honest read on whether AI or a technology bet would actually pay off for your business yet — or what to fix first.",
     path: "/en/scorecard",
@@ -1215,27 +1221,27 @@ export const pageMeta = {
     path: "/en/services",
   },
   assessment: {
-    title: "AI Opportunity Assessment — LT Strategy Partners",
+    title: "The Business Diagnostic — LT Strategy Partners",
     description:
-      "A free, founder-delivered assessment: every AI use case scored for value, production viability, and EU AI Act exposure — verdict included: build now, not yet, or don't build.",
+      "A free diagnostic I run personally: where the money, the time and the decisions leak in your business, what is worth fixing first — and, honestly, where the answer isn't technology.",
     path: "/en/assessment",
   },
   assessmentSample: {
     title: "Sample Gate Zero Readout — LT Strategy Partners",
     description:
-      "A full, clearly-labeled sample of the Gate Zero Readout — the written verdict delivered by the free AI Opportunity Assessment.",
+      "A full, clearly-labeled sample of the Gate Zero Readout — the written build / don't-build verdict, produced once the diagnosis concludes something should be built.",
     path: "/en/assessment/sample-readout",
   },
   about: {
     title: "About — LT Strategy Partners",
     description:
-      "Founder-led by Luca-Ștefan Tamaș, a systems engineer who builds production AI and LLM systems and has shipped enterprise platforms and two SaaS products of his own.",
+      "Luca-Ștefan Tamaș — a systems engineer who understands the business first, then designs and builds the answer himself. Production AI and LLM systems, enterprise platforms, two SaaS products of his own.",
     path: "/en/about",
   },
   contact: {
     title: "Contact — LT Strategy Partners",
     description:
-      "Have a direct, no-pressure conversation about where AI and technology could move your numbers.",
+      "Have a direct, no-pressure conversation about the problem you'd most like solved — before anyone talks about a solution.",
     path: "/en/contact",
   },
   insights: {
@@ -1260,6 +1266,24 @@ export const pageMeta = {
 
 export const ui = {
   footerExplore: "Explore",
+  stepPrefix: "Step",
+  allInsights: "All insights",
+  viewProject: "View project",
+  navPrimaryAria: "Primary",
+  heroProofAria: "What sets the practice apart",
+  ragDiagram: {
+    boundary: "Runs on the venue's own network — no cloud, no per-query cost",
+    customerChat: "Customer chat",
+    customerChatSub: "kiosk / tablet",
+    adminPanel: "Admin panel",
+    adminPanelSub: "menu management",
+    apiSub: "token auth · retrieval-augmented answering",
+    qdrantSub: "vector search",
+    postgresSub: "menu & config",
+    minioSub: "dish images",
+  },
+  ragDiagramAlt:
+    "Architecture: customer chat and admin panel connect through an Nginx proxy to a Python API, which uses Ollama (qwen2.5:3b and bge-m3), Qdrant vector search, PostgreSQL, and MinIO — all self-hosted on the venue's own network.",
   footerContactHeading: "Contact",
   footerAria: "Footer",
   footerRights: "All rights reserved.",
@@ -1271,7 +1295,7 @@ export const ui = {
   backToWork: "Selected work",
   insightsDateLocale: "en-US",
   workContext: "The context",
-  workDelivered: "What we delivered",
+  workDelivered: "What I delivered",
   workStrategic: "Why it matters",
   workImpact: "Impact",
   workGallery: "From the dashboard",
@@ -1302,17 +1326,36 @@ export const ui = {
 /* --------------------------------------- Form strings shared with client JS */
 
 export const formStrings = {
+  mail: {
+    name: "Name",
+    company: "Company",
+    role: "Role",
+    roleSponsor: "Role / sponsor",
+    email: "Email",
+    problems: "Problems to look at first",
+    costToday: "Cost today",
+    triedSoFar: "Tried so far",
+    dataLivesIn: "Data lives in",
+    sensitiveData: "Sensitive data",
+    timeline: "Timeline",
+    fromWebsite: "website",
+    scorecardResult: "Scorecard result",
+    score: "Score",
+    requestedReadoutTo: "Readout requested to",
+    answers: "Answers",
+    questionAbbrev: "Q",
+  },
   honeypot: "Leave this field empty",
   contactFormAria: "Contact form",
   sending: "Sending…",
   fixFields: "Please correct the highlighted fields.",
   required: "This field is required.",
   invalidEmail: "Please enter a valid email address.",
-  failPrefix: "Something went wrong. Please email us directly at",
+  failPrefix: "Something went wrong. Please email me directly at",
   contactSubjectPrefix: "Enquiry from",
   contactSuccessSent:
-    "Thank you — your message has been sent. We'll reply personally within two business days.",
-  assessmentSubjectPrefix: "Assessment application —",
+    "Thank you — your message has been sent. I'll reply personally within two business days.",
+  assessmentSubjectPrefix: "Diagnostic application —",
   assessmentSuccessMailto:
     "Thank you — your application is ready to send. It will be read personally, and you'll hear back within two business days.",
   assessmentSuccessSent:
@@ -1358,28 +1401,28 @@ export const assessmentForm = {
     },
     {
       name: "usecases",
-      label: "The one or two AI use cases you most want a verdict on",
-      hint: "A sentence each. If you don't have one yet, say so — that changes what the session is for.",
+      label: "The one or two problems you most want looked at",
+      hint: "A sentence each. The symptom is enough — you don't need to know the cause.",
       type: "textarea",
       required: true,
     },
     {
       name: "cost",
-      label: "What are those workflows costing you today, in hours or euros?",
+      label: "What are those problems costing you today, in hours or euros?",
       hint: "Rough is fine. “Don't know” is an acceptable answer — unknowns get scored too.",
       type: "text",
       required: false,
     },
     {
       name: "tried",
-      label: "What have you already tried with AI — and what happened?",
-      hint: "Pilots, vendors, internal experiments. Where each one stalled is diagnostic gold.",
+      label: "What have you already tried — and what happened?",
+      hint: "New software, a consultant, a pilot, an internal fix. Where each one stalled tells me the most.",
       type: "textarea",
       required: false,
     },
     {
       name: "data",
-      label: "Where does the data or content that would feed this live today?",
+      label: "Where do the numbers you'd need to see live today?",
       hint: "SharePoint, a wiki, a database, PDFs, people's heads — all honest answers.",
       type: "text",
       required: true,
@@ -1392,7 +1435,7 @@ export const assessmentForm = {
     },
     {
       name: "timeline",
-      label: "When would you realistically want a first system in production?",
+      label: "When would you realistically want this fixed?",
       type: "select",
       required: false,
       options: ["This quarter", "This year", "Someday — exploring for now"],
@@ -1401,7 +1444,7 @@ export const assessmentForm = {
   selectPlaceholder: "Choose one (optional)",
   honeypotLabel: "Leave this field empty",
   submitLabel: "Submit application",
-  formAria: "Assessment application form",
+  formAria: "Diagnostic application form",
 } as const;
 
 /* ----------------------------------------------------- Legal pages (i18n) */
@@ -1416,41 +1459,41 @@ export const legalPages = {
   privacy: {
     eyebrow: "Legal",
     title: "Privacy policy.",
-    lead: "How we collect and handle the information you share with us. Plain language, no surprises.",
+    lead: "How I collect and handle the information you share with me. Plain language, no surprises.",
     updated: "Last updated: 3 July 2026",
     sections: [
       {
-        heading: "Who we are",
-        html: `The data controller for this website is ${site.name} (a founder-led practice based in Iași, Romania). If you have any question about this policy or your data, contact us at <a href="mailto:${site.email}">${site.email}</a>.`,
+        heading: "Who I am",
+        html: `The data controller for this website is ${site.name} (a founder-led practice based in Iași, Romania). If you have any question about this policy or your data, write to me at <a href="mailto:${site.email}">${site.email}</a>.`,
       },
       {
-        heading: "What we collect",
-        html: `We collect the information you choose to send us. Through the <strong>contact form</strong>, that is your <strong>name</strong>, <strong>company</strong>, <strong>role</strong> (optional), <strong>email address</strong>, and the <strong>message</strong> you write. If instead you use the “Book a conversation” button, you provide your name, email, and any details you add when scheduling — see <a href="#booking">Booking a conversation</a> below. We do not run advertising, and we do not use invasive tracking or third-party analytics that identify you.`,
+        heading: "What I collect",
+        html: `I collect the information you choose to send me. Through the <strong>contact form</strong>, that is your <strong>name</strong>, <strong>company</strong>, <strong>role</strong> (optional), <strong>email address</strong>, and the <strong>message</strong> you write. If instead you use the “Book a conversation” button, you provide your name, email, and any details you add when scheduling — see <a href="#booking">Booking a conversation</a> below. I do not run advertising, and I do not use invasive tracking or third-party analytics that identify you.`,
       },
       {
-        heading: "Why we collect it, and our lawful basis",
-        html: `We use this information for one purpose: to read and respond to your enquiry, and to follow up about a possible engagement. Our lawful basis under the GDPR is our legitimate interest in responding to people who contact us about our services, and — where you initiate contact to discuss working together — taking steps at your request prior to entering into a contract.`,
+        heading: "Why I collect it, and my lawful basis",
+        html: `I use this information for one purpose: to read and respond to your enquiry, and to follow up about a possible engagement. My lawful basis under the GDPR is my legitimate interest in responding to people who contact me about my services, and — where you initiate contact to discuss working together — taking steps at your request prior to entering into a contract.`,
       },
       {
         heading: "Sharing",
-        html: `We do not sell your information, and we do not share it with third parties for their own purposes. Your enquiry reaches us either by email or through our website forms, which are processed by Google and stored in a spreadsheet in our own Google account; Google, and the email and hosting providers that carry your message, act only as processors on our behalf. This processing may involve transfers outside the EEA under Google's safeguards.`,
+        html: `I do not sell your information, and I do not share it with third parties for their own purposes. Your enquiry reaches me either by email or through the website forms, which are processed by Google and stored in a spreadsheet in my own Google account; Google, and the email and hosting providers that carry your message, act only as processors on my behalf. This processing may involve transfers outside the EEA under Google's safeguards.`,
       },
       {
         id: "booking",
         heading: "Booking a conversation",
-        html: `The “Book a conversation” button opens an appointment page provided by Google Calendar. If you book a call there, the details you enter — your name, email, and anything you add — are handled by Google as part of running the scheduling, under <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google's own privacy policy</a>, and may be transferred to servers outside the EEA, including the United States. We receive those details only to arrange and hold the appointment with you. If you would rather not use Google, just email us instead at <a href="mailto:${site.email}">${site.email}</a>.`,
+        html: `The “Book a conversation” button opens an appointment page provided by Google Calendar. If you book a call there, the details you enter — your name, email, and anything you add — are handled by Google as part of running the scheduling, under <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google's own privacy policy</a>, and may be transferred to servers outside the EEA, including the United States. I receive those details only to arrange and hold the appointment with you. If you would rather not use Google, just email me instead at <a href="mailto:${site.email}">${site.email}</a>.`,
       },
       {
-        heading: "How long we keep it",
-        html: `We keep enquiry correspondence only as long as needed to deal with your request and, where relevant, for the duration of any engagement that follows, after which it is deleted. If a conversation does not lead anywhere, we delete it once it is clearly no longer needed.`,
+        heading: "How long I keep it",
+        html: `I keep enquiry correspondence only as long as needed to deal with your request and, where relevant, for the duration of any engagement that follows, after which it is deleted. If a conversation does not lead anywhere, I delete it once it is clearly no longer needed.`,
       },
       {
         heading: "Your rights",
-        html: `Under the GDPR you have the right to access the personal data we hold about you, to have it corrected if it is wrong, to have it erased, to restrict or object to how we use it, and to data portability. To exercise any of these, email <a href="mailto:${site.email}">${site.email}</a> and we will respond within the time the law requires. You also have the right to lodge a complaint with your local data-protection authority.`,
+        html: `Under the GDPR you have the right to access the personal data I hold about you, to have it corrected if it is wrong, to have it erased, to restrict or object to how I use it, and to data portability. To exercise any of these, email <a href="mailto:${site.email}">${site.email}</a> and I will respond within the time the law requires. You also have the right to lodge a complaint with your local data-protection authority.`,
       },
       {
         heading: "Changes",
-        html: `If we change this policy, we will update the date above. Material changes will be made clear on this page.`,
+        html: `If I change this policy, I will update the date above. Material changes will be made clear on this page.`,
       },
     ] as LegalSection[],
   },
@@ -1462,7 +1505,7 @@ export const legalPages = {
     sections: [
       {
         heading: "About this site",
-        html: `This website is published by ${site.name} to describe our services and share our thinking. It is provided for general information only.`,
+        html: `This website is published by ${site.name} to describe my services and share my thinking. It is provided for general information only.`,
       },
       {
         heading: "No advice or contract",
@@ -1470,11 +1513,11 @@ export const legalPages = {
       },
       {
         heading: "Intellectual property",
-        html: `The content, brand, and design of this website belong to ${site.name} unless stated otherwise. Product names and marks referenced in our work belong to their respective owners.`,
+        html: `The content, brand, and design of this website belong to ${site.name} unless stated otherwise. Product names and marks referenced in my work belong to their respective owners.`,
       },
       {
         heading: "Links",
-        html: `Where this site links to external sites, we are not responsible for their content or their practices.`,
+        html: `Where this site links to external sites, I am not responsible for their content or their practices.`,
       },
       {
         heading: "Contact",
