@@ -21,7 +21,7 @@ Tiparul de la bază este mereu același. Costul unei erori mici este mic, volumu
 
 Eșecurile sunt mai tăcute, și tocmai asta le face scumpe. Nimeni nu anunță că o unealtă este ignorată.
 
-Prima capcană este rezolvarea unei probleme pe care nu o aveți. O capabilitate arată impresionant, așa că i se inventează o întrebuințare care să justifice achiziția. Munca se face, unealta există și nicio cifră din afacere nu se mișcă — pentru că nimic nu era stricat de la bun început.
+Prima capcană este rezolvarea unei probleme pe care nu o aveți. Un instrument nou arată impresionant, așa că i se inventează o întrebuințare care să justifice achiziția. Munca se face, unealta există și nicio cifră din afacere nu se mișcă — pentru că nimic nu era stricat de la bun început.
 
 A doua este să cereți de la AI o precizie și o răspundere pe care nu le poate promite. Unele sarcini cer ca răspunsul să fie corect, de fiecare dată, cu cineva care să garanteze pentru el: decizii reglementate, cifre financiare finale, orice situație în care un răspuns greșit spus cu încredere produce pagube reale. AI poate ajuta aici, dar dacă aveți nevoie de o garanție, cumpărați altceva.
 
@@ -33,7 +33,7 @@ Apoi există unealta pe care nu o adoptă nimeni. Funcționează, arată bine î
 
 Înainte de a aproba orice investiție în AI, două întrebări simple vă duc destul de departe.
 
-Prima: ce anume se îmbunătățește și de unde am ști? Dacă răspunsul este o capabilitate, nu un rezultat, sau dacă nimeni nu poate spune ce cifră ar trebui să se miște, proiectul nu are cum să-și dovedească valoarea. Claritate înainte de cod.
+Prima: ce anume se îmbunătățește și de unde am ști? Dacă răspunsul este o funcție, nu un rezultat, sau dacă nimeni nu poate spune ce cifră ar trebui să se miște, proiectul nu are cum să-și dovedească valoarea. Claritate înainte de cod.
 
 A doua: care este cel mai ieftin lucru care ar rezolva problema, și de ce nu este suficient? Dacă o regulă, un raport sau o mică schimbare de proces ar fi de ajuns, acela este de obicei răspunsul corect. AI trebuie să-și câștige locul în fața variantei mai simple, nu să câștige din oficiu.
 

@@ -126,7 +126,7 @@ export const site = {
   url: "https://ltstrategypartners.com",
   tagline: "First the problem. Then the solution.",
   description:
-    "Independent advisor for owners and managers. I start with the problem in your business, not with a solution — then design and build the fix myself. Nothing to sell you, so “don't build this” is a real answer.",
+    "Independent advisory for owners and managers. We start with the problem in your business, not with a solution — then design and build the fix ourselves. Nothing to sell you, so “don't build this” is a real answer.",
   email: "luca.tamas@ltstrategypartners.com",
   phone: "+40734950060", // used for the tel: link
   phoneDisplay: "+40 734 950 060", // shown to readers
@@ -179,41 +179,41 @@ export const legalNav: NavItem[] = [
 /* --------------------------------------------------------------- Hero */
 
 export const hero = {
-  eyebrow: "Independent advisor for owners and managers",
-  headline: "I start with your problem, not with a solution.",
+  eyebrow: "Independent advisory for owners and managers",
+  headline: "We start with your problem, not with a solution.",
   subhead:
-    "No assumptions and no ready-made answer. First I understand how your business actually runs and what the problem is really costing you — then, if something is worth building, I design and build it myself.",
+    "No assumptions and no ready-made answer. First we understand how your business actually runs and what the problem is really costing you — then, if something is worth building, we design and build it ourselves.",
   // Role label on the hero portrait name-tag.
   tagRole: "Founder",
   primaryCta: site.primaryCta,
   // Low-commitment path alongside the direct one (Task 5).
   secondaryCta: site.assessmentCta,
-  trustLine: "Independent · Senior-led · I build what I recommend",
+  trustLine: "Independent · Senior-led · We build what we recommend",
 } as const;
 
 /* -------------------------------------------------- The problem we solve */
 
 export const intro = {
   eyebrow: "Start with the problem",
-  body: "Margin thinning and nobody can say exactly where. The same numbers re-keyed into three systems. A decision waiting on a report someone builds by hand. Problems like these are almost never where everyone assumes. So I come in to listen: how the work really flows, where it stalls, and what it costs. I have no product and no commission, which is why I can afford to conclude the answer isn't technology at all — and when something is worth building, I build it.",
+  body: "Margin thinning and nobody can say exactly where. The same numbers re-keyed into three systems. A decision waiting on a report someone builds by hand. Problems like these are almost never where everyone assumes. So we come in to listen: how the work really flows, where it stalls, and what it costs. We have no product and no commission, which is why we can afford to conclude the answer isn't technology at all — and when something is worth building, we build it.",
 } as const;
 
 /* ------------------------------------------------------- Value pillars */
 
 export const pillars = {
-  eyebrow: "How I'm different",
+  eyebrow: "How we're different",
   items: [
     {
       title: "Clarity before code.",
-      body: "I start with your business and your numbers, not the technology. I look for where the money is actually going, where value genuinely is and where it isn't — before anyone writes a line of code.",
+      body: "We start with your business and your numbers, not the technology. We look for where the money is actually going, where value genuinely is and where it isn't — before anyone writes a line of code.",
     },
     {
-      title: "I diagnose, and I build.",
-      body: "Most advisors hand over a recommendation and leave. I stay to the end — from the plan, to a working solution running in production, to the impact measured against the numbers we agreed.",
+      title: "We diagnose, and we build.",
+      body: "Most advisors hand over a recommendation and leave. We stay to the end — from the plan, to a working solution running in production, to the impact measured against the numbers we agreed with you.",
     },
     {
       title: "No product to sell you.",
-      body: "No software, no licenses, no vendor commission. That is exactly why I can afford to tell you a problem is one of process or people — or not worth solving yet — and why “don't build anything” is a normal outcome.",
+      body: "No software, no licenses, no vendor commission. That is exactly why we can afford to tell you a problem is one of process or people — or not worth solving yet — and why “don't build anything” is a normal outcome.",
     },
   ] as Card[],
 } as const;
@@ -221,15 +221,15 @@ export const pillars = {
 /* ----------------------------------------------------------- Services */
 
 export const services = {
-  eyebrow: "What I do",
+  eyebrow: "What we do",
   headerTitle: "From your problem to the working fix.",
   deliverablesLabel: "What you get",
   intro:
-    "One person from the first question to the day it works. I start with the problem — the margin, the hours, the decision that keeps waiting on a report — then advise and, where it's warranted, build it myself. So the plan and the thing that gets built never disconnect.",
+    "The same hands from the first question to the day it works. We start with the problem — the margin, the hours, the decision that keeps waiting on a report — then advise and, where it's warranted, build it ourselves. So the plan and the thing that gets built never disconnect.",
   items: [
     {
       title: "Technology Advisory & Oversight",
-      body: "You have to sign off on systems, spend and vendors you have no way to verify, and nearly everyone advising you is also selling something. I'm the senior, independent advisor you keep close for exactly those calls — where to invest, what to say no to, how to spend well, and where the real risk sits. No product, no license, no vendor commission: no agenda but yours.",
+      body: "You have to sign off on systems, spend and vendors you have no way to verify, and nearly everyone advising you is also selling something. We're the senior, independent voice you keep close for exactly those calls — where to invest, what to say no to, how to spend well, and where the real risk sits. No product, no license, no vendor commission: no agenda but yours.",
       deliverables: [
         "An ongoing advisor for the decisions that matter, between and beyond projects",
         "Independent review of direction, spend, roadmaps, vendors, and risk",
@@ -238,7 +238,7 @@ export const services = {
     },
     {
       title: "Opportunity & Strategy",
-      body: "You can usually feel where the business leaks — quotes going out late, stock sitting still, the same numbers re-keyed by hand — but not which fix is worth doing first. I put a number on each against your P&L and separate the few opportunities worth pursuing from the many that aren't. Sometimes the honest conclusion is that none of them are.",
+      body: "You can usually feel where the business leaks — quotes going out late, stock sitting still, the same numbers re-keyed by hand — but not which fix is worth doing first. We put a number on each against your P&L and separate the few opportunities worth pursuing from the many that aren't. Sometimes the honest conclusion is that none of them are.",
       deliverables: [
         "A ranked map of what's actually costing you, by value and effort",
         "Sized business cases for the top opportunities",
@@ -247,16 +247,16 @@ export const services = {
     },
     {
       title: "Implementation & Delivery",
-      body: "The usual failure isn't the plan — it's that nobody builds it. I design, build, integrate and deploy the solution myself, working alongside your team so the knowledge stays in-house. Working software over slideware, and I stay until it's live, used, and handed over cleanly.",
+      body: "The usual failure isn't the plan — it's that nobody builds it. We design, build, integrate and deploy the solution ourselves, working alongside your team so the knowledge stays in-house. Working software over slideware, and we stay until it's live, used, and handed over cleanly.",
       deliverables: [
         "A working solution running in production",
         "Integration into your existing systems and workflows",
-        "Documentation and a trained team who can run it without me",
+        "Documentation and a trained team who can run it without us",
       ],
     },
     {
       title: "Operational Performance",
-      body: "A new tool changes nothing if the work around it stays the same — that's how a gain shows up in the demo and never in the accounts. I redesign how the work actually flows, then put measurement in place so the gain is visible and holds after I leave.",
+      body: "A new tool changes nothing if the work around it stays the same — that's how a gain shows up in the demo and never in the accounts. We redesign how the work actually flows, then put measurement in place so the gain is visible and holds after we leave.",
       deliverables: [
         "Redesigned processes mapped to the new tools",
         "A measurement framework tied to your KPIs",
@@ -270,7 +270,7 @@ export const services = {
   ai: {
     eyebrow: "Where AI fits",
     title: "AI, when it's genuinely the right answer.",
-    body: "AI is one option among several, and the one I go deepest in — which is exactly why I can tell you where it genuinely moves your numbers and where it's an expensive distraction, then build it so it survives real users, not just the demo. I've built exactly this, including a retrieval-augmented assistant that runs entirely on hardware a business already owns.",
+    body: "AI is one option among several, and the one we go deepest in — which is exactly why we can tell you where it genuinely moves your numbers and where it's an expensive distraction, then build it so it survives real users, not just the demo. We've built exactly this, including a retrieval-augmented assistant that runs entirely on hardware a business already owns.",
     points: [
       {
         title: "Where AI pays off",
@@ -295,16 +295,16 @@ export const services = {
 export const assessment = {
   eyebrow: "Start here — a low-risk first step",
   heading: "The Business Diagnostic.",
-  body: "Something is costing you money and you can name the symptom, not the cause. Start here. I come in to understand how your business actually runs before I propose anything — then, in two to four weeks, you get a written diagnosis: what is really holding you back, what is worth fixing first, and what each fix would take. Sometimes the answer is a system I build, sometimes a process change, sometimes nothing at all. Fixed scope. No fee. No pitch.",
+  body: "Something is costing you money and you can name the symptom, not the cause. Start here. We come in to understand how your business actually runs before we propose anything — then, in two to four weeks, you get a written diagnosis: what is really holding you back, what is worth fixing first, and what each fix would take. Sometimes the answer is a system we build, sometimes a process change, sometimes nothing at all. Fixed scope. No fee. No pitch.",
   getHeading: "What you get",
   get: [
     "A 3–5 page written diagnosis, built to be shown to your board",
-    "Every problem I find, sized by what it costs you and how hard it is to fix",
+    "Every problem we find, sized by what it costs you and how hard it is to fix",
     "A blunt call on the one thing to fix first — and the reason behind it",
     "The risk you are already carrying — key people, manual controls, blind spots",
   ],
   // The initial assessment is free (a low-risk entry offer).
-  priceNote: "Free — I run it myself, capped at three per month.",
+  priceNote: "Free — we run it ourselves, capped at three per month.",
   cta: site.assessmentCta,
 } as const;
 
@@ -320,7 +320,7 @@ export const assessment = {
 export const assessmentPage = {
   eyebrow: "The Business Diagnostic",
   heading: "Before anyone sells you a solution, find out what is actually holding you back.",
-  lead: "A structured session with your leadership team and a written, prioritized diagnosis of what is costing you most — including a blunt “don't build anything” where that is the honest answer. Free, I run it myself, and capped.",
+  lead: "A structured session with your leadership team and a written, prioritized diagnosis of what is costing you most — including a blunt “don't build anything” where that is the honest answer. Free, we run it ourselves, and capped.",
   heroCta: { label: "Apply for a diagnostic", href: "#apply" } as CTA,
   heroFacts: [
     "45–60 minutes with your leadership team",
@@ -334,37 +334,37 @@ export const assessmentPage = {
     heading: "Most advice arrives with the answer already chosen.",
     paragraphs: [
       "You already know something is wrong; what you don't have is a name for it. Margin that used to be there and isn't. Stock sitting still while more of it gets ordered. The same order typed into three systems by three people. A decision on hold until someone finishes the report. Quotes going out two days late and nobody able to say why. Half of what makes the firm work living in two people's heads.",
-      "Take that to most people and you get their product back: the software company finds a software problem, the AI vendor finds an AI problem, the consultancy finds a strategy problem. I sell no product, hold no license and take no commission from anyone — which is exactly why I can afford to look at your business first and then tell you the cause is a pricing rule, a handover nobody owns, or a report nobody trusts. And when the answer is something that has to be built, I build it.",
+      "Take that to most people and you get their product back: the software company finds a software problem, the AI vendor finds an AI problem, the consultancy finds a strategy problem. We sell no product, hold no license and take no commission from anyone — which is exactly why we can afford to look at your business first and then tell you the cause is a pricing rule, a handover nobody owns, or a report nobody trusts. And when the answer is something that has to be built, we build it.",
     ],
   },
 
   deliverable: {
     eyebrow: "What you get",
     heading: "The written diagnosis.",
-    intro: "Three to five pages, written personally by me — no juniors, no template engine. Built so page one can be forwarded to your board on its own.",
+    intro: "Three to five pages, written by us personally — no juniors, no template engine. Built so page one can be forwarded to your board on its own.",
     items: [
       "A one-page decision memo with the verdict in the title — not buried on page four",
-      "Every problem I find, plotted on one map: what it costs you × how hard it is to fix, each with what you risk by leaving it alone",
+      "Every problem we find, plotted on one map: what it costs you × how hard it is to fix, each with what you risk by leaving it alone",
       "For anything that would have to be built, the Gate Zero check in writing: build now / not yet / don't build, with cost band, time-to-production, and walk-away conditions",
       "A named section — “Not worth fixing yet” — with the reason for every one of them",
-      "Next steps that include the ones you can take without hiring me",
+      "Next steps that include the ones you can take without hiring us",
     ],
     guaranteeLabel: "The written guarantee",
-    guarantee: "Expect at least one thing I'll tell you not to fix — or not to fix yet — with the reason, in writing. If what matters most turns out to be a process change and no new system, the diagnosis says exactly that. And if everything you bring genuinely holds up, it says that plainly instead: what it will never do is manufacture a verdict, in either direction.",
+    guarantee: "Expect at least one thing we'll tell you not to fix — or not to fix yet — with the reason, in writing. If what matters most turns out to be a process change and no new system, the diagnosis says exactly that. And if everything you bring genuinely holds up, it says that plainly instead: what it will never do is manufacture a verdict, in either direction.",
     sampleCta: { label: "Read a sample Gate Zero verdict", href: "/en/assessment/sample-readout" } as CTA,
   },
 
   method: {
     eyebrow: "The method",
-    heading: "How I look at the business — and where Gate Zero comes in.",
-    intro: "I arrive without a candidate solution. Seven things get looked at, in your numbers and your vocabulary, and only what survives them is worth spending on. Anything that would have to be built then goes through Gate Zero — the formal go/no-go check a production system faces, applied before the money:",
+    heading: "How we look at the business — and where Gate Zero comes in.",
+    intro: "We arrive without a candidate solution. Seven things get looked at, in your numbers and your vocabulary, and only what survives them is worth spending on. Anything that would have to be built then goes through Gate Zero — the formal go/no-go check a production system faces, applied before the money:",
     dimensions: [
       { name: "Value at stake", desc: "Euros or hours attached to a named workflow — conservative base case, assumptions stated. No hockey sticks." },
       { name: "Data reality", desc: "Does the information this depends on actually exist, is it clean, and can you get to it today — or does it live in someone's head?" },
       { name: "How the work really runs", desc: "The process as people actually do it, not as the diagram says: the workarounds, the re-keying, the second spreadsheet nobody mentions." },
       { name: "Error tolerance vs stakes", desc: "Where does a mistake land today, who notices, and what has it cost by the time someone catches it?" },
-      { name: "Whether the fix can be measured", desc: "If this changes, does the improvement show up in numbers you already have — or would you be taking my word for it?" },
-      { name: "Cost, effort & ownership", desc: "What a fix costs to run and not only to build, and who inside the firm owns it once I am gone." },
+      { name: "Whether the fix can be measured", desc: "If this changes, does the improvement show up in numbers you already have — or would you be taking our word for it?" },
+      { name: "Cost, effort & ownership", desc: "What a fix costs to run and not only to build, and who inside the firm owns it once we are gone." },
       { name: "Exposure & dependency", desc: "Single points of failure, key-person risk, personal data nobody can account for, and the rules you are already subject to — including where the EU AI Act applies to you." },
     ],
     rulesLabel: "Three rules, stated in every diagnosis",
@@ -373,7 +373,7 @@ export const assessmentPage = {
       "No single aggregate “maturity score” — the weakest dimension decides; averages hide.",
       "Every score carries a confidence level and its declared assumptions.",
     ],
-    questionsLabel: "Four of the questions I actually ask",
+    questionsLabel: "Four of the questions we actually ask",
     gateQuestions: [
       "Where does a mistake land today — and who notices?",
       "Which decisions are waiting on information you don't have?",
@@ -387,9 +387,9 @@ export const assessmentPage = {
     eyebrow: "How it runs",
     heading: "Four steps, two to four weeks.",
     steps: [
-      { name: "Apply", time: "10 minutes", desc: "Ten questions about the firm, about what isn't working, and about where your numbers live. I read every application personally — and I decline some. That's the first verdict, and it happens before any call." },
-      { name: "The diagnostic session", time: "45–60 minutes", desc: "A structured session with your leadership team — I come to understand the business, not to present anything. I follow the money and the friction through the processes you actually run, and I ask the questions production would eventually ask anyway. Walkthrough only: no credentials, no system access, nothing leaves your walls." },
-      { name: "The diagnosis is written", time: "within a week", desc: "Every problem found is scored on the seven dimensions and plotted on one map: what it costs you by how hard it is to fix. Written by me, on your numbers and in your vocabulary." },
+      { name: "Apply", time: "10 minutes", desc: "Ten questions about the firm, about what isn't working, and about where your numbers live. We read every application personally — and we decline some. That's the first verdict, and it happens before any call." },
+      { name: "The diagnostic session", time: "45–60 minutes", desc: "A structured session with your leadership team — we come to understand the business, not to present anything. We follow the money and the friction through the processes you actually run, and we ask the questions production would eventually ask anyway. Walkthrough only: no credentials, no system access, nothing leaves your walls." },
+      { name: "The diagnosis is written", time: "within a week", desc: "Every problem found is scored on the seven dimensions and plotted on one map: what it costs you by how hard it is to fix. Written by us, on your numbers and in your vocabulary." },
       { name: "The verdict walkthrough", time: "30 minutes", desc: "You get the diagnosis and a blunt call on the one thing to fix first: now, not yet — and exactly what unlocks it — or leave it alone. Where the answer is something to build, it comes with the Gate Zero verdict. The document is yours either way." },
     ],
   },
@@ -397,9 +397,9 @@ export const assessmentPage = {
   whyFree: {
     eyebrow: "Why it's free",
     heading: "It's a diagnosis, not the treatment.",
-    body: "This is how you and I find out whether working together makes sense. You get the diagnosis and the priority order; the paid engagements do the work. It stays free because it's capped: one person runs every session and writes every diagnosis — at most three per month, one per company, ever.",
+    body: "This is how we both find out whether working together makes sense. You get the diagnosis and the priority order; the paid engagements do the work. It stays free because it's capped: we run every session and write every diagnosis ourselves — at most three per month, one per company, ever.",
     branches: [
-      { name: "If it's a go", desc: "and the fit is there, the diagnosis maps each problem worth solving to the engagement that closes it — including the ones I would build myself. You'll know the shape of the next step before you commit to anything." },
+      { name: "If it's a go", desc: "and the fit is there, the diagnosis maps each problem worth solving to the engagement that closes it — including the ones we would build ourselves. You'll know the shape of the next step before you commit to anything." },
       { name: "If it's a no-go", desc: "you keep the diagnosis, there is no follow-up sequence, and that's the end — unless you write first. A no-go followed by nurture emails would make the verdict worthless." },
     ],
   },
@@ -424,7 +424,7 @@ export const assessmentPage = {
 
   whoRuns: {
     eyebrow: "Who runs it",
-    heading: "The method exists because these are the checks I run before I ship anything.",
+    heading: "The method exists because these are the checks we run before we ship anything.",
     facts: [
       "Designs, builds and ships production systems — including AI and LLM systems: retrieval tuning, output validation, monitoring, cost and latency budgets",
       "Built a self-hosted, retrieval-augmented AI assistant that runs fully offline on hardware a business already owns",
@@ -436,14 +436,14 @@ export const assessmentPage = {
 
   positioning: {
     heading: "Not a quiz. Not a slide-deck engagement.",
-    body: "This is not a ten-minute self-scoring quiz, and not a six-figure assessment delivered by junior analysts. It is the diagnosis a paid audit would start with, done by the person who would also build the fix. I sell no product, no license and no hardware, and I take no commission from any vendor — which is exactly why I can afford to tell you not to build anything. A “don't build” costs me nothing, and that is the only condition under which a “build” means anything.",
-    noLockIn: "The diagnosis is written to be useful whether or not you ever hire me.",
+    body: "This is not a ten-minute self-scoring quiz, and not a six-figure assessment delivered by junior analysts. It is the diagnosis a paid audit would start with, done by the same hands that would build the fix. We sell no product, no license and no hardware, and we take no commission from any vendor — which is exactly why we can afford to tell you not to build anything. A “don't build” costs us nothing, and that is the only condition under which a “build” means anything.",
+    noLockIn: "The diagnosis is written to be useful whether or not you ever hire us.",
   },
 
   apply: {
     eyebrow: "Apply",
     heading: "Apply for the Business Diagnostic.",
-    intro: "Ten questions, about ten minutes. I read every application personally — some are declined, and that's the first verdict. If accepted, you'll get the exact session agenda before you commit an hour of your leadership team's time.",
+    intro: "Ten questions, about ten minutes. We read every application personally — some are declined, and that's the first verdict. If accepted, you'll get the exact session agenda before you commit an hour of your leadership team's time.",
     microcopy: "Free · one per company · at most three per month · walkthrough only, no system access",
     submitLabel: "Submit application",
   },
@@ -455,15 +455,15 @@ export const dataIp = {
   id: "data-ip",
   eyebrow: "Your data, your IP",
   heading: "Built by a security engineer — handled accordingly.",
-  body: "I come from security and data protection — production security engineering, and before that security R&D in authentication and encryption. That discipline is built into how I work with you: what I get access to, what I build, and what never leaves your walls.",
+  body: "We come from security and data protection — production security engineering, and before that security R&D in authentication and encryption. That discipline is built into how we work with you: what we get access to, what we build, and what never leaves your walls.",
   items: [
     {
       title: "Your data stays yours.",
-      body: "I access only what an engagement needs, work happily under your NDA, and can operate inside your own environment.",
+      body: "We access only what an engagement needs, work happily under your NDA, and can operate inside your own environment.",
     },
     {
-      title: "You own what I build.",
-      body: "Code, models, and documentation are yours, with a clean handover so your team can run everything without me.",
+      title: "You own what we build.",
+      body: "Code, models, and documentation are yours, with a clean handover so your team can run everything without us.",
     },
     {
       title: "Secure by design.",
@@ -471,7 +471,7 @@ export const dataIp = {
     },
     {
       title: "Private, and verified.",
-      body: "Where confidentiality matters, I can run AI on-premise or self-hosted; where correctness matters, I keep model outputs behind validation.",
+      body: "Where confidentiality matters, we can run AI on-premise or self-hosted; where correctness matters, we keep model outputs behind validation.",
     },
   ] as Card[],
 } as const;
@@ -479,33 +479,33 @@ export const dataIp = {
 /* ----------------------------------------------------------- Approach */
 
 export const approach = {
-  eyebrow: "How I work",
+  eyebrow: "How we work",
   outputLabel: "What you get",
   title: "How a problem gets solved, step by step.",
-  intro: "It starts with your business, not with a proposal. I look at how the work actually runs and what the gaps cost you, agree with you on what is worth fixing first — and only then, if something should be built, I build it and stay until it is used.",
+  intro: "It starts with your business, not with a proposal. We look at how the work actually runs and what the gaps cost you, agree with you on what is worth fixing first — and only then, if something should be built, we build it and stay until it is used.",
   steps: [
     {
       n: "01",
       title: "Diagnose",
-      body: "I listen — to you, to the people doing the work, and to your numbers — then follow a few real processes end to end to see where the time and the margin actually go.",
+      body: "We listen — to you, to the people doing the work, and to your numbers — then follow a few real processes end to end to see where the time and the margin actually go.",
       output: "A written picture of your real problems, in plain words, ranked by what they cost you.",
     },
     {
       n: "02",
       title: "Prioritize",
-      body: "Then we separate the problems worth solving from the ones you can live with and put a number on each. Some need no software; anything built goes through Gate Zero.",
-      output: "A ranked shortlist with success measures agreed up front — and what I advise you not to build.",
+      body: "Then, together, we separate the problems worth solving from the ones you can live with and put a number on each. Some need no software; anything built goes through Gate Zero.",
+      output: "A ranked shortlist with success measures agreed up front — and what we advise you not to build.",
     },
     {
       n: "03",
       title: "Build",
-      body: "I don't hand over a recommendation and leave: I design it, write it, integrate it with the systems you already run, and work alongside your people.",
+      body: "We don't hand over a recommendation and leave: we design it, write it, integrate it with the systems you already run, and work alongside your people.",
       output: "A working solution in production, used by the people it's for.",
     },
     {
       n: "04",
       title: "Prove & scale",
-      body: "Then I check whether the numbers actually moved, against the measures agreed at the start, and tell you plainly what worked and what didn't.",
+      body: "Then we check whether the numbers actually moved, against the measures agreed at the start, and tell you plainly what worked and what didn't.",
       output: "Proven results on your KPIs, and a plan to extend what worked.",
     },
   ] as Step[],
@@ -514,10 +514,10 @@ export const approach = {
 /* ----------------------------------------------------- Statement band */
 
 export const statement = {
-  eyebrow: "My commitment",
-  headline: "I'm judged by outcomes, not output.",
+  eyebrow: "Our commitment",
+  headline: "We're judged by outcomes, not output.",
   support:
-    "Every engagement is tied to results you can measure — and I tell you plainly what's working and what isn't.",
+    "Every engagement is tied to results you can measure — and we tell you plainly what's working and what isn't.",
 } as const;
 
 /* --------------------------------------------------- Testimonials (Task 3) */
@@ -536,8 +536,8 @@ export const testimonialsMeta = {
 /* ------------------------------------------------- Who we work with */
 
 export const clients = {
-  eyebrow: "Who I work with",
-  body: "The problem looks different from every seat in the company. Leadership sees the number that won't budge; the person doing the work knows exactly which step breaks, and why nobody has fixed it. So I listen at all three levels — that is usually where the real cause turns up.",
+  eyebrow: "Who we work with",
+  body: "The problem looks different from every seat in the company. Leadership sees the number that won't budge; the person doing the work knows exactly which step breaks, and why nobody has fixed it. So we listen at all three levels — that is usually where the real cause turns up.",
   levels: [
     {
       role: "Owners and the leadership team",
@@ -558,8 +558,8 @@ export const clients = {
 
 export const aboutTeaser = {
   eyebrow: "Who's behind it",
-  heading: "One person. Directly involved.",
-  body: "LT Strategy Partners is one person: Luca-Ștefan Tamaș, a systems engineer who builds production systems in a demanding, security-critical environment. He was lead architect on a multi-tenant enterprise platform (BI, ERP, document management, process automation), has founded two SaaS products of his own, and builds self-hosted AI where it earns its place. He has no product, no license and no vendor commission to sell — so he can afford to tell you a problem isn't worth solving, and to build the answer himself when it is. You work with him directly: the person who advises you is the person who does the work.",
+  heading: "Senior, and directly involved.",
+  body: "LT Strategy Partners is the practice of Luca-Ștefan Tamaș, a systems engineer who builds production systems in a demanding, security-critical environment. He was lead architect on a multi-tenant enterprise platform (BI, ERP, document management, process automation), has founded two SaaS products of his own, and builds self-hosted AI where it earns its place. He has no product, no license and no vendor commission to sell — so he can afford to tell you a problem isn't worth solving, and to build the answer himself when it is. You work with him directly: the person who advises you is the person who does the work.",
   link: { label: "More about Luca", href: "/en/about" } as CTA,
   photoCaption: `${"Luca-Ștefan Tamaș"} · Founder`,
 } as const;
@@ -570,17 +570,17 @@ export const aboutPage = {
   eyebrow: "About",
   heading: "A hands-on partner, start to finish.",
   paragraphs: [
-    "I'm Luca-Ștefan Tamaș, and LT Strategy Partners is my practice. It is small and senior on purpose: when you work with LT Strategy Partners, you work with me directly. I come in to understand how your business actually runs before I have any view on what should be built — and the person who gives the advice is the person who then does the work and stays accountable for how it turns out.",
+    "LT Strategy Partners is the practice of Luca-Ștefan Tamaș. It is small and senior on purpose: not an agency, no hand-offs between teams and no juniors — when you work with LT Strategy Partners, you work with the person who does the work. We come in to understand how your business actually runs before we have any view on what should be built — and the person who gives the advice is the person who then does the work and stays accountable for how it turns out.",
     "By background I'm a systems engineer. What I know deepest — my specialism, though not the thing every engagement has to be about — is AI that has to hold up in production, not just in a demo: strong retrieval and clean data, model outputs kept behind validation, sane latency and cost, and the monitoring and fallbacks that keep a system dependable once real people rely on it.",
     "Day to day I build production systems inside a demanding, security-critical engineering environment, and before that I was lead architect on a multi-tenant enterprise platform spanning business intelligence, ERP, document management, and process automation. I've founded and shipped two SaaS products of my own — Mazely and Processly — and built a self-hosted, retrieval-augmented AI assistant that runs entirely offline on hardware a venue already owns. Since 2020 I've delivered client work end to end across web, mobile, data, and AI, including apps on the App Store and Google Play. That security and platform grounding is why the AI I build stays private and dependable by default.",
   ],
-  beliefsHeading: "What I believe about this work",
+  beliefsHeading: "What we believe about this work",
   beliefs: [
-    "I believe software and a company's digital infrastructure are among the best investments a business can make — but only when they are made thoughtfully. Plenty of organizations spend heavily and follow whatever is trending, then wonder why the money never reached the bottom line. The technology is rarely the hard part. Spending on the right thing, for the right reason, in the right order is where the return actually comes from, and it is the part most often skipped.",
-    "I also believe the cheapest money you will ever spend is the conversation before you start. A short, honest talk with someone who has built these systems can save months of work and a lot of budget — by catching the wrong problem early, setting aside the idea that will not pay off, and pointing you at the simplest thing that actually works. That is exactly why the first step I offer, the Business Diagnostic, costs nothing.",
+    "We believe software and a company's digital infrastructure are among the best investments a business can make — but only when they are made thoughtfully. Plenty of organizations spend heavily and follow whatever is trending, then wonder why the money never reached the bottom line. The technology is rarely the hard part. Spending on the right thing, for the right reason, in the right order is where the return actually comes from, and it is the part most often skipped.",
+    "We also believe the cheapest money you will ever spend is the conversation before you start. A short, honest talk with someone who has built these systems can save months of work and a lot of budget — by catching the wrong problem early, setting aside the idea that will not pay off, and pointing you at the simplest thing that actually works. That is exactly why the first step we offer, the Business Diagnostic, costs nothing.",
   ],
-  whyHeading: "How I like to work",
-  why: "I would rather be useful than impressive. I have no product, no license and no vendor commission to sell, so telling you not to build something costs me nothing — which is the only condition under which a “build this” means anything. And because I have had to make these systems work in the real world, I can tell you plainly what is worth doing, what is not, and what it will really take — I will not recommend anything I would not be willing to build myself.",
+  whyHeading: "How we like to work",
+  why: "We would rather be useful than impressive. We have no product, no license and no vendor commission to sell, so telling you not to build something costs us nothing — which is the only condition under which a “build this” means anything. And because we have had to make these systems work in the real world, we can tell you plainly what is worth doing, what is not, and what it will really take — we will not recommend anything we would not be willing to build ourselves.",
   glanceHeading: "Background at a glance",
   glance: [
     "Builds production AI and LLM systems — retrieval-augmented generation, self-hosted models, and outputs kept behind validation",
@@ -598,7 +598,7 @@ export const aboutPage = {
 
 export const ctaBand = {
   headline: "What's the real problem in your business?",
-  body: "Let's have a direct, no-pressure conversation about what's getting in the way — and if the answer isn't technology, I'll tell you that plainly.",
+  body: "Let's have a direct, no-pressure conversation about what's getting in the way — and if the answer isn't technology, we'll tell you that plainly.",
   cta: site.primaryCta,
 } as const;
 
@@ -610,7 +610,7 @@ export const faq = {
   items: [
     {
       q: "How do we start?",
-      a: "With the Business Diagnostic — a free, fixed-scope first step where I look at how your business actually runs and write down what is worth fixing, and what isn't.",
+      a: "With the Business Diagnostic — a free, fixed-scope first step where we look at how your business actually runs and write down what is worth fixing, and what isn't.",
     },
     {
       q: "How do you price?",
@@ -622,15 +622,15 @@ export const faq = {
     },
     {
       q: "What if the answer isn't technology?",
-      a: "Then I say so — it's a common outcome. I have no product, no license and no commission to sell, so “don't build anything” costs me nothing.",
+      a: "Then we say so — it's a common outcome. We have no product, no license and no commission to sell, so “don't build anything” costs us nothing.",
     },
     {
       q: "Who actually does the work?",
-      a: "I do. There is no junior to hand you off to — the person who gives the advice is the person who designs and builds the answer.",
+      a: "We do. There is no junior to hand you off to — the person who gives the advice is the person who designs and builds the answer.",
     },
     {
       q: "How do you handle our data and IP?",
-      a: "Your data stays yours, you own what I build, and security is decided at the design stage.",
+      a: "Your data stays yours, you own what we build, and security is decided at the design stage.",
       href: "/en#data-ip",
     },
   ] as FaqItem[],
@@ -650,7 +650,7 @@ export const contact = {
   eyebrow: "Contact",
   headline: "Let's have a direct conversation.",
   intro:
-    "Tell me a little about your company and the problem you'd most like solved. I'll come back to you personally — no sales script, no pressure.",
+    "Tell us a little about your company and the problem you'd most like solved. We'll come back to you personally — no sales script, no pressure.",
   email: site.email,
   phone: site.phone,
   phoneDisplay: site.phoneDisplay,
@@ -670,16 +670,16 @@ export const contact = {
   } as Record<string, string>,
   submitLabel: "Send message",
   asideEyebrow: "Direct line",
-  asideLead: "Prefer email, or want to reach me straight away?",
+  asideLead: "Prefer email, or want to reach us straight away?",
   asidePoints: [
     "Independent and senior — no product to sell you.",
     "A reply within two business days.",
     "No sales script, no pressure.",
   ],
   privacyHtml:
-    'I only use your details to reply to you, and never share them with third parties. See the <a href="/en/privacy">privacy policy</a>.',
+    'We only use your details to reply to you, and never share them with third parties. See the <a href="/en/privacy">privacy policy</a>.',
   successMessage:
-    "Thank you — your message is ready to send. I'll reply personally within two business days.",
+    "Thank you — your message is ready to send. We'll reply personally within two business days.",
 } as const;
 
 /* ------------------------------------------------------------- Footer */
@@ -692,7 +692,7 @@ export const footer = {
   location: site.location,
   linkedin: site.links.companyLinkedin,
   blurb:
-    "Independent, senior, and one person by design: I start with the problem in your business, then design and build the answer myself — or tell you plainly that nothing needs building.",
+    "Independent and senior by design: we start with the problem in your business, then design and build the answer ourselves — or tell you plainly that nothing needs building.",
 } as const;
 
 /* --------------------------------------------------------- Insights (Task 8) */
@@ -710,7 +710,7 @@ export const work = {
   eyebrow: "Selected work",
   // Founder-led voice (Task 2): no "team".
   intro:
-    "A few things I've designed and built. I show them to make one point plainly: I don't just advise — I ship. Here is what each took, technically and strategically, and what it means for the work we could do together.",
+    "A few things we've designed and built. We show them to make one point plainly: we don't just advise — we ship. Here is what each took, technically and strategically, and what it means for the work we could do together.",
   projects: [
     {
       slug: "processly",
@@ -759,7 +759,7 @@ export const work = {
         "MinIO",
       ],
       takeaway:
-        "This shows I can turn a client's recurring, manual work into designed, reusable systems that run on demand or on a schedule — giving an operations team consistency and visibility without growing the team.",
+        "This shows we can turn a client's recurring, manual work into designed, reusable systems that run on demand or on a schedule — giving an operations team consistency and visibility without growing the team.",
       image: "processly",
     },
     {
@@ -806,7 +806,7 @@ export const work = {
         "MinIO",
       ],
       takeaway:
-        "This shows I can design and ship a privacy-conscious product for complex institutions that removes physical friction while generating useful operational data — an approach that fits anywhere an organization needs a low-friction digital layer over a physical environment.",
+        "This shows we can design and ship a privacy-conscious product for complex institutions that removes physical friction while generating useful operational data — an approach that fits anywhere an organization needs a low-friction digital layer over a physical environment.",
       image: "mazely",
     },
     {
@@ -853,7 +853,7 @@ export const work = {
         "MinIO",
       ],
       takeaway:
-        "This shows I can design and ship retrieval-augmented AI that runs privately on hardware a business already owns, with the memory budgeting, health checks, and backup discipline needed to keep it running in the real world.",
+        "This shows we can design and ship retrieval-augmented AI that runs privately on hardware a business already owns, with the memory budgeting, health checks, and backup discipline needed to keep it running in the real world.",
       diagram: true,
     },
     {
@@ -901,7 +901,7 @@ export const work = {
         "Three rounds of adversarial review by twelve independent reviewers; two full from-scratch reimplementations reproduced every published figure",
       ],
       takeaway:
-        "This is the clearest demonstration of what I do with data: take sources that are public but unusable, resolve the entities nobody has joined before, and publish the result with its limits stated — so the numbers survive scrutiny instead of collapsing under it.",
+        "This is the clearest demonstration of what we do with data: take sources that are public but unusable, resolve the entities nobody has joined before, and publish the result with its limits stated — so the numbers survive scrutiny instead of collapsing under it.",
       image: "atlas",
       liveUrl: "/atlas/",
       liveLabel: "Open the live Atlas",
@@ -951,7 +951,7 @@ export const work = {
         "One correction cut a published procurement figure by 32% — the deduplication key could not survive four date formats and 98,064 blank dates",
       ],
       takeaway:
-        "The report is the visible part. What it actually demonstrates is a discipline: every number traceable to a source file, every approximation named with the direction of its error, and a verification pass that assumes my own output is wrong until it survives being recomputed a second way.",
+        "The report is the visible part. What it actually demonstrates is a discipline: every number traceable to a source file, every approximation named with the direction of its error, and a verification pass that assumes our own output is wrong until it survives being recomputed a second way.",
       image: "raport-firma",
       gallery: [
         "raport-firma-indicatori",
@@ -994,7 +994,7 @@ export const work = {
       // [[VERIFY: full stack]] — Metabase confirmed from the dashboard export.
       stack: ["Metabase (dashboard / BI)", "SQL", "GPS / telemetry pipeline"],
       takeaway:
-        "This shows I can take raw sensor and telemetry data and turn it into operational dashboards that drive real decisions — an approach that applies to any client running a fleet, a network, or a stream of operational data.",
+        "This shows we can take raw sensor and telemetry data and turn it into operational dashboards that drive real decisions — an approach that applies to any client running a fleet, a network, or a stream of operational data.",
       image: "transit-map",
       gallery: ["transit-charts", "transit-speeding"],
     },
@@ -1007,12 +1007,12 @@ export const pageIntros = {
   services: {
     eyebrow: "Services",
     title: "From the problem to a system in production.",
-    lead: "One senior person the whole way: the diagnosis first, then the build, then the change in how work runs that makes the gain stick. No handoffs, no gap between the plan and the person writing the code.",
+    lead: "The same senior partner the whole way: the diagnosis first, then the build, then the change in how work runs that makes the gain stick. No handoffs, no gap between the plan and the person writing the code.",
   },
   contact: {
     eyebrow: "Contact",
     title: "Let's have a direct conversation.",
-    lead: "Tell me a little about your company and the problem you'd most like solved. I'll come back to you personally — no sales script, no pressure.",
+    lead: "Tell us a little about your company and the problem you'd most like solved. We'll come back to you personally — no sales script, no pressure.",
   },
 } as const;
 
@@ -1046,7 +1046,7 @@ export const scorecardPage = {
   eyebrow: "Free self-check · about 3 minutes",
   heading: "Where is your business losing time and money — and is anything worth building?",
   lead: "Ten plain questions about how the business actually runs — no jargon, no sign-up to start. You'll get an honest read on where your time and money are going, and whether an investment in technology would genuinely pay off for a company like yours right now — and, just as often, where the smarter move is to fix something first. This isn't a maturity score to make you feel behind. It's a straight answer about where your money would actually go to work.",
-  microcopy: "No login to answer. I only ask for an email if you want the fuller written readout.",
+  microcopy: "No login to answer. We only ask for an email if you want the fuller written readout.",
   // The Q3 index (0-based) whose zero-point answer triggers the data-gate override.
   dataGateQuestionIndex: 2,
   dataGateNote:
@@ -1175,7 +1175,7 @@ export const scorecardPage = {
       max: 100,
       name: "Ready to move",
       headline: "The question isn't whether — it's which bet, and in what order.",
-      body: "On paper, you're ready: a named problem, data a system can reach, budget, an owner, and the pressure to move. The only thing standing between you and a return is choosing the right first bet and sequencing it well — because at this stage the expensive mistake is building three things adequately instead of one thing that pays. This is exactly the point where a short, honest, outside read earns its keep. The free Business Diagnostic gives you a written verdict on each candidate — build now, not yet, or don't build — including, plainly, when the honest answer is that nothing here should be built. I have no product, no license and no vendor commission, so a \"don't build\" costs me nothing — which is the only reason a \"build\" from me means anything.",
+      body: "On paper, you're ready: a named problem, data a system can reach, budget, an owner, and the pressure to move. The only thing standing between you and a return is choosing the right first bet and sequencing it well — because at this stage the expensive mistake is building three things adequately instead of one thing that pays. This is exactly the point where a short, honest, outside read earns its keep. The free Business Diagnostic gives you a written verdict on each candidate — build now, not yet, or don't build — including, plainly, when the honest answer is that nothing here should be built. We have no product, no license and no vendor commission, so a \"don't build\" costs us nothing — which is the only reason a \"build\" from us means anything.",
     },
   ] as ScorecardTier[],
   ui: {
@@ -1188,17 +1188,17 @@ export const scorecardPage = {
   },
   gate: {
     heading: "Want the fuller readout in writing?",
-    body: "Leave an email and I'll send a longer version of your result: what your answers point to, the two or three things I'd look at first for a company in your position, and — if it fits — the one question I'd get answered before spending anything. No newsletter, no drip sequence, no sales calls you didn't ask for. One useful email.",
+    body: "Leave an email and we'll send a longer version of your result: what your answers point to, the two or three things we'd look at first for a company in your position, and — if it fits — the one question we'd get answered before spending anything. No newsletter, no drip sequence, no sales calls you didn't ask for. One useful email.",
     emailLabel: "Work email",
     button: "Send me the readout",
-    privacy: "I use your email only to send this readout. I don't pass it on and I won't add you to a list.",
+    privacy: "We use your email only to send this readout. We don't pass it on and we won't add you to a list.",
     privacyLinkLabel: "See the privacy policy.",
     privacyHref: "/en/privacy",
   },
   ctaPrimary: {
     label: "Apply for a free Business Diagnostic",
     href: "/en/assessment",
-    microcopy: "Free · one per company · I run it personally · a written verdict, including where nothing should be built.",
+    microcopy: "Free · one per company · we run it personally · a written verdict, including where nothing should be built.",
   },
   ctaSecondary: {
     label: "Or just talk it through",
@@ -1208,7 +1208,7 @@ export const scorecardPage = {
 
 export const pageMeta = {
   home: {
-    title: "LT Strategy Partners — Independent advisor: the problem first, then the build",
+    title: "LT Strategy Partners — Independent advisory: the problem first, then the build",
     description: site.description,
     path: "/en",
   },
@@ -1221,13 +1221,13 @@ export const pageMeta = {
   services: {
     title: "Services — LT Strategy Partners",
     description:
-      "Independent technology advisory and oversight, strategy, delivery, and operational performance — with deep specialization in AI. One senior partner across the full journey.",
+      "Independent technology advisory and oversight, strategy, delivery, and operational performance — with deep specialization in AI. Senior involvement across the full journey.",
     path: "/en/services",
   },
   assessment: {
     title: "The Business Diagnostic — LT Strategy Partners",
     description:
-      "A free diagnostic I run personally: where the money, the time and the decisions leak in your business, what is worth fixing first — and, honestly, where the answer isn't technology.",
+      "A free diagnostic we run personally: where the money, the time and the decisions leak in your business, what is worth fixing first — and, honestly, where the answer isn't technology.",
     path: "/en/assessment",
   },
   assessmentSample: {
@@ -1299,7 +1299,7 @@ export const ui = {
   backToWork: "Selected work",
   insightsDateLocale: "en-US",
   workContext: "The context",
-  workDelivered: "What I delivered",
+  workDelivered: "What we delivered",
   workStrategic: "Why it matters",
   workImpact: "Impact",
   workGallery: "From the dashboard",
@@ -1355,10 +1355,10 @@ export const formStrings = {
   fixFields: "Please correct the highlighted fields.",
   required: "This field is required.",
   invalidEmail: "Please enter a valid email address.",
-  failPrefix: "Something went wrong. Please email me directly at",
+  failPrefix: "Something went wrong. Please email us directly at",
   contactSubjectPrefix: "Enquiry from",
   contactSuccessSent:
-    "Thank you — your message has been sent. I'll reply personally within two business days.",
+    "Thank you — your message has been sent. We'll reply personally within two business days.",
   assessmentSubjectPrefix: "Diagnostic application —",
   assessmentSuccessMailto:
     "Thank you — your application is ready to send. It will be read personally, and you'll hear back within two business days.",
@@ -1420,7 +1420,7 @@ export const assessmentForm = {
     {
       name: "tried",
       label: "What have you already tried — and what happened?",
-      hint: "New software, a consultant, a pilot, an internal fix. Where each one stalled tells me the most.",
+      hint: "New software, a consultant, a pilot, an internal fix. Where each one stalled tells us the most.",
       type: "textarea",
       required: false,
     },
@@ -1463,41 +1463,41 @@ export const legalPages = {
   privacy: {
     eyebrow: "Legal",
     title: "Privacy policy.",
-    lead: "How I collect and handle the information you share with me. Plain language, no surprises.",
+    lead: "How we collect and handle the information you share with us. Plain language, no surprises.",
     updated: "Last updated: 3 July 2026",
     sections: [
       {
-        heading: "Who I am",
-        html: `The data controller for this website is ${site.name} (a founder-led practice based in Iași, Romania). If you have any question about this policy or your data, write to me at <a href="mailto:${site.email}">${site.email}</a>.`,
+        heading: "Who we are",
+        html: `The data controller for this website is ${site.name} (a founder-led practice based in Iași, Romania). If you have any question about this policy or your data, write to us at <a href="mailto:${site.email}">${site.email}</a>.`,
       },
       {
-        heading: "What I collect",
-        html: `I collect the information you choose to send me. Through the <strong>contact form</strong>, that is your <strong>name</strong>, <strong>company</strong>, <strong>role</strong> (optional), <strong>email address</strong>, and the <strong>message</strong> you write. If instead you use the “Book a conversation” button, you provide your name, email, and any details you add when scheduling — see <a href="#booking">Booking a conversation</a> below. I do not run advertising, and I do not use invasive tracking or third-party analytics that identify you.`,
+        heading: "What we collect",
+        html: `We collect the information you choose to send us. Through the <strong>contact form</strong>, that is your <strong>name</strong>, <strong>company</strong>, <strong>role</strong> (optional), <strong>email address</strong>, and the <strong>message</strong> you write. If instead you use the “Book a conversation” button, you provide your name, email, and any details you add when scheduling — see <a href="#booking">Booking a conversation</a> below. We do not run advertising, and we do not use invasive tracking or third-party analytics that identify you.`,
       },
       {
-        heading: "Why I collect it, and my lawful basis",
-        html: `I use this information for one purpose: to read and respond to your enquiry, and to follow up about a possible engagement. My lawful basis under the GDPR is my legitimate interest in responding to people who contact me about my services, and — where you initiate contact to discuss working together — taking steps at your request prior to entering into a contract.`,
+        heading: "Why we collect it, and our lawful basis",
+        html: `We use this information for one purpose: to read and respond to your enquiry, and to follow up about a possible engagement. Our lawful basis under the GDPR is our legitimate interest in responding to people who contact us about our services, and — where you initiate contact to discuss working together — taking steps at your request prior to entering into a contract.`,
       },
       {
         heading: "Sharing",
-        html: `I do not sell your information, and I do not share it with third parties for their own purposes. Your enquiry reaches me either by email or through the website forms, which are processed by Google and stored in a spreadsheet in my own Google account; Google, and the email and hosting providers that carry your message, act only as processors on my behalf. This processing may involve transfers outside the EEA under Google's safeguards.`,
+        html: `We do not sell your information, and we do not share it with third parties for their own purposes. Your enquiry reaches us either by email or through the website forms, which are processed by Google and stored in a spreadsheet in our own Google account; Google, and the email and hosting providers that carry your message, act only as processors on our behalf. This processing may involve transfers outside the EEA under Google's safeguards.`,
       },
       {
         id: "booking",
         heading: "Booking a conversation",
-        html: `The “Book a conversation” button opens an appointment page provided by Google Calendar. If you book a call there, the details you enter — your name, email, and anything you add — are handled by Google as part of running the scheduling, under <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google's own privacy policy</a>, and may be transferred to servers outside the EEA, including the United States. I receive those details only to arrange and hold the appointment with you. If you would rather not use Google, just email me instead at <a href="mailto:${site.email}">${site.email}</a>.`,
+        html: `The “Book a conversation” button opens an appointment page provided by Google Calendar. If you book a call there, the details you enter — your name, email, and anything you add — are handled by Google as part of running the scheduling, under <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google's own privacy policy</a>, and may be transferred to servers outside the EEA, including the United States. We receive those details only to arrange and hold the appointment with you. If you would rather not use Google, just email us instead at <a href="mailto:${site.email}">${site.email}</a>.`,
       },
       {
-        heading: "How long I keep it",
-        html: `I keep enquiry correspondence only as long as needed to deal with your request and, where relevant, for the duration of any engagement that follows, after which it is deleted. If a conversation does not lead anywhere, I delete it once it is clearly no longer needed.`,
+        heading: "How long we keep it",
+        html: `We keep enquiry correspondence only as long as needed to deal with your request and, where relevant, for the duration of any engagement that follows, after which it is deleted. If a conversation does not lead anywhere, we delete it once it is clearly no longer needed.`,
       },
       {
         heading: "Your rights",
-        html: `Under the GDPR you have the right to access the personal data I hold about you, to have it corrected if it is wrong, to have it erased, to restrict or object to how I use it, and to data portability. To exercise any of these, email <a href="mailto:${site.email}">${site.email}</a> and I will respond within the time the law requires. You also have the right to lodge a complaint with your local data-protection authority.`,
+        html: `Under the GDPR you have the right to access the personal data we hold about you, to have it corrected if it is wrong, to have it erased, to restrict or object to how we use it, and to data portability. To exercise any of these, email <a href="mailto:${site.email}">${site.email}</a> and we will respond within the time the law requires. You also have the right to lodge a complaint with your local data-protection authority.`,
       },
       {
         heading: "Changes",
-        html: `If I change this policy, I will update the date above. Material changes will be made clear on this page.`,
+        html: `If we change this policy, we will update the date above. Material changes will be made clear on this page.`,
       },
     ] as LegalSection[],
   },
@@ -1509,7 +1509,7 @@ export const legalPages = {
     sections: [
       {
         heading: "About this site",
-        html: `This website is published by ${site.name} to describe my services and share my thinking. It is provided for general information only.`,
+        html: `This website is published by ${site.name} to describe our services and share our thinking. It is provided for general information only.`,
       },
       {
         heading: "No advice or contract",
@@ -1517,11 +1517,11 @@ export const legalPages = {
       },
       {
         heading: "Intellectual property",
-        html: `The content, brand, and design of this website belong to ${site.name} unless stated otherwise. Product names and marks referenced in my work belong to their respective owners.`,
+        html: `The content, brand, and design of this website belong to ${site.name} unless stated otherwise. Product names and marks referenced in our work belong to their respective owners.`,
       },
       {
         heading: "Links",
-        html: `Where this site links to external sites, I am not responsible for their content or their practices.`,
+        html: `Where this site links to external sites, we are not responsible for their content or their practices.`,
       },
       {
         heading: "Contact",

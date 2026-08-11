@@ -50,8 +50,8 @@ const ragLabel: Record<Rag, string> = {
         diagnosticul arată că merită construit ceva.
         <strong>Exemplu ilustrativ.</strong> „Arvela Logistics” este o companie
         fictivă, iar fiecare cifră de mai jos este inventată. Metoda, punctarea
-        și formatul sunt exact ceea ce primiți; diferența e că le aplic pe cifrele
-        dumneavoastră.
+        și formatul sunt exact ceea ce primiți; diferența e că le aplicăm pe
+        cifrele dumneavoastră.
       </div>
 
       <h1 class="sr-pagetitle">Un exemplu de Raport Gate Zero.</h1>
@@ -212,7 +212,7 @@ const ragLabel: Record<Rag, string> = {
         <p class="sr-sheet-tag">Pagina 3 · Cazul principal — fișă și poartă formală</p>
         <h2 class="sr-sheet-title">A · Asistentul pentru documente de expediție.</h2>
         <dl class="sr-fields">
-          <div><dt>Procesul de business</dt><dd>Cereri de booking primite: email + PDF-uri atașate (conosamente, liste de colisaj, formulare vamale), retastate în TMS de echipa de operațiuni.</dd></div>
+          <div><dt>Procesul de lucru</dt><dd>Cereri de booking primite: email + PDF-uri atașate (conosamente, liste de colisaj, formulare vamale), retastate în TMS de echipa de operațiuni.</dd></div>
           <div><dt>Impact, scenariu de bază conservator</dt><dd>5 operatori × ~9 ore/săptămână de retastare × costul complet al Arvela ≈ <strong>54.000 €/an</strong>, fără timpul de corectare a erorilor. Ipoteză declarată: volumele vin din estimarea șefului de operațiuni, nu din loguri măsurate.</dd></div>
           <div><dt>Cumpărare / integrare / construcție</dt><dd>Integrare: un model de extragere în spatele unei interfețe de verificare, conectat la API-ul TMS existent. Antrenarea unui model propriu nu se justifică la acest volum.</dd></div>
           <div><dt>Pregătirea datelor</dt><dd>Verde la adâncimea discuției ghidate — documentele sunt accesibile astăzi în inboxul comun; setul de referință este necesar înainte de lansare (vezi poarta).</dd></div>
@@ -223,7 +223,7 @@ const ragLabel: Record<Rag, string> = {
         <h3 class="sr-gate-title">Poarta</h3>
         <p class="sr-gate-verdict"><span class="sr-verdict-chip sr-chip-go">Construiți acum</span> — sub rezerva listei de mai jos.</p>
         <ul class="sr-gate-list" role="list">
-          <li><strong>Ținta de capabilitate:</strong> acuratețe de extragere ≥95% la nivel de câmp, pe setul de referință de 200 de documente, înainte de lansare; fiecare rezultat confirmat de un om până atunci, apoi eșantionat.</li>
+          <li><strong>Ținta de performanță:</strong> acuratețe de extragere ≥95% la nivel de câmp, pe setul de referință de 200 de documente, înainte de lansare; fiecare rezultat confirmat de un om până atunci, apoi eșantionat.</li>
           <li><strong>Ținta de siguranță:</strong> nicio scriere automată în TMS — confirmarea operatorului rămâne obligatorie până la trei săptămâni consecutive în interiorul bugetului de eroare.</li>
           <li><strong>Costul la scară:</strong> costul unitar per expediere procesată rămâne sub plafonul convenit la volum dublu; măsurat, nu presupus.</li>
           <li><strong>Semnături necesare:</strong> responsabilul de operațiuni · securitate/protecția datelor · inginerie · operatorii care îl folosesc.</li>
@@ -279,19 +279,19 @@ const ragLabel: Record<Rag, string> = {
       <!-- ============================== PAGE 5 -->
       <article class="sr-sheet" aria-label="Pagina 5 — Lipsuri, pași următori și drumul înainte">
         <p class="sr-sheet-tag">Pagina 5 · Lipsuri, pași următori și drumul înainte</p>
-        <h2 class="sr-sheet-title">Ce urmează — cu mine sau fără mine.</h2>
+        <h2 class="sr-sheet-title">Ce urmează — cu noi sau fără noi.</h2>
         <ol class="sr-steps" role="list">
           <li><strong>Numiți responsabilul bazei de cunoștințe (în sarcina dumneavoastră, săptămâna aceasta).</strong> Nu e nevoie de niciun contract — un nume, o țintă de consolidare la 90 de zile, iar cazul B încetează să mai fie blocat.</li>
-          <li><strong>Construiți setul de referință (în sarcina dumneavoastră, ~1 săptămână din timpul operatorilor).</strong> 200 de expedieri recente, cu câmpurile verificate manual. Oricine ar construi asistentul va avea nevoie de el — eu sau altcineva.</li>
-          <li><strong>Dimensionați asistentul pentru documente după poarta de la pagina 3.</strong> Întrebările rămase deschise — acuratețea reală a extragerii pe documentele dumneavoastră, costul prelucrării exclusiv în UE — sunt exact ceea ce testează un audit de pregătire pentru producție, cu perimetru fix.</li>
+          <li><strong>Construiți setul de referință (în sarcina dumneavoastră, ~1 săptămână din timpul operatorilor).</strong> 200 de expedieri recente, cu câmpurile verificate manual. Oricine ar construi asistentul va avea nevoie de el — noi sau altcineva.</li>
+          <li><strong>Dimensionați asistentul pentru documente după poarta de la pagina 3.</strong> Întrebările rămase deschise — acuratețea reală a extragerii pe documentele dumneavoastră, costul prelucrării exclusiv în UE — sunt exact ceea ce verifică o analiză cu perimetru fix a candidatului față de condițiile porții de la pagina 3, pe documentele dumneavoastră reale.</li>
           <li><strong>Reintroduceți chatbotul în poartă peste 90 de zile.</strong> Dacă baza de cunoștințe se consolidează, B reintră drept candidat la „construiți”; dacă nu, și asta vă spune ceva.</li>
         </ol>
         <div class="sr-map-forward">
           <p class="sr-foot-label">Dacă vreți ajutor, iată cum se leagă fiecare lipsă</p>
           <ul role="list">
-            <li>Acuratețea extragerii și realitatea pipeline-ului → un <strong>audit de pregătire pentru producție</strong>, cu perimetru fix, pe cazul A.</li>
-            <li>Prelucrarea exclusiv în UE / fără transferuri → o <strong>analiză de securitate și de conformitate cu EU AI Act</strong>, dimensionată chiar în funcție de nivelul de expunere atribuit mai sus.</li>
-            <li>Trecerea cazului A de la verdict la producție → un <strong>sprint de producție</strong> cu perimetru fix, un singur flux de lucru, măsurat pe metrica de la pagina 3.</li>
+            <li>Acuratețea extragerii și realitatea pipeline-ului → o <strong>analiză a cazului A față de condițiile porții de la pagina 3</strong>, cu perimetru fix, pe documentele dumneavoastră reale.</li>
+            <li>Prelucrarea exclusiv în UE / fără transferuri → o <strong>Analiză „de rezistență” (securitate și EU AI Act)</strong>, dimensionată chiar în funcție de nivelul de expunere atribuit mai sus.</li>
+            <li>Trecerea cazului A de la verdict la producție → <strong>implementare și livrare</strong>: un singur flux de lucru, construit, integrat și predat, măsurat pe metrica de la pagina 3.</li>
           </ul>
         </div>
         <p class="sr-yours">Acest document rămâne al dumneavoastră, în oricare variantă.</p>

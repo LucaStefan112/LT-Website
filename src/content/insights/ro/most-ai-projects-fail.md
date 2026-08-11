@@ -17,7 +17,7 @@ Remediul este să porniți de la cifre, nu de la unelte. Decideți, de la încep
 
 Al doilea motiv este alegerea greșită a problemei către care îndreptați AI. Uneori e problema cea mai vizibilă, nu cea mai valoroasă. Alteori e o problemă pentru care AI pur și simplu nu e potrivit — una în care o regulă clară, un raport standard sau o mică schimbare de proces ar face treaba mai bine, mai ieftin și cu mult mai puțină întreținere.
 
-Alegerea bună a problemei nu are nimic spectaculos. Ordonați cazurile după valoare și după cât de bine se potrivesc cu adevărat tehnologiei și fiți sinceri când răspunsul este „aici nu e nevoie de AI”. Folosit cu discernământ, AI este o capabilitate printre altele. Echipele care scot valoare reală din el sunt cele dispuse să spună nu cazurilor în care nu își are locul — adică majorității.
+Alegerea bună a problemei nu are nimic spectaculos. Ordonați cazurile după valoare și după cât de bine se potrivesc cu adevărat tehnologiei și fiți sinceri când răspunsul este „aici nu e nevoie de AI”. Folosit cu discernământ, AI este doar unul dintre instrumentele disponibile. Echipele care scot valoare reală din el sunt cele dispuse să spună nu cazurilor în care nu își are locul — adică majorității.
 
 ## 3. Lipsa adoptării
 

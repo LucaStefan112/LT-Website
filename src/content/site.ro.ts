@@ -46,12 +46,12 @@ export const site = {
   url: "https://ltstrategypartners.com",
   tagline: "Întâi problema. Apoi soluția.",
   description:
-    "Consultant independent pentru antreprenori și manageri. Pornesc de la problema din firma dumneavoastră, nu de la o soluție pregătită dinainte — apoi construiesc eu răspunsul. Nu am nimic de vândut, așa că „nu construiți nimic” e un răspuns real.",
+    "Consultanță independentă pentru antreprenori și manageri. Pornim de la problema din firma dumneavoastră, nu de la o soluție pregătită dinainte — apoi construim noi răspunsul. Nu avem nimic de vândut, așa că „nu construiți nimic” e un răspuns real.",
   email: "luca.tamas@ltstrategypartners.com",
   phone: "+40734950060",
   phoneDisplay: "+40 734 950 060",
   founder: "Luca-Ștefan Tamaș",
-  location: "Iași, România · Lucrez cu clienți din UE și SUA.",
+  location: "Iași, România · Lucrăm cu clienți din UE și SUA.",
   links: {
     companyLinkedin: "https://www.linkedin.com/company/lt-strategy-partners/",
     founderLinkedin:
@@ -92,40 +92,40 @@ export const legalNav: NavItem[] = [
 /* --------------------------------------------------------------- Hero */
 
 export const hero = {
-  eyebrow: "Consultant independent pentru antreprenori și manageri",
-  headline: "Pornesc de la problema dumneavoastră, nu de la o soluție.",
+  eyebrow: "Consultanță independentă pentru antreprenori și manageri",
+  headline: "Pornim de la problema dumneavoastră, nu de la o soluție.",
   subhead:
-    "Fără presupuneri și fără răspunsuri pregătite dinainte. Întâi înțeleg cum funcționează cu adevărat firma dumneavoastră și cât vă costă problema — apoi, dacă merită construit ceva, îl proiectez și îl construiesc eu.",
+    "Fără presupuneri și fără răspunsuri pregătite dinainte. Întâi înțelegem cum funcționează cu adevărat firma dumneavoastră și cât vă costă problema — apoi, dacă merită construit ceva, îl proiectăm și îl construim noi.",
   // Role label on the hero portrait name-tag.
   tagRole: "Fondator",
   primaryCta: site.primaryCta,
   secondaryCta: site.assessmentCta,
-  trustLine: "Independent · Fără juniori · Construiesc ce recomand",
+  trustLine: "Independent · Fără juniori · Construim ce recomandăm",
 } as const;
 
 /* -------------------------------------------------- The problem we solve */
 
 export const intro = {
   eyebrow: "Începem de la problemă",
-  body: "Marja se subțiază și nimeni nu poate spune exact unde. Aceleași cifre, trecute de mână în trei sisteme. O decizie care așteaptă un raport făcut manual. Astfel de probleme aproape niciodată nu stau acolo unde crede toată lumea. De aceea încep prin a asculta: cum circulă munca în realitate, unde se blochează și cât costă. Nu vând niciun produs și nu iau niciun comision — exact de aceea îmi permit să vă spun când răspunsul nu ține de tehnologie. Iar când merită construit ceva, îl construiesc eu.",
+  body: "Marja se subțiază și nimeni nu poate spune exact unde. Aceleași cifre, trecute de mână în trei sisteme. O decizie care așteaptă un raport făcut manual. Astfel de probleme aproape niciodată nu stau acolo unde crede toată lumea. De aceea începem prin a asculta: cum circulă munca în realitate, unde se blochează și cât costă. Nu vindem niciun produs și nu luăm niciun comision — exact de aceea ne permitem să vă spunem când răspunsul nu ține de tehnologie. Iar când merită construit ceva, îl construim noi.",
 } as const;
 
 /* ------------------------------------------------------- Value pillars */
 
 export const pillars = {
-  eyebrow: "Ce mă face diferit",
+  eyebrow: "Ce ne diferențiază",
   items: [
     {
       title: "Claritate înainte de cod.",
-      body: "Pornesc de la firma dumneavoastră și de la cifrele ei, nu de la tehnologie. Caut unde se duc de fapt banii, unde există valoare cu adevărat și unde nu — înainte să scrie cineva o linie de cod.",
+      body: "Pornim de la firma dumneavoastră și de la cifrele ei, nu de la tehnologie. Căutăm unde se duc de fapt banii, unde există valoare cu adevărat și unde nu — înainte să scrie cineva o linie de cod.",
     },
     {
-      title: "Pun diagnosticul și construiesc.",
-      body: "Majoritatea consultanților vă lasă o recomandare și pleacă. Eu rămân până la capăt: de la planul de lucru la o soluție care funcționează în producție și până la impactul măsurat pe cifrele convenite împreună.",
+      title: "Punem diagnosticul și construim.",
+      body: "Majoritatea consultanților vă lasă o recomandare și pleacă. Noi rămânem până la capăt: de la planul de lucru la o soluție care funcționează în producție și până la impactul măsurat pe cifrele convenite împreună.",
     },
     {
-      title: "Nu am niciun produs de vândut.",
-      body: "Nu vând software, nu vând licențe și nu iau comision de la nimeni. Exact de aceea îmi permit să vă spun că problema e de proces sau de oameni — ori că încă nu merită rezolvată — și tocmai de asta „nu construiți nimic” este un răspuns normal.",
+      title: "Nu avem niciun produs de vândut.",
+      body: "Nu vindem software, nu vindem licențe și nu luăm comision de la nimeni. Exact de aceea ne permitem să vă spunem că problema e de proces sau de oameni — ori că încă nu merită rezolvată — și tocmai de asta „nu construiți nimic” este un răspuns normal.",
     },
   ] as Card[],
 } as const;
@@ -133,15 +133,15 @@ export const pillars = {
 /* ----------------------------------------------------------- Services */
 
 export const services = {
-  eyebrow: "Ce fac",
+  eyebrow: "Ce facem",
   headerTitle: "De la problemă la soluția care funcționează.",
   deliverablesLabel: "Ce primiți",
   intro:
-    "Un singur om, de la prima întrebare până în ziua în care soluția funcționează. Pornesc de la problemă — marja, orele, decizia care așteaptă mereu un raport — apoi vă consiliez și, unde se justifică, construiesc chiar eu. Așa, planul nu se rupe niciodată de execuție.",
+    "Același partener senior, de la prima întrebare până în ziua în care soluția funcționează. Pornim de la problemă — marja, orele, decizia care așteaptă mereu un raport — apoi vă consiliem și, unde se justifică, construim noi. Așa, planul nu se rupe niciodată de execuție.",
   items: [
     {
       title: "Consultanță și supervizare tehnologică",
-      body: "Trebuie să aprobați sisteme, cheltuieli și furnizori pe care nu aveți cum să îi verificați, iar aproape toți cei care vă sfătuiesc vă vând și ceva. Eu sunt consultantul senior și independent pe care îl aveți la îndemână exact pentru aceste decizii — unde să investiți, la ce să spuneți nu, cum să cheltuiți bine și unde stă riscul real. Nu am produs, nu am licență de vândut și nu iau comision de la furnizori: nu am alt interes în afară de al dumneavoastră.",
+      body: "Trebuie să aprobați sisteme, cheltuieli și furnizori pe care nu aveți cum să îi verificați, iar aproape toți cei care vă sfătuiesc vă vând și ceva. Exact pentru aceste decizii vă stăm la dispoziție: consultanță senior și independentă — unde să investiți, la ce să spuneți nu, cum să cheltuiți bine și unde stă riscul real. Nu avem produs, nu avem licență de vândut și nu luăm comision de la furnizori: nu avem alt interes în afară de al dumneavoastră.",
       deliverables: [
         "Un consultant la dispoziția dumneavoastră pentru deciziile care contează, între proiecte și după ele",
         "Analiză independentă a direcției, a cheltuielilor, a planurilor, a furnizorilor și a riscurilor",
@@ -150,7 +150,7 @@ export const services = {
     },
     {
       title: "Oportunități și strategie",
-      body: "De obicei simțiți unde pierde bani firma dumneavoastră — oferte trimise târziu, stoc care stă, aceleași cifre reintroduse de mână — dar nu și care dintre rezolvări merită făcută prima. Pun cifre pe fiecare, în contul de profit și pierdere, și le separ pe cele câteva oportunități care merită urmărite de cele multe care nu merită. Uneori concluzia onestă e că niciuna nu merită.",
+      body: "De obicei simțiți unde pierde bani firma dumneavoastră — oferte trimise târziu, stoc care stă, aceleași cifre reintroduse de mână — dar nu și care dintre rezolvări merită făcută prima. Punem cifre pe fiecare, în contul de profit și pierdere, și le separăm pe cele câteva oportunități care merită urmărite de cele multe care nu merită. Uneori concluzia onestă e că niciuna nu merită.",
       deliverables: [
         "O hartă a lucrurilor care vă costă cel mai mult, ordonată după valoare și efort",
         "Un calcul de rentabilitate, cu cifre, pentru fiecare oportunitate principală",
@@ -159,16 +159,16 @@ export const services = {
     },
     {
       title: "Implementare și livrare",
-      body: "De obicei nu planul e problema — e faptul că nu îl construiește nimeni. Proiectez, construiesc, integrez și pun în producție soluția eu însumi, alături de echipele dumneavoastră, ca priceperea de a o opera să rămână în firmă. Software care funcționează, nu prezentări — și rămân până când e în funcțiune, folosit și predat curat.",
+      body: "De obicei nu planul e problema — e faptul că nu îl construiește nimeni. Proiectăm, construim, integrăm și punem în producție soluția noi înșine, alături de echipele dumneavoastră, ca priceperea de a o opera să rămână în firmă. Software care funcționează, nu prezentări — și rămânem până când e în funcțiune, folosit și predat curat.",
       deliverables: [
         "O soluție funcțională, care rulează în producție",
         "Integrare în sistemele și fluxurile de lucru existente",
-        "Documentație și o echipă instruită, care poate opera soluția fără mine",
+        "Documentație și o echipă instruită, care poate opera soluția fără noi",
       ],
     },
     {
       title: "Performanță operațională",
-      body: "Un instrument nou nu schimbă nimic dacă munca din jurul lui rămâne la fel — așa apar câștiguri care se văd în demo și niciodată în contabilitate. Regândesc felul în care se desfășoară efectiv munca, apoi las în firmă măsurători care arată câștigul și îl mențin după ce plec.",
+      body: "Un instrument nou nu schimbă nimic dacă munca din jurul lui rămâne la fel — așa apar câștiguri care se văd în demo și niciodată în contabilitate. Regândim felul în care se desfășoară efectiv munca, apoi lăsăm în firmă măsurători care arată câștigul și îl mențin după ce plecăm.",
       deliverables: [
         "Procese reproiectate, potrivite cu noile instrumente",
         "Un set de măsurători legate de KPI-urile dumneavoastră",
@@ -179,7 +179,7 @@ export const services = {
   ai: {
     eyebrow: "Unde intră AI-ul",
     title: "AI, atunci când chiar e răspunsul potrivit.",
-    body: "AI este una dintre variantele posibile și cea în care merg cel mai în adâncime — tocmai de aceea vă pot spune unde schimbă cu adevărat cifrele și unde e doar cheltuială degeaba, apoi îl construiesc astfel încât să facă față utilizatorilor reali, nu doar unui demo. Am făcut deja exact asta — inclusiv un asistent cu retrieval care rulează integral pe echipamente pe care firma le are deja.",
+    body: "AI este una dintre variantele posibile și cea în care mergem cel mai în adâncime — tocmai de aceea vă putem spune unde schimbă cu adevărat cifrele și unde e doar cheltuială degeaba, apoi îl construim astfel încât să facă față utilizatorilor reali, nu doar unui demo. Am făcut deja exact asta — inclusiv un asistent cu retrieval care rulează integral pe echipamente pe care firma le are deja.",
     points: [
       {
         title: "Unde se amortizează AI-ul",
@@ -204,7 +204,7 @@ export const services = {
 export const assessment = {
   eyebrow: "Începeți aici — un prim pas fără risc",
   heading: "Diagnosticul firmei.",
-  body: "Ceva vă costă bani și puteți numi simptomul, nu cauza. Începeți aici. Vin să înțeleg cum funcționează de fapt firma dumneavoastră înainte să propun ceva — apoi, în două până la patru săptămâni, primiți un diagnostic scris: ce vă ține pe loc în realitate, ce merită rezolvat primul și ce ar presupune fiecare rezolvare. Uneori răspunsul e un sistem pe care îl construiesc eu, uneori o schimbare de proces, uneori „nu faceți nimic”. Perimetru fix. Fără costuri. Nimic de vândut.",
+  body: "Ceva vă costă bani și puteți numi simptomul, nu cauza. Începeți aici. Venim să înțelegem cum funcționează de fapt firma dumneavoastră înainte să propunem ceva — apoi, în două până la patru săptămâni, primiți un diagnostic scris: ce vă ține pe loc în realitate, ce merită rezolvat primul și ce ar presupune fiecare rezolvare. Uneori răspunsul e un sistem pe care îl construim noi, uneori o schimbare de proces, uneori „nu faceți nimic”. Perimetru fix. Fără costuri. Nimic de vândut.",
   getHeading: "Ce primiți",
   get: [
     "Un diagnostic scris de 3–5 pagini, pe care îl puteți pune în fața conducerii",
@@ -212,7 +212,7 @@ export const assessment = {
     "Un răspuns tranșant despre ce trebuie rezolvat primul — și motivul din spate",
     "Riscul pe care vi-l asumați deja: oameni-cheie, verificări făcute manual, puncte oarbe",
   ],
-  priceNote: "Gratuit — îl fac personal, cel mult trei pe lună.",
+  priceNote: "Gratuit — îl facem noi, cel mult trei pe lună.",
   cta: site.assessmentCta,
 } as const;
 
@@ -221,7 +221,7 @@ export const assessment = {
 export const assessmentPage = {
   eyebrow: "Diagnosticul firmei",
   heading: "Înainte să vă vândă cineva o soluție, aflați ce vă ține de fapt pe loc.",
-  lead: "O ședință structurată cu echipa dumneavoastră de conducere și un diagnostic scris, cu priorități limpezi, despre ce vă costă cel mai mult — inclusiv un „nu construiți nimic” spus pe față, dacă acesta e răspunsul onest. Gratuit, îl fac personal, cu locuri limitate.",
+  lead: "O ședință structurată cu echipa dumneavoastră de conducere și un diagnostic scris, cu priorități limpezi, despre ce vă costă cel mai mult — inclusiv un „nu construiți nimic” spus pe față, dacă acesta e răspunsul onest. Gratuit, îl facem noi, cu locuri limitate.",
   heroCta: { label: "Cereți un diagnostic", href: "#apply" } as CTA,
   heroFacts: [
     "45–60 de minute cu echipa de conducere",
@@ -235,46 +235,46 @@ export const assessmentPage = {
     heading: "Aproape toți vin la dumneavoastră cu răspunsul deja pregătit.",
     paragraphs: [
       "Știți deja că ceva nu e în regulă; ce vă lipsește e un nume pentru asta. O marjă care exista și acum nu mai e. Marfă care zace în stoc, în timp ce se mai comandă din ea. Aceeași comandă tastată în trei locuri, de trei oameni. O decizie amânată până termină cineva raportul. Oferte care pleacă cu două zile întârziere și nimeni nu poate spune de ce. Jumătate din ce ține firma în funcțiune stă în capul a doi oameni.",
-      "Duceți asta la aproape oricine și primiți drept răspuns produsul lui: firma de software găsește o problemă de software, furnizorul de AI găsește o problemă de AI, iar consultantul găsește o problemă de strategie. Eu nu vând niciun produs, nu am nicio licență de vândut și nu iau comision de la nimeni — exact de asta îmi permit să mă uit întâi la firma dumneavoastră și abia apoi să vă spun că problema e o regulă de preț, o predare de care nu răspunde nimeni sau un raport în care nimeni nu are încredere. Iar când răspunsul e ceva ce trebuie construit, îl construiesc eu.",
+      "Duceți asta la aproape oricine și primiți drept răspuns produsul lui: firma de software găsește o problemă de software, furnizorul de AI găsește o problemă de AI, iar consultantul găsește o problemă de strategie. Noi nu vindem niciun produs, nu avem nicio licență de vândut și nu luăm comision de la nimeni — exact de asta ne permitem să ne uităm întâi la firma dumneavoastră și abia apoi să vă spunem că problema e o regulă de preț, o predare de care nu răspunde nimeni sau un raport în care nimeni nu are încredere. Iar când răspunsul e ceva ce trebuie construit, îl construim noi.",
     ],
   },
 
   deliverable: {
     eyebrow: "Ce primiți",
     heading: "Diagnosticul scris.",
-    intro: "Trei până la cinci pagini, scrise de mine personal — fără juniori, fără șabloane. Prima pagină e făcută să poată fi trimisă conducerii ca document de sine stătător.",
+    intro: "Trei până la cinci pagini, scrise de noi — fără juniori, fără șabloane. Prima pagină e făcută să poată fi trimisă conducerii ca document de sine stătător.",
     items: [
       "O notă de decizie de o pagină, cu verdictul în titlu — nu ascuns la pagina patru",
       "Fiecare problemă găsită, așezată pe o singură hartă: cât vă costă × cât de greu se rezolvă, fiecare cu ce riscați dacă rămâne așa",
       "Pentru orice ar trebui construit, verificarea Gate Zero în scris: construiți acum / încă nu / nu construiți, cu interval de cost, cât durează până în producție și condițiile în care se renunță",
       "O secțiune întreagă, intitulată „Ce nu merită rezolvat acum” — cu motivul pentru fiecare",
-      "Pași următori, printre care și lucruri pe care le puteți face fără să mă angajați",
+      "Pași următori, printre care și lucruri pe care le puteți face fără să ne angajați",
     ],
     guaranteeLabel: "Garanția, în scris",
-    guarantee: "Așteptați-vă la cel puțin un lucru pe care vă spun să nu îl rezolvați — sau să nu îl rezolvați acum — cu motivul, în scris. Dacă ce contează cel mai mult se dovedește a fi o schimbare de proces, nu un sistem nou, diagnosticul spune exact asta. Iar dacă tot ce aduceți stă în picioare, o spune la fel de limpede. Ce nu va face niciodată e să fabrice un verdict, într-o direcție sau în alta.",
+    guarantee: "Așteptați-vă la cel puțin un lucru pe care vă spunem să nu îl rezolvați — sau să nu îl rezolvați acum — cu motivul, în scris. Dacă ce contează cel mai mult se dovedește a fi o schimbare de proces, nu un sistem nou, diagnosticul spune exact asta. Iar dacă tot ce aduceți stă în picioare, o spune la fel de limpede. Ce nu va face niciodată e să fabrice un verdict, într-o direcție sau în alta.",
     sampleCta: { label: "Citiți un exemplu de verdict Gate Zero", href: "/assessment/sample-readout" } as CTA,
   },
 
   method: {
     eyebrow: "Metoda",
-    heading: "Cum mă uit la firmă — și unde intră Gate Zero.",
-    intro: "Vin fără o soluție pregătită. Mă uit la șapte lucruri, cu cifrele și cu vocabularul dumneavoastră, și doar ce trece de ele merită banii dumneavoastră. Iar ce ar trebui construit trece apoi prin Gate Zero — verificarea formală go/no-go la care e supus orice sistem de producție, doar că aplicată înainte să cheltuiți:",
+    heading: "Cum ne uităm la firmă — și unde intră Gate Zero.",
+    intro: "Venim fără o soluție pregătită. Ne uităm la șapte lucruri, cu cifrele și cu vocabularul dumneavoastră, și doar ce trece de ele merită banii dumneavoastră. Iar ce ar trebui construit trece apoi prin Gate Zero — verificarea formală go/no-go la care e supus orice sistem de producție, doar că aplicată înainte să cheltuiți:",
     dimensions: [
       { name: "Valoarea în joc", desc: "Euro sau ore legate de un flux de lucru concret — scenariu de bază conservator, cu ipotezele spuse pe față. Fără proiecții spectaculoase." },
       { name: "Realitatea datelor", desc: "Informația de care depinde asta există cu adevărat, e curată și se poate accesa astăzi — sau stă în capul cuiva?" },
       { name: "Cum se lucrează în realitate", desc: "Procesul așa cum îl fac oamenii, nu așa cum arată schema: ocolișurile, datele trecute de două ori, al doilea tabel despre care nu vorbește nimeni." },
       { name: "Toleranța la erori față de miză", desc: "Unde ajunge astăzi o greșeală, cine o observă și cât costă până o prinde cineva?" },
-      { name: "Dacă rezultatul se poate măsura", desc: "Dacă se schimbă asta, se vede în cifre pe care le aveți deja — sau ar trebui să mă credeți pe cuvânt?" },
-      { name: "Cost, efort și responsabilitate", desc: "Cât costă o rezolvare în funcționare, nu doar la construcție, și cine din firmă răspunde de ea după ce eu plec." },
+      { name: "Dacă rezultatul se poate măsura", desc: "Dacă se schimbă asta, se vede în cifre pe care le aveți deja — sau ar trebui să ne credeți pe cuvânt?" },
+      { name: "Cost, efort și responsabilitate", desc: "Cât costă o rezolvare în funcționare, nu doar la construcție, și cine din firmă răspunde de ea după ce plecăm noi." },
       { name: "Expunere și dependențe", desc: "Locuri în care totul atârnă de un singur lucru, dependența de un singur om, date personale de care nu poate răspunde nimeni și regulile cărora sunteți deja supuși — inclusiv unde vi se aplică EU AI Act." },
     ],
     rulesLabel: "Trei reguli, prezente în fiecare diagnostic",
     rules: [
-      "Ce contează cel mai mult se stabilește cu dumneavoastră înainte să punctez ceva.",
+      "Ce contează cel mai mult se stabilește cu dumneavoastră înainte să punctăm ceva.",
       "Nu există un „scor de maturitate” agregat — decide dimensiunea cea mai slabă, iar mediile ascund tocmai ce contează.",
       "Fiecare punctaj vine cu un nivel de încredere și cu ipotezele pe care se sprijină.",
     ],
-    questionsLabel: "Patru dintre întrebările pe care le pun de fapt",
+    questionsLabel: "Patru dintre întrebările pe care le punem de fapt",
     gateQuestions: [
       "Unde ajunge astăzi o greșeală — și cine o observă?",
       "Ce decizii stau blocate pentru că vă lipsesc informații?",
@@ -288,9 +288,9 @@ export const assessmentPage = {
     eyebrow: "Cum decurge",
     heading: "Patru pași, două până la patru săptămâni.",
     steps: [
-      { name: "Cererea", time: "10 minute", desc: "Zece întrebări despre firmă, despre ce nu funcționează și despre locul în care stau cifrele. Citesc personal fiecare cerere — iar pe unele le refuz. Acesta e primul verdict și vine înaintea oricărei discuții." },
-      { name: "Ședința de diagnostic", time: "45–60 de minute", desc: "O ședință structurată cu echipa dumneavoastră de conducere — vin să înțeleg firma, nu să prezint ceva. Urmăresc banii și blocajele prin procesele pe care le folosiți cu adevărat și pun întrebările care apar oricum atunci când un sistem ajunge să lucreze pe viu. Doar discuție ghidată: fără parole, fără acces la sisteme, nimic nu iese din firma dumneavoastră." },
-      { name: "Se scrie diagnosticul", time: "într-o săptămână", desc: "Fiecare problemă găsită e punctată pe cele șapte dimensiuni și așezată pe o singură hartă: cât vă costă × cât de greu se rezolvă. Diagnosticul îl scriu eu, cu cifrele și cu vocabularul dumneavoastră." },
+      { name: "Cererea", time: "10 minute", desc: "Zece întrebări despre firmă, despre ce nu funcționează și despre locul în care stau cifrele. Citim noi fiecare cerere — iar pe unele le refuzăm. Acesta e primul verdict și vine înaintea oricărei discuții." },
+      { name: "Ședința de diagnostic", time: "45–60 de minute", desc: "O ședință structurată cu echipa dumneavoastră de conducere — venim să înțelegem firma, nu să prezentăm ceva. Urmărim banii și blocajele prin procesele pe care le folosiți cu adevărat și punem întrebările care apar oricum atunci când un sistem ajunge să lucreze pe viu. Doar discuție ghidată: fără parole, fără acces la sisteme, nimic nu iese din firma dumneavoastră." },
+      { name: "Se scrie diagnosticul", time: "într-o săptămână", desc: "Fiecare problemă găsită e punctată pe cele șapte dimensiuni și așezată pe o singură hartă: cât vă costă × cât de greu se rezolvă. Diagnosticul îl scriem noi, cu cifrele și cu vocabularul dumneavoastră." },
       { name: "Discuția despre verdict", time: "30 de minute", desc: "Primiți diagnosticul și un răspuns tranșant despre primul lucru care trebuie rezolvat: acum, încă nu — și exact ce l-ar debloca — sau lăsați-l în pace. Dacă răspunsul e ceva de construit, vine cu verdictul Gate Zero. Documentul rămâne al dumneavoastră, oricare ar fi răspunsul." },
     ],
   },
@@ -298,10 +298,10 @@ export const assessmentPage = {
   whyFree: {
     eyebrow: "De ce e gratuit",
     heading: "E un diagnostic, nu tratamentul.",
-    body: "Așa aflăm amândoi dacă are rost să lucrăm împreună. Primiți diagnosticul și ordinea priorităților; munca propriu-zisă intră în proiectele plătite. Rămâne gratuit tocmai pentru că e limitat: eu țin fiecare ședință și eu scriu fiecare diagnostic — cel mult trei pe lună, unul per companie, o singură dată.",
+    body: "Așa aflăm, de ambele părți, dacă are rost să lucrăm împreună. Primiți diagnosticul și ordinea priorităților; munca propriu-zisă intră în proiectele plătite. Rămâne gratuit tocmai pentru că e limitat: ținem noi fiecare ședință și scriem noi fiecare diagnostic — cel mult trei pe lună, unul per companie, o singură dată.",
     branches: [
-      { name: "Dacă verdictul e da", desc: "și ne potrivim, diagnosticul leagă fiecare problemă care merită rezolvată de proiectul care o rezolvă — inclusiv de proiectele pe care le-aș construi eu. Veți ști cum arată pasul următor înainte să vă angajați la ceva." },
-      { name: "Dacă verdictul e nu", desc: "păstrați diagnosticul, nu urmează nicio serie de e-mailuri și aici se termină — dacă nu îmi scrieți chiar dumneavoastră. Un „nu” urmat de e-mailuri insistente ar goli verdictul de orice valoare." },
+      { name: "Dacă verdictul e da", desc: "și ne potrivim, diagnosticul leagă fiecare problemă care merită rezolvată de proiectul care o rezolvă — inclusiv de proiectele pe care le-am construi noi. Veți ști cum arată pasul următor înainte să vă angajați la ceva." },
+      { name: "Dacă verdictul e nu", desc: "păstrați diagnosticul, nu urmează nicio serie de e-mailuri și aici se termină — dacă nu ne scrieți chiar dumneavoastră. Un „nu” urmat de e-mailuri insistente ar goli verdictul de orice valoare." },
     ],
   },
 
@@ -325,9 +325,9 @@ export const assessmentPage = {
 
   whoRuns: {
     eyebrow: "Cine îl face",
-    heading: "Metoda există pentru că acestea sunt verificările pe care le fac oricum înainte să pun ceva în producție.",
+    heading: "Metoda există pentru că acestea sunt verificările pe care le facem oricum înainte să punem ceva în producție.",
     facts: [
-      "Proiectez, construiesc și duc în producție sisteme întregi — inclusiv AI și LLM: reglarea retrieval-ului, validarea rezultatelor, monitorizare, bugete de cost și latență",
+      "Proiectăm, construim și ducem în producție sisteme întregi — inclusiv AI și LLM: reglarea retrieval-ului, validarea rezultatelor, monitorizare, bugete de cost și latență",
       "Am construit un asistent AI self-hosted, cu retrieval, care rulează complet offline pe echipamente pe care o firmă le are deja",
       "Inginer de securitate pe sisteme de producție, cu experiență în protecția datelor",
       "Am fondat două produse SaaS; arhitect principal al unei platforme enterprise multi-tenant",
@@ -337,14 +337,14 @@ export const assessmentPage = {
 
   positioning: {
     heading: "Nu e un chestionar. Nu e un teanc de prezentări.",
-    body: "Nu e un chestionar de zece minute cu punctaj automat și nici o evaluare de sute de mii de euro făcută de analiști juniori. E diagnosticul cu care ar începe un audit plătit, pus de omul care ar și construi rezolvarea. Nu vând niciun produs, nicio licență și niciun echipament, și nu iau comision de la niciun furnizor — exact de asta îmi permit să vă spun să nu construiți nimic. Un „nu construiți” nu mă costă nimic, și doar așa un „construiți” înseamnă ceva.",
-    noLockIn: "Diagnosticul e scris ca să vă fie de folos chiar dacă nu mă angajați niciodată.",
+    body: "Nu e un chestionar de zece minute cu punctaj automat și nici o evaluare de sute de mii de euro făcută de analiști juniori. E diagnosticul cu care ar începe un audit plătit, pus de omul care ar și construi rezolvarea. Nu vindem niciun produs, nicio licență și niciun echipament, și nu luăm comision de la niciun furnizor — exact de asta ne permitem să vă spunem să nu construiți nimic. Un „nu construiți” nu ne costă nimic, și doar așa un „construiți” înseamnă ceva.",
+    noLockIn: "Diagnosticul e scris ca să vă fie de folos chiar dacă nu ne angajați niciodată.",
   },
 
   apply: {
     eyebrow: "Cererea",
     heading: "Cereți Diagnosticul firmei.",
-    intro: "Zece întrebări, cam zece minute. Citesc personal fiecare cerere — pe unele le refuz, și acesta e primul verdict. Dacă o accept, primiți agenda exactă a ședinței înainte să blocați o oră din timpul echipei de conducere.",
+    intro: "Zece întrebări, cam zece minute. Citim noi fiecare cerere — pe unele le refuzăm, și acesta e primul verdict. Dacă o acceptăm, primiți agenda exactă a ședinței înainte să blocați o oră din timpul echipei de conducere.",
     microcopy: "Gratuit · unul per companie · cel mult trei pe lună · doar discuție ghidată, fără acces la sisteme",
     submitLabel: "Trimiteți cererea",
   },
@@ -356,15 +356,15 @@ export const dataIp = {
   id: "data-ip",
   eyebrow: "Datele dumneavoastră și proprietatea intelectuală",
   heading: "Construit de un inginer de securitate — tratat ca atare.",
-  body: "Vin din securitate și protecția datelor — inginerie de securitate pe sisteme de producție și, înainte de asta, cercetare în domeniul autentificării și al criptării. Disciplina aceasta se vede în felul în care lucrez cu dumneavoastră: la ce am acces, ce construiesc și ce nu iese niciodată din firma dumneavoastră.",
+  body: "Venim din securitate și protecția datelor — inginerie de securitate pe sisteme de producție și, înainte de asta, cercetare în domeniul autentificării și al criptării. Disciplina aceasta se vede în felul în care lucrăm cu dumneavoastră: la ce avem acces, ce construim și ce nu iese niciodată din firma dumneavoastră.",
   items: [
     {
       title: "Datele dumneavoastră rămân ale dumneavoastră.",
-      body: "Accesez doar ce cere proiectul, semnez fără probleme NDA-ul dumneavoastră și pot lucra în întregime în mediul dumneavoastră.",
+      body: "Accesăm doar ce cere proiectul, semnăm fără probleme NDA-ul dumneavoastră și putem lucra în întregime în mediul dumneavoastră.",
     },
     {
-      title: "Dețineți ce construiesc.",
-      body: "Codul, modelele și documentația sunt ale dumneavoastră, cu o predare curată, ca echipa dumneavoastră să poată duce totul mai departe fără mine.",
+      title: "Dețineți ce construim.",
+      body: "Codul, modelele și documentația sunt ale dumneavoastră, cu o predare curată, ca echipa dumneavoastră să poată duce totul mai departe fără noi.",
     },
     {
       title: "Securizat din proiectare.",
@@ -372,7 +372,7 @@ export const dataIp = {
     },
     {
       title: "Confidențial, cu rezultate verificate.",
-      body: "Unde contează confidențialitatea, pot rula AI on-premise sau self-hosted; unde contează acuratețea, țin rezultatele modelului în spatele unui strat de validare.",
+      body: "Unde contează confidențialitatea, putem rula AI on-premise sau self-hosted; unde contează acuratețea, ținem rezultatele modelului în spatele unui strat de validare.",
     },
   ] as Card[],
 } as const;
@@ -380,33 +380,33 @@ export const dataIp = {
 /* ----------------------------------------------------------- Approach */
 
 export const approach = {
-  eyebrow: "Cum lucrez",
+  eyebrow: "Cum lucrăm",
   outputLabel: "Ce obțineți",
   title: "Cum se rezolvă o problemă, pas cu pas.",
-  intro: "Pornesc de la firma dumneavoastră, nu de la o propunere. Mă uit cum se desfășoară munca în realitate și cât vă costă ce nu merge, apoi stabilim împreună ce merită rezolvat întâi — și abia apoi, dacă e nevoie să se construiască ceva, îl construiesc eu și rămân până când e folosit.",
+  intro: "Pornim de la firma dumneavoastră, nu de la o propunere. Ne uităm cum se desfășoară munca în realitate și cât vă costă ce nu merge, apoi stabilim împreună ce merită rezolvat întâi — și abia apoi, dacă e nevoie să se construiască ceva, îl construim noi și rămânem până când e folosit.",
   steps: [
     {
       n: "01",
       title: "Diagnostic",
-      body: "Ascult — pe dumneavoastră și pe oamenii care fac treaba — și mă uit la cifrele firmei; apoi urmăresc câteva procese reale de la un capăt la altul, ca să văd unde se duc timpul și marja.",
+      body: "Ascultăm — pe dumneavoastră și pe oamenii care fac treaba — și ne uităm la cifrele firmei; apoi urmărim câteva procese reale de la un capăt la altul, ca să vedem unde se duc timpul și marja.",
       output: "O imagine scrisă a problemelor reale, pe înțelesul oricui, ordonate după cât vă costă.",
     },
     {
       n: "02",
       title: "Prioritizare",
-      body: "Apoi separăm problemele care merită rezolvate de cele cu care puteți trăi și punem o cifră pe fiecare. Unele nu cer software; ce se construiește trece prin Gate Zero.",
-      output: "O listă scurtă, în ordine, cu criteriile de succes stabilite de la început — și ce vă recomand să nu construiți.",
+      body: "Apoi separăm, împreună cu dumneavoastră, problemele care merită rezolvate de cele cu care puteți trăi și punem o cifră pe fiecare. Unele nu cer software; ce se construiește trece prin Gate Zero.",
+      output: "O listă scurtă, în ordine, cu criteriile de succes stabilite de la început — și ce vă recomandăm să nu construiți.",
     },
     {
       n: "03",
       title: "Implementare",
-      body: "Nu vă las doar o recomandare și plec: proiectez, scriu codul, integrez cu sistemele pe care le folosiți deja și lucrez alături de oamenii dumneavoastră.",
+      body: "Nu vă lăsăm doar o recomandare și plecăm: proiectăm, scriem codul, integrăm cu sistemele pe care le folosiți deja și lucrăm alături de oamenii dumneavoastră.",
       output: "Un sistem care rulează în producție și e folosit de oamenii pentru care a fost făcut.",
     },
     {
       n: "04",
       title: "Dovadă și scalare",
-      body: "Apoi verific dacă s-au schimbat cifrele față de ce am convenit împreună la început și vă spun deschis ce a funcționat și ce nu.",
+      body: "Apoi verificăm dacă s-au schimbat cifrele față de ce am convenit împreună la început și vă spunem deschis ce a funcționat și ce nu.",
       output: "Rezultate dovedite pe KPI-urile dumneavoastră și un plan pentru a extinde ce a funcționat.",
     },
   ] as Step[],
@@ -415,10 +415,10 @@ export const approach = {
 /* ----------------------------------------------------- Statement band */
 
 export const statement = {
-  eyebrow: "Angajamentul meu",
-  headline: "Judecați-mă după rezultate, nu după livrabile.",
+  eyebrow: "Angajamentul nostru",
+  headline: "Judecați-ne după rezultate, nu după livrabile.",
   support:
-    "Fiecare proiect este legat de rezultate pe care le puteți măsura — și vă spun deschis ce funcționează și ce nu.",
+    "Fiecare proiect este legat de rezultate pe care le puteți măsura — și vă spunem deschis ce funcționează și ce nu.",
 } as const;
 
 /* --------------------------------------------------- Testimonials */
@@ -432,8 +432,8 @@ export const testimonialsMeta = {
 /* ------------------------------------------------- Who we work with */
 
 export const clients = {
-  eyebrow: "Cu cine lucrez",
-  body: "Problema arată altfel din fiecare scaun al firmei. Conducerea vede cifra care rămâne pe loc; omul care face treaba știe exact la ce pas se blochează și de ce nu s-a rezolvat până azi. De aceea ascult pe toate cele trei niveluri — de obicei acolo se vede cauza adevărată.",
+  eyebrow: "Cu cine lucrăm",
+  body: "Problema arată altfel din fiecare scaun al firmei. Conducerea vede cifra care rămâne pe loc; omul care face treaba știe exact la ce pas se blochează și de ce nu s-a rezolvat până azi. De aceea ascultăm pe toate cele trei niveluri — de obicei acolo se vede cauza adevărată.",
   levels: [
     {
       role: "Antreprenori și conducerea firmei",
@@ -454,8 +454,8 @@ export const clients = {
 
 export const aboutTeaser = {
   eyebrow: "Cine e în spate",
-  heading: "Un singur om. Implicare directă.",
-  body: "În spatele LT Strategy Partners este un singur om: Luca-Ștefan Tamaș, inginer de sisteme care lucrează zi de zi pe sisteme aflate în producție, într-un mediu exigent, unde securitatea e critică. A fost arhitectul principal al unei platforme enterprise multi-tenant (BI, ERP, gestiunea documentelor, automatizarea proceselor), a fondat două produse SaaS proprii și construiește AI self-hosted acolo unde își merită locul. Nu are niciun produs de vândut, nicio licență și nu ia comision de la furnizori — de aceea își poate permite să vă spună că o problemă nu merită rezolvată, dar și să construiască el însuși soluția când merită. Lucrați direct cu el: omul care vă dă sfatul este omul care face treaba.",
+  heading: "Implicare directă, la nivel senior.",
+  body: "În spatele LT Strategy Partners este Luca-Ștefan Tamaș, inginer de sisteme care lucrează zi de zi pe sisteme aflate în producție, într-un mediu exigent, unde securitatea e critică. A fost arhitectul principal al unei platforme enterprise multi-tenant (BI, ERP, gestiunea documentelor, automatizarea proceselor), a fondat două produse SaaS proprii și construiește AI self-hosted acolo unde își merită locul. Nu are niciun produs de vândut, nicio licență și nu ia comision de la furnizori — de aceea își poate permite să vă spună că o problemă nu merită rezolvată, dar și să construiască el însuși soluția când merită. Lucrați direct cu el: omul care vă dă sfatul este omul care face treaba.",
   link: { label: "Mai multe despre Luca", href: "/about" } as CTA,
   photoCaption: "Luca-Ștefan Tamaș · Fondator",
 } as const;
@@ -466,25 +466,25 @@ export const aboutPage = {
   eyebrow: "Despre",
   heading: "Un partener implicat, de la început până la final.",
   paragraphs: [
-    "Sunt Luca-Ștefan Tamaș, iar LT Strategy Partners este firma prin care lucrez. E mică intenționat: nu o agenție, nu o echipă — când apelați la LT Strategy Partners, lucrați direct cu mine. Vin să înțeleg cum funcționează de fapt firma dumneavoastră, înainte să am vreo părere despre ce ar trebui construit — iar omul care dă sfatul este omul care face apoi treaba și răspunde pentru cum iese.",
+    "LT Strategy Partners este firma prin care lucrează Luca-Ștefan Tamaș. E mică intenționat: nu o agenție, fără predări de la o echipă la alta și fără juniori — când apelați la LT Strategy Partners, lucrați direct cu omul care face treaba. Venim să înțelegem cum funcționează de fapt firma dumneavoastră, înainte să avem vreo părere despre ce ar trebui construit — iar omul care dă sfatul este și cel care face apoi treaba și răspunde pentru cum iese.",
     "De formație sunt inginer de sisteme. Ce știu cel mai bine — specializarea mea, chiar dacă nu trebuie să fie subiectul fiecărui proiect — este AI-ul care trebuie să reziste în producție, nu doar în demo: retrieval solid și date curate, rezultate trecute prin validare, latență și costuri rezonabile, plus monitorizarea și soluțiile de rezervă care fac sistemul să rămână de încredere atunci când oameni reali depind de el.",
     "Zi de zi lucrez pe sisteme de producție într-un mediu de inginerie exigent, critic pentru securitate. Înainte am fost arhitectul principal al unei platforme enterprise multi-tenant care acoperă business intelligence, ERP, gestiunea documentelor și automatizarea proceselor. Am fondat și dus la capăt două produse SaaS proprii — Mazely și Processly — și am construit un asistent AI self-hosted, cu retrieval, care rulează complet offline pe echipamentele pe care un restaurant le are deja. Din 2020 duc proiecte pentru clienți de la cap la coadă, în web, mobil, date și AI, inclusiv aplicații publicate în App Store și Google Play. Pentru că vin din securitate și din platforme, AI-ul pe care îl construiesc rămâne privat și de încredere din start.",
   ],
-  beliefsHeading: "Ce cred despre munca asta",
+  beliefsHeading: "Ce credem despre munca asta",
   beliefs: [
-    "Cred că software-ul și infrastructura digitală sunt printre cele mai bune investiții pe care le poate face o firmă — dar numai dacă sunt făcute cu cap. Destule firme cheltuiesc mult și se iau după ce e la modă, apoi se întreabă de ce banii nu s-au văzut niciodată în profit. Tehnologia e rar partea grea. Randamentul vine din a cheltui pe lucrul potrivit, din motivul potrivit, în ordinea potrivită — și exact peste partea asta se sare cel mai des.",
-    "Mai cred că nimic nu costă mai puțin decât discuția purtată înainte să începeți. O conversație scurtă și sinceră cu cineva care a construit astfel de sisteme vă poate economisi luni de muncă și mult buget — pentru că prinde din start problema pusă greșit, lasă deoparte ideea care nu se amortizează și vă arată cel mai simplu lucru care chiar funcționează. Exact de aceea primul pas pe care îl propun, Diagnosticul firmei, nu costă nimic.",
+    "Credem că software-ul și infrastructura digitală sunt printre cele mai bune investiții pe care le poate face o firmă — dar numai dacă sunt făcute cu cap. Destule firme cheltuiesc mult și se iau după ce e la modă, apoi se întreabă de ce banii nu s-au văzut niciodată în profit. Tehnologia e rar partea grea. Randamentul vine din a cheltui pe lucrul potrivit, din motivul potrivit, în ordinea potrivită — și exact peste partea asta se sare cel mai des.",
+    "Mai credem că nimic nu costă mai puțin decât discuția purtată înainte să începeți. O conversație scurtă și sinceră cu cineva care a construit astfel de sisteme vă poate economisi luni de muncă și mult buget — pentru că prinde din start problema pusă greșit, lasă deoparte ideea care nu se amortizează și vă arată cel mai simplu lucru care chiar funcționează. Exact de aceea primul pas pe care îl propunem, Diagnosticul firmei, nu costă nimic.",
   ],
-  whyHeading: "Cum îmi place să lucrez",
-  why: "Prefer să fiu util, nu impresionant. Nu am produs, licență sau comision de vândut, așa că un „nu construiți asta” nu mă costă nimic — și doar așa un „construiți” înseamnă ceva. Iar pentru că am dus astfel de sisteme până la capăt, în condiții reale, vă pot spune deschis ce merită făcut, ce nu și cât costă de fapt — și nu vă recomand nimic din ce nu m-aș apuca să construiesc eu.",
+  whyHeading: "Cum ne place să lucrăm",
+  why: "Preferăm să fim utili, nu impresionanți. Nu avem produs, licență sau comision de vândut, așa că un „nu construiți asta” nu ne costă nimic — și doar așa un „construiți” înseamnă ceva. Iar pentru că am dus astfel de sisteme până la capăt, în condiții reale, vă putem spune deschis ce merită făcut, ce nu și cât costă de fapt — și nu vă recomandăm nimic din ce nu ne-am apuca să construim noi.",
   glanceHeading: "Pe scurt",
   glance: [
-    "Construiesc sisteme AI și LLM de producție — retrieval-augmented generation, modele self-hosted și rezultate trecute prin validare",
+    "Construim sisteme AI și LLM de producție — retrieval-augmented generation, modele self-hosted și rezultate trecute prin validare",
     "Am construit un asistent AI self-hosted, complet offline; am fondat două produse SaaS aflate în producție (Mazely, Processly)",
     "Inginerie de sisteme de producție într-un mediu critic pentru securitate; arhitect principal al unei platforme multi-tenant de BI / ERP / DMS / automatizare de procese",
     "Fundament de securitate și protecția datelor: autentificare, criptare, privilegii minime și izolarea tenanților",
     "Certificări de date și analiză (Meta Data Analyst, Google Business Intelligence, Advanced SQL, Tableau); certificări de securitate (SOC Level 1, DevSecOps, Jr Penetration Tester)",
-    "Cu sediul în Iași · lucrez cu clienți din UE și SUA",
+    "Cu sediul în Iași · lucrăm cu clienți din UE și SUA",
   ],
   photoCaption: "Luca-Ștefan Tamaș · Fondator",
   ctaHeading: "Ce problemă vă încurcă cel mai mult?",
@@ -494,7 +494,7 @@ export const aboutPage = {
 
 export const ctaBand = {
   headline: "Care este problema reală din firma dumneavoastră?",
-  body: "Vă propun o discuție directă, fără presiune, despre ce vă stă în cale — iar dacă răspunsul nu ține de tehnologie, vă spun și asta.",
+  body: "Vă propunem o discuție directă, fără presiune, despre ce vă stă în cale — iar dacă răspunsul nu ține de tehnologie, vă spunem și asta.",
   cta: site.primaryCta,
 } as const;
 
@@ -502,11 +502,11 @@ export const ctaBand = {
 
 export const faq = {
   eyebrow: "Întrebări frecvente",
-  heading: "Primele întrebări pe care le primesc.",
+  heading: "Primele întrebări pe care le primim.",
   items: [
     {
       q: "Cum începem?",
-      a: "Cu Diagnosticul firmei — un prim pas gratuit, cu perimetru fix, în care mă uit cum funcționează de fapt firma dumneavoastră și vă las în scris ce merită rezolvat și ce nu.",
+      a: "Cu Diagnosticul firmei — un prim pas gratuit, cu perimetru fix, în care ne uităm cum funcționează de fapt firma dumneavoastră și vă lăsăm în scris ce merită rezolvat și ce nu.",
     },
     {
       q: "Cum stabiliți prețul?",
@@ -514,19 +514,19 @@ export const faq = {
     },
     {
       q: "Lucrați la distanță?",
-      a: "Da — am clienți în UE și în SUA, iar în România vin și la sediul dumneavoastră, când ajută.",
+      a: "Da — avem clienți în UE și în SUA, iar în România venim și la sediul dumneavoastră, când ajută.",
     },
     {
       q: "Și dacă răspunsul nu ține de tehnologie?",
-      a: "Atunci vă spun asta — se întâmplă des. Nu am produs, licență sau comision de vândut, așa că un „nu construiți nimic” nu mă costă nimic.",
+      a: "Atunci vă spunem asta — se întâmplă des. Nu avem produs, licență sau comision de vândut, așa că un „nu construiți nimic” nu ne costă nimic.",
     },
     {
       q: "Cine face efectiv munca?",
-      a: "Eu. Nu există juniori cărora să pasez munca — omul care dă sfatul este omul care proiectează și construiește soluția.",
+      a: "Noi. Munca dumneavoastră nu ajunge la juniori — omul care vă dă sfatul este și cel care proiectează și construiește soluția.",
     },
     {
       q: "Cum tratați datele noastre și proprietatea intelectuală?",
-      a: "Datele dumneavoastră rămân ale dumneavoastră, dețineți tot ce construiesc, iar securitatea se decide în faza de proiectare.",
+      a: "Datele dumneavoastră rămân ale dumneavoastră, dețineți tot ce construim, iar securitatea se decide în faza de proiectare.",
       href: "/#data-ip",
     },
   ] as FaqItem[],
@@ -538,7 +538,7 @@ export const contact = {
   eyebrow: "Contact",
   headline: "Să vorbim deschis.",
   intro:
-    "Spuneți-mi câteva lucruri despre firma dumneavoastră și despre problema pe care ați vrea cel mai mult să o rezolvați. Vă răspund personal — fără discurs de vânzare, fără presiune.",
+    "Spuneți-ne câteva lucruri despre firma dumneavoastră și despre problema pe care ați vrea cel mai mult să o rezolvați. Vă răspundem personal — fără discurs de vânzare, fără presiune.",
   email: site.email,
   phone: site.phone,
   phoneDisplay: site.phoneDisplay,
@@ -555,16 +555,16 @@ export const contact = {
   } as Record<string, string>,
   submitLabel: "Trimiteți mesajul",
   asideEyebrow: "Linie directă",
-  asideLead: "Preferați emailul sau vreți să mă contactați direct?",
+  asideLead: "Preferați emailul sau vreți să ne contactați direct?",
   asidePoints: [
     "Consultanță independentă, la nivel senior — nimic de vândut.",
     "Răspuns în cel mult două zile lucrătoare.",
     "Fără discurs de vânzare, fără presiune.",
   ],
   privacyHtml:
-    'Vă folosesc datele doar ca să vă răspund și nu le transmit niciodată altcuiva. Detalii în <a href="/privacy">politica de confidențialitate</a>.',
+    'Vă folosim datele doar ca să vă răspundem și nu le transmitem niciodată altcuiva. Detalii în <a href="/privacy">politica de confidențialitate</a>.',
   successMessage:
-    "Mulțumesc — mesajul dumneavoastră este gata de trimis. Vă răspund personal în cel mult două zile lucrătoare.",
+    "Mulțumim — mesajul dumneavoastră este gata de trimis. Vă răspundem personal în cel mult două zile lucrătoare.",
 } as const;
 
 /* ------------------------------------------------------------- Footer */
@@ -577,7 +577,7 @@ export const footer = {
   location: site.location,
   linkedin: site.links.companyLinkedin,
   blurb:
-    "Consultant independent: nu doar recomand, construiesc. Pornesc de la problema din firma dumneavoastră și construiesc eu răspunsul — sau vă spun limpede că nu e nevoie să construiți nimic.",
+    "Consultanță independentă: nu doar recomandăm, construim. Pornim de la problema din firma dumneavoastră și construim noi răspunsul — sau vă spunem limpede că nu e nevoie să construiți nimic.",
 } as const;
 
 /* --------------------------------------------------------- Insights */
@@ -594,7 +594,7 @@ export const insights = {
 export const work = {
   eyebrow: "Proiecte alese",
   intro:
-    "Câteva lucruri pe care le-am proiectat și construit. Le arăt ca să fie limpede un singur lucru: nu dau doar sfaturi — construiesc. Mai jos: ce a cerut fiecare, tehnic și strategic, și ce înseamnă asta pentru un proiect al dumneavoastră.",
+    "Câteva lucruri pe care le-am proiectat și construit. Le arătăm ca să fie limpede un singur lucru: nu dăm doar sfaturi — construim. Mai jos: ce a cerut fiecare, tehnic și strategic, și ce înseamnă asta pentru un proiect al dumneavoastră.",
   projects: [
     {
       slug: "processly",
@@ -639,7 +639,7 @@ export const work = {
         "MinIO",
       ],
       takeaway:
-        "Arată că pot transforma munca manuală care se repetă la un client în sisteme proiectate și refolosibile, care pornesc la comandă sau după calendar — iar echipa de operațiuni câștigă consecvență și vizibilitate fără să se mărească.",
+        "Arată că putem transforma munca manuală care se repetă la un client în sisteme proiectate și refolosibile, care pornesc la comandă sau după calendar — iar echipa de operațiuni câștigă consecvență și vizibilitate fără să se mărească.",
       image: "processly",
     },
     {
@@ -686,7 +686,7 @@ export const work = {
         "MinIO",
       ],
       takeaway:
-        "Arată că pot proiecta și duce până la capăt un produs atent la confidențialitate pentru instituții mari: scapă oamenii de timpul pierdut zilnic și, în același timp, produce date operaționale utile. Aceeași abordare merge oriunde un spațiu fizic are nevoie de un strat digital simplu peste el.",
+        "Arată că putem proiecta și duce până la capăt un produs atent la confidențialitate pentru instituții mari: scapă oamenii de timpul pierdut zilnic și, în același timp, produce date operaționale utile. Aceeași abordare merge oriunde un spațiu fizic are nevoie de un strat digital simplu peste el.",
       image: "mazely",
     },
     {
@@ -732,7 +732,7 @@ export const work = {
         "MinIO",
       ],
       takeaway:
-        "Arată că pot construi AI cu căutare în date proprii, care rulează privat, pe echipamente pe care firma le are deja — cu memoria calculată, verificările automate de funcționare și disciplina de backup fără care nu ține în lumea reală.",
+        "Arată că putem construi AI cu căutare în date proprii, care rulează privat, pe echipamente pe care firma le are deja — cu memoria calculată, verificările automate de funcționare și disciplina de backup fără care nu ține în lumea reală.",
       diagram: true,
     },
     {
@@ -746,7 +746,7 @@ export const work = {
       oneLiner:
         "Un microsite public care arată cum circulă banii din achiziții publice între toate cele 42 de județe ale României, construit exclusiv din date deschise",
       overview:
-        "Atlas Economic răspunde la o întrebare pe care nicio instituție din România nu o publică: pentru fiecare județ, cât din valoarea atribuită de autoritățile contractante de acolo rămâne la firme cu sediul în județ, unde pleacă restul și cât câștigă firmele locale de la autorități din alte județe. Am legat trei surse deschise — sistemul de achiziții publice, registrul comerțului și nomenclatorul oficial al localităților — într-un registru simetric, cu câte o pagină pentru fiecare județ, pe care oricine o poate deschide și verifica. Este un proiect propriu, făcut ca să arăt metoda, nu pentru un client; de aceea sunt publice și prelucrarea, și metodologia, și pista de audit.",
+        "Atlas Economic răspunde la o întrebare pe care nicio instituție din România nu o publică: pentru fiecare județ, cât din valoarea atribuită de autoritățile contractante de acolo rămâne la firme cu sediul în județ, unde pleacă restul și cât câștigă firmele locale de la autorități din alte județe. Am legat trei surse deschise — sistemul de achiziții publice, registrul comerțului și nomenclatorul oficial al localităților — într-un registru simetric, cu câte o pagină pentru fiecare județ, pe care oricine o poate deschide și verifica. Este un proiect propriu, făcut ca să arătăm metoda, nu pentru un client; de aceea sunt publice și prelucrarea, și metodologia, și pista de audit.",
       context:
         "Datele brute sunt publice, dar inutilizabile așa cum apar: anunțurile de atribuire nu spun în ce județ e autoritatea, instituțiile publice nu figurează în registrul comerțului, plafoanele acordurilor-cadru par cheltuieli reale, iar același contract apare o dată pentru fiecare membru al asocierii. Un răspuns cere ca fiecare autoritate să fie dusă în județul ei, fiecare furnizor la sediul lui și toți banii într-un registru care se închide.",
       delivered: [
@@ -779,7 +779,7 @@ export const work = {
         "Trei runde de verificare adversarială, cu doisprezece recenzenți independenți; două reimplementări de la zero au reprodus fiecare cifră publicată",
       ],
       takeaway:
-        "Este cea mai clară demonstrație a felului în care lucrez cu datele: iau surse publice, dar inutilizabile, leg entitățile pe care nimeni nu le-a pus până acum împreună și public rezultatul cu limitele declarate — ca cifrele să reziste la verificare, nu să cedeze la prima întrebare.",
+        "Este cea mai clară demonstrație a felului în care lucrăm cu datele: luăm surse publice, dar inutilizabile, legăm entitățile pe care nimeni nu le-a pus până acum împreună și publicăm rezultatul cu limitele declarate — ca cifrele să reziste la verificare, nu să cedeze la prima întrebare.",
       image: "atlas",
       liveUrl: "/atlas/",
       liveLabel: "Deschide Atlasul",
@@ -828,7 +828,7 @@ export const work = {
         "O singură corecție a redus cu 32% o cifră publicată despre achiziții publice: cheia de deduplicare nu rezista la patru formate de dată și la 98.064 de date goale",
       ],
       takeaway:
-        "Raportul este partea care se vede. Ce arată de fapt este o disciplină: fiecare cifră se poate urmări până la fișierul-sursă, fiecare aproximare e spusă pe nume, împreună cu direcția erorii, iar la final trec totul printr-o verificare care pornește de la ideea că propriul meu rezultat e greșit până rezistă la o recalculare pe alt drum.",
+        "Raportul este partea care se vede. Ce arată de fapt este o disciplină: fiecare cifră se poate urmări până la fișierul-sursă, fiecare aproximare e spusă pe nume, împreună cu direcția erorii, iar la final trecem totul printr-o verificare care pornește de la ideea că propriul nostru rezultat e greșit până rezistă la o recalculare pe alt drum.",
       image: "raport-firma",
       gallery: [
         "raport-firma-indicatori",
@@ -870,7 +870,7 @@ export const work = {
       ],
       stack: ["Metabase (dashboard / BI)", "SQL", "Flux de date GPS / telemetrie"],
       takeaway:
-        "Arată că pot lua date brute de senzori și telemetrie și le pot transforma în tablouri de bord pe baza cărora se iau decizii reale — util oricărui client care are o flotă, o rețea sau un flux constant de date operaționale.",
+        "Arată că putem lua date brute de senzori și telemetrie și le putem transforma în tablouri de bord pe baza cărora se iau decizii reale — util oricărui client care are o flotă, o rețea sau un flux constant de date operaționale.",
       image: "transit-map",
       gallery: ["transit-charts", "transit-speeding"],
     },
@@ -883,12 +883,12 @@ export const pageIntros = {
   services: {
     eyebrow: "Servicii",
     title: "De la problemă la un sistem în producție.",
-    lead: "Un singur partener senior pe tot parcursul: mai întâi diagnosticul, apoi soluția construită efectiv, apoi schimbarea modului de lucru, fără care câștigul nu se păstrează. Fără predări de la o echipă la alta, fără ruptură între plan și omul care scrie codul.",
+    lead: "Același partener senior pe tot parcursul: mai întâi diagnosticul, apoi soluția construită efectiv, apoi schimbarea modului de lucru, fără care câștigul nu se păstrează. Fără predări de la o echipă la alta, fără ruptură între plan și execuție.",
   },
   contact: {
     eyebrow: "Contact",
     title: "Să vorbim deschis.",
-    lead: "Spuneți-mi câteva lucruri despre firma dumneavoastră și despre problema pe care ați vrea cel mai mult să o rezolvați. Vă răspund personal — fără discurs de vânzare, fără presiune.",
+    lead: "Spuneți-ne câteva lucruri despre firma dumneavoastră și despre problema pe care ați vrea cel mai mult să o rezolvați. Vă răspundem personal — fără discurs de vânzare, fără presiune.",
   },
 } as const;
 
@@ -898,7 +898,7 @@ export const scorecardPage = {
   eyebrow: "Verificare gratuită · circa 3 minute",
   heading: "Unde pierde firma dumneavoastră timp și bani — și merită construit ceva?",
   lead: "Zece întrebări simple despre felul în care merge de fapt firma dumneavoastră, fără jargon și fără să vă faceți cont. Primiți un răspuns onest despre unde se duc timpul și banii și dacă o investiție în tehnologie s-ar amortiza chiar acum într-o firmă ca a dumneavoastră — și, la fel de des, unde ar fi mai înțelept să rezolvați întâi altceva. Nu e un scor de maturitate care să vă facă să vă simțiți în urmă. E un răspuns direct despre unde ar lucra de fapt banii dumneavoastră.",
-  microcopy: "Nu e nevoie de cont ca să răspundeți. Vă cer adresa de e-mail doar dacă doriți varianta scrisă, mai amplă.",
+  microcopy: "Nu e nevoie de cont ca să răspundeți. Vă cerem adresa de e-mail doar dacă doriți varianta scrisă, mai amplă.",
   dataGateQuestionIndex: 2,
   dataGateNote:
     "Un lucru, înainte de toate: chiar acum, informația de care ați avea nevoie stă mai ales în capul oamenilor și în e-mailuri. Până nu ajunge într-un loc de unde un sistem o poate citi, nimic din ce cumpărați sau construiți peste ea nu se poate amortiza — asta e singurul lucru care merită rezolvat înainte să cheltuiți pe oricare dintre lucrurile de mai jos.",
@@ -1026,7 +1026,7 @@ export const scorecardPage = {
       max: 100,
       name: "Pregătiți să porniți",
       headline: "Întrebarea nu e „dacă” — ci ce anume, și în ce ordine.",
-      body: "Pe hârtie, sunteți pregătiți: o problemă clar numită, date la care un sistem poate ajunge, buget, un responsabil și presiunea de a acționa. Între dumneavoastră și un câștig real stă un singur lucru: să alegeți proiectul potrivit pentru început și să le faceți în ordinea bună — pentru că, în acest punct, greșeala scumpă e să construiți trei lucruri pe jumătate în loc de unul care se amortizează. Exact aici își merită banii o părere scurtă și onestă din afară. Diagnosticul gratuit al firmei vă dă un verdict scris pentru fiecare variantă — construiți acum, încă nu sau nu construiți — inclusiv, spus limpede, când răspunsul onest e că nu e nimic de construit. Nu vând niciun produs, nu am nicio licență de vândut și nu iau comision de la furnizori, așa că un „nu construiți” nu mă costă nimic — și doar de aceea un „construiți” din partea mea înseamnă ceva.",
+      body: "Pe hârtie, sunteți pregătiți: o problemă clar numită, date la care un sistem poate ajunge, buget, un responsabil și presiunea de a acționa. Între dumneavoastră și un câștig real stă un singur lucru: să alegeți proiectul potrivit pentru început și să le faceți în ordinea bună — pentru că, în acest punct, greșeala scumpă e să construiți trei lucruri pe jumătate în loc de unul care se amortizează. Exact aici își merită banii o părere scurtă și onestă din afară. Diagnosticul gratuit al firmei vă dă un verdict scris pentru fiecare variantă — construiți acum, încă nu sau nu construiți — inclusiv, spus limpede, când răspunsul onest e că nu e nimic de construit. Nu vindem niciun produs, nu avem nicio licență de vândut și nu luăm comision de la furnizori, așa că un „nu construiți” nu ne costă nimic — și doar de aceea un „construiți” din partea noastră înseamnă ceva.",
     },
   ] as ScorecardTier[],
   ui: {
@@ -1039,20 +1039,20 @@ export const scorecardPage = {
   },
   gate: {
     heading: "Vreți rezultatul complet, în scris?",
-    body: "Lăsați-mi adresa de e-mail și vă trimit o versiune mai amplă a rezultatului: ce spun răspunsurile dumneavoastră, cele două-trei lucruri la care m-aș uita întâi într-o firmă în situația dumneavoastră și — dacă se potrivește — singura întrebare la care aș vrea un răspuns înainte să cheltuiți ceva. Fără newsletter, fără serii de e-mailuri, fără apeluri de vânzare pe care nu le-ați cerut. Un singur email util.",
+    body: "Lăsați-ne adresa de e-mail și vă trimitem o versiune mai amplă a rezultatului: ce spun răspunsurile dumneavoastră, cele două-trei lucruri la care ne-am uita întâi într-o firmă în situația dumneavoastră și — dacă se potrivește — singura întrebare la care am vrea un răspuns înainte să cheltuiți ceva. Fără newsletter, fără serii de e-mailuri, fără apeluri de vânzare pe care nu le-ați cerut. Un singur email util.",
     emailLabel: "E-mail de serviciu",
     button: "Trimiteți-mi rezultatul",
-    privacy: "Folosesc adresa dumneavoastră doar ca să vă trimit acest rezultat. Nu o dau mai departe și nu vă adaug pe nicio listă.",
+    privacy: "Folosim adresa dumneavoastră doar ca să vă trimitem acest rezultat. Nu o dăm mai departe și nu vă adăugăm pe nicio listă.",
     privacyLinkLabel: "Vedeți politica de confidențialitate.",
     privacyHref: "/privacy",
   },
   ctaPrimary: {
     label: "Cereți Diagnosticul firmei — e gratuit",
     href: "/assessment",
-    microcopy: "Gratuit · unul per companie · îl fac personal · un verdict scris, inclusiv când nu e nimic de construit.",
+    microcopy: "Gratuit · unul per companie · îl facem noi · un verdict scris, inclusiv când nu e nimic de construit.",
   },
   ctaSecondary: {
-    label: "Sau pur și simplu discutați cu mine",
+    label: "Sau pur și simplu discutați cu noi",
     href: "/contact",
   },
 } as const;
@@ -1061,7 +1061,7 @@ export const scorecardPage = {
 
 export const pageMeta = {
   home: {
-    title: "LT Strategy Partners — Consultant independent: întâi problema, apoi soluția",
+    title: "LT Strategy Partners — Consultanță independentă: întâi problema, apoi soluția",
     description: site.description,
     path: "/",
   },
@@ -1074,13 +1074,13 @@ export const pageMeta = {
   services: {
     title: "Servicii — LT Strategy Partners",
     description:
-      "Consultanță tehnologică independentă și supervizare, strategie, implementare și performanță operațională — cu specializare solidă în AI. Un singur partener senior, de la decizie până în producție.",
+      "Consultanță tehnologică independentă și supervizare, strategie, implementare și performanță operațională — cu specializare solidă în AI. Nivel senior de la decizie până în producție, fără predări, de la decizie până în producție.",
     path: "/services",
   },
   assessment: {
     title: "Diagnosticul firmei — LT Strategy Partners",
     description:
-      "Un diagnostic gratuit, pe care îl fac personal: unde se pierd banii, timpul și deciziile în firma dumneavoastră, ce merită rezolvat primul — și, spus cinstit, unde răspunsul nu ține de tehnologie.",
+      "Un diagnostic gratuit, pe care îl facem noi: unde se pierd banii, timpul și deciziile în firma dumneavoastră, ce merită rezolvat primul — și, spus cinstit, unde răspunsul nu ține de tehnologie.",
     path: "/assessment",
   },
   assessmentSample: {
@@ -1109,7 +1109,7 @@ export const pageMeta = {
   },
   privacy: {
     title: "Confidențialitate — LT Strategy Partners",
-    description: "Cum colectez și cum folosesc informațiile pe care mi le trimiteți.",
+    description: "Cum colectăm și cum folosim informațiile pe care ni le trimiteți.",
     path: "/privacy",
   },
   terms: {
@@ -1127,7 +1127,7 @@ export const ui = {
   allInsights: "Toate articolele",
   viewProject: "Vedeți proiectul",
   navPrimaryAria: "Navigare principală",
-  heroProofAria: "Ce mă face diferit",
+  heroProofAria: "Ce ne diferențiază",
   ragDiagram: {
     boundary: "Rulează în rețeaua proprie a restaurantului — fără cloud, fără cost la fiecare întrebare",
     customerChat: "Chat pentru clienți",
@@ -1208,20 +1208,20 @@ export const formStrings = {
   fixFields: "Corectați, vă rog, câmpurile marcate.",
   required: "Acest câmp este obligatoriu.",
   invalidEmail: "Introduceți, vă rog, o adresă de email validă.",
-  failPrefix: "Ceva nu a funcționat. Scrieți-mi, vă rog, direct la",
+  failPrefix: "Ceva nu a funcționat. Scrieți-ne, vă rog, direct la",
   contactSubjectPrefix: "Mesaj de la",
   contactSuccessSent:
-    "Mulțumesc — mesajul a fost trimis. Vă răspund personal în cel mult două zile lucrătoare.",
+    "Mulțumim — mesajul a fost trimis. Vă răspundem personal în cel mult două zile lucrătoare.",
   assessmentSubjectPrefix: "Cerere de diagnostic —",
   assessmentSuccessMailto:
-    "Mulțumesc — cererea este gata de trimis. O citesc personal și vă răspund în cel mult două zile lucrătoare.",
+    "Mulțumim — cererea este gata de trimis. O citim noi și vă răspundem în cel mult două zile lucrătoare.",
   assessmentSuccessSent:
-    "Mulțumesc — cererea a fost trimisă. O citesc personal și vă răspund în cel mult două zile lucrătoare.",
+    "Mulțumim — cererea a fost trimisă. O citim noi și vă răspundem în cel mult două zile lucrătoare.",
   scorecardSubjectPrefix: "Rezultat verificare —",
   scorecardSuccessMailto:
-    "Mulțumesc — cererea e gata de trimis. Vă trimit personal rezultatul scris, de obicei în cel mult două zile lucrătoare.",
+    "Mulțumim — cererea e gata de trimis. Vă trimitem noi rezultatul scris, de obicei în cel mult două zile lucrătoare.",
   scorecardSuccessSent:
-    "Mulțumesc — rezultatul dumneavoastră e pe drum. Îl trimit personal, de obicei în cel mult două zile lucrătoare.",
+    "Mulțumim — rezultatul dumneavoastră e pe drum. Îl trimitem noi, de obicei în cel mult două zile lucrătoare.",
 } as const;
 
 /* ------------------------------- Assessment application form (field copy) */
@@ -1250,7 +1250,7 @@ export const assessmentForm = {
     },
     {
       name: "usecases",
-      label: "Una sau două probleme la care vreți să mă uit în primul rând",
+      label: "Una sau două probleme la care vreți să ne uităm în primul rând",
       hint: "O propoziție pentru fiecare. E de ajuns simptomul — nu trebuie să știți cauza.",
       type: "textarea",
       required: true,
@@ -1265,7 +1265,7 @@ export const assessmentForm = {
     {
       name: "tried",
       label: "Ce ați încercat deja — și ce s-a întâmplat?",
-      hint: "Un program nou, un consultant, un proiect-pilot, o rezolvare internă. Locul în care s-a blocat fiecare îmi spune cel mai mult.",
+      hint: "Un program nou, un consultant, un proiect-pilot, o rezolvare internă. Locul în care s-a blocat fiecare ne spune cel mai mult.",
       type: "textarea",
       required: false,
     },
@@ -1304,41 +1304,41 @@ export const legalPages = {
   privacy: {
     eyebrow: "Legal",
     title: "Politica de confidențialitate.",
-    lead: "Ce informații colectez și cum le folosesc. Limbaj simplu, fără surprize.",
+    lead: "Ce informații colectăm și cum le folosim. Limbaj simplu, fără surprize.",
     updated: "Ultima actualizare: 3 iulie 2026",
     sections: [
       {
-        heading: "Cine sunt",
-        html: `Operatorul de date pentru acest site este ${site.name} (activitate independentă, cu sediul în Iași, România). Pentru orice întrebare despre această politică sau despre datele dumneavoastră, scrieți-mi la <a href="mailto:${site.email}">${site.email}</a>.`,
+        heading: "Cine suntem",
+        html: `Operatorul de date pentru acest site este ${site.name} (activitate independentă, cu sediul în Iași, România). Pentru orice întrebare despre această politică sau despre datele dumneavoastră, scrieți-ne la <a href="mailto:${site.email}">${site.email}</a>.`,
       },
       {
-        heading: "Ce date colectez",
-        html: `Colectez informațiile pe care alegeți să mi le trimiteți. Prin <strong>formularul de contact</strong>: <strong>numele</strong>, <strong>firma</strong>, <strong>rolul</strong> (opțional), <strong>adresa de email</strong> și <strong>mesajul</strong> pe care îl scrieți. Dacă folosiți butonul „Rezervați o discuție”, îmi lăsați numele, emailul și orice detalii adăugate la programare — vedeți <a href="#booking">Rezervarea unei discuții</a> mai jos. Nu fac publicitate și nu folosesc tehnologii de urmărire invazive sau instrumente de analiză de la terți care să vă identifice.`,
+        heading: "Ce date colectăm",
+        html: `Colectăm informațiile pe care alegeți să ni le trimiteți. Prin <strong>formularul de contact</strong>: <strong>numele</strong>, <strong>firma</strong>, <strong>rolul</strong> (opțional), <strong>adresa de email</strong> și <strong>mesajul</strong> pe care îl scrieți. Dacă folosiți butonul „Rezervați o discuție”, ne lăsați numele, emailul și orice detalii adăugate la programare — vedeți <a href="#booking">Rezervarea unei discuții</a> mai jos. Nu facem publicitate și nu folosim tehnologii de urmărire invazive sau instrumente de analiză de la terți care să vă identifice.`,
       },
       {
-        heading: "De ce le colectez și temeiul legal",
-        html: `Folosesc aceste informații într-un singur scop: să citesc solicitarea dumneavoastră, să vă răspund și să continuăm discuția despre o posibilă colaborare. Temeiul legal, conform GDPR, este interesul meu legitim de a răspunde persoanelor care mă contactează în legătură cu serviciile mele și, atunci când dumneavoastră inițiați contactul pentru a discuta o colaborare, demersurile făcute la cererea dumneavoastră înainte de încheierea unui contract.`,
+        heading: "De ce le colectăm și temeiul legal",
+        html: `Folosim aceste informații într-un singur scop: să citim solicitarea dumneavoastră, să vă răspundem și să continuăm discuția despre o posibilă colaborare. Temeiul legal, conform GDPR, este interesul nostru legitim de a răspunde persoanelor care ne contactează în legătură cu serviciile noastre și, atunci când dumneavoastră inițiați contactul pentru a discuta o colaborare, demersurile făcute la cererea dumneavoastră înainte de încheierea unui contract.`,
       },
       {
         heading: "Transmiterea datelor",
-        html: `Nu vă vând informațiile și nu le transmit către terți pentru scopurile lor proprii. Solicitarea dumneavoastră ajunge la mine fie prin email, fie prin formularele site-ului, care sunt prelucrate de Google și salvate într-o foaie de calcul din contul meu Google; Google, împreună cu furnizorii de email și de găzduire prin care trece mesajul, acționează exclusiv ca persoane împuternicite, în numele meu. Această prelucrare poate implica transferuri în afara SEE, în baza garanțiilor oferite de Google.`,
+        html: `Nu vă vindem informațiile și nu le transmitem către terți pentru scopurile lor proprii. Solicitarea dumneavoastră ajunge la noi fie prin email, fie prin formularele site-ului, care sunt prelucrate de Google și salvate într-o foaie de calcul din contul nostru Google; Google, împreună cu furnizorii de email și de găzduire prin care trece mesajul, acționează exclusiv ca persoane împuternicite, în numele nostru. Această prelucrare poate implica transferuri în afara SEE, în baza garanțiilor oferite de Google.`,
       },
       {
         id: "booking",
         heading: "Rezervarea unei discuții",
-        html: `Butonul „Rezervați o discuție” deschide o pagină de programări pusă la dispoziție de Google Calendar. Dacă rezervați acolo o discuție, datele completate — numele, emailul și orice altceva adăugați — sunt prelucrate de Google ca parte a serviciului de programare, conform <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">politicii de confidențialitate a Google</a>, și pot fi transferate pe servere din afara SEE, inclusiv în Statele Unite. Primesc aceste date exclusiv pentru a stabili și a ține întâlnirea cu dumneavoastră. Dacă preferați să nu folosiți Google, scrieți-mi direct la <a href="mailto:${site.email}">${site.email}</a>.`,
+        html: `Butonul „Rezervați o discuție” deschide o pagină de programări pusă la dispoziție de Google Calendar. Dacă rezervați acolo o discuție, datele completate — numele, emailul și orice altceva adăugați — sunt prelucrate de Google ca parte a serviciului de programare, conform <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">politicii de confidențialitate a Google</a>, și pot fi transferate pe servere din afara SEE, inclusiv în Statele Unite. Primim aceste date exclusiv pentru a stabili și a ține întâlnirea cu dumneavoastră. Dacă preferați să nu folosiți Google, scrieți-ne direct la <a href="mailto:${site.email}">${site.email}</a>.`,
       },
       {
-        heading: "Cât timp le păstrez",
-        html: `Păstrez corespondența doar atât cât este necesar pentru a soluționa solicitarea și, dacă este cazul, pe durata colaborării care urmează, după care o șterg. Dacă discuția nu duce nicăieri, o șterg imediat ce devine clar că nu mai este necesară.`,
+        heading: "Cât timp le păstrăm",
+        html: `Păstrăm corespondența doar atât cât este necesar pentru a soluționa solicitarea și, dacă este cazul, pe durata colaborării care urmează, după care o ștergem. Dacă discuția nu duce nicăieri, o ștergem imediat ce devine clar că nu mai este necesară.`,
       },
       {
         heading: "Drepturile dumneavoastră",
-        html: `Conform GDPR, aveți dreptul de acces la datele personale pe care le dețin despre dumneavoastră, dreptul de rectificare dacă sunt greșite, de ștergere, de restricționare a prelucrării sau de opoziție la prelucrare, precum și dreptul la portabilitatea datelor. Pentru a exercita oricare dintre aceste drepturi, scrieți la <a href="mailto:${site.email}">${site.email}</a> și vă răspund în termenul prevăzut de lege. Aveți, de asemenea, dreptul de a depune o plângere la autoritatea de supraveghere (în România, ANSPDCP).`,
+        html: `Conform GDPR, aveți dreptul de acces la datele personale pe care le deținem despre dumneavoastră, dreptul de rectificare dacă sunt greșite, de ștergere, de restricționare a prelucrării sau de opoziție la prelucrare, precum și dreptul la portabilitatea datelor. Pentru a exercita oricare dintre aceste drepturi, scrieți la <a href="mailto:${site.email}">${site.email}</a> și vă răspundem în termenul prevăzut de lege. Aveți, de asemenea, dreptul de a depune o plângere la autoritatea de supraveghere (în România, ANSPDCP).`,
       },
       {
         heading: "Modificări",
-        html: `Dacă modific această politică, actualizez data de mai sus. Schimbările importante vor fi semnalate clar pe această pagină.`,
+        html: `Dacă modificăm această politică, actualizăm data de mai sus. Schimbările importante vor fi semnalate clar pe această pagină.`,
       },
     ] as LegalSection[],
   },
@@ -1350,7 +1350,7 @@ export const legalPages = {
     sections: [
       {
         heading: "Despre acest site",
-        html: `Acest site este publicat de ${site.name} pentru a prezenta serviciile pe care le ofer și punctul meu de vedere profesional. Are caracter exclusiv informativ.`,
+        html: `Acest site este publicat de ${site.name} pentru a prezenta serviciile pe care le oferim și punctul nostru de vedere profesional. Are caracter exclusiv informativ.`,
       },
       {
         heading: "Fără consultanță și fără contract",
@@ -1358,15 +1358,15 @@ export const legalPages = {
       },
       {
         heading: "Proprietate intelectuală",
-        html: `Conținutul, marca și designul acestui site aparțin ${site.name}, dacă nu se precizează altfel. Numele de produse și mărcile menționate în proiectele mele aparțin deținătorilor lor de drept.`,
+        html: `Conținutul, marca și designul acestui site aparțin ${site.name}, dacă nu se precizează altfel. Numele de produse și mărcile menționate în proiectele noastre aparțin deținătorilor lor de drept.`,
       },
       {
         heading: "Linkuri",
-        html: `Acolo unde acest site trimite către site-uri externe, nu răspund pentru conținutul sau practicile lor.`,
+        html: `Acolo unde acest site trimite către site-uri externe, nu răspundem pentru conținutul sau practicile lor.`,
       },
       {
         heading: "Contact",
-        html: `Aveți întrebări despre acești termeni? Scrieți-mi la <a href="mailto:${site.email}">${site.email}</a>.`,
+        html: `Aveți întrebări despre acești termeni? Scrieți-ne la <a href="mailto:${site.email}">${site.email}</a>.`,
       },
       {
         heading: "",

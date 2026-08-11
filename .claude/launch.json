@@ -49,6 +49,19 @@
       ],
       "port": 4400,
       "url": "http://localhost:4400/"
+    },
+    {
+      "name": "cv-site",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "4500",
+        "--directory",
+        "/Users/stamas/My Projects/CV"
+      ],
+      "port": 4500,
+      "url": "http://localhost:4500/"
     }
   ]
 }
