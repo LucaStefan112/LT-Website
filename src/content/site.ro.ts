@@ -46,7 +46,7 @@ export const site = {
   url: "https://ltstrategypartners.com",
   tagline: "Întâi problema. Apoi soluția.",
   description:
-    "Consultanță independentă pentru antreprenori și manageri. Pornim de la problema din firma dumneavoastră, nu de la o soluție pregătită dinainte — apoi construim noi răspunsul. Nu avem nimic de vândut, așa că „nu construiți nimic” e un răspuns real.",
+    "Consultanță independentă în tehnologie pentru antreprenori și manageri. Pornim de la problemă, nu de la soluție.",
   email: "luca.tamas@ltstrategypartners.com",
   phone: "+40734950060",
   phoneDisplay: "+40 734 950 060",
@@ -92,22 +92,23 @@ export const legalNav: NavItem[] = [
 /* --------------------------------------------------------------- Hero */
 
 export const hero = {
-  eyebrow: "Consultanță independentă pentru antreprenori și manageri",
-  headline: "Pornim de la problema dumneavoastră, nu de la o soluție.",
+  eyebrow:
+    "Consultanță independentă în tehnologie pentru antreprenori și manageri",
+  headline: "Pornim de la problemă, nu de la soluție.",
   subhead:
-    "Fără presupuneri și fără răspunsuri pregătite dinainte. Întâi înțelegem cum funcționează cu adevărat firma dumneavoastră și cât vă costă problema — apoi, dacă merită construit ceva, îl proiectăm și îl construim noi.",
+    "Înțelegem cum funcționează cu adevărat firma dumneavoastră, evaluăm problema și dezvoltăm soluții practice.",
   // Role label on the hero portrait name-tag.
   tagRole: "Fondator",
   primaryCta: site.primaryCta,
   secondaryCta: site.assessmentCta,
-  trustLine: "Independent · Fără juniori · Construim ce recomandăm",
+  trustLine: "Independent · Construim ce recomandăm",
 } as const;
 
 /* -------------------------------------------------- The problem we solve */
 
 export const intro = {
   eyebrow: "Începem de la problemă",
-  body: "Marja se subțiază și nimeni nu poate spune exact unde. Aceleași cifre, trecute de mână în trei sisteme. O decizie care așteaptă un raport făcut manual. Astfel de probleme aproape niciodată nu stau acolo unde crede toată lumea. De aceea începem prin a asculta: cum circulă munca în realitate, unde se blochează și cât costă. Nu vindem niciun produs și nu luăm niciun comision — exact de aceea ne permitem să vă spunem când răspunsul nu ține de tehnologie. Iar când merită construit ceva, îl construim noi.",
+  body: "Marja se subțiază și nimeni nu poate spune exact unde. Aceleași cifre, trecute de mână în trei sisteme. O decizie care așteaptă un raport făcut manual. Astfel de probleme apare frecvent. De aceea începem prin a asculta: cum circulă responsabilitatea în realitate, unde se blochează și cât costă.",
 } as const;
 
 /* ------------------------------------------------------- Value pillars */
@@ -125,7 +126,7 @@ export const pillars = {
     },
     {
       title: "Nu avem niciun produs de vândut.",
-      body: "Nu vindem software, nu vindem licențe și nu luăm comision de la nimeni. Exact de aceea ne permitem să vă spunem că problema e de proces sau de oameni — ori că încă nu merită rezolvată — și tocmai de asta „nu construiți nimic” este un răspuns normal.",
+      body: "Nu vindem software, nu vindem licențe și nu luăm comision. Exact de aceea ne permitem să vă spunem că problema e de proces sau de oameni — ori că încă nu merită rezolvată — și tocmai de asta „nu construiți nimic” este un răspuns normal.",
     },
   ] as Card[],
 } as const;
@@ -137,7 +138,7 @@ export const services = {
   headerTitle: "De la problemă la soluția care funcționează.",
   deliverablesLabel: "Ce primiți",
   intro:
-    "Același partener senior, de la prima întrebare până în ziua în care soluția funcționează. Pornim de la problemă — marja, orele, decizia care așteaptă mereu un raport — apoi vă consiliem și, unde se justifică, construim noi. Așa, planul nu se rupe niciodată de execuție.",
+    "Pornim de la problemă — marja, orele, decizia care așteaptă mereu un raport — apoi vă consiliem și, unde se justifică, construim noi. Așa, planul nu se rupe niciodată de execuție.",
   items: [
     {
       title: "Consultanță și supervizare tehnologică",
@@ -220,7 +221,8 @@ export const assessment = {
 
 export const assessmentPage = {
   eyebrow: "Diagnosticul firmei",
-  heading: "Înainte să vă vândă cineva o soluție, aflați ce vă ține de fapt pe loc.",
+  heading:
+    "Înainte să vă vândă cineva o soluție, aflați ce vă ține de fapt pe loc.",
   lead: "O ședință structurată cu echipa dumneavoastră de conducere și un diagnostic scris, cu priorități limpezi, despre ce vă costă cel mai mult — inclusiv un „nu construiți nimic” spus pe față, dacă acesta e răspunsul onest. Gratuit, îl facem noi, cu locuri limitate.",
   heroCta: { label: "Cereți un diagnostic", href: "#apply" } as CTA,
   heroFacts: [
@@ -242,7 +244,8 @@ export const assessmentPage = {
   deliverable: {
     eyebrow: "Ce primiți",
     heading: "Diagnosticul scris.",
-    intro: "Trei până la cinci pagini, scrise de noi — fără juniori, fără șabloane. Prima pagină e făcută să poată fi trimisă conducerii ca document de sine stătător.",
+    intro:
+      "Trei până la cinci pagini, scrise de noi. Prima pagină e făcută să poată fi trimisă conducerii ca document de sine stătător.",
     items: [
       "O notă de decizie de o pagină, cu verdictul în titlu — nu ascuns la pagina patru",
       "Fiecare problemă găsită, așezată pe o singură hartă: cât vă costă × cât de greu se rezolvă, fiecare cu ce riscați dacă rămâne așa",
@@ -251,22 +254,48 @@ export const assessmentPage = {
       "Pași următori, printre care și lucruri pe care le puteți face fără să ne angajați",
     ],
     guaranteeLabel: "Garanția, în scris",
-    guarantee: "Așteptați-vă la cel puțin un lucru pe care vă spunem să nu îl rezolvați — sau să nu îl rezolvați acum — cu motivul, în scris. Dacă ce contează cel mai mult se dovedește a fi o schimbare de proces, nu un sistem nou, diagnosticul spune exact asta. Iar dacă tot ce aduceți stă în picioare, o spune la fel de limpede. Ce nu va face niciodată e să fabrice un verdict, într-o direcție sau în alta.",
-    sampleCta: { label: "Citiți un exemplu de verdict Gate Zero", href: "/assessment/sample-readout" } as CTA,
+    guarantee:
+      "Așteptați-vă la cel puțin un lucru pe care vă spunem să nu îl rezolvați — sau să nu îl rezolvați acum — cu motivul, în scris. Dacă ce contează cel mai mult se dovedește a fi o schimbare de proces, nu un sistem nou, diagnosticul spune exact asta. Iar dacă tot ce aduceți stă în picioare, o spune la fel de limpede. Ce nu va face niciodată e să fabrice un verdict, într-o direcție sau în alta.",
+    sampleCta: {
+      label: "Citiți un exemplu de verdict Gate Zero",
+      href: "/assessment/sample-readout",
+    } as CTA,
   },
 
   method: {
     eyebrow: "Metoda",
     heading: "Cum ne uităm la firmă — și unde intră Gate Zero.",
-    intro: "Venim fără o soluție pregătită. Ne uităm la șapte lucruri, cu cifrele și cu vocabularul dumneavoastră, și doar ce trece de ele merită banii dumneavoastră. Iar ce ar trebui construit trece apoi prin Gate Zero — verificarea formală go/no-go la care e supus orice sistem de producție, doar că aplicată înainte să cheltuiți:",
+    intro:
+      "Venim fără o soluție pregătită. Ne uităm la șapte lucruri, cu cifrele și cu vocabularul dumneavoastră, și doar ce trece de ele merită banii dumneavoastră. Iar ce ar trebui construit trece apoi prin Gate Zero — verificarea formală go/no-go la care e supus orice sistem de producție, doar că aplicată înainte să cheltuiți:",
     dimensions: [
-      { name: "Valoarea în joc", desc: "Euro sau ore legate de un flux de lucru concret — scenariu de bază conservator, cu ipotezele spuse pe față. Fără proiecții spectaculoase." },
-      { name: "Realitatea datelor", desc: "Informația de care depinde asta există cu adevărat, e curată și se poate accesa astăzi — sau stă în capul cuiva?" },
-      { name: "Cum se lucrează în realitate", desc: "Procesul așa cum îl fac oamenii, nu așa cum arată schema: ocolișurile, datele trecute de două ori, al doilea tabel despre care nu vorbește nimeni." },
-      { name: "Toleranța la erori față de miză", desc: "Unde ajunge astăzi o greșeală, cine o observă și cât costă până o prinde cineva?" },
-      { name: "Dacă rezultatul se poate măsura", desc: "Dacă se schimbă asta, se vede în cifre pe care le aveți deja — sau ar trebui să ne credeți pe cuvânt?" },
-      { name: "Cost, efort și responsabilitate", desc: "Cât costă o rezolvare în funcționare, nu doar la construcție, și cine din firmă răspunde de ea după ce plecăm noi." },
-      { name: "Expunere și dependențe", desc: "Locuri în care totul atârnă de un singur lucru, dependența de un singur om, date personale de care nu poate răspunde nimeni și regulile cărora sunteți deja supuși — inclusiv unde vi se aplică EU AI Act." },
+      {
+        name: "Valoarea în joc",
+        desc: "Euro sau ore legate de un flux de lucru concret — scenariu de bază conservator, cu ipotezele spuse pe față. Fără proiecții spectaculoase.",
+      },
+      {
+        name: "Realitatea datelor",
+        desc: "Informația de care depinde asta există cu adevărat, e curată și se poate accesa astăzi — sau stă în capul cuiva?",
+      },
+      {
+        name: "Cum se lucrează în realitate",
+        desc: "Procesul așa cum îl fac oamenii, nu așa cum arată schema: ocolișurile, datele trecute de două ori, al doilea tabel despre care nu vorbește nimeni.",
+      },
+      {
+        name: "Toleranța la erori față de miză",
+        desc: "Unde ajunge astăzi o greșeală, cine o observă și cât costă până o prinde cineva?",
+      },
+      {
+        name: "Dacă rezultatul se poate măsura",
+        desc: "Dacă se schimbă asta, se vede în cifre pe care le aveți deja — sau ar trebui să ne credeți pe cuvânt?",
+      },
+      {
+        name: "Cost, efort și responsabilitate",
+        desc: "Cât costă o rezolvare în funcționare, nu doar la construcție, și cine din firmă răspunde de ea după ce plecăm noi.",
+      },
+      {
+        name: "Expunere și dependențe",
+        desc: "Locuri în care totul atârnă de un singur lucru, dependența de un singur om, date personale de care nu poate răspunde nimeni și regulile cărora sunteți deja supuși — inclusiv unde vi se aplică EU AI Act.",
+      },
     ],
     rulesLabel: "Trei reguli, prezente în fiecare diagnostic",
     rules: [
@@ -281,17 +310,34 @@ export const assessmentPage = {
       "Cât vă costă asta în fiecare lună în care rămâne așa?",
       "Ce se întâmplă cu asta dacă pleacă omul care o ține?",
     ],
-    standardsNote: "Dacă ajungem să construim ceva, partea de expunere se raportează la EU AI Act (articolul 6 / anexa III), la NIST AI Risk Management Framework și la OWASP Top 10 pentru aplicații LLM.",
+    standardsNote:
+      "Dacă ajungem să construim ceva, partea de expunere se raportează la EU AI Act (articolul 6 / anexa III), la NIST AI Risk Management Framework și la OWASP Top 10 pentru aplicații LLM.",
   },
 
   process: {
     eyebrow: "Cum decurge",
     heading: "Patru pași, două până la patru săptămâni.",
     steps: [
-      { name: "Cererea", time: "10 minute", desc: "Zece întrebări despre firmă, despre ce nu funcționează și despre locul în care stau cifrele. Citim noi fiecare cerere — iar pe unele le refuzăm. Acesta e primul verdict și vine înaintea oricărei discuții." },
-      { name: "Ședința de diagnostic", time: "45–60 de minute", desc: "O ședință structurată cu echipa dumneavoastră de conducere — venim să înțelegem firma, nu să prezentăm ceva. Urmărim banii și blocajele prin procesele pe care le folosiți cu adevărat și punem întrebările care apar oricum atunci când un sistem ajunge să lucreze pe viu. Doar discuție ghidată: fără parole, fără acces la sisteme, nimic nu iese din firma dumneavoastră." },
-      { name: "Se scrie diagnosticul", time: "într-o săptămână", desc: "Fiecare problemă găsită e punctată pe cele șapte dimensiuni și așezată pe o singură hartă: cât vă costă × cât de greu se rezolvă. Diagnosticul îl scriem noi, cu cifrele și cu vocabularul dumneavoastră." },
-      { name: "Discuția despre verdict", time: "30 de minute", desc: "Primiți diagnosticul și un răspuns tranșant despre primul lucru care trebuie rezolvat: acum, încă nu — și exact ce l-ar debloca — sau lăsați-l în pace. Dacă răspunsul e ceva de construit, vine cu verdictul Gate Zero. Documentul rămâne al dumneavoastră, oricare ar fi răspunsul." },
+      {
+        name: "Cererea",
+        time: "10 minute",
+        desc: "Zece întrebări despre firmă, despre ce nu funcționează și despre locul în care stau cifrele. Citim noi fiecare cerere — iar pe unele le refuzăm. Acesta e primul verdict și vine înaintea oricărei discuții.",
+      },
+      {
+        name: "Ședința de diagnostic",
+        time: "45–60 de minute",
+        desc: "O ședință structurată cu echipa dumneavoastră de conducere — venim să înțelegem firma, nu să prezentăm ceva. Urmărim banii și blocajele prin procesele pe care le folosiți cu adevărat și punem întrebările care apar oricum atunci când un sistem ajunge să lucreze pe viu. Doar discuție ghidată: fără parole, fără acces la sisteme, nimic nu iese din firma dumneavoastră.",
+      },
+      {
+        name: "Se scrie diagnosticul",
+        time: "într-o săptămână",
+        desc: "Fiecare problemă găsită e punctată pe cele șapte dimensiuni și așezată pe o singură hartă: cât vă costă × cât de greu se rezolvă. Diagnosticul îl scriem noi, cu cifrele și cu vocabularul dumneavoastră.",
+      },
+      {
+        name: "Discuția despre verdict",
+        time: "30 de minute",
+        desc: "Primiți diagnosticul și un răspuns tranșant despre primul lucru care trebuie rezolvat: acum, încă nu — și exact ce l-ar debloca — sau lăsați-l în pace. Dacă răspunsul e ceva de construit, vine cu verdictul Gate Zero. Documentul rămâne al dumneavoastră, oricare ar fi răspunsul.",
+      },
     ],
   },
 
@@ -300,8 +346,14 @@ export const assessmentPage = {
     heading: "E un diagnostic, nu tratamentul.",
     body: "Așa aflăm, de ambele părți, dacă are rost să lucrăm împreună. Primiți diagnosticul și ordinea priorităților; munca propriu-zisă intră în proiectele plătite. Rămâne gratuit tocmai pentru că e limitat: ținem noi fiecare ședință și scriem noi fiecare diagnostic — cel mult trei pe lună, unul per companie, o singură dată.",
     branches: [
-      { name: "Dacă verdictul e da", desc: "și ne potrivim, diagnosticul leagă fiecare problemă care merită rezolvată de proiectul care o rezolvă — inclusiv de proiectele pe care le-am construi noi. Veți ști cum arată pasul următor înainte să vă angajați la ceva." },
-      { name: "Dacă verdictul e nu", desc: "păstrați diagnosticul, nu urmează nicio serie de e-mailuri și aici se termină — dacă nu ne scrieți chiar dumneavoastră. Un „nu” urmat de e-mailuri insistente ar goli verdictul de orice valoare." },
+      {
+        name: "Dacă verdictul e da",
+        desc: "și ne potrivim, diagnosticul leagă fiecare problemă care merită rezolvată de proiectul care o rezolvă — inclusiv de proiectele pe care le-am construi noi. Veți ști cum arată pasul următor înainte să vă angajați la ceva.",
+      },
+      {
+        name: "Dacă verdictul e nu",
+        desc: "păstrați diagnosticul, nu urmează nicio serie de e-mailuri și aici se termină — dacă nu ne scrieți chiar dumneavoastră. Un „nu” urmat de e-mailuri insistente ar goli verdictul de orice valoare.",
+      },
     ],
   },
 
@@ -325,7 +377,8 @@ export const assessmentPage = {
 
   whoRuns: {
     eyebrow: "Cine îl face",
-    heading: "Metoda există pentru că acestea sunt verificările pe care le facem oricum înainte să punem ceva în producție.",
+    heading:
+      "Metoda există pentru că acestea sunt verificările pe care le facem oricum înainte să punem ceva în producție.",
     facts: [
       "Proiectăm, construim și ducem în producție sisteme întregi — inclusiv AI și LLM: reglarea retrieval-ului, validarea rezultatelor, monitorizare, bugete de cost și latență",
       "Am construit un asistent AI self-hosted, cu retrieval, care rulează complet offline pe echipamente pe care o firmă le are deja",
@@ -337,15 +390,18 @@ export const assessmentPage = {
 
   positioning: {
     heading: "Nu e un chestionar. Nu e un teanc de prezentări.",
-    body: "Nu e un chestionar de zece minute cu punctaj automat și nici o evaluare de sute de mii de euro făcută de analiști juniori. E diagnosticul cu care ar începe un audit plătit, pus de omul care ar și construi rezolvarea. Nu vindem niciun produs, nicio licență și niciun echipament, și nu luăm comision de la niciun furnizor — exact de asta ne permitem să vă spunem să nu construiți nimic. Un „nu construiți” nu ne costă nimic, și doar așa un „construiți” înseamnă ceva.",
-    noLockIn: "Diagnosticul e scris ca să vă fie de folos chiar dacă nu ne angajați niciodată.",
+    body: "E diagnosticul cu care ar începe un audit, pus de omul care ar și construi rezolvarea. Nu vindem niciun produs, nicio licență și niciun echipament, și nu luăm comision de la niciun furnizor — exact de asta ne permitem să vă spunem să nu construiți nimic. Un „nu construiți” nu ne costă nimic, și doar așa un „construiți” înseamnă ceva.",
+    noLockIn:
+      "Diagnosticul e scris ca să vă fie de folos chiar dacă nu ne angajați niciodată.",
   },
 
   apply: {
     eyebrow: "Cererea",
     heading: "Cereți Diagnosticul firmei.",
-    intro: "Zece întrebări, cam zece minute. Citim noi fiecare cerere — pe unele le refuzăm, și acesta e primul verdict. Dacă o acceptăm, primiți agenda exactă a ședinței înainte să blocați o oră din timpul echipei de conducere.",
-    microcopy: "Gratuit · unul per companie · cel mult trei pe lună · doar discuție ghidată, fără acces la sisteme",
+    intro:
+      "Zece întrebări, cam zece minute. Citim noi fiecare cerere — pe unele le refuzăm, și acesta e primul verdict. Dacă o acceptăm, primiți agenda exactă a ședinței înainte să blocați o oră din timpul echipei de conducere.",
+    microcopy:
+      "Gratuit · unul per companie · cel mult trei pe lună · doar discuție ghidată, fără acces la sisteme",
     submitLabel: "Trimiteți cererea",
   },
 } as const;
@@ -356,7 +412,7 @@ export const dataIp = {
   id: "data-ip",
   eyebrow: "Datele dumneavoastră și proprietatea intelectuală",
   heading: "Construit de un inginer de securitate — tratat ca atare.",
-  body: "Venim din securitate și protecția datelor — inginerie de securitate pe sisteme de producție și, înainte de asta, cercetare în domeniul autentificării și al criptării. Disciplina aceasta se vede în felul în care lucrăm cu dumneavoastră: la ce avem acces, ce construim și ce nu iese niciodată din firma dumneavoastră.",
+  body: "Venim din securitate și protecția datelor — inginerie de securitate pe sisteme de producție. Disciplina aceasta se vede în felul în care lucrăm cu dumneavoastră: la ce avem acces, ce construim și ce nu iese niciodată din firma dumneavoastră.",
   items: [
     {
       title: "Datele dumneavoastră rămân ale dumneavoastră.",
@@ -383,31 +439,36 @@ export const approach = {
   eyebrow: "Cum lucrăm",
   outputLabel: "Ce obțineți",
   title: "Cum se rezolvă o problemă, pas cu pas.",
-  intro: "Pornim de la firma dumneavoastră, nu de la o propunere. Ne uităm cum se desfășoară munca în realitate și cât vă costă ce nu merge, apoi stabilim împreună ce merită rezolvat întâi — și abia apoi, dacă e nevoie să se construiască ceva, îl construim noi și rămânem până când e folosit.",
+  intro:
+    "Pornim de la firma dumneavoastră, nu de la o propunere. Ne uităm cum se desfășoară munca în realitate și cât vă costă ce nu merge, apoi stabilim împreună ce merită rezolvat întâi — și abia apoi, dacă e nevoie să se construiască ceva, îl construim noi și rămânem până când e folosit.",
   steps: [
     {
       n: "01",
       title: "Diagnostic",
       body: "Ascultăm — pe dumneavoastră și pe oamenii care fac treaba — și ne uităm la cifrele firmei; apoi urmărim câteva procese reale de la un capăt la altul, ca să vedem unde se duc timpul și marja.",
-      output: "O imagine scrisă a problemelor reale, pe înțelesul oricui, ordonate după cât vă costă.",
+      output:
+        "O imagine scrisă a problemelor reale, pe înțelesul oricui, ordonate după cât vă costă.",
     },
     {
       n: "02",
       title: "Prioritizare",
       body: "Apoi separăm, împreună cu dumneavoastră, problemele care merită rezolvate de cele cu care puteți trăi și punem o cifră pe fiecare. Unele nu cer software; ce se construiește trece prin Gate Zero.",
-      output: "O listă scurtă, în ordine, cu criteriile de succes stabilite de la început — și ce vă recomandăm să nu construiți.",
+      output:
+        "O listă scurtă, în ordine, cu criteriile de succes stabilite de la început — și ce vă recomandăm să nu construiți.",
     },
     {
       n: "03",
       title: "Implementare",
       body: "Nu vă lăsăm doar o recomandare și plecăm: proiectăm, scriem codul, integrăm cu sistemele pe care le folosiți deja și lucrăm alături de oamenii dumneavoastră.",
-      output: "Un sistem care rulează în producție și e folosit de oamenii pentru care a fost făcut.",
+      output:
+        "Un sistem care rulează în producție și e folosit de oamenii pentru care a fost făcut.",
     },
     {
       n: "04",
       title: "Dovadă și scalare",
       body: "Apoi verificăm dacă s-au schimbat cifrele față de ce am convenit împreună la început și vă spunem deschis ce a funcționat și ce nu.",
-      output: "Rezultate dovedite pe KPI-urile dumneavoastră și un plan pentru a extinde ce a funcționat.",
+      output:
+        "Rezultate dovedite pe KPI-urile dumneavoastră și un plan pentru a extinde ce a funcționat.",
     },
   ] as Step[],
 } as const;
@@ -437,15 +498,18 @@ export const clients = {
   levels: [
     {
       role: "Antreprenori și conducerea firmei",
-      detail: "Cei care dau direcția și aprobă banii — cei care simt problema ca pe o cifră.",
+      detail:
+        "Cei care dau direcția și aprobă banii — cei care simt problema ca pe o cifră.",
     },
     {
       role: "Șefii de departamente",
-      detail: "Operațiuni, financiar, producție, vânzări și IT — cei care răspund de rezultat și știu unde se pierd banii.",
+      detail:
+        "Operațiuni, financiar, producție, vânzări și IT — cei care răspund de rezultat și știu unde se pierd banii.",
     },
     {
       role: "Echipele care fac treaba",
-      detail: "Managerii, analiștii și inginerii — cei care știu la ce pas se rupe cu adevărat și cei care vor folosi ce se construiește.",
+      detail:
+        "Managerii, analiștii și inginerii — cei care știu la ce pas se rupe cu adevărat și cei care vor folosi ce se construiește.",
     },
   ],
 } as const;
@@ -544,11 +608,40 @@ export const contact = {
   phoneDisplay: site.phoneDisplay,
   location: site.location,
   fields: [
-    { name: "name", label: "Nume", type: "text", required: true, autocomplete: "name" },
-    { name: "company", label: "Firmă", type: "text", required: true, autocomplete: "organization" },
-    { name: "role", label: "Funcție", type: "text", required: false, autocomplete: "organization-title" },
-    { name: "email", label: "Email", type: "email", required: true, autocomplete: "email" },
-    { name: "message", label: "Care este problema pe care vreți să o rezolvați?", type: "textarea", required: true },
+    {
+      name: "name",
+      label: "Nume",
+      type: "text",
+      required: true,
+      autocomplete: "name",
+    },
+    {
+      name: "company",
+      label: "Firmă",
+      type: "text",
+      required: true,
+      autocomplete: "organization",
+    },
+    {
+      name: "role",
+      label: "Funcție",
+      type: "text",
+      required: false,
+      autocomplete: "organization-title",
+    },
+    {
+      name: "email",
+      label: "Email",
+      type: "email",
+      required: true,
+      autocomplete: "email",
+    },
+    {
+      name: "message",
+      label: "Care este problema pe care vreți să o rezolvați?",
+      type: "textarea",
+      required: true,
+    },
   ] as FormField[],
   prefills: {
     assessment: "Aș dori Diagnosticul firmei.",
@@ -868,7 +961,11 @@ export const work = {
         "Analiza flotelor și a mobilității",
         "De la date la decizii",
       ],
-      stack: ["Metabase (dashboard / BI)", "SQL", "Flux de date GPS / telemetrie"],
+      stack: [
+        "Metabase (dashboard / BI)",
+        "SQL",
+        "Flux de date GPS / telemetrie",
+      ],
       takeaway:
         "Arată că putem lua date brute de senzori și telemetrie și le putem transforma în tablouri de bord pe baza cărora se iau decizii reale — util oricărui client care are o flotă, o rețea sau un flux constant de date operaționale.",
       image: "transit-map",
@@ -896,9 +993,11 @@ export const pageIntros = {
 
 export const scorecardPage = {
   eyebrow: "Verificare gratuită · circa 3 minute",
-  heading: "Unde pierde firma dumneavoastră timp și bani — și merită construit ceva?",
+  heading:
+    "Unde pierde firma dumneavoastră timp și bani — și merită construit ceva?",
   lead: "Zece întrebări simple despre felul în care merge de fapt firma dumneavoastră, fără jargon și fără să vă faceți cont. Primiți un răspuns onest despre unde se duc timpul și banii și dacă o investiție în tehnologie s-ar amortiza chiar acum într-o firmă ca a dumneavoastră — și, la fel de des, unde ar fi mai înțelept să rezolvați întâi altceva. Nu e un scor de maturitate care să vă facă să vă simțiți în urmă. E un răspuns direct despre unde ar lucra de fapt banii dumneavoastră.",
-  microcopy: "Nu e nevoie de cont ca să răspundeți. Vă cerem adresa de e-mail doar dacă doriți varianta scrisă, mai amplă.",
+  microcopy:
+    "Nu e nevoie de cont ca să răspundeți. Vă cerem adresa de e-mail doar dacă doriți varianta scrisă, mai amplă.",
   dataGateQuestionIndex: 2,
   dataGateNote:
     "Un lucru, înainte de toate: chiar acum, informația de care ați avea nevoie stă mai ales în capul oamenilor și în e-mailuri. Până nu ajunge într-un loc de unde un sistem o poate citi, nimic din ce cumpărați sau construiți peste ea nu se poate amortiza — asta e singurul lucru care merită rezolvat înainte să cheltuiți pe oricare dintre lucrurile de mai jos.",
@@ -910,17 +1009,31 @@ export const scorecardPage = {
       options: [
         { label: "Aproape nimic concret", points: 0 },
         { label: "Ceva, dar împrăștiat între mai mulți oameni", points: 4 },
-        { label: "O parte clară — câteva ore de persoană, în fiecare săptămână", points: 7 },
-        { label: "Mult — e un cost real, iar unii oameni sunt angajați în bună parte ca să o facă", points: 10 },
+        {
+          label: "O parte clară — câteva ore de persoană, în fiecare săptămână",
+          points: 7,
+        },
+        {
+          label:
+            "Mult — e un cost real, iar unii oameni sunt angajați în bună parte ca să o facă",
+          points: 10,
+        },
       ],
     },
     {
       q: "Există o problemă anume, pe care o puteți numi și pe care sperați să o rezolvați?",
       options: [
-        { label: "Nu chiar — ne uităm pentru că simțim că ar trebui să facem ceva", points: 0 },
+        {
+          label:
+            "Nu chiar — ne uităm pentru că simțim că ar trebui să facem ceva",
+          points: 0,
+        },
         { label: "O senzație vagă că ceva ar putea merge mai bine", points: 3 },
         { label: "Da — putem numi blocajul, dar nu și soluția", points: 7 },
-        { label: "Da — o putem numi și știm aproximativ cât ne costă", points: 10 },
+        {
+          label: "Da — o putem numi și știm aproximativ cât ne costă",
+          points: 10,
+        },
       ],
     },
     {
@@ -928,8 +1041,15 @@ export const scorecardPage = {
       options: [
         { label: "Mai ales în capul oamenilor și în e-mailuri", points: 0 },
         { label: "În documente și fișiere Excel, împrăștiate", points: 4 },
-        { label: "În sisteme adevărate, dar dezordonată sau răspândită în prea multe programe", points: 7 },
-        { label: "În sisteme, rezonabil de curată și ușor de accesat", points: 10 },
+        {
+          label:
+            "În sisteme adevărate, dar dezordonată sau răspândită în prea multe programe",
+          points: 7,
+        },
+        {
+          label: "În sisteme, rezonabil de curată și ușor de accesat",
+          points: 10,
+        },
       ],
     },
     {
@@ -937,8 +1057,15 @@ export const scorecardPage = {
       options: [
         { label: "L-am cumpărat și aproape nimeni nu-l folosește", points: 0 },
         { label: "N-am făcut niciodată o implementare ca lumea", points: 2 },
-        { label: "Parțial — l-au folosit unii, cu multă rezistență", points: 4 },
-        { label: "Bine — oamenii chiar l-au adoptat și face parte din felul în care lucrăm acum", points: 10 },
+        {
+          label: "Parțial — l-au folosit unii, cu multă rezistență",
+          points: 4,
+        },
+        {
+          label:
+            "Bine — oamenii chiar l-au adoptat și face parte din felul în care lucrăm acum",
+          points: 10,
+        },
       ],
     },
     {
@@ -947,33 +1074,67 @@ export const scorecardPage = {
         { label: "Nimic concret — e doar curiozitate internă", points: 0 },
         { label: "Simțim că încep să se miște concurenții", points: 5 },
         { label: "Clienții sau partenerii ne cer asta", points: 8 },
-        { label: "Un contract, o vânzare sau o cerință anume depinde de asta", points: 10 },
+        {
+          label: "Un contract, o vânzare sau o cerință anume depinde de asta",
+          points: 10,
+        },
       ],
     },
     {
       q: "Dacă oportunitatea potrivită ar fi clară, ce ați putea aloca realist pentru ea în următoarele 6–12 luni?",
       options: [
-        { label: "Nimic pus deoparte — ar trebui să găsim resursele", points: 0 },
+        {
+          label: "Nimic pus deoparte — ar trebui să găsim resursele",
+          points: 0,
+        },
         { label: "Un buget mic, doar pentru un experiment", points: 4 },
-        { label: "Un buget real, dar modest, pentru un singur proiect, bine delimitat", points: 7 },
-        { label: "Buget aprobat, gata să pornim pe direcția potrivită", points: 10 },
+        {
+          label:
+            "Un buget real, dar modest, pentru un singur proiect, bine delimitat",
+          points: 7,
+        },
+        {
+          label: "Buget aprobat, gata să pornim pe direcția potrivită",
+          points: 10,
+        },
       ],
     },
     {
       q: "Dacă ați porni ceva, cine ar fi responsabil de el în companie?",
       options: [
-        { label: "Nimeni anume — ne-am ocupa toți pe lângă sarcinile zilnice", points: 0 },
+        {
+          label: "Nimeni anume — ne-am ocupa toți pe lângă sarcinile zilnice",
+          points: 0,
+        },
         { label: "Cineva ar putea, pe lângă sarcinile lui zilnice", points: 4 },
-        { label: "Avem pe cineva care s-ar putea ocupa, cu puțin sprijin", points: 7 },
-        { label: "Un responsabil clar, cu timpul și autoritatea de a-l duce la capăt", points: 10 },
+        {
+          label: "Avem pe cineva care s-ar putea ocupa, cu puțin sprijin",
+          points: 7,
+        },
+        {
+          label:
+            "Un responsabil clar, cu timpul și autoritatea de a-l duce la capăt",
+          points: 10,
+        },
       ],
     },
     {
       q: "Cum se iau de obicei deciziile de acest fel la dumneavoastră?",
       options: [
-        { label: "Greu — prea mulți oameni care trebuie să aprobe și un „da” care nu vine ușor", points: 2 },
-        { label: "Depinde — unele lucruri se mișcă, altele se împotmolesc", points: 5 },
-        { label: "Conducerea poate decide și poate merge înainte destul de repede", points: 10 },
+        {
+          label:
+            "Greu — prea mulți oameni care trebuie să aprobe și un „da” care nu vine ușor",
+          points: 2,
+        },
+        {
+          label: "Depinde — unele lucruri se mișcă, altele se împotmolesc",
+          points: 5,
+        },
+        {
+          label:
+            "Conducerea poate decide și poate merge înainte destul de repede",
+          points: 10,
+        },
       ],
     },
     {
@@ -988,9 +1149,16 @@ export const scorecardPage = {
     {
       q: "Dacă un instrument ar greși din când în când, ce s-ar întâmpla?",
       options: [
-        { label: "Ar putea fi periculos ori grav din punct de vedere legal sau financiar — nu e loc de greșeală", points: 2 },
+        {
+          label:
+            "Ar putea fi periculos ori grav din punct de vedere legal sau financiar — nu e loc de greșeală",
+          points: 2,
+        },
         { label: "Ar conta — cineva ar trebui să prindă greșeala", points: 6 },
-        { label: "Oricum un om verifică rezultatul înainte să fie folosit", points: 9 },
+        {
+          label: "Oricum un om verifică rezultatul înainte să fie folosit",
+          points: 9,
+        },
         { label: "Greșelile mici se observă ușor și au miză mică", points: 10 },
       ],
     },
@@ -1031,7 +1199,8 @@ export const scorecardPage = {
   ] as ScorecardTier[],
   ui: {
     seeResult: "Vedeți rezultatul",
-    incomplete: "Răspundeți la toate cele zece întrebări ca să vedeți rezultatul.",
+    incomplete:
+      "Răspundeți la toate cele zece întrebări ca să vedeți rezultatul.",
     retake: "Reluați testul",
     scoreLabel: "Scorul dumneavoastră",
     outOf: "/ 100",
@@ -1042,14 +1211,16 @@ export const scorecardPage = {
     body: "Lăsați-ne adresa de e-mail și vă trimitem o versiune mai amplă a rezultatului: ce spun răspunsurile dumneavoastră, cele două-trei lucruri la care ne-am uita întâi într-o firmă în situația dumneavoastră și — dacă se potrivește — singura întrebare la care am vrea un răspuns înainte să cheltuiți ceva. Fără newsletter, fără serii de e-mailuri, fără apeluri de vânzare pe care nu le-ați cerut. Un singur email util.",
     emailLabel: "E-mail de serviciu",
     button: "Trimiteți-mi rezultatul",
-    privacy: "Folosim adresa dumneavoastră doar ca să vă trimitem acest rezultat. Nu o dăm mai departe și nu vă adăugăm pe nicio listă.",
+    privacy:
+      "Folosim adresa dumneavoastră doar ca să vă trimitem acest rezultat. Nu o dăm mai departe și nu vă adăugăm pe nicio listă.",
     privacyLinkLabel: "Vedeți politica de confidențialitate.",
     privacyHref: "/privacy",
   },
   ctaPrimary: {
     label: "Cereți Diagnosticul firmei — e gratuit",
     href: "/assessment",
-    microcopy: "Gratuit · unul per companie · îl facem noi · un verdict scris, inclusiv când nu e nimic de construit.",
+    microcopy:
+      "Gratuit · unul per companie · îl facem noi · un verdict scris, inclusiv când nu e nimic de construit.",
   },
   ctaSecondary: {
     label: "Sau pur și simplu discutați cu noi",
@@ -1061,7 +1232,8 @@ export const scorecardPage = {
 
 export const pageMeta = {
   home: {
-    title: "LT Strategy Partners — Consultanță independentă: întâi problema, apoi soluția",
+    title:
+      "LT Strategy Partners — Consultanță independentă: întâi problema, apoi soluția",
     description: site.description,
     path: "/",
   },
@@ -1109,12 +1281,14 @@ export const pageMeta = {
   },
   privacy: {
     title: "Confidențialitate — LT Strategy Partners",
-    description: "Cum colectăm și cum folosim informațiile pe care ni le trimiteți.",
+    description:
+      "Cum colectăm și cum folosim informațiile pe care ni le trimiteți.",
     path: "/privacy",
   },
   terms: {
     title: "Termeni — LT Strategy Partners",
-    description: "Condițiile în care este pus la dispoziție site-ul LT Strategy Partners.",
+    description:
+      "Condițiile în care este pus la dispoziție site-ul LT Strategy Partners.",
     path: "/terms",
   },
 } as const;
@@ -1129,7 +1303,8 @@ export const ui = {
   navPrimaryAria: "Navigare principală",
   heroProofAria: "Ce ne diferențiază",
   ragDiagram: {
-    boundary: "Rulează în rețeaua proprie a restaurantului — fără cloud, fără cost la fiecare întrebare",
+    boundary:
+      "Rulează în rețeaua proprie a restaurantului — fără cloud, fără cost la fiecare întrebare",
     customerChat: "Chat pentru clienți",
     customerChatSub: "chioșc / tabletă",
     adminPanel: "Panou de administrare",
@@ -1164,7 +1339,8 @@ export const ui = {
     "transit-map": "Harta în timp real a vehiculelor din flota orașului",
     "transit-charts":
       "Compoziția flotei, viteza medie pe categorii și indicii de accesibilitate",
-    "transit-speeding": "Posibile puncte de congestie și depășiri de viteză înregistrate",
+    "transit-speeding":
+      "Posibile puncte de congestie și depășiri de viteză înregistrate",
     // Fragmente din raport, cu identitatea redactată: cifrele sunt ale unei firme
     // reale, denumirea și înmatricularea nu se afișează. Nu publicăm nicio firmă
     // cu numele ei, pentru că raportul conține evaluări de risc.
@@ -1230,8 +1406,20 @@ import type { AssessmentField } from "./site";
 
 export const assessmentForm = {
   fields: [
-    { name: "name", label: "Numele dumneavoastră", type: "text", required: true, autocomplete: "name" },
-    { name: "email", label: "E-mail de serviciu", type: "email", required: true, autocomplete: "email" },
+    {
+      name: "name",
+      label: "Numele dumneavoastră",
+      type: "text",
+      required: true,
+      autocomplete: "name",
+    },
+    {
+      name: "email",
+      label: "E-mail de serviciu",
+      type: "email",
+      required: true,
+      autocomplete: "email",
+    },
     {
       name: "company",
       label: "Firma și câți angajați aveți, aproximativ",
@@ -1242,7 +1430,8 @@ export const assessmentForm = {
     },
     {
       name: "role",
-      label: "Rolul dumneavoastră — și va participa un sponsor executiv la ședință?",
+      label:
+        "Rolul dumneavoastră — și va participa un sponsor executiv la ședință?",
       hint: "Verdictul e o decizie de conducere, așa că prezența unui sponsor la discuție e o condiție, nu o preferință.",
       type: "text",
       required: true,
@@ -1278,7 +1467,8 @@ export const assessmentForm = {
     },
     {
       name: "sensitive",
-      label: "Ar implica date personale, date ale clienților sau ceva ce ați ezita să trimiteți către un furnizor de cloud din SUA?",
+      label:
+        "Ar implica date personale, date ale clienților sau ceva ce ați ezita să trimiteți către un furnizor de cloud din SUA?",
       type: "text",
       required: false,
     },
@@ -1287,7 +1477,11 @@ export const assessmentForm = {
       label: "Când ați vrea, realist, să fie rezolvată problema?",
       type: "select",
       required: false,
-      options: ["În acest trimestru", "În acest an", "Cândva — deocamdată doar ne uităm"],
+      options: [
+        "În acest trimestru",
+        "În acest an",
+        "Cândva — deocamdată doar ne uităm",
+      ],
     },
   ] as AssessmentField[],
   selectPlaceholder: "Alegeți o variantă (opțional)",

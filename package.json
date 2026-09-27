@@ -16,8 +16,8 @@
     "sync:fonts": "node scripts/sync-fonts.mjs"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.2.1",
-    "astro": "^5.1.1"
+    "@astrojs/sitemap": "^3.7.4",
+    "astro": "^7.3.5"
   },
   "devDependencies": {
     "@fontsource-variable/archivo": "^5.1.0",
