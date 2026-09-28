@@ -188,7 +188,7 @@ export const hero = {
   primaryCta: site.primaryCta,
   // Low-commitment path alongside the direct one (Task 5).
   secondaryCta: site.assessmentCta,
-  trustLine: "Independent · Senior-led · We build what we recommend",
+  trustLine: "Independent · Independent · We build what we recommend",
 } as const;
 
 /* -------------------------------------------------- The problem we solve */
@@ -229,11 +229,11 @@ export const services = {
   items: [
     {
       title: "Technology Advisory & Oversight",
-      body: "You have to sign off on systems, spend and vendors you have no way to verify, and nearly everyone advising you is also selling something. We're the senior, independent voice you keep close for exactly those calls — where to invest, what to say no to, how to spend well, and where the real risk sits. No product, no license, no vendor commission: no agenda but yours.",
+      body: "You have to sign off on systems, spend and vendors you have no way to verify, and nearly everyone advising you is also selling something. We're the independent voice you keep close for exactly those calls — where to invest, what to say no to, how to spend well, and where the real risk sits. No product, no license, no vendor commission: no agenda but yours.",
       deliverables: [
         "An ongoing advisor for the decisions that matter, between and beyond projects",
         "Independent review of direction, spend, roadmaps, vendors, and risk",
-        "Direct access to a senior technologist for the architecture, build-vs-buy, and AI calls",
+        "Direct access to a Technologist for the architecture, build-vs-buy, and AI calls",
       ],
     },
     {
@@ -341,7 +341,7 @@ export const assessmentPage = {
   deliverable: {
     eyebrow: "What you get",
     heading: "The written diagnosis.",
-    intro: "Three to five pages, written by us personally — no juniors, no template engine. Built so page one can be forwarded to your board on its own.",
+    intro: "three to five pages, written by our team — no hand-offs between teams, no template engine. Built so page one can be forwarded to your board on its own.",
     items: [
       "A one-page decision memo with the verdict in the title — not buried on page four",
       "Every problem we find, plotted on one map: what it costs you × how hard it is to fix, each with what you risk by leaving it alone",
@@ -558,7 +558,7 @@ export const clients = {
 
 export const aboutTeaser = {
   eyebrow: "Who's behind it",
-  heading: "Senior, and directly involved.",
+  heading: "Directly involved.",
   body: "LT Strategy Partners is the practice of Luca-Ștefan Tamaș, a systems engineer who builds production systems in a demanding, security-critical environment. He was lead architect on a multi-tenant enterprise platform (BI, ERP, document management, process automation), has founded two SaaS products of his own, and builds self-hosted AI where it earns its place. He has no product, no license and no vendor commission to sell — so he can afford to tell you a problem isn't worth solving, and to build the answer himself when it is. You work with him directly: the person who advises you is the person who does the work.",
   link: { label: "More about Luca", href: "/en/about" } as CTA,
   photoCaption: `${"Luca-Ștefan Tamaș"} · Founder`,
@@ -570,7 +570,7 @@ export const aboutPage = {
   eyebrow: "About",
   heading: "A hands-on partner, start to finish.",
   paragraphs: [
-    "LT Strategy Partners is the practice of Luca-Ștefan Tamaș. It is small and senior on purpose: not an agency, no hand-offs between teams and no juniors — when you work with LT Strategy Partners, you work with the person who does the work. We come in to understand how your business actually runs before we have any view on what should be built — and the person who gives the advice is the person who then does the work and stays accountable for how it turns out.",
+    "LT Strategy Partners is the practice of Luca-Ștefan Tamaș. It is small and focused: not an agency, with direct access to the person who does the work — when you work with LT Strategy Partners, you work with the person who does the work. We understand how your business actually runs before offering recommendations — and the person who gives the advice is the person who then does the work and stays accountable for how it turns out.",
     "By background I'm a systems engineer. What I know deepest — my specialism, though not the thing every engagement has to be about — is AI that has to hold up in production, not just in a demo: strong retrieval and clean data, model outputs kept behind validation, sane latency and cost, and the monitoring and fallbacks that keep a system dependable once real people rely on it.",
     "Day to day I build production systems inside a demanding, security-critical engineering environment, and before that I was lead architect on a multi-tenant enterprise platform spanning business intelligence, ERP, document management, and process automation. I've founded and shipped two SaaS products of my own — Mazely and Processly — and built a self-hosted, retrieval-augmented AI assistant that runs entirely offline on hardware a venue already owns. Since 2020 I've delivered client work end to end across web, mobile, data, and AI, including apps on the App Store and Google Play. That security and platform grounding is why the AI I build stays private and dependable by default.",
   ],
@@ -1221,7 +1221,7 @@ export const pageMeta = {
   services: {
     title: "Services — LT Strategy Partners",
     description:
-      "Independent technology advisory and oversight, strategy, delivery, and operational performance — with deep specialization in AI. Senior involvement across the full journey.",
+      "Independent technology advisory and oversight, strategy, delivery, and operational performance — with deep specialization in AI. Involvement across the full journey.",
     path: "/en/services",
   },
   assessment: {
@@ -1534,3 +1534,6 @@ export const legalPages = {
     ] as LegalSection[],
   },
 } as const;
+
+
+
