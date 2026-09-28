@@ -148,7 +148,7 @@ export const site = {
 
 /* ---------------------------------------------------------------- Navigation */
 /* Canonical Services target is the /services page (Task 11) — used in header
-   AND footer. About / Work / Insights / Services / Contact appear in both. */
+   AND footer. About / Work / Services / Contact appear in both. */
 
 export const nav: NavItem[] = [
   // The free diagnostic leads: it is the on-ramp, and the site argues
@@ -557,7 +557,7 @@ export const clients = {
 export const aboutTeaser = {
   eyebrow: "Who's behind it",
   heading: "Directly involved.",
-  body: "LT Strategy Partners is the practice of Luca-Ștefan Tamaș, a systems engineer who builds production systems in a demanding, security-critical environment. He was lead architect on a multi-tenant enterprise platform (BI, ERP, document management, process automation), has founded two SaaS products of his own, and builds self-hosted AI where it earns its place. He has no product, no license and no vendor commission to sell — so he can afford to tell you a problem isn't worth solving, and to build the answer himself when it is. You work with him directly: the person who advises you is the person who does the work.",
+  body: "LT Strategy Partners is a specialized consulting practice focused on technology solutions for business challenges. We work directly with clients to understand their operational needs, then design and implement tailored solutions that drive measurable business outcomes. Our approach combines deep technical expertise with strategic thinking to deliver systems that work reliably in real-world environments.",
   link: { label: "More about Luca", href: "/en/about" } as CTA,
   photoCaption: `${"Luca-Ștefan Tamaș"} · Founder`,
 } as const;
@@ -568,9 +568,9 @@ export const aboutPage = {
   eyebrow: "About",
   heading: "A hands-on partner, start to finish.",
   paragraphs: [
-    "LT Strategy Partners is the practice of Luca-Ștefan Tamaș. It is small and focused: not an agency, with direct access to the person who does the work — when you work with LT Strategy Partners, you work with the person who does the work. We understand how your business actually runs before offering recommendations — and the person who gives the advice is the person who then does the work and stays accountable for how it turns out.",
-    "By background I'm a systems engineer. What I know deepest — my specialism, though not the thing every engagement has to be about — is AI that has to hold up in production, not just in a demo: strong retrieval and clean data, model outputs kept behind validation, sane latency and cost, and the monitoring and fallbacks that keep a system dependable once real people rely on it.",
-    "Day to day I build production systems inside a demanding, security-critical engineering environment, and before that I was lead architect on a multi-tenant enterprise platform spanning business intelligence, ERP, document management, and process automation. I've founded and shipped two SaaS products of my own — Mazely and Processly — and built a self-hosted, retrieval-augmented AI assistant that runs entirely offline on hardware a venue already owns. Since 2020 I've delivered client work end to end across web, mobile, data, and AI, including apps on the App Store and Google Play. That security and platform grounding is why the AI I build stays private and dependable by default.",
+    "LT Strategy Partners is a specialized consulting practice focused on technology solutions for business challenges. We work directly with clients to understand their operational needs, then design and implement tailored solutions that drive measurable business outcomes. Our approach combines deep technical expertise with strategic thinking to deliver systems that work reliably in real-world environments.",
+    "Our founder brings extensive experience in building scalable, secure systems in demanding production environments. His technical background includes leading architecture of enterprise platforms spanning business intelligence, ERP, document management, and process automation. He has successfully launched two production SaaS products (Mazely and Processly) and has built self-hosted AI solutions that run entirely offline on existing hardware infrastructure.",
+    "We help businesses navigate complex technology decisions by providing clear, actionable advice based on real-world implementation experience. Our work spans web, mobile, data, and AI solutions, with a strong focus on security, reliability, and business impact. Since 2020, we've delivered end-to-end solutions across the EU and US markets, including apps on the App Store and Google Play.",
   ],
   beliefsHeading: "What we believe about this work",
   beliefs: [
@@ -691,15 +691,6 @@ export const footer = {
   linkedin: site.links.companyLinkedin,
   blurb:
     "Independent and senior by design: we start with the problem in your business, then design and build the answer ourselves — or tell you plainly that nothing needs building.",
-} as const;
-
-/* --------------------------------------------------------- Insights (Task 8) */
-
-export const insights = {
-  eyebrow: "Insights",
-  heading: "Plain thinking for owners and managers.",
-  intro:
-    "Short, practical pieces for leaders — not engineers — on getting real value from AI and technology.",
 } as const;
 
 /* ------------------------------------------------- Selected work / portfolio */
@@ -1246,12 +1237,6 @@ export const pageMeta = {
       "Have a direct, no-pressure conversation about the problem you'd most like solved — before anyone talks about a solution.",
     path: "/en/contact",
   },
-  insights: {
-    title: "Insights — LT Strategy Partners",
-    description:
-      "Short, practical pieces for leaders on getting real value from AI and technology.",
-    path: "/en/insights",
-  },
   privacy: {
     title: "Privacy — LT Strategy Partners",
     description: "How LT Strategy Partners collects and handles your information.",
@@ -1269,7 +1254,6 @@ export const pageMeta = {
 export const ui = {
   footerExplore: "Explore",
   stepPrefix: "Step",
-  allInsights: "All insights",
   viewProject: "View project",
   navPrimaryAria: "Primary",
   heroProofAria: "What sets the practice apart",
@@ -1293,9 +1277,7 @@ export const ui = {
   readMore: "Read more",
   readAria: "Read:",
   comingSoon: "Coming soon",
-  backToInsights: "Insights",
   backToWork: "Selected work",
-  insightsDateLocale: "en-US",
   workContext: "The context",
   workDelivered: "What we delivered",
   workStrategic: "Why it matters",

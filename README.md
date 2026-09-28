@@ -124,12 +124,7 @@ These live in `config` at the top of [`src/content/site.ts`](src/content/site.ts
 | **Booking link** | None — the primary CTA reads **"Start a conversation"** → `/contact` | Set `config.bookingUrl` to a Cal.com/Calendly URL to switch it to "Book a conversation" → your link |
 | **Assessment fee** | Free — the initial assessment is offered at no fee | To charge later, edit `assessment.body` / `assessment.priceNote` in `site.ts` |
 | **Testimonials** | None — the "What clients say" section does not render | Add real, permissioned quotes to the `testimonials` array in `site.ts` |
-| **Case-study metrics** | None — the qualitative framing stands | Add real figures to a project's optional `impact: [...]` in `work.projects` (never invent numbers) |
-
-## Adding an Insights article
-
-Add a Markdown file under [`src/content/insights/`](src/content/insights/) with frontmatter `title`, `description`, `date`, and optional `draft: true`. Published pieces get a page at `/insights/<filename>` and appear in the homepage teaser; `draft: true` pieces show as a title with a "Coming soon" tag but never generate a page (so nothing unfinished is published).
-
+| **Case-study metrics** | None — the qualitative framing stands | Add real figures to a project's optional `impact: [...]` in `work.projects` (never invent numbers) 
 ## Deploying
 
 ### GitHub Pages (configured)

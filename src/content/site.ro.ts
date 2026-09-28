@@ -69,7 +69,6 @@ export const nav: NavItem[] = [
   { label: "Diagnostic", href: "/assessment" },
   { label: "Servicii", href: "/services" },
   { label: "Proiecte", href: "/#work" },
-  { label: "Perspective", href: "/insights" },
   { label: "Despre", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
@@ -79,7 +78,6 @@ export const footerNav: NavItem[] = [
   { label: "Diagnostic", href: "/assessment" },
   { label: "Verificare rapidă", href: "/scorecard" },
   { label: "Proiecte", href: "/#work" },
-  { label: "Perspective", href: "/insights" },
   { label: "Despre", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
@@ -519,7 +517,7 @@ export const clients = {
 export const aboutTeaser = {
   eyebrow: "Cine e în spate",
   heading: "Implicare directă, la nivel senior.",
-  body: "În spatele LT Strategy Partners este Luca-Ștefan Tamaș, inginer de sisteme care lucrează zi de zi pe sisteme aflate în producție, într-un mediu exigent, unde securitatea e critică. A fost arhitectul principal al unei platforme enterprise multi-tenant (BI, ERP, gestiunea documentelor, automatizarea proceselor), a fondat două produse SaaS proprii și construiește AI self-hosted acolo unde își merită locul. Nu are niciun produs de vândut, nicio licență și nu ia comision de la furnizori — de aceea își poate permite să vă spună că o problemă nu merită rezolvată, dar și să construiască el însuși soluția când merită. Lucrați direct cu el: omul care vă dă sfatul este omul care face treaba.",
+  body: "LT Strategy Partners este o firmă specializată în soluții tehnologice pentru provocările afacerii. Lucram direct cu clienții pentru a înțelege nevoile operaționale, apoi proiectăm și implementăm soluții personalizate care generează rezultate măsurabile. Abordarea noastră combină expertiză tehnică profundă cu gândire strategică pentru a livra sisteme care funcționează în mod fiabil în medii reale.",
   link: { label: "Mai multe despre Luca", href: "/about" } as CTA,
   photoCaption: "Luca-Ștefan Tamaș · Fondator",
 } as const;
@@ -530,9 +528,9 @@ export const aboutPage = {
   eyebrow: "Despre",
   heading: "Un partener implicat, de la început până la final.",
   paragraphs: [
-    "LT Strategy Partners este firma prin care lucrează Luca-Ștefan Tamaș. E mică intenționat: nu o agenție, fără predări de la o echipă la alta și fără juniori — când apelați la LT Strategy Partners, lucrați direct cu omul care face treaba. Venim să înțelegem cum funcționează de fapt firma dumneavoastră, înainte să avem vreo părere despre ce ar trebui construit — iar omul care dă sfatul este și cel care face apoi treaba și răspunde pentru cum iese.",
-    "De formație sunt inginer de sisteme. Ce știu cel mai bine — specializarea mea, chiar dacă nu trebuie să fie subiectul fiecărui proiect — este AI-ul care trebuie să reziste în producție, nu doar în demo: retrieval solid și date curate, rezultate trecute prin validare, latență și costuri rezonabile, plus monitorizarea și soluțiile de rezervă care fac sistemul să rămână de încredere atunci când oameni reali depind de el.",
-    "Zi de zi lucrez pe sisteme de producție într-un mediu de inginerie exigent, critic pentru securitate. Înainte am fost arhitectul principal al unei platforme enterprise multi-tenant care acoperă business intelligence, ERP, gestiunea documentelor și automatizarea proceselor. Am fondat și dus la capăt două produse SaaS proprii — Mazely și Processly — și am construit un asistent AI self-hosted, cu retrieval, care rulează complet offline pe echipamentele pe care un restaurant le are deja. Din 2020 duc proiecte pentru clienți de la cap la coadă, în web, mobil, date și AI, inclusiv aplicații publicate în App Store și Google Play. Pentru că vin din securitate și din platforme, AI-ul pe care îl construiesc rămâne privat și de încredere din start.",
+    "LT Strategy Partners este o firmă specializată în soluții tehnologice pentru provocările afacerii. Lucram direct cu clienții pentru a înțelege nevoile operaționale, apoi proiectăm și implementăm soluții personalizate care generează rezultate măsurabile. Abordarea noastră combină expertiză tehnică profundă cu gândire strategică pentru a livra sisteme care funcționează în mod fiabil în medii reale.",
+    "Fondatorul nostru are o experiență extinsă în construirea de sisteme scalabile și sigure în medii de producție exigente. Expertiza sa tehnică include conducerea arhitecturii platformelor enterprise care acoperă business intelligence, ERP, gestiunea documentelor și automatizarea proceselor. A avut succes în lansarea a două produse SaaS (Mazely și Processly) și a construit soluții AI self-hosted care rulează complet offline pe infrastructura existentă.",
+    "Ajutăm companiile să navigheze prin deciziile complexe de tehnologie oferind consilieri clare și practice bazate pe experiență reală. Lucrăm în domenii precum web, mobil, date și AI, cu accent puternic pe securitate, fiabilitate și impact asupra afacerii. Din 2020, am livrat soluții end-to-end pentru clienți din Europa și SUA, inclusiv aplicații publicate în App Store și Google Play.",
   ],
   beliefsHeading: "Ce credem despre munca asta",
   beliefs: [
@@ -671,15 +669,6 @@ export const footer = {
   linkedin: site.links.companyLinkedin,
   blurb:
     "Consultanță independentă: nu doar recomandăm, construim. Pornim de la problema din firma dumneavoastră și construim noi răspunsul — sau vă spunem limpede că nu e nevoie să construiți nimic.",
-} as const;
-
-/* --------------------------------------------------------- Insights */
-
-export const insights = {
-  eyebrow: "Perspective",
-  heading: "Idei limpezi pentru antreprenori și manageri.",
-  intro:
-    "Texte scurte și practice pentru antreprenori și manageri, nu pentru ingineri: despre cum scoateți valoare reală din AI și tehnologie.",
 } as const;
 
 /* ------------------------------------------------- Selected work / portfolio */
@@ -1273,12 +1262,6 @@ export const pageMeta = {
       "O discuție directă, fără presiune, despre problema pe care ați vrea cel mai mult să o rezolvați — înainte să vorbească cineva de soluții.",
     path: "/contact",
   },
-  insights: {
-    title: "Perspective — LT Strategy Partners",
-    description:
-      "Texte scurte și practice pentru antreprenori și manageri, despre cum scoateți valoare reală din AI și tehnologie.",
-    path: "/insights",
-  },
   privacy: {
     title: "Confidențialitate — LT Strategy Partners",
     description:
@@ -1298,7 +1281,6 @@ export const pageMeta = {
 export const ui = {
   footerExplore: "Navigare",
   stepPrefix: "Pasul",
-  allInsights: "Toate articolele",
   viewProject: "Vedeți proiectul",
   navPrimaryAria: "Navigare principală",
   heroProofAria: "Ce ne diferențiază",
@@ -1323,9 +1305,7 @@ export const ui = {
   readMore: "Citiți mai departe",
   readAria: "Citiți:",
   comingSoon: "În curând",
-  backToInsights: "Perspective",
   backToWork: "Proiecte alese",
-  insightsDateLocale: "ro-RO",
   workContext: "Contextul",
   workDelivered: "Ce am livrat",
   workStrategic: "De ce contează",
