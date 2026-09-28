@@ -156,7 +156,6 @@ export const nav: NavItem[] = [
   { label: "Diagnostic", href: "/en/assessment" },
   { label: "Services", href: "/en/services" },
   { label: "Work", href: "/en#work" },
-  { label: "Insights", href: "/en/insights" },
   { label: "About", href: "/en/about" },
   { label: "Contact", href: "/en/contact" },
 ];
@@ -166,7 +165,6 @@ export const footerNav: NavItem[] = [
   { label: "Diagnostic", href: "/en/assessment" },
   { label: "Scorecard", href: "/en/scorecard" },
   { label: "Work", href: "/en#work" },
-  { label: "Insights", href: "/en/insights" },
   { label: "About", href: "/en/about" },
   { label: "Contact", href: "/en/contact" },
 ];
