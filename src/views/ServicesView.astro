@@ -6,7 +6,7 @@ import Approach from "../components/sections/Approach.astro";
 import CTABand from "../components/sections/CTABand.astro";
 import { getContent } from "../content/i18n";
 
-const { pageMeta, pageIntros } = getContent(Astro.url.pathname);
+const { pageMeta, pageIntros, site } = getContent(Astro.url.pathname);
 const meta = pageMeta.services;
 const intro = pageIntros.services;
 ---
@@ -20,5 +20,5 @@ const intro = pageIntros.services;
   />
   <Services showHeader={false} variant="paper" />
   <Approach />
-  <CTABand />
+  <CTABand secondary={site.assessmentCta} />
 </Base>

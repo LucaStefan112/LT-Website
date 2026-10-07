@@ -1,9 +1,13 @@
 ---
 import Container from "../ui/Container.astro";
 import Button from "../ui/Button.astro";
-import { getContent } from "../../content/i18n";
+import { getContent, resolveLocale } from "../../content/i18n";
 
 const { hero, site, config, ui } = getContent(Astro.url.pathname);
+const portraitAlt =
+  resolveLocale(Astro.url.pathname) === "ro"
+    ? `${site.founder}, fondatorul ${site.name}`
+    : `${site.founder}, founder of ${site.name}`;
 
 // Elevate the flat trust line into discrete proof chips.
 const proof = hero.trustLine
@@ -93,7 +97,7 @@ const proof = hero.trustLine
               <img
                 class="hero-portrait-img"
                 src={config.founderPhoto}
-                alt={`${site.founder}, founder of ${site.name}`}
+                alt={portraitAlt}
                 width="800"
                 height="800"
                 loading="eager"
@@ -101,7 +105,7 @@ const proof = hero.trustLine
                 decoding="async"
               />
             ) : (
-              <div class="hero-portrait-img hero-portrait-fallback" role="img" aria-label={`${site.founder}, founder of ${site.name}`}>
+              <div class="hero-portrait-img hero-portrait-fallback" role="img" aria-label={portraitAlt}>
                 <span aria-hidden="true">LT</span>
               </div>
             )

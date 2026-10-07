@@ -3,22 +3,35 @@ import Section from "../ui/Section.astro";
 import Container from "../ui/Container.astro";
 import SectionHeader from "../ui/SectionHeader.astro";
 import { getContent } from "../../content/i18n";
+import type { CTA } from "../../content/site";
 
 const { approach, ui } = getContent(Astro.url.pathname);
+
+/* Defaults to the Digitalization Program (`approach`); the /training page
+   passes its own step list in the same shape. */
+interface Props {
+  data?: Pick<typeof approach, "eyebrow" | "title" | "intro" | "outputLabel" | "steps">;
+  id?: string;
+  variant?: "paper" | "bone";
+  more?: CTA; // link under the steps (the home page points to /services)
+}
+const { data = approach, id = "approach", variant = "bone", more } = Astro.props;
+// Five steps sit on one row on wide screens; six wrap as two rows of three.
+const colsLg = data.steps.length > 5 ? 3 : data.steps.length;
 ---
 
-<Section id="approach" variant="bone" labelledby="approach-heading">
+<Section id={id} variant={variant} labelledby={`${id}-heading`}>
   <Container>
     <SectionHeader
-      eyebrow={approach.eyebrow}
-      title={approach.title}
-      intro={approach.intro}
-      id="approach-heading"
+      eyebrow={data.eyebrow}
+      title={data.title}
+      intro={data.intro}
+      id={`${id}-heading`}
     />
 
-    <ol class="steps" role="list">
+    <ol class="steps" role="list" style={`--cols-lg:${colsLg}`}>
       {
-        approach.steps.map((step, i) => (
+        data.steps.map((step, i) => (
           <li class="step reveal" style={`--reveal-delay:${i * 90}ms`}>
             <span class="step-rule" aria-hidden="true" />
             <span class="step-n" aria-hidden="true">
@@ -30,17 +43,40 @@ const { approach, ui } = getContent(Astro.url.pathname);
             </h3>
             <p class="step-body">{step.body}</p>
             <p class="step-output">
-              <span class="step-output-label">{approach.outputLabel}</span>
+              <span class="step-output-label">{data.outputLabel}</span>
               {step.output}
             </p>
           </li>
         ))
       }
     </ol>
+
+    {
+      more && (
+        <a href={more.href} class="link-arrow steps-more">
+          {more.label}
+          <span class="arrow" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path
+                d="M3 8h9M8.5 4l3.5 4-3.5 4"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </span>
+        </a>
+      )
+    }
   </Container>
 </Section>
 
 <style>
+  .steps-more {
+    margin-top: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 600;
+  }
   .steps {
     list-style: none;
     margin: clamp(2.5rem, 5vw, 3.75rem) 0 0;
@@ -56,10 +92,15 @@ const { approach, ui } = getContent(Astro.url.pathname);
       gap: 2.5rem clamp(2rem, 5vw, 3.5rem);
     }
   }
-  @media (min-width: 1024px) {
+  @media (min-width: 960px) {
     .steps {
-      grid-template-columns: repeat(4, 1fr);
-      gap: clamp(1.5rem, 3vw, 2.5rem);
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  @media (min-width: 1200px) {
+    .steps {
+      grid-template-columns: repeat(var(--cols-lg, 4), 1fr);
+      gap: clamp(1.5rem, 2.5vw, 2.25rem);
     }
   }
   .step {

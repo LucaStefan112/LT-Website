@@ -1,10 +1,8 @@
 ---
 import Container from "../ui/Container.astro";
-import { getContent } from "../../content/i18n";
 
-const { hero } = getContent(Astro.url.pathname);
-
-/* Compact hero for the supporting routes (Services / About / Contact). */
+/* Compact hero for the supporting routes (Services / Training / Contact).
+   Optional default slot renders a row of actions under the lead. */
 interface Props {
   eyebrow: string;
   title: string;
@@ -20,6 +18,7 @@ const { eyebrow, title, lead, headingId = "page-heading" } = Astro.props;
     <span class="rule" aria-hidden="true"></span>
     <h1 id={headingId} class="display page-intro-title">{title}</h1>
     {lead && <p class="lead page-intro-lead measure">{lead}</p>}
+    {Astro.slots.has("default") && <div class="page-intro-actions"><slot /></div>}
   </Container>
 </section>
 
@@ -35,5 +34,12 @@ const { eyebrow, title, lead, headingId = "page-heading" } = Astro.props;
   .page-intro-lead {
     margin-top: 1.5rem;
     max-width: 44rem;
+  }
+  .page-intro-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem 1.75rem;
+    margin-top: 2.1rem;
   }
 </style>

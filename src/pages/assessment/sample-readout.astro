@@ -216,7 +216,7 @@ const ragLabel: Record<Rag, string> = {
           <div><dt>Impact, scenariu de bază conservator</dt><dd>5 operatori × ~9 ore/săptămână de retastare × costul complet al Arvela ≈ <strong>54.000 €/an</strong>, fără timpul de corectare a erorilor. Ipoteză declarată: volumele vin din estimarea șefului de operațiuni, nu din loguri măsurate.</dd></div>
           <div><dt>Cumpărare / integrare / construcție</dt><dd>Integrare: un model de extragere în spatele unei interfețe de verificare, conectat la API-ul TMS existent. Antrenarea unui model propriu nu se justifică la acest volum.</dd></div>
           <div><dt>Pregătirea datelor</dt><dd>Verde la adâncimea discuției ghidate — documentele sunt accesibile astăzi în inboxul comun; setul de referință este necesar înainte de lansare (vezi poarta).</dd></div>
-          <div><dt>Interval de cost și timp până în producție</dt><dd>Câteva zeci de mii de euro, 8–12 săptămâni până la un sistem de producție cu validare, monitorizare și predare. Un interval, nu o ofertă — prețul fix vine după un audit cu perimetru fix.</dd></div>
+          <div><dt>Interval de cost și timp până în producție</dt><dd>Câteva zeci de mii de euro, 8–12 săptămâni până la un sistem de producție cu validare, monitorizare și predare. Un interval, nu o ofertă — prețul fix vine după un audit bine delimitat.</dd></div>
           <div><dt>Metrica de succes</dt><dd>Ore de retastare la 100 de expedieri, măsurate înainte și la ~30 de zile după lansare.</dd></div>
         </dl>
 
@@ -283,13 +283,13 @@ const ragLabel: Record<Rag, string> = {
         <ol class="sr-steps" role="list">
           <li><strong>Numiți responsabilul bazei de cunoștințe (în sarcina dumneavoastră, săptămâna aceasta).</strong> Nu e nevoie de niciun contract — un nume, o țintă de consolidare la 90 de zile, iar cazul B încetează să mai fie blocat.</li>
           <li><strong>Construiți setul de referință (în sarcina dumneavoastră, ~1 săptămână din timpul operatorilor).</strong> 200 de expedieri recente, cu câmpurile verificate manual. Oricine ar construi asistentul va avea nevoie de el — noi sau altcineva.</li>
-          <li><strong>Dimensionați asistentul pentru documente după poarta de la pagina 3.</strong> Întrebările rămase deschise — acuratețea reală a extragerii pe documentele dumneavoastră, costul prelucrării exclusiv în UE — sunt exact ceea ce verifică o analiză cu perimetru fix a candidatului față de condițiile porții de la pagina 3, pe documentele dumneavoastră reale.</li>
+          <li><strong>Dimensionați asistentul pentru documente după poarta de la pagina 3.</strong> Întrebările rămase deschise — acuratețea reală a extragerii pe documentele dumneavoastră, costul prelucrării exclusiv în UE — sunt exact ceea ce verifică o analiză bine delimitată a acestui caz, pe documentele dumneavoastră reale.</li>
           <li><strong>Reintroduceți chatbotul în poartă peste 90 de zile.</strong> Dacă baza de cunoștințe se consolidează, B reintră drept candidat la „construiți”; dacă nu, și asta vă spune ceva.</li>
         </ol>
         <div class="sr-map-forward">
           <p class="sr-foot-label">Dacă vreți ajutor, iată cum se leagă fiecare lipsă</p>
           <ul role="list">
-            <li>Acuratețea extragerii și realitatea pipeline-ului → o <strong>analiză a cazului A față de condițiile porții de la pagina 3</strong>, cu perimetru fix, pe documentele dumneavoastră reale.</li>
+            <li>Acuratețea extragerii și realitatea pipeline-ului → o <strong>analiză bine delimitată a cazului A față de condițiile porții de la pagina 3</strong>, pe documentele dumneavoastră reale.</li>
             <li>Prelucrarea exclusiv în UE / fără transferuri → o <strong>Analiză „de rezistență” (securitate și EU AI Act)</strong>, dimensionată chiar în funcție de nivelul de expunere atribuit mai sus.</li>
             <li>Trecerea cazului A de la verdict la producție → <strong>implementare și livrare</strong>: un singur flux de lucru, construit, integrat și predat, măsurat pe metrica de la pagina 3.</li>
           </ul>

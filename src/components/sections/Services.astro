@@ -5,7 +5,7 @@ import SectionHeader from "../ui/SectionHeader.astro";
 import Button from "../ui/Button.astro";
 import { getContent } from "../../content/i18n";
 
-const { services, ui } = getContent(Astro.url.pathname);
+const { services } = getContent(Astro.url.pathname);
 
 interface Props {
   showHeader?: boolean;
@@ -38,6 +38,10 @@ const { showHeader = true, variant = "bone" } = Astro.props;
         services.items.map((item, i) => (
           <li class="service reveal" style={`--reveal-delay:${(i % 2) * 90}ms`}>
             <span class="service-rule" aria-hidden="true" />
+            <p class="service-stage">
+              <span aria-hidden="true">0{i + 1}</span>
+              {item.stage}
+            </p>
             <h3 class="service-title">{item.title}</h3>
             <p class="service-body">{item.body}</p>
             <p class="service-deliv-label">{services.deliverablesLabel}</p>
@@ -46,6 +50,22 @@ const { showHeader = true, variant = "bone" } = Astro.props;
                 <li>{d}</li>
               ))}
             </ul>
+            {item.link && (
+              <a href={item.link.href} class="link-arrow service-link">
+                {item.link.label}
+                <span class="arrow" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path
+                      d="M3 8h9M8.5 4l3.5 4-3.5 4"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </span>
+              </a>
+            )}
           </li>
         ))
       }
@@ -110,6 +130,21 @@ const { showHeader = true, variant = "bone" } = Astro.props;
     width: 2.5rem;
     height: 2px;
     background-color: var(--color-steel);
+  }
+  .service-stage {
+    display: flex;
+    gap: 0.6rem;
+    margin-bottom: 0.6rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-steel);
+  }
+  .service-link {
+    margin-top: 1.25rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
   }
   .service-title {
     font-size: 1.375rem; /* 22 */

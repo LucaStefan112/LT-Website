@@ -3,9 +3,11 @@ import Base from "../layouts/Base.astro";
 import Container from "../components/ui/Container.astro";
 import Button from "../components/ui/Button.astro";
 import AssessmentForm from "../components/sections/AssessmentForm.astro";
-import { getContent } from "../content/i18n";
+import { getContent, resolveLocale } from "../content/i18n";
 
 const { pageMeta, assessmentPage: page } = getContent(Astro.url.pathname);
+// Romanian opens quotes low („…”), English high (“…”).
+const [qOpen, qClose] = resolveLocale(Astro.url.pathname) === "ro" ? ["„", "”"] : ["“", "”"];
 const meta = pageMeta.assessment;
 ---
 
@@ -103,7 +105,7 @@ const meta = pageMeta.assessment;
         <div class="az-questions">
           <p class="az-foot-label">{page.method.questionsLabel}</p>
           <ul role="list">
-            {page.method.gateQuestions.map((q) => <li>“{q}”</li>)}
+            {page.method.gateQuestions.map((q) => <li>{qOpen}{q}{qClose}</li>)}
           </ul>
         </div>
       </div>
@@ -190,7 +192,7 @@ const meta = pageMeta.assessment;
         <p class="eyebrow">{page.whoRuns.eyebrow}</p>
         <span class="rule" aria-hidden="true"></span>
         <h2 id="az-who-heading" class="section-title az-block-title az-who-title">
-          “{page.whoRuns.heading}”
+          {qOpen}{page.whoRuns.heading}{qClose}
         </h2>
         <ul class="az-who-facts" role="list">
           {page.whoRuns.facts.map((f) => <li>{f}</li>)}
@@ -207,18 +209,7 @@ const meta = pageMeta.assessment;
     </Container>
   </section>
 
-  <!-- 9 · Positioning strip -->
-  <section class="az-positioning band-ink on-dark" aria-labelledby="az-pos-heading">
-    <Container>
-      <div class="az-narrow">
-        <h2 id="az-pos-heading" class="az-pos-title">{page.positioning.heading}</h2>
-        <p class="az-pos-body">{page.positioning.body}</p>
-        <p class="az-pos-lockin">{page.positioning.noLockIn}</p>
-      </div>
-    </Container>
-  </section>
-
-  <!-- 10 · Apply -->
+  <!-- 9 · Apply -->
   <section id="apply" class="az-apply bg-paper" aria-labelledby="az-apply-heading">
     <Container>
       <div class="az-apply-layout">
@@ -671,32 +662,7 @@ const meta = pageMeta.assessment;
     display: inline-flex;
   }
 
-  /* ---------- 9 · positioning ---------- */
-  .az-positioning {
-    padding-block: clamp(4rem, 8vw, 6rem);
-  }
-  .az-pos-title {
-    font-size: clamp(1.5rem, 3.2vw, 2.125rem);
-    font-weight: 600;
-    letter-spacing: -0.015em;
-    color: #fff;
-    max-width: 22ch;
-  }
-  .az-pos-body {
-    margin-top: 1.25rem;
-    color: color-mix(in srgb, var(--color-bone) 80%, transparent);
-    font-size: 1.0625rem;
-    line-height: 1.65;
-    max-width: 62ch;
-  }
-  .az-pos-lockin {
-    margin-top: 1.5rem;
-    color: var(--color-steel-bright);
-    font-weight: 500;
-    font-size: 1.0625rem;
-  }
-
-  /* ---------- 10 · apply ---------- */
+  /* ---------- 9 · apply ---------- */
   .az-apply {
     padding-block: clamp(4rem, 8vw, 6.5rem) clamp(4.5rem, 9vw, 8rem);
     scroll-margin-top: 5rem;

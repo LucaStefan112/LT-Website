@@ -1,7 +1,10 @@
 # LT Strategy Partners — website
 
-Marketing site for **LT Strategy Partners**. Fast, static, and premium: a long-scroll
-home page plus supporting routes (Services, About, Contact, and legal placeholders).
+Marketing site for **LT Strategy Partners**, a hands-on digitalization and AI partner:
+*understand the business, train the people, build the technology, measure the result.*
+Fast, static, and premium: a long-scroll home page plus supporting routes (Services,
+Diagnostic, Training, Scorecard, About, Contact, project pages, and legal pages), in
+Romanian (root) and English (`/en`).
 
 - **Stack:** [Astro 5](https://astro.build) · TypeScript · [Tailwind CSS v4](https://tailwindcss.com) (CSS-first tokens)
 - **Fonts:** Archivo, self-hosted as a single preloaded variable `.woff2` (no layout shift)
@@ -44,16 +47,18 @@ npm run preview      # serve dist/ locally
 
 ## Editing the copy
 
-**All site copy lives in one typed file: [`src/content/site.ts`](src/content/site.ts).**
+**All site copy lives in two typed files: [`src/content/site.ts`](src/content/site.ts) (English, canonical shape) and [`src/content/site.ro.ts`](src/content/site.ro.ts) (Romanian, a 1:1 mirror). Change both the same day.**
 Components read from it — nothing is hard-coded in the markup. To change wording,
 edit the relevant export:
 
 - `site` — name, tagline, contact email, founder, primary CTA
 - `nav`, `footerNav`, `legalNav` — navigation links
-- `hero`, `intro`, `pillars`, `services`, `approach`, `statement`, `results`, `clients`, `about`, `ctaBand`, `contact`, `footer` — each home section
-- `pageIntros` — the hero blocks on the Services / About / Contact routes
+- `hero`, `intro`, `layers` (Leadership / Processes / People), `approach` (the five-stage Digitalization Program), `services` (Strategy / Training & enablement / Implementation / Improvement, plus the AI block), `pillars`, `statement`, `startPaths` (the two entry points: Diagnostic or Training), `ctaBand`, `contact`, `footer` — each home section
+- `trainingPage` — the `/training` page (formats, audiences, process, who teaches it)
+- `assessmentPage`, `scorecardPage`, `aboutPage` — the Diagnostic, Scorecard and About routes
+- `pageIntros` — the hero blocks on the Services / Contact routes
 - `pageMeta` — per-page `<title>`, meta description, and path (for SEO + canonical)
-- `work` — the **Selected work** portfolio. Each item in `work.projects` renders a card in the home "Work" section and a full page at `/work/<slug>`. Fields include `accent` (per-page colour), `heroDark`, `overview`, `delivered`, `strategic`, `capabilities`, `stack`, `takeaway`, and an `image` (or `diagram: true`). Project images live in `src/assets/work/<key>.png` (optimised by Astro); the `image`/`gallery` keys map to those filenames. Pages link only internally — never out to the projects themselves.
+- `work` — the **Selected work** portfolio. Each item in `work.projects` renders a card in the home "Work" section and a full page at `/work/<slug>`. Fields include `accent` (per-page colour), `heroDark`, `overview`, `delivered`, `strategic`, `capabilities`, `stack`, `takeaway`, an optional `training` (what the build lets us teach, linked to `/training`), and an `image` (or `diagram: true`). Project images live in `src/assets/work/<key>.png` (optimised by Astro); the `image`/`gallery` keys map to those filenames. Pages link only internally — never out to the projects themselves.
 
 Placeholders that need your input are written in `[square brackets]` (e.g. the
 client-logo strip, founder bio, portrait, and results case-notes). Search the
@@ -75,11 +80,11 @@ by their exact filenames — the logo is never recreated in code.
 | `lt-favicon-32.png`, `lt-favicon-64.png` | Favicons |
 | `lt-apple-touch-180.png` | Apple touch icon |
 | `lt-icon-512.png`, `lt-icon-1024.png` | PWA / manifest icons |
-| `lt-avatar-800.png` | Founder portrait placeholder |
+| `founder.jpg` | Founder portrait (hero, About page) |
 
-**To replace the founder portrait:** swap `public/brand/lt-avatar-800.png` for a real
-(roughly square) photo, keeping the same filename — or point `about.portrait` in
-`src/content/site.ts` at a new file.
+**To replace the founder portrait:** swap `public/brand/founder.jpg` for a new
+(roughly square) photo, or point `config.founderPhoto` in `src/content/site.ts`
+at a new file.
 
 If you change the logo or palette, re-run `npm run gen:og` to refresh the social card.
 
@@ -170,11 +175,13 @@ src/
   layouts/Base.astro head, SEO, JSON-LD, favicons, skip-link
   components/
     ui/             Container, Section, SectionHeader, Eyebrow, Button, Reveal, Logo
-    sections/       Hero, IntroBand, Pillars, Services, Approach, Statement,
-                    Results, Clients, About, CTABand, ContactForm, PageIntro
+    sections/       Hero, IntroBand, Layers, Approach, Services, Pillars, Work,
+                    Statement, StartPaths, CTABand, ContactForm, PageIntro, …
     Header.astro, Footer.astro
   scripts/ui.ts     header scroll state, mobile menu, reveals, active-nav
-  pages/            index, services, about, contact, privacy, terms, 404
+  views/            one view per route, shared by the RO (root) and EN (/en) pages
+  pages/            index, services, training, assessment, scorecard, about,
+                    contact, work/[slug], privacy, terms, 404 (+ the same under en/)
 scripts/
   sync-fonts.mjs, gen-og.mjs
 ```

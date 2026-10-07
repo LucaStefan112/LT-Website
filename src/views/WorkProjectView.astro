@@ -130,6 +130,19 @@ const title = `${project.name} · LT Strategy Partners`;
           )
         }
 
+        {
+          project.training && (
+            <section class="proj-block">
+              <h2 class="proj-h">{ui.workTraining}</h2>
+              <p class="proj-p">{project.training}</p>
+              <a href={localePath(locale, "/training")} class="link-arrow proj-training-link">
+                {ui.workTrainingLink}
+                <span class="arrow" aria-hidden="true">→</span>
+              </a>
+            </section>
+          )
+        }
+
         <div class="proj-meta">
           <div>
             <h3 class="proj-meta-h">{ui.workCapabilities}</h3>
@@ -439,6 +452,12 @@ const title = `${project.name} · LT Strategy Partners`;
 
   .proj-live {
     margin-top: 2rem;
+  }
+
+  .proj-training-link {
+    margin-top: 0.9rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
   }
 
   .proj-takeaway {

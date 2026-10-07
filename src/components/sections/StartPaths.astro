@@ -1,0 +1,164 @@
+---
+import Container from "../ui/Container.astro";
+import Button from "../ui/Button.astro";
+import Reveal from "../ui/Reveal.astro";
+import { getContent } from "../../content/i18n";
+
+/* Two entry points: "what should we digitalize?" (the free diagnostic) and
+   "help our people use technology better" (training). Both can lead on to
+   implementation — said once, in the footnote, not as a funnel. */
+const { startPaths } = getContent(Astro.url.pathname);
+---
+
+<section id="start" class="start" aria-labelledby="start-heading">
+  <Container>
+    <Reveal>
+      <header class="start-head">
+        <p class="eyebrow">{startPaths.eyebrow}</p>
+        <span class="rule" aria-hidden="true"></span>
+        <h2 id="start-heading" class="section-title start-title">
+          {startPaths.heading}
+        </h2>
+        <p class="lead start-intro">{startPaths.intro}</p>
+      </header>
+    </Reveal>
+
+    <ul class="start-grid" role="list">
+      {
+        startPaths.paths.map((path, i) => (
+          <li class="start-card reveal" style={`--reveal-delay:${i * 90}ms`}>
+            <p class="start-question">{path.question}</p>
+            <h3 class="start-card-title">{path.title}</h3>
+            <p class="start-body">{path.body}</p>
+            <ul class="start-points" role="list">
+              {path.points.map((p) => (
+                <li>{p}</li>
+              ))}
+            </ul>
+            <div class="start-foot">
+              <p class="start-note">{path.note}</p>
+              <Button href={path.cta.href} variant={i === 0 ? "primary" : "ghost"} withArrow>
+                {path.cta.label}
+              </Button>
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+
+    <p class="start-footnote reveal">{startPaths.footnote}</p>
+  </Container>
+</section>
+
+<style>
+  .start {
+    padding-block: clamp(4rem, 8vw, 7rem);
+    /* Distinct from paper/bone without being a bold dark band */
+    background-color: color-mix(in srgb, var(--color-steel) 6%, var(--color-paper));
+    border-block: 1px solid
+      color-mix(in srgb, var(--color-steel) 22%, var(--color-line));
+  }
+  .start-title {
+    margin-top: 1.25rem;
+    max-width: 22ch;
+  }
+  .start-intro {
+    margin-top: 1.25rem;
+    max-width: 52ch;
+  }
+
+  .start-grid {
+    list-style: none;
+    margin: clamp(2.5rem, 5vw, 3.5rem) 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  @media (min-width: 900px) {
+    .start-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.75rem;
+    }
+  }
+
+  .start-card {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-paper);
+    border: 1px solid var(--color-line);
+    border-top: 3px solid var(--color-steel);
+    border-radius: 14px;
+    padding: clamp(1.5rem, 3vw, 2.25rem);
+  }
+  .start-question {
+    font-size: 1.0625rem;
+    font-weight: 500;
+    font-style: italic;
+    line-height: 1.45;
+    color: var(--color-steel-deep);
+  }
+  .start-card-title {
+    margin-top: 1rem;
+    font-size: clamp(1.375rem, 2.4vw, 1.625rem);
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    color: var(--color-ink);
+  }
+  .start-body {
+    margin-top: 0.75rem;
+    color: var(--color-muted);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+  .start-points {
+    list-style: none;
+    margin: 1.25rem 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .start-points li {
+    position: relative;
+    padding-left: 1.5rem;
+    color: var(--color-ink);
+    font-size: 0.9375rem;
+    line-height: 1.5;
+  }
+  .start-points li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 0.75rem;
+    height: 2px;
+    background-color: var(--color-steel);
+  }
+  /* Pinned to the bottom so both cards' CTAs line up */
+  .start-foot {
+    margin-top: auto;
+    padding-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .start-note {
+    margin-top: 0.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--color-line);
+    align-self: stretch;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-ink);
+  }
+
+  .start-footnote {
+    margin-top: clamp(2rem, 4vw, 2.75rem);
+    max-width: 62ch;
+    color: var(--color-muted);
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+</style>

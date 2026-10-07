@@ -3,30 +3,28 @@ import Base from '../layouts/Base.astro';
 import Hero from '../components/sections/Hero.astro';
 import IntroBand from '../components/sections/IntroBand.astro';
 import Pillars from '../components/sections/Pillars.astro';
-import Services from '../components/sections/Services.astro';
 import Approach from '../components/sections/Approach.astro';
 import Work from '../components/sections/Work.astro';
 import Statement from '../components/sections/Statement.astro';
 import Testimonials from '../components/sections/Testimonials.astro';
-import Clients from '../components/sections/Clients.astro';
-import Assessment from '../components/sections/Assessment.astro';
+import Layers from '../components/sections/Layers.astro';
+import StartPaths from '../components/sections/StartPaths.astro';
 import CTABand from '../components/sections/CTABand.astro';
 import { getContent } from '../content/i18n';
 
-const { pageMeta } = getContent(Astro.url.pathname);
+const { pageMeta, approach } = getContent(Astro.url.pathname);
 const meta = pageMeta.home;
 ---
 
 <Base title={meta.title} description={meta.description} path={meta.path}>
   <Hero />
   <IntroBand />
+  <Layers />
+  <Approach more={approach.more} />
   <Pillars />
-  <Approach />
-  <Services />
   <Work />
   <Statement />
   <Testimonials />
-  <Clients />
-  <Assessment />
+  <StartPaths />
   <CTABand />
 </Base>

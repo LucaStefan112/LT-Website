@@ -23,7 +23,7 @@ const { statement } = getContent(Astro.url.pathname);
       <div class="statement-inner">
         <p class="statement-eyebrow eyebrow">{statement.eyebrow}</p>
         <h2 id="statement-heading" class="statement-headline display-lg">
-          {statement.headline}
+          {statement.lines.map((line) => <span class="statement-line">{line}</span>)}
         </h2>
         <p class="statement-support lead">{statement.support}</p>
       </div>
@@ -62,7 +62,14 @@ const { statement } = getContent(Astro.url.pathname);
   }
   .statement-headline {
     color: #fff;
-    max-width: 20ch;
+    max-width: 24ch;
+  }
+  .statement-line {
+    display: block;
+  }
+  /* Last line ("Measure the result.") carries the accent */
+  .statement-line:last-child {
+    color: var(--color-steel-bright);
   }
   .statement-support {
     margin-top: 1.5rem;

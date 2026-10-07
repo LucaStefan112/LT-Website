@@ -4,25 +4,29 @@ import Container from "../ui/Container.astro";
 import Reveal from "../ui/Reveal.astro";
 import { getContent } from "../../content/i18n";
 
-const { clients } = getContent(Astro.url.pathname);
+const { layers } = getContent(Astro.url.pathname);
 ---
 
-<Section variant="paper" tight labelledby="clients-heading">
+<Section variant="paper" tight labelledby="layers-heading">
   <Container>
-    <div class="clients-grid">
-      <Reveal class="clients-copy">
-        <h2 id="clients-heading" class="eyebrow">{clients.eyebrow}</h2>
+    <div class="layers-grid">
+      <Reveal class="layers-copy">
+        <h2 id="layers-heading" class="eyebrow">{layers.eyebrow}</h2>
         <span class="rule" aria-hidden="true"></span>
-        <p class="clients-body">{clients.body}</p>
+        <p class="layers-body">{layers.body}</p>
       </Reveal>
 
       <Reveal delay={90}>
         <ul role="list" class="levels">
           {
-            clients.levels.map((level) => (
+            layers.items.map((level, i) => (
               <li class="level">
                 <span class="level-rule" aria-hidden="true" />
-                <h3 class="level-role">{level.role}</h3>
+                <p class="level-layer">
+                  <span aria-hidden="true">0{i + 1}</span>
+                  {level.layer}
+                </p>
+                <h3 class="level-question">{level.question}</h3>
                 <p class="level-detail">{level.detail}</p>
               </li>
             ))
@@ -34,18 +38,18 @@ const { clients } = getContent(Astro.url.pathname);
 </Section>
 
 <style>
-  .clients-grid {
+  .layers-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: clamp(2.5rem, 5vw, 4rem);
     align-items: start;
   }
   @media (min-width: 900px) {
-    .clients-grid {
+    .layers-grid {
       grid-template-columns: 1fr 1fr;
     }
   }
-  .clients-body {
+  .layers-body {
     margin-top: 1.5rem;
     color: var(--color-muted);
     font-size: 1.125rem;
@@ -74,8 +78,18 @@ const { clients } = getContent(Astro.url.pathname);
     height: 2px;
     background-color: var(--color-steel);
   }
-  .level-role {
-    font-size: 1.1875rem; /* 19 */
+  .level-layer {
+    display: flex;
+    gap: 0.6rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-steel);
+  }
+  .level-question {
+    font-size: 1.375rem; /* 22 */
     font-weight: 600;
     color: var(--color-ink);
     letter-spacing: -0.01em;

@@ -1,0 +1,348 @@
+---
+import Base from "../layouts/Base.astro";
+import Container from "../components/ui/Container.astro";
+import Section from "../components/ui/Section.astro";
+import SectionHeader from "../components/ui/SectionHeader.astro";
+import Button from "../components/ui/Button.astro";
+import Reveal from "../components/ui/Reveal.astro";
+import PageIntro from "../components/sections/PageIntro.astro";
+import Approach from "../components/sections/Approach.astro";
+import CTABand from "../components/sections/CTABand.astro";
+import { getContent } from "../content/i18n";
+
+/* /training — training & enablement as one stage of digitalization, not a
+   course catalogue. Sections: why → who → formats → how → who teaches it
+   (technical credibility) → where it leads (the bridge to implementation). */
+const { pageMeta, trainingPage: tp, site } = getContent(Astro.url.pathname);
+const meta = pageMeta.training;
+---
+
+<Base title={meta.title} description={meta.description} path={meta.path}>
+  <PageIntro
+    eyebrow={tp.eyebrow}
+    title={tp.heading}
+    lead={tp.lead}
+    headingId="training-page-heading"
+  >
+    <Button href={site.primaryCta.href} external={site.primaryCta.external}>
+      {site.primaryCta.label}
+    </Button>
+    <a href={tp.heroSecondary.href} class="link-arrow">
+      {tp.heroSecondary.label}
+      <span class="arrow" aria-hidden="true">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path
+            d="M3 8h9M8.5 4l3.5 4-3.5 4"
+            stroke="currentColor"
+            stroke-width="1.6"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path>
+        </svg>
+      </span>
+    </a>
+  </PageIntro>
+
+  {/* Why: the business case for training, as outcomes */}
+  <Section variant="bone" labelledby="tr-why-heading">
+    <Container>
+      <div class="tr-why">
+        <Reveal>
+          <SectionHeader
+            eyebrow={tp.why.eyebrow}
+            title={tp.why.heading}
+            intro={tp.why.body}
+            id="tr-why-heading"
+          />
+        </Reveal>
+        <Reveal delay={90}>
+          <div class="tr-outcomes">
+            <p class="tr-label">{tp.why.outcomesLabel}</p>
+            <ul class="tr-list" role="list">
+              {tp.why.outcomes.map((o) => <li>{o}</li>)}
+            </ul>
+          </div>
+        </Reveal>
+      </div>
+    </Container>
+  </Section>
+
+  {/* Who it's for */}
+  <Section variant="paper" labelledby="tr-who-heading">
+    <Container>
+      <SectionHeader eyebrow={tp.audience.eyebrow} title={tp.audience.heading} id="tr-who-heading" />
+      <ul class="tr-audience" role="list">
+        {
+          tp.audience.items.map((a, i) => (
+            <li class="tr-audience-item reveal" style={`--reveal-delay:${(i % 3) * 90}ms`}>
+              <span class="tr-rule" aria-hidden="true" />
+              <h3 class="tr-item-title">{a.title}</h3>
+              <p class="tr-item-body">{a.body}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </Container>
+  </Section>
+
+  {/* Example formats */}
+  <Section variant="bone" labelledby="tr-formats-heading">
+    <Container>
+      <SectionHeader
+        eyebrow={tp.formats.eyebrow}
+        title={tp.formats.heading}
+        intro={tp.formats.intro}
+        id="tr-formats-heading"
+      />
+      <ul class="tr-formats" role="list">
+        {
+          tp.formats.items.map((f, i) => (
+            <li class="card tr-format reveal" style={`--reveal-delay:${(i % 3) * 90}ms`}>
+              <h3 class="card-title">{f.title}</h3>
+              <p class="tr-item-body">{f.body}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </Container>
+  </Section>
+
+  {/* How it works — same component as the Digitalization Program */}
+  <Approach data={tp.process} id="how" variant="paper" />
+
+  {/* Who teaches it: technical credibility, tied to real builds */}
+  <section class="tr-cred band-ink on-dark" aria-labelledby="tr-cred-heading">
+    <Container>
+      <div class="tr-cred-grid">
+        <Reveal>
+          <p class="eyebrow">{tp.credibility.eyebrow}</p>
+          <span class="rule" aria-hidden="true"></span>
+          <h2 id="tr-cred-heading" class="section-title tr-cred-title">
+            {tp.credibility.heading}
+          </h2>
+          <p class="lead tr-cred-body">{tp.credibility.body}</p>
+          <a href={tp.credibility.link.href} class="link-arrow tr-cred-link">
+            {tp.credibility.link.label}
+            <span class="arrow" aria-hidden="true">→</span>
+          </a>
+        </Reveal>
+        <Reveal delay={90}>
+          <ul class="tr-cred-points" role="list">
+            {tp.credibility.points.map((p) => <li>{p}</li>)}
+          </ul>
+        </Reveal>
+      </div>
+    </Container>
+  </section>
+
+  {/* Where it leads: training as one stage, implementation optional */}
+  <Section variant="paper" tight labelledby="tr-bridge-heading">
+    <Container>
+      <Reveal>
+        <div class="tr-bridge">
+          <SectionHeader
+            eyebrow={tp.bridge.eyebrow}
+            title={tp.bridge.heading}
+            intro={tp.bridge.body}
+            id="tr-bridge-heading"
+          />
+          <ul class="tr-bridge-links" role="list">
+            {
+              tp.bridge.links.map((l) => (
+                <li>
+                  <a href={l.href} class="link-arrow">
+                    {l.label}
+                    <span class="arrow" aria-hidden="true">→</span>
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </Reveal>
+    </Container>
+  </Section>
+
+  <CTABand heading={tp.ctaHeading} secondary={tp.heroSecondary} />
+</Base>
+
+<style>
+  .tr-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-steel);
+    margin-bottom: 1.25rem;
+  }
+
+  /* Why */
+  .tr-why {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(2.5rem, 5vw, 4rem);
+    align-items: start;
+  }
+  @media (min-width: 960px) {
+    .tr-why {
+      grid-template-columns: 1.1fr 0.9fr;
+    }
+  }
+  .tr-outcomes {
+    background-color: var(--color-paper);
+    border: 1px solid var(--color-line);
+    border-radius: 14px;
+    padding: clamp(1.5rem, 3vw, 2rem);
+  }
+  .tr-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+  .tr-list li {
+    position: relative;
+    padding-left: 1.75rem;
+    color: var(--color-ink);
+    font-size: 1.0625rem;
+    line-height: 1.5;
+  }
+  .tr-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 1rem;
+    height: 2px;
+    background-color: var(--color-steel);
+  }
+
+  /* Who it's for */
+  .tr-audience {
+    list-style: none;
+    margin: clamp(2.5rem, 5vw, 3.5rem) 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem clamp(2rem, 4vw, 3rem);
+  }
+  @media (min-width: 640px) {
+    .tr-audience {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (min-width: 960px) {
+    .tr-audience {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  .tr-audience-item {
+    position: relative;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--color-line);
+  }
+  .tr-rule {
+    position: absolute;
+    top: -1px;
+    left: 0;
+    width: 2.5rem;
+    height: 2px;
+    background-color: var(--color-steel);
+  }
+  .tr-item-title {
+    font-size: 1.1875rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--color-ink);
+    margin-bottom: 0.5rem;
+  }
+  .tr-item-body {
+    color: var(--color-muted);
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  /* Formats */
+  .tr-formats {
+    list-style: none;
+    margin: clamp(2.5rem, 5vw, 3.5rem) 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  @media (min-width: 640px) {
+    .tr-formats {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (min-width: 960px) {
+    .tr-formats {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+  }
+  .tr-format .card-title {
+    margin-bottom: 0.6rem;
+  }
+
+  /* Who teaches it */
+  .tr-cred {
+    padding-block: clamp(4.5rem, 9vw, 7.5rem);
+  }
+  .tr-cred-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(2.5rem, 5vw, 4rem);
+    align-items: start;
+  }
+  @media (min-width: 960px) {
+    .tr-cred-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  .tr-cred-title {
+    margin-top: 1.25rem;
+    color: #fff;
+    max-width: 20ch;
+  }
+  .tr-cred-body {
+    margin-top: 1.25rem;
+    max-width: 48ch;
+  }
+  .tr-cred-link {
+    margin-top: 1.5rem;
+    font-weight: 600;
+  }
+  .tr-cred-points {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .tr-cred-points li {
+    padding-block: 1.1rem;
+    border-top: 1px solid var(--color-line-dark);
+    color: color-mix(in srgb, var(--color-bone) 88%, transparent);
+    font-size: 1.0625rem;
+    line-height: 1.55;
+  }
+  .tr-cred-points li:last-child {
+    border-bottom: 1px solid var(--color-line-dark);
+  }
+
+  /* Where it leads */
+  .tr-bridge-links {
+    list-style: none;
+    margin: 1.75rem 0 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 2.25rem;
+  }
+  .tr-bridge-links .link-arrow {
+    font-weight: 600;
+  }
+</style>
