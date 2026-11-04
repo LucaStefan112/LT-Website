@@ -2,7 +2,8 @@
 import Container from "../ui/Container.astro";
 
 /* Compact hero for the supporting routes (Services / Training / Contact).
-   Optional default slot renders a row of actions under the lead. */
+   Optional default slot renders a row of actions under the lead; optional
+   "visual" slot puts an illustration beside the text on wide screens. */
 interface Props {
   eyebrow: string;
   title: string;
@@ -10,15 +11,21 @@ interface Props {
   headingId?: string;
 }
 const { eyebrow, title, lead, headingId = "page-heading" } = Astro.props;
+const hasVisual = Astro.slots.has("visual");
 ---
 
 <section class="page-intro bg-paper" aria-labelledby={headingId}>
   <Container>
-    <p class="eyebrow">{eyebrow}</p>
-    <span class="rule" aria-hidden="true"></span>
-    <h1 id={headingId} class="display page-intro-title">{title}</h1>
-    {lead && <p class="lead page-intro-lead measure">{lead}</p>}
-    {Astro.slots.has("default") && <div class="page-intro-actions"><slot /></div>}
+    <div class:list={["page-intro-grid", { "has-visual": hasVisual }]}>
+      <div>
+        <p class="eyebrow">{eyebrow}</p>
+        <span class="rule" aria-hidden="true"></span>
+        <h1 id={headingId} class="display page-intro-title">{title}</h1>
+        {lead && <p class="lead page-intro-lead measure">{lead}</p>}
+        {Astro.slots.has("default") && <div class="page-intro-actions"><slot /></div>}
+      </div>
+      {hasVisual && <div class="page-intro-visual"><slot name="visual" /></div>}
+    </div>
   </Container>
 </section>
 
@@ -26,6 +33,27 @@ const { eyebrow, title, lead, headingId = "page-heading" } = Astro.props;
   .page-intro {
     padding-top: clamp(5rem, 10vw, 8rem);
     padding-bottom: clamp(2.5rem, 5vw, 4rem);
+  }
+  .page-intro-grid.has-visual {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(2.5rem, 5vw, 4rem);
+    align-items: center;
+  }
+  @media (min-width: 960px) {
+    .page-intro-grid.has-visual {
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    }
+  }
+  /* Illustration sits on a soft tinted panel, like the card visuals */
+  .page-intro-visual {
+    max-width: 34rem;
+    width: 100%;
+    justify-self: center;
+    padding: clamp(1.5rem, 3vw, 2.25rem) clamp(1rem, 3vw, 2rem) clamp(1rem, 2vw, 1.5rem);
+    border-radius: 20px;
+    border: 1px solid var(--color-line);
+    background-color: color-mix(in srgb, var(--color-steel) 7%, var(--color-paper));
   }
   .page-intro-title {
     margin-top: 1.5rem;

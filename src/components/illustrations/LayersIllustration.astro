@@ -1,0 +1,146 @@
+---
+/* Three stacked plates (Leadership / Processes / People) joined by one
+   thread on the left: the same partner on every level. Labels come from the
+   content files, so the drawing works in both languages. */
+import Icon from "../ui/Icon.astro";
+
+interface Props {
+  items: { layer: string; icon?: string }[];
+  class?: string;
+}
+const { items, class: className = "" } = Astro.props;
+
+const CX = 230;
+const HW = 172; // half width of a plate's top face
+const HH = 56; // half height of a plate's top face
+const T = 16; // plate thickness
+const centers = [80, 205, 330];
+const tones = ["lead", "process", "people"];
+
+// Drawn bottom-up so each upper plate sits in front of the one below it.
+const plates = items
+  .slice(0, 3)
+  .map((item, i) => ({ ...item, cy: centers[i], tone: tones[i] }))
+  .reverse();
+---
+
+<svg
+  class:list={["layers-ill", className]}
+  viewBox="0 0 460 412"
+  role="presentation"
+  aria-hidden="true"
+  focusable="false"
+>
+  <defs>
+    <filter id="layers-shadow" x="-10%" y="-20%" width="120%" height="160%">
+      <feDropShadow dx="0" dy="14" stdDeviation="14" flood-color="#16304c" flood-opacity="0.16" />
+    </filter>
+  </defs>
+
+  <!-- The thread through every layer -->
+  <path d={`M${CX - HW} ${centers[0] + T / 2} V ${centers[2] + T / 2}`} class="li-thread" />
+
+  {
+    plates.map((p) => (
+      <g class={`li-plate li-${p.tone}`}>
+        <g filter="url(#layers-shadow)">
+          <path
+            class="li-top"
+            d={`M${CX} ${p.cy - HH} L${CX + HW} ${p.cy} L${CX} ${p.cy + HH} L${CX - HW} ${p.cy} Z`}
+          />
+        </g>
+        <path
+          class="li-side-l"
+          d={`M${CX - HW} ${p.cy} L${CX} ${p.cy + HH} V${p.cy + HH + T} L${CX - HW} ${p.cy + T} Z`}
+        />
+        <path
+          class="li-side-r"
+          d={`M${CX} ${p.cy + HH} L${CX + HW} ${p.cy} V${p.cy + T} L${CX} ${p.cy + HH + T} Z`}
+        />
+        <svg x={CX - 13} y={p.cy - 34} width="26" height="26" viewBox="0 0 24 24" class="li-icon">
+          <Icon name={p.icon ?? "target"} size={24} />
+        </svg>
+        <text x={CX} y={p.cy + 14} text-anchor="middle" class="li-label">
+          {p.layer}
+        </text>
+        <circle cx={CX - HW} cy={p.cy + T / 2} r="6" class="li-node" />
+      </g>
+    ))
+  }
+</svg>
+
+<style>
+  .layers-ill {
+    display: block;
+    width: 100%;
+    height: auto;
+    font-family: inherit;
+    overflow: visible;
+  }
+  .li-thread {
+    stroke: var(--color-steel);
+    stroke-width: 2;
+    stroke-dasharray: 2 7;
+    stroke-linecap: round;
+    fill: none;
+  }
+  .li-node {
+    fill: var(--color-paper);
+    stroke: var(--color-steel);
+    stroke-width: 2.5;
+  }
+  .li-label {
+    font-size: 14px;
+    font-weight: 650;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .li-lead .li-top {
+    fill: var(--color-ink);
+  }
+  .li-lead .li-side-l {
+    fill: color-mix(in srgb, var(--color-ink) 82%, #000);
+  }
+  .li-lead .li-side-r {
+    fill: color-mix(in srgb, var(--color-ink) 68%, #000);
+  }
+  .li-lead .li-label {
+    fill: #fff;
+  }
+  .li-lead .li-icon {
+    color: var(--color-steel-bright);
+  }
+
+  .li-process .li-top {
+    fill: var(--color-steel);
+  }
+  .li-process .li-side-l {
+    fill: var(--color-steel-deep);
+  }
+  .li-process .li-side-r {
+    fill: color-mix(in srgb, var(--color-steel-deep) 80%, #000);
+  }
+  .li-process .li-label {
+    fill: #fff;
+  }
+  .li-process .li-icon {
+    color: #fff;
+  }
+
+  .li-people .li-top {
+    fill: color-mix(in srgb, var(--color-steel) 16%, var(--color-paper));
+  }
+  .li-people .li-side-l {
+    fill: color-mix(in srgb, var(--color-steel) 30%, var(--color-paper));
+  }
+  .li-people .li-side-r {
+    fill: color-mix(in srgb, var(--color-steel) 42%, var(--color-paper));
+  }
+  .li-people .li-label {
+    fill: var(--color-ink);
+  }
+  .li-people .li-icon {
+    color: var(--color-steel);
+  }
+</style>

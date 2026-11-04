@@ -47,7 +47,7 @@ export const site = {
   url: "https://ltstrategypartners.com",
   tagline: "Întâi problema. Apoi soluția.",
   description:
-    "Consultanță în digitalizare și AI pentru companii. Aflăm unde se amortizează cu adevărat tehnologia, vă pregătim managerii și echipele să o folosească în munca de zi cu zi, apoi proiectăm și construim noi soluțiile. Independenți: nu vindem produse și nu luăm comisioane.",
+    "Consultanță în digitalizare și AI pentru companii. Aflăm unde se amortizează cu adevărat tehnologia, vă pregătim managerii și echipele să o folosească în munca de zi cu zi, apoi proiectăm și construim noi soluțiile. Independenți față de furnizorii de software.",
   email: "luca.tamas@ltstrategypartners.com",
   phone: "+40734950060",
   phoneDisplay: "+40 734 950 060",
@@ -90,6 +90,19 @@ export const legalNav: NavItem[] = [
   { label: "Termeni", href: "/terms" },
 ];
 
+/* ------------------------------------------------------------- Partners */
+
+export const partners = {
+  eyebrow: "Companii și instituții cu care am lucrat",
+  names: [
+    "ProInvest",
+    "Enovis",
+    "CJRAE Iași",
+    "Casa Bolta Rece",
+    "Carmangeria Boierilor",
+  ],
+} as const;
+
 /* --------------------------------------------------------------- Hero */
 
 export const hero = {
@@ -101,14 +114,14 @@ export const hero = {
   tagRole: "Fondator",
   primaryCta: site.primaryCta,
   secondaryCta: site.assessmentCta,
-  trustLine: "Nimic de vândut · Vă pregătim echipa · Construim ce recomandăm",
+  trustLine: "Independenți de furnizori · Vă pregătim echipa · Construim ce recomandăm",
 } as const;
 
 /* -------------------------------------------------- The problem we solve */
 
 export const intro = {
   eyebrow: "Începem de la problemă",
-  body: "Marja se subțiază și nimeni nu poate spune exact unde. Aceleași cifre, trecute de mână în trei sisteme. Un program plătit de firmă, pe care jumătate din echipă îl ocolește. Astfel de probleme sunt rareori acolo unde se crede — și rareori se rezolvă doar cu tehnologie. De aceea începem prin a înțelege cum circulă munca în realitate, unde se blochează, cât costă și cum folosesc oamenii instrumentele pe care le au deja. Apoi rezolvăm ce merită rezolvat — printr-o schimbare de proces, prin training sau printr-un sistem construit de noi.",
+  body: "Marja se subțiază și nimeni nu poate spune unde. Aceeași comandă, trecută de mână în trei sisteme. Un program plătit de firmă, pe care jumătate din echipă îl ocolește. Astfel de probleme rareori se rezolvă doar cu tehnologie — așa că pornim de la felul în care se lucrează de fapt.",
 } as const;
 
 /* ------------------------------------------------------- Value pillars */
@@ -118,15 +131,18 @@ export const pillars = {
   items: [
     {
       title: "Întâi afacerea, apoi tehnologia.",
-      body: "Pornim de la cifrele firmei și de la felul în care se lucrează în realitate, nu de la un instrument. Așa găsim unde se amortizează tehnologia — și tot de aceea „nu construiți nimic” e un răspuns normal. Nu vindem produse sau licențe și nu luăm comision de la furnizori, deci nimic nu ne influențează recomandarea.",
+      body: "Pornim de la cifrele firmei și de la felul în care se lucrează, nu de la un instrument. Nu revindem software și nu luăm comisioane de la furnizori, deci nimic nu ne influențează recomandarea.",
+      icon: "target",
     },
     {
       title: "Predăm ce construim.",
-      body: "Trainingul nostru vine de la oamenii care proiectează și operează astfel de sisteme — așa că acoperă ce funcționează în practică, unde greșește AI-ul și cum îl folosiți în siguranță. Lucrăm pe sarcinile reale ale echipei, nu pe slide-uri generice.",
+      body: "Trainingul vine de la oameni care construiesc astfel de sisteme: ce funcționează în practică, unde greșește AI-ul și cum îl folosiți în siguranță.",
+      icon: "presentation",
     },
     {
       title: "Construim ce recomandăm.",
-      body: "Majoritatea consultanților vă lasă o recomandare și pleacă. Noi proiectăm, construim și integrăm soluția, rămânem până când e folosită și măsurăm rezultatul pe cifrele convenite cu dumneavoastră.",
+      body: "Proiectăm, construim și integrăm soluția chiar noi și rămânem până când e folosită și rezultatul e măsurat.",
+      icon: "code",
     },
   ] as Card[],
 } as const;
@@ -142,8 +158,9 @@ export const services = {
   items: [
     {
       stage: "Strategie",
+      icon: "compass",
       title: "Strategie de digitalizare și consultanță",
-      body: "De obicei simțiți unde pierde bani firma dumneavoastră — oferte trimise târziu, stoc care stă, aceleași cifre reintroduse de mână — dar nu și care dintre rezolvări merită făcută prima. Calculăm cât vă costă fiecare problemă în contul de profit și pierdere, separăm puținele oportunități care merită urmărite de multele care nu merită și rămânem alături de dumneavoastră, ca voce independentă, la deciziile care urmează: furnizori, bugete, „construim sau cumpărăm”. Uneori concluzia onestă e că niciuna nu merită.",
+      body: "Simțiți unde pierde bani firma — oferte trimise târziu, stoc care stă, cifre reintroduse de mână — dar nu și ce merită rezolvat primul. Punem o cifră pe fiecare problemă, alegem puținele care merită urmărite și rămânem vocea independentă pentru deciziile despre furnizori și „construim sau cumpărăm” care urmează.",
       deliverables: [
         "O hartă a lucrurilor care vă costă cel mai mult, ordonată după valoare și efort",
         "Calcule de rentabilitate și un plan pe etape, cu responsabili și puncte de decizie",
@@ -152,8 +169,9 @@ export const services = {
     },
     {
       stage: "Training",
+      icon: "presentation",
       title: "Competențe digitale și training",
-      body: "Tehnologia aduce valoare doar când oamenii știu să o folosească. Îi învățăm pe manageri și pe angajați să folosească AI-ul, automatizările, datele și instrumentele digitale care contează pentru munca lor reală — pornind de la procesele, aplicațiile și rolurile din firma dumneavoastră, nu de la o programă generică.",
+      body: "Tehnologia aduce valoare doar când oamenii știu să o folosească. Îi învățăm pe manageri și pe angajați să folosească AI-ul, automatizările, datele și instrumentele digitale care contează pentru munca lor — pornind de la procesele și aplicațiile firmei, nu de la o programă generică.",
       deliverables: [
         "Training practic pentru manageri și echipe: AI în munca de zi cu zi, automatizare, date și BI, securitate digitală",
         "Exerciții construite pe sarcinile, instrumentele și documentele dumneavoastră",
@@ -163,8 +181,9 @@ export const services = {
     },
     {
       stage: "Implementare",
+      icon: "code",
       title: "Implementare și livrare",
-      body: "De obicei nu planul e problema — e faptul că nu îl construiește nimeni. Proiectăm, construim, integrăm și punem soluția în producție chiar noi — fie că e vorba de instrumente interne, automatizarea proceselor, fluxuri de date și tablouri de bord sau sisteme AI. Lucrăm alături de echipa dumneavoastră, ca firma să o poată opera și fără noi. Software care funcționează, nu prezentări — și rămânem până când soluția funcționează, e folosită și e predată curat.",
+      body: "De obicei nu planul e problema — e faptul că nu îl construiește nimeni. Proiectăm, construim și integrăm soluția chiar noi — instrumente interne, automatizări, tablouri de bord, sisteme AI — și rămânem până când funcționează, e folosită și e predată curat.",
       deliverables: [
         "O soluție funcțională, care rulează în producție",
         "Integrare în sistemele și fluxurile de lucru existente",
@@ -173,8 +192,9 @@ export const services = {
     },
     {
       stage: "Îmbunătățire",
+      icon: "chart",
       title: "Performanță operațională",
-      body: "Un instrument nou nu schimbă nimic dacă munca din jurul lui rămâne la fel — așa apar câștiguri care se văd în demo și niciodată în contabilitate. Regândim felul în care se desfășoară efectiv munca, apoi lăsăm în firmă un sistem de măsurare care face câștigul vizibil și îl ajută să se mențină după ce plecăm.",
+      body: "Un instrument nou nu schimbă nimic dacă munca din jurul lui rămâne la fel. Regândim felul în care circulă munca, apoi punem în firmă un sistem de măsurare care face câștigul vizibil și îl menține după ce plecăm.",
       deliverables: [
         "Procese reproiectate, potrivite cu noile instrumente",
         "Un set de măsurători legate de KPI-urile dumneavoastră",
@@ -185,7 +205,7 @@ export const services = {
   ai: {
     eyebrow: "Unde intră AI-ul",
     title: "AI, atunci când chiar e răspunsul potrivit.",
-    body: "AI-ul e doar unul dintre instrumentele digitalizării, nu totul — dar e domeniul în care suntem cei mai specializați. Tocmai de aceea vă putem spune unde schimbă cu adevărat cifrele și unde e doar cheltuială degeaba, îl putem construi astfel încât să facă față utilizatorilor reali și vă putem învăța echipa să îl folosească în siguranță. Am făcut deja asta — inclusiv un asistent AI care răspunde din documentele firmei și rulează integral pe echipamentele pe care aceasta le are deja.",
+    body: "AI-ul e doar unul dintre instrumentele digitalizării, dar e cel pe care îl stăpânim cel mai bine. De aceea vă putem spune unde schimbă cu adevărat cifrele, îl putem construi astfel încât să facă față utilizatorilor reali și vă putem învăța echipa să îl folosească în siguranță.",
     points: [
       {
         title: "Unde se amortizează AI-ul",
@@ -211,16 +231,15 @@ export const startPaths = {
   eyebrow: "De unde începem",
   heading: "Două puncte de plecare. Ambele pot duce la o soluție care funcționează.",
   intro:
-    "De obicei, firmele vin la noi cu una dintre două întrebări. Amândouă sunt puncte bune de plecare — iar când pe parcurs apare o oportunitate concretă, o putem construi.",
+    "De obicei, firmele vin la noi cu una dintre două întrebări. Oricare e un punct bun de plecare.",
   paths: [
     {
       question: "„Trebuie să aflăm ce merită digitalizat.”",
       title: "Diagnosticul firmei",
-      body: "Ne uităm cum funcționează de fapt firma și, în două până la patru săptămâni, primiți un diagnostic scris: ce vă ține pe loc în realitate, ce merită rezolvat primul și ce ar presupune fiecare rezolvare — un sistem, o schimbare de proces, un training sau nimic.",
+      body: "În două până la patru săptămâni primiți un diagnostic scris: ce vă ține pe loc, ce rezolvați primul și ce ar presupune fiecare rezolvare.",
       points: [
-        "Un diagnostic scris de 3–5 pagini, pe care îl puteți pune în fața conducerii",
-        "Fiecare problemă cântărită după cât vă costă și cât de greu se rezolvă",
-        "Un răspuns tranșant despre ce trebuie rezolvat primul — și motivul din spate",
+        "Un diagnostic de 3–5 pagini, pe care îl puteți pune în fața conducerii",
+        "Un răspuns tranșant despre ce trebuie rezolvat primul",
       ],
       note: "Gratuit — îl facem noi, cel mult trei pe lună.",
       cta: site.assessmentCta,
@@ -228,18 +247,17 @@ export const startPaths = {
     {
       question: "„Vrem ca oamenii noștri să lucreze mai bine cu AI și cu instrumentele digitale.”",
       title: "Training pentru echipe",
-      body: "Training practic pentru manageri și angajați despre AI, automatizare, date și instrumente digitale — pornind de la procesele, aplicațiile și rolurile din firma dumneavoastră, ca să schimbe felul în care se lucrează chiar din săptămâna următoare.",
+      body: "Training practic despre AI, automatizare, date și instrumente digitale — pornind de la procesele, aplicațiile și rolurile din firma dumneavoastră.",
       points: [
-        "Adaptat sarcinilor reale ale echipei și instrumentelor pe care le aveți deja",
-        "Pentru conducere, echipe de birou și echipe operaționale — tehnice sau nu",
-        "Se încheie cu fluxuri de lucru pe care echipa le folosește în continuare și cu o imagine clară a ceea ce merită automatizat",
+        "Pentru conducere, echipe de birou și echipe operaționale",
+        "Se încheie cu fluxuri de lucru pe care echipa le păstrează",
       ],
       note: "Formatul, durata și mărimea grupului se stabilesc împreună cu dumneavoastră.",
       cta: { label: "Vedeți ce include trainingul", href: "/training" },
     },
   ] as StartPath[],
   footnote:
-    "Adesea, cele două drumuri se întâlnesc. Trainingul scoate la suprafață procesele care merită automatizate; un diagnostic ajunge uneori la concluzia că o echipă are nevoie de training înainte de un sistem nou. Implementarea vine doar când există un motiv concret pentru ea.",
+    "Adesea, cele două se întâlnesc: trainingul arată ce merită automatizat, iar când există un caz concret, îl construim.",
 } as const;
 
 /* -------------------------- Gate Zero: the /assessment offer page content */
@@ -254,7 +272,7 @@ export const assessmentPage = {
     "45–60 de minute cu echipa de conducere",
     "Unul per firmă",
     "Fără acces la sisteme",
-    "Nimic de vândut",
+    "Fără discurs de vânzare",
   ],
 
   problem: {
@@ -262,7 +280,7 @@ export const assessmentPage = {
     heading: "Aproape toți vin la dumneavoastră cu răspunsul deja pregătit.",
     paragraphs: [
       "Știți deja că ceva nu e în regulă; ce vă lipsește e un nume pentru asta. O marjă care exista și acum nu mai e. Marfă care zace în stoc, în timp ce se mai comandă din ea. Aceeași comandă tastată în trei locuri, de trei oameni. O decizie amânată până termină cineva raportul. Oferte care pleacă cu două zile întârziere și nimeni nu poate spune de ce. Jumătate din ce ține firma în funcțiune stă în capul a doi oameni.",
-      "Duceți asta la aproape oricine și primiți drept răspuns produsul lui: firma de software găsește o problemă de software, furnizorul de AI găsește o problemă de AI, iar consultantul găsește o problemă de strategie. Noi nu vindem niciun produs, nu avem nicio licență de vândut și nu luăm comision de la nimeni — exact de asta ne permitem să ne uităm întâi la firma dumneavoastră și abia apoi să vă spunem că problema e o regulă de preț, o predare de care nu răspunde nimeni, un program pe care nimeni nu a fost învățat să-l folosească sau un raport în care nimeni nu are încredere. Iar când răspunsul e ceva ce trebuie construit, îl construim noi.",
+      "Duceți asta la aproape oricine și primiți drept răspuns produsul lui: firma de software găsește o problemă de software, furnizorul de AI găsește o problemă de AI, iar consultantul găsește o problemă de strategie. Noi nu luăm comision de la niciun furnizor — exact de asta ne permitem să ne uităm întâi la firma dumneavoastră și abia apoi să vă spunem că problema e o regulă de preț, o predare de care nu răspunde nimeni, un program pe care nimeni nu a fost învățat să-l folosească sau un raport în care nimeni nu are încredere. Iar când răspunsul e ceva ce trebuie construit, îl construim noi.",
     ],
   },
 
@@ -433,40 +451,45 @@ export const approach = {
   outputLabel: "Ce obțineți",
   title: "Cinci etape, de la diagnostic la rezultatul măsurat.",
   intro:
-    "Un program structurat, condus de aceiași oameni de la început până la sfârșit. Trainingul nu e un serviciu separat, adăugat pe deasupra — e etapa care face ca implementarea să prindă. Puteți începe cu diagnosticul sau cu trainingul și vă puteți opri în orice moment în care etapa următoare nu se mai justifică.",
+    "Un singur program, condus de aceiași oameni de la început până la sfârșit. Puteți începe cu diagnosticul sau cu trainingul și vă puteți opri oricând etapa următoare nu se mai justifică.",
   steps: [
     {
       n: "01",
+      icon: "search",
       title: "Diagnostic",
-      body: "Vă ascultăm pe dumneavoastră și pe oamenii care fac munca, ne uităm la cifrele firmei, apoi urmărim câteva procese reale de la un capăt la altul, ca să vedem unde se duc de fapt timpul, banii și munca manuală.",
+      body: "Urmărim câteva procese reale de la un capăt la altul, ca să vedem unde se duc timpul, banii și munca manuală.",
       output:
         "O imagine scrisă a problemelor și oportunităților reale, ordonate după cât vă costă.",
     },
     {
       n: "02",
+      icon: "ranking",
       title: "Prioritizare",
-      body: "Separăm împreună ce merită făcut de ce puteți lăsa așa și punem o cifră pe fiecare. Unele rezolvări nu cer deloc software; ce ar urma să fie construit trece prin Gate Zero.",
+      body: "Separăm ce merită făcut de ce nu merită și punem o cifră pe fiecare.",
       output:
         "O listă scurtă, în ordine, cu criteriile de succes stabilite de la început — și ce vă recomandăm să nu construiți.",
     },
     {
       n: "03",
+      icon: "presentation",
       title: "Training",
-      body: "Îi învățăm pe manageri și pe angajați să folosească instrumentele, automatizările și AI-ul care contează pentru schimbările ce urmează — pe propriile sarcini și documente, ca noul mod de lucru să fie pregătit când vine sistemul.",
+      body: "Îi învățăm pe manageri și pe angajați să folosească instrumentele și AI-ul de care e nevoie, lucrând pe propriile sarcini.",
       output:
         "O echipă care știe să lucreze cu noile instrumente, plus fluxuri de lucru repetabile pe care le păstrează.",
     },
     {
       n: "04",
+      icon: "code",
       title: "Implementare",
-      body: "Proiectăm și construim soluțiile alese și le integrăm cu sistemele pe care le folosiți deja, lucrând alături de oamenii dumneavoastră — nu doar predăm un caiet de sarcini.",
+      body: "Proiectăm, construim și integrăm soluția cu sistemele pe care le folosiți deja.",
       output:
         "Soluții care rulează în producție și sunt folosite de oamenii pentru care au fost făcute.",
     },
     {
       n: "05",
+      icon: "chart",
       title: "Măsurare",
-      body: "Verificăm dacă eficiența, calitatea, costul sau viteza s-au schimbat față de ce am convenit la început, vă spunem deschis ce a funcționat și ce nu, și ajustăm.",
+      body: "Verificăm dacă s-au schimbat de fapt costul, viteza sau calitatea și ajustăm.",
       output:
         "Rezultate măsurate pe KPI-urile dumneavoastră și un plan pentru a extinde ce a funcționat.",
     },
@@ -499,25 +522,25 @@ export const testimonialsMeta = {
 
 export const layers = {
   eyebrow: "Trei niveluri, un singur partener",
-  body: "Digitalizarea eșuează când se întâmplă pe un singur nivel: conducerea cumpără un sistem, procesul rămâne neschimbat, iar echipa lucrează în continuare în tabelul vechi. Noi lucrăm pe toate cele trei niveluri deodată — și pentru că suntem aceiași oameni la fiecare nivel, nimic nu se pierde pe drum.",
+  body: "Digitalizarea eșuează când se întâmplă pe un singur nivel: conducerea cumpără un sistem, procesul rămâne la fel, iar echipa lucrează tot în tabelul vechi. Noi lucrăm pe toate trei deodată.",
   items: [
     {
       layer: "Conducerea",
+      icon: "compass",
       question: "Ce merită digitalizat?",
-      detail:
-        "Cu antreprenorii și managerii stabilim unde aduce tehnologia valoare, cât valorează asta, ce facem întâi — și ce e mai bine să lăsăm deoparte.",
+      detail: "Unde aduce tehnologia valoare, cât valorează și ce facem întâi.",
     },
     {
       layer: "Procesele",
+      icon: "flow",
       question: "Cum trebuie să se schimbe munca?",
-      detail:
-        "Cu șefii de departamente regândim fluxurile de lucru, predările și rapoartele în care trebuie să se integreze tehnologia, ca rezultatul să se vadă în cifre.",
+      detail: "Regândim fluxurile, predările și rapoartele, ca rezultatul să se vadă în cifre.",
     },
     {
       layer: "Oamenii",
+      icon: "users",
       question: "Cum va lucra echipa, concret, cu tehnologia?",
-      detail:
-        "Cu angajații care fac efectiv munca exersăm instrumentele, automatizările și AI-ul pe care le vor folosi zilnic, pe propriile lor sarcini.",
+      detail: "Exersăm cu echipa instrumentele și AI-ul pe care le va folosi zilnic.",
     },
   ] as Layer[],
 } as const;
@@ -535,11 +558,13 @@ export const aboutPage = {
   ],
   beliefsHeading: "Ce credem despre munca asta",
   beliefs: [
-    "Credem că software-ul și infrastructura digitală sunt printre cele mai bune investiții pe care le poate face o firmă — dar numai dacă sunt făcute cu cap. Destule firme cheltuiesc mult și se iau după ce e la modă, apoi se întreabă de ce banii nu s-au văzut niciodată în profit. Tehnologia e rar partea grea. Randamentul vine din a cheltui pe lucrul potrivit, din motivul potrivit, în ordinea potrivită — și din grija ca oamenii să îl poată folosi efectiv. Exact peste partea asta se sare cel mai des.",
-    "Mai credem că nimic nu costă mai puțin decât discuția purtată înainte să începeți. O conversație scurtă și sinceră cu cineva care a construit astfel de sisteme vă poate economisi luni de muncă și mult buget — pentru că prinde din start problema pusă greșit, lasă deoparte ideea care nu se amortizează și vă arată cel mai simplu lucru care chiar funcționează. Exact de aceea primul pas pe care îl propunem, Diagnosticul firmei, nu costă nimic.",
+    "Software-ul și infrastructura digitală sunt printre cele mai bune investiții pe care le poate face o firmă — dar numai dacă sunt făcute cu cap. Tehnologia e rar partea grea: randamentul vine din a cheltui pe lucrul potrivit, în ordinea potrivită, și din grija ca oamenii să îl poată folosi efectiv.",
+    "Iar nimic nu costă mai puțin decât discuția purtată înainte să începeți — de aceea primul nostru pas, Diagnosticul firmei, e gratuit.",
   ],
   whyHeading: "Cum ne place să lucrăm",
-  why: "Preferăm să fim utili, nu impresionanți. Nu avem produs, licență sau comision de vândut, așa că un „nu construiți asta” nu ne costă nimic — și doar așa un „construiți” înseamnă ceva. Iar pentru că am dus astfel de sisteme până la capăt, în condiții reale, vă putem spune deschis ce merită făcut, ce nu și cât costă de fapt — și nu vă recomandăm nimic din ce n-am fi dispuși să construim chiar noi — și să vă învățăm echipa să folosească.",
+  why: "Preferăm să fim utili, nu impresionanți. Nu luăm comisioane de la furnizori, așa că un „nu construiți asta” nu ne costă nimic — și doar așa un „construiți” înseamnă ceva. Iar pentru că am dus astfel de sisteme până la capăt, în condiții reale, vă putem spune deschis ce merită făcut, ce nu și cât costă de fapt — și nu vă recomandăm nimic din ce n-am fi dispuși să construim chiar noi — și să vă învățăm echipa să folosească.",
+  workHeading: "Câteva lucruri pe care le-am construit",
+  workSlugs: ["processly", "atlas-economic", "transit-analytics"],
   glanceHeading: "Pe scurt",
   glance: [
     "Construim sisteme AI și LLM de producție — retrieval-augmented generation, modele self-hosted și rezultate trecute prin validare",
@@ -617,7 +642,7 @@ export const contact = {
   asideEyebrow: "Linie directă",
   asideLead: "Preferați emailul sau vreți să ne contactați direct?",
   asidePoints: [
-    "Consultanță independentă, la nivel senior — nimic de vândut.",
+    "Consultanță independentă, la nivel senior — fără comisioane de la furnizori.",
     "Strategie, training și implementare, de la aceiași oameni.",
     "Răspuns în cel mult două zile lucrătoare.",
     "Fără discurs de vânzare, fără presiune.",
@@ -646,7 +671,7 @@ export const footer = {
 export const work = {
   eyebrow: "Proiecte alese",
   intro:
-    "Câteva lucruri pe care le-am proiectat și construit. Le arătăm ca să fie limpede un singur lucru: nu dăm doar sfaturi — construim. Tot de aici vine și trainingul nostru: predăm din experiența sistemelor pe care le-am construit și le-am operat. Mai jos: ce a cerut fiecare, tehnic și strategic, și ce înseamnă asta pentru un proiect al dumneavoastră.",
+    "Câteva lucruri pe care le-am proiectat și construit — dovada că nu dăm doar sfaturi, ci construim. Tot de aici vine și trainingul nostru.",
   projects: [
     {
       slug: "processly",
@@ -982,12 +1007,12 @@ export const trainingPage = {
     heading: "Puncte de plecare, nu un catalog fix.",
     intro: "Fiecare program se adaptează firmei dumneavoastră. Acestea sunt puncte de plecare obișnuite, pe care le combinăm și le potrivim instrumentelor, rolurilor și problemelor dumneavoastră.",
     items: [
-      { title: "AI în munca de zi cu zi", body: "AI practic pentru sarcinile obișnuite ale firmei — redactare, rezumate, căutare și analiză de documente și date — cu instrucțiuni și verificări construite pe munca dumneavoastră." },
-      { title: "AI pentru manageri", body: "Cum evaluați oportunitățile, costurile, riscurile și furnizorii de AI — și cum deosebiți un caz real de un demo scump." },
-      { title: "Productivitate digitală", body: "Cum scoateți mai mult din instrumentele pe care echipa le are deja: documente partajate, tabele și rapoarte, lucrul cu date și BI și micile automatizări care elimină munca repetitivă." },
-      { title: "Digitalizare pentru angajați", body: "Cum funcționează fluxurile de lucru digitale, automatizarea no-code și îmbunătățirea proceselor — ca angajații să vadă singuri pașii care merită schimbați în munca lor." },
-      { title: "AI și securitate cibernetică", body: "Cum folosiți AI-ul fără riscuri evitabile: ce date pot intra în ce instrumente, phishing și inginerie socială, plus reguli de folosire responsabilă pe care o echipă le poate respecta." },
-      { title: "Training personalizat pentru firmă", body: "Training construit integral pe instrumentele, fluxurile de lucru și procesele firmei dumneavoastră — inclusiv pentru lansarea unui sistem pe care l-am construit pentru dumneavoastră." },
+      { title: "AI în munca de zi cu zi", icon: "sparkle", body: "AI practic pentru sarcinile obișnuite ale firmei — redactare, rezumate, căutare și analiză de documente și date — cu instrucțiuni și verificări construite pe munca dumneavoastră." },
+      { title: "AI pentru manageri", icon: "compass", body: "Cum evaluați oportunitățile, costurile, riscurile și furnizorii de AI — și cum deosebiți un caz real de un demo scump." },
+      { title: "Productivitate digitală", icon: "bolt", body: "Cum scoateți mai mult din instrumentele pe care echipa le are deja: documente partajate, tabele și rapoarte, lucrul cu date și BI și micile automatizări care elimină munca repetitivă." },
+      { title: "Digitalizare pentru angajați", icon: "flow", body: "Cum funcționează fluxurile de lucru digitale, automatizarea no-code și îmbunătățirea proceselor — ca angajații să vadă singuri pașii care merită schimbați în munca lor." },
+      { title: "AI și securitate cibernetică", icon: "shield", body: "Cum folosiți AI-ul fără riscuri evitabile: ce date pot intra în ce instrumente, phishing și inginerie socială, plus reguli de folosire responsabilă pe care o echipă le poate respecta." },
+      { title: "Training personalizat pentru firmă", icon: "sliders", body: "Training construit integral pe instrumentele, fluxurile de lucru și procesele firmei dumneavoastră — inclusiv pentru lansarea unui sistem pe care l-am construit pentru dumneavoastră." },
     ] as Card[],
   },
 
@@ -999,30 +1024,35 @@ export const trainingPage = {
     steps: [
       {
         n: "01",
+        icon: "search",
         title: "Înțelegem punctul de plecare",
         body: "Vorbim cu managerii și cu câțiva oameni din echipă despre cum lucrează azi, ce instrumente folosesc și unde se duce timpul.",
         output: "O imagine clară a competențelor, instrumentelor și problemelor actuale.",
       },
       {
         n: "02",
+        icon: "target",
         title: "Alegem cazurile de utilizare",
         body: "Identificăm sarcinile în care o folosire mai bună a instrumentelor digitale, a automatizării sau a AI-ului ar face o diferență reală — și pe cele în care nu ar face.",
         output: "O listă scurtă de situații pe care merită să le lucrăm în training.",
       },
       {
         n: "03",
+        icon: "presentation",
         title: "Training pe munca reală",
         body: "Lucrăm pe sarcinile, documentele și programele echipei, nu pe exemple generice, și adaptăm sesiunile fiecărui rol și nivel.",
         output: "Sesiuni practice, pe care oamenii le pot aplica a doua zi.",
       },
       {
         n: "04",
+        icon: "document",
         title: "Documentăm ce funcționează",
         body: "Transformăm ce a funcționat în fluxuri de lucru scrise, colecții de instrucțiuni pentru AI, șabloane și reguli de folosire pe care echipa le păstrează.",
         output: "Fluxuri de lucru documentate și reguli clare pentru folosirea zilnică.",
       },
       {
         n: "05",
+        icon: "refresh",
         title: "Revenim",
         body: "Verificăm ce se folosește și ce nu, răspundem la întrebările care apar doar în munca de zi cu zi și ajustăm.",
         output: "O imagine clară a ceea ce s-a schimbat — și a ceea ce mai e de lucrat.",
@@ -1034,12 +1064,12 @@ export const trainingPage = {
     eyebrow: "Cine predă",
     heading: "Putem preda pentru că construim.",
     body: "Trainingul îl țin chiar oamenii care proiectează sisteme AI de producție, platforme de automatizare și fluxuri de date. De aceea sesiunile acoperă ce rezistă de fapt în practică — unde greșește AI-ul, ce presupune păstrarea datelor firmei în siguranță, cum verificați o cifră înainte să aveți încredere în ea — nu doar pe ce butoane se apasă.",
-    points: [
-      "Un asistent AI care rulează offline, pe echipamentele firmei — de aici vine felul în care predăm folosirea sigură și privată a AI-ului",
-      "Processly, o platformă de automatizare a fluxurilor de lucru — de aici vine felul în care învățăm echipele să descrie și să automatizeze munca repetitivă",
-      "Fluxuri de date și tablouri de bord pe date publice și operaționale — de aici vine trainingul nostru de date și BI",
-      "Experiență în ingineria de securitate pentru sisteme de producție — de aici vine trainingul nostru de AI și securitate cibernetică",
+    tiles: [
+      { slug: "restaurant-ai", caption: "Un asistent AI care rulează offline, pe echipamentele firmei — de aici vine felul în care predăm folosirea sigură și privată a AI-ului" },
+      { slug: "processly", caption: "Processly, platforma noastră de automatizare a fluxurilor de lucru — de aici vine felul în care învățăm echipele să automatizeze munca repetitivă" },
+      { slug: "transit-analytics", caption: "Tablouri de bord construite pe date operaționale brute — de aici vine trainingul nostru de date și BI" },
     ],
+    note: "Plus experiența în ingineria de securitate pentru sisteme de producție — de aici vine trainingul nostru de AI și securitate cibernetică.",
     link: { label: "Vedeți proiectele", href: "/#work" } as CTA,
   },
 
@@ -1276,7 +1306,7 @@ export const scorecardPage = {
       max: 100,
       name: "Pregătiți să porniți",
       headline: "Întrebarea nu e „dacă” — ci ce anume, și în ce ordine.",
-      body: "Pe hârtie, sunteți pregătiți: o problemă clar numită, date la care un sistem poate ajunge, buget, un responsabil și presiunea de a acționa. Între dumneavoastră și un câștig real stă un singur lucru: să alegeți proiectul cu care începeți și să ordonați bine pașii următori — pentru că, în acest punct, greșeala scumpă e să construiți trei lucruri pe jumătate în loc de unul care se amortizează. Exact aici își merită banii o părere scurtă și onestă din afară. Diagnosticul gratuit al firmei vă dă un verdict scris pentru fiecare variantă — construiți acum, încă nu sau nu construiți — inclusiv, spus limpede, când răspunsul onest e că nu e nimic de construit. Nu vindem niciun produs, nu avem nicio licență de vândut și nu luăm comision de la furnizori, așa că un „nu construiți” nu ne costă nimic — și doar de aceea un „construiți” din partea noastră înseamnă ceva.",
+      body: "Pe hârtie, sunteți pregătiți: o problemă clar numită, date la care un sistem poate ajunge, buget, un responsabil și presiunea de a acționa. Între dumneavoastră și un câștig real stă un singur lucru: să alegeți proiectul cu care începeți și să ordonați bine pașii următori — pentru că, în acest punct, greșeala scumpă e să construiți trei lucruri pe jumătate în loc de unul care se amortizează. Exact aici își merită banii o părere scurtă și onestă din afară. Diagnosticul gratuit al firmei vă dă un verdict scris pentru fiecare variantă — construiți acum, încă nu sau nu construiți — inclusiv, spus limpede, când răspunsul onest e că nu e nimic de construit. Nu luăm comisioane de la furnizori, așa că un „nu construiți” nu ne costă nimic — și doar de aceea un „construiți” din partea noastră înseamnă ceva.",
     },
   ] as ScorecardTier[],
   ui: {

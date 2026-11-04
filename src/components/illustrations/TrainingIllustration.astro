@@ -1,0 +1,147 @@
+---
+/* A hands-on session: the team's own document on screen, an AI answer
+   being checked line by line, and the people in the room. Text-free. */
+interface Props {
+  class?: string;
+}
+const { class: className = "" } = Astro.props;
+---
+
+<svg
+  class:list={["train-ill", className]}
+  viewBox="0 0 400 200"
+  role="presentation"
+  aria-hidden="true"
+  focusable="false"
+>
+  <defs>
+    <filter id="train-shadow" x="-15%" y="-15%" width="130%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="9" flood-color="#16304c" flood-opacity="0.13" />
+    </filter>
+  </defs>
+
+  <!-- Screen -->
+  <g filter="url(#train-shadow)">
+    <rect x="40" y="16" width="250" height="150" rx="10" class="tr-screen" />
+  </g>
+  <path d="M40 26a10 10 0 0 1 10-10h230a10 10 0 0 1 10 10v8H40z" class="tr-bar" />
+  <circle cx="54" cy="25" r="3" class="tr-dot" /><circle cx="64" cy="25" r="3" class="tr-dot" /><circle cx="74" cy="25" r="3" class="tr-dot" />
+
+  <!-- The team's own document -->
+  <rect x="54" y="46" width="88" height="106" rx="6" class="tr-doc" />
+  <rect x="64" y="56" width="44" height="7" rx="3.5" class="tr-doc-title" />
+  <rect x="64" y="72" width="66" height="5" rx="2.5" class="tr-line" />
+  <rect x="64" y="83" width="58" height="5" rx="2.5" class="tr-line" />
+  <rect x="64" y="94" width="64" height="5" rx="2.5" class="tr-highlight" />
+  <rect x="64" y="105" width="52" height="5" rx="2.5" class="tr-line" />
+  <rect x="64" y="116" width="62" height="5" rx="2.5" class="tr-line" />
+  <rect x="64" y="132" width="40" height="5" rx="2.5" class="tr-line" />
+
+  <!-- Prompt and AI answer -->
+  <rect x="156" y="46" width="118" height="26" rx="8" class="tr-prompt" />
+  <rect x="166" y="56" width="70" height="6" rx="3" class="tr-prompt-line" />
+  <path d="M248 59h12M255 54l5 5-5 5" class="tr-send" />
+  <rect x="156" y="80" width="118" height="72" rx="8" class="tr-answer" />
+  <path d="M166 93l3 3 6-6" class="tr-check" />
+  <rect x="182" y="91" width="76" height="5" rx="2.5" class="tr-answer-line" />
+  <path d="M166 111l3 3 6-6" class="tr-check" />
+  <rect x="182" y="109" width="64" height="5" rx="2.5" class="tr-answer-line" />
+  <circle cx="170.5" cy="130" r="5" class="tr-flag" />
+  <path d="M170.5 127.5v3M170.5 132.6v.1" class="tr-flag-mark" />
+  <rect x="182" y="127" width="70" height="5" rx="2.5" class="tr-answer-line" />
+
+  <!-- People in the session -->
+  <g class="tr-people">
+    <circle cx="324" cy="96" r="13" class="tr-head tr-head--a" />
+    <path d="M300 146c2-15 12-24 24-24s22 9 24 24z" class="tr-body tr-body--a" />
+    <circle cx="364" cy="110" r="11" class="tr-head tr-head--b" />
+    <path d="M344 154c2-13 10-20 20-20s18 7 20 20z" class="tr-body tr-body--b" />
+    <circle cx="300" cy="120" r="10" class="tr-head tr-head--c" />
+    <path d="M282 164c1.5-12 9-18 18-18s16.5 6 18 18z" class="tr-body tr-body--c" />
+  </g>
+  <path d="M30 180h340" class="tr-desk" />
+</svg>
+
+<style>
+  .train-ill {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .tr-screen {
+    fill: var(--color-paper);
+    stroke: var(--color-line);
+  }
+  .tr-bar {
+    fill: color-mix(in srgb, var(--color-ink) 6%, var(--color-paper));
+  }
+  .tr-dot {
+    fill: color-mix(in srgb, var(--color-ink) 18%, var(--color-paper));
+  }
+  .tr-doc {
+    fill: color-mix(in srgb, var(--color-ink) 3%, var(--color-paper));
+    stroke: var(--color-line);
+  }
+  .tr-doc-title {
+    fill: var(--color-ink);
+  }
+  .tr-line {
+    fill: color-mix(in srgb, var(--color-ink) 10%, var(--color-paper));
+  }
+  .tr-highlight {
+    fill: color-mix(in srgb, var(--color-steel-bright) 55%, var(--color-paper));
+  }
+  .tr-prompt {
+    fill: color-mix(in srgb, var(--color-ink) 5%, var(--color-paper));
+    stroke: var(--color-line);
+  }
+  .tr-prompt-line {
+    fill: color-mix(in srgb, var(--color-ink) 18%, var(--color-paper));
+  }
+  .tr-send {
+    fill: none;
+    stroke: var(--color-steel);
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .tr-answer {
+    fill: color-mix(in srgb, var(--color-steel) 9%, var(--color-paper));
+    stroke: color-mix(in srgb, var(--color-steel) 35%, var(--color-paper));
+  }
+  .tr-answer-line {
+    fill: color-mix(in srgb, var(--color-steel) 35%, var(--color-paper));
+  }
+  .tr-check {
+    fill: none;
+    stroke: var(--color-steel);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .tr-flag {
+    fill: #c2410c;
+  }
+  .tr-flag-mark {
+    stroke: #fff;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+  }
+  .tr-head--a,
+  .tr-body--a {
+    fill: var(--color-ink);
+  }
+  .tr-head--b,
+  .tr-body--b {
+    fill: var(--color-steel);
+  }
+  .tr-head--c,
+  .tr-body--c {
+    fill: var(--color-steel-bright);
+  }
+  .tr-desk {
+    stroke: var(--color-line);
+    stroke-width: 2;
+    stroke-linecap: round;
+  }
+</style>

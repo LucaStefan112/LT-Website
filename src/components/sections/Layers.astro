@@ -2,6 +2,8 @@
 import Section from "../ui/Section.astro";
 import Container from "../ui/Container.astro";
 import Reveal from "../ui/Reveal.astro";
+import Icon from "../ui/Icon.astro";
+import LayersIllustration from "../illustrations/LayersIllustration.astro";
 import { getContent } from "../../content/i18n";
 
 const { layers } = getContent(Astro.url.pathname);
@@ -14,16 +16,17 @@ const { layers } = getContent(Astro.url.pathname);
         <h2 id="layers-heading" class="eyebrow">{layers.eyebrow}</h2>
         <span class="rule" aria-hidden="true"></span>
         <p class="layers-body">{layers.body}</p>
+        <LayersIllustration items={layers.items} class="layers-visual" />
       </Reveal>
 
       <Reveal delay={90}>
         <ul role="list" class="levels">
           {
-            layers.items.map((level, i) => (
+            layers.items.map((level) => (
               <li class="level">
                 <span class="level-rule" aria-hidden="true" />
                 <p class="level-layer">
-                  <span aria-hidden="true">0{i + 1}</span>
+                  <Icon name={level.icon} size={18} />
                   {level.layer}
                 </p>
                 <h3 class="level-question">{level.question}</h3>
@@ -42,12 +45,16 @@ const { layers } = getContent(Astro.url.pathname);
     display: grid;
     grid-template-columns: 1fr;
     gap: clamp(2.5rem, 5vw, 4rem);
-    align-items: start;
+    align-items: center;
   }
   @media (min-width: 900px) {
     .layers-grid {
       grid-template-columns: 1fr 1fr;
     }
+  }
+  .layers-copy :global(.layers-visual) {
+    margin-top: clamp(2rem, 4vw, 2.75rem);
+    max-width: 26rem;
   }
   .layers-body {
     margin-top: 1.5rem;
@@ -80,7 +87,8 @@ const { layers } = getContent(Astro.url.pathname);
   }
   .level-layer {
     display: flex;
-    gap: 0.6rem;
+    align-items: center;
+    gap: 0.5rem;
     margin-bottom: 0.5rem;
     font-size: 0.75rem;
     font-weight: 600;

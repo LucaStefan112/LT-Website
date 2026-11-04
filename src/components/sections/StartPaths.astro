@@ -2,6 +2,8 @@
 import Container from "../ui/Container.astro";
 import Button from "../ui/Button.astro";
 import Reveal from "../ui/Reveal.astro";
+import DiagnosisIllustration from "../illustrations/DiagnosisIllustration.astro";
+import TrainingIllustration from "../illustrations/TrainingIllustration.astro";
 import { getContent } from "../../content/i18n";
 
 /* Two entry points: "what should we digitalize?" (the free diagnostic) and
@@ -27,6 +29,9 @@ const { startPaths } = getContent(Astro.url.pathname);
       {
         startPaths.paths.map((path, i) => (
           <li class="start-card reveal" style={`--reveal-delay:${i * 90}ms`}>
+            <div class="start-visual">
+              {i === 0 ? <DiagnosisIllustration /> : <TrainingIllustration />}
+            </div>
             <p class="start-question">{path.question}</p>
             <h3 class="start-card-title">{path.title}</h3>
             <p class="start-body">{path.body}</p>
@@ -87,9 +92,16 @@ const { startPaths } = getContent(Astro.url.pathname);
     flex-direction: column;
     background-color: var(--color-paper);
     border: 1px solid var(--color-line);
-    border-top: 3px solid var(--color-steel);
-    border-radius: 14px;
-    padding: clamp(1.5rem, 3vw, 2.25rem);
+    border-radius: 16px;
+    overflow: hidden;
+    padding: 0 clamp(1.5rem, 3vw, 2.25rem) clamp(1.5rem, 3vw, 2.25rem);
+  }
+  /* Full-bleed visual band at the top of each card */
+  .start-visual {
+    margin: 0 calc(-1 * clamp(1.5rem, 3vw, 2.25rem)) 1.5rem;
+    padding: 1.25rem clamp(1rem, 3vw, 2rem) 0.75rem;
+    background-color: color-mix(in srgb, var(--color-steel) 7%, var(--color-paper));
+    border-bottom: 1px solid var(--color-line);
   }
   .start-question {
     font-size: 1.0625rem;

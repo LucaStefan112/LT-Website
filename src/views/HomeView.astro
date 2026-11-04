@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import Hero from '../components/sections/Hero.astro';
+import Partners from '../components/sections/Partners.astro';
 import IntroBand from '../components/sections/IntroBand.astro';
 import Pillars from '../components/sections/Pillars.astro';
 import Approach from '../components/sections/Approach.astro';
@@ -18,9 +19,10 @@ const meta = pageMeta.home;
 
 <Base title={meta.title} description={meta.description} path={meta.path}>
   <Hero />
+  <Partners />
   <IntroBand />
   <Layers />
-  <Approach more={approach.more} />
+  <Approach more={approach.more} compact />
   <Pillars />
   <Work />
   <Statement />

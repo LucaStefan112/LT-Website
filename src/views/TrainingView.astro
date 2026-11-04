@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
 import Base from "../layouts/Base.astro";
 import Container from "../components/ui/Container.astro";
 import Section from "../components/ui/Section.astro";
@@ -8,13 +10,24 @@ import Reveal from "../components/ui/Reveal.astro";
 import PageIntro from "../components/sections/PageIntro.astro";
 import Approach from "../components/sections/Approach.astro";
 import CTABand from "../components/sections/CTABand.astro";
-import { getContent } from "../content/i18n";
+import Icon from "../components/ui/Icon.astro";
+import TrainingIllustration from "../components/illustrations/TrainingIllustration.astro";
+import { getContent, resolveLocale, localePath } from "../content/i18n";
 
 /* /training — training & enablement as one stage of digitalization, not a
    course catalogue. Sections: why → who → formats → how → who teaches it
    (technical credibility) → where it leads (the bridge to implementation). */
-const { pageMeta, trainingPage: tp, site } = getContent(Astro.url.pathname);
+const { pageMeta, trainingPage: tp, site, work } = getContent(Astro.url.pathname);
 const meta = pageMeta.training;
+const locale = resolveLocale(Astro.url.pathname);
+
+// "Who teaches it" tiles: the real builds behind each kind of training.
+const workImages = import.meta.glob<{ default: ImageMetadata }>("../assets/work/*.png", { eager: true });
+const tiles = tp.credibility.tiles.map((tile) => {
+  const project = work.projects.find((p) => p.slug === tile.slug)!;
+  const image = project.image ? workImages[`../assets/work/${project.image}.png`]?.default : undefined;
+  return { ...tile, project, image };
+});
 ---
 
 <Base title={meta.title} description={meta.description} path={meta.path}>
@@ -40,6 +53,7 @@ const meta = pageMeta.training;
         </svg>
       </span>
     </a>
+    <TrainingIllustration slot="visual" />
   </PageIntro>
 
   {/* Why: the business case for training, as outcomes */}
@@ -97,6 +111,9 @@ const meta = pageMeta.training;
         {
           tp.formats.items.map((f, i) => (
             <li class="card tr-format reveal" style={`--reveal-delay:${(i % 3) * 90}ms`}>
+              <span class="tr-format-icon">
+                <Icon name={f.icon ?? "target"} size={24} />
+              </span>
               <h3 class="card-title">{f.title}</h3>
               <p class="tr-item-body">{f.body}</p>
             </li>
@@ -119,17 +136,48 @@ const meta = pageMeta.training;
           <h2 id="tr-cred-heading" class="section-title tr-cred-title">
             {tp.credibility.heading}
           </h2>
-          <p class="lead tr-cred-body">{tp.credibility.body}</p>
-          <a href={tp.credibility.link.href} class="link-arrow tr-cred-link">
-            {tp.credibility.link.label}
-            <span class="arrow" aria-hidden="true">→</span>
-          </a>
         </Reveal>
         <Reveal delay={90}>
-          <ul class="tr-cred-points" role="list">
-            {tp.credibility.points.map((p) => <li>{p}</li>)}
-          </ul>
+          <p class="lead tr-cred-body">{tp.credibility.body}</p>
         </Reveal>
+      </div>
+
+      <ul class="tr-tiles" role="list">
+        {
+          tiles.map((tile, i) => (
+            <li class="reveal" style={`--reveal-delay:${i * 90}ms`}>
+              <a href={localePath(locale, `/work/${tile.slug}`)} class="tr-tile" style={`--accent:${tile.project.accent}`}>
+                <div class="tr-tile-media">
+                  {tile.image ? (
+                    <Image src={tile.image} alt="" widths={[400, 720]} sizes="(min-width: 960px) 30vw, 92vw" loading="lazy" />
+                  ) : (
+                    <div class="tr-tile-arch" aria-hidden="true">
+                      <span class="tr-arch-node">Chat</span>
+                      <span class="tr-arch-link" />
+                      <span class="tr-arch-node tr-arch-node--accent">Python API</span>
+                      <span class="tr-arch-link" />
+                      <span class="tr-arch-row">
+                        <span class="tr-arch-node">Ollama</span>
+                        <span class="tr-arch-node">Qdrant</span>
+                        <span class="tr-arch-node">PostgreSQL</span>
+                      </span>
+                    </div>
+                  )}
+                </div>
+                <p class="tr-tile-name">{tile.project.name}</p>
+                <p class="tr-tile-caption">{tile.caption}</p>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+
+      <div class="tr-cred-foot reveal">
+        <p class="tr-cred-note">{tp.credibility.note}</p>
+        <a href={tp.credibility.link.href} class="link-arrow tr-cred-link">
+          {tp.credibility.link.label}
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
       </div>
     </Container>
   </section>
@@ -294,12 +342,15 @@ const meta = pageMeta.training;
   .tr-cred-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: clamp(2.5rem, 5vw, 4rem);
-    align-items: start;
+    gap: 0 clamp(2.5rem, 5vw, 4rem);
+    align-items: end;
   }
   @media (min-width: 960px) {
     .tr-cred-grid {
       grid-template-columns: 1fr 1fr;
+    }
+    .tr-cred-grid .tr-cred-body {
+      margin-top: 0;
     }
   }
   .tr-cred-title {
@@ -312,25 +363,130 @@ const meta = pageMeta.training;
     max-width: 48ch;
   }
   .tr-cred-link {
-    margin-top: 1.5rem;
     font-weight: 600;
+    flex: none;
   }
-  .tr-cred-points {
+
+  /* Real builds as image tiles */
+  .tr-tiles {
     list-style: none;
-    margin: 0;
+    margin: clamp(2.5rem, 5vw, 3.5rem) 0 0;
     padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  @media (min-width: 768px) {
+    .tr-tiles {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+  }
+  .tr-tile {
     display: flex;
     flex-direction: column;
+    height: 100%;
+    padding: 0.75rem 0.75rem 1.25rem;
+    border-radius: 16px;
+    border: 1px solid var(--color-line-dark);
+    background-color: color-mix(in srgb, #fff 4%, transparent);
+    text-decoration: none;
+    transition:
+      border-color 0.2s var(--ease-out-soft),
+      transform 0.3s var(--ease-out-soft);
   }
-  .tr-cred-points li {
-    padding-block: 1.1rem;
-    border-top: 1px solid var(--color-line-dark);
-    color: color-mix(in srgb, var(--color-bone) 88%, transparent);
+  .tr-tile:hover {
+    border-color: var(--color-steel-bright);
+    transform: translateY(-3px);
+  }
+  .tr-tile-media {
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: var(--color-paper);
+  }
+  .tr-tile-media :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top left;
+  }
+  .tr-tile-name {
+    margin: 1rem 0.5rem 0;
     font-size: 1.0625rem;
-    line-height: 1.55;
+    font-weight: 600;
+    color: #fff;
   }
-  .tr-cred-points li:last-child {
-    border-bottom: 1px solid var(--color-line-dark);
+  .tr-tile-caption {
+    margin: 0.4rem 0.5rem 0;
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    color: color-mix(in srgb, var(--color-bone) 78%, transparent);
+  }
+  /* Mini architecture for the build that has no screenshot */
+  .tr-tile-arch {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    padding: 1rem;
+    background-color: color-mix(in srgb, var(--accent) 7%, var(--color-paper));
+  }
+  .tr-arch-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.4rem;
+  }
+  .tr-arch-node {
+    padding: 0.35rem 0.7rem;
+    border-radius: 8px;
+    border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--color-line));
+    background-color: var(--color-paper);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-ink);
+  }
+  .tr-arch-node--accent {
+    background-color: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
+  .tr-arch-link {
+    width: 2px;
+    height: 14px;
+    background-color: color-mix(in srgb, var(--accent) 45%, transparent);
+  }
+  .tr-cred-foot {
+    margin-top: clamp(2rem, 4vw, 2.75rem);
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-line-dark);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem 2rem;
+  }
+  .tr-cred-note {
+    margin: 0;
+    max-width: 60ch;
+    color: color-mix(in srgb, var(--color-bone) 82%, transparent);
+    font-size: 1rem;
+  }
+
+  /* Format cards */
+  .tr-format-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    margin-bottom: 1.1rem;
+    border-radius: 12px;
+    color: var(--color-steel);
+    background-color: color-mix(in srgb, var(--color-steel) 10%, var(--color-paper));
   }
 
   /* Where it leads */

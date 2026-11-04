@@ -3,6 +3,7 @@ import Section from "../ui/Section.astro";
 import Container from "../ui/Container.astro";
 import SectionHeader from "../ui/SectionHeader.astro";
 import Button from "../ui/Button.astro";
+import Icon from "../ui/Icon.astro";
 import { getContent } from "../../content/i18n";
 
 const { services } = getContent(Astro.url.pathname);
@@ -38,10 +39,10 @@ const { showHeader = true, variant = "bone" } = Astro.props;
         services.items.map((item, i) => (
           <li class="service reveal" style={`--reveal-delay:${(i % 2) * 90}ms`}>
             <span class="service-rule" aria-hidden="true" />
-            <p class="service-stage">
-              <span aria-hidden="true">0{i + 1}</span>
-              {item.stage}
-            </p>
+            <span class="service-icon">
+              <Icon name={item.icon} size={24} />
+            </span>
+            <p class="service-stage">{item.stage}</p>
             <h3 class="service-title">{item.title}</h3>
             <p class="service-body">{item.body}</p>
             <p class="service-deliv-label">{services.deliverablesLabel}</p>
@@ -131,9 +132,19 @@ const { showHeader = true, variant = "bone" } = Astro.props;
     height: 2px;
     background-color: var(--color-steel);
   }
+  .service-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    margin-bottom: 1.1rem;
+    border-radius: 14px;
+    color: var(--color-steel);
+    background-color: color-mix(in srgb, var(--color-steel) 10%, var(--color-paper));
+    border: 1px solid color-mix(in srgb, var(--color-steel) 22%, var(--color-paper));
+  }
   .service-stage {
-    display: flex;
-    gap: 0.6rem;
     margin-bottom: 0.6rem;
     font-size: 0.75rem;
     font-weight: 600;

@@ -23,10 +23,12 @@ export interface NavItem {
 export interface Card {
   title: string;
   body: string;
+  icon?: string; // name from components/ui/Icon.astro
 }
 
 export interface Service {
   stage: string; // which part of the offer: Strategy / Training / Implementation / Improvement
+  icon: string; // name from components/ui/Icon.astro
   title: string;
   body: string;
   deliverables: string[];
@@ -35,6 +37,7 @@ export interface Service {
 
 export interface Layer {
   layer: string; // Leadership / Processes / People
+  icon: string; // name from components/ui/Icon.astro
   question: string;
   detail: string;
 }
@@ -50,6 +53,7 @@ export interface StartPath {
 
 export interface Step {
   n: string;
+  icon?: string; // name from components/ui/Icon.astro
   title: string;
   body: string;
   output: string;
@@ -140,7 +144,7 @@ export const site = {
   url: "https://ltstrategypartners.com",
   tagline: "First the problem. Then the solution.",
   description:
-    "Digitalization and AI consulting for companies. We find where technology will actually pay off, train your managers and teams to use it in their real work, and design and build the solutions ourselves. Independent — no product to sell.",
+    "Digitalization and AI consulting for companies. We find where technology will actually pay off, train your managers and teams to use it in their real work, and design and build the solutions ourselves. Independent of any software vendor.",
   email: "luca.tamas@ltstrategypartners.com",
   phone: "+40734950060", // used for the tel: link
   phoneDisplay: "+40 734 950 060", // shown to readers
@@ -191,6 +195,21 @@ export const legalNav: NavItem[] = [
   { label: "Terms", href: "/en/terms" },
 ];
 
+/* ------------------------------------------------------------- Partners */
+/* Clients and institutions supplied by the founder. Names only — add a
+   logo only once that company has agreed to its logo being shown. */
+
+export const partners = {
+  eyebrow: "Companies and institutions we've worked with",
+  names: [
+    "ProInvest",
+    "Enovis",
+    "CJRAE Iași",
+    "Casa Bolta Rece",
+    "Carmangeria Boierilor",
+  ],
+} as const;
+
 /* --------------------------------------------------------------- Hero */
 
 export const hero = {
@@ -203,14 +222,14 @@ export const hero = {
   primaryCta: site.primaryCta,
   // Low-commitment path alongside the direct one (Task 5).
   secondaryCta: site.assessmentCta,
-  trustLine: "No product to sell · We train the people who use it · We build what we recommend",
+  trustLine: "Independent of vendors · We train the people who use it · We build what we recommend",
 } as const;
 
 /* -------------------------------------------------- The problem we solve */
 
 export const intro = {
   eyebrow: "Start with the problem",
-  body: "Margin thinning and nobody can say exactly where. The same numbers re-keyed into three systems. A tool the company paid for that half the team works around. Problems like these are rarely where everyone assumes — and rarely solved by technology alone. So we start by listening: how the work really flows, where it stalls, what it costs, and how people use the tools they already have. Then we fix what's worth fixing — with a process change, training, or a system we build.",
+  body: "Margin thinning and nobody can say where. The same order re-keyed into three systems. A tool the company paid for that half the team works around. Problems like these are rarely solved by technology alone — so we start with how the work really runs.",
 } as const;
 
 /* ------------------------------------------------------- Value pillars */
@@ -220,15 +239,18 @@ export const pillars = {
   items: [
     {
       title: "Business first, technology second.",
-      body: "We start with your numbers and how the work actually runs, not with a tool. That's how we find where technology pays — and why “don't build anything” is a normal outcome. No product, no license and no vendor commission to steer us.",
+      body: "We start with your numbers and how the work runs, not with a tool. We don't resell software or take vendor commissions, so nothing tilts the advice.",
+      icon: "target",
     },
     {
       title: "We teach what we build.",
-      body: "Our training comes from the people who design and run these systems — so it covers what works in practice, where AI goes wrong, and how to use it safely. Taught on your team's real tasks, not generic slides.",
+      body: "Our training comes from people who build these systems: what works in practice, where AI goes wrong, and how to use it safely.",
+      icon: "presentation",
     },
     {
       title: "We build what we recommend.",
-      body: "Most advisors hand over a recommendation and leave. We design, build and integrate the solution ourselves, stay until it's used, and measure the result against the numbers we agreed with you.",
+      body: "We design, build and integrate the solution ourselves, and stay until it's used and the result is measured.",
+      icon: "code",
     },
   ] as Card[],
 } as const;
@@ -244,8 +266,9 @@ export const services = {
   items: [
     {
       stage: "Strategy",
+      icon: "compass",
       title: "Digitalization Strategy & Advisory",
-      body: "You can usually feel where the business leaks — quotes going out late, stock sitting still, the same numbers re-keyed by hand — but not which fix is worth doing first. We put a number on each against your P&L, separate the few opportunities worth pursuing from the many that aren't, and stay on as the independent voice for the vendor, spend and build-vs-buy calls that follow. Sometimes the honest conclusion is that none of them are worth it.",
+      body: "You can feel where the business leaks — late quotes, idle stock, numbers re-keyed by hand — but not which fix to do first. We put a number on each, pick the few worth pursuing, and stay on as an independent voice for the vendor and build-vs-buy calls that follow.",
       deliverables: [
         "A ranked map of what's actually costing you, by value and effort",
         "Sized business cases and a sequenced roadmap with owners and decision points",
@@ -254,8 +277,9 @@ export const services = {
     },
     {
       stage: "Training & enablement",
+      icon: "presentation",
       title: "Digital Capability & Training",
-      body: "Technology only creates value when people know how to use it. We train managers and employees on the AI, automation, data and digital tools that matter for their actual work — built around your processes, your software and their roles, not a generic syllabus.",
+      body: "Technology only creates value when people know how to use it. We train managers and employees on the AI, automation, data and digital tools that matter for their work — built on your processes and software, not a generic syllabus.",
       deliverables: [
         "Practical training for managers and teams: AI at work, automation, data & BI, digital security",
         "Exercises built on your own tasks, tools and documents",
@@ -265,8 +289,9 @@ export const services = {
     },
     {
       stage: "Implementation",
+      icon: "code",
       title: "Implementation & Delivery",
-      body: "The usual failure isn't the plan — it's that nobody builds it. We design, build, integrate and deploy the solution ourselves — internal tools, process automation, data pipelines and dashboards, AI systems — working alongside your team so the knowledge stays in-house. Working software over slideware, and we stay until it's live, used, and handed over cleanly.",
+      body: "The usual failure isn't the plan — it's that nobody builds it. We design, build and integrate the solution ourselves — internal tools, automation, dashboards, AI systems — and stay until it's live, used and handed over cleanly.",
       deliverables: [
         "A working solution running in production",
         "Integration into your existing systems and workflows",
@@ -275,8 +300,9 @@ export const services = {
     },
     {
       stage: "Improvement",
+      icon: "chart",
       title: "Operational Performance",
-      body: "A new tool changes nothing if the work around it stays the same — that's how a gain shows up in the demo and never in the accounts. We redesign how the work actually flows, then put measurement in place so the gain is visible and holds after we leave.",
+      body: "A new tool changes nothing if the work around it stays the same. We redesign how the work flows, then put measurement in place so the gain is visible and holds after we leave.",
       deliverables: [
         "Redesigned processes mapped to the new tools",
         "A measurement framework tied to your KPIs",
@@ -290,7 +316,7 @@ export const services = {
   ai: {
     eyebrow: "Where AI fits",
     title: "AI, when it's genuinely the right answer.",
-    body: "AI is one tool within digitalization, not the whole of it — and the one we go deepest in. That's exactly why we can tell you where it genuinely moves your numbers and where it's an expensive distraction, build it so it survives real users, and teach your team to use it safely. We've built exactly this, including a retrieval-augmented assistant that runs entirely on hardware a business already owns.",
+    body: "AI is one tool within digitalization, not the whole of it — and the one we know best. So we can tell you where it genuinely moves your numbers, build it to survive real users, and teach your team to use it safely.",
     points: [
       {
         title: "Where AI pays off",
@@ -320,16 +346,15 @@ export const startPaths = {
   eyebrow: "Where to start",
   heading: "Two ways in. Either can lead to a working solution.",
   intro:
-    "Companies usually come to us with one of two questions. Both are good starting points — and when a concrete opportunity turns up along the way, we can build it.",
+    "Companies usually come to us with one of two questions. Either is a good place to start.",
   paths: [
     {
       question: "“We need to work out what to digitalize.”",
       title: "The Business Diagnostic",
-      body: "We look at how the business actually runs and, in two to four weeks, give you a written diagnosis: what's really holding you back, what's worth fixing first, and what each fix would take — a system, a process change, training, or nothing at all.",
+      body: "In two to four weeks you get a written diagnosis: what's holding you back, what to fix first, and what each fix would take.",
       points: [
-        "A 3–5 page written diagnosis, built to be shown to your board",
-        "Every problem sized by what it costs you and how hard it is to fix",
-        "A blunt call on the one thing to fix first — and the reason behind it",
+        "A 3–5 page diagnosis, built to be shown to your board",
+        "A blunt call on the one thing to fix first",
       ],
       note: "Free — we run it ourselves, capped at three per month.",
       cta: site.assessmentCta,
@@ -337,18 +362,17 @@ export const startPaths = {
     {
       question: "“We want our people to get better with AI and digital tools.”",
       title: "Training & enablement",
-      body: "Practical training for managers and employees on AI, automation, data and digital tools — built around your processes, your software and their roles, so it changes how the work gets done the following week.",
+      body: "Practical training on AI, automation, data and digital tools — built on your processes, your software and your people's roles.",
       points: [
-        "Tailored to your team's real tasks and the tools you already have",
-        "For leadership, office and operational teams — technical or not",
-        "Ends with workflows the team keeps using, and a clear view of what's worth automating",
+        "For leadership, office and operational teams",
+        "Ends with workflows the team keeps using",
       ],
       note: "Format, length and group size agreed with you.",
       cta: { label: "Explore the training", href: "/en/training" },
     },
   ] as StartPath[],
   footnote:
-    "The two often meet. Training tends to surface the processes worth automating; a diagnosis sometimes concludes that a team needs training before it needs a new system. Implementation follows only when there's a concrete case for it.",
+    "The two often meet: training shows what's worth automating, and when there's a concrete case, we build it.",
 } as const;
 
 /* -------------------------- Gate Zero: the /assessment offer page content */
@@ -377,7 +401,7 @@ export const assessmentPage = {
     heading: "Most advice arrives with the answer already chosen.",
     paragraphs: [
       "You already know something is wrong; what you don't have is a name for it. Margin that used to be there and isn't. Stock sitting still while more of it gets ordered. The same order typed into three systems by three people. A decision on hold until someone finishes the report. Quotes going out two days late and nobody able to say why. Half of what makes the firm work living in two people's heads.",
-      "Take that to most people and you get their product back: the software company finds a software problem, the AI vendor finds an AI problem, the consultancy finds a strategy problem. We sell no product, hold no license and take no commission from anyone — which is exactly why we can afford to look at your business first and then tell you the cause is a pricing rule, a handover nobody owns, a tool nobody was shown how to use, or a report nobody trusts. And when the answer is something that has to be built, we build it.",
+      "Take that to most people and you get their product back: the software company finds a software problem, the AI vendor finds an AI problem, the consultancy finds a strategy problem. We take no commission from any vendor — which is exactly why we can afford to look at your business first and then tell you the cause is a pricing rule, a handover nobody owns, a tool nobody was shown how to use, or a report nobody trusts. And when the answer is something that has to be built, we build it.",
     ],
   },
 
@@ -495,36 +519,41 @@ export const approach = {
   more: { label: "See the services in detail", href: "/en/services" } as CTA,
   outputLabel: "What you get",
   title: "Five stages, from diagnosis to measured result.",
-  intro: "One structured program, run by the same people from start to finish. Training isn't a separate service bolted on — it's the stage that makes the implementation stick. You can start with the diagnosis or with training, and stop wherever the next stage isn't worth it.",
+  intro: "One program, run by the same people from start to finish. Start with the diagnosis or with training — and stop wherever the next stage isn't worth it.",
   steps: [
     {
       n: "01",
+      icon: "search",
       title: "Diagnose",
-      body: "We listen to you, to the people doing the work, and to your numbers — then follow a few real processes end to end to see where the time, the money and the manual work actually go.",
+      body: "We follow a few real processes end to end to see where the time, the money and the manual work go.",
       output: "A written picture of your real problems and opportunities, ranked by what they cost you.",
     },
     {
       n: "02",
+      icon: "ranking",
       title: "Prioritize",
-      body: "Together we separate what's worth doing from what you can live with, and put a number on each. Some fixes need no software at all; anything that would be built goes through Gate Zero.",
+      body: "We separate what's worth doing from what isn't, and put a number on each.",
       output: "A ranked shortlist with success measures agreed up front — and what we advise you not to build.",
     },
     {
       n: "03",
+      icon: "presentation",
       title: "Enable",
-      body: "We train managers and employees on the tools, automation and AI that matter for the changes ahead — on their own tasks and documents, so the new way of working is ready when the system arrives.",
+      body: "We train managers and teams on the tools and AI the change needs, using their own work.",
       output: "A team that knows how to use the tools, and repeatable workflows it keeps using.",
     },
     {
       n: "04",
+      icon: "code",
       title: "Implement",
-      body: "We design, build and integrate the selected solutions with the systems you already run, working alongside your people rather than handing over a specification.",
+      body: "We design, build and integrate the solution with the systems you already run.",
       output: "Working solutions in production, used by the people they're for.",
     },
     {
       n: "05",
+      icon: "chart",
       title: "Measure",
-      body: "We check whether efficiency, quality, cost or speed actually moved against the measures agreed at the start, tell you plainly what worked and what didn't, and adjust.",
+      body: "We check whether cost, speed or quality actually moved, and adjust.",
       output: "Measured results on your KPIs, and a plan to extend what worked.",
     },
   ] as Step[],
@@ -562,22 +591,25 @@ export const testimonialsMeta = {
 
 export const layers = {
   eyebrow: "Three layers, one partner",
-  body: "Digitalization fails when it happens on only one level: leadership buys a system, nobody changes the process, and the team keeps the old spreadsheet. We work on all three at once — and because it's the same people at every level, nothing gets lost between them.",
+  body: "Digitalization fails when it happens on one level only: leadership buys a system, the process stays the same, and the team keeps the old spreadsheet. We work on all three at once.",
   items: [
     {
       layer: "Leadership",
+      icon: "compass",
       question: "What should we digitalize?",
-      detail: "With owners and managers: where technology creates value in the business, what it's worth, what to do first — and what to leave alone.",
+      detail: "Where technology creates value, what it's worth, and what to do first.",
     },
     {
       layer: "Processes",
+      icon: "flow",
       question: "How should the work change?",
-      detail: "With department and function leads: redesigning the workflows, handovers and reports the technology has to fit into, so the gain shows up in the numbers.",
+      detail: "Redesigning workflows, handovers and reports so the gain shows up in the numbers.",
     },
     {
       layer: "People",
+      icon: "users",
       question: "How will the team actually use it?",
-      detail: "With the employees who do the work: practical training on the tools, automation and AI they'll use every day, built around their own tasks.",
+      detail: "Hands-on practice with the tools and AI the team will use every day.",
     },
   ] as Layer[],
 } as const;
@@ -595,11 +627,13 @@ export const aboutPage = {
   ],
   beliefsHeading: "What we believe about this work",
   beliefs: [
-    "We believe software and a company's digital infrastructure are among the best investments a business can make — but only when they are made thoughtfully. Plenty of organizations spend heavily and follow whatever is trending, then wonder why the money never reached the bottom line. The technology is rarely the hard part. Spending on the right thing, for the right reason, in the right order — and making sure people can actually use it — is where the return comes from, and it is the part most often skipped.",
-    "We also believe the cheapest money you will ever spend is the conversation before you start. A short, honest talk with someone who has built these systems can save months of work and a lot of budget — by catching the wrong problem early, setting aside the idea that will not pay off, and pointing you at the simplest thing that actually works. That is exactly why the first step we offer, the Business Diagnostic, costs nothing.",
+    "Software and digital infrastructure are among the best investments a business can make — but only when made thoughtfully. The technology is rarely the hard part: the return comes from spending on the right thing, in the right order, and making sure people can actually use it.",
+    "And the cheapest money you'll ever spend is the conversation before you start — which is why our first step, the Business Diagnostic, costs nothing.",
   ],
   whyHeading: "How we like to work",
-  why: "We would rather be useful than impressive. We have no product, no license and no vendor commission to sell, so telling you not to build something costs us nothing — which is the only condition under which a “build this” means anything. And because we have had to make these systems work in the real world, we can tell you plainly what is worth doing, what is not, and what it will really take — we will not recommend anything we would not be willing to build ourselves, or teach your team to use.",
+  why: "We would rather be useful than impressive. We take no vendor commissions, so telling you not to build something costs us nothing — which is the only condition under which a “build this” means anything. And because we have had to make these systems work in the real world, we can tell you plainly what is worth doing, what is not, and what it will really take — we will not recommend anything we would not be willing to build ourselves, or teach your team to use.",
+  workHeading: "Some of what we've built",
+  workSlugs: ["processly", "atlas-economic", "transit-analytics"],
   glanceHeading: "Background at a glance",
   glance: [
     "Builds production AI and LLM systems — retrieval-augmented generation, self-hosted models, and outputs kept behind validation",
@@ -659,7 +693,7 @@ export const contact = {
   asideEyebrow: "Direct line",
   asideLead: "Prefer email, or want to reach us straight away?",
   asidePoints: [
-    "Independent and senior — no product to sell you.",
+    "Independent and senior — no vendor commissions.",
     "Strategy, training and implementation from the same people.",
     "A reply within two business days.",
     "No sales script, no pressure.",
@@ -689,7 +723,7 @@ export const work = {
   eyebrow: "Selected work",
   // Founder-led voice (Task 2): no "team".
   intro:
-    "A few things we've designed and built. We show them to make one point plainly: we don't just advise — we ship. It's also why our training holds up: we teach from systems we've built and run. Here is what each took, technically and strategically, and what it means for the work we could do together.",
+    "A few things we've designed and built — proof that we don't just advise, we ship. It's also where our training comes from.",
   projects: [
     {
       slug: "processly",
@@ -1033,12 +1067,12 @@ export const trainingPage = {
     heading: "Starting points, not a fixed catalogue.",
     intro: "Every program is adapted to your company. These are typical starting points, which we combine and tailor to your tools, roles and problems.",
     items: [
-      { title: "AI at Work", body: "Practical AI for everyday business tasks — drafting, summarizing, searching and analysing documents and data — with prompts and checks built on your own work." },
-      { title: "AI for Managers", body: "How to evaluate AI opportunities, costs, risks and vendors — and how to tell a real use case from an expensive demo." },
-      { title: "Digital Productivity", body: "Getting more out of the tools your team already has: shared documents, spreadsheets and reports, working with data and BI, and the small automations that remove repetitive work." },
-      { title: "Digitalization for Employees", body: "How digital workflows, no-code automation and process improvement work — so employees can spot the steps worth changing in their own job." },
-      { title: "AI & Cybersecurity", body: "Using AI without creating avoidable risk: what data may go into which tools, phishing and social engineering, and responsible-use rules a team can follow." },
-      { title: "Custom Company Training", body: "Training built entirely on your organization's tools, workflows and processes — including rollout training for a system we've built for you." },
+      { title: "AI at Work", icon: "sparkle", body: "Practical AI for everyday business tasks — drafting, summarizing, searching and analysing documents and data — with prompts and checks built on your own work." },
+      { title: "AI for Managers", icon: "compass", body: "How to evaluate AI opportunities, costs, risks and vendors — and how to tell a real use case from an expensive demo." },
+      { title: "Digital Productivity", icon: "bolt", body: "Getting more out of the tools your team already has: shared documents, spreadsheets and reports, working with data and BI, and the small automations that remove repetitive work." },
+      { title: "Digitalization for Employees", icon: "flow", body: "How digital workflows, no-code automation and process improvement work — so employees can spot the steps worth changing in their own job." },
+      { title: "AI & Cybersecurity", icon: "shield", body: "Using AI without creating avoidable risk: what data may go into which tools, phishing and social engineering, and responsible-use rules a team can follow." },
+      { title: "Custom Company Training", icon: "sliders", body: "Training built entirely on your organization's tools, workflows and processes — including rollout training for a system we've built for you." },
     ] as Card[],
   },
 
@@ -1051,30 +1085,35 @@ export const trainingPage = {
     steps: [
       {
         n: "01",
+        icon: "search",
         title: "Understand the starting point",
         body: "We talk to managers and a few people from the team about how they work today, which tools they use, and where the time goes.",
         output: "A clear picture of current skills, tools and pain points.",
       },
       {
         n: "02",
+        icon: "target",
         title: "Pick the use cases",
         body: "We identify the tasks where better use of digital tools, automation or AI would make a real difference — and the ones where it wouldn't.",
         output: "A short list of use cases worth training on.",
       },
       {
         n: "03",
+        icon: "presentation",
         title: "Train on real work",
         body: "Sessions use your team's own tasks, documents and software instead of generic examples, adapted to each role and level.",
         output: "Hands-on sessions people can apply the next day.",
       },
       {
         n: "04",
+        icon: "document",
         title: "Make it repeatable",
         body: "We turn what worked into written workflows, prompt libraries, templates and usage guidelines the team keeps using.",
         output: "Documented workflows and clear rules for everyday use.",
       },
       {
         n: "05",
+        icon: "refresh",
         title: "Follow up",
         body: "We check what's being used and what isn't, answer the questions that only come up in daily work, and adjust.",
         output: "A view of what changed — and what still needs work.",
@@ -1086,12 +1125,13 @@ export const trainingPage = {
     eyebrow: "Who teaches it",
     heading: "We can teach it because we build it.",
     body: "The same people who design production AI systems, automation platforms and data pipelines run the training. So the sessions cover what actually holds up in practice — where AI gets things wrong, what keeping company data private takes, how to check a number before trusting it — not just which buttons to press.",
-    points: [
-      "A self-hosted AI assistant that runs offline on a business's own hardware — the basis for how we teach safe, private AI use",
-      "Processly, a workflow-automation platform — the basis for how we teach teams to map and automate repetitive work",
-      "Data pipelines and dashboards over public and operational data — the basis for our data & BI training",
-      "A production security-engineering background — the basis for our AI & cybersecurity training",
+    // Real builds from Selected work, shown as image tiles.
+    tiles: [
+      { slug: "restaurant-ai", caption: "An offline AI assistant on a business's own hardware — behind how we teach safe, private AI use" },
+      { slug: "processly", caption: "Processly, our workflow-automation platform — behind how we teach teams to automate repetitive work" },
+      { slug: "transit-analytics", caption: "Dashboards built on raw operational data — behind our data & BI training" },
     ],
+    note: "Plus a production security-engineering background, behind our AI & cybersecurity training.",
     link: { label: "See the projects", href: "/en#work" } as CTA,
   },
 
@@ -1282,7 +1322,7 @@ export const scorecardPage = {
       max: 100,
       name: "Ready to move",
       headline: "The question isn't whether — it's which bet, and in what order.",
-      body: "On paper, you're ready: a named problem, data a system can reach, budget, an owner, and the pressure to move. The only thing standing between you and a return is choosing the right first bet and sequencing it well — because at this stage the expensive mistake is building three things adequately instead of one thing that pays. This is exactly the point where a short, honest, outside read earns its keep. The free Business Diagnostic gives you a written verdict on each candidate — build now, not yet, or don't build — including, plainly, when the honest answer is that nothing here should be built. We have no product, no license and no vendor commission, so a \"don't build\" costs us nothing — which is the only reason a \"build\" from us means anything.",
+      body: "On paper, you're ready: a named problem, data a system can reach, budget, an owner, and the pressure to move. The only thing standing between you and a return is choosing the right first bet and sequencing it well — because at this stage the expensive mistake is building three things adequately instead of one thing that pays. This is exactly the point where a short, honest, outside read earns its keep. The free Business Diagnostic gives you a written verdict on each candidate — build now, not yet, or don't build — including, plainly, when the honest answer is that nothing here should be built. We take no vendor commissions, so a \"don't build\" costs us nothing — which is the only reason a \"build\" from us means anything.",
     },
   ] as ScorecardTier[],
   ui: {

@@ -53,6 +53,7 @@ edit the relevant export:
 
 - `site` — name, tagline, contact email, founder, primary CTA
 - `nav`, `footerNav`, `legalNav` — navigation links
+- `partners` — client names shown as wordmarks under the hero and on About (add a logo only once that company agrees)
 - `hero`, `intro`, `layers` (Leadership / Processes / People), `approach` (the five-stage Digitalization Program), `services` (Strategy / Training & enablement / Implementation / Improvement, plus the AI block), `pillars`, `statement`, `startPaths` (the two entry points: Diagnostic or Training), `ctaBand`, `contact`, `footer` — each home section
 - `trainingPage` — the `/training` page (formats, audiences, process, who teaches it)
 - `assessmentPage`, `scorecardPage`, `aboutPage` — the Diagnostic, Scorecard and About routes
@@ -175,8 +176,11 @@ src/
   layouts/Base.astro head, SEO, JSON-LD, favicons, skip-link
   components/
     ui/             Container, Section, SectionHeader, Eyebrow, Button, Reveal, Logo
-    sections/       Hero, IntroBand, Layers, Approach, Services, Pillars, Work,
-                    Statement, StartPaths, CTABand, ContactForm, PageIntro, …
+    ui/Icon.astro   line icons, referenced from content by name (`icon: "search"`)
+    illustrations/  inline-SVG drawings (re-keying, the three layers, diagnosis,
+                    training session), styled with the brand tokens
+    sections/       Hero, Partners, IntroBand, Layers, Approach, Services, Pillars,
+                    Work, Statement, StartPaths, CTABand, ContactForm, PageIntro, …
     Header.astro, Footer.astro
   scripts/ui.ts     header scroll state, mobile menu, reveals, active-nav
   views/            one view per route, shared by the RO (root) and EN (/en) pages

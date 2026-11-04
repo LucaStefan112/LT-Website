@@ -2,6 +2,7 @@
 import Section from "../ui/Section.astro";
 import Container from "../ui/Container.astro";
 import SectionHeader from "../ui/SectionHeader.astro";
+import Icon from "../ui/Icon.astro";
 import { getContent } from "../../content/i18n";
 
 const { pillars } = getContent(Astro.url.pathname);
@@ -15,8 +16,8 @@ const { pillars } = getContent(Astro.url.pathname);
       {
         pillars.items.map((item, i) => (
           <li class="card pillar reveal" style={`--reveal-delay:${i * 90}ms`}>
-            <span class="pillar-index" aria-hidden="true">
-              0{i + 1}
+            <span class="pillar-icon">
+              <Icon name={item.icon ?? "target"} size={26} />
             </span>
             <h3 class="card-title">{item.title}</h3>
             <p class="pillar-body">{item.body}</p>
@@ -46,12 +47,16 @@ const { pillars } = getContent(Astro.url.pathname);
     display: flex;
     flex-direction: column;
   }
-  .pillar-index {
-    font-size: 0.8125rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    color: var(--color-steel);
-    margin-bottom: 1.25rem;
+  .pillar-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    margin-bottom: 1.5rem;
+    border-radius: 14px;
+    color: #fff;
+    background-color: var(--color-steel);
   }
   .pillar .card-title {
     margin-bottom: 0.75rem;

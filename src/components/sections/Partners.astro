@@ -1,0 +1,81 @@
+---
+/* Companies and institutions we've worked with, as typographic wordmarks.
+   Names only (no logos) until each one has agreed to its logo being shown;
+   add logo files later without changing the layout. */
+import Container from "../ui/Container.astro";
+import { getContent } from "../../content/i18n";
+
+const { partners } = getContent(Astro.url.pathname);
+
+interface Props {
+  variant?: "paper" | "bone";
+}
+const { variant = "paper" } = Astro.props;
+---
+
+<section
+  class:list={["partners", variant === "bone" ? "bg-bone" : "bg-paper"]}
+  aria-labelledby="partners-heading"
+>
+  <Container>
+    <div class="partners-inner">
+      <h2 id="partners-heading" class="partners-label">{partners.eyebrow}</h2>
+      <ul class="partners-list" role="list">
+        {partners.names.map((name) => <li class="partners-name">{name}</li>)}
+      </ul>
+    </div>
+  </Container>
+</section>
+
+<style>
+  .partners {
+    padding-block: clamp(2rem, 4vw, 2.75rem);
+    border-block: 1px solid var(--color-line);
+  }
+  .partners-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  @media (min-width: 1024px) {
+    .partners-inner {
+      flex-direction: row;
+      align-items: center;
+      gap: 3rem;
+    }
+  }
+  .partners-label {
+    flex: none;
+    max-width: 14rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    line-height: 1.5;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+  .partners-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.9rem 2rem;
+  }
+  .partners-name {
+    font-size: clamp(1.0625rem, 1.6vw, 1.25rem);
+    font-weight: 650;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+    color: color-mix(in srgb, var(--color-ink) 72%, var(--color-paper));
+  }
+  @media (max-width: 639px) {
+    .partners-list {
+      justify-content: flex-start;
+      gap: 0.75rem 1.5rem;
+    }
+  }
+</style>
