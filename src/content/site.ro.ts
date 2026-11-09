@@ -16,6 +16,8 @@ import type {
   NavItem,
   Card,
   Service,
+  EngagementStage,
+  Faq,
   Step,
   Testimonial,
   Layer,
@@ -195,79 +197,161 @@ export const pillars = {
 /* ----------------------------------------------------------- Services */
 
 export const services = {
-  eyebrow: "Ce facem",
-  headerTitle: "Strategie, training, implementare — și dovada că a funcționat.",
+  eyebrow: "Ce rezolvăm",
+  symptomsLabel: "Cum arată",
+  doLabel: "Ce facem",
   deliverablesLabel: "Ce primiți",
-  intro:
-    "Patru domenii care se leagă între ele. Ne puteți chema pentru oricare, dar sunt gândite să funcționeze împreună: strategia stabilește ce merită făcut, trainingul pregătește oamenii, implementarea livrează soluția, iar măsurarea arată dacă a meritat.",
   items: [
     {
-      stage: "Strategie",
-      icon: "compass",
-      title: "Strategie de digitalizare și consultanță",
-      body: "Simțiți unde pierde bani firma — oferte trimise târziu, stoc care stă, cifre reintroduse de mână — dar nu și ce merită rezolvat primul. Punem o cifră pe fiecare problemă, alegem puținele care merită urmărite și rămânem vocea independentă pentru deciziile despre furnizori și „construim sau cumpărăm” care urmează.",
+      icon: "flow",
+      title: "Muncă manuală și procese care se rup",
+      symptoms: [
+        "Aceleași date sunt introduse de mână în mai multe sisteme.",
+        "Aprobările se pierd prin emailuri și prin memoria oamenilor.",
+        "Concediul unui singur om încetinește toată echipa.",
+      ],
+      body: "Urmărim cum circulă munca în realitate, scoatem pașii care nu aduc nimic și automatizăm ce merită — cu instrumentele pe care le aveți deja sau cu o aplicație internă construită exact pentru asta.",
       deliverables: [
-        "O hartă a lucrurilor care vă costă cel mai mult, ordonată după valoare și efort",
-        "Calcule de rentabilitate și un plan pe etape, cu responsabili și puncte de decizie",
-        "Un consultant independent pentru deciziile despre furnizori, cheltuieli, arhitectură și AI — între proiecte și după ele",
+        "O hartă a procesului așa cum merge de fapt, cu blocajele marcate",
+        "Fluxul regândit, automatizat acolo unde merită",
+        "Orele câștigate și erorile evitate, măsurate înainte și după",
       ],
     },
     {
-      stage: "Training",
-      icon: "presentation",
-      title: "Competențe digitale și training",
-      body: "Tehnologia aduce valoare doar când oamenii știu să o folosească. Îi învățăm pe manageri și pe angajați să folosească AI-ul, automatizările, datele și instrumentele digitale care contează pentru munca lor — pornind de la procesele și aplicațiile firmei, nu de la o programă generică.",
-      deliverables: [
-        "Training practic pentru manageri și echipe: AI în munca de zi cu zi, automatizare, date și BI, securitate digitală",
-        "Exerciții construite pe sarcinile, instrumentele și documentele dumneavoastră",
-        "Fluxuri de lucru repetabile și reguli de utilizare pe care echipa le păstrează și după training",
-      ],
-      link: { label: "Detalii despre training", href: "/training" },
-    },
-    {
-      stage: "Implementare",
-      icon: "code",
-      title: "Implementare și livrare",
-      body: "De obicei nu planul e problema — e faptul că nu îl construiește nimeni. Proiectăm, construim și integrăm soluția chiar noi — instrumente interne, automatizări, tablouri de bord, sisteme AI — și rămânem până când funcționează, e folosită și e predată curat.",
-      deliverables: [
-        "O soluție funcțională, care rulează în producție",
-        "Integrare în sistemele și fluxurile de lucru existente",
-        "Documentație și o echipă instruită, care poate opera soluția fără noi",
-      ],
-    },
-    {
-      stage: "Îmbunătățire",
       icon: "chart",
-      title: "Performanță operațională",
-      body: "Un instrument nou nu schimbă nimic dacă munca din jurul lui rămâne la fel. Regândim felul în care circulă munca, apoi punem în firmă un sistem de măsurare care face câștigul vizibil și îl menține după ce plecăm.",
+      title: "Cifre și decizii",
+      symptoms: [
+        "Rapoartele se fac de mână și durează zile.",
+        "Fiecare departament are altă cifră pentru același lucru.",
+        "Nu vedeți marja pe produs, pe client sau pe locație.",
+      ],
+      body: "Aflăm de unde vin cifrele, reparăm datele de la sursă și construim rapoartele pe care chiar le folosiți în ședințe — verificate, ca să puteți avea încredere în ele.",
       deliverables: [
-        "Procese reproiectate, potrivite cu noile instrumente",
-        "Un set de măsurători legate de KPI-urile dumneavoastră",
-        "O imagine înainte–după a câștigului obținut",
+        "Un singur set de cifre, cu sursa fiecăreia documentată",
+        "Rapoarte care se actualizează singure, în loc să fie refăcute de mână",
+        "Cei câțiva indicatori care contează, vizibili în fiecare luni",
+      ],
+    },
+    {
+      icon: "users",
+      title: "Sisteme pe care nu le folosește nimeni",
+      symptoms: [
+        "Ați cumpărat un ERP sau un CRM, dar oamenii lucrează tot în Excel.",
+        "Licențele de software sau de AI stau nefolosite.",
+        "Fiecare echipă ocolește sistemul în felul ei.",
+      ],
+      body: "Aflăm de ce — de obicei un proces care nu se potrivește, date în care oamenii nu au încredere sau faptul că nu le-a arătat nimeni cum se potrivește sistemul cu munca lor. Apoi potrivim procesul, legăm ce lipsește și pregătim echipa pe munca ei reală.",
+      deliverables: [
+        "Un diagnostic clar: de ce e ocolit sistemul",
+        "Ajustări de proces și integrări, ca sistemul să se potrivească muncii",
+        "Training pe sarcinile reale ale echipei, cu folosirea urmărită",
+      ],
+      link: { label: "Despre trainingul pentru echipe", href: "/training" },
+    },
+    {
+      icon: "code",
+      title: "Idei care trebuie construite",
+      symptoms: [
+        "Știți ce instrument v-ar ajuta, dar nu îl construiește nimeni.",
+        "Un portal pentru clienți, o aplicație internă sau un caz de AI tot se amână.",
+        "Software-ul gata făcut nu se potrivește cu felul în care lucrați.",
+      ],
+      body: "Întâi verificăm dacă merită construit: verdictul „construim, cumpărăm sau așteptăm”. Apoi îl proiectăm, îl construim, îl integrăm cu ce folosiți și îl predăm cum trebuie. Folosim AI acolo unde e cu adevărat instrumentul potrivit — privat sau găzduit la dumneavoastră, dacă datele o cer.",
+      deliverables: [
+        "Un verdict scris „construim / cumpărăm / așteptăm”, cu un interval de cost",
+        "Un sistem care rulează în producție, sigur și documentat",
+        "O predare curată, ca echipa să îl poată opera",
       ],
     },
   ] as Service[],
-  ai: {
-    eyebrow: "Unde intră AI-ul",
-    title: "AI, atunci când chiar e răspunsul potrivit.",
-    body: "AI-ul e doar unul dintre instrumentele digitalizării, dar e cel pe care îl stăpânim cel mai bine. De aceea vă putem spune unde schimbă cu adevărat cifrele, îl putem construi astfel încât să facă față utilizatorilor reali și vă putem învăța echipa să îl folosească în siguranță.",
-    points: [
-      {
-        title: "Unde se amortizează AI-ul",
-        body: "Un răspuns onest despre ce cazuri de utilizare aduc valoare reală și care sunt doar cheltuială degeaba — cântărite pe cifrele dumneavoastră, înainte să dați vreun ban.",
-      },
-      {
-        title: "Sisteme AI și LLM de producție",
-        body: "Asistenți, agenți și automatizări care trec dincolo de demo — cu o căutare în documente bine reglată, validarea rezultatelor și monitorizarea care le fac de încredere.",
-      },
-      {
-        title: "AI folosit sigur și conform",
-        body: "AI privat, găzduit la dumneavoastră acolo unde datele o cer, reguli clare despre cum folosesc angajații instrumentele AI și un răspuns practic despre unde vi se aplică EU AI Act.",
-      },
-    ] as Card[],
-    note: "Nu știți încă unde și-ar avea locul AI-ul la dumneavoastră? Diagnosticul firmei e gratuit, bine delimitat și poate foarte bine să ajungă la concluzia că răspunsul nu ține de tehnologie.",
-    cta: site.assessmentCta,
-  },
+  toolbox:
+    "Folosim ce se potrivește problemei: un proces mai bun, automatizări, aplicații interne, date și rapoarte, AI — și uneori nimic nou.",
+} as const;
+
+/* -------------------------------------- Ways to work together (ladder) */
+
+export const engagements = {
+  eyebrow: "Cum lucrăm împreună",
+  heading: "Începeți cu puțin. Mergeți mai departe doar dacă merită.",
+  intro: "Fiecare pas se încheie cu ceva util și cu o decizie: continuăm sau ne oprim aici.",
+  stages: [
+    {
+      name: "Pentru început",
+      items: [
+        {
+          name: "Discuție de triaj",
+          meta: "30 de minute · gratuit",
+          body: "O discuție despre problema dumneavoastră. Plecați cu o primă părere și cu pasul următor recomandat, chiar dacă nu suntem noi.",
+        },
+        {
+          name: "Diagnosticul firmei",
+          meta: "2–4 săptămâni · gratuit, cel mult trei pe lună",
+          body: "O ședință cu echipa de conducere și un diagnostic scris de 3–5 pagini: ce vă ține pe loc, ce rezolvați primul și ce nu merită rezolvat.",
+        },
+        {
+          name: "Sprint de diagnostic",
+          meta: "2 săptămâni · preț fix",
+          body: "Două săptămâni pe o singură problemă: procesul cartografiat cu echipa, datele verificate, soluția proiectată și un calcul de rentabilitate, cu verdictul „construim, cumpărăm sau așteptăm”.",
+        },
+        {
+          name: "Atelier de echipă",
+          meta: "O jumătate de zi sau o zi · preț fix",
+          body: "O sesiune pe munca reală a echipei: procese, instrumente digitale, folosirea sigură a AI-ului.",
+        },
+      ],
+    },
+    {
+      name: "Pentru rezolvare",
+      featured: true,
+      items: [
+        {
+          name: "Proiect de rezolvare",
+          meta: "De obicei 6–12 săptămâni · preț fix pe etape",
+          body: "Soluția, de la cap la coadă: procesul regândit, sistemul construit și integrat, echipa pregătită, rezultatul măsurat. Pe etape, și vă puteți opri după oricare dintre ele.",
+        },
+      ],
+    },
+    {
+      name: "Pe termen lung",
+      items: [
+        {
+          name: "Partener pe termen lung",
+          meta: "Lunar",
+          body: "Un număr fix de zile pe lună: planul de tehnologie, deciziile despre furnizori și bugete, îmbunătățiri continue și suport pentru sistemele pe care le-am construit.",
+        },
+      ],
+    },
+  ] as EngagementStage[],
+  note: "Prețurile sunt fixe și stabilite înainte de fiecare pas. Nu luăm comisioane de la furnizori.",
+} as const;
+
+/* ----------------------------------------- Services page: common questions */
+
+export const servicesFaq = {
+  eyebrow: "Întrebări frecvente",
+  heading: "Ce ne întreabă antreprenorii mai întâi.",
+  items: [
+    {
+      q: "Lucrați cu AI?",
+      a: "Da, atunci când e răspunsul potrivit. Am construit sisteme AI de producție, inclusiv un asistent care rulează offline, pe echipamentele firmei. Dar AI-ul e un instrument, nu punctul de plecare: întâi aflăm unde ajută cu adevărat și unde ar fi doar o cheltuială.",
+    },
+    {
+      q: "Și dacă problema nu ține de tehnologie?",
+      a: "Atunci vă spunem. Uneori soluția e un proces mai simplu, un responsabil clar pentru o sarcină sau un raport făcut cum trebuie — și uneori nimic deocamdată.",
+    },
+    {
+      q: "Cât costă?",
+      a: "Discuția de triaj și Diagnosticul firmei sunt gratuite. Tot ce urmează are preț fix pe etape, stabilit înainte să începem, și vă puteți opri după oricare etapă.",
+    },
+    {
+      q: "Cine face munca?",
+      a: "Lucrați direct cu fondatorul: cel care înțelege problema e cel care proiectează și construiește soluția.",
+    },
+    {
+      q: "Lucrați la distanță?",
+      a: "Da — cu clienți din UE și din SUA, iar în România venim și la sediul dumneavoastră, când ajută.",
+    },
+  ] as Faq[],
 } as const;
 
 
@@ -532,13 +616,13 @@ export const testimonialsMeta = {
 
 export const layers = {
   eyebrow: "Trei niveluri, un singur partener",
-  body: "Digitalizarea eșuează când se întâmplă pe un singur nivel: conducerea cumpără un sistem, procesul rămâne la fel, iar echipa lucrează tot în tabelul vechi. Noi lucrăm pe toate trei deodată.",
+  body: "Rareori o soluție eșuează din cauza tehnologiei. Eșuează când se lucrează pe un singur nivel: conducerea cumpără un sistem, procesul rămâne la fel, iar echipa lucrează tot în tabelul vechi. Noi lucrăm pe toate trei deodată.",
   items: [
     {
       layer: "Conducerea",
       icon: "compass",
-      question: "Ce merită digitalizat?",
-      detail: "Unde aduce tehnologia valoare, cât valorează și ce facem întâi.",
+      question: "Ce merită rezolvat întâi?",
+      detail: "Unde costă problema cel mai mult, cât valorează rezolvarea ei și ce lăsăm deoparte.",
     },
     {
       layer: "Procesele",
@@ -549,8 +633,8 @@ export const layers = {
     {
       layer: "Oamenii",
       icon: "users",
-      question: "Cum va lucra echipa, concret, cu tehnologia?",
-      detail: "Exersăm cu echipa instrumentele și AI-ul pe care le va folosi zilnic.",
+      question: "Cum va lucra echipa, concret, cu noua soluție?",
+      detail: "Exersăm cu echipa pe munca ei reală, cu instrumentele pe care le va folosi zilnic.",
     },
   ] as Layer[],
 } as const;
@@ -1108,7 +1192,7 @@ export const trainingPage = {
     heading: "Trainingul e adesea momentul în care ies la iveală oportunitățile reale.",
     body: "Când o echipă învață cum funcționează instrumentele pe propriile sarcini, procesele care merită automatizate devin evidente — de multe ori mai întâi pentru oamenii care fac munca. Aici se leagă trainingul de restul muncii noastre: putem evalua oportunitatea, construi soluția și măsura rezultatul. Sau trainingul poate rămâne de sine stătător — ambele variante sunt în regulă.",
     links: [
-      { label: "Cum funcționează Programul de digitalizare", href: "/services#approach" },
+      { label: "Cum rezolvăm o problemă, de la cap la coadă", href: "/services#approach" },
       { label: "Începeți cu Diagnosticul firmei", href: "/assessment" },
     ] as CTA[],
   },

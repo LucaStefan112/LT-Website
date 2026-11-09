@@ -1,56 +1,52 @@
 ---
+/* The four problem areas in detail (/services): what it looks like from the
+   inside, what we do about it, and what you get. Used under the page's <h1>,
+   so the section heading is a visually hidden <h2>. */
 import Section from "../ui/Section.astro";
 import Container from "../ui/Container.astro";
-import SectionHeader from "../ui/SectionHeader.astro";
-import Button from "../ui/Button.astro";
 import Icon from "../ui/Icon.astro";
 import { getContent } from "../../content/i18n";
 
 const { services } = getContent(Astro.url.pathname);
 
 interface Props {
-  showHeader?: boolean;
   variant?: "paper" | "bone";
 }
-const { showHeader = true, variant = "bone" } = Astro.props;
+const { variant = "bone" } = Astro.props;
 ---
 
 <Section id="services" variant={variant} labelledby="services-heading">
   <Container>
-    {
-      showHeader ? (
-        <SectionHeader
-          eyebrow={services.eyebrow}
-          title={services.headerTitle}
-          intro={services.intro}
-          id="services-heading"
-        />
-      ) : (
-        /* Reused under a page <h1> (e.g. /services): keep a real h2 so heading
-           levels don't skip h1 -> h3, but hide it visually. */
-        <h2 id="services-heading" class="sr-only">
-          {services.eyebrow}
-        </h2>
-      )
-    }
+    <h2 id="services-heading" class="sr-only">{services.eyebrow}</h2>
 
-    <ul class:list={["services-grid", { "services-grid--top": !showHeader }]} role="list">
+    <ul class="services-grid" role="list">
       {
         services.items.map((item, i) => (
-          <li class="service reveal" style={`--reveal-delay:${(i % 2) * 90}ms`}>
-            <span class="service-rule" aria-hidden="true" />
-            <span class="service-icon">
-              <Icon name={item.icon} size={24} />
-            </span>
-            <p class="service-stage">{item.stage}</p>
-            <h3 class="service-title">{item.title}</h3>
+          <li class="card service reveal" style={`--reveal-delay:${(i % 2) * 90}ms`}>
+            <div class="service-head">
+              <span class="service-icon">
+                <Icon name={item.icon} size={24} />
+              </span>
+              <h3 class="service-title">{item.title}</h3>
+            </div>
+
+            <p class="service-label service-label--problem">{services.symptomsLabel}</p>
+            <ul class="service-symptoms" role="list">
+              {item.symptoms.map((s) => (
+                <li>{s}</li>
+              ))}
+            </ul>
+
+            <p class="service-label">{services.doLabel}</p>
             <p class="service-body">{item.body}</p>
-            <p class="service-deliv-label">{services.deliverablesLabel}</p>
+
+            <p class="service-label">{services.deliverablesLabel}</p>
             <ul class="service-deliverables" role="list">
               {item.deliverables.map((d) => (
                 <li>{d}</li>
               ))}
             </ul>
+
             {item.link && (
               <a href={item.link.href} class="link-arrow service-link">
                 {item.link.label}
@@ -72,217 +68,133 @@ const { showHeader = true, variant = "bone" } = Astro.props;
       }
     </ul>
 
-    <div class="services-ai reveal">
-      <div class="services-ai-intro">
-        <p class="eyebrow services-ai-eyebrow">{services.ai.eyebrow}</p>
-        <h3 class="services-ai-title">{services.ai.title}</h3>
-        <p class="services-ai-body">{services.ai.body}</p>
-      </div>
-
-      <ul class="services-ai-points" role="list">
-        {
-          services.ai.points.map((p) => (
-            <li>
-              <h4 class="services-ai-point-title">{p.title}</h4>
-              <p class="services-ai-point-body">{p.body}</p>
-            </li>
-          ))
-        }
-      </ul>
-
-      <div class="services-ai-foot">
-        <p class="services-ai-note">{services.ai.note}</p>
-        <Button href={services.ai.cta.href} variant="ghost" withArrow>
-          {services.ai.cta.label}
-        </Button>
-      </div>
-    </div>
+    <p class="services-toolbox reveal">{services.toolbox}</p>
   </Container>
 </Section>
 
 <style>
+  /* The band has no visible header (the page <h1> sits right above it),
+     so it does not need a full section's worth of top padding. */
+  :global(#services.section) {
+    padding-top: clamp(3rem, 6vw, 5rem);
+  }
   .services-grid {
     list-style: none;
-    margin: clamp(2.5rem, 5vw, 3.75rem) 0 0;
+    margin: 0;
     padding: 0;
-  }
-  .services-grid.services-grid--top {
-    margin-top: 0;
-  }
-  .services-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: clamp(2rem, 4vw, 3rem) clamp(2rem, 6vw, 4.5rem);
+    gap: 1.25rem;
   }
-  @media (min-width: 768px) {
+  @media (min-width: 900px) {
     .services-grid {
       grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
     }
   }
   .service {
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--color-line);
-    position: relative;
+    display: flex;
+    flex-direction: column;
   }
-  .service-rule {
-    position: absolute;
-    top: -1px;
-    left: 0;
-    width: 2.5rem;
-    height: 2px;
-    background-color: var(--color-steel);
+  .service-head {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
   }
   .service-icon {
     display: inline-flex;
+    flex: none;
     align-items: center;
     justify-content: center;
     width: 48px;
     height: 48px;
-    margin-bottom: 1.1rem;
     border-radius: 14px;
     color: var(--color-steel);
     background-color: color-mix(in srgb, var(--color-steel) 10%, var(--color-paper));
     border: 1px solid color-mix(in srgb, var(--color-steel) 22%, var(--color-paper));
   }
-  .service-stage {
+  .service-title {
+    font-size: 1.375rem; /* 22 */
+    font-weight: 600;
+    line-height: 1.25;
+    color: var(--color-ink);
+    letter-spacing: -0.01em;
+  }
+  .service-label {
+    margin-top: 1.25rem;
     margin-bottom: 0.6rem;
-    font-size: 0.75rem;
+    font-size: 0.6875rem;
     font-weight: 600;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--color-steel);
+  }
+  .service-head + .service-label {
+    margin-top: 0;
+  }
+  .service-label--problem {
+    color: var(--color-ember);
+  }
+  .service-symptoms,
+  .service-deliverables {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+  .service-symptoms li,
+  .service-deliverables li {
+    position: relative;
+    padding-left: 1.4rem;
+    font-size: 0.9375rem;
+    line-height: 1.45;
+  }
+  .service-symptoms li {
+    color: var(--color-ink);
+  }
+  /* Ember dot = a problem, as on the home page and the problem maps */
+  .service-symptoms li::before {
+    content: "";
+    position: absolute;
+    left: 0.15rem;
+    top: 0.55em;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: var(--color-ember);
+  }
+  .service-deliverables li {
+    color: var(--color-muted);
+  }
+  .service-deliverables li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 0.75rem;
+    height: 2px;
+    background-color: var(--color-steel);
+  }
+  .service-body {
+    color: var(--color-muted);
+    font-size: 1rem;
+    line-height: 1.6;
   }
   .service-link {
     margin-top: 1.25rem;
     font-size: 0.9375rem;
     font-weight: 600;
   }
-  .service-title {
-    font-size: 1.375rem; /* 22 */
-    font-weight: 600;
-    color: var(--color-ink);
-    letter-spacing: -0.01em;
-    margin-bottom: 0.75rem;
-  }
-  .service-body {
-    color: var(--color-muted);
-    font-size: 1.0625rem;
-    line-height: 1.6;
-    max-width: 42ch;
-  }
-  .service-deliv-label {
-    margin-top: 1.5rem;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--color-ink);
-  }
-  .service-deliverables {
-    list-style: none;
-    margin: 0.75rem 0 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    max-width: 42ch;
-  }
-  .service-deliverables li {
-    position: relative;
-    padding-left: 1.5rem;
-    color: var(--color-muted);
-    font-size: 0.9375rem;
-    line-height: 1.45;
-  }
-  .service-deliverables li::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0.6em;
-    width: 0.75rem;
-    height: 2px;
-    background-color: var(--color-steel);
-  }
-
-  /* Featured AI specialty block */
-  .services-ai {
-    margin-top: clamp(3rem, 6vw, 4.5rem);
-    padding: clamp(1.75rem, 4vw, 3rem);
-    border-radius: 18px;
-    border: 1px solid var(--color-line);
-    border-left: 3px solid var(--color-steel);
-    background-color: color-mix(in srgb, var(--color-steel) 5%, var(--color-paper));
-  }
-  .services-ai-eyebrow {
-    color: var(--color-steel);
-  }
-  .services-ai-title {
-    margin-top: 0.75rem;
-    font-size: clamp(1.5rem, 3vw, 1.875rem);
-    font-weight: 600;
-    letter-spacing: -0.015em;
-    color: var(--color-ink);
-    max-width: 24ch;
-  }
-  .services-ai-body {
-    margin-top: 1rem;
-    color: var(--color-muted);
-    font-size: 1.0625rem;
-    line-height: 1.6;
-    max-width: 62ch;
-  }
-  .services-ai-points {
-    list-style: none;
-    margin: clamp(1.75rem, 3vw, 2.5rem) 0 0;
-    padding: 0;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem 2.5rem;
-  }
-  @media (min-width: 768px) {
-    .services-ai-points {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-  .services-ai-point-title {
-    display: inline-block;
-    padding-top: 0.875rem;
-    border-top: 2px solid var(--color-steel);
-    font-size: 1.0625rem;
-    font-weight: 600;
-    color: var(--color-ink);
-    margin-bottom: 0.5rem;
-  }
-  .services-ai-point-body {
-    color: var(--color-muted);
-    font-size: 0.9375rem;
-    line-height: 1.55;
-  }
-  .services-ai-foot {
-    margin-top: clamp(1.75rem, 3vw, 2.5rem);
+  .services-toolbox {
+    margin-top: clamp(2rem, 4vw, 2.75rem);
     padding-top: 1.5rem;
     border-top: 1px solid var(--color-line);
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-    align-items: flex-start;
-  }
-  @media (min-width: 640px) {
-    .services-ai-foot {
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-      gap: 2rem;
-    }
-  }
-  .services-ai-note {
-    margin: 0;
+    max-width: 64ch;
     color: var(--color-muted);
-    font-size: 0.9375rem;
-    line-height: 1.5;
-    max-width: 48ch;
-  }
-  .services-ai-foot :global(.btn) {
-    flex-shrink: 0;
+    font-size: 1rem;
+    line-height: 1.55;
   }
 </style>

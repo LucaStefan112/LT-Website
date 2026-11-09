@@ -8,7 +8,7 @@ import type { CTA } from "../../content/site";
 
 const { approach, ui } = getContent(Astro.url.pathname);
 
-/* Defaults to the Digitalization Program (`approach`); the /training page
+/* Defaults to the five-step way we solve a problem (`approach`); the /training page
    passes its own step list in the same shape. */
 interface Props {
   data?: Pick<typeof approach, "eyebrow" | "title" | "intro" | "outputLabel" | "steps">;

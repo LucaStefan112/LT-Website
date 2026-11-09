@@ -2,8 +2,10 @@
 import Base from "../layouts/Base.astro";
 import PageIntro from "../components/sections/PageIntro.astro";
 import Services from "../components/sections/Services.astro";
-import Approach from "../components/sections/Approach.astro";
 import Layers from "../components/sections/Layers.astro";
+import Approach from "../components/sections/Approach.astro";
+import Engagements from "../components/sections/Engagements.astro";
+import ServicesFaq from "../components/sections/ServicesFaq.astro";
 import CTABand from "../components/sections/CTABand.astro";
 import { getContent } from "../content/i18n";
 
@@ -12,6 +14,8 @@ const meta = pageMeta.services;
 const intro = pageIntros.services;
 ---
 
+<!-- "What we solve": the four problem areas, the three levels we work on,
+     how we work, the ways to start, and the questions owners ask first. -->
 <Base title={meta.title} description={meta.description} path={meta.path}>
   <PageIntro
     eyebrow={intro.eyebrow}
@@ -19,8 +23,10 @@ const intro = pageIntros.services;
     lead={intro.lead}
     headingId="services-page-heading"
   />
-  <Services showHeader={false} />
+  <Services />
   <Layers />
   <Approach />
+  <Engagements />
+  <ServicesFaq />
   <CTABand secondary={site.assessmentCta} />
 </Base>

@@ -55,7 +55,8 @@ edit the relevant export:
 - `nav`, `footerNav`, `legalNav` — navigation links
 - `partners` — client names shown as wordmarks under the hero and on About (add a logo only once that company agrees)
 - Home, top to bottom: `hero`, `partners`, `symptoms` ("Sound familiar?"), `statement` ("What changes"), `solve` (the four problem areas), `approach` (how we work, five steps), `work` (case studies), `pillars` ("Why LT"), `founderStrip`, `ctaBand`
-- `services` and `layers` (Leadership / Processes / People) — the Services page; `contact`, `footer`
+- "What we solve" (`/services`), top to bottom: `services` (the four problem areas: what it looks like, what we do, what you get), `layers` (Leadership / Processes / People), `approach`, `engagements` (ways to work together: to start, to solve, for the long run — rename offers or change their duration/price wording here), `servicesFaq` (incl. "Do you work with AI?"), `ctaBand`
+- `contact`, `footer`
 - `trainingPage` — the `/training` page (formats, audiences, process, who teaches it)
 - `assessmentPage`, `scorecardPage`, `aboutPage` — the Diagnostic, Scorecard and About routes
 - `pageIntros` — the hero blocks on the Services / Contact routes
@@ -181,8 +182,8 @@ src/
     illustrations/  inline-SVG drawings (re-keying, the three layers, diagnosis,
                     training session), styled with the brand tokens
     sections/       Hero, Partners, Symptoms, Statement, Solve, Approach, Work,
-                    Pillars, FounderStrip, CTABand, Layers, Services, ContactForm,
-                    PageIntro, …
+                    Pillars, FounderStrip, CTABand, Layers, Services, Engagements,
+                    ServicesFaq, ContactForm, PageIntro, …
     Header.astro, Footer.astro
   scripts/ui.ts     header scroll state, mobile menu, reveals, active-nav
   views/            one view per route, shared by the RO (root) and EN (/en) pages

@@ -27,12 +27,29 @@ export interface Card {
 }
 
 export interface Service {
-  stage: string; // which part of the offer: Strategy / Training / Implementation / Improvement
   icon: string; // name from components/ui/Icon.astro
-  title: string;
-  body: string;
+  title: string; // the problem, in the client's words
+  symptoms: string[]; // what it looks like from the inside
+  body: string; // what we do about it
   deliverables: string[];
   link?: CTA; // optional deeper page (e.g. /training)
+}
+
+export interface Engagement {
+  name: string;
+  meta: string; // length and price basis, e.g. "2 weeks · fixed price"
+  body: string;
+}
+
+export interface EngagementStage {
+  name: string;
+  featured?: boolean; // the flagship stage gets the accent
+  items: Engagement[];
+}
+
+export interface Faq {
+  q: string;
+  a: string;
 }
 
 export interface Layer {
@@ -298,82 +315,165 @@ export const pillars = {
 /* ----------------------------------------------------------- Services */
 
 export const services = {
-  eyebrow: "What we do",
-  headerTitle: "Strategy, training, implementation — and proof it worked.",
+  // The problem areas in detail (the /services page). Same four as `solve`
+  // on the home page, in the same order and words.
+  eyebrow: "What we solve",
+  symptomsLabel: "What it looks like",
+  doLabel: "What we do",
   deliverablesLabel: "What you get",
-  intro:
-    "Four areas that make up one line of work. You can bring us in for any one of them, but they are built to connect: the strategy decides what's worth doing, the training gets people ready, the implementation delivers it, and the measurement shows whether it paid off.",
   items: [
     {
-      stage: "Strategy",
-      icon: "compass",
-      title: "Digitalization Strategy & Advisory",
-      body: "You can feel where the business leaks — late quotes, idle stock, numbers re-keyed by hand — but not which fix to do first. We put a number on each, pick the few worth pursuing, and stay on as an independent voice for the vendor and build-vs-buy calls that follow.",
+      icon: "flow",
+      title: "Manual work and processes that break",
+      symptoms: [
+        "The same data is typed into several systems.",
+        "Approvals live in email threads and people's heads.",
+        "One person's holiday slows the whole team down.",
+      ],
+      body: "We map how the work really flows, remove the steps that add nothing, and automate the ones worth automating — with the tools you already have, or a small internal tool built for the job.",
       deliverables: [
-        "A ranked map of what's actually costing you, by value and effort",
-        "Sized business cases and a sequenced roadmap with owners and decision points",
-        "An independent advisor for vendor, spend, architecture and AI decisions — between and beyond projects",
+        "A map of the process as it really runs, with the bottlenecks marked",
+        "The redesigned flow, automated where it pays",
+        "Hours freed and errors avoided, measured before and after",
       ],
     },
     {
-      stage: "Training & enablement",
-      icon: "presentation",
-      title: "Digital Capability & Training",
-      body: "Technology only creates value when people know how to use it. We train managers and employees on the AI, automation, data and digital tools that matter for their work — built on your processes and software, not a generic syllabus.",
-      deliverables: [
-        "Practical training for managers and teams: AI at work, automation, data & BI, digital security",
-        "Exercises built on your own tasks, tools and documents",
-        "Repeatable workflows and usage rules the team keeps using afterwards",
-      ],
-      link: { label: "See the training", href: "/en/training" },
-    },
-    {
-      stage: "Implementation",
-      icon: "code",
-      title: "Implementation & Delivery",
-      body: "The usual failure isn't the plan — it's that nobody builds it. We design, build and integrate the solution ourselves — internal tools, automation, dashboards, AI systems — and stay until it's live, used and handed over cleanly.",
-      deliverables: [
-        "A working solution running in production",
-        "Integration into your existing systems and workflows",
-        "Documentation and a trained team who can run it without us",
-      ],
-    },
-    {
-      stage: "Improvement",
       icon: "chart",
-      title: "Operational Performance",
-      body: "A new tool changes nothing if the work around it stays the same. We redesign how the work flows, then put measurement in place so the gain is visible and holds after we leave.",
+      title: "Numbers and decisions",
+      symptoms: [
+        "Reports are built by hand and take days.",
+        "Every department has a different number for the same thing.",
+        "You can't see margin by product, client or location.",
+      ],
+      body: "We trace where your numbers come from, fix the data at the source, and build the reports your meetings actually use — checked, so you can trust them.",
       deliverables: [
-        "Redesigned processes mapped to the new tools",
-        "A measurement framework tied to your KPIs",
-        "A before-and-after view of the gain",
+        "One agreed set of numbers, with each source documented",
+        "Reports that update themselves instead of being rebuilt by hand",
+        "The few indicators that matter, visible every Monday",
+      ],
+    },
+    {
+      icon: "users",
+      title: "Systems nobody uses",
+      symptoms: [
+        "You bought an ERP or a CRM; people still work in Excel.",
+        "Software or AI licences sit unused.",
+        "Every team works around the system in its own way.",
+      ],
+      body: "We find out why — usually a process that doesn't fit, data people don't trust, or nobody showing them how it fits their job. Then we fix the fit, connect what's missing and train the team on its real work.",
+      deliverables: [
+        "A clear diagnosis of why the system is avoided",
+        "Process and integration fixes, so the system fits the work",
+        "Training on the team's own tasks, with usage tracked",
+      ],
+      link: { label: "About team training", href: "/en/training" },
+    },
+    {
+      icon: "code",
+      title: "Ideas that need building",
+      symptoms: [
+        "You know which tool would help, and nobody builds it.",
+        "A client portal, an internal app or an AI use case keeps being postponed.",
+        "Off-the-shelf software doesn't fit the way you work.",
+      ],
+      body: "First we check it's worth building: a build / buy / wait verdict. Then we design it, build it, integrate it with what you run and hand it over properly. AI goes in where it's genuinely the right tool, private or self-hosted where your data demands it.",
+      deliverables: [
+        "A written build / buy / wait verdict, with a cost band",
+        "A working system in production, secure and documented",
+        "A clean handover, so your team can run it",
       ],
     },
   ] as Service[],
-  // Featured, visually distinct block that showcases the AI specialty within
-  // the single Services narrative (folds in AI governance). AI is framed as one
-  // tool within digitalization, not the whole offer. No prices.
-  ai: {
-    eyebrow: "Where AI fits",
-    title: "AI, when it's genuinely the right answer.",
-    body: "AI is one tool within digitalization, not the whole of it — and the one we know best. So we can tell you where it genuinely moves your numbers, build it to survive real users, and teach your team to use it safely.",
-    points: [
-      {
-        title: "Where AI pays off",
-        body: "An honest read of which use cases create real value and which are expensive distractions — sized against your numbers, before any money is spent.",
-      },
-      {
-        title: "Production AI & LLM systems",
-        body: "Assistants, agents, and automation taken past the demo — with the retrieval tuning, output validation, and monitoring that make them dependable.",
-      },
-      {
-        title: "Safe & compliant AI use",
-        body: "Private or self-hosted where your data demands it, clear rules for how employees use AI tools, and a practical read on where the EU AI Act applies to you.",
-      },
-    ] as Card[],
-    note: "Not sure where AI fits for you? The Business Diagnostic is free, fixed-scope, and just as willing to conclude that the answer isn't technology at all.",
-    cta: site.assessmentCta,
-  },
+  toolbox:
+    "We use whatever fits the problem: a better process, automation, internal tools, data and reporting, AI — and sometimes nothing new.",
+} as const;
+
+/* -------------------------------------- Ways to work together (ladder) */
+/* Each step ends with something useful and a decision. No prices here: they
+   are agreed before each step. Names and lengths follow the strategy doc. */
+
+export const engagements = {
+  eyebrow: "Ways to work together",
+  heading: "Start small. Go further only if it's worth it.",
+  intro: "Every step ends with something useful and a decision: continue, or stop there.",
+  stages: [
+    {
+      name: "To start",
+      items: [
+        {
+          name: "Problem triage",
+          meta: "30 minutes · free",
+          body: "A conversation about your problem. You leave with a first view and a recommended next step, even if it isn't us.",
+        },
+        {
+          name: "Business Diagnostic",
+          meta: "2–4 weeks · free, at most three a month",
+          body: "A session with your leadership team and a 3–5 page written diagnosis: what holds you back, what to fix first, what not to fix.",
+        },
+        {
+          name: "Diagnostic Sprint",
+          meta: "2 weeks · fixed price",
+          body: "Two weeks on one problem: the process mapped with your team, the data checked, a solution designed and a business case with a build / buy / wait verdict.",
+        },
+        {
+          name: "Team workshop",
+          meta: "Half or full day · fixed price",
+          body: "A session on your team's real work: processes, digital tools, safe use of AI.",
+        },
+      ],
+    },
+    {
+      name: "To solve",
+      featured: true,
+      items: [
+        {
+          name: "Solve engagement",
+          meta: "Usually 6–12 weeks · fixed price per phase",
+          body: "The fix, end to end: the process redesigned, the system built and integrated, the team prepared, the result measured. In phases, and you can stop after any of them.",
+        },
+      ],
+    },
+    {
+      name: "For the long run",
+      items: [
+        {
+          name: "Ongoing partner",
+          meta: "Monthly",
+          body: "A set number of days a month: your technology roadmap, vendor and budget decisions, continuous improvement, and support for the systems we built.",
+        },
+      ],
+    },
+  ] as EngagementStage[],
+  note: "Prices are fixed and agreed before each step. We take no commissions from vendors.",
+} as const;
+
+/* ----------------------------------------- Services page: common questions */
+
+export const servicesFaq = {
+  eyebrow: "Common questions",
+  heading: "What owners ask first.",
+  items: [
+    {
+      q: "Do you work with AI?",
+      a: "Yes, when it's the right answer. We've built production AI systems, including an assistant that runs offline on a business's own hardware. But AI is a tool, not the starting point: first we find out where it genuinely helps, and where it would only be a cost.",
+    },
+    {
+      q: "What if the problem isn't technology?",
+      a: "Then we tell you. Sometimes the fix is a simpler process, a clear owner for a task, or a report done properly — and sometimes nothing yet.",
+    },
+    {
+      q: "What does it cost?",
+      a: "The triage conversation and the Business Diagnostic are free. Everything after has a fixed price per phase, agreed before we start, and you can stop after any phase.",
+    },
+    {
+      q: "Who does the work?",
+      a: "You work directly with the founder: the person who understands the problem is the person who designs and builds the fix.",
+    },
+    {
+      q: "Do you work remotely?",
+      a: "Yes — with clients across the EU and the US, and on-site in Romania where it helps.",
+    },
+  ] as Faq[],
 } as const;
 
 
@@ -591,14 +691,14 @@ export const testimonialsMeta = {
 /* ------------------------------------- Three layers we work across */
 
 export const layers = {
-  eyebrow: "Three layers, one partner",
-  body: "Digitalization fails when it happens on one level only: leadership buys a system, the process stays the same, and the team keeps the old spreadsheet. We work on all three at once.",
+  eyebrow: "Three levels, one partner",
+  body: "A fix rarely fails because of the technology. It fails when the work happens on one level only: leadership buys a system, the process stays the same, and the team keeps the old spreadsheet. We work on all three at once.",
   items: [
     {
       layer: "Leadership",
       icon: "compass",
-      question: "What should we digitalize?",
-      detail: "Where technology creates value, what it's worth, and what to do first.",
+      question: "What is worth fixing first?",
+      detail: "Where the problem costs most, what fixing it is worth, and what to leave alone.",
     },
     {
       layer: "Processes",
@@ -609,8 +709,8 @@ export const layers = {
     {
       layer: "People",
       icon: "users",
-      question: "How will the team actually use it?",
-      detail: "Hands-on practice with the tools and AI the team will use every day.",
+      question: "How will the team actually use the fix?",
+      detail: "Hands-on practice on the team's real work, with the tools they'll use every day.",
     },
   ] as Layer[],
 } as const;
@@ -1161,7 +1261,7 @@ export const trainingPage = {
     heading: "Training is often where the real opportunities show up.",
     body: "When a team learns how the tools work on its own tasks, the processes worth automating become obvious — often first to the people doing the work. That's where training connects to the rest of what we do: we can size the opportunity, build the solution and measure the result. Or the training stands on its own. Both are fine.",
     links: [
-      { label: "How the Digitalization Program works", href: "/en/services#approach" },
+      { label: "How we solve a problem, start to finish", href: "/en/services#approach" },
       { label: "Start with the Business Diagnostic", href: "/en/assessment" },
     ] as CTA[],
   },

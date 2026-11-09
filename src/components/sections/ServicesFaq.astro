@@ -1,0 +1,107 @@
+---
+/* Common questions on the /services page. Native <details>, so it works with
+   no JavaScript and keyboards get it for free. "Do you work with AI?" lives
+   here: AI is one answer among several, not a featured block. */
+import Section from "../ui/Section.astro";
+import Container from "../ui/Container.astro";
+import SectionHeader from "../ui/SectionHeader.astro";
+import { getContent } from "../../content/i18n";
+
+const { servicesFaq } = getContent(Astro.url.pathname);
+
+interface Props {
+  variant?: "paper" | "bone";
+}
+const { variant = "bone" } = Astro.props;
+---
+
+<Section id="faq" variant={variant} labelledby="faq-heading">
+  <Container>
+    <div class="faq-grid">
+      <SectionHeader eyebrow={servicesFaq.eyebrow} title={servicesFaq.heading} id="faq-heading" />
+      <div class="faq-list">
+        {
+          servicesFaq.items.map((item, i) => (
+            <details class="faq-item" open={i === 0}>
+              <summary class="faq-q">
+                <span>{item.q}</span>
+                <span class="faq-sign" aria-hidden="true" />
+              </summary>
+              <p class="faq-a">{item.a}</p>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </Container>
+</Section>
+
+<style>
+  .faq-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(2rem, 4vw, 3rem);
+    align-items: start;
+  }
+  @media (min-width: 960px) {
+    .faq-grid {
+      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    }
+  }
+  .faq-list {
+    border-top: 1px solid var(--color-line);
+  }
+  .faq-item {
+    border-bottom: 1px solid var(--color-line);
+  }
+  .faq-q {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 1.15rem 0;
+    cursor: pointer;
+    list-style: none;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--color-ink);
+  }
+  .faq-q::-webkit-details-marker {
+    display: none;
+  }
+  .faq-q:hover {
+    color: var(--color-steel-deep);
+  }
+  /* Plus that turns into a minus when open */
+  .faq-sign {
+    position: relative;
+    flex: none;
+    width: 14px;
+    height: 14px;
+  }
+  .faq-sign::before,
+  .faq-sign::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 14px;
+    height: 2px;
+    border-radius: 1px;
+    background-color: var(--color-steel);
+    transition: transform 0.2s var(--ease-out-soft);
+  }
+  .faq-sign::after {
+    transform: rotate(90deg);
+  }
+  .faq-item[open] .faq-sign::after {
+    transform: rotate(0deg);
+  }
+  .faq-a {
+    margin: 0 0 1.25rem;
+    max-width: 62ch;
+    color: var(--color-muted);
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+</style>

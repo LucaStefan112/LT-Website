@@ -1,0 +1,186 @@
+---
+/* Ways to work together: three stages read left to right — to start, to
+   solve, for the long run. Each step ends with something useful and a
+   decision, so the ladder never reads as a funnel. */
+import Section from "../ui/Section.astro";
+import Container from "../ui/Container.astro";
+import SectionHeader from "../ui/SectionHeader.astro";
+import { getContent } from "../../content/i18n";
+
+const { engagements } = getContent(Astro.url.pathname);
+
+interface Props {
+  variant?: "paper" | "bone";
+}
+const { variant = "paper" } = Astro.props;
+---
+
+<Section id="engagements" variant={variant} labelledby="engagements-heading">
+  <Container>
+    <SectionHeader
+      eyebrow={engagements.eyebrow}
+      title={engagements.heading}
+      intro={engagements.intro}
+      id="engagements-heading"
+    />
+
+    <ol class="ladder" role="list">
+      {
+        engagements.stages.map((stage, i) => (
+          <li class:list={["ladder-stage reveal", { "is-featured": stage.featured }]} style={`--reveal-delay:${i * 90}ms`}>
+            <p class="ladder-stage-name">
+              <span class="ladder-step" aria-hidden="true">{i + 1}</span>
+              {stage.name}
+            </p>
+            <ul class:list={["ladder-items", { "is-multi": stage.items.length > 1 }]} role="list">
+              {stage.items.map((item) => (
+                <li class="ladder-item">
+                  <h3 class="ladder-item-name">{item.name}</h3>
+                  <p class="ladder-item-meta">{item.meta}</p>
+                  <p class="ladder-item-body">{item.body}</p>
+                </li>
+              ))}
+            </ul>
+          </li>
+        ))
+      }
+    </ol>
+
+    <p class="ladder-note reveal">{engagements.note}</p>
+  </Container>
+</Section>
+
+<style>
+  .ladder {
+    list-style: none;
+    margin: clamp(2.5rem, 5vw, 3.5rem) 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  /* Tablet: the first stage spans the row with its options in a 2×2 grid;
+     the two single-card stages sit side by side, equal height, below it. */
+  @media (min-width: 640px) {
+    .ladder {
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem 1.25rem;
+    }
+    .ladder-stage:first-child {
+      grid-column: 1 / -1;
+    }
+    .ladder-stage {
+      display: flex;
+      flex-direction: column;
+    }
+    .ladder-items {
+      flex: 1;
+    }
+    .ladder-items:not(.is-multi) > .ladder-item {
+      flex: 1;
+    }
+    .ladder-items.is-multi {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  /* Desktop: one row, read left to right */
+  @media (min-width: 1100px) {
+    .ladder {
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+    .ladder-stage:first-child {
+      grid-column: auto;
+    }
+    /* A chevron between stages: the order is the point */
+    .ladder-stage:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      top: 0.95rem;
+      right: -1.6rem;
+      width: 0.6rem;
+      height: 0.6rem;
+      border-top: 2px solid var(--color-steel);
+      border-right: 2px solid var(--color-steel);
+      transform: rotate(45deg);
+      opacity: 0.6;
+    }
+  }
+  .ladder-stage {
+    position: relative;
+  }
+  .ladder-stage-name {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 1rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-ink);
+  }
+  .ladder-step {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.9rem;
+    height: 1.9rem;
+    border-radius: 50%;
+    font-size: 0.8125rem;
+    letter-spacing: 0;
+    color: var(--color-steel);
+    border: 1.5px solid color-mix(in srgb, var(--color-steel) 45%, var(--color-paper));
+    background-color: var(--color-paper);
+  }
+  .ladder-items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .ladder-item {
+    padding: 1.1rem 1.25rem 1.2rem;
+    border: 1px solid var(--color-line);
+    border-radius: 14px;
+    background-color: var(--color-paper);
+  }
+  .ladder-item-name {
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--color-ink);
+  }
+  .ladder-item-meta {
+    margin-top: 0.2rem;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--color-steel);
+  }
+  .ladder-item-body {
+    margin-top: 0.6rem;
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    color: var(--color-muted);
+  }
+  /* The flagship stage carries the accent */
+  .is-featured .ladder-step {
+    color: #fff;
+    border-color: var(--color-steel);
+    background-color: var(--color-steel);
+  }
+  .is-featured .ladder-item {
+    border: 2px solid var(--color-steel);
+    background-color: color-mix(in srgb, var(--color-steel) 6%, var(--color-paper));
+  }
+  .ladder-note {
+    margin-top: clamp(2rem, 4vw, 2.5rem);
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-line);
+    color: var(--color-muted);
+    font-size: 1rem;
+  }
+</style>
