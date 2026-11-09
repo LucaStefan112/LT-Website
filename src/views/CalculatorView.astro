@@ -1,0 +1,475 @@
+---
+/* /calculator — what one task done by hand costs a year. One form, a live
+   result and an invitation to the free 30-minute call. The arithmetic is
+   shared with the browser (src/scripts/manual-cost.ts), and the server renders
+   the default example, so the page shows a real result before anything is
+   typed (and without JavaScript). Nothing typed leaves the browser. */
+import Base from "../layouts/Base.astro";
+import Container from "../components/ui/Container.astro";
+import { getContent, resolveLocale } from "../content/i18n";
+import {
+  computeCost,
+  formatFte,
+  formatMoney,
+  formatNumber,
+  RATE_DEFAULTS,
+  type Currency,
+  type Frequency,
+} from "../scripts/manual-cost";
+
+const { pageMeta, calculatorPage: c } = getContent(Astro.url.pathname);
+const meta = pageMeta.calculator;
+const numberLocale = resolveLocale(Astro.url.pathname) === "ro" ? "ro-RO" : "en-GB";
+
+// The example people see first: an hour a day, three people.
+const start = {
+  minutes: 60,
+  frequency: "daily" as Frequency,
+  people: 3,
+  currency: c.defaultCurrency as Currency,
+};
+const startRate = RATE_DEFAULTS[start.currency];
+const first = computeCost({ ...start, rate: startRate })!;
+const fteStrings = {
+  tiny: c.result.fteTiny,
+  lessThanOne: c.result.fteLessThanOne,
+  one: c.result.fteOne,
+  many: c.result.fteMany,
+};
+const firstCost = formatMoney(first.yearly, start.currency, numberLocale);
+
+const clientCfg = {
+  numberLocale,
+  rateDefaults: RATE_DEFAULTS,
+  sentence: c.result.sentence,
+  sentenceWithTask: c.result.sentenceWithTask,
+  empty: c.result.empty,
+  fte: fteStrings,
+};
+const externalAttrs = c.cta.primary.external ? { target: "_blank", rel: "noopener" } : {};
+---
+
+<Base title={meta.title} description={meta.description} path={meta.path}>
+  <section class="calc-hero bg-paper" aria-labelledby="calc-heading">
+    <Container>
+      <p class="eyebrow">{c.eyebrow}</p>
+      <span class="rule" aria-hidden="true"></span>
+      <h1 id="calc-heading" class="display-lg calc-title">{c.heading}</h1>
+      <p class="lead calc-lead measure">{c.lead}</p>
+    </Container>
+  </section>
+
+  <section class="calc-body bg-bone">
+    <Container>
+      <div class="calc-grid" data-calculator data-config={JSON.stringify(clientCfg)}>
+        <form class="calc-form card" data-calc-form novalidate>
+          <div class="calc-field">
+            <label for="calc-task">{c.fields.task.label}</label>
+            <input
+              id="calc-task"
+              name="task"
+              type="text"
+              maxlength="80"
+              autocomplete="off"
+              placeholder={c.fields.task.placeholder}
+            />
+          </div>
+
+          <div class="calc-field">
+            <label for="calc-minutes">{c.fields.minutes.label}</label>
+            <input
+              id="calc-minutes"
+              name="minutes"
+              type="number"
+              inputmode="numeric"
+              min="1"
+              step="1"
+              value={start.minutes}
+              aria-describedby="calc-minutes-hint"
+            />
+            <p class="calc-hint" id="calc-minutes-hint">{c.fields.minutes.hint}</p>
+          </div>
+
+          <div class="calc-row">
+            <div class="calc-field">
+              <label for="calc-frequency">{c.fields.frequency.label}</label>
+              <select id="calc-frequency" name="frequency">
+                {
+                  c.fields.frequency.options.map((o) => (
+                    <option value={o.value} selected={o.value === start.frequency}>
+                      {o.label}
+                    </option>
+                  ))
+                }
+              </select>
+            </div>
+            <div class="calc-field">
+              <label for="calc-people">{c.fields.people.label}</label>
+              <input
+                id="calc-people"
+                name="people"
+                type="number"
+                inputmode="numeric"
+                min="1"
+                step="1"
+                value={start.people}
+              />
+            </div>
+          </div>
+
+          <div class="calc-field">
+            <label for="calc-rate">{c.fields.rate.label}</label>
+            <div class="calc-rate">
+              <input
+                id="calc-rate"
+                name="rate"
+                type="number"
+                inputmode="decimal"
+                min="0"
+                step="any"
+                value={startRate}
+                aria-describedby="calc-rate-hint"
+              />
+              <select name="currency" aria-label={c.fields.currency.label}>
+                <option value="RON" selected={start.currency === "RON"}>lei</option>
+                <option value="EUR" selected={start.currency === "EUR"}>€</option>
+              </select>
+            </div>
+            <p class="calc-hint" id="calc-rate-hint">{c.fields.rate.hint}</p>
+          </div>
+
+          <p class="calc-privacy">{c.privacy}</p>
+        </form>
+
+        <div class="calc-result">
+          <p class="eyebrow calc-result-eyebrow">{c.result.eyebrow}</p>
+          <p class="calc-cost" data-calc-cost>{firstCost}</p>
+          <!-- The one line read out when the numbers change -->
+          <p class="calc-sentence" data-calc-sentence aria-live="polite">
+            {c.result.sentence.replace("{cost}", firstCost)}
+          </p>
+          <dl class="calc-rows">
+            <div>
+              <dt>{c.result.hours}</dt>
+              <dd data-calc-hours>{formatNumber(first.hours, numberLocale)}</dd>
+            </div>
+            <div>
+              <dt>{c.result.monthly}</dt>
+              <dd data-calc-monthly>{formatMoney(first.monthly, start.currency, numberLocale)}</dd>
+            </div>
+            <div>
+              <dt>{c.result.fte}</dt>
+              <dd data-calc-fte>{formatFte(first.fte, numberLocale, fteStrings)}</dd>
+            </div>
+          </dl>
+          <p class="calc-note">{c.result.notCounted}</p>
+
+          <div class="calc-cta">
+            <p class="calc-cta-text">{c.cta.text}</p>
+            <a href={c.cta.primary.href} class="btn btn-primary" {...externalAttrs}>
+              {c.cta.primary.label}
+            </a>
+            <p class="calc-cta-micro">{c.cta.microcopy}</p>
+            <a href={c.cta.secondary.href} class="link-arrow calc-cta-secondary" data-astro-prefetch>
+              {c.cta.secondary.label}
+              <span class="arrow" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path d="M3 8h9M8.5 4l3.5 4-3.5 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <details class="calc-method">
+        <summary>{c.method.label}</summary>
+        <p>{c.method.body}</p>
+      </details>
+    </Container>
+  </section>
+</Base>
+
+<script>
+  import {
+    computeCost,
+    formatFte,
+    formatMoney,
+    formatNumber,
+    type Currency,
+    type Frequency,
+  } from "../scripts/manual-cost";
+
+  const root = document.querySelector<HTMLElement>("[data-calculator]");
+  if (root) {
+    const cfg = JSON.parse(root.dataset.config ?? "{}");
+    const form = root.querySelector<HTMLFormElement>("[data-calc-form]")!;
+    const input = (name: string) => form.elements.namedItem(name) as HTMLInputElement;
+    const select = (name: string) => form.elements.namedItem(name) as HTMLSelectElement;
+    const task = input("task");
+    const minutes = input("minutes");
+    const people = input("people");
+    const rate = input("rate");
+    const frequency = select("frequency");
+    const currency = select("currency");
+    const out = (sel: string) => root.querySelector<HTMLElement>(sel)!;
+    const cost = out("[data-calc-cost]");
+    const sentence = out("[data-calc-sentence]");
+    const hours = out("[data-calc-hours]");
+    const monthly = out("[data-calc-monthly]");
+    const fte = out("[data-calc-fte]");
+
+    // Switching currency swaps in that currency's starting rate, unless the
+    // visitor has already typed their own.
+    let rateTouched = false;
+    rate.addEventListener("input", () => {
+      rateTouched = true;
+    });
+    currency.addEventListener("change", () => {
+      if (!rateTouched) rate.value = String(cfg.rateDefaults[currency.value]);
+    });
+
+    const num = (el: HTMLInputElement) => {
+      const v = parseFloat(el.value.replace(",", "."));
+      return Number.isFinite(v) ? v : NaN;
+    };
+
+    const update = () => {
+      const cur = currency.value as Currency;
+      const r = computeCost({
+        minutes: num(minutes),
+        frequency: frequency.value as Frequency,
+        people: num(people),
+        rate: num(rate),
+      });
+      if (!r) {
+        for (const el of [cost, hours, monthly, fte]) el.textContent = "—";
+        sentence.textContent = cfg.empty;
+        return;
+      }
+      const money = formatMoney(r.yearly, cur, cfg.numberLocale);
+      const name = task.value.trim();
+      // Function replacements, so "$" in what the visitor typed stays literal
+      sentence.textContent = name
+        ? cfg.sentenceWithTask
+            .replace("{task}", () => name.charAt(0).toLocaleUpperCase() + name.slice(1))
+            .replace("{cost}", () => money)
+        : cfg.sentence.replace("{cost}", () => money);
+      cost.textContent = money;
+      hours.textContent = formatNumber(r.hours, cfg.numberLocale);
+      monthly.textContent = formatMoney(r.monthly, cur, cfg.numberLocale);
+      fte.textContent = formatFte(r.fte, cfg.numberLocale, cfg.fte);
+    };
+
+    form.addEventListener("input", update);
+    form.addEventListener("change", update);
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      update();
+    });
+  }
+</script>
+
+<style>
+  .calc-hero {
+    padding-top: clamp(5.5rem, 11vw, 8.5rem);
+    padding-bottom: clamp(2.5rem, 5vw, 4rem);
+  }
+  .calc-title {
+    margin-top: 1.5rem;
+    max-width: 20ch;
+  }
+  .calc-lead {
+    margin-top: 1.5rem;
+  }
+  .calc-body {
+    padding-block: clamp(3rem, 6vw, 5rem) clamp(4rem, 8vw, 6.5rem);
+  }
+
+  .calc-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+    align-items: start;
+  }
+  @media (min-width: 960px) {
+    .calc-grid {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 2rem;
+    }
+    /* The result stays in view while the numbers change */
+    .calc-result {
+      position: sticky;
+      top: 6rem;
+    }
+  }
+
+  /* ---------- the form ---------- */
+  .calc-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.35rem;
+    padding: clamp(1.5rem, 3vw, 2.25rem);
+  }
+  .calc-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.35rem;
+  }
+  @media (min-width: 560px) {
+    .calc-row {
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 1rem;
+    }
+  }
+  .calc-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+  .calc-field label {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-ink);
+  }
+  .calc-field input,
+  .calc-field select {
+    width: 100%;
+    min-height: 2.9rem;
+    padding: 0.65rem 0.85rem;
+    font: inherit;
+    font-size: 1.0625rem;
+    color: var(--color-ink);
+    background-color: var(--color-paper);
+    border: 1px solid color-mix(in srgb, var(--color-ink) 22%, var(--color-line));
+    border-radius: 10px;
+    font-variant-numeric: tabular-nums;
+  }
+  .calc-field input::placeholder {
+    color: color-mix(in srgb, var(--color-muted) 70%, transparent);
+  }
+  .calc-field input:focus,
+  .calc-field select:focus {
+    outline: 2px solid var(--color-steel);
+    outline-offset: 1px;
+    border-color: var(--color-steel);
+  }
+  .calc-field input:invalid {
+    border-color: #b3261e;
+  }
+  .calc-rate {
+    display: flex;
+    gap: 0.5rem;
+  }
+  .calc-rate select {
+    width: auto;
+    flex: none;
+  }
+  .calc-hint {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--color-muted);
+  }
+  .calc-privacy {
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-line);
+    font-size: 0.875rem;
+    color: var(--color-muted);
+  }
+
+  /* ---------- the result ---------- */
+  .calc-result {
+    padding: clamp(1.5rem, 3vw, 2.25rem);
+    border-radius: 20px;
+    border: 1px solid color-mix(in srgb, var(--color-steel) 25%, var(--color-line));
+    background-color: color-mix(in srgb, var(--color-steel) 7%, var(--color-paper));
+  }
+  .calc-result-eyebrow {
+    color: var(--color-steel);
+  }
+  .calc-cost {
+    margin-top: 0.75rem;
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    font-weight: 600;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--color-ink);
+    font-variant-numeric: tabular-nums;
+    overflow-wrap: anywhere;
+  }
+  .calc-sentence {
+    margin-top: 0.85rem;
+    font-size: 1.125rem;
+    line-height: 1.5;
+    color: var(--color-ink);
+  }
+  .calc-rows {
+    margin: 1.5rem 0 0;
+    border-top: 1px solid color-mix(in srgb, var(--color-steel) 20%, var(--color-line));
+  }
+  .calc-rows > div {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.25rem 1rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid color-mix(in srgb, var(--color-steel) 20%, var(--color-line));
+  }
+  .calc-rows dt {
+    font-size: 0.875rem;
+    color: var(--color-muted);
+  }
+  .calc-rows dd {
+    margin: 0;
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+  }
+  .calc-note {
+    margin-top: 1rem;
+    font-size: 0.875rem;
+    line-height: 1.55;
+    color: var(--color-muted);
+  }
+
+  .calc-cta {
+    margin-top: 1.75rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid color-mix(in srgb, var(--color-steel) 20%, var(--color-line));
+  }
+  .calc-cta-text {
+    margin-bottom: 1.1rem;
+    font-size: 1.0625rem;
+    line-height: 1.5;
+    color: var(--color-ink);
+  }
+  .calc-cta-micro {
+    margin-top: 0.75rem;
+    font-size: 0.875rem;
+    color: var(--color-muted);
+  }
+  .calc-cta-secondary {
+    margin-top: 1rem;
+    display: inline-flex;
+  }
+
+  /* ---------- how it's calculated ---------- */
+  .calc-method {
+    margin-top: clamp(2rem, 4vw, 3rem);
+    max-width: 62ch;
+  }
+  .calc-method summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--color-steel-deep);
+  }
+  .calc-method p {
+    margin-top: 0.75rem;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--color-muted);
+  }
+</style>

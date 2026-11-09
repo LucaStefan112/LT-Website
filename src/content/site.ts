@@ -164,7 +164,7 @@ export const site = {
   url: "https://ltstrategypartners.com",
   tagline: "First the problem. Then the solution.",
   description:
-    "We find what's holding your business back and build what fixes it: processes, automation, reporting, internal tools and AI where it's justified. Independent, no vendor commissions.",
+    "We find what's holding your business back and build the fix: processes, automation, reporting, digitalization and AI where it's justified. No vendor commissions.",
   email: "luca.tamas@ltstrategypartners.com",
   phone: "+40734950060", // used for the tel: link
   phoneDisplay: "+40 734 950 060", // shown to readers
@@ -177,9 +177,9 @@ export const site = {
     github: "https://github.com/LucaStefan112",
   },
   primaryCta,
-  // Header-only short form: the full label is 195-202px and pushed the
-  // inline nav past the container. Full label stays in the hero, the CTA
-  // band and the mobile panel, and is used as this button's aria-label.
+  // Header button between 1024 and 1099px only: the full "talk through a
+  // problem" label (hero.primaryCta) pushed the inline menu past the
+  // container there. From 1100px the header shows the full label.
   primaryCtaShort: "Book a call",
   assessmentCta,
 };
@@ -204,6 +204,7 @@ export const footerNav: NavItem[] = [
   { label: "Case studies", href: "/en/work" },
   { label: "Teams & adoption", href: "/en/training" },
   { label: "Scorecard", href: "/en/scorecard" },
+  { label: "Cost calculator", href: "/en/calculator" },
   { label: "About", href: "/en/about" },
   { label: "Contact", href: "/en/contact" },
 ];
@@ -344,6 +345,7 @@ export const services = {
         "The redesigned flow, automated where it pays",
         "Hours freed and errors avoided, measured before and after",
       ],
+      link: { label: "What does it cost you? Work it out", href: "/en/calculator" },
     },
     {
       icon: "chart",
@@ -466,6 +468,10 @@ export const servicesFaq = {
       a: "Yes, when it's the right answer. We've built production AI systems, including an assistant that runs offline on a business's own hardware. But AI is a tool, not the starting point: first we find out where it genuinely helps, and where it would only be a cost.",
     },
     {
+      q: "Do you do digitalization projects?",
+      a: "Yes, when digitalization solves a real problem: an order entered once, a report that builds itself, a system the team actually uses. We start from what the problem costs you today, not from the buzzword — and sometimes the answer is a simpler process, not new software.",
+    },
+    {
       q: "What if the problem isn't technology?",
       a: "Then we tell you. Sometimes the fix is a simpler process, a clear owner for a task, or a report done properly — and sometimes nothing yet.",
     },
@@ -485,10 +491,10 @@ export const servicesFaq = {
 } as const;
 
 
-/* -------------------------- Gate Zero: the /assessment offer page content */
+/* ------------------------ The Business Diagnostic: the /assessment page */
 /* The dedicated landing page for the free Business Diagnostic, run
    through the Gate Zero Method. Honesty rules baked into this copy:
-   - The capacity cap (3/month) is real for an offer he delivers himself — if
+   - The capacity cap (3/month) is real for an offer delivered personally — if
      capacity changes, change the number here and in offer-assets/.
    - No statistics are used on this page; if one is added, attribute it.
    - The no-go guarantee is a commitment about future readouts, not a claim
@@ -1012,7 +1018,7 @@ export const work = {
       overview:
         "Processly is a modern web application for visual process and project orchestration. Teams design a workflow once, then generate projects from it — with one click, on a schedule, or both. The emphasis is on full ownership and visibility of how work runs.",
       context: "Teams redesign and re-run the same recurring work by hand, every time it comes round.",
-      found: "The work itself was fine; the way it was organised kept getting lost. The knowledge behind each process lived in people's heads and slide decks, so every run started from a blank page.",
+      found: "The work itself was fine; the way it was organized kept getting lost. The knowledge behind each process lived in people's heads and slide decks, so every run started from a blank page.",
       result: "A working product: a process is designed once, then launched with one click, on a schedule, or both — so recurring work no longer starts from scratch.",
       delivered: [
         "A DAG-based visual workflow designer where a process is defined once and reused",
@@ -1314,7 +1320,7 @@ export const work = {
   ] as WorkProject[],
 } as const;
 
-/* ------------------------------------------- Training & enablement page */
+/* ---------------------------------------------- Teams & adoption page */
 /* The /training page, "Teams & adoption": how a team comes to actually use
    a system, a process or a tool. Training is the method, adoption the result;
    AI is one subject among several, not the frame. */
@@ -1361,7 +1367,7 @@ export const trainingPage = {
       { title: "Rolling out a system", icon: "refresh", body: "Training for one specific system — an ERP, a CRM, a reporting tool, or one we've built for you — before and after go-live, on your own data and tasks." },
       { title: "Processes and automation", icon: "flow", body: "How the work really runs, which steps are worth changing, and the small automations that take repetitive work out of the tools the team already has." },
       { title: "Data and reports", icon: "chart", body: "Reading, checking and building the reports the team relies on: where numbers go wrong between the source and the report, and how to check one before a decision rests on it." },
-      { title: "AI at work, used safely", icon: "sparkle", body: "Practical AI for everyday tasks — drafting, summarising, searching documents — with clear rules on what data may go into which tool, and checks before relying on an answer." },
+      { title: "AI at work, used safely", icon: "sparkle", body: "Practical AI for everyday tasks — drafting, summarizing, searching documents — with clear rules on what data may go into which tool, and checks before relying on an answer." },
       { title: "Security for everyday work", icon: "shield", body: "Phishing, social engineering, passwords and file sharing — the habits that keep company data safe, as rules a team can actually follow." },
       { title: "For managers", icon: "compass", body: "How to judge a system, an automation or an AI proposal: what it costs, what it risks, and how to tell a real case from an expensive demo." },
     ] as Card[],
@@ -1650,6 +1656,57 @@ export const scorecardPage = {
   },
 } as const;
 
+/* ------------------------------------- Manual-work cost calculator (/calculator) */
+/* One page, one task: minutes × how often × people × the hourly cost = what
+   it costs a year. The arithmetic lives in src/scripts/manual-cost.ts; this is
+   only the copy. Nothing the visitor types leaves the browser. */
+export const calculatorPage = {
+  eyebrow: "Free calculator · one minute",
+  heading: "What does manual work really cost you?",
+  lead: "Four numbers, and you'll see what one task done by hand costs you a year — retyping orders, building a report in a spreadsheet, answering the same question ten times a day.",
+  privacy: "Everything stays in your browser: nothing you type is sent or stored.",
+  fields: {
+    task: { label: "Which task? (optional)", placeholder: "e.g. retyping orders" },
+    minutes: { label: "How many minutes does it take each time?", hint: "If it happens several times a day, add the minutes up." },
+    frequency: {
+      label: "How often?",
+      options: [
+        { value: "daily", label: "Every working day" },
+        { value: "weekly", label: "Once a week" },
+        { value: "monthly", label: "Once a month" },
+      ],
+    },
+    people: { label: "How many people do it?" },
+    rate: { label: "What does an hour of their work cost?", hint: "Not sure? Monthly gross salary ÷ 160 gives a cautious estimate." },
+    currency: { label: "Currency" },
+  },
+  defaultCurrency: "EUR",
+  result: {
+    eyebrow: "A year",
+    sentence: "This task costs you about {cost} a year.",
+    sentenceWithTask: "{task} costs you about {cost} a year.",
+    empty: "Fill in the numbers to see the cost.",
+    hours: "Hours a year",
+    monthly: "A month",
+    fte: "In full-time jobs",
+    fteTiny: "under a tenth of a full-time job",
+    fteLessThanOne: "≈ {fte} of a full-time job",
+    fteOne: "≈ one full-time job",
+    fteMany: "≈ {fte} full-time jobs",
+    notCounted: "Not counted: errors and corrections, delays, and the risk of one person holding the whole task in their head. The real cost is usually higher.",
+  },
+  cta: {
+    text: "That's one task. Most companies have three or four like it. Want to know which one is worth fixing first?",
+    primary: { label: "Book a 30-minute call", href: site.primaryCta.href, external: site.primaryCta.external } as CTA,
+    microcopy: "Free · 30 minutes · a first view and a recommended next step, even if it isn't us.",
+    secondary: { label: "Or take the 3-minute self-check", href: "/en/scorecard" } as CTA,
+  },
+  method: {
+    label: "How it's calculated",
+    body: "Minutes × times a year × people ÷ 60 = hours a year; × the hourly cost = the cost a year. A working year here is 220 days, 46 weeks or 12 months, after public holidays and leave; one full-time job is about 1,760 hours of it.",
+  },
+} as const;
+
 export const pageMeta = {
   home: {
     title: "LT Strategy Partners — Business problems, found and fixed",
@@ -1671,25 +1728,25 @@ export const pageMeta = {
   training: {
     title: "Teams & adoption — LT Strategy Partners",
     description:
-      "Help your team actually use the systems, processes and tools you've invested in: hands-on training for managers and employees on their real work — processes, data, everyday tools and safe AI use.",
+      "Hands-on training on your team's real work — processes, data, everyday tools and safe AI use — so the systems you've invested in actually get used.",
     path: "/en/training",
   },
   assessment: {
     title: "The Business Diagnostic — LT Strategy Partners",
     description:
-      "A free diagnostic we run personally: where the money, the time and the decisions leak in your business, what is worth fixing first — and, honestly, where the answer isn't technology.",
+      "A free diagnostic we run personally: where money, time and decisions leak in your business, what's worth fixing first — and where the answer isn't technology.",
     path: "/en/assessment",
   },
   assessmentSample: {
     title: "Example: when the answer is an AI system — LT Strategy Partners",
     description:
-      "A full, clearly labelled sample of the Gate Zero Readout: the written build / not yet / don't build verdict on three AI use cases, produced once a diagnosis shows something should be built.",
+      "A sample Gate Zero Readout: the written build now / not yet / don't build verdict on three AI use cases for a fictional company.",
     path: "/en/assessment/sample-readout",
   },
   assessmentDiagnosisSample: {
     title: "A sample diagnosis — LT Strategy Partners",
     description:
-      "A full, clearly labelled sample of the written Business Diagnostic: a distributor with orders typed three times, margin seen too late and a CRM nobody uses — what to fix first, and what to leave alone.",
+      "A sample written diagnosis for a fictional distributor: orders typed three times, margin seen too late, a CRM nobody uses — and what to fix first.",
     path: "/en/assessment/sample-diagnosis",
   },
   work: {
@@ -1698,10 +1755,16 @@ export const pageMeta = {
       "What we've designed and built from scratch — products, data work and AI — each told the same way: the problem, what we found, what we built and the result.",
     path: "/en/work",
   },
+  calculator: {
+    title: "What does manual work cost you? — LT Strategy Partners",
+    description:
+      "A free one-minute calculator: what one task done by hand costs your business a year, in hours and money — and a way to find out which one is worth fixing first.",
+    path: "/en/calculator",
+  },
   about: {
     title: "About — LT Strategy Partners",
     description:
-      "Luca-Ștefan Tamaș — a problem solver who builds: a systems engineer who finds what's holding a business back and builds the fix. Enterprise platforms, two software products, data and AI systems.",
+      "Luca-Ștefan Tamaș — a problem solver who builds: a systems engineer who finds what's holding a business back and builds the fix. Platforms, products, data, AI.",
     path: "/en/about",
   },
   contact: {

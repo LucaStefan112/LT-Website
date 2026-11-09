@@ -61,6 +61,7 @@ edit the relevant export:
 - `assessmentPage` — the Diagnostic route (`/assessment`); `method.build` is the folded "When something needs building: Gate Zero" panel
 - `sampleDiagnosis` — the sample written diagnosis at `/assessment/sample-diagnosis` (a fictional distributor, no AI). Its scores and map positions live in `src/views/SampleDiagnosisView.astro`; its table rows reuse the dimension names from `assessmentPage.method`. The AI example (the Gate Zero readout at `/assessment/sample-readout`) is written inline in its two page files. Both samples share `src/styles/sample-doc.css`
 - `aboutPage` — the About route, in the founder's first person: intro, story, `principles` ("How I think"), the project strip and "In short"
+- `calculatorPage` — the manual-work cost calculator at `/calculator` (minutes × how often × people × hourly cost = cost a year, ending in the 30-minute call). The arithmetic, the working-year assumptions (220 days, 46 weeks, 12 months; 1,760 hours a full-time job) and the starting hourly rates live in `src/scripts/manual-cost.ts`, shared by the server render and the browser; nothing typed leaves the browser
 - `scorecardPage` — the Scorecard route, "Where is your business losing time and money?": ten questions and four result bands (questions and scoring unchanged). Every result points to the free 30-minute call first (`ctaPrimary` uses the site's booking link) and the Business Diagnostic second
 - `pageIntros` — the hero blocks on the Services, Case studies (`/work`) and Contact routes
 - `pageMeta` — per-page `<title>`, meta description, and path (for SEO + canonical)
@@ -192,9 +193,10 @@ src/
                     RagDiagram
     Header.astro, Footer.astro
   scripts/ui.ts     header scroll state, mobile menu, reveals, active-nav
+  scripts/manual-cost.ts  the cost calculator's arithmetic and number formatting
   views/            one view per route, shared by the RO (root) and EN (/en) pages
   pages/            index, services, training, assessment (+ sample-diagnosis,
-                    sample-readout), scorecard, about, contact, work (+ [slug]),
+                    sample-readout), scorecard, calculator, about, contact, work (+ [slug]),
                     privacy, terms, 404 (+ the same under en/)
 scripts/
   sync-fonts.mjs, gen-og.mjs

@@ -48,7 +48,7 @@ export const site = {
   url: "https://ltstrategypartners.com",
   tagline: "Întâi problema. Apoi soluția.",
   description:
-    "Găsim ce vă ține firma pe loc și construim soluția: procese, automatizări, rapoarte, aplicații interne și AI acolo unde se justifică. Independenți, fără comisioane de la furnizori.",
+    "Găsim ce vă ține firma pe loc și construim soluția: procese, automatizări, rapoarte, digitalizare și AI acolo unde se justifică. Fără comisioane de la furnizori.",
   email: "luca.tamas@ltstrategypartners.com",
   phone: "+40734950060",
   phoneDisplay: "+40 734 950 060",
@@ -81,6 +81,7 @@ export const footerNav: NavItem[] = [
   { label: "Studii de caz", href: "/work" },
   { label: "Echipe și adopție", href: "/training" },
   { label: "Verificare rapidă", href: "/scorecard" },
+  { label: "Calculator de costuri", href: "/calculator" },
   { label: "Despre", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
@@ -216,6 +217,7 @@ export const services = {
         "Fluxul regândit, automatizat acolo unde merită",
         "Orele câștigate și erorile evitate, măsurate înainte și după",
       ],
+      link: { label: "Cât vă costă? Calculați", href: "/calculator" },
     },
     {
       icon: "chart",
@@ -336,6 +338,10 @@ export const servicesFaq = {
       a: "Da, atunci când e răspunsul potrivit. Am construit sisteme AI de producție, inclusiv un asistent care rulează offline, pe echipamentele firmei. Dar AI-ul e un instrument, nu punctul de plecare: întâi aflăm unde ajută cu adevărat și unde ar fi doar o cheltuială.",
     },
     {
+      q: "Faceți proiecte de digitalizare?",
+      a: "Da, când digitalizarea rezolvă o problemă reală: o comandă introdusă o singură dată, un raport care se face singur, un sistem pe care echipa chiar îl folosește. Pornim de la ce vă costă problema azi, nu de la cuvântul la modă — iar uneori răspunsul e un proces mai simplu, nu un program nou.",
+    },
+    {
       q: "Și dacă problema nu ține de tehnologie?",
       a: "Atunci vă spunem. Uneori soluția e un proces mai simplu, un responsabil clar pentru o sarcină sau un raport făcut cum trebuie — și uneori nimic deocamdată.",
     },
@@ -355,7 +361,7 @@ export const servicesFaq = {
 } as const;
 
 
-/* -------------------------- Gate Zero: the /assessment offer page content */
+/* ------------------------ The Business Diagnostic: the /assessment page */
 
 export const assessmentPage = {
   eyebrow: "Cum lucrăm · Diagnosticul firmei",
@@ -1216,7 +1222,7 @@ export const work = {
   ] as WorkProject[],
 } as const;
 
-/* ------------------------------------------- Training & enablement page */
+/* ---------------------------------------------- Teams & adoption page */
 
 export const trainingPage = {
   eyebrow: "Echipe și adopție",
@@ -1594,6 +1600,56 @@ export const scorecardPage = {
   },
 } as const;
 
+/* ------------------------------- Calculatorul muncii manuale (/calculator) */
+/* Traducerea lui `calculatorPage` din site.ts. Calculul stă în
+   src/scripts/manual-cost.ts; aici e doar textul. */
+export const calculatorPage = {
+  eyebrow: "Calculator gratuit · un minut",
+  heading: "Cât vă costă, de fapt, munca manuală?",
+  lead: "Patru cifre și vedeți cât vă costă pe an o singură activitate făcută de mână — retastarea comenzilor, raportul construit în Excel, aceeași întrebare la care se răspunde de zece ori pe zi.",
+  privacy: "Totul rămâne în browserul dumneavoastră: nimic din ce scrieți nu se trimite și nu se salvează.",
+  fields: {
+    task: { label: "Ce activitate? (opțional)", placeholder: "de ex. retastarea comenzilor" },
+    minutes: { label: "Câte minute durează, de fiecare dată?", hint: "Dacă se întâmplă de mai multe ori pe zi, adunați minutele." },
+    frequency: {
+      label: "Cât de des?",
+      options: [
+        { value: "daily", label: "În fiecare zi lucrătoare" },
+        { value: "weekly", label: "O dată pe săptămână" },
+        { value: "monthly", label: "O dată pe lună" },
+      ],
+    },
+    people: { label: "Câți oameni o fac?" },
+    rate: { label: "Cât costă o oră din munca lor?", hint: "Nu știți? Salariul brut lunar împărțit la 160 dă o estimare prudentă." },
+    currency: { label: "Moneda" },
+  },
+  defaultCurrency: "RON",
+  result: {
+    eyebrow: "Pe an",
+    sentence: "Această activitate vă costă în jur de {cost} pe an.",
+    sentenceWithTask: "{task} vă costă în jur de {cost} pe an.",
+    empty: "Completați cifrele ca să vedeți costul.",
+    hours: "Ore pe an",
+    monthly: "Pe lună",
+    fte: "În posturi cu normă întreagă",
+    fteTiny: "sub o zecime dintr-o normă întreagă",
+    fteLessThanOne: "≈ {fte} dintr-o normă întreagă",
+    fteOne: "≈ o normă întreagă",
+    fteMany: "≈ {fte} norme întregi",
+    notCounted: "Nu sunt incluse erorile și corecturile, întârzierile și riscul ca un singur om să țină toată activitatea în cap. Costul real e de obicei mai mare.",
+  },
+  cta: {
+    text: "Asta e o singură activitate. Cele mai multe firme au trei-patru ca ea. Vreți să aflați care merită rezolvată întâi?",
+    primary: { label: "Programați o discuție de 30 de minute", href: site.primaryCta.href, external: site.primaryCta.external } as CTA,
+    microcopy: "Gratuit · 30 de minute · o primă părere și un pas următor recomandat, chiar dacă nu suntem noi.",
+    secondary: { label: "Sau faceți verificarea rapidă, de 3 minute", href: "/scorecard" } as CTA,
+  },
+  method: {
+    label: "Cum se calculează",
+    body: "Minute × de câte ori pe an × oameni ÷ 60 = ore pe an; × costul pe oră = costul pe an. Un an de lucru înseamnă aici 220 de zile, 46 de săptămâni sau 12 luni, după sărbători și concedii; o normă întreagă înseamnă cam 1.760 de ore din el.",
+  },
+} as const;
+
 /* --------------------------------------------------- Per-page SEO metadata */
 
 export const pageMeta = {
@@ -1612,31 +1668,31 @@ export const pageMeta = {
   services: {
     title: "Ce rezolvăm — LT Strategy Partners",
     description:
-      "Muncă manuală, cifre în care nu are nimeni încredere, sisteme nefolosite, idei care trebuie construite: diagnostic, soluție construită, echipă pregătită și rezultat măsurat.",
+      "Muncă manuală, cifre îndoielnice, sisteme nefolosite: digitalizare și automatizare pornind de la problemă — diagnostic, soluție, echipă pregătită, rezultat măsurat.",
     path: "/services",
   },
   training: {
     title: "Echipe și adopție — LT Strategy Partners",
     description:
-      "Ca echipa să folosească de fapt sistemele, procesele și instrumentele în care ați investit: training practic pentru manageri și angajați, pe munca lor reală — procese, date, instrumente de zi cu zi și AI folosit în siguranță.",
+      "Training practic pentru adoptarea sistemelor și a digitalizării: procese, date, instrumente de zi cu zi și AI folosit în siguranță, pe munca reală a echipei.",
     path: "/training",
   },
   assessment: {
     title: "Diagnosticul firmei — LT Strategy Partners",
     description:
-      "Un diagnostic gratuit, pe care îl facem noi: unde se pierd banii, timpul și deciziile în firma dumneavoastră, ce merită rezolvat primul — și, spus cinstit, unde răspunsul nu ține de tehnologie.",
+      "Un diagnostic gratuit, făcut de noi: unde se pierd banii, timpul și deciziile în firmă, ce merită rezolvat primul — și unde răspunsul nu ține de tehnologie.",
     path: "/assessment",
   },
   assessmentSample: {
     title: "Exemplu: când soluția e un sistem AI — LT Strategy Partners",
     description:
-      "Un exemplu integral de Raport Gate Zero, marcat clar ca exemplu: verdictul scris „construiți acum / încă nu / nu construiți” pentru trei cazuri de utilizare AI, întocmit după ce diagnosticul arată că merită construit ceva.",
+      "Exemplu de Raport Gate Zero: verdictul scris „construiți acum / încă nu / nu construiți” pentru trei cazuri de utilizare AI ale unei firme fictive.",
     path: "/assessment/sample-readout",
   },
   assessmentDiagnosisSample: {
     title: "Un exemplu de diagnostic — LT Strategy Partners",
     description:
-      "Un exemplu integral de diagnostic scris, marcat clar ca exemplu: o firmă de distribuție cu comenzi tastate de trei ori, marja văzută prea târziu și un CRM pe care nu-l folosește nimeni — ce rezolvați întâi și ce lăsați deoparte.",
+      "Exemplu de diagnostic scris pentru o firmă de distribuție fictivă: comenzi tastate de trei ori, marja văzută prea târziu, un CRM nefolosit — și ce rezolvați întâi.",
     path: "/assessment/sample-diagnosis",
   },
   work: {
@@ -1645,10 +1701,16 @@ export const pageMeta = {
       "Ce am proiectat și construit de la zero — produse, analize de date și AI — fiecare spus la fel: problema, ce am găsit, ce am construit și rezultatul.",
     path: "/work",
   },
+  calculator: {
+    title: "Cât vă costă munca manuală? — LT Strategy Partners",
+    description:
+      "Un calculator gratuit, de un minut: cât vă costă pe an o singură activitate făcută de mână, în ore și în bani — și cum aflați care merită rezolvată întâi.",
+    path: "/calculator",
+  },
   about: {
     title: "Despre — LT Strategy Partners",
     description:
-      "Luca-Ștefan Tamaș, inginer de sisteme care găsește ce ține o firmă pe loc și construiește soluția. Platforme enterprise, două produse software proprii, sisteme de date și AI.",
+      "Luca-Ștefan Tamaș, inginer de sisteme care găsește ce ține o firmă pe loc și construiește soluția: platforme enterprise, produse proprii, date și AI.",
     path: "/about",
   },
   contact: {

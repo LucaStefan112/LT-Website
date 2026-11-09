@@ -4,7 +4,7 @@ import Button from "./ui/Button.astro";
 import { getContent, resolveLocale, localePath, stripLocale } from "../content/i18n";
 
 const locale = resolveLocale(Astro.url.pathname);
-const { nav, site, ui } = getContent(locale);
+const { nav, site, ui, hero } = getContent(locale);
 
 // Language switcher: this page in each language. The 404 page exists only once
 // (GitHub Pages serves a single /404.html), so fall back to home.
@@ -55,13 +55,16 @@ const langNavLabel = locale === "ro" ? "Limbă" : "Language";
           ))
         }
       </div>
+      <!-- "Discutați o problemă" wherever it fits; the short label only between
+           1024 and 1099px, where the full one pushed the menu past the edge.
+           No aria-label: the visible label is the button's name. -->
       <Button
         href={site.primaryCta.href}
         external={site.primaryCta.external}
         plausibleEvent="Header CTA"
-        aria-label={site.primaryCta.label}
       >
-        {site.primaryCtaShort}
+        <span class="header-cta-long">{hero.primaryCta.label}</span>
+        <span class="header-cta-short">{site.primaryCtaShort}</span>
       </Button>
     </nav>
 
@@ -355,6 +358,18 @@ const langNavLabel = locale === "ro" ? "Limbă" : "Language";
      its labels are widest. Below this width the hamburger panel carries the same
      nav, the language switcher and the full-label CTA, so nothing is lost.
      If nav labels or the CTA label change materially, re-measure in a browser. */
+  .header-cta-long {
+    display: none;
+  }
+  @media (min-width: 1100px) {
+    .header-cta-long {
+      display: inline;
+    }
+    .header-cta-short {
+      display: none;
+    }
+  }
+
   @media (min-width: 1024px) {
     .header-nav {
       display: flex;
