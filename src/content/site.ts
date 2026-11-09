@@ -1487,15 +1487,13 @@ export interface ScorecardTier {
 
 export const scorecardPage = {
   eyebrow: "Free self-check · about 3 minutes",
-  heading: "Where is your business losing time and money — and is anything worth building?",
-  lead: "Ten plain questions about how the business actually runs — no jargon, no sign-up to start. You'll get an honest read on where your time and money are going, and whether an investment in technology would genuinely pay off for a company like yours right now — and, just as often, where the smarter move is to fix something first. This isn't a maturity score to make you feel behind. It's a straight answer about where your money would actually go to work.",
+  heading: "Where is your business losing time and money?",
+  lead: "Ten plain questions about how the business actually runs — no jargon, no sign-up to start. You'll get an honest read on where your time and money go, what's worth fixing first, and whether now is the moment — including when a simpler change is smarter than a new system. Not a maturity score to make you feel behind: a straight answer about where to start.",
   microcopy: "No login to answer. We only ask for an email if you want the fuller written readout.",
   // The Q3 index (0-based) whose zero-point answer triggers the data-gate override.
   dataGateQuestionIndex: 2,
-  dataGateNote:
-    "One thing first, before anything else: right now the information you'd need lives mostly in people's heads and email. Until it lives somewhere a system can actually reach, nothing you buy or build on top of it can pay off — it's the one thing worth fixing before you spend on anything below.",
-  q10Note:
-    "There's no wrong answer here — high-stakes work isn't off-limits, it just has to be built far more carefully. This question shapes the advice, not the verdict.",
+  dataGateNote: "One thing first: right now the information you'd need lives mostly in people's heads and email. Until it lives somewhere the team can reach and check it, no fix built on top — a new process, a report or a system — will hold. It's the first thing worth sorting.",
+  q10Note: "There's no wrong answer here — high-stakes work isn't off-limits, it just needs a more careful fix. This question shapes the advice, not the score.",
   questions: [
     {
       q: "How much of your team's week goes into repetitive, rule-based manual work — re-keying data, formatting the same reports, answering the same questions, moving information between tools?",
@@ -1594,7 +1592,7 @@ export const scorecardPage = {
       max: 34,
       name: "Foundations first",
       headline: "Not yet — and that's a useful answer.",
-      body: "Right now, buying or building something would most likely be money spent ahead of the problem. That's not a criticism — it's the cheapest lesson you'll ever get, because you're learning it before the invoice, not after. The honest first step isn't a tool. It's getting one thing in order: a problem worth naming, information a system can actually reach, or someone who can own the work. Sort that, and a lot of options open up cheaply. Spend into it now, and you'll likely be one of the many companies that quietly shelve the project a year later. Come back and re-run this once the ground is firmer — you'll see the score move.",
+      body: "Right now, paying for a new system would most likely be money spent ahead of the problem. That's not a criticism — it's the cheapest lesson there is, learned before the invoice instead of after. The first step isn't a tool. It's getting one thing in order: a problem worth naming, information the team can actually reach, or someone who can own the work. Sort that and options open up cheaply. If you'd like a second pair of eyes on where to start, a 30-minute call is enough — and you can re-run this once the ground is firmer.",
     },
     {
       slug: "real-seed",
@@ -1602,7 +1600,7 @@ export const scorecardPage = {
       max: 59,
       name: "A real seed, not yet a project",
       headline: "There's something here worth shaping.",
-      body: "You've got the beginnings of a real opportunity — but it's still a seed, not a plan, and the fastest way to waste money now is to jump to a solution before the problem is sized. The move that actually pays: pick the single workflow that costs you the most, write down what it costs today in hours or euros, and be honest about where the data for it lives. Do that and you'll either find a bet worth making — or save yourself a project that was never going to land. If it would help to pressure-test which one it is, that's exactly what the free Business Diagnostic is for.",
+      body: "You have the beginnings of something worth fixing — but it's still a seed, not a plan, and the fastest way to waste money now is to jump to a solution before the problem is sized. What pays: pick the one piece of work that costs you most, write down what it costs today in hours or euros, and be honest about where its information lives. You'll either find a fix worth making — or save yourself a project that was never going to land. A 30-minute call is the quickest way to tell which.",
     },
     {
       slug: "strong-candidate",
@@ -1610,15 +1608,15 @@ export const scorecardPage = {
       max: 79,
       name: "Strong candidate",
       headline: "This is worth a serious look.",
-      body: "You have most of what a bet like this needs — a real problem, workable data, and enough readiness to act. The risk at this stage isn't doing nothing; it's building the wrong thing well, or picking the idea that demos beautifully and then dies on contact with real users. Before you commit budget, the highest-return half-hour you can spend is getting a straight verdict on which problem is actually worth solving in production — and which ones to leave alone. That's what the free Business Diagnostic gives you, in writing, before you spend a cent.",
+      body: "You have most of what a real fix needs — a named problem, workable information and enough readiness to act. The risk now isn't doing nothing; it's fixing the wrong thing well, or picking the idea that looks great in a demo and fails with real users. Before you commit budget, get a straight answer on which problem is worth fixing first, and how. Start with a 30-minute call; if it's worth going deeper, the free Business Diagnostic puts the answer in writing.",
     },
     {
       slug: "ready-to-move",
       min: 80,
       max: 100,
       name: "Ready to move",
-      headline: "The question isn't whether — it's which bet, and in what order.",
-      body: "On paper, you're ready: a named problem, data a system can reach, budget, an owner, and the pressure to move. The only thing standing between you and a return is choosing the right first bet and sequencing it well — because at this stage the expensive mistake is building three things adequately instead of one thing that pays. This is exactly the point where a short, honest, outside read earns its keep. The free Business Diagnostic gives you a written verdict on each candidate — build now, not yet, or don't build — including, plainly, when the honest answer is that nothing here should be built. We take no vendor commissions, so a \"don't build\" costs us nothing — which is the only reason a \"build\" from us means anything.",
+      headline: "The question isn't whether — it's what first, and in what order.",
+      body: "On paper you're ready: a named problem, information you can reach, budget, an owner and a reason to move. What stands between you and a return is choosing the right first fix and sequencing it well — at this stage the expensive mistake is doing three things adequately instead of one that pays. This is where a short, honest outside read earns its keep: a 30-minute call to see where to start, then, if it fits, the free Business Diagnostic — what to fix first and what to leave alone, in writing. We take no vendor commissions, so we have nothing to gain from selling you something you don't need.",
     },
   ] as ScorecardTier[],
   ui: {
@@ -1638,14 +1636,17 @@ export const scorecardPage = {
     privacyLinkLabel: "See the privacy policy.",
     privacyHref: "/en/privacy",
   },
+  // The result's first step is the free 30-minute triage call (the site's
+  // booking link); the Business Diagnostic is the deeper second option.
   ctaPrimary: {
-    label: "Apply for a free Business Diagnostic",
-    href: "/en/assessment",
-    microcopy: "Free · one per company · we run it personally · a written verdict, including where nothing should be built.",
+    label: "Book a 30-minute call",
+    href: site.primaryCta.href,
+    external: site.primaryCta.external,
+    microcopy: "Free · 30 minutes · you leave with a first view and a recommended next step, even if it isn't us.",
   },
   ctaSecondary: {
-    label: "Or just talk it through",
-    href: "/en/contact",
+    label: "Or apply for the free Business Diagnostic",
+    href: "/en/assessment",
   },
 } as const;
 

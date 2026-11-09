@@ -1360,16 +1360,13 @@ export const pageIntros = {
 
 export const scorecardPage = {
   eyebrow: "Verificare gratuită · circa 3 minute",
-  heading:
-    "Unde pierde firma dumneavoastră timp și bani — și merită construit ceva?",
-  lead: "Zece întrebări simple despre felul în care merge de fapt firma dumneavoastră, fără jargon și fără să vă faceți cont. Primiți un răspuns onest despre unde se duc timpul și banii și dacă o investiție în tehnologie s-ar amortiza chiar acum într-o firmă ca a dumneavoastră — și, la fel de des, unde ar fi mai înțelept să rezolvați întâi altceva. Nu e un scor de maturitate care să vă facă să vă simțiți în urmă. E un răspuns direct despre unde ar lucra de fapt banii dumneavoastră.",
+  heading: "Unde pierde firma dumneavoastră timp și bani?",
+  lead: "Zece întrebări simple despre felul în care merge de fapt firma dumneavoastră, fără jargon și fără să vă faceți cont. Primiți un răspuns onest despre unde se duc timpul și banii, ce merită rezolvat întâi și dacă acum e momentul — inclusiv atunci când o schimbare simplă e mai înțeleaptă decât un sistem nou. Nu e un scor de maturitate care să vă facă să vă simțiți în urmă, ci un răspuns direct despre unde să începeți.",
   microcopy:
     "Nu e nevoie de cont ca să răspundeți. Vă cerem adresa de e-mail doar dacă doriți varianta scrisă, mai amplă.",
   dataGateQuestionIndex: 2,
-  dataGateNote:
-    "Un lucru, înainte de toate: chiar acum, informația de care ați avea nevoie stă mai ales în capul oamenilor și în e-mailuri. Până nu ajunge într-un loc de unde un sistem o poate citi, nimic din ce cumpărați sau construiți peste ea nu se poate amortiza — asta e singurul lucru care merită rezolvat înainte să cheltuiți pe oricare dintre lucrurile de mai jos.",
-  q10Note:
-    "Aici nu există răspuns greșit — miza mare nu e interzisă, doar cere o construcție mult mai atentă. Această întrebare schimbă recomandarea, nu verdictul.",
+  dataGateNote: "Un lucru, înainte de toate: chiar acum, informația de care ați avea nevoie stă mai ales în capul oamenilor și în e-mailuri. Până nu ajunge într-un loc unde echipa o poate găsi și verifica, nicio soluție construită peste ea — un proces nou, un raport sau un sistem — nu va ține. Asta merită rezolvat primul.",
+  q10Note: "Aici nu există răspuns greșit — miza mare nu e interzisă, doar cere o soluție mult mai atentă. Această întrebare schimbă recomandarea, nu scorul.",
   questions: [
     {
       q: "Cât din săptămâna echipei se duce în muncă manuală și repetitivă, după reguli — date reintroduse de mână, aceleași rapoarte formatate din nou, aceleași întrebări la care se răspunde iar, informație mutată dintr-un program în altul?",
@@ -1537,7 +1534,7 @@ export const scorecardPage = {
       max: 34,
       name: "Întâi fundația",
       headline: "Încă nu — și e un răspuns util.",
-      body: "Chiar acum, să cumpărați sau să construiți ceva ar fi, cel mai probabil, bani cheltuiți înaintea problemei. Nu e o critică — e cea mai ieftină lecție pe care o veți primi vreodată, pentru că o învățați înainte de factură, nu după. Primul pas onest nu e un instrument. E să puneți un lucru la punct: o problemă care merită numită, informație la care un sistem poate ajunge cu adevărat sau cineva care poate duce munca la capăt. Rezolvați asta și se deschid multe opțiuni, fără să cheltuiți mult. Cheltuiți acum peste lipsurile acestea și veți fi, probabil, printre firmele care lasă proiectul deoparte un an mai târziu. Reveniți și reluați testul când terenul e mai solid — veți vedea cum se schimbă scorul.",
+      body: "Chiar acum, să plătiți pentru un sistem nou ar fi, cel mai probabil, bani cheltuiți înaintea problemei. Nu e o critică — e cea mai ieftină lecție, pentru că o învățați înainte de factură, nu după. Primul pas nu e un instrument. E să puneți un lucru la punct: o problemă care merită numită, informație la care echipa chiar poate ajunge sau cineva care poate duce munca la capăt. Rezolvați asta și se deschid multe opțiuni, fără să cheltuiți mult. Dacă vreți o a doua părere despre unde să începeți, ajunge o discuție de 30 de minute — iar testul îl puteți relua când terenul e mai solid.",
     },
     {
       slug: "real-seed",
@@ -1545,7 +1542,7 @@ export const scorecardPage = {
       max: 59,
       name: "O sămânță reală, încă nu un proiect",
       headline: "Aveți aici ceva care merită conturat.",
-      body: "Aveți începutul unei oportunități reale — dar e încă o sămânță, nu un plan, iar cea mai rapidă cale de a arunca bani acum e să săriți la soluție înainte de a măsura problema. Pasul care se amortizează cu adevărat: luați fluxul de lucru care vă costă cel mai mult, scrieți negru pe alb cât vă costă azi, în ore sau în euro, și fiți sinceri în privința locului unde stau datele pentru el. Faceți asta și fie găsiți o investiție care merită făcută, fie vă scutiți de un proiect care oricum nu avea cum să iasă. Dacă v-ar ajuta să vedeți în care dintre cele două situații sunteți, exact pentru asta există Diagnosticul firmei, gratuit.",
+      body: "Aveți începutul a ceva care merită rezolvat — dar e încă o sămânță, nu un plan, iar cea mai rapidă cale de a arunca bani acum e să săriți la soluție înainte de a măsura problema. Pasul care se amortizează: luați activitatea care vă costă cel mai mult, scrieți negru pe alb cât vă costă azi, în ore sau în euro, și fiți sinceri în privința locului unde stă informația pentru ea. Fie găsiți o soluție care merită făcută, fie vă scutiți de un proiect care oricum nu avea cum să iasă. O discuție de 30 de minute e cea mai rapidă cale să aflați care dintre ele.",
     },
     {
       slug: "strong-candidate",
@@ -1553,7 +1550,7 @@ export const scorecardPage = {
       max: 79,
       name: "Candidat serios",
       headline: "Merită o privire serioasă.",
-      body: "Aveți cea mai mare parte din ce cere un astfel de proiect — o problemă reală, date utilizabile și destulă pregătire ca să acționați. Riscul, în acest punct, nu e să nu faceți nimic; e să construiți bine lucrul greșit sau să alegeți ideea care arată superb în demo și moare la primul contact cu utilizatori reali. Înainte să alocați buget, cea mai rentabilă jumătate de oră pe care o puteți investi e cea în care primiți un verdict tranșant: care problemă merită cu adevărat rezolvată în producție și pe care să o lăsați deoparte. Exact asta vă dă, în scris, Diagnosticul firmei, gratuit, înainte să cheltuiți un ban.",
+      body: "Aveți cea mai mare parte din ce cere o soluție reală — o problemă numită, informație utilizabilă și destulă pregătire ca să acționați. Riscul, în acest punct, nu e să nu faceți nimic; e să rezolvați bine lucrul greșit sau să alegeți ideea care arată superb în demo și cedează la primul contact cu utilizatori reali. Înainte să alocați buget, aflați limpede ce problemă merită rezolvată întâi și cum. Începeți cu o discuție de 30 de minute; dacă merită mers mai departe, Diagnosticul firmei, gratuit, vă dă răspunsul în scris.",
     },
     {
       slug: "ready-to-move",
@@ -1561,7 +1558,7 @@ export const scorecardPage = {
       max: 100,
       name: "Pregătiți să porniți",
       headline: "Întrebarea nu e „dacă” — ci ce anume, și în ce ordine.",
-      body: "Pe hârtie, sunteți pregătiți: o problemă clar numită, date la care un sistem poate ajunge, buget, un responsabil și presiunea de a acționa. Între dumneavoastră și un câștig real stă un singur lucru: să alegeți proiectul cu care începeți și să ordonați bine pașii următori — pentru că, în acest punct, greșeala scumpă e să construiți trei lucruri pe jumătate în loc de unul care se amortizează. Exact aici își merită banii o părere scurtă și onestă din afară. Diagnosticul gratuit al firmei vă dă un verdict scris pentru fiecare variantă — construiți acum, încă nu sau nu construiți — inclusiv, spus limpede, când răspunsul onest e că nu e nimic de construit. Nu luăm comisioane de la furnizori, așa că un „nu construiți” nu ne costă nimic — și doar de aceea un „construiți” din partea noastră înseamnă ceva.",
+      body: "Pe hârtie, sunteți pregătiți: o problemă clar numită, informație la care puteți ajunge, buget, un responsabil și un motiv să acționați. Între dumneavoastră și un câștig real stă un singur lucru: să alegeți prima soluție și să ordonați bine pașii — pentru că, în acest punct, greșeala scumpă e să faceți trei lucruri pe jumătate în loc de unul care se amortizează. Exact aici își merită timpul o părere scurtă și onestă din afară: o discuție de 30 de minute ca să vedeți de unde să începeți, apoi, dacă se potrivește, Diagnosticul firmei, gratuit — ce rezolvați întâi și ce lăsați deoparte, în scris. Nu luăm comisioane de la furnizori, așa că nu avem nimic de câștigat dacă vă vindem ceva de care nu aveți nevoie.",
     },
   ] as ScorecardTier[],
   ui: {
@@ -1583,15 +1580,17 @@ export const scorecardPage = {
     privacyLinkLabel: "Vedeți politica de confidențialitate.",
     privacyHref: "/privacy",
   },
+  // The result's first step is the free 30-minute triage call (the site's
+  // booking link); the Business Diagnostic is the deeper second option.
   ctaPrimary: {
-    label: "Cereți Diagnosticul firmei — e gratuit",
-    href: "/assessment",
-    microcopy:
-      "Gratuit · unul per companie · îl facem noi · un verdict scris, inclusiv când nu e nimic de construit.",
+    label: "Programați o discuție de 30 de minute",
+    href: site.primaryCta.href,
+    external: site.primaryCta.external,
+    microcopy: "Gratuit · 30 de minute · plecați cu o primă părere și un pas următor recomandat, chiar dacă nu suntem noi.",
   },
   ctaSecondary: {
-    label: "Sau pur și simplu discutați cu noi",
-    href: "/contact",
+    label: "Sau cereți Diagnosticul firmei, gratuit",
+    href: "/assessment",
   },
 } as const;
 

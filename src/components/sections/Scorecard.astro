@@ -1,5 +1,5 @@
 ---
-/* Interactive AI & Tech Opportunity Scorecard.
+/* Interactive self-check: where the business loses time and money.
    Questions render server-side from the content modules (site.ts / site.ro.ts)
    so both language trees use this same component. Client JS sums the selected
    option points, maps to a tier, reveals the result, then email-gates a fuller
@@ -89,7 +89,27 @@ const lastIndex = sc.questions.length - 1;
     </div>
     <h2 class="sc-result-headline" id="sc-result-headline" data-scorecard-headline></h2>
     <p class="sc-result-body" data-scorecard-body></p>
-    <button type="button" class="sc-retake link-arrow" data-scorecard-retake>{sc.ui.retake}</button>
+
+    <!-- First step: the free 30-minute call (an external booking page when one is
+         set); the Business Diagnostic is the deeper second option -->
+    <div class="sc-cta">
+      <a
+        href={sc.ctaPrimary.href}
+        class="btn btn-primary sc-cta-primary"
+        {...(sc.ctaPrimary.external ? { target: "_blank", rel: "noopener" } : { "data-astro-prefetch": true })}
+      >
+        {sc.ctaPrimary.label}
+      </a>
+      <p class="sc-cta-microcopy">{sc.ctaPrimary.microcopy}</p>
+      <a href={sc.ctaSecondary.href} class="link-arrow sc-cta-secondary" data-astro-prefetch>
+        {sc.ctaSecondary.label}
+        <span class="arrow" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M3 8h9M8.5 4l3.5 4-3.5 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </span>
+      </a>
+    </div>
 
     <!-- Email gate -->
     <div class="sc-gate card">
@@ -122,21 +142,7 @@ const lastIndex = sc.questions.length - 1;
       </form>
     </div>
 
-    <!-- CTA into the assessment -->
-    <div class="sc-cta">
-      <a href={sc.ctaPrimary.href} class="btn btn-primary sc-cta-primary" data-astro-prefetch>
-        {sc.ctaPrimary.label}
-      </a>
-      <p class="sc-cta-microcopy">{sc.ctaPrimary.microcopy}</p>
-      <a href={sc.ctaSecondary.href} class="link-arrow sc-cta-secondary" data-astro-prefetch>
-        {sc.ctaSecondary.label}
-        <span class="arrow" aria-hidden="true">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <path d="M3 8h9M8.5 4l3.5 4-3.5 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
-        </span>
-      </a>
-    </div>
+    <button type="button" class="sc-retake link-arrow" data-scorecard-retake>{sc.ui.retake}</button>
   </div>
 </section>
 
@@ -429,9 +435,7 @@ const lastIndex = sc.questions.length - 1;
 
   /* ---------- cta ---------- */
   .sc-cta {
-    margin-top: clamp(2rem, 4vw, 3rem);
-    padding-top: clamp(1.75rem, 3.5vw, 2.5rem);
-    border-top: 1px solid var(--color-line);
+    margin-top: 1.75rem;
   }
   .sc-cta-microcopy {
     margin-top: 0.875rem;
