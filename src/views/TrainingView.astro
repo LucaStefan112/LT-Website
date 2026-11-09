@@ -14,9 +14,10 @@ import Icon from "../components/ui/Icon.astro";
 import TrainingIllustration from "../components/illustrations/TrainingIllustration.astro";
 import { getContent, resolveLocale, localePath } from "../content/i18n";
 
-/* /training — training & enablement as one stage of digitalization, not a
-   course catalogue. Sections: why → who → formats → how → who teaches it
-   (technical credibility) → where it leads (the bridge to implementation). */
+/* /training — "Teams & adoption": getting a team to actually use a system, a
+   process or a tool. Not a course catalogue. Sections: why → who → formats →
+   how → who teaches it (technical credibility) → where it leads (the bridge to
+   the rest of the work). */
 const { pageMeta, trainingPage: tp, site, work } = getContent(Astro.url.pathname);
 const meta = pageMeta.training;
 const locale = resolveLocale(Astro.url.pathname);

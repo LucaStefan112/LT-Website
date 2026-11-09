@@ -57,7 +57,7 @@ edit the relevant export:
 - Home, top to bottom: `hero`, `partners`, `symptoms` ("Sound familiar?"), `statement` ("What changes"), `solve` (the four problem areas), `approach` (how we work, five steps), `work` (case studies), `pillars` ("Why LT"), `founderStrip`, `ctaBand`
 - "What we solve" (`/services`), top to bottom: `services` (the four problem areas: what it looks like, what we do, what you get), `layers` (Leadership / Processes / People), `approach`, `engagements` (ways to work together: to start, to solve, for the long run — rename offers or change their duration/price wording here), `servicesFaq` (incl. "Do you work with AI?"), `ctaBand`
 - `contact`, `footer`
-- `trainingPage` — the `/training` page (formats, audiences, process, who teaches it)
+- `trainingPage` — the `/training` page, "Teams & adoption" / "Echipe și adopție": getting a team to actually use a system, a process or a tool (formats, audiences, process, who teaches it). The URL stays `/training`
 - `assessmentPage` — the Diagnostic route (`/assessment`); `method.build` is the folded "When something needs building: Gate Zero" panel
 - `sampleDiagnosis` — the sample written diagnosis at `/assessment/sample-diagnosis` (a fictional distributor, no AI). Its scores and map positions live in `src/views/SampleDiagnosisView.astro`; its table rows reuse the dimension names from `assessmentPage.method`. The AI example (the Gate Zero readout at `/assessment/sample-readout`) is written inline in its two page files. Both samples share `src/styles/sample-doc.css`
 - `aboutPage` — the About route, in the founder's first person: intro, story, `principles` ("How I think"), the project strip and "In short"

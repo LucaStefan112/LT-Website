@@ -202,7 +202,7 @@ export const footerNav: NavItem[] = [
   { label: "What we solve", href: "/en/services" },
   { label: "How we work", href: "/en/assessment" },
   { label: "Case studies", href: "/en/work" },
-  { label: "Team training", href: "/en/training" },
+  { label: "Teams & adoption", href: "/en/training" },
   { label: "Scorecard", href: "/en/scorecard" },
   { label: "About", href: "/en/about" },
   { label: "Contact", href: "/en/contact" },
@@ -374,7 +374,7 @@ export const services = {
         "Process and integration fixes, so the system fits the work",
         "Training on the team's own tasks, with usage tracked",
       ],
-      link: { label: "About team training", href: "/en/training" },
+      link: { label: "How we get systems used", href: "/en/training" },
     },
     {
       icon: "code",
@@ -1048,7 +1048,7 @@ export const work = {
       takeaway:
         "This shows we can turn a client's recurring, manual work into designed, reusable systems that run on demand or on a schedule — giving an operations team consistency and visibility without growing the team.",
       training:
-        "The same thinking is what we teach teams in automation and digital-productivity training: map the recurring work once, then decide which steps are worth automating — and which aren't.",
+        "The same thinking is what we teach teams in process and automation training: map the recurring work once, then decide which steps are worth automating — and which aren't.",
       image: "processly",
     },
     {
@@ -1204,7 +1204,7 @@ export const work = {
       takeaway:
         "This is the clearest demonstration of what we do with data: take sources that are public but unusable, resolve the entities nobody has joined before, and publish the result with its limits stated — so the numbers survive scrutiny instead of collapsing under it.",
       training:
-        "It's the discipline behind our data & BI training: where numbers go wrong between the source and the report, and how a team can check a figure before a decision rests on it.",
+        "It's the discipline behind our data and reports training: where numbers go wrong between the source and the report, and how a team can check a figure before a decision rests on it.",
       image: "atlas",
       liveUrl: "/atlas/",
       liveLabel: "Open the live Atlas",
@@ -1307,7 +1307,7 @@ export const work = {
       takeaway:
         "This shows we can take raw sensor and telemetry data and turn it into operational dashboards that drive real decisions — an approach that applies to any client running a fleet, a network, or a stream of operational data.",
       training:
-        "In data & BI training, this is the pattern we teach: start from the decision someone has to make, then build the view of the data that serves it.",
+        "In our data and reports training, this is the pattern we teach: start from the decision someone has to make, then build the view of the data that serves it.",
       image: "transit-map",
       gallery: ["transit-charts", "transit-speeding"],
     },
@@ -1315,15 +1315,14 @@ export const work = {
 } as const;
 
 /* ------------------------------------------- Training & enablement page */
-/* The /training page. Positioned as one stage of digitalization, not as a
-   course catalogue. Honesty rules: no certifications, client counts, durations
-   or outcomes are claimed — formats are starting points, and the credibility
-   section only cites builds shown under Selected work. */
+/* The /training page, "Teams & adoption": how a team comes to actually use
+   a system, a process or a tool. Training is the method, adoption the result;
+   AI is one subject among several, not the frame. */
 
 export const trainingPage = {
-  eyebrow: "Training & enablement",
-  heading: "Training on the technology your team will actually use.",
-  lead: "Practical, company-specific training on AI, digitalization, automation, data and cybersecurity — for managers and employees, built around your processes, your software and the problems you're trying to solve. Taught by the people who design and build these systems.",
+  eyebrow: "Teams & adoption",
+  heading: "You've bought the system. Now let's get it used.",
+  lead: "Hands-on training on your own processes, data and tools, for managers and employees — so the software you pay for gets used, a new process sticks, and AI is used safely where it helps. Taught by the people who design and build these systems.",
   heroSecondary: { label: "Ask about training for your team", href: "/en/contact?topic=training" } as CTA,
 
   why: {
@@ -1332,12 +1331,12 @@ export const trainingPage = {
     body: "Companies buy licences, roll out new systems and give everyone access to AI tools — and months later much of the work still happens the old way. Usually not because people resist change, but because nobody showed them how the tool fits their actual job. We teach what matters for that job, and leave out what doesn't.",
     outcomesLabel: "What becomes better",
     outcomes: [
+      "The systems you pay for get used — not just the old spreadsheet",
       "Less repetitive work and manual copy-paste between tools",
       "Faster, more reliable reporting from data you already have",
-      "Better use of the software you already pay for",
-      "AI used safely and effectively — with clear rules on what data goes where",
       "Administrative steps automated where it makes sense",
-      "A clear view of which processes are worth automating next",
+      "AI used safely and effectively — with clear rules on what data goes where",
+      "A clear view of which processes are worth changing next",
     ],
   },
 
@@ -1345,7 +1344,7 @@ export const trainingPage = {
     eyebrow: "Who it's for",
     heading: "Built for the people who'll use it.",
     items: [
-      { title: "Management teams", body: "Evaluating where AI and digitalization fit, what they cost, and the risks they carry." },
+      { title: "Management teams", body: "Deciding which systems and processes are worth changing, what that costs, and how to bring the team along." },
       { title: "Office & administrative teams", body: "Everyday work with documents, email, spreadsheets, reports and AI assistants." },
       { title: "Operational teams", body: "The systems, data and checklists that run production, logistics or service." },
       { title: "Non-technical employees", body: "Confidence with digital tools from where people are today — without jargon." },
@@ -1359,12 +1358,12 @@ export const trainingPage = {
     heading: "Starting points, not a fixed catalogue.",
     intro: "Every program is adapted to your company. These are typical starting points, which we combine and tailor to your tools, roles and problems.",
     items: [
-      { title: "AI at Work", icon: "sparkle", body: "Practical AI for everyday business tasks — drafting, summarizing, searching and analysing documents and data — with prompts and checks built on your own work." },
-      { title: "AI for Managers", icon: "compass", body: "How to evaluate AI opportunities, costs, risks and vendors — and how to tell a real use case from an expensive demo." },
-      { title: "Digital Productivity", icon: "bolt", body: "Getting more out of the tools your team already has: shared documents, spreadsheets and reports, working with data and BI, and the small automations that remove repetitive work." },
-      { title: "Digitalization for Employees", icon: "flow", body: "How digital workflows, no-code automation and process improvement work — so employees can spot the steps worth changing in their own job." },
-      { title: "AI & Cybersecurity", icon: "shield", body: "Using AI without creating avoidable risk: what data may go into which tools, phishing and social engineering, and responsible-use rules a team can follow." },
-      { title: "Custom Company Training", icon: "sliders", body: "Training built entirely on your organization's tools, workflows and processes — including rollout training for a system we've built for you." },
+      { title: "Rolling out a system", icon: "refresh", body: "Training for one specific system — an ERP, a CRM, a reporting tool, or one we've built for you — before and after go-live, on your own data and tasks." },
+      { title: "Processes and automation", icon: "flow", body: "How the work really runs, which steps are worth changing, and the small automations that take repetitive work out of the tools the team already has." },
+      { title: "Data and reports", icon: "chart", body: "Reading, checking and building the reports the team relies on: where numbers go wrong between the source and the report, and how to check one before a decision rests on it." },
+      { title: "AI at work, used safely", icon: "sparkle", body: "Practical AI for everyday tasks — drafting, summarising, searching documents — with clear rules on what data may go into which tool, and checks before relying on an answer." },
+      { title: "Security for everyday work", icon: "shield", body: "Phishing, social engineering, passwords and file sharing — the habits that keep company data safe, as rules a team can actually follow." },
+      { title: "For managers", icon: "compass", body: "How to judge a system, an automation or an AI proposal: what it costs, what it risks, and how to tell a real case from an expensive demo." },
     ] as Card[],
   },
 
@@ -1400,7 +1399,7 @@ export const trainingPage = {
         n: "04",
         icon: "document",
         title: "Make it repeatable",
-        body: "We turn what worked into written workflows, prompt libraries, templates and usage guidelines the team keeps using.",
+        body: "We turn what worked into written workflows, templates, checklists and usage rules the team keeps using.",
         output: "Documented workflows and clear rules for everyday use.",
       },
       {
@@ -1416,14 +1415,14 @@ export const trainingPage = {
   credibility: {
     eyebrow: "Who teaches it",
     heading: "We can teach it because we build it.",
-    body: "The same people who design production AI systems, automation platforms and data pipelines run the training. So the sessions cover what actually holds up in practice — where AI gets things wrong, what keeping company data private takes, how to check a number before trusting it — not just which buttons to press.",
-    // Real builds from Selected work, shown as image tiles.
+    body: "The same people who design production systems — automation platforms, data pipelines and AI — run the training. So the sessions cover what actually holds up in practice: how to check a number before trusting it, what keeping company data private takes, where AI gets things wrong — not just which buttons to press.",
+    // Real builds from the case studies, shown as image tiles.
     tiles: [
-      { slug: "restaurant-ai", caption: "An offline AI assistant on a business's own hardware — behind how we teach safe, private AI use" },
       { slug: "processly", caption: "Processly, our workflow-automation platform — behind how we teach teams to automate repetitive work" },
-      { slug: "transit-analytics", caption: "Dashboards built on raw operational data — behind our data & BI training" },
+      { slug: "transit-analytics", caption: "Dashboards built on raw operational data — behind our data and reports training" },
+      { slug: "restaurant-ai", caption: "An offline AI assistant on a business's own hardware — behind how we teach safe, private AI use" },
     ],
-    note: "Plus a production security-engineering background, behind our AI & cybersecurity training.",
+    note: "Plus a production security-engineering background, behind our security training.",
     link: { label: "See the projects", href: "/en/work" } as CTA,
   },
 
@@ -1669,9 +1668,9 @@ export const pageMeta = {
     path: "/en/services",
   },
   training: {
-    title: "Team training — LT Strategy Partners",
+    title: "Teams & adoption — LT Strategy Partners",
     description:
-      "Practical training for managers and employees, built on your own processes and tools: working with data, automation, digital tools and safe AI use.",
+      "Help your team actually use the systems, processes and tools you've invested in: hands-on training for managers and employees on their real work — processes, data, everyday tools and safe AI use.",
     path: "/en/training",
   },
   assessment: {

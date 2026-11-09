@@ -79,7 +79,7 @@ export const footerNav: NavItem[] = [
   { label: "Ce rezolvăm", href: "/services" },
   { label: "Cum lucrăm", href: "/assessment" },
   { label: "Studii de caz", href: "/work" },
-  { label: "Training pentru echipe", href: "/training" },
+  { label: "Echipe și adopție", href: "/training" },
   { label: "Verificare rapidă", href: "/scorecard" },
   { label: "Despre", href: "/about" },
   { label: "Contact", href: "/contact" },
@@ -246,7 +246,7 @@ export const services = {
         "Ajustări de proces și integrări, ca sistemul să se potrivească muncii",
         "Training pe sarcinile reale ale echipei, cu folosirea urmărită",
       ],
-      link: { label: "Despre trainingul pentru echipe", href: "/training" },
+      link: { label: "Cum facem ca sistemele să fie folosite", href: "/training" },
     },
     {
       icon: "code",
@@ -950,7 +950,7 @@ export const work = {
       takeaway:
         "Arată că putem transforma munca manuală care se repetă la un client în sisteme proiectate și refolosibile, care pornesc la comandă sau după calendar — iar echipa de operațiuni câștigă consecvență și vizibilitate fără să se mărească.",
       training:
-        "Același mod de gândire îl predăm echipelor în trainingurile de automatizare și productivitate digitală: munca recurentă se descrie o dată, apoi se decide care pași merită automatizați — și care nu.",
+        "Același mod de gândire îl predăm echipelor în trainingurile de procese și automatizare: munca recurentă se descrie o dată, apoi se decide care pași merită automatizați — și care nu.",
       image: "processly",
     },
     {
@@ -1104,7 +1104,7 @@ export const work = {
       takeaway:
         "Este cea mai clară demonstrație a felului în care lucrăm cu datele: luăm surse publice, dar inutilizabile, legăm entitățile pe care nimeni nu le-a pus până acum împreună și publicăm rezultatul cu limitele declarate — ca cifrele să reziste la verificare, nu să cedeze la prima întrebare.",
       training:
-        "Este disciplina din spatele trainingului nostru de date și BI: unde apar erorile în cifre, între sursă și raport, și cum poate o echipă să verifice o cifră înainte să se ia o decizie pe baza ei.",
+        "Este disciplina din spatele trainingului nostru de date și rapoarte: unde apar erorile în cifre, între sursă și raport, și cum poate o echipă să verifice o cifră înainte să se ia o decizie pe baza ei.",
       image: "atlas",
       liveUrl: "/atlas/",
       liveLabel: "Deschide Atlasul",
@@ -1209,7 +1209,7 @@ export const work = {
       takeaway:
         "Arată că putem lua date brute de senzori și telemetrie și le putem transforma în tablouri de bord pe baza cărora se iau decizii reale — util oricărui client care are o flotă, o rețea sau un flux constant de date operaționale.",
       training:
-        "În trainingul de date și BI, acesta e tiparul pe care îl predăm: porniți de la decizia pe care trebuie să o ia cineva, apoi construiți raportul sau tabloul de bord care o susține.",
+        "În trainingul de date și rapoarte, acesta e tiparul pe care îl predăm: porniți de la decizia pe care trebuie să o ia cineva, apoi construiți raportul sau tabloul de bord care o susține.",
       image: "transit-map",
       gallery: ["transit-charts", "transit-speeding"],
     },
@@ -1219,9 +1219,9 @@ export const work = {
 /* ------------------------------------------- Training & enablement page */
 
 export const trainingPage = {
-  eyebrow: "Training pentru echipe",
-  heading: "Training pe tehnologia pe care echipa o va folosi cu adevărat.",
-  lead: "Training practic despre AI, digitalizare, automatizare, date și securitate cibernetică, făcut pentru firma dumneavoastră — pentru manageri și angajați, pornind de la procesele și aplicațiile pe care le folosiți și de la problemele pe care vreți să le rezolvați. Îl țin oamenii care proiectează și construiesc astfel de sisteme.",
+  eyebrow: "Echipe și adopție",
+  heading: "Sistemul e cumpărat. Acum trebuie și folosit.",
+  lead: "Training practic pe procesele, datele și instrumentele firmei dumneavoastră, pentru manageri și angajați — ca programele pe care le plătiți să fie folosite, un proces nou să prindă și AI-ul să fie folosit în siguranță, acolo unde ajută. Îl țin oamenii care proiectează și construiesc astfel de sisteme.",
   heroSecondary: { label: "Întrebați-ne despre un training pentru echipă", href: "/contact?topic=training" } as CTA,
 
   why: {
@@ -1230,12 +1230,12 @@ export const trainingPage = {
     body: "Firmele cumpără licențe, introduc sisteme noi și le dau tuturor acces la instrumente AI — iar după câteva luni mare parte din muncă se face tot ca înainte. De obicei nu pentru că oamenii se opun schimbării, ci pentru că nu le-a arătat nimeni cum se potrivește instrumentul cu munca lor. Noi predăm ce contează pentru munca aceea și lăsăm deoparte restul.",
     outcomesLabel: "Ce se îmbunătățește",
     outcomes: [
+      "Sistemele pe care le plătiți chiar se folosesc — nu doar tabelul vechi",
       "Mai puțină muncă repetitivă și mai puțin copy-paste manual între programe",
       "Raportare mai rapidă și mai sigură, din datele pe care le aveți deja",
-      "Folosire mai bună a programelor pe care le plătiți deja",
-      "AI folosit sigur și eficient — cu reguli clare despre ce date ajung unde",
       "Pași administrativi automatizați acolo unde are sens",
-      "O imagine clară a proceselor care merită automatizate în continuare",
+      "AI folosit sigur și eficient — cu reguli clare despre ce date ajung unde",
+      "O imagine clară a proceselor care merită schimbate în continuare",
     ],
   },
 
@@ -1243,7 +1243,7 @@ export const trainingPage = {
     eyebrow: "Pentru cine",
     heading: "Pentru oamenii care lucrează efectiv cu tehnologia.",
     items: [
-      { title: "Echipe de conducere", body: "Cântăresc unde își au locul AI-ul și digitalizarea, cât costă și ce riscuri aduc." },
+      { title: "Echipe de conducere", body: "Decid ce sisteme și procese merită schimbate, cât costă asta și cum își aduc echipa alături." },
       { title: "Echipe de birou și administrative", body: "Munca de zi cu zi cu documente, email, tabele, rapoarte și asistenți AI." },
       { title: "Echipe operaționale", body: "Sistemele, datele și listele de verificare din producție, logistică sau servicii." },
       { title: "Angajați fără profil tehnic", body: "Încredere în instrumentele digitale, pornind de la nivelul la care sunt oamenii azi — fără jargon." },
@@ -1257,12 +1257,12 @@ export const trainingPage = {
     heading: "Puncte de plecare, nu un catalog fix.",
     intro: "Fiecare program se adaptează firmei dumneavoastră. Acestea sunt puncte de plecare obișnuite, pe care le combinăm și le potrivim instrumentelor, rolurilor și problemelor dumneavoastră.",
     items: [
-      { title: "AI în munca de zi cu zi", icon: "sparkle", body: "AI practic pentru sarcinile obișnuite ale firmei — redactare, rezumate, căutare și analiză de documente și date — cu instrucțiuni și verificări construite pe munca dumneavoastră." },
-      { title: "AI pentru manageri", icon: "compass", body: "Cum evaluați oportunitățile, costurile, riscurile și furnizorii de AI — și cum deosebiți un caz real de un demo scump." },
-      { title: "Productivitate digitală", icon: "bolt", body: "Cum scoateți mai mult din instrumentele pe care echipa le are deja: documente partajate, tabele și rapoarte, lucrul cu date și BI și micile automatizări care elimină munca repetitivă." },
-      { title: "Digitalizare pentru angajați", icon: "flow", body: "Cum funcționează fluxurile de lucru digitale, automatizarea no-code și îmbunătățirea proceselor — ca angajații să vadă singuri pașii care merită schimbați în munca lor." },
-      { title: "AI și securitate cibernetică", icon: "shield", body: "Cum folosiți AI-ul fără riscuri evitabile: ce date pot intra în ce instrumente, phishing și inginerie socială, plus reguli de folosire responsabilă pe care o echipă le poate respecta." },
-      { title: "Training personalizat pentru firmă", icon: "sliders", body: "Training construit integral pe instrumentele, fluxurile de lucru și procesele firmei dumneavoastră — inclusiv pentru lansarea unui sistem pe care l-am construit pentru dumneavoastră." },
+      { title: "Lansarea unui sistem", icon: "refresh", body: "Training pentru un sistem anume — un ERP, un CRM, un instrument de raportare sau unul construit de noi pentru dumneavoastră — înainte și după punerea în funcțiune, pe datele și sarcinile dumneavoastră." },
+      { title: "Procese și automatizare", icon: "flow", body: "Cum se lucrează de fapt, ce pași merită schimbați și micile automatizări care scot munca repetitivă din instrumentele pe care echipa le are deja." },
+      { title: "Date și rapoarte", icon: "chart", body: "Cum citiți, verificați și construiți rapoartele pe care se bazează echipa: unde apar erorile între sursă și raport și cum verificați o cifră înainte să se ia o decizie pe baza ei." },
+      { title: "AI la locul de muncă, folosit în siguranță", icon: "sparkle", body: "AI practic pentru sarcinile obișnuite — redactare, rezumate, căutare în documente — cu reguli clare despre ce date pot intra în ce instrument și verificări înainte să vă bazați pe un răspuns." },
+      { title: "Securitate în munca de zi cu zi", icon: "shield", body: "Phishing, inginerie socială, parole și partajarea fișierelor — obiceiurile care păstrează datele firmei în siguranță, sub forma unor reguli pe care echipa le poate respecta." },
+      { title: "Pentru manageri", icon: "compass", body: "Cum judecați un sistem, o automatizare sau o propunere de AI: cât costă, ce riscuri aduce și cum deosebiți un caz real de un demo scump." },
     ] as Card[],
   },
 
@@ -1297,7 +1297,7 @@ export const trainingPage = {
         n: "04",
         icon: "document",
         title: "Documentăm ce funcționează",
-        body: "Transformăm ce a funcționat în fluxuri de lucru scrise, colecții de instrucțiuni pentru AI, șabloane și reguli de folosire pe care echipa le păstrează.",
+        body: "Transformăm ce a funcționat în fluxuri de lucru scrise, șabloane, liste de verificare și reguli de folosire pe care echipa le păstrează.",
         output: "Fluxuri de lucru documentate și reguli clare pentru folosirea zilnică.",
       },
       {
@@ -1313,13 +1313,13 @@ export const trainingPage = {
   credibility: {
     eyebrow: "Cine predă",
     heading: "Putem preda pentru că construim.",
-    body: "Trainingul îl țin chiar oamenii care proiectează sisteme AI de producție, platforme de automatizare și fluxuri de date. De aceea sesiunile acoperă ce rezistă de fapt în practică — unde greșește AI-ul, ce presupune păstrarea datelor firmei în siguranță, cum verificați o cifră înainte să aveți încredere în ea — nu doar pe ce butoane se apasă.",
+    body: "Trainingul îl țin chiar oamenii care proiectează sisteme de producție — platforme de automatizare, fluxuri de date și AI. De aceea sesiunile acoperă ce rezistă de fapt în practică: cum verificați o cifră înainte să aveți încredere în ea, ce presupune păstrarea datelor firmei în siguranță, unde greșește AI-ul — nu doar pe ce butoane se apasă.",
     tiles: [
-      { slug: "restaurant-ai", caption: "Un asistent AI care rulează offline, pe echipamentele firmei — de aici vine felul în care predăm folosirea sigură și privată a AI-ului" },
       { slug: "processly", caption: "Processly, platforma noastră de automatizare a fluxurilor de lucru — de aici vine felul în care învățăm echipele să automatizeze munca repetitivă" },
-      { slug: "transit-analytics", caption: "Tablouri de bord construite pe date operaționale brute — de aici vine trainingul nostru de date și BI" },
+      { slug: "transit-analytics", caption: "Tablouri de bord construite pe date operaționale brute — de aici vine trainingul nostru de date și rapoarte" },
+      { slug: "restaurant-ai", caption: "Un asistent AI care rulează offline, pe echipamentele firmei — de aici vine felul în care predăm folosirea sigură și privată a AI-ului" },
     ],
-    note: "Plus experiența în ingineria de securitate pentru sisteme de producție — de aici vine trainingul nostru de AI și securitate cibernetică.",
+    note: "Plus experiența în ingineria de securitate pentru sisteme de producție — de aici vine trainingul nostru de securitate.",
     link: { label: "Vedeți proiectele", href: "/work" } as CTA,
   },
 
@@ -1617,9 +1617,9 @@ export const pageMeta = {
     path: "/services",
   },
   training: {
-    title: "Training pentru echipe — LT Strategy Partners",
+    title: "Echipe și adopție — LT Strategy Partners",
     description:
-      "Training practic pentru manageri și angajați, pe procesele și instrumentele firmei: lucrul cu date, automatizări, instrumente digitale și AI folosit în siguranță.",
+      "Ca echipa să folosească de fapt sistemele, procesele și instrumentele în care ați investit: training practic pentru manageri și angajați, pe munca lor reală — procese, date, instrumente de zi cu zi și AI folosit în siguranță.",
     path: "/training",
   },
   assessment: {
