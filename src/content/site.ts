@@ -879,29 +879,30 @@ export const founderStrip = {
 
 export const aboutPage = {
   eyebrow: "About",
-  heading: "A hands-on partner, start to finish.",
+  heading: "A problem solver who builds.",
+  lead: "I'm Luca-Ștefan Tamaș. I help companies find what's holding them back — manual work, numbers nobody trusts, systems nobody uses — and I build what fixes it.",
   paragraphs: [
-    "LT Strategy Partners is the practice of Luca-Ștefan Tamaș, a systems engineer who builds software that has to work in production. It is small on purpose: no account managers, no hand-offs to juniors. The person who sits with your leadership team to work out what's worth doing is the same person who trains your people and writes the code.",
-    "That combination is the point. We understand technology deeply enough to build it — production AI systems, enterprise platforms, automation, data pipelines — and we understand business well enough to explain where it should and shouldn't be used. Most of the value sits between the two: translating what a system can really do into what it means for a margin, a process or someone's working day. Since 2020 we've delivered end-to-end work across web, mobile, data and AI for clients in the EU and US, including apps published on the App Store and Google Play.",
-    "It's also why we teach. Technology only pays off when the people using it understand it, and a complex system is best explained plainly by someone who has built one. We work across all three levels of a company — leadership deciding where to invest, managers redesigning how work flows, employees learning the tools they'll use every day — and make sure what's decided at the top actually reaches the work.",
+    "I'm a systems engineer, and since 2020 I've built software that has to work in real businesses: enterprise platforms, two products of my own, and an AI assistant that runs offline on a company's own hardware. What interests me most, though, is the problem behind the system.",
+    "Most companies I talk to don't need more technology. They need to know where the time and the money go, what is worth fixing first, and a fix their people actually use. Sometimes that's a simpler process. Sometimes it's numbers everyone can trust. Sometimes it's a system I build.",
+    "LT Strategy Partners is small on purpose. There are no account managers and no hand-offs: the person who sits with your leadership team to find the problem is the person who builds the fix and shows your team how to use it. That's also why I take on only a few clients at a time.",
   ],
-  beliefsHeading: "What we believe about this work",
-  beliefs: [
-    "Software and digital infrastructure are among the best investments a business can make — but only when made thoughtfully. The technology is rarely the hard part: the return comes from spending on the right thing, in the right order, and making sure people can actually use it.",
-    "And the cheapest money you'll ever spend is the conversation before you start — which is why our first step, the Business Diagnostic, costs nothing.",
+  principlesEyebrow: "How I think",
+  principlesHeading: "Five rules I work by.",
+  principles: [
+    { title: "The symptom is rarely the problem.", body: "Before I propose anything, I want to see how the work really runs: where orders, money and information get stuck, and what that costs you." },
+    { title: "“Don't build this” is a normal answer.", body: "I take no commissions from vendors, so telling you not to buy or build something costs me nothing. That's what makes a “build this” worth trusting." },
+    { title: "The simplest fix that works wins.", body: "A clearer process or one reliable report often does more than a new system. When something does need building, I build it properly: secure, documented and handed over." },
+    { title: "If your team can't explain it, I haven't explained it well.", body: "A fix only pays off when the people using it understand it. So I work in plain words, on your team's real tasks." },
+    { title: "Results are measured, not claimed.", body: "We agree up front how we'll know it worked, and I tell you straight what changed — and what didn't." },
   ],
-  whyHeading: "How we like to work",
-  why: "We would rather be useful than impressive. We take no vendor commissions, so telling you not to build something costs us nothing — which is the only condition under which a “build this” means anything. And because we have had to make these systems work in the real world, we can tell you plainly what is worth doing, what is not, and what it will really take — we will not recommend anything we would not be willing to build ourselves, or teach your team to use.",
-  workHeading: "Some of what we've built",
+  workHeading: "Some of what I've built",
   workSlugs: ["processly", "atlas-economic", "transit-analytics"],
-  glanceHeading: "Background at a glance",
+  glanceHeading: "In short",
   glance: [
-    "Builds production AI and LLM systems — retrieval-augmented generation, self-hosted models, and outputs kept behind validation",
-    "Built a self-hosted, offline AI assistant; founder of two production SaaS products (Mazely, Processly)",
-    "Production systems engineering in a security-critical environment; lead architect on a multi-tenant BI / ERP / DMS / process-automation platform",
-    "Security and data-protection foundation: authentication, encryption, least-privilege, and tenant isolation",
-    "Explains complex systems in plain language to leadership teams, operational staff and the people who use them",
-    "Data & analytics credentials (Meta Data Analyst, Google Business Intelligence, Advanced SQL, Tableau); security certifications (SOC Level 1, DevSecOps, Jr Penetration Tester)",
+    "Building software for real businesses since 2020 — web, mobile, data and AI, for clients in the EU and the US",
+    "Founder of two software products, Processly and Mazely; lead architect of an enterprise platform for reporting, ERP, documents and process automation",
+    "An AI assistant that runs offline, on a company's own hardware — built so the data never leaves the company",
+    "Production systems engineering in a security-critical environment — so what I build protects your data and keeps running",
   ],
   photoCaption: `${"Luca-Ștefan Tamaș"} · Founder`,
   ctaHeading: "What's the problem you'd most like solved?",
@@ -1670,7 +1671,7 @@ export const pageMeta = {
   about: {
     title: "About — LT Strategy Partners",
     description:
-      "Luca-Ștefan Tamaș — a systems engineer who finds what's holding a business back and builds the fix himself. Enterprise platforms, two SaaS products of his own, data and AI systems.",
+      "Luca-Ștefan Tamaș — a problem solver who builds: a systems engineer who finds what's holding a business back and builds the fix. Enterprise platforms, two software products, data and AI systems.",
     path: "/en/about",
   },
   contact: {

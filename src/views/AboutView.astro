@@ -6,6 +6,7 @@ import Container from "../components/ui/Container.astro";
 import CTABand from "../components/sections/CTABand.astro";
 import FounderPhoto from "../components/ui/FounderPhoto.astro";
 import Partners from "../components/sections/Partners.astro";
+import SectionHeader from "../components/ui/SectionHeader.astro";
 import { getContent, resolveLocale, localePath } from "../content/i18n";
 
 const locale = resolveLocale(Astro.url.pathname);
@@ -30,23 +31,66 @@ const links = [
           <p class="eyebrow">{aboutPage.eyebrow}</p>
           <span class="rule" aria-hidden="true"></span>
           <h1 id="about-heading" class="display-lg about-hero-title">
-            {aboutPage.heading}
+            {/* One sentence per line, so a short word never dangles at a line end */}
+            {aboutPage.heading.split(/(?<=\.)\s+/).map((line, i) => (
+              <Fragment>
+                {i > 0 && " "}
+                <span class="about-hero-line">{line}</span>
+              </Fragment>
+            ))}
           </h1>
+          <p class="lead about-hero-lead">{aboutPage.lead}</p>
         </div>
         <FounderPhoto caption={aboutPage.photoCaption} class="about-hero-photo" />
       </div>
     </Container>
   </section>
 
-  <section class="about-body bg-paper">
+  <!-- The practitioner's story, in the first person -->
+  <section class="about-story bg-paper">
     <Container>
       <div class="about-body-inner measure-wide">
-        <div class="prose">
+        <div class="prose about-story-prose">
           {aboutPage.paragraphs.map((p) => <p>{p}</p>)}
         </div>
+      </div>
+    </Container>
+  </section>
 
+  <!-- How I think: the working rules, which replace the old "beliefs" and
+       "how we like to work" blocks -->
+  <section class="about-principles bg-bone" aria-labelledby="principles-heading">
+    <Container>
+      <div class="principles-grid">
+        <SectionHeader
+          eyebrow={aboutPage.principlesEyebrow}
+          title={aboutPage.principlesHeading}
+          id="principles-heading"
+        />
+        <ol class="principles" role="list">
+          {
+            aboutPage.principles.map((p, i) => (
+              <li class="principle reveal" style={`--reveal-delay:${i * 60}ms`}>
+                <span class="principle-n" aria-hidden="true">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <div>
+                  <h3 class="principle-title">{p.title}</h3>
+                  <p class="principle-body">{p.body}</p>
+                </div>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+    </Container>
+  </section>
+
+  <section class="about-body bg-paper" aria-labelledby="about-work-heading">
+    <Container>
+      <div class="about-body-inner measure-wide">
         <div class="about-work">
-          <h2 class="about-glance-heading">{aboutPage.workHeading}</h2>
+          <h2 id="about-work-heading" class="about-glance-heading">{aboutPage.workHeading}</h2>
           <ul class="about-work-grid" role="list">
             {
               builds.map((b) => (
@@ -63,18 +107,6 @@ const links = [
             }
           </ul>
         </div>
-
-        <div class="about-beliefs">
-          <h2 class="about-glance-heading">{aboutPage.beliefsHeading}</h2>
-          <div class="prose">
-            {aboutPage.beliefs.map((p) => <p>{p}</p>)}
-          </div>
-        </div>
-
-        <aside class="about-why">
-          <p class="eyebrow">{aboutPage.whyHeading}</p>
-          <p class="about-why-text">{aboutPage.why}</p>
-        </aside>
 
         <div class="about-glance">
           <h2 class="about-glance-heading">{aboutPage.glanceHeading}</h2>
@@ -130,18 +162,86 @@ const links = [
   }
   .about-hero-title {
     margin-top: 1.5rem;
-    max-width: 16ch;
+    max-width: 22ch;
+  }
+  .about-hero-line {
+    display: block;
+    text-wrap: balance;
+  }
+
+  .about-hero-lead {
+    margin-top: 1.5rem;
+    max-width: 34rem;
+  }
+
+  .about-story {
+    padding-bottom: clamp(4rem, 8vw, 6rem);
+  }
+  .about-story-prose {
+    max-width: 44rem;
+  }
+
+  /* ---------- How I think ---------- */
+  .about-principles {
+    padding-block: clamp(4.5rem, 9vw, 7.5rem);
+  }
+  .principles-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(2rem, 4vw, 3rem);
+    align-items: start;
+  }
+  @media (min-width: 960px) {
+    .principles-grid {
+      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    }
+  }
+  .principles {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--color-line);
+  }
+  .principle {
+    display: grid;
+    grid-template-columns: 2.75rem 1fr;
+    gap: 0 1rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--color-line);
+  }
+  .principle-n {
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    line-height: 1.9;
+    color: var(--color-steel);
+    font-variant-numeric: tabular-nums;
+  }
+  .principle-title {
+    font-size: 1.1875rem;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+    color: var(--color-ink);
+  }
+  .principle-body {
+    margin-top: 0.4rem;
+    max-width: 38rem;
+    color: var(--color-muted);
+    font-size: 1rem;
+    line-height: 1.6;
   }
 
   .about-body {
-    padding-bottom: clamp(4rem, 8vw, 6rem);
+    padding-block: clamp(4rem, 8vw, 6rem);
   }
+  /* Same left edge as the hero and the principles band */
   .about-body-inner {
-    margin-inline: auto;
+    margin-inline: 0;
   }
 
   .about-work {
-    margin-top: clamp(2.5rem, 5vw, 3.5rem);
+    margin-top: 0;
   }
   .about-work-grid {
     list-style: none;
@@ -189,27 +289,6 @@ const links = [
     margin: 0.15rem 0.35rem 0;
     font-size: 0.875rem;
     color: var(--color-muted);
-  }
-
-  .about-beliefs {
-    margin-top: clamp(2.5rem, 5vw, 3.5rem);
-  }
-  .about-why {
-    margin-top: clamp(2.5rem, 5vw, 3.5rem);
-    padding: clamp(1.5rem, 3vw, 2rem);
-    border-radius: 14px;
-    border-left: 3px solid var(--color-steel);
-    background-color: color-mix(in srgb, var(--color-steel) 6%, var(--color-paper));
-  }
-  .about-why .eyebrow {
-    color: var(--color-steel);
-    margin-bottom: 0.75rem;
-  }
-  .about-why-text {
-    color: var(--color-ink);
-    font-size: 1.1875rem;
-    line-height: 1.55;
-    font-weight: 500;
   }
 
   .about-glance {

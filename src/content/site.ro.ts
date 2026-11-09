@@ -777,29 +777,30 @@ export const founderStrip = {
 
 export const aboutPage = {
   eyebrow: "Despre",
-  heading: "Un partener implicat, de la început până la final.",
+  heading: "Rezolv probleme. Și construiesc soluția.",
+  lead: "Sunt Luca-Ștefan Tamaș. Ajut firmele să găsească ce le ține pe loc — muncă manuală, cifre în care nu are nimeni încredere, sisteme pe care nu le folosește nimeni — și construiesc soluția.",
   paragraphs: [
-    "LT Strategy Partners este firma prin care lucrează Luca-Ștefan Tamaș, inginer de sisteme care construiește software ce trebuie să funcționeze în producție. E mică intenționat: fără intermediari și fără să vă predăm unor juniori. Omul care stabilește împreună cu echipa de conducere ce merită făcut este același care vă instruiește angajații și scrie codul.",
-    "Tocmai această combinație face diferența. Înțelegem tehnologia suficient de bine încât să o construim — sisteme AI de producție, platforme enterprise, automatizări, fluxuri de date — și înțelegem afacerea suficient de bine încât să vă spunem unde își are locul și unde nu. Cea mai mare parte a valorii stă între cele două: în a traduce ce poate face cu adevărat un sistem în ce înseamnă el pentru marjă, pentru un proces sau pentru ziua de lucru a cuiva. Din 2020 am livrat proiecte cap-coadă în web, mobil, date și AI pentru clienți din UE și SUA, inclusiv aplicații publicate în App Store și Google Play.",
-    "De aici vine și partea de training. Tehnologia se amortizează doar când oamenii care o folosesc o înțeleg, iar un sistem complicat e explicat cel mai simplu de cineva care a construit unul. Lucrăm pe toate cele trei niveluri ale unei firme — cu conducerea care decide unde investește, cu managerii care regândesc felul în care circulă munca și cu angajații care învață instrumentele pe care le vor folosi zilnic — și ne asigurăm că ce se decide sus ajunge efectiv în munca de zi cu zi.",
+    "Sunt inginer de sisteme și, din 2020, construiesc software care trebuie să funcționeze în firme reale: platforme enterprise, două produse proprii și un asistent AI care rulează offline, pe echipamentele firmei. Ce mă interesează cel mai mult, însă, e problema din spatele sistemului.",
+    "Cele mai multe firme cu care vorbesc nu au nevoie de mai multă tehnologie. Au nevoie să știe unde se duc timpul și banii, ce merită rezolvat întâi și o soluție pe care oamenii chiar o folosesc. Uneori asta înseamnă un proces mai simplu. Alteori, cifre în care toată lumea are încredere. Alteori, un sistem pe care îl construiesc eu.",
+    "LT Strategy Partners e o firmă mică, intenționat. Nu există intermediari și nu sunteți pasați de la un om la altul: cel care stă cu echipa de conducere ca să găsească problema e același care construiește soluția și le arată oamenilor dumneavoastră cum s-o folosească. De aceea lucrez cu puțini clienți în același timp.",
   ],
-  beliefsHeading: "Ce credem despre munca asta",
-  beliefs: [
-    "Software-ul și infrastructura digitală sunt printre cele mai bune investiții pe care le poate face o firmă — dar numai dacă sunt făcute cu cap. Tehnologia e rar partea grea: randamentul vine din a cheltui pe lucrul potrivit, în ordinea potrivită, și din grija ca oamenii să îl poată folosi efectiv.",
-    "Iar nimic nu costă mai puțin decât discuția purtată înainte să începeți — de aceea primul nostru pas, Diagnosticul firmei, e gratuit.",
+  principlesEyebrow: "Cum gândesc",
+  principlesHeading: "Cinci reguli după care lucrez.",
+  principles: [
+    { title: "Simptomul e rareori problema.", body: "Înainte să propun ceva, vreau să văd cum se lucrează de fapt: unde se blochează comenzile, banii și informația, și cât vă costă asta." },
+    { title: "„Nu construiți asta” e un răspuns normal.", body: "Nu iau comisioane de la furnizori, așa că nu pierd nimic dacă vă spun să nu cumpărați sau să nu construiți ceva. Tocmai de aceea un „construiți” are greutate." },
+    { title: "Câștigă cea mai simplă soluție care funcționează.", body: "Adesea, un proces mai clar sau un raport de încredere ajută mai mult decât un sistem nou. Când chiar trebuie construit ceva, îl construiesc cum trebuie: sigur, documentat și predat." },
+    { title: "Dacă echipa nu poate explica soluția, n-am explicat-o eu bine.", body: "O soluție se amortizează doar dacă oamenii care o folosesc o înțeleg. De aceea lucrez cu vorbe simple, pe sarcinile reale ale echipei." },
+    { title: "Rezultatele se măsoară, nu se declară.", body: "Stabilim de la început cum vom ști că a mers, iar eu vă spun deschis ce s-a schimbat — și ce nu." },
   ],
-  whyHeading: "Cum ne place să lucrăm",
-  why: "Preferăm să fim utili, nu impresionanți. Nu luăm comisioane de la furnizori, așa că un „nu construiți asta” nu ne costă nimic — și doar așa un „construiți” înseamnă ceva. Iar pentru că am dus astfel de sisteme până la capăt, în condiții reale, vă putem spune deschis ce merită făcut, ce nu și cât costă de fapt — și nu vă recomandăm nimic din ce n-am fi dispuși să construim chiar noi — și să vă învățăm echipa să folosească.",
   workHeading: "Câteva lucruri pe care le-am construit",
   workSlugs: ["processly", "atlas-economic", "transit-analytics"],
   glanceHeading: "Pe scurt",
   glance: [
-    "Construim sisteme AI și LLM de producție — retrieval-augmented generation, modele self-hosted și rezultate trecute prin validare",
-    "Am construit un asistent AI self-hosted, complet offline; am fondat două produse SaaS aflate în producție (Mazely, Processly)",
-    "Inginerie de sisteme de producție într-un mediu critic pentru securitate; arhitect principal al unei platforme multi-tenant de BI / ERP / DMS / automatizare de procese",
-    "Fundament de securitate și protecția datelor: autentificare, criptare, privilegii minime și izolarea tenanților",
-    "Explicăm sisteme complexe pe înțelesul echipelor de conducere, al personalului operațional și al celor care le folosesc",
-    "Certificări de date și analiză (Meta Data Analyst, Google Business Intelligence, Advanced SQL, Tableau); certificări de securitate (SOC Level 1, DevSecOps, Jr Penetration Tester)",
+    "Software pentru firme reale din 2020 — web, mobil, date și AI, pentru clienți din UE și SUA",
+    "Fondatorul a două produse software, Processly și Mazely; arhitect principal al unei platforme enterprise pentru rapoarte, ERP, documente și automatizarea proceselor",
+    "Un asistent AI care rulează offline, pe echipamentele firmei — construit ca datele să nu iasă din firmă",
+    "Inginerie de sisteme de producție într-un mediu critic pentru securitate — de aceea ce construiesc vă protejează datele și funcționează fără întreruperi",
   ],
   photoCaption: "Luca-Ștefan Tamaș · Fondator",
   ctaHeading: "Ce problemă vă încurcă cel mai mult?",
@@ -1627,7 +1628,7 @@ export const pageMeta = {
   about: {
     title: "Despre — LT Strategy Partners",
     description:
-      "Luca-Ștefan Tamaș, inginer de sisteme care găsește ce ține o firmă pe loc și construiește el însuși soluția. Platforme enterprise, două produse SaaS proprii, sisteme de date și AI.",
+      "Luca-Ștefan Tamaș, inginer de sisteme care găsește ce ține o firmă pe loc și construiește soluția. Platforme enterprise, două produse software proprii, sisteme de date și AI.",
     path: "/about",
   },
   contact: {

@@ -60,7 +60,8 @@ edit the relevant export:
 - `trainingPage` — the `/training` page (formats, audiences, process, who teaches it)
 - `assessmentPage` — the Diagnostic route (`/assessment`); `method.build` is the folded "When something needs building: Gate Zero" panel
 - `sampleDiagnosis` — the sample written diagnosis at `/assessment/sample-diagnosis` (a fictional distributor, no AI). Its scores and map positions live in `src/views/SampleDiagnosisView.astro`; its table rows reuse the dimension names from `assessmentPage.method`. The AI example (the Gate Zero readout at `/assessment/sample-readout`) is written inline in its two page files. Both samples share `src/styles/sample-doc.css`
-- `scorecardPage`, `aboutPage` — the Scorecard and About routes
+- `aboutPage` — the About route, in the founder's first person: intro, story, `principles` ("How I think"), the project strip and "In short"
+- `scorecardPage` — the Scorecard route
 - `pageIntros` — the hero blocks on the Services / Contact routes
 - `pageMeta` — per-page `<title>`, meta description, and path (for SEO + canonical)
 - `work` — the **Selected work** portfolio. Each item in `work.projects` renders a card in the home "Work" section and a full page at `/work/<slug>`. Fields include `accent` (per-page colour), `heroDark`, `overview`, `delivered`, `strategic`, `capabilities`, `stack`, `takeaway`, an optional `training` (what the build lets us teach, linked to `/training`), and an `image` (or `diagram: true`). Project images live in `src/assets/work/<key>.png` (optimised by Astro); the `image`/`gallery` keys map to those filenames. Pages link only internally — never out to the projects themselves.
