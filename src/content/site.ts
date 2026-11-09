@@ -91,7 +91,15 @@ export interface WorkProject {
   problem: string;
   solution: string;
   overview: string;
+  // Each page reads: the problem (`context`, in full) → what we found (the
+  // cause, `found`) → what we built (`overview` + `delivered`) → the result.
   context: string;
+  found: string;
+  // What exists now, stated as fact (never an invented client outcome).
+  result: string;
+  // Optional headline figure for the cards and the result box: a real,
+  // verifiable number only.
+  figure?: { value: string; label: string };
   delivered: string[];
   strategic: string[];
   capabilities: string[];
@@ -185,7 +193,7 @@ export const nav: NavItem[] = [
   // Training lives under "What we solve" and in the footer, not up here.
   { label: "What we solve", href: "/en/services" },
   { label: "How we work", href: "/en/assessment" },
-  { label: "Case studies", href: "/en#work" },
+  { label: "Case studies", href: "/en/work" },
   { label: "About", href: "/en/about" },
   { label: "Contact", href: "/en/contact" },
 ];
@@ -193,7 +201,7 @@ export const nav: NavItem[] = [
 export const footerNav: NavItem[] = [
   { label: "What we solve", href: "/en/services" },
   { label: "How we work", href: "/en/assessment" },
-  { label: "Case studies", href: "/en#work" },
+  { label: "Case studies", href: "/en/work" },
   { label: "Team training", href: "/en/training" },
   { label: "Scorecard", href: "/en/scorecard" },
   { label: "About", href: "/en/about" },
@@ -985,6 +993,8 @@ export const work = {
   // Founder-led voice (Task 2): no "team".
   intro:
     "From the problem to the system that runs: a few things we've designed and built from scratch.",
+  // Shown on the home page; /work lists every project.
+  homeSlugs: ["processly", "atlas-economic", "transit-analytics", "restaurant-ai"],
   projects: [
     {
       slug: "processly",
@@ -1001,8 +1011,9 @@ export const work = {
         "A work-design platform that turns repeatable work into visual processes teams can launch on demand",
       overview:
         "Processly is a modern web application for visual process and project orchestration. Teams design a workflow once, then generate projects from it — with one click, on a schedule, or both. The emphasis is on full ownership and visibility of how work runs.",
-      context:
-        "Teams re-design and manually re-run the same recurring work, and the knowledge behind those processes lives in people's heads and slide decks. Processly captures that repeatable work as reusable systems instead.",
+      context: "Teams redesign and re-run the same recurring work by hand, every time it comes round.",
+      found: "The work itself was fine; the way it was organised kept getting lost. The knowledge behind each process lived in people's heads and slide decks, so every run started from a blank page.",
+      result: "A working product: a process is designed once, then launched with one click, on a schedule, or both — so recurring work no longer starts from scratch.",
       delivered: [
         "A DAG-based visual workflow designer where a process is defined once and reused",
         "One-click project generation from a saved process design",
@@ -1054,8 +1065,9 @@ export const work = {
         "Photo-guided indoor wayfinding for complex institutions — no app, no hardware",
       overview:
         "Mazely is an enterprise indoor navigation platform for public buildings, universities, hospitals, and institutions. Visitors scan a QR code and follow turn-by-turn directions built from real corridor photographs, with no app download and no on-site hardware. An admin dashboard handles floor design, QR management, and movement analytics.",
-      context:
-        "Visitors get lost in large, complex institutional buildings, and staff waste time giving directions. Institutions also have no data on how people actually move through their space.",
+      context: "Visitors get lost in large, complex institutional buildings, and staff lose time giving directions.",
+      found: "A fix had to work with no app to install and no hardware to fit, or it wouldn't be used — and the institutions had no data on how people actually move through their buildings.",
+      result: "A working platform: visitors scan a QR code and follow photo-guided directions in four languages, and the institution can see how people move through its space.",
       delivered: [
         "Photo-guided turn-by-turn navigation delivered through a scanned QR code — no app download, no installed hardware",
         "Multi-tenant architecture with multi-floor and multi-building routing and accessibility-aware pathfinding",
@@ -1103,8 +1115,9 @@ export const work = {
         "A self-hosted AI menu assistant that answers diner questions and runs offline, on-premise",
       overview:
         "The Restaurant Menu Assistant is a self-hosted AI system for restaurants. It pairs a kiosk- and tablet-friendly chat interface that helps diners find dishes by preference or dietary need with an admin panel for managing items, categories, multi-currency prices, discounts, and images. It uses retrieval-augmented generation over the restaurant's own menu and runs entirely on the local network after setup.",
-      context:
-        "Restaurants want AI help for diners without shipping menu data to the cloud or paying a per-query fee for every question asked. This work addresses how to deliver useful, private AI on hardware a venue already owns.",
+      context: "Restaurants want AI help for diners without sending menu data to the cloud or paying for every question asked.",
+      found: "The job didn't need a large cloud model. A small model on modest hardware the venue already owns is enough, as long as it answers only from the restaurant's own menu and its memory is budgeted up front.",
+      result: "An assistant that answers diners' menu questions, runs entirely on the local network after setup, and costs nothing per question.",
       delivered: [
         "A customer chat interface for kiosks and tablets that answers menu questions and finds dishes by preference or dietary need",
         "An admin panel to manage items, categories, multi-currency prices, discounts, and images, with automatic menu reindexing after edits",
@@ -1146,6 +1159,7 @@ export const work = {
       tagline: "Public money, county by county.",
       problem: "Public procurement data that's unusable as published.",
       solution: "A verified money-flow indicator for all 42 counties.",
+      figure: { value: "43,591", label: "public contracts analysed" },
       category: "Data & analytics",
       kind: "analysis",
       label: "Independent analysis · live microsite",
@@ -1154,8 +1168,9 @@ export const work = {
         "A live microsite that maps how public-procurement money flows between all 42 Romanian counties, built entirely from open data",
       overview:
         "Atlas Economic answers a question no Romanian institution publishes: for each county, how much of what its public buyers award actually stays with suppliers based there, where the rest goes, and how much local firms win back from authorities elsewhere. It joins three open datasets — the procurement system, the companies register, and the official locality classifier — into one symmetric ledger, and publishes a page per county that you can open and check. It is self-initiated — built to demonstrate the method rather than for a client — which is why the pipeline, the methodology and the audit trail are all public.",
-      context:
-        "The raw data is public but unusable as published: award notices carry no county, public institutions are absent from the companies register, framework ceilings look like spending, and the same contract appears once per consortium member. Answering the question at all means resolving buyers to counties, suppliers to registered seats, and money to a ledger that balances.",
+      context: "No Romanian institution publishes how much of each county's public spending stays with local suppliers. The data to answer it is public, but unusable as published.",
+      found: "Award notices carry no county, public institutions are missing from the companies register, framework ceilings look like spending, and the same contract appears once per consortium member. Answering the question means resolving buyers to counties, suppliers to registered seats, and money to a ledger that balances.",
+      result: "A live microsite with a page per county and a national league table — every figure reproducible from public data.",
       delivered: [
         "A reproducible pipeline over three open sources — a full year of SICAP award notices (three of the four quarters are Excel-only, and the one published CSV is silently truncated), the ONRC companies register (~3.9M entities), and the INS SIRUTA locality classifier",
         "A symmetric flow ledger: every leu leaving one county enters another, verified against two structural identities to the leu",
@@ -1182,7 +1197,7 @@ export const work = {
       ],
       // Verifiable properties of the published analysis itself, not client outcomes.
       impact: [
-        "43,591 contracts analysed (65.38 bn RON), of which 37.45 bn attributed to a specific county",
+        "65.38 bn RON in contracts, of which 37.45 bn attributed to a specific county",
         "42 counties covered with one identical methodology",
         "Three rounds of adversarial review by twelve independent reviewers; two full from-scratch reimplementations reproduced every published figure",
       ],
@@ -1200,6 +1215,7 @@ export const work = {
       tagline: "One fiscal code in, a full dossier out.",
       problem: "Company data scattered across sources nobody can use.",
       solution: "A full company dossier from a single fiscal code.",
+      figure: { value: "4,201,627", label: "registered entities covered" },
       category: "Data & analytics",
       kind: "product",
       label: "Own product · built on the Atlas data spine",
@@ -1208,8 +1224,9 @@ export const work = {
         "A stateless generator that turns a single Romanian fiscal code into a complete company dossier — eleven years of financials, sector position, insolvency score and public-money exposure — from open data only",
       overview:
         "Give it a CUI and it produces a fourteen-section report: identity and legal status from the companies register, fiscal status queried live from the tax authority, eleven years of filed financial statements, position against every firm in the same CAEN division, market size and share, derived indicators against sector medians, an insolvency-risk score, and public-procurement exposure across both the tender and the below-threshold channel. It runs against the same data spine as the Atlas, with no database and no server — point lookups straight at the raw government files, because a fiscal code is unique and a scan finds it in under a second across 2 GB. Peer distributions, the one thing a lookup cannot answer, are precomputed once.",
-      context:
-        "The sources are public and individually near-useless. Financial statements are published as twenty numbered indicators with no column names, in three different layouts across the years. Liabilities arrive as a single total, so no standard liquidity ratio can be computed as defined. There is no cost of goods sold and no retained earnings, so two textbook indicators and two Altman components have to be substituted. The procurement archive writes contract dates four different ways and leaves 98,064 of them blank. None of that is documented anywhere — it has to be discovered, and each defect causes silent data loss rather than an error.",
+      context: "Almost everything you'd want to know about a Romanian company is public, but spread across sources that are near-useless on their own.",
+      found: "Financial statements are published as twenty numbered indicators with no column names, in three different layouts across the years. Liabilities arrive as a single total and there is no cost of goods sold, so several textbook indicators have to be approximated. The procurement archive writes contract dates four different ways and leaves 98,064 of them blank. None of it is documented — and each defect loses data silently instead of raising an error.",
+      result: "Fiscal code in, a fourteen-section dossier out — as HTML and a print-ready PDF, in about twenty seconds, for any of the 4.2 million registered entities.",
       delivered: [
         "A one-command generator: fiscal code in, styled HTML and print-ready PDF out, in about twenty seconds",
         "Coverage of all 4,201,627 entities in the companies register, degrading honestly — the 68% with no filed accounts get a section explaining why, not empty tables",
@@ -1255,6 +1272,7 @@ export const work = {
       tagline: "Turning fleet telemetry into operating decisions.",
       problem: "Fleet telemetry that never reached a decision.",
       solution: "A dashboard operating decisions can rest on.",
+      figure: { value: "238", label: "vehicles in one dashboard" },
       category: "Data & analytics",
       kind: "analysis",
       label: "Independent analysis",
@@ -1263,14 +1281,15 @@ export const work = {
         "A Metabase dashboard that turns a city's public-transport telemetry into operating decisions",
       overview:
         "A live analytics dashboard for the public-transport fleet of Iași, Romania, built on Metabase over GPS and telemetry data. It reports on 238 vehicles across buses and trams — tracking speed, safety, accessibility, and congestion in one place. It shows how raw fleet telemetry becomes operational views a transport authority can act on.",
-      context:
-        "Public-transport operators sit on continuous GPS and telemetry streams but rarely turn them into daily operating decisions. The challenge is converting raw location and speed data into views that inform efficiency, safety, and compliance.",
+      context: "Public-transport operators sit on continuous GPS and telemetry streams but rarely turn them into daily operating decisions.",
+      found: "With the telemetry in one place, the data answered operating questions directly: buses averaged 27.35 km/h against 17.52 km/h for trams; 71.85% of vehicles were wheelchair-accessible but only 10.08% could take bicycles; and 58 recorded speeding events included outliers up to 141 km/h — more than 50 km/h over the limit.",
+      result: "One live dashboard where speed, safety, accessibility and congestion for the whole fleet sit side by side.",
       delivered: [
         "A live vehicle-location map covering the city fleet",
         "Fleet-composition analysis across 238 vehicles (63% buses, 37% trams / light metro)",
-        "Mobility-efficiency metrics: average speed by time of day and by category (buses 27.35 km/h, trams 17.52 km/h), plus a speed-distribution histogram",
-        "Accessibility indices for wheelchair-accessible (71.85%) and bicycle-accessible (10.08%) vehicles",
-        "A congestion-point map and a recorded-speeding table of 58 events, flagging outliers up to 141 km/h as more than 50 km/h over the limit",
+        "Mobility-efficiency metrics: average speed by time of day and by category, plus a speed-distribution histogram",
+        "Accessibility indices for wheelchair- and bicycle-accessible vehicles",
+        "A congestion-point map and a recorded-speeding table that flags the worst outliers",
       ],
       strategic: [
         "Converts raw telemetry into decisions across efficiency, safety, accessibility, and congestion",
@@ -1405,7 +1424,7 @@ export const trainingPage = {
       { slug: "transit-analytics", caption: "Dashboards built on raw operational data — behind our data & BI training" },
     ],
     note: "Plus a production security-engineering background, behind our AI & cybersecurity training.",
-    link: { label: "See the projects", href: "/en#work" } as CTA,
+    link: { label: "See the projects", href: "/en/work" } as CTA,
   },
 
   bridge: {
@@ -1428,6 +1447,11 @@ export const pageIntros = {
     eyebrow: "What we solve",
     title: "From the problem to a fix that works.",
     lead: "We find the cause, decide with you what's worth doing, build the fix and make sure it stays in use — with the same people from start to finish.",
+  },
+  work: {
+    eyebrow: "Case studies",
+    title: "What we've built, problem by problem.",
+    lead: "Products, data work and AI we've designed and built from scratch. Each one reads the same way: the problem, what we found, what we built and the result.",
   },
   contact: {
     eyebrow: "Contact",
@@ -1668,6 +1692,12 @@ export const pageMeta = {
       "A full, clearly labelled sample of the written Business Diagnostic: a distributor with orders typed three times, margin seen too late and a CRM nobody uses — what to fix first, and what to leave alone.",
     path: "/en/assessment/sample-diagnosis",
   },
+  work: {
+    title: "Case studies — LT Strategy Partners",
+    description:
+      "What we've designed and built from scratch — products, data work and AI — each told the same way: the problem, what we found, what we built and the result.",
+    path: "/en/work",
+  },
   about: {
     title: "About — LT Strategy Partners",
     description:
@@ -1719,14 +1749,13 @@ export const ui = {
   backToWork: "Case studies",
   workProblem: "The problem",
   workSolution: "What we built",
-  workContext: "The context",
-  workDelivered: "What we delivered",
+  workFound: "What we found",
+  workResult: "The result",
   workStrategic: "Why it matters",
-  workImpact: "Impact",
-  workGallery: "From the dashboard",
   workCapabilities: "Capabilities shown",
-  workStack: "Built with",
+  workStack: "Under the hood",
   workLiveBadge: "Live",
+  allWork: "All case studies",
   workTakeaway: "What this means for you",
   workTraining: "What it brings to our training",
   workTrainingLink: "See the training",

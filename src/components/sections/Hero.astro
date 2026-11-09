@@ -30,7 +30,14 @@ const proof = hero.trustLine
         <span class="rule" aria-hidden="true"></span>
 
         <h1 id="hero-heading" class="display hero-heading">
-          {hero.headline}
+          {/* One sentence per line, so a short word ("Și", "And") never
+              dangles at the end of a line */}
+          {hero.headline.split(/(?<=\.)\s+/).map((line, i) => (
+            <Fragment>
+              {i > 0 && " "}
+              <span class="hero-line">{line}</span>
+            </Fragment>
+          ))}
         </h1>
 
         <p class="lead hero-subhead hero-in" style="--d:80ms">
@@ -166,6 +173,12 @@ const proof = hero.trustLine
 
   .hero-heading {
     margin-top: 1.35rem;
+  }
+  /* Balanced within each sentence; the Romanian headline keeps "vă ține"
+     together with a non-breaking space in the content */
+  .hero-line {
+    display: block;
+    text-wrap: balance;
   }
   .hero-subhead {
     margin-top: 1.35rem;

@@ -1,21 +1,15 @@
 ---
-import { Image } from "astro:assets";
-import type { ImageMetadata } from "astro";
 import Section from "../ui/Section.astro";
 import Container from "../ui/Container.astro";
 import SectionHeader from "../ui/SectionHeader.astro";
+import WorkCard from "../work/WorkCard.astro";
 import { getContent, resolveLocale, localePath } from "../../content/i18n";
 
 const { work, ui } = getContent(Astro.url.pathname);
 const locale = resolveLocale(Astro.url.pathname);
 
-// Resolve project images from src/assets/work (optimised by astro:assets).
-const workImages = import.meta.glob<{ default: ImageMetadata }>(
-  "../../assets/work/*.png",
-  { eager: true }
-);
-const img = (key?: string) =>
-  key ? workImages[`../../assets/work/${key}.png`]?.default : undefined;
+// The home page shows a selection, in this order; /work lists every project.
+const featured = work.homeSlugs.map((slug) => work.projects.find((p) => p.slug === slug)!);
 ---
 
 <Section id="work" variant="paper" labelledby="work-heading">
@@ -28,84 +22,22 @@ const img = (key?: string) =>
 
     <ul class="work-grid" role="list">
       {
-        work.projects.map((p, i) => {
-          const thumb = img(p.image);
-          return (
-            <li class="reveal" style={`--reveal-delay:${(i % 2) * 90}ms`}>
-              <a
-                href={localePath(locale, `/work/${p.slug}`)}
-                class="work-card"
-                style={`--accent:${p.accent}`}
-                aria-label={`${p.name} — ${p.category}`}
-              >
-                <div class="work-card-media">
-                  {thumb ? (
-                    <Image
-                      src={thumb}
-                      alt={`${p.name} — ${p.oneLiner}`}
-                      widths={[400, 720]}
-                      sizes="(min-width: 768px) 46vw, 92vw"
-                      loading="lazy"
-                    />
-                  ) : (
-                    <span class="work-card-mark" aria-hidden="true">
-                      <svg viewBox="0 0 120 70" fill="none">
-                        <circle cx="24" cy="35" r="7" fill="currentColor" />
-                        <circle cx="60" cy="18" r="7" fill="currentColor" />
-                        <circle cx="60" cy="52" r="7" fill="currentColor" />
-                        <circle cx="96" cy="35" r="7" fill="currentColor" />
-                        <path
-                          d="M31 35h1M53 22 31 33M53 48 31 37M67 22l22 11M67 48l22-11"
-                          stroke="currentColor"
-                          stroke-width="2"
-                        />
-                      </svg>
-                    </span>
-                  )}
-                </div>
-                <div class="work-card-body">
-                  <div class="work-card-meta">
-                    <span class="work-card-cat">{p.category}</span>
-                    <span class="work-card-kind">{p.label}</span>
-                  </div>
-                  <h3 class="work-card-name">{p.name}</h3>
-                  <dl class="work-card-ps">
-                    <div>
-                      <dt class="work-card-ps-problem">{ui.workProblem}</dt>
-                      <dd>{p.problem}</dd>
-                    </div>
-                    <div>
-                      <dt>{ui.workSolution}</dt>
-                      <dd>{p.solution}</dd>
-                    </div>
-                  </dl>
-                  {p.liveUrl && <span class="work-card-live">{ui.workLiveBadge}</span>}
-                  <span class="work-card-more">
-                    {ui.viewProject}
-                    <svg
-                      class="arrow"
-                      width="16"
-                      height="16"
-                      viewBox="0 0 16 16"
-                      fill="none"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M3 8h9M8.5 4l3.5 4-3.5 4"
-                        stroke="currentColor"
-                        stroke-width="1.6"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  </span>
-                </div>
-              </a>
-            </li>
-          );
-        })
+        featured.map((p, i) => (
+          <li class="reveal" style={`--reveal-delay:${(i % 2) * 90}ms`}>
+            <WorkCard project={p} />
+          </li>
+        ))
       }
     </ul>
+
+    <a href={localePath(locale, "/work")} class="link-arrow work-all">
+      {ui.allWork} ({work.projects.length})
+      <span class="arrow" aria-hidden="true">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M3 8h9M8.5 4l3.5 4-3.5 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </span>
+    </a>
   </Container>
 </Section>
 
@@ -115,160 +47,19 @@ const img = (key?: string) =>
     margin: clamp(2.5rem, 5vw, 3.75rem) 0 0;
     padding: 0;
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 1.5rem;
   }
   @media (min-width: 768px) {
     .work-grid {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 1.75rem;
     }
   }
 
-  .work-card {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    background-color: var(--color-paper);
-    border: 1px solid var(--color-line);
-    border-radius: 14px;
-    overflow: hidden;
-    text-decoration: none;
-    transition:
-      border-color 0.2s var(--ease-out-soft),
-      transform 0.3s var(--ease-out-soft),
-      box-shadow 0.3s var(--ease-out-soft);
-  }
-  .work-card:hover {
-    border-color: color-mix(in srgb, var(--accent) 55%, var(--color-line));
-    transform: translateY(-3px);
-  }
-  .work-card:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 3px;
-  }
-
-  .work-card-media {
-    aspect-ratio: 16 / 9;
-    background-color: var(--color-bone);
-    border-bottom: 1px solid var(--color-line);
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .work-card-media :global(img) {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top center;
-  }
-  /* Diagram-only card (no product image) */
-  .work-card-mark {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    color: var(--accent);
-    background-color: color-mix(in srgb, var(--accent) 8%, var(--color-paper));
-  }
-  .work-card-mark svg {
-    width: 42%;
-    height: auto;
-    opacity: 0.9;
-  }
-
-  .work-card-body {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    padding: clamp(1.25rem, 2.2vw, 1.75rem);
-    flex: 1;
-  }
-  .work-card-meta {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.5rem 0.75rem;
-  }
-  .work-card-cat {
-    font-size: 0.8125rem; /* matches the .eyebrow token */
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--accent);
-  }
-  .work-card-kind {
-    font-size: 0.6875rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--color-muted);
-    padding: 0.2rem 0.55rem;
-    border: 1px solid var(--color-line);
-    border-radius: 999px;
-    white-space: nowrap;
-  }
-  .work-card-name {
-    font-size: 1.375rem;
-    font-weight: 600;
-    color: var(--color-ink);
-    letter-spacing: -0.01em;
-  }
-  .work-card-live {
-    display: inline-block;
-    align-self: flex-start;
-    width: max-content;
-    margin-top: 0.6rem;
-    font-size: 0.6875rem;
-    font-weight: 650;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--accent);
-    border: 1px solid color-mix(in srgb, var(--accent) 40%, var(--color-line));
-    border-radius: 999px;
-    padding: 0.15rem 0.55rem;
-  }
-
-  .work-card-ps {
-    margin: 0.25rem 0 0;
-    display: grid;
-    gap: 0.6rem;
-  }
-  .work-card-ps dt {
-    font-size: 0.6875rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--color-steel);
-  }
-  .work-card-ps dt.work-card-ps-problem {
-    color: var(--color-ember);
-  }
-  .work-card-ps dd {
-    margin: 0.15rem 0 0;
-    color: var(--color-ink);
-    font-size: 0.9375rem;
-    line-height: 1.5;
-  }
-  .work-card-more {
+  .work-all {
+    margin-top: clamp(1.75rem, 3vw, 2.25rem);
     display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    margin-top: auto;
-    padding-top: 0.75rem;
-    color: var(--color-ink);
-    font-weight: 500;
-    font-size: 0.9375rem;
-  }
-  .work-card-more .arrow {
-    transition: transform 0.2s var(--ease-out-soft);
-  }
-  .work-card:hover .work-card-more {
-    color: var(--accent);
-  }
-  .work-card:hover .work-card-more .arrow {
-    transform: translateX(3px);
+    font-weight: 600;
   }
 </style>

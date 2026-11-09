@@ -70,7 +70,7 @@ export const site = {
 export const nav: NavItem[] = [
   { label: "Ce rezolvăm", href: "/services" },
   { label: "Cum lucrăm", href: "/assessment" },
-  { label: "Studii de caz", href: "/#work" },
+  { label: "Studii de caz", href: "/work" },
   { label: "Despre", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
@@ -78,7 +78,7 @@ export const nav: NavItem[] = [
 export const footerNav: NavItem[] = [
   { label: "Ce rezolvăm", href: "/services" },
   { label: "Cum lucrăm", href: "/assessment" },
-  { label: "Studii de caz", href: "/#work" },
+  { label: "Studii de caz", href: "/work" },
   { label: "Training pentru echipe", href: "/training" },
   { label: "Verificare rapidă", href: "/scorecard" },
   { label: "Despre", href: "/about" },
@@ -107,7 +107,7 @@ export const partners = {
 
 export const hero = {
   eyebrow: "Întâi problema. Apoi soluția.",
-  headline: "Găsim ce vă ține firma pe loc. Și construim soluția.",
+  headline: "Găsim ce vă\u00a0ține firma pe loc. Și construim soluția.",
   subhead:
     "Lucrăm cu antreprenori și manageri care simt că ceva nu merge — marja, timpul, deciziile — dar nu pot spune exact ce. Înțelegem cum funcționează firma de fapt, găsim cauza reală și o rezolvăm: cu un proces mai bun, cu cifre în care puteți avea încredere sau cu un sistem construit de noi.",
   // Role label on the hero portrait name-tag.
@@ -900,6 +900,7 @@ export const work = {
   eyebrow: "Studii de caz",
   intro:
     "De la problemă la sistemul care rulează: câteva lucruri pe care le-am proiectat și construit de la zero.",
+  homeSlugs: ["processly", "atlas-economic", "transit-analytics", "restaurant-ai"],
   projects: [
     {
       slug: "processly",
@@ -916,8 +917,9 @@ export const work = {
         "O platformă care transformă activitățile care se repetă în procese vizuale, pe care echipele le pornesc oricând, cu un singur clic",
       overview:
         "Processly este o aplicație web pentru coordonarea vizuală a proceselor și a proiectelor. Fluxul de lucru se desenează o singură dată, apoi din el se generează proiecte — cu un singur clic, după un calendar sau în ambele feluri. Ideea e ca procesele să rămână ale firmei și să se vadă limpede cum rulează munca.",
-      context:
-        "Aceeași muncă se reproiectează și se reia manual de fiecare dată, iar felul în care se lucrează rămâne în capul câtorva oameni și în câteva prezentări. Processly transformă munca care se repetă în sisteme care se refolosesc.",
+      context: "Echipele reproiectează și refac de mână aceeași muncă recurentă, de fiecare dată când revine.",
+      found: "Munca în sine nu era problema; problema era că felul în care se organizează se pierdea de fiecare dată. Cunoștințele din spatele fiecărui proces stăteau în capul câtorva oameni și în câteva prezentări, așa că fiecare reluare pornea de la zero.",
+      result: "Un produs funcțional: un proces se proiectează o singură dată, apoi pornește cu un clic, după calendar sau în ambele feluri — iar munca recurentă nu mai pornește de la zero.",
       delivered: [
         "Un editor vizual de fluxuri de lucru, pe bază de DAG: procesul se definește o dată și se refolosește",
         "Proiecte generate cu un singur clic, pornind de la un proces salvat",
@@ -965,8 +967,9 @@ export const work = {
         "Orientare în clădiri mari, cu indicații pe bază de fotografii — fără aplicație și fără echipamente",
       overview:
         "Mazely este o platformă de orientare în interiorul clădirilor mari: sedii publice, universități, spitale, instituții. Vizitatorul scanează un cod QR și primește indicații pas cu pas, făcute din fotografii reale ale coridoarelor, fără să instaleze nimic și fără echipamente montate în clădire. Un panou de administrare acoperă desenarea etajelor, gestiunea codurilor QR și analiza traseelor.",
-      context:
-        "În clădirile mari, vizitatorii se rătăcesc, iar angajații pierd timp îndrumându-i. Instituția nu știe nici pe unde circulă oamenii prin propriile spații.",
+      context: "În clădirile mari, vizitatorii se rătăcesc, iar angajații pierd timp îndrumându-i.",
+      found: "Soluția trebuia să funcționeze fără aplicație de instalat și fără echipamente de montat, altfel nu ar fi fost folosită — iar instituția nu știa deloc pe unde circulă oamenii prin propriile clădiri.",
+      result: "O platformă funcțională: vizitatorii scanează un cod QR și urmează indicații pe bază de fotografii, în patru limbi, iar instituția vede cum circulă oamenii prin spațiile ei.",
       delivered: [
         "Indicații pas cu pas, pe bază de fotografii, pornite din scanarea unui cod QR — fără aplicație de instalat și fără echipamente",
         "Arhitectură multi-tenant, cu trasee pe mai multe etaje și clădiri și calcul de rută care ține cont de accesibilitate",
@@ -1014,8 +1017,9 @@ export const work = {
         "Un asistent de meniu cu AI, instalat la restaurant, care răspunde întrebărilor clienților și merge fără internet",
       overview:
         "Asistentul de Meniu pentru Restaurante este un sistem AI instalat pe echipamentele localului. Are două părți: un chat gândit pentru chioșcuri și tablete, care îi ajută pe clienți să găsească preparate după gust sau după restricții alimentare, și un panou de administrare pentru produse, categorii, prețuri în mai multe valute, reduceri și imagini. Răspunde folosind retrieval-augmented generation peste meniul propriu al restaurantului și, după instalare, rulează în întregime în rețeaua locală.",
-      context:
-        "Restaurantele vor un ajutor AI pentru clienți, dar fără să-și trimită meniul în cloud și fără să plătească pentru fiecare întrebare pusă. Proiectul răspunde exact la asta: cum ajunge AI-ul util și privat pe echipamente pe care localul le are deja.",
+      context: "Restaurantele vor un ajutor AI pentru clienți, dar fără să-și trimită meniul în cloud și fără să plătească pentru fiecare întrebare pusă.",
+      found: "Nu era nevoie de un model mare, în cloud. Un model mic, pe echipamente modeste pe care localul le are deja, e suficient, cu condiția să răspundă doar din meniul restaurantului și ca memoria să fie calculată dinainte.",
+      result: "Un asistent care răspunde la întrebările clienților despre meniu, rulează complet în rețeaua locală după instalare și nu costă nimic pe întrebare.",
       delivered: [
         "Un chat pentru chioșcuri și tablete, care răspunde la întrebări despre meniu și găsește preparate după gust sau după restricții alimentare",
         "Un panou de administrare pentru produse, categorii, prețuri în mai multe valute, reduceri și imagini, cu reindexarea automată a meniului după fiecare modificare",
@@ -1056,6 +1060,7 @@ export const work = {
       tagline: "Banii publici, județ cu județ.",
       problem: "Date despre achizițiile publice, inutilizabile așa cum sunt publicate.",
       solution: "Un indicator verificat al fluxurilor de bani pentru toate cele 42 de județe.",
+      figure: { value: "43.591", label: "de contracte publice analizate" },
       category: "Date și analiză",
       kind: "analysis",
       label: "Analiză independentă · microsite public",
@@ -1064,8 +1069,9 @@ export const work = {
         "Un microsite public care arată cum circulă banii din achiziții publice între toate cele 42 de județe ale României, construit exclusiv din date deschise",
       overview:
         "Atlas Economic răspunde la o întrebare pe care nicio instituție din România nu o publică: pentru fiecare județ, cât din valoarea atribuită de autoritățile contractante de acolo rămâne la firme cu sediul în județ, unde pleacă restul și cât câștigă firmele locale de la autorități din alte județe. Am legat trei surse deschise — sistemul de achiziții publice, registrul comerțului și nomenclatorul oficial al localităților — într-un registru simetric, cu câte o pagină pentru fiecare județ, pe care oricine o poate deschide și verifica. Este un proiect propriu, făcut ca să arătăm metoda, nu pentru un client; de aceea sunt publice și prelucrarea, și metodologia, și pista de audit.",
-      context:
-        "Datele brute sunt publice, dar inutilizabile așa cum apar: anunțurile de atribuire nu spun în ce județ e autoritatea, instituțiile publice nu figurează în registrul comerțului, plafoanele acordurilor-cadru par cheltuieli reale, iar același contract apare o dată pentru fiecare membru al asocierii. Un răspuns cere ca fiecare autoritate să fie dusă în județul ei, fiecare furnizor la sediul lui și toți banii într-un registru care se închide.",
+      context: "Nicio instituție din România nu publică cât din cheltuielile publice ale fiecărui județ rămâne la furnizori locali. Datele care ar răspunde sunt publice, dar inutilizabile așa cum apar.",
+      found: "Anunțurile de atribuire nu spun în ce județ e autoritatea, instituțiile publice nu figurează în registrul comerțului, plafoanele acordurilor-cadru par cheltuieli reale, iar același contract apare o dată pentru fiecare membru al asocierii. Un răspuns cere ca fiecare autoritate să fie dusă în județul ei, fiecare furnizor la sediul lui și toți banii într-un registru care se închide.",
+      result: "Un microsite live, cu o pagină pentru fiecare județ și un clasament național — fiecare cifră se poate reproduce din date publice.",
       delivered: [
         "O prelucrare reproductibilă peste trei surse deschise — un an întreg de anunțuri SICAP (trei trimestre din patru există doar în Excel, iar singurul CSV publicat e tăiat fără nicio avertizare), registrul ONRC (~3,9 milioane de entități) și nomenclatorul SIRUTA al INS",
         "Un registru simetric al fluxurilor: fiecare leu care iese dintr-un județ intră în altul, verificat la leu, prin două identități structurale",
@@ -1091,7 +1097,7 @@ export const work = {
         "Surse CC BY 4.0",
       ],
       impact: [
-        "43.591 de contracte analizate (65,38 mld RON), din care 37,45 mld atribuite unui județ anume",
+        "65,38 mld RON în contracte, din care 37,45 mld atribuite unui județ anume",
         "42 de județe acoperite cu aceeași metodologie",
         "Trei runde de verificare adversarială, cu doisprezece recenzenți independenți; două reimplementări de la zero au reprodus fiecare cifră publicată",
       ],
@@ -1109,6 +1115,7 @@ export const work = {
       tagline: "Un CUI la intrare, un dosar complet la ieșire.",
       problem: "Date despre firme, împrăștiate în surse greu de folosit.",
       solution: "Un dosar complet de firmă dintr-un singur CUI.",
+      figure: { value: "4.201.627", label: "de entități înregistrate acoperite" },
       category: "Date și analiză",
       kind: "product",
       label: "Produs propriu · pe aceleași date ca Atlasul",
@@ -1117,8 +1124,9 @@ export const work = {
         "Un generator fără bază de date care transformă un singur CUI într-un dosar complet de firmă — unsprezece ani de situații financiare, poziția în sector, un scor de risc de insolvență și expunerea la bani publici — numai din date deschise",
       overview:
         "Îi dați un CUI și scoate un raport de paisprezece secțiuni: identitate și stare juridică din registrul comerțului, statut fiscal interogat pe loc la ANAF, unsprezece exerciții financiare depuse, poziția față de toate firmele din aceeași diviziune CAEN, mărimea pieței și cota firmei, indicatori derivați comparați cu mediana sectorului, un scor de risc de insolvență și expunerea la achiziții publice pe ambele căi — licitații și achiziții sub prag. Merge pe aceleași date ca Atlasul, fără bază de date și fără server: caută direct în fișierele brute ale statului, pentru că un CUI este unic și o scanare îl găsește în 2 GB în mai puțin de o secundă. Distribuțiile pe sector — singurul lucru pe care o astfel de căutare nu îl poate afla — se calculează o dată, în avans.",
-      context:
-        "Sursele sunt publice și, luate una câte una, aproape inutilizabile. Situațiile financiare se publică drept douăzeci de indicatori numerotați, fără nume de coloane, în trei formate diferite de-a lungul anilor. Datoriile apar ca o sumă totală, așa că nicio rată de lichiditate nu poate fi calculată după definiția din carte. Nu există costul bunurilor vândute și nu există rezultat reportat, deci doi indicatori clasici și două componente Altman trebuie înlocuite cu aproximări. Arhiva de achiziții scrie data contractului în patru feluri și lasă 98.064 dintre ele goale. Nimic din toate acestea nu e scris nicăieri: trebuie descoperit pe teren, iar fiecare defect pierde date în tăcere, în loc să dea o eroare.",
+      context: "Aproape tot ce ați vrea să știți despre o firmă din România e public, dar împrăștiat în surse care, luate una câte una, sunt aproape inutilizabile.",
+      found: "Situațiile financiare se publică drept douăzeci de indicatori numerotați, fără nume de coloane, în trei formate diferite de-a lungul anilor. Datoriile apar ca o sumă totală și nu există costul bunurilor vândute, așa că mai mulți indicatori clasici trebuie aproximați. Arhiva de achiziții scrie data contractului în patru feluri și lasă 98.064 dintre ele goale. Nimic din toate acestea nu e documentat — iar fiecare defect pierde date în tăcere, în loc să dea o eroare.",
+      result: "Un CUI la intrare, un dosar în paisprezece secțiuni la ieșire — în HTML și PDF gata de tipărit, în circa douăzeci de secunde, pentru oricare dintre cele 4,2 milioane de entități înregistrate.",
       delivered: [
         "Un generator dintr-o singură comandă: CUI la intrare, HTML stilizat și PDF gata de tipar la ieșire, în circa douăzeci de secunde",
         "Acoperire pentru toate cele 4.201.627 de entități din registrul comerțului, cu limitele spuse pe față: cele 68% fără bilanț depus primesc o secțiune care explică de ce, nu tabele goale",
@@ -1163,6 +1171,7 @@ export const work = {
       tagline: "Telemetria flotei, transformată în decizii operaționale.",
       problem: "Telemetria flotei nu ajungea niciodată într-o decizie.",
       solution: "Un tablou de bord pe care se pot lua decizii operaționale.",
+      figure: { value: "238", label: "de vehicule într-un singur tablou de bord" },
       category: "Date și analiză",
       kind: "analysis",
       label: "Analiză independentă",
@@ -1171,14 +1180,15 @@ export const work = {
         "Un tablou de bord în Metabase care transformă telemetria transportului public al unui oraș în decizii de zi cu zi",
       overview:
         "Un tablou de bord în timp real pentru flota de transport public a Iașiului, construit în Metabase peste date GPS și de telemetrie. Acoperă 238 de vehicule — autobuze și tramvaie — și urmărește într-un singur loc viteza, siguranța, accesibilitatea și aglomerația. Arată cum telemetria brută a flotei devine o imagine limpede, pe baza căreia o autoritate de transport poate lua decizii.",
-      context:
-        "Operatorii de transport public primesc fără oprire date GPS și de telemetrie, dar rar le folosesc în deciziile de zi cu zi. Greul este transformarea pozițiilor și vitezelor brute în informații pe care se poate lucra: eficiență, siguranță, conformitate.",
+      context: "Operatorii de transport public primesc fără oprire date GPS și de telemetrie, dar rar le folosesc în deciziile de zi cu zi.",
+      found: "Cu telemetria adunată într-un singur loc, datele au răspuns direct la întrebările operaționale: autobuzele au mers în medie cu 27,35 km/h, tramvaiele cu 17,52 km/h; 71,85% din vehicule erau accesibile cu scaunul rulant, dar doar 10,08% cu bicicleta; iar cele 58 de depășiri de viteză înregistrate au inclus valori de până la 141 km/h — peste 50 km/h în plus față de limită.",
+      result: "Un singur tablou de bord live, în care viteza, siguranța, accesibilitatea și aglomerația întregii flote stau una lângă alta.",
       delivered: [
         "O hartă în timp real cu poziția vehiculelor, pentru toată flota orașului",
         "Structura flotei: 238 de vehicule (63% autobuze, 37% tramvaie / metrou ușor)",
-        "Indicatori de eficiență a circulației: viteza medie pe intervale orare și pe categorii (autobuze 27,35 km/h, tramvaie 17,52 km/h), plus o histogramă a vitezelor",
-        "Cât din flotă e accesibil cu scaunul rulant (71,85%) și cu bicicleta (10,08%)",
-        "O hartă a punctelor de aglomerație și un tabel cu 58 de depășiri de viteză înregistrate, cu valori extreme de până la 141 km/h — peste 50 km/h în plus față de limită",
+        "Indicatori de eficiență a circulației: viteza medie pe intervale orare și pe categorii, plus o histogramă a vitezelor",
+        "Cât din flotă e accesibil cu scaunul rulant și cu bicicleta",
+        "O hartă a punctelor de aglomerație și un tabel al depășirilor de viteză înregistrate, cu valorile extreme scoase în evidență",
       ],
       strategic: [
         "Transformă telemetria brută în decizii despre eficiență, siguranță, accesibilitate și aglomerație",
@@ -1310,7 +1320,7 @@ export const trainingPage = {
       { slug: "transit-analytics", caption: "Tablouri de bord construite pe date operaționale brute — de aici vine trainingul nostru de date și BI" },
     ],
     note: "Plus experiența în ingineria de securitate pentru sisteme de producție — de aici vine trainingul nostru de AI și securitate cibernetică.",
-    link: { label: "Vedeți proiectele", href: "/#work" } as CTA,
+    link: { label: "Vedeți proiectele", href: "/work" } as CTA,
   },
 
   bridge: {
@@ -1333,6 +1343,11 @@ export const pageIntros = {
     eyebrow: "Ce rezolvăm",
     title: "De la problemă la soluția care funcționează.",
     lead: "Găsim cauza, decidem împreună ce merită făcut, construim soluția și ne asigurăm că rămâne folosită — cu aceiași oameni de la început la sfârșit.",
+  },
+  work: {
+    eyebrow: "Studii de caz",
+    title: "Ce am construit, problemă cu problemă.",
+    lead: "Produse, analize de date și AI pe care le-am proiectat și construit de la zero. Fiecare se citește la fel: problema, ce am găsit, ce am construit și rezultatul.",
   },
   contact: {
     eyebrow: "Contact",
@@ -1625,6 +1640,12 @@ export const pageMeta = {
       "Un exemplu integral de diagnostic scris, marcat clar ca exemplu: o firmă de distribuție cu comenzi tastate de trei ori, marja văzută prea târziu și un CRM pe care nu-l folosește nimeni — ce rezolvați întâi și ce lăsați deoparte.",
     path: "/assessment/sample-diagnosis",
   },
+  work: {
+    title: "Studii de caz — LT Strategy Partners",
+    description:
+      "Ce am proiectat și construit de la zero — produse, analize de date și AI — fiecare spus la fel: problema, ce am găsit, ce am construit și rezultatul.",
+    path: "/work",
+  },
   about: {
     title: "Despre — LT Strategy Partners",
     description:
@@ -1679,14 +1700,13 @@ export const ui = {
   backToWork: "Studii de caz",
   workProblem: "Problema",
   workSolution: "Ce am construit",
-  workContext: "Contextul",
-  workDelivered: "Ce am livrat",
+  workFound: "Ce am găsit",
+  workResult: "Rezultatul",
   workStrategic: "De ce contează",
-  workImpact: "Impact",
-  workGallery: "Din tabloul de bord",
   workCapabilities: "Competențe demonstrate",
-  workStack: "Construit cu",
+  workStack: "Sub capot",
   workLiveBadge: "Live",
+  allWork: "Toate studiile de caz",
   workTakeaway: "Ce înseamnă pentru dumneavoastră",
   workTraining: "Ce aduce în trainingurile noastre",
   workTrainingLink: "Detalii despre training",

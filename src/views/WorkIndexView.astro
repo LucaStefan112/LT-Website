@@ -1,0 +1,68 @@
+---
+/* /work: every case study, each card reading problem → what we built, with a
+   real headline number where the project has one. The cards are shared with
+   the home page's selection (components/work/WorkCard.astro). */
+import Base from "../layouts/Base.astro";
+import PageIntro from "../components/sections/PageIntro.astro";
+import Section from "../components/ui/Section.astro";
+import Container from "../components/ui/Container.astro";
+import WorkCard from "../components/work/WorkCard.astro";
+import Partners from "../components/sections/Partners.astro";
+import CTABand from "../components/sections/CTABand.astro";
+import { getContent } from "../content/i18n";
+
+const { pageMeta, pageIntros, work, ui, site } = getContent(Astro.url.pathname);
+const meta = pageMeta.work;
+const intro = pageIntros.work;
+---
+
+<Base title={meta.title} description={meta.description} path={meta.path}>
+  <PageIntro
+    eyebrow={intro.eyebrow}
+    title={intro.title}
+    lead={intro.lead}
+    headingId="work-page-heading"
+  />
+
+  <Section id="all-work" variant="bone" labelledby="all-work-heading">
+    <Container>
+      <h2 id="all-work-heading" class="sr-only">{ui.allWork}</h2>
+      <ul class="work-index-grid" role="list">
+        {
+          work.projects.map((p, i) => (
+            <li class="reveal" style={`--reveal-delay:${(i % 2) * 90}ms`}>
+              <WorkCard project={p} />
+            </li>
+          ))
+        }
+      </ul>
+    </Container>
+  </Section>
+
+  <!-- The companies we've worked with, as the foot of the same band -->
+  <Partners variant="bone" />
+
+  <CTABand secondary={site.assessmentCta} />
+</Base>
+
+<style>
+  /* The page <h1> sits right above, so the band needs less top padding */
+  :global(#all-work.section) {
+    padding-top: clamp(3rem, 6vw, 5rem);
+    padding-bottom: clamp(2.5rem, 5vw, 4rem);
+  }
+  .work-index-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .work-index-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.75rem;
+    }
+  }
+</style>

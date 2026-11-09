@@ -62,9 +62,9 @@ edit the relevant export:
 - `sampleDiagnosis` — the sample written diagnosis at `/assessment/sample-diagnosis` (a fictional distributor, no AI). Its scores and map positions live in `src/views/SampleDiagnosisView.astro`; its table rows reuse the dimension names from `assessmentPage.method`. The AI example (the Gate Zero readout at `/assessment/sample-readout`) is written inline in its two page files. Both samples share `src/styles/sample-doc.css`
 - `aboutPage` — the About route, in the founder's first person: intro, story, `principles` ("How I think"), the project strip and "In short"
 - `scorecardPage` — the Scorecard route
-- `pageIntros` — the hero blocks on the Services / Contact routes
+- `pageIntros` — the hero blocks on the Services, Case studies (`/work`) and Contact routes
 - `pageMeta` — per-page `<title>`, meta description, and path (for SEO + canonical)
-- `work` — the **Selected work** portfolio. Each item in `work.projects` renders a card in the home "Work" section and a full page at `/work/<slug>`. Fields include `accent` (per-page colour), `heroDark`, `overview`, `delivered`, `strategic`, `capabilities`, `stack`, `takeaway`, an optional `training` (what the build lets us teach, linked to `/training`), and an `image` (or `diagram: true`). Project images live in `src/assets/work/<key>.png` (optimised by Astro); the `image`/`gallery` keys map to those filenames. Pages link only internally — never out to the projects themselves.
+- `work` — the **case studies**. Each item in `work.projects` renders a card on `/work` (and on the home page when its slug is in `work.homeSlugs`) and a full page at `/work/<slug>`. Every page reads the same way: the problem (`problem` on the card, `context` in full) → what we found (`found`) → what we built (`solution` on the card; `overview` + `delivered` on the page) → the result (`result`, plus the optional verified `impact` lines and `figure`, the one headline number shown on the card — real numbers only). Other fields: `accent` (per-page colour), `heroDark`, `strategic` ("Why it matters"), `capabilities`, `stack` (shown as "Under the hood"), `takeaway`, an optional `training` (what the build lets us teach, linked to `/training`), and an `image` (or `diagram: true`). Client case studies go in the same shape, only with the client's written permission. Project images live in `src/assets/work/<key>.png` (optimised by Astro); the `image`/`gallery` keys map to those filenames. Pages link only internally — never out to the projects themselves.
 
 Placeholders that need your input are written in `[square brackets]` (e.g. the
 client-logo strip, founder bio, portrait, and results case-notes). Search the
@@ -135,7 +135,7 @@ These live in `config` at the top of [`src/content/site.ts`](src/content/site.ts
 | **Booking link** | None — the primary CTA reads **"Start a conversation"** → `/contact` | Set `config.bookingUrl` to a Cal.com/Calendly URL to switch it to "Book a conversation" → your link |
 | **Diagnostic fee** | Free — the Business Diagnostic costs nothing, capped at three a month | To charge later, edit `assessmentPage` (lead, `heroFacts`, `whyFree`, `apply.microcopy`), the Business Diagnostic entry in `engagements` and the cost answer in `servicesFaq`, in both `site.ts` and `site.ro.ts` |
 | **Testimonials** | None — the "What clients say" section does not render | Add real, permissioned quotes to the `testimonials` array in `site.ts` |
-| **Case-study metrics** | None — the qualitative framing stands | Add real figures to a project's optional `impact: [...]` in `work.projects` (never invent numbers) 
+| **Case-study metrics** | Only verifiable properties of our own work (Atlas, the company report, the transit dashboard) | Add real figures to a project's optional `impact: [...]` or `figure` in `work.projects` (never invent numbers) 
 ## Deploying
 
 ### GitHub Pages (configured)
@@ -188,11 +188,13 @@ src/
     sections/       Hero, Partners, Symptoms, Statement, Solve, Approach, Work,
                     Pillars, FounderStrip, CTABand, Layers, Services, Engagements,
                     ServicesFaq, ContactForm, PageIntro, …
+    work/           WorkCard (the case-study card on the home page and /work),
+                    RagDiagram
     Header.astro, Footer.astro
   scripts/ui.ts     header scroll state, mobile menu, reveals, active-nav
   views/            one view per route, shared by the RO (root) and EN (/en) pages
   pages/            index, services, training, assessment (+ sample-diagnosis,
-                    sample-readout), scorecard, about, contact, work/[slug],
+                    sample-readout), scorecard, about, contact, work (+ [slug]),
                     privacy, terms, 404 (+ the same under en/)
 scripts/
   sync-fonts.mjs, gen-og.mjs
