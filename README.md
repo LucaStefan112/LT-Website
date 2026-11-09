@@ -55,7 +55,7 @@ edit the relevant export:
 - `nav`, `footerNav`, `legalNav` — navigation links
 - `partners` — client names shown as wordmarks under the hero and on About (add a logo only once that company agrees)
 - Home, top to bottom: `hero`, `partners`, `symptoms` ("Sound familiar?"), `statement` ("What changes"), `solve` (the four problem areas), `approach` (how we work, five steps), `work` (case studies), `pillars` ("Why LT"), `founderStrip`, `ctaBand`
-- "What we solve" (`/services`), top to bottom: `services` (the four problem areas: what it looks like, what we do, what you get), `layers` (Leadership / Processes / People), `approach`, `engagements` (ways to work together: to start, to solve, for the long run — rename offers or change their duration/price wording here), `servicesFaq` (incl. "Do you work with AI?"), `ctaBand`
+- "What we solve" (`/services`), top to bottom: `services` (the four problem areas: what it looks like, what we do, what you get), `layers` (Leadership / Processes / People), `approach`, `engagements` (ways to work together: to start, to solve, for the long run — rename offers or change their durations here; no prices or pricing terms are published), `servicesFaq` (incl. "Do you work with AI?"), `ctaBand`
 - `contact`, `footer`
 - `trainingPage` — the `/training` page, "Teams & adoption" / "Echipe și adopție": getting a team to actually use a system, a process or a tool (formats, audiences, process, who teaches it). The URL stays `/training`
 - `assessmentPage` — the Diagnostic route (`/assessment`); `method.build` is the folded "When something needs building: Gate Zero" panel

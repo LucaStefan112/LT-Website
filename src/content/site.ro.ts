@@ -292,12 +292,12 @@ export const engagements = {
         },
         {
           name: "Sprint de diagnostic",
-          meta: "2 săptămâni · preț fix",
+          meta: "2 săptămâni",
           body: "Două săptămâni pe o singură problemă: procesul cartografiat cu echipa, datele verificate, soluția proiectată și un calcul de rentabilitate, cu verdictul „construim, cumpărăm sau așteptăm”.",
         },
         {
           name: "Atelier de echipă",
-          meta: "O jumătate de zi sau o zi · preț fix",
+          meta: "O jumătate de zi sau o zi",
           body: "O sesiune pe munca reală a echipei: procese, instrumente digitale, folosirea sigură a AI-ului.",
         },
       ],
@@ -308,7 +308,7 @@ export const engagements = {
       items: [
         {
           name: "Proiect de rezolvare",
-          meta: "De obicei 6–12 săptămâni · preț fix pe etape",
+          meta: "De obicei 6–12 săptămâni, pe etape",
           body: "Soluția, de la cap la coadă: procesul regândit, sistemul construit și integrat, echipa pregătită, rezultatul măsurat. Pe etape, și vă puteți opri după oricare dintre ele.",
         },
       ],
@@ -324,7 +324,7 @@ export const engagements = {
       ],
     },
   ] as EngagementStage[],
-  note: "Prețurile sunt fixe și stabilite înainte de fiecare pas. Nu luăm comisioane de la furnizori.",
+  note: "Fiecare pas îl stabilim împreună înainte să înceapă. Nu luăm comisioane de la furnizori.",
 } as const;
 
 /* ----------------------------------------- Services page: common questions */
@@ -347,7 +347,7 @@ export const servicesFaq = {
     },
     {
       q: "Cât costă?",
-      a: "Discuția de triaj și Diagnosticul firmei sunt gratuite. Tot ce urmează are preț fix pe etape, stabilit înainte să începem, și vă puteți opri după oricare etapă.",
+      a: "Discuția de triaj și Diagnosticul firmei sunt gratuite. Pentru restul, costul depinde de problemă și îl discutăm înainte de orice pas — nimic nu începe fără acordul dumneavoastră.",
     },
     {
       q: "Cine face munca?",
@@ -586,7 +586,7 @@ export const sampleDiagnosis = {
       problem: "Problema",
       cost: "Cât costă, scenariu de bază conservator",
       fix: "Soluția",
-      effort: "Efort și interval de cost",
+      effort: "Efort",
       measure: "Cum vedem că a funcționat",
       owner: "Responsabil",
     },
@@ -597,7 +597,7 @@ export const sampleDiagnosis = {
         problem: "Comenzile vin pe e-mail, la telefon și pe WhatsApp și sunt tastate în ERP, apoi în lista de pregătire din depozit, apoi în programul de facturare.",
         cost: "3 oameni × ~10 ore pe săptămână × 46 de săptămâni × 10 €/oră (costul complet al Velmora) ≈ 14.000 € pe an doar pe tastat. La asta se adaugă cam 40 de facturi corectate pe lună și livrările refăcute din cauza comenzilor greșite: ≈ 17.000 €. În total, în jur de 31.000 € pe an.",
         fix: "Legăm ce aveți deja: comanda se introduce o singură dată, în ERP, și ajunge singură în depozit și în programul de facturare. Comenzile de pe WhatsApp intră într-o singură căsuță comună. Niciun sistem nou.",
-        effort: "6–8 săptămâni; mai puțin decât costă problema într-un an, cu plata pe faze. Un interval, nu o ofertă.",
+        effort: "6–8 săptămâni, în trei faze.",
         measure: "Orele de tastat la 100 de comenzi, facturile corectate pe lună și erorile din depozit — măsurate înainte și la 30 de zile după.",
         owner: "Managerul de operațiuni.",
       },
@@ -607,7 +607,7 @@ export const sampleDiagnosis = {
         problem: "Marja se cunoaște abia pe la 12 ale lunii următoare, fără costurile de transport și fără reducerile stabilite la telefon.",
         cost: "În trei luni de facturi, 11 dintre primii 40 de clienți erau sub marja țintă, cu transportul inclus. Scenariu de bază: cel puțin 25.000 € pe an în reduceri date pe comenzi care erau deja sub țintă.",
         fix: "Un raport săptămânal de marjă pe client și pe produs, făcut din datele din ERP, cu transportul și reducerile incluse. Și o regulă: orice reducere peste 5% trece printr-o verificare de marjă înainte să fie promisă.",
-        effort: "2–3 săptămâni; câteva mii de euro. Cea mai mare parte a muncii e să stabilim ce înseamnă „marjă” la Velmora.",
+        effort: "2–3 săptămâni. Cea mai mare parte a muncii e să stabilim ce înseamnă „marjă” la Velmora.",
         measure: "Ponderea comenzilor cu reduceri sub marja țintă, în fiecare săptămână.",
         owner: "Managerul financiar, împreună cu directorul de vânzări pentru regula de reduceri.",
       },
@@ -788,7 +788,7 @@ export const aboutPage = {
   paragraphs: [
     "Sunt inginer de sisteme și, din 2020, construiesc software care trebuie să funcționeze în firme reale: platforme enterprise, două produse proprii și un asistent AI care rulează offline, pe echipamentele firmei. Ce mă interesează cel mai mult, însă, e problema din spatele sistemului.",
     "Cele mai multe firme cu care vorbesc nu au nevoie de mai multă tehnologie. Au nevoie să știe unde se duc timpul și banii și ce merită rezolvat întâi — și de o soluție pe care oamenii chiar s-o folosească. Uneori asta înseamnă un proces mai simplu. Alteori, cifre în care toată lumea are încredere. Alteori, un sistem pe care îl construiesc eu.",
-    "LT Strategy Partners e o firmă mică, intenționat. Nu există intermediari și nu sunteți plimbați de la un om la altul: cel care stă cu echipa de conducere ca să găsească problema e același care construiește soluția și le arată oamenilor dumneavoastră cum s-o folosească. De aceea lucrez cu puțini clienți în același timp.",
+    "LT Strategy Partners e o firmă mică, intenționat. Nu există intermediari și nu sunteți plimbați de la un om la altul: cel care stă cu echipa de conducere ca să găsească problema e același care construiește soluția și le arată oamenilor dumneavoastră cum s-o folosească.",
   ],
   principlesEyebrow: "Cum gândesc",
   principlesHeading: "Cinci reguli după care lucrez.",

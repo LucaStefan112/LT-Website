@@ -37,7 +37,7 @@ export interface Service {
 
 export interface Engagement {
   name: string;
-  meta: string; // length and price basis, e.g. "2 weeks · fixed price"
+  meta: string; // length, e.g. "2 weeks" (no prices are published)
   body: string;
 }
 
@@ -399,8 +399,9 @@ export const services = {
 } as const;
 
 /* -------------------------------------- Ways to work together (ladder) */
-/* Each step ends with something useful and a decision. No prices here: they
-   are agreed before each step. Names and lengths follow the strategy doc. */
+/* Each step ends with something useful and a decision. No prices or pricing
+   terms are published anywhere on the site. Names and lengths follow the
+   strategy doc. */
 
 export const engagements = {
   eyebrow: "Ways to work together",
@@ -422,12 +423,12 @@ export const engagements = {
         },
         {
           name: "Diagnostic Sprint",
-          meta: "2 weeks · fixed price",
+          meta: "2 weeks",
           body: "Two weeks on one problem: the process mapped with your team, the data checked, a solution designed and a business case with a build / buy / wait verdict.",
         },
         {
           name: "Team workshop",
-          meta: "Half or full day · fixed price",
+          meta: "Half or full day",
           body: "A session on your team's real work: processes, digital tools, safe use of AI.",
         },
       ],
@@ -438,7 +439,7 @@ export const engagements = {
       items: [
         {
           name: "Solve engagement",
-          meta: "Usually 6–12 weeks · fixed price per phase",
+          meta: "Usually 6–12 weeks, in phases",
           body: "The fix, end to end: the process redesigned, the system built and integrated, the team prepared, the result measured. In phases, and you can stop after any of them.",
         },
       ],
@@ -454,7 +455,7 @@ export const engagements = {
       ],
     },
   ] as EngagementStage[],
-  note: "Prices are fixed and agreed before each step. We take no commissions from vendors.",
+  note: "Every step is agreed with you before it starts. We take no commissions from vendors.",
 } as const;
 
 /* ----------------------------------------- Services page: common questions */
@@ -477,7 +478,7 @@ export const servicesFaq = {
     },
     {
       q: "What does it cost?",
-      a: "The triage conversation and the Business Diagnostic are free. Everything after has a fixed price per phase, agreed before we start, and you can stop after any phase.",
+      a: "The triage conversation and the Business Diagnostic are free. Beyond that, the cost depends on the problem, and we discuss it before any step — nothing starts without your agreement.",
     },
     {
       q: "Who does the work?",
@@ -695,7 +696,7 @@ export const sampleDiagnosis = {
       problem: "The problem",
       cost: "What it costs, conservative base case",
       fix: "The fix",
-      effort: "Effort and cost band",
+      effort: "Effort",
       measure: "How we'll know it worked",
       owner: "Owner",
     },
@@ -706,7 +707,7 @@ export const sampleDiagnosis = {
         problem: "Orders arrive by email, by phone and on WhatsApp, and are typed into the ERP, then into the warehouse picking sheet, then into the invoicing app.",
         cost: "3 people × ~10 hours a week × 46 weeks × €10 an hour (Velmora's loaded cost) ≈ €14,000 a year of typing. Add about 40 corrected invoices a month and the second deliveries caused by wrong orders: ≈ €17,000. About €31,000 a year in all.",
         fix: "Connect what you already have: the order is entered once, in the ERP, and reaches the warehouse and the invoicing app on its own. WhatsApp orders go to one shared order inbox. No new system.",
-        effort: "6–8 weeks; less than the problem costs in a year, priced per phase. A range, not a quote.",
+        effort: "6–8 weeks, in three phases.",
         measure: "Typing hours per 100 orders, corrected invoices a month, and picking errors — measured before, and 30 days after.",
         owner: "Operations manager.",
       },
@@ -716,7 +717,7 @@ export const sampleDiagnosis = {
         problem: "Margin is known around the 12th of the next month, without transport costs or the discounts agreed on the phone.",
         cost: "In three months of invoices, 11 of the top 40 clients were below target margin once transport was counted. Base case: at least €25,000 a year in discounts on orders that were already below target.",
         fix: "A weekly margin report by client and by product, built from ERP data, with transport and discounts included. And one rule: any discount above 5% gets a margin check before it's promised.",
-        effort: "2–3 weeks; four figures. Most of the work is agreeing what “margin” means at Velmora.",
+        effort: "2–3 weeks. Most of the work is agreeing what “margin” means at Velmora.",
         measure: "The share of orders discounted below target margin, every week.",
         owner: "Finance manager, with the sales director for the discount rule.",
       },
@@ -898,7 +899,7 @@ export const aboutPage = {
   paragraphs: [
     "I'm a systems engineer, and since 2020 I've built software that has to work in real businesses: enterprise platforms, two products of my own, and an AI assistant that runs offline on a company's own hardware. What interests me most, though, is the problem behind the system.",
     "Most companies I talk to don't need more technology. They need to know where the time and the money go, what is worth fixing first, and a fix their people actually use. Sometimes that's a simpler process. Sometimes it's numbers everyone can trust. Sometimes it's a system I build.",
-    "LT Strategy Partners is small on purpose. There are no account managers and no hand-offs: the person who sits with your leadership team to find the problem is the person who builds the fix and shows your team how to use it. That's also why I take on only a few clients at a time.",
+    "LT Strategy Partners is small on purpose. There are no account managers and no hand-offs: the person who sits with your leadership team to find the problem is the person who builds the fix and shows your team how to use it.",
   ],
   principlesEyebrow: "How I think",
   principlesHeading: "Five rules I work by.",
