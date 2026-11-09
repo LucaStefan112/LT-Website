@@ -489,7 +489,7 @@ export const servicesFaq = {
 export const assessmentPage = {
   eyebrow: "How we work · The Business Diagnostic",
   heading: "Before anyone sells you a solution, find out what is actually holding you back.",
-  lead: "A structured session with your leadership team and a written, prioritized diagnosis of what is costing you most — including a blunt “don't build anything” where that is the honest answer. Free, we run it ourselves, and capped.",
+  lead: "A session with your leadership team and a short written diagnosis: what is costing you most, what to fix first, and what isn't worth fixing yet. Free, run by us, and capped.",
   heroCta: { label: "Apply for a diagnostic", href: "#apply" } as CTA,
   heroFacts: [
     "45–60 minutes with your leadership team",
@@ -502,45 +502,45 @@ export const assessmentPage = {
     eyebrow: "Why this exists",
     heading: "Most advice arrives with the answer already chosen.",
     paragraphs: [
-      "You already know something is wrong; what you don't have is a name for it. Margin that used to be there and isn't. Stock sitting still while more of it gets ordered. The same order typed into three systems by three people. A decision on hold until someone finishes the report. Quotes going out two days late and nobody able to say why. Half of what makes the firm work living in two people's heads.",
-      "Take that to most people and you get their product back: the software company finds a software problem, the AI vendor finds an AI problem, the consultancy finds a strategy problem. We take no commission from any vendor — which is exactly why we can afford to look at your business first and then tell you the cause is a pricing rule, a handover nobody owns, a tool nobody was shown how to use, or a report nobody trusts. And when the answer is something that has to be built, we build it.",
+      "You know something is wrong, but not what. Margin that used to be there and isn't. The same order typed into three systems. A decision waiting on a report.",
+      "Ask a vendor and you get their product back. We take no vendor commissions, so we look at your business first — and the cause is often a pricing rule, a handover nobody owns or a report nobody trusts. When something does need building, we build it.",
     ],
   },
 
   deliverable: {
     eyebrow: "What you get",
     heading: "The written diagnosis.",
-    intro: "three to five pages, written by our team — no hand-offs between teams, no template engine. Built so page one can be forwarded to your board on its own.",
+    intro: "Three to five pages, written by us. Page one works on its own.",
     items: [
-      "A one-page decision memo with the verdict in the title — not buried on page four",
-      "Every problem we find, plotted on one map: what it costs you × how hard it is to fix, each with what you risk by leaving it alone",
-      "For anything that would have to be built, the Gate Zero check in writing: build now / not yet / don't build, with cost band, time-to-production, and walk-away conditions",
-      "A named section — “Not worth fixing yet” — with the reason for every one of them",
-      "Next steps that include the ones you can take without hiring us",
+      "A one-page memo with the answer in the title",
+      "Every problem on one map: what it costs and how hard it is to fix",
+      "For each one worth fixing, the kind of fix: a process change, a report, training or something to build",
+      "A section called “Not worth fixing yet”, with the reasons",
+      "Next steps, including the ones you can take without us",
     ],
     guaranteeLabel: "The written guarantee",
-    guarantee: "Expect at least one thing we'll tell you not to fix — or not to fix yet — with the reason, in writing. If what matters most turns out to be a process change and no new system, the diagnosis says exactly that. And if everything you bring genuinely holds up, it says that plainly instead: what it will never do is manufacture a verdict, in either direction.",
-    sampleCta: { label: "Read a sample Gate Zero verdict", href: "/en/assessment/sample-readout" } as CTA,
+    guarantee: "Expect at least one thing we'll tell you not to fix, or not yet, with the reason in writing. If the answer is a process change and no new system, the diagnosis says so. And it never invents a verdict, either way.",
+    sampleCta: { label: "Read a sample diagnosis", href: "/en/assessment/sample-diagnosis" } as CTA,
   },
 
   method: {
     eyebrow: "The method",
-    heading: "How we look at the business — and where Gate Zero comes in.",
-    intro: "We arrive without a candidate solution. Seven things get looked at, in your numbers and your vocabulary, and only what survives them is worth spending on. Anything that would have to be built then goes through Gate Zero — the formal go/no-go check a production system faces, applied before the money:",
+    heading: "How we look at your business.",
+    intro: "We arrive without a solution in mind. Every problem is looked at in seven ways, in your numbers and your words.",
     dimensions: [
-      { name: "Value at stake", desc: "Euros or hours attached to a named workflow — conservative base case, assumptions stated. No hockey sticks." },
-      { name: "Data reality", desc: "Does the information this depends on actually exist, is it clean, and can you get to it today — or does it live in someone's head?" },
-      { name: "How the work really runs", desc: "The process as people actually do it, not as the diagram says: the workarounds, the re-keying, the second spreadsheet nobody mentions." },
-      { name: "Error tolerance vs stakes", desc: "Where does a mistake land today, who notices, and what has it cost by the time someone catches it?" },
-      { name: "Whether the fix can be measured", desc: "If this changes, does the improvement show up in numbers you already have — or would you be taking our word for it?" },
-      { name: "Cost, effort & ownership", desc: "What a fix costs to run and not only to build, and who inside the firm owns it once we are gone." },
-      { name: "Exposure & dependency", desc: "Single points of failure, key-person risk, personal data nobody can account for, and the rules you are already subject to — including where the EU AI Act applies to you." },
+      { name: "Value at stake", desc: "Euros or hours tied to a named piece of work. Conservative, no hockey sticks." },
+      { name: "Data reality", desc: "Does the information exist, and can you get to it today?" },
+      { name: "How the work really runs", desc: "The workarounds, the re-keying, the second spreadsheet." },
+      { name: "Error tolerance vs stakes", desc: "What a mistake costs, and how long until someone catches it." },
+      { name: "Whether the fix can be measured", desc: "Will it show up in numbers you already have?" },
+      { name: "Cost, effort & ownership", desc: "What a fix costs to run, and who owns it once we're gone." },
+      { name: "Exposure & dependency", desc: "Key people, single points of failure, personal data, the rules you're under." },
     ],
     rulesLabel: "Three rules, stated in every diagnosis",
     rules: [
-      "What matters most is agreed with you before anything is scored.",
-      "No single aggregate “maturity score” — the weakest dimension decides; averages hide.",
-      "Every score carries a confidence level and its declared assumptions.",
+      "What matters most is agreed with you before scoring.",
+      "No aggregate score: the weakest dimension decides.",
+      "Every score states its confidence and assumptions.",
     ],
     questionsLabel: "Four of the questions we actually ask",
     gateQuestions: [
@@ -549,27 +549,33 @@ export const assessmentPage = {
       "What does this cost you every month it stays as it is?",
       "What happens to this if the person who runs it leaves?",
     ],
-    standardsNote: "Where something does get built, the exposure read cross-references the EU AI Act (Article 6 / Annex III), the NIST AI Risk Management Framework, and the OWASP Top 10 for LLM applications.",
+    // Folded away under the method: only relevant once the answer is a build.
+    build: {
+      label: "When something needs building: Gate Zero",
+      body: "If the diagnosis points to something that has to be built — software, an automation, an AI system — it goes through Gate Zero before any money is spent: the go/no-go check a live system would face anyway, done first. You get the verdict in writing: build now, not yet, or don't build, with a cost band, the time it takes to go live, and the conditions under which we'd walk away.",
+      standards: "For AI systems, the check cross-references the EU AI Act (Article 6 / Annex III), the NIST AI Risk Management Framework and the OWASP Top 10 for LLM applications.",
+      link: { label: "Example: when the answer is an AI system", href: "/en/assessment/sample-readout" } as CTA,
+    },
   },
 
   process: {
     eyebrow: "How it runs",
     heading: "Four steps, two to four weeks.",
     steps: [
-      { name: "Apply", time: "10 minutes", desc: "Ten questions about the firm, about what isn't working, and about where your numbers live. We read every application personally — and we decline some. That's the first verdict, and it happens before any call." },
-      { name: "The diagnostic session", time: "45–60 minutes", desc: "A structured session with your leadership team — we come to understand the business, not to present anything. We follow the money and the friction through the processes you actually run, and we ask the questions production would eventually ask anyway. Walkthrough only: no credentials, no system access, nothing leaves your walls." },
-      { name: "The diagnosis is written", time: "within a week", desc: "Every problem found is scored on the seven dimensions and plotted on one map: what it costs you by how hard it is to fix. Written by us, on your numbers and in your vocabulary." },
-      { name: "The verdict walkthrough", time: "30 minutes", desc: "You get the diagnosis and a blunt call on the one thing to fix first: now, not yet — and exactly what unlocks it — or leave it alone. Where the answer is something to build, it comes with the Gate Zero verdict. The document is yours either way." },
+      { name: "Apply", time: "10 minutes", desc: "Ten questions about the firm and what isn't working. We read every one and decline some." },
+      { name: "The diagnostic session", time: "45–60 minutes", desc: "A structured conversation with your leadership team, following the money and the friction. No passwords, no system access." },
+      { name: "The diagnosis is written", time: "within a week", desc: "Every problem scored on the seven dimensions and placed on one map." },
+      { name: "The walkthrough", time: "30 minutes", desc: "A straight answer on what to fix first: now, not yet, or leave it. The document is yours either way." },
     ],
   },
 
   whyFree: {
     eyebrow: "Why it's free",
     heading: "It's a diagnosis, not the treatment.",
-    body: "This is how we both find out whether working together makes sense. You get the diagnosis and the priority order; the paid engagements do the work. It stays free because it's capped: we run every session and write every diagnosis ourselves — at most three per month, one per company, ever.",
+    body: "It's how we both find out whether working together makes sense; the paid work comes after, only if you want it. It stays free because it's capped: we do every one ourselves — at most three a month, one per company.",
     branches: [
-      { name: "If it's a go", desc: "and the fit is there, the diagnosis maps each problem worth solving to the engagement that closes it — a process change, training for the team, or something we would build ourselves. You'll know the shape of the next step before you commit to anything." },
-      { name: "If it's a no-go", desc: "you keep the diagnosis, there is no follow-up sequence, and that's the end — unless you write first. A no-go followed by nurture emails would make the verdict worthless." },
+      { name: "If there's work worth doing", desc: "You'll know which kind, and the next step, before committing to anything." },
+      { name: "If there isn't", desc: "You keep the diagnosis. No follow-up emails." },
     ],
   },
 
@@ -579,36 +585,181 @@ export const assessmentPage = {
     forLabel: "This is for you if",
     notForLabel: "It isn't if",
     forWho: [
-      "Owners and managers who can see the symptom but not the cause",
-      "Firms where margin, stock or cash is drifting and the reason isn't obvious",
-      "Companies that already bought a system or ran a pilot and have little to show for it",
-      "Data-sensitive businesses weighing what can and cannot leave their walls",
+      "You see the symptom but not the cause",
+      "Margin, stock or cash is drifting and nobody knows why",
+      "You bought a system or ran a pilot with little to show for it",
+      "You're about to buy major software and want a second opinion",
     ],
     notForWho: [
-      "Companies looking for a free implementation plan — this is a verdict, not a blueprint",
-      "Teams without an executive sponsor willing to attend the session",
-      "Anyone shopping for validation of a decision already made — some diagnoses say don't build anything, and yours might",
+      "You want a free implementation plan",
+      "Nobody from leadership can attend",
+      "You want backing for a decision already made — the answer might be “no new system”",
     ],
-  },
-
-  whoRuns: {
-    eyebrow: "Who runs it",
-    heading: "The method exists because these are the checks we run before we ship anything.",
-    facts: [
-      "Designs, builds and ships production systems — including AI and LLM systems: retrieval tuning, output validation, monitoring, cost and latency budgets",
-      "Built a self-hosted, retrieval-augmented AI assistant that runs fully offline on hardware a business already owns",
-      "Production security engineer with a data-protection background",
-      "Founded two SaaS products; lead architect of a multi-tenant enterprise platform",
-    ],
-    link: { label: "More about Luca", href: "/en/about" } as CTA,
   },
 
   apply: {
     eyebrow: "Apply",
     heading: "Apply for the Business Diagnostic.",
-    intro: "Ten questions, about ten minutes. We read every application personally — some are declined, and that's the first verdict. If accepted, you'll get the exact session agenda before you commit an hour of your leadership team's time.",
+    intro: "Ten questions, about ten minutes. If we accept, you get the session agenda before you commit your team's time.",
     microcopy: "Free · one per company · at most three per month · walkthrough only, no system access",
     submitLabel: "Submit application",
+  },
+} as const;
+
+/* ------------------------------ Sample diagnosis (/assessment/sample-diagnosis) */
+/* A complete, clearly labelled SAMPLE of the written Business Diagnostic, the
+   non-AI counterpart of the Gate Zero sample. "Velmora Distribution" is a
+   fictional company and every number is invented. The scores and the map
+   positions live in SampleDiagnosisView (shared by both languages); the table
+   rows reuse the seven dimension names from assessmentPage.method. */
+export const sampleDiagnosis = {
+  back: "The Business Diagnostic",
+  kicker: "Example: a distribution company",
+  title: "A sample diagnosis.",
+  banner: [
+    { lead: "Where this sits.", text: "This is the written diagnosis you receive at the end of the free Business Diagnostic." },
+    { lead: "Illustrative sample.", text: "“Velmora Distribution” is a fictional company and every number below is invented. The method, the scoring and the format are exactly what you receive — built on your numbers instead." },
+  ],
+  docHead: "Business Diagnostic — Velmora Distribution · September 2026 · Prepared by Luca-Ștefan Tamaș, LT Strategy Partners",
+
+  memo: {
+    tag: "Page 1 · Decision memo",
+    verdict: "Enter every order once. See margin every week. Keep the CRM you have — and actually use it.",
+    body: "Velmora's leadership brought five problems to the session. Three are worth fixing now, in this order, and only one of them needs anything built. The other two can wait: one is mostly a symptom of the first, and the other is an €85,000 purchase that wouldn't fix what is actually failing.",
+    points: [
+      { lead: "Orders are typed three times, and it costs about €31,000 a year.", text: "Every order goes into the ERP, then into the warehouse picking sheet, then into the invoicing app — three people, about 30 hours a week. Most picking errors and invoice corrections start here. The fix is the one build in this diagnosis: connect the systems you already have, so an order is entered once." },
+      { lead: "Margin shows up six weeks late, and discounts are given blind.", text: "The margin report is put together by hand around the 12th of the next month, without transport costs or the discounts agreed on the phone. In three months of invoices, 11 of the top 40 clients were below target margin once transport was counted. The fix is a weekly report and one rule, not a new system." },
+      { lead: "The CRM isn't the problem — nobody was shown where it fits.", text: "Two of eight sales reps use it, and the weekly sales meeting runs from their own spreadsheets. A new CRM would repeat the story with a different logo. The fix is a change in how that meeting runs, and two working sessions with the team." },
+    ],
+    anchor: "What leadership already suspected, now with numbers: the order desk's complaint about typing the same order over and over is the most expensive problem in the company — more expensive than the ERP everyone complains about.",
+    nextLabel: "Owners & the first 30 days",
+    next: "Operations manager: owns the order flow, end to end, from this week. Finance manager: a weekly margin check by hand for the top 40 clients, starting next Monday.",
+  },
+
+  map: {
+    tag: "Page 2 · The problem map",
+    title: "Five problems, one map.",
+    ariaLabel: "Map of what each problem costs a year against how easy it is to fix. A, orders typed three times: high cost, fairly easy to fix — fix first. B, margin seen too late: high cost, easy to fix — fix first. C, the CRM nobody uses: lower cost, easy to fix — a quick win. D, the ERP everyone complains about: low cost, hard to fix — leave it for now. E, picking errors: moderate cost, hard to fix on their own, mostly caused by A — not yet.",
+    axisY: "What it costs a year →",
+    axisX: "How easy it is to fix →",
+    quadrants: { tl: "Worth it — plan it", tr: "Fix first", bl: "Leave it for now", br: "Quick wins" },
+    dots: {
+      a: "A · Orders typed three times",
+      b: "B · Margin seen too late",
+      c: "C · The CRM nobody uses",
+      d: "D · The ERP everyone complains about",
+      e: "E · Picking errors",
+    },
+    tableLabel: "Scores for the three fixes worth making",
+    tableHead: "Diagnostic dimension",
+    columns: ["A · Orders", "B · Margin", "C · CRM"],
+    rag: {
+      green: { letter: "G", label: "Solid — nothing here stands in the way of a fix" },
+      amber: { letter: "A", label: "Addressable gap — the condition to meet is named" },
+      red: { letter: "R", label: "Comes first — a fix won't hold until this is solved" },
+    },
+    notes: [
+      { cell: "A / How the work runs (amber):", text: "about a quarter of orders arrive on WhatsApp, outside any inbox. The fix needs one way in for orders, agreed with the sales reps first." },
+      { cell: "A / Ownership (amber):", text: "the order desk, the warehouse and finance each own a piece of the flow; nobody owns all of it. One owner is named before anything is built." },
+      { cell: "A / Dependency (amber):", text: "only one person knows how invoices get into the invoicing app. It is written down in the first phase, before anything changes." },
+      { cell: "B / Value (amber):", text: "the €25,000 base case comes from three months of invoices; the full year will move it, most likely up." },
+      { cell: "B / Data reality (amber):", text: "discounts appear only as free text in invoice notes, and transport costs sit in a separate spreadsheet. Both need a proper field in the ERP." },
+      { cell: "B / Error tolerance (amber):", text: "a wrong margin figure would push discounts the wrong way. The report is checked against the accounts every month." },
+      { cell: "C / Value (amber):", text: "the licence cost is known (€4,800 a year); what the missed follow-ups cost isn't, so it isn't counted." },
+      { cell: "C / Data reality (red):", text: "the CRM holds about 30% of active customers; the rest live in the reps' own spreadsheets." },
+      { cell: "C / How the work runs (red):", text: "the weekly sales meeting runs from those spreadsheets, so nothing pulls anyone into the CRM. This comes first." },
+    ],
+    bindingLead: "The binding constraint at Velmora:",
+    binding: "orders enter the business three times — most of what goes wrong downstream starts there.",
+    footnote: "What matters most was agreed with Velmora's leadership before scoring: cash and margin first, then the order desk's time. No aggregate score is reported — the weakest dimension decides; averages hide.",
+  },
+
+  fixes: {
+    tag: "Page 3 · What to fix, and how",
+    title: "Three fixes, in order.",
+    labels: {
+      problem: "The problem",
+      cost: "What it costs, conservative base case",
+      fix: "The fix",
+      effort: "Effort and cost band",
+      measure: "How we'll know it worked",
+      owner: "Owner",
+    },
+    items: [
+      {
+        name: "A · Enter every order once",
+        kind: "One build",
+        problem: "Orders arrive by email, by phone and on WhatsApp, and are typed into the ERP, then into the warehouse picking sheet, then into the invoicing app.",
+        cost: "3 people × ~10 hours a week × 46 weeks × €10 an hour (Velmora's loaded cost) ≈ €14,000 a year of typing. Add about 40 corrected invoices a month and the second deliveries caused by wrong orders: ≈ €17,000. About €31,000 a year in all.",
+        fix: "Connect what you already have: the order is entered once, in the ERP, and reaches the warehouse and the invoicing app on its own. WhatsApp orders go to one shared order inbox. No new system.",
+        effort: "6–8 weeks; less than the problem costs in a year, priced per phase. A range, not a quote.",
+        measure: "Typing hours per 100 orders, corrected invoices a month, and picking errors — measured before, and 30 days after.",
+        owner: "Operations manager.",
+      },
+      {
+        name: "B · See margin every week",
+        kind: "A report and a rule",
+        problem: "Margin is known around the 12th of the next month, without transport costs or the discounts agreed on the phone.",
+        cost: "In three months of invoices, 11 of the top 40 clients were below target margin once transport was counted. Base case: at least €25,000 a year in discounts on orders that were already below target.",
+        fix: "A weekly margin report by client and by product, built from ERP data, with transport and discounts included. And one rule: any discount above 5% gets a margin check before it's promised.",
+        effort: "2–3 weeks; four figures. Most of the work is agreeing what “margin” means at Velmora.",
+        measure: "The share of orders discounted below target margin, every week.",
+        owner: "Finance manager, with the sales director for the discount rule.",
+      },
+      {
+        name: "C · Get the CRM used",
+        kind: "A process change and training",
+        problem: "Two of eight sales reps use the CRM bought 18 months ago; the weekly sales meeting runs from their own spreadsheets.",
+        cost: "€4,800 a year in licences, plus follow-ups that never happen — unmeasured, so not counted.",
+        fix: "Give the CRM three jobs: customers, quotes and follow-ups. Move the active customers in. Run the weekly sales meeting from the CRM. Two working sessions with the reps, on their own accounts.",
+        effort: "3 weeks, mostly your team's time; one half-day workshop.",
+        measure: "Quotes followed up within 7 days, and reps active in the CRM each week.",
+        owner: "Sales director.",
+      },
+    ],
+    confidence: "Confidence: scored at walkthrough depth — on systems described in the session, not inspected. Declared assumptions: loaded cost from Velmora's payroll figures; order volumes and corrections from the last three months; discounts from a sample of 600 invoices.",
+  },
+
+  later: {
+    tag: "Page 4 · Not worth fixing yet, and next steps",
+    title: "What to leave alone — and what happens next.",
+    notYetLabel: "Not worth fixing yet",
+    items: [
+      {
+        chip: "Don't buy it now",
+        name: "D · Replacing the ERP",
+        text: "Everyone complains about the ERP, and there is an €85,000 quote on the table to replace it. But the ERP isn't what's failing: orders are typed around it, the margin report is built outside it and the CRM sits next to it. A new ERP would inherit all three problems.",
+        unlockLabel: "What would change this:",
+        unlock: "if, a year after A, B and C, the ERP is still what stops a fix, it goes back on the list — with a business case.",
+      },
+      {
+        chip: "Not yet",
+        name: "E · Barcode scanning in the warehouse",
+        text: "Picking errors are real — about 1.5% of orders — but roughly two thirds of them start with a re-typed order. Scanning would cost around €20,000 to fix the third that's left.",
+        unlockLabel: "What would change this:",
+        unlock: "we measure again 60 days after A goes live. If errors stay above 0.5% of orders, scanning comes back with a business case.",
+      },
+    ],
+    stepsLabel: "Next steps — with us or without us",
+    steps: [
+      { lead: "Name one owner for the order flow (yours to do, this week).", text: "No project needed: one person, responsible for an order from the first message to the invoice." },
+      { lead: "Start the margin check by hand (yours to do, from next Monday).", text: "The top 40 clients, last week's invoices, transport included. A spreadsheet is fine — the habit matters more than the tool." },
+      { lead: "Give the CRM its three jobs (yours to do, one meeting).", text: "Customers, quotes, follow-ups. Everything else waits." },
+      { lead: "Scope the order integration.", text: "With us or anyone else: map the flow, check how the ERP and the invoicing app can connect, and get it priced in phases." },
+    ],
+    forwardLabel: "If you want help, this is where each fix fits",
+    forward: [
+      { lead: "A → a Solve engagement in three phases:", text: "map the flow, connect the systems, then run the team on the new flow and measure." },
+      { lead: "B → a Diagnostic Sprint on numbers and decisions,", text: "or the first phase of A." },
+      { lead: "C → a half-day team workshop", text: "and two follow-up sessions with the sales reps." },
+    ],
+    yours: "This document is yours either way.",
+  },
+
+  cta: {
+    text: "This is the document your leadership team receives — built on your numbers, in your words.",
+    button: { label: "Start with the Business Diagnostic", href: "/en/assessment#apply" } as CTA,
+    ai: { label: "When the answer is an AI system: a sample Gate Zero verdict", href: "/en/assessment/sample-readout" } as CTA,
   },
 } as const;
 
@@ -1505,10 +1656,16 @@ export const pageMeta = {
     path: "/en/assessment",
   },
   assessmentSample: {
-    title: "Sample Gate Zero Readout — LT Strategy Partners",
+    title: "Example: when the answer is an AI system — LT Strategy Partners",
     description:
-      "A full, clearly-labeled sample of the Gate Zero Readout — the written build / don't-build verdict, produced once the diagnosis concludes something should be built.",
+      "A full, clearly labelled sample of the Gate Zero Readout: the written build / not yet / don't build verdict on three AI use cases, produced once a diagnosis shows something should be built.",
     path: "/en/assessment/sample-readout",
+  },
+  assessmentDiagnosisSample: {
+    title: "A sample diagnosis — LT Strategy Partners",
+    description:
+      "A full, clearly labelled sample of the written Business Diagnostic: a distributor with orders typed three times, margin seen too late and a CRM nobody uses — what to fix first, and what to leave alone.",
+    path: "/en/assessment/sample-diagnosis",
   },
   about: {
     title: "About — LT Strategy Partners",

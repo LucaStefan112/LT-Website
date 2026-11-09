@@ -361,7 +361,7 @@ export const assessmentPage = {
   eyebrow: "Cum lucrăm · Diagnosticul firmei",
   heading:
     "Înainte să vă vândă cineva o soluție, aflați ce vă ține de fapt pe loc.",
-  lead: "O ședință structurată cu echipa dumneavoastră de conducere și un diagnostic scris, cu priorități limpezi, despre ce vă costă cel mai mult — inclusiv un „nu construiți nimic” spus pe față, dacă acesta e răspunsul onest. Gratuit, îl facem noi, cu locuri limitate.",
+  lead: "O ședință cu echipa de conducere și un diagnostic scris, scurt: ce vă costă cel mai mult, ce rezolvați întâi și ce nu merită rezolvat acum. Gratuit, îl facem noi, cu locuri limitate.",
   heroCta: { label: "Cereți un diagnostic", href: "#apply" } as CTA,
   heroFacts: [
     "45–60 de minute cu echipa de conducere",
@@ -374,72 +374,50 @@ export const assessmentPage = {
     eyebrow: "De ce există",
     heading: "Aproape toți vin la dumneavoastră cu răspunsul deja pregătit.",
     paragraphs: [
-      "Știți deja că ceva nu e în regulă; ce vă lipsește e un nume pentru asta. O marjă care exista și acum nu mai e. Marfă care zace în stoc, în timp ce se mai comandă din ea. Aceeași comandă tastată în trei locuri, de trei oameni. O decizie amânată până termină cineva raportul. Oferte care pleacă cu două zile întârziere și nimeni nu poate spune de ce. Jumătate din ce ține firma în funcțiune stă în capul a doi oameni.",
-      "Duceți asta la aproape oricine și primiți drept răspuns produsul lui: firma de software găsește o problemă de software, furnizorul de AI găsește o problemă de AI, iar consultantul găsește o problemă de strategie. Noi nu luăm comision de la niciun furnizor — exact de asta ne permitem să ne uităm întâi la firma dumneavoastră și abia apoi să vă spunem că problema e o regulă de preț, o predare de care nu răspunde nimeni, un program pe care nimeni nu a fost învățat să-l folosească sau un raport în care nimeni nu are încredere. Iar când răspunsul e ceva ce trebuie construit, îl construim noi.",
+      "Știți că ceva nu merge, dar nu și ce anume. O marjă care exista și acum nu mai e. Aceeași comandă tastată în trei sisteme. O decizie care așteaptă un raport.",
+      "Întrebați un furnizor și primiți înapoi produsul lui. Noi nu luăm comision de la niciun furnizor, așa că ne uităm întâi la firma dumneavoastră — iar cauza e adesea o regulă de preț, o predare de care nu răspunde nimeni sau un raport în care nimeni nu are încredere. Când chiar trebuie construit ceva, îl construim noi.",
     ],
   },
 
   deliverable: {
     eyebrow: "Ce primiți",
     heading: "Diagnosticul scris.",
-    intro:
-      "Trei până la cinci pagini, scrise de noi. Prima pagină e făcută să poată fi trimisă conducerii ca document de sine stătător.",
+    intro: "Trei până la cinci pagini, scrise de noi. Prima pagină se poate citi și singură.",
     items: [
-      "O notă de decizie de o pagină, cu verdictul în titlu — nu ascuns la pagina patru",
-      "Fiecare problemă găsită, așezată pe o singură hartă: cât vă costă × cât de greu se rezolvă, fiecare cu ce riscați dacă rămâne așa",
-      "Pentru orice ar trebui construit, verificarea Gate Zero în scris: construiți acum / încă nu / nu construiți, cu interval de cost, cât durează până în producție și condițiile în care se renunță",
-      "O secțiune întreagă, intitulată „Ce nu merită rezolvat acum” — cu motivul pentru fiecare",
-      "Pași următori, printre care și lucruri pe care le puteți face fără să ne angajați",
+      "O notă de o pagină, cu răspunsul în titlu",
+      "Fiecare problemă pe o singură hartă: cât costă și cât de greu se rezolvă",
+      "Pentru fiecare problemă care merită rezolvată, tipul de soluție: o schimbare de proces, un raport, training sau ceva de construit",
+      "O secțiune intitulată „Ce nu merită rezolvat acum”, cu motivele",
+      "Pași următori, inclusiv cei pe care îi puteți face fără noi",
     ],
     guaranteeLabel: "Garanția, în scris",
     guarantee:
-      "Așteptați-vă la cel puțin un lucru pe care vă spunem să nu îl rezolvați — sau să nu îl rezolvați acum — cu motivul, în scris. Dacă ce contează cel mai mult se dovedește a fi o schimbare de proces, nu un sistem nou, diagnosticul spune exact asta. Iar dacă tot ce aduceți stă în picioare, o spune la fel de limpede. Ce nu va face niciodată e să fabrice un verdict, într-o direcție sau în alta.",
+      "Așteptați-vă la cel puțin un lucru pe care vă spunem să nu-l rezolvați, sau să nu-l rezolvați acum, cu motivul în scris. Dacă răspunsul e o schimbare de proces, nu un sistem nou, diagnosticul o spune. Și nu inventează niciodată un verdict, în nicio direcție.",
     sampleCta: {
-      label: "Citiți un exemplu de verdict Gate Zero",
-      href: "/assessment/sample-readout",
+      label: "Citiți un exemplu de diagnostic",
+      href: "/assessment/sample-diagnosis",
     } as CTA,
   },
 
   method: {
     eyebrow: "Metoda",
-    heading: "Cum ne uităm la firmă — și unde intră Gate Zero.",
+    heading: "Cum ne uităm la firmă.",
     intro:
-      "Venim fără o soluție pregătită. Ne uităm la șapte lucruri, cu cifrele și cu vocabularul dumneavoastră, și doar ce trece de ele merită banii dumneavoastră. Iar ce ar trebui construit trece apoi prin Gate Zero — verificarea formală go/no-go la care e supus orice sistem de producție, doar că aplicată înainte să cheltuiți:",
+      "Venim fără o soluție pregătită. Fiecare problemă e privită din șapte unghiuri, cu cifrele și cu vocabularul dumneavoastră.",
     dimensions: [
-      {
-        name: "Valoarea în joc",
-        desc: "Euro sau ore legate de un flux de lucru concret — scenariu de bază conservator, cu ipotezele spuse pe față. Fără proiecții spectaculoase.",
-      },
-      {
-        name: "Realitatea datelor",
-        desc: "Informația de care depinde asta există cu adevărat, e curată și se poate accesa astăzi — sau stă în capul cuiva?",
-      },
-      {
-        name: "Cum se lucrează în realitate",
-        desc: "Procesul așa cum îl fac oamenii, nu așa cum arată schema: ocolișurile, datele trecute de două ori, al doilea tabel despre care nu vorbește nimeni.",
-      },
-      {
-        name: "Toleranța la erori față de miză",
-        desc: "Unde ajunge astăzi o greșeală, cine o observă și cât costă până o prinde cineva?",
-      },
-      {
-        name: "Dacă rezultatul se poate măsura",
-        desc: "Dacă se schimbă asta, se vede în cifre pe care le aveți deja — sau ar trebui să ne credeți pe cuvânt?",
-      },
-      {
-        name: "Cost, efort și responsabilitate",
-        desc: "Cât costă o rezolvare în funcționare, nu doar la construcție, și cine din firmă răspunde de ea după ce plecăm noi.",
-      },
-      {
-        name: "Expunere și dependențe",
-        desc: "Locuri în care totul atârnă de un singur lucru, dependența de un singur om, date personale de care nu poate răspunde nimeni și regulile cărora sunteți deja supuși — inclusiv unde vi se aplică EU AI Act.",
-      },
+      { name: "Valoarea în joc", desc: "Euro sau ore legate de o activitate concretă. Conservator, fără proiecții spectaculoase." },
+      { name: "Realitatea datelor", desc: "Informația există și se poate accesa astăzi?" },
+      { name: "Cum se lucrează în realitate", desc: "Ocolișurile, datele trecute de două ori, al doilea tabel." },
+      { name: "Toleranța la erori față de miză", desc: "Cât costă o greșeală și cât trece până o prinde cineva." },
+      { name: "Dacă rezultatul se poate măsura", desc: "Se va vedea în cifre pe care le aveți deja?" },
+      { name: "Cost, efort și responsabilitate", desc: "Cât costă o soluție în funcționare și cine răspunde de ea după ce plecăm." },
+      { name: "Expunere și dependențe", desc: "Oameni de care atârnă totul, date personale, regulile cărora sunteți supuși." },
     ],
     rulesLabel: "Trei reguli, prezente în fiecare diagnostic",
     rules: [
-      "Ce contează cel mai mult se stabilește cu dumneavoastră înainte să punctăm ceva.",
-      "Nu există un „scor de maturitate” agregat — decide dimensiunea cea mai slabă, iar mediile ascund tocmai ce contează.",
-      "Fiecare punctaj vine cu un nivel de încredere și cu ipotezele pe care se sprijină.",
+      "Ce contează cel mai mult se stabilește cu dumneavoastră înainte de punctare.",
+      "Niciun scor agregat: decide dimensiunea cea mai slabă.",
+      "Fiecare punctaj își declară nivelul de încredere și ipotezele.",
     ],
     questionsLabel: "Patru dintre întrebările pe care le punem de fapt",
     gateQuestions: [
@@ -448,8 +426,13 @@ export const assessmentPage = {
       "Cât vă costă asta în fiecare lună în care rămâne așa?",
       "Ce se întâmplă cu asta dacă pleacă omul care o ține?",
     ],
-    standardsNote:
-      "Dacă ajungem să construim ceva, partea de expunere se raportează la EU AI Act (articolul 6 / anexa III), la NIST AI Risk Management Framework și la OWASP Top 10 pentru aplicații LLM.",
+    build: {
+      label: "Când trebuie construit ceva: Gate Zero",
+      body: "Dacă diagnosticul arată că e nevoie de ceva nou — un program, o automatizare, un sistem AI — acesta trece prin Gate Zero înainte să se cheltuiască vreun ban: verificarea go/no-go la care e supus oricum un sistem care lucrează pe viu, făcută dinainte. Primiți verdictul în scris: construiți acum, încă nu sau nu construiți, cu un interval de cost, cât durează până la punerea în funcțiune și condițiile în care ne-am opri.",
+      standards:
+        "Pentru sistemele AI, verificarea se raportează la EU AI Act (articolul 6 / anexa III), la NIST AI Risk Management Framework și la OWASP Top 10 pentru aplicații LLM.",
+      link: { label: "Exemplu: când soluția e un sistem AI", href: "/assessment/sample-readout" } as CTA,
+    },
   },
 
   process: {
@@ -459,22 +442,22 @@ export const assessmentPage = {
       {
         name: "Cererea",
         time: "10 minute",
-        desc: "Zece întrebări despre firmă, despre ce nu funcționează și despre locul în care stau cifrele. Citim noi fiecare cerere — iar pe unele le refuzăm. Acesta e primul verdict și vine înaintea oricărei discuții.",
+        desc: "Zece întrebări despre firmă și despre ce nu funcționează. Citim fiecare cerere și pe unele le refuzăm.",
       },
       {
         name: "Ședința de diagnostic",
         time: "45–60 de minute",
-        desc: "O ședință structurată cu echipa dumneavoastră de conducere — venim să înțelegem firma, nu să prezentăm ceva. Urmărim banii și blocajele prin procesele pe care le folosiți cu adevărat și punem întrebările care apar oricum atunci când un sistem ajunge să lucreze pe viu. Doar discuție ghidată: fără parole, fără acces la sisteme, nimic nu iese din firma dumneavoastră.",
+        desc: "O discuție structurată cu echipa de conducere, pe urmele banilor și ale blocajelor. Fără parole, fără acces la sisteme.",
       },
       {
         name: "Se scrie diagnosticul",
         time: "într-o săptămână",
-        desc: "Fiecare problemă găsită e punctată pe cele șapte dimensiuni și așezată pe o singură hartă: cât vă costă × cât de greu se rezolvă. Diagnosticul îl scriem noi, cu cifrele și cu vocabularul dumneavoastră.",
+        desc: "Fiecare problemă, punctată pe cele șapte dimensiuni și așezată pe o singură hartă.",
       },
       {
-        name: "Discuția despre verdict",
+        name: "Discutăm diagnosticul",
         time: "30 de minute",
-        desc: "Primiți diagnosticul și un răspuns tranșant despre primul lucru care trebuie rezolvat: acum, încă nu — și exact ce l-ar debloca — sau lăsați-l în pace. Dacă răspunsul e ceva de construit, vine cu verdictul Gate Zero. Documentul rămâne al dumneavoastră, oricare ar fi răspunsul.",
+        desc: "Un răspuns limpede despre ce rezolvați întâi: acum, mai târziu sau deloc. Documentul rămâne al dumneavoastră, oricum ar fi.",
       },
     ],
   },
@@ -482,15 +465,15 @@ export const assessmentPage = {
   whyFree: {
     eyebrow: "De ce e gratuit",
     heading: "E un diagnostic, nu tratamentul.",
-    body: "Așa aflăm, de ambele părți, dacă are rost să lucrăm împreună. Primiți diagnosticul și ordinea priorităților; munca propriu-zisă intră în proiectele plătite. Rămâne gratuit tocmai pentru că e limitat: ținem noi fiecare ședință și scriem noi fiecare diagnostic — cel mult trei pe lună, unul per companie, o singură dată.",
+    body: "Așa aflăm, de ambele părți, dacă are rost să lucrăm împreună; munca plătită vine după, doar dacă o vreți. Rămâne gratuit pentru că e limitat: le facem pe toate noi — cel mult trei pe lună, unul per firmă.",
     branches: [
       {
-        name: "Dacă verdictul e da",
-        desc: "și ne potrivim, diagnosticul leagă fiecare problemă care merită rezolvată de proiectul care o rezolvă — o schimbare de proces, training pentru echipă sau ceva ce am construi noi. Veți ști cum arată pasul următor înainte să vă angajați la ceva.",
+        name: "Dacă e ceva de rezolvat",
+        desc: "Știți ce fel de soluție vă trebuie și care e pasul următor, înainte să vă angajați la ceva.",
       },
       {
-        name: "Dacă verdictul e nu",
-        desc: "păstrați diagnosticul, nu urmează nicio serie de e-mailuri și aici se termină — dacă nu ne scrieți chiar dumneavoastră. Un „nu” urmat de e-mailuri insistente ar goli verdictul de orice valoare.",
+        name: "Dacă nu e",
+        desc: "Păstrați diagnosticul. Fără e-mailuri de urmărire.",
       },
     ],
   },
@@ -501,39 +484,181 @@ export const assessmentPage = {
     forLabel: "Este pentru dumneavoastră dacă",
     notForLabel: "Nu este dacă",
     forWho: [
-      "Antreprenori și manageri care văd simptomul, dar nu cauza",
-      "Firme în care marja, stocul sau încasările scapă de sub control, iar motivul nu e limpede",
-      "Firme care au cumpărat deja un sistem sau au încercat un pilot și nu au mare lucru de arătat",
-      "Firme cu date sensibile, care cântăresc ce poate și ce nu poate să iasă din firmă",
+      "Vedeți simptomul, dar nu și cauza",
+      "Marja, stocul sau încasările scapă de sub control și nu știți de ce",
+      "Ați cumpărat un sistem sau ați încercat un pilot, fără mare rezultat",
+      "Urmează o achiziție mare de software și vreți întâi o a doua părere",
     ],
     notForWho: [
-      "Companii care caută un plan de implementare gratuit — acesta este un verdict, nu un proiect tehnic",
-      "Firme în care nimeni din conducere nu poate participa la ședință",
-      "Oricine caută validarea unei decizii deja luate — unele diagnostice spun „nu construiți nimic”, iar al dumneavoastră ar putea fi printre ele",
+      "Căutați un plan de implementare gratuit",
+      "Nimeni din conducere nu poate participa",
+      "Căutați confirmarea unei decizii deja luate — răspunsul ar putea fi „niciun sistem nou”",
     ],
-  },
-
-  whoRuns: {
-    eyebrow: "Cine îl face",
-    heading:
-      "Metoda există pentru că acestea sunt verificările pe care le facem oricum înainte să punem ceva în producție.",
-    facts: [
-      "Proiectăm, construim și ducem în producție sisteme întregi — inclusiv AI și LLM: căutare în documente bine reglată, validarea rezultatelor, monitorizare, bugete de cost și latență",
-      "Am construit un asistent AI care răspunde din documentele firmei și rulează complet offline pe echipamente pe care o firmă le are deja",
-      "Experiență în ingineria de securitate pentru sisteme de producție și în protecția datelor",
-      "Am fondat două produse SaaS și am fost arhitectul principal al unei platforme enterprise multi-tenant",
-    ],
-    link: { label: "Mai multe despre Luca", href: "/about" } as CTA,
   },
 
   apply: {
     eyebrow: "Cererea",
     heading: "Cereți Diagnosticul firmei.",
     intro:
-      "Zece întrebări, cam zece minute. Citim noi fiecare cerere — pe unele le refuzăm, și acesta e primul verdict. Dacă o acceptăm, primiți agenda exactă a ședinței înainte să blocați o oră din timpul echipei de conducere.",
+      "Zece întrebări, cam zece minute. Dacă acceptăm cererea, primiți agenda ședinței înainte să blocați timpul echipei.",
     microcopy:
-      "Gratuit · unul per companie · cel mult trei pe lună · doar discuție ghidată, fără acces la sisteme",
+      "Gratuit · unul per firmă · cel mult trei pe lună · doar discuție ghidată, fără acces la sisteme",
     submitLabel: "Trimiteți cererea",
+  },
+} as const;
+
+/* ------------------------------ Exemplu de diagnostic (/assessment/sample-diagnosis) */
+/* Traducerea integrală a `sampleDiagnosis` din site.ts. „Velmora Distribuție”
+   este o firmă fictivă, iar toate cifrele sunt inventate. Punctajele și
+   pozițiile de pe hartă stau în SampleDiagnosisView (comune ambelor limbi). */
+export const sampleDiagnosis = {
+  back: "Diagnosticul firmei",
+  kicker: "Exemplu: o firmă de distribuție",
+  title: "Un exemplu de diagnostic.",
+  banner: [
+    { lead: "Unde se încadrează acest document.", text: "Acesta este diagnosticul scris pe care îl primiți la finalul Diagnosticului firmei, care e gratuit." },
+    { lead: "Exemplu ilustrativ.", text: "„Velmora Distribuție” este o companie fictivă, iar fiecare cifră de mai jos este inventată. Metoda, punctarea și formatul sunt exact ceea ce primiți; diferența e că le aplicăm pe cifrele dumneavoastră." },
+  ],
+  docHead: "Diagnosticul firmei — Velmora Distribuție · septembrie 2026 · Întocmit de Luca-Ștefan Tamaș, LT Strategy Partners",
+
+  memo: {
+    tag: "Pagina 1 · Memo de decizie",
+    verdict: "Introduceți fiecare comandă o singură dată. Urmăriți marja în fiecare săptămână. Păstrați CRM-ul pe care îl aveți — și folosiți-l cu adevărat.",
+    body: "Conducerea Velmora a adus cinci probleme la ședință. Trei merită rezolvate acum, în această ordine, și doar pentru una dintre ele trebuie construit ceva. Celelalte două pot aștepta: una e în mare parte efectul primei, iar cealaltă e o achiziție de 85.000 € care n-ar rezolva ce nu funcționează de fapt.",
+    points: [
+      { lead: "Comenzile sunt tastate de trei ori, iar asta costă în jur de 31.000 € pe an.", text: "Fiecare comandă intră în ERP, apoi în lista de pregătire din depozit, apoi în programul de facturare — trei oameni, cam 30 de ore pe săptămână. De aici pornesc majoritatea erorilor din depozit și a facturilor corectate. Soluția e singurul lucru de construit din acest diagnostic: legăm sistemele pe care le aveți deja, ca o comandă să fie introdusă o singură dată." },
+      { lead: "Marja se vede cu șase săptămâni întârziere, iar reducerile se dau pe nevăzute.", text: "Raportul de marjă se face de mână, pe la 12 ale lunii următoare, fără costurile de transport și fără reducerile stabilite la telefon. În trei luni de facturi, 11 dintre primii 40 de clienți erau sub marja țintă, odată ce am pus la socoteală transportul. Soluția e un raport săptămânal și o regulă, nu un sistem nou." },
+      { lead: "Problema nu e CRM-ul — nimeni nu le-a arătat oamenilor unde se potrivește în munca lor.", text: "Doi din opt agenți de vânzări îl folosesc, iar ședința săptămânală de vânzări se ține pe tabelele lor personale. Un CRM nou ar repeta povestea, cu altă siglă. Soluția e o schimbare în felul în care se ține ședința și două sesiuni de lucru cu echipa." },
+    ],
+    anchor: "Ce bănuia deja conducerea, acum cu cifre: plângerea biroului de comenzi că tastează aceeași comandă iar și iar e cea mai scumpă problemă din firmă — mai scumpă decât ERP-ul de care se plânge toată lumea.",
+    nextLabel: "Responsabili și primele 30 de zile",
+    next: "Managerul de operațiuni răspunde de fluxul comenzilor, cap-coadă, începând de săptămâna aceasta. Managerul financiar face de mână verificarea săptămânală a marjei pentru primii 40 de clienți, începând de lunea viitoare.",
+  },
+
+  map: {
+    tag: "Pagina 2 · Harta problemelor",
+    title: "Cinci probleme, o singură hartă.",
+    ariaLabel: "Harta costului anual al fiecărei probleme, în funcție de cât de ușor se rezolvă. A, comenzi tastate de trei ori: cost mare, destul de ușor de rezolvat — de rezolvat întâi. B, marja văzută prea târziu: cost mare, ușor de rezolvat — de rezolvat întâi. C, CRM-ul pe care nu-l folosește nimeni: cost mai mic, ușor de rezolvat — câștig rapid. D, ERP-ul de care se plânge toată lumea: cost mic, greu de rezolvat — rămâne deocamdată. E, erorile din depozit: cost moderat, greu de rezolvat separat, cauzate mai ales de A — încă nu.",
+    axisY: "Cât costă pe an →",
+    axisX: "Cât de ușor se rezolvă →",
+    quadrants: { tl: "Merită — de planificat", tr: "De rezolvat întâi", bl: "Rămâne deocamdată", br: "Câștiguri rapide" },
+    dots: {
+      a: "A · Comenzi tastate de trei ori",
+      b: "B · Marja văzută prea târziu",
+      c: "C · CRM-ul pe care nu-l folosește nimeni",
+      d: "D · ERP-ul de care se plânge toată lumea",
+      e: "E · Erori în depozit",
+    },
+    tableLabel: "Punctajul celor trei soluții care merită făcute",
+    tableHead: "Dimensiunea diagnosticului",
+    columns: ["A · Comenzi", "B · Marjă", "C · CRM"],
+    rag: {
+      green: { letter: "V", label: "Solid — nimic de aici nu stă în calea soluției" },
+      amber: { letter: "G", label: "Lipsă rezolvabilă — condiția de îndeplinit este numită" },
+      red: { letter: "R", label: "Vine întâi — soluția nu ține până nu se rezolvă asta" },
+    },
+    notes: [
+      { cell: "A / Cum se lucrează (galben):", text: "cam un sfert din comenzi vin pe WhatsApp, în afara oricărei căsuțe de e-mail. Soluția are nevoie de o singură cale de intrare pentru comenzi, stabilită întâi cu agenții de vânzări." },
+      { cell: "A / Responsabilitate (galben):", text: "biroul de comenzi, depozitul și financiarul răspund fiecare de o bucată din flux; de fluxul întreg nu răspunde nimeni. Numim un responsabil înainte să se construiască ceva." },
+      { cell: "A / Dependențe (galben):", text: "un singur om știe cum ajung facturile în programul de facturare. Se pune pe hârtie în prima fază, înainte să se schimbe ceva." },
+      { cell: "B / Valoare (galben):", text: "scenariul de bază de 25.000 € vine din trei luni de facturi; anul întreg îl va schimba, cel mai probabil în sus." },
+      { cell: "B / Realitatea datelor (galben):", text: "reducerile apar doar ca text liber, în observațiile facturilor, iar costurile de transport stau într-un tabel separat. Amândouă au nevoie de un câmp propriu în ERP." },
+      { cell: "B / Toleranța la erori (galben):", text: "o cifră de marjă greșită ar împinge reducerile în direcția greșită. Raportul se verifică lunar cu contabilitatea." },
+      { cell: "C / Valoare (galben):", text: "costul licențelor e cunoscut (4.800 € pe an); pierderea din ofertele la care nu mai revine nimeni nu e măsurată, deci nu intră în calcul." },
+      { cell: "C / Realitatea datelor (roșu):", text: "CRM-ul conține cam 30% din clienții activi; restul stau în tabelele personale ale agenților." },
+      { cell: "C / Cum se lucrează (roșu):", text: "ședința săptămânală de vânzări se ține pe aceste tabele, așa că nimic nu-i aduce pe oameni în CRM. Asta vine întâi." },
+    ],
+    bindingLead: "Constrângerea care blochează totul la Velmora:",
+    binding: "comenzile intră în firmă de trei ori — de aici pornește cea mai mare parte din ce merge prost mai departe.",
+    footnote: "Ce contează cel mai mult a fost stabilit cu conducerea Velmora înainte de punctare: întâi banii și marja, apoi timpul biroului de comenzi. Nu se raportează niciun scor agregat — decide dimensiunea cea mai slabă; mediile ascund.",
+  },
+
+  fixes: {
+    tag: "Pagina 3 · Ce rezolvăm și cum",
+    title: "Trei soluții, în ordine.",
+    labels: {
+      problem: "Problema",
+      cost: "Cât costă, scenariu de bază conservator",
+      fix: "Soluția",
+      effort: "Efort și interval de cost",
+      measure: "Cum vedem că a funcționat",
+      owner: "Responsabil",
+    },
+    items: [
+      {
+        name: "A · Fiecare comandă, introdusă o singură dată",
+        kind: "Ceva de construit",
+        problem: "Comenzile vin pe e-mail, la telefon și pe WhatsApp și sunt tastate în ERP, apoi în lista de pregătire din depozit, apoi în programul de facturare.",
+        cost: "3 oameni × ~10 ore pe săptămână × 46 de săptămâni × 10 €/oră (costul complet al Velmora) ≈ 14.000 € pe an doar pe tastat. La asta se adaugă cam 40 de facturi corectate pe lună și livrările refăcute din cauza comenzilor greșite: ≈ 17.000 €. În total, în jur de 31.000 € pe an.",
+        fix: "Legăm ce aveți deja: comanda se introduce o singură dată, în ERP, și ajunge singură în depozit și în programul de facturare. Comenzile de pe WhatsApp intră într-o singură căsuță comună. Niciun sistem nou.",
+        effort: "6–8 săptămâni; mai puțin decât costă problema într-un an, plătit pe faze. Un interval, nu o ofertă.",
+        measure: "Orele de tastat la 100 de comenzi, facturile corectate pe lună și erorile din depozit — măsurate înainte și la 30 de zile după.",
+        owner: "Managerul de operațiuni.",
+      },
+      {
+        name: "B · Marja, văzută în fiecare săptămână",
+        kind: "Un raport și o regulă",
+        problem: "Marja se află pe la 12 ale lunii următoare, fără costurile de transport și fără reducerile stabilite la telefon.",
+        cost: "În trei luni de facturi, 11 dintre primii 40 de clienți erau sub marja țintă, cu transportul inclus. Scenariu de bază: cel puțin 25.000 € pe an în reduceri date pe comenzi care erau deja sub țintă.",
+        fix: "Un raport săptămânal de marjă pe client și pe produs, făcut din datele din ERP, cu transportul și reducerile incluse. Și o regulă: orice reducere peste 5% trece printr-o verificare de marjă înainte să fie promisă.",
+        effort: "2–3 săptămâni; câteva mii de euro. Cea mai mare parte a muncii e să stabilim ce înseamnă „marjă” la Velmora.",
+        measure: "Ponderea comenzilor cu reduceri sub marja țintă, în fiecare săptămână.",
+        owner: "Managerul financiar, împreună cu directorul de vânzări pentru regula de reduceri.",
+      },
+      {
+        name: "C · CRM-ul, folosit cu adevărat",
+        kind: "Proces și training",
+        problem: "Doi din opt agenți de vânzări folosesc CRM-ul cumpărat acum 18 luni; ședința săptămânală de vânzări se ține pe tabelele lor personale.",
+        cost: "4.800 € pe an în licențe, plus ofertele la care nu mai revine nimeni — nemăsurat, deci neinclus.",
+        fix: "Dați CRM-ului trei roluri: clienți, oferte și revenirea după ofertă. Mutați clienții activi în el. Țineți ședința săptămânală de vânzări din CRM. Două sesiuni de lucru cu agenții, pe clienții lor.",
+        effort: "3 săptămâni, mai ales timpul echipei; un atelier de o jumătate de zi.",
+        measure: "Ofertele urmate de o revenire în 7 zile și agenții activi în CRM în fiecare săptămână.",
+        owner: "Directorul de vânzări.",
+      },
+    ],
+    confidence: "Nivel de încredere: punctaj la adâncimea discuției ghidate — pe sistemele descrise în ședință, nu inspectate. Ipoteze declarate: costul complet pe oră, din cifrele de salarizare ale Velmora; volumele de comenzi și corecturile, din ultimele trei luni; reducerile, dintr-un eșantion de 600 de facturi.",
+  },
+
+  later: {
+    tag: "Pagina 4 · Ce nu merită rezolvat acum și pașii următori",
+    title: "Ce lăsăm deoparte — și ce urmează.",
+    notYetLabel: "Ce nu merită rezolvat acum",
+    items: [
+      {
+        chip: "Nu cumpărați acum",
+        name: "D · Înlocuirea ERP-ului",
+        text: "Toată lumea se plânge de ERP și există pe masă o ofertă de 85.000 € pentru înlocuirea lui. Dar nu ERP-ul e cel care nu funcționează: comenzile se tastează pe lângă el, raportul de marjă se face în afara lui, iar CRM-ul stă alături. Un ERP nou ar moșteni toate trei problemele.",
+        unlockLabel: "Ce ar schimba verdictul:",
+        unlock: "dacă, la un an după A, B și C, ERP-ul e încă cel care blochează o soluție, revine pe listă — cu un calcul de rentabilitate.",
+      },
+      {
+        chip: "Încă nu",
+        name: "E · Scanarea codurilor de bare în depozit",
+        text: "Erorile de pregătire sunt reale — cam 1,5% din comenzi — dar aproximativ două treimi dintre ele pornesc de la o comandă retastată. Scanarea ar costa în jur de 20.000 € ca să rezolve treimea rămasă.",
+        unlockLabel: "Ce ar schimba verdictul:",
+        unlock: "măsurăm din nou la 60 de zile după ce A funcționează. Dacă erorile rămân peste 0,5% din comenzi, scanarea revine, cu un calcul de rentabilitate.",
+      },
+    ],
+    stepsLabel: "Pașii următori — cu noi sau fără noi",
+    steps: [
+      { lead: "Numiți un responsabil pentru fluxul comenzilor (de făcut de dumneavoastră, săptămâna aceasta).", text: "Nu e nevoie de niciun proiect: un singur om, care răspunde de o comandă de la primul mesaj până la factură." },
+      { lead: "Începeți verificarea marjei de mână (de făcut de dumneavoastră, de lunea viitoare).", text: "Primii 40 de clienți, facturile din săptămâna trecută, cu transportul inclus. Un tabel e suficient — obiceiul contează mai mult decât instrumentul." },
+      { lead: "Dați CRM-ului cele trei roluri (de făcut de dumneavoastră, într-o ședință).", text: "Clienți, oferte, revenirea după ofertă. Restul așteaptă." },
+      { lead: "Stabiliți ce cuprinde integrarea comenzilor.", text: "Cu noi sau cu altcineva: cartografiați fluxul, verificați cum se pot lega ERP-ul și programul de facturare și cereți un preț pe faze." },
+    ],
+    forwardLabel: "Dacă vreți ajutor, iată unde se potrivește fiecare soluție",
+    forward: [
+      { lead: "A → un Proiect de rezolvare în trei faze:", text: "cartografiem fluxul, legăm sistemele, apoi echipa trece pe noul flux, iar noi măsurăm." },
+      { lead: "B → un Sprint de diagnostic pe cifre și decizii,", text: "sau prima fază a proiectului A." },
+      { lead: "C → un Atelier de echipă de o jumătate de zi", text: "și două sesiuni de urmărire cu agenții de vânzări." },
+    ],
+    yours: "Documentul rămâne al dumneavoastră, oricum ar fi.",
+  },
+
+  cta: {
+    text: "Acesta este documentul pe care îl primește conducerea firmei dumneavoastră — construit pe cifrele și în cuvintele dumneavoastră.",
+    button: { label: "Începeți cu Diagnosticul firmei", href: "/assessment#apply" } as CTA,
+    ai: { label: "Când soluția e un sistem AI: un exemplu de verdict Gate Zero", href: "/assessment/sample-readout" } as CTA,
   },
 } as const;
 
@@ -1488,10 +1613,16 @@ export const pageMeta = {
     path: "/assessment",
   },
   assessmentSample: {
-    title: "Exemplu de Raport Gate Zero — LT Strategy Partners",
+    title: "Exemplu: când soluția e un sistem AI — LT Strategy Partners",
     description:
-      "Un exemplu integral de Raport Gate Zero, marcat clar ca exemplu — verdictul scris „construiți sau nu”, întocmit după ce diagnosticul arată că merită construit ceva.",
+      "Un exemplu integral de Raport Gate Zero, marcat clar ca exemplu: verdictul scris „construiți acum / încă nu / nu construiți” pentru trei cazuri de utilizare AI, întocmit după ce diagnosticul arată că merită construit ceva.",
     path: "/assessment/sample-readout",
+  },
+  assessmentDiagnosisSample: {
+    title: "Un exemplu de diagnostic — LT Strategy Partners",
+    description:
+      "Un exemplu integral de diagnostic scris, marcat clar ca exemplu: o firmă de distribuție cu comenzi tastate de trei ori, marja văzută prea târziu și un CRM pe care nu-l folosește nimeni — ce rezolvați întâi și ce lăsați deoparte.",
+    path: "/assessment/sample-diagnosis",
   },
   about: {
     title: "Despre — LT Strategy Partners",

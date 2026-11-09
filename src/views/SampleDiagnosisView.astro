@@ -1,0 +1,252 @@
+---
+/* A complete, clearly labelled SAMPLE of the written Business Diagnostic, for
+   a fictional distributor. There is no AI in it on purpose: most diagnoses end
+   in a process change, a report or one build (the AI example is the Gate Zero
+   sample next to it). The copy lives in `sampleDiagnosis` (site.ts /
+   site.ro.ts); the scores and map positions below are layout data shared by
+   both languages, and the table rows reuse the seven dimension names from
+   `assessmentPage.method`, so the sample and the method can't drift apart. */
+import Base from "../layouts/Base.astro";
+import Container from "../components/ui/Container.astro";
+import Button from "../components/ui/Button.astro";
+import "../styles/sample-doc.css";
+import { getContent, localePath, resolveLocale } from "../content/i18n";
+
+const { pageMeta, sampleDiagnosis: s, assessmentPage } = getContent(Astro.url.pathname);
+const meta = pageMeta.assessmentDiagnosisSample;
+const backHref = localePath(resolveLocale(Astro.url.pathname), "/assessment");
+
+type Rag = "green" | "amber" | "red";
+const dims = assessmentPage.method.dimensions.map((d) => d.name);
+// One row per dimension, in the method's order; columns are fixes A, B, C.
+// Every non-green cell has a note in sampleDiagnosis.map.notes.
+const scores: Rag[][] = [
+  ["green", "amber", "amber"], // Value at stake
+  ["green", "amber", "red"], // Data reality
+  ["amber", "green", "red"], // How the work really runs
+  ["green", "amber", "green"], // Error tolerance vs stakes
+  ["green", "green", "green"], // Whether the fix can be measured
+  ["amber", "green", "green"], // Cost, effort & ownership
+  ["amber", "green", "green"], // Exposure & dependency
+];
+const ragOrder: Rag[] = ["green", "amber", "red"];
+
+// Where each problem sits: x = how easy it is to fix (right = easier),
+// y = what it costs a year (top = costlier). Labels hang left when flipped.
+const dots = [
+  { key: "a", x: 62, y: 18, tone: "fix", flip: true },
+  { key: "b", x: 80, y: 33, tone: "fix", flip: true },
+  { key: "c", x: 84, y: 68, tone: "fix", flip: true },
+  { key: "d", x: 12, y: 86, tone: "no", flip: false },
+  { key: "e", x: 22, y: 58, tone: "wait", flip: false },
+] as const;
+// "A · Orders typed three times" -> the letter (kept next to the dot on
+// phones) and the rest (moved to the key under the map there)
+const splitLabel = (label: string) => {
+  const [key, ...rest] = label.split(" · ");
+  return { key, text: rest.join(" · ") };
+};
+// Verdict chips for the "not worth fixing yet" items (D, E)
+const laterChip = ["sr-chip-no", "sr-chip-notyet"];
+---
+
+<Base title={meta.title} description={meta.description} path={meta.path}>
+  <section class="sr-wrap bg-bone">
+    <Container>
+      <a href={backHref} class="sr-back" data-astro-prefetch>
+        <span aria-hidden="true">←</span> {s.back}
+      </a>
+
+      <div class="sr-banner" role="note">
+        {s.banner.map((b, i) => (
+          <Fragment>
+            {i > 0 && " "}
+            <strong>{b.lead}</strong> {b.text}
+          </Fragment>
+        ))}
+      </div>
+
+      <p class="sr-kicker">{s.kicker}</p>
+      <h1 class="sr-pagetitle">{s.title}</h1>
+
+      <!-- ============================== PAGE 1 · memo -->
+      <article class="sr-sheet" aria-label={s.memo.tag}>
+        <p class="sr-sheet-tag">{s.memo.tag}</p>
+        <p class="sr-doc-head">{s.docHead}</p>
+        <h2 class="sr-verdict-title">{s.memo.verdict}</h2>
+        <p class="sr-body">{s.memo.body}</p>
+        <ul class="sr-points" role="list">
+          {s.memo.points.map((p) => (
+            <li>
+              <strong>{p.lead}</strong> {p.text}
+            </li>
+          ))}
+        </ul>
+        <p class="sr-anchor">{s.memo.anchor}</p>
+        <div class="sr-next">
+          <span class="sr-next-label">{s.memo.nextLabel}</span>
+          {s.memo.next}
+        </div>
+      </article>
+
+      <!-- ============================== PAGE 2 · map and scores -->
+      <article class="sr-sheet" aria-label={s.map.tag}>
+        <p class="sr-sheet-tag">{s.map.tag}</p>
+        <h2 class="sr-sheet-title">{s.map.title}</h2>
+
+        <div class="sr-map" role="img" aria-label={s.map.ariaLabel}>
+          <span class="sr-axis-y">{s.map.axisY}</span>
+          <span class="sr-axis-x">{s.map.axisX}</span>
+          <div class="sr-map-grid" aria-hidden="true">
+            <div class="sr-quad sr-quad-tl"><span>{s.map.quadrants.tl}</span></div>
+            <div class="sr-quad sr-quad-tr"><span>{s.map.quadrants.tr}</span></div>
+            <div class="sr-quad sr-quad-bl"><span>{s.map.quadrants.bl}</span></div>
+            <div class="sr-quad sr-quad-br"><span>{s.map.quadrants.br}</span></div>
+            {dots.map((d) => (
+              <div
+                class:list={[
+                  "sr-dot",
+                  { "sr-dot--flip": d.flip, "sr-dot--wait": d.tone === "wait", "sr-dot--no": d.tone === "no" },
+                ]}
+                style={`left: ${d.x}%; top: ${d.y}%;`}
+              >
+                <i></i>
+                <em>
+                  <span class="sr-dot-key">{splitLabel(s.map.dots[d.key]).key}</span><span class="sr-dot-text">
+                    · {splitLabel(s.map.dots[d.key]).text}</span
+                  >
+                </em>
+              </div>
+            ))}
+          </div>
+        </div>
+        <!-- Phones only: the dots show just their letter there -->
+        <ul class="sr-map-key" role="list" aria-hidden="true">
+          {dots.map((d) => (
+            <li class:list={[{ "sr-key--wait": d.tone === "wait", "sr-key--no": d.tone === "no" }]}>
+              <i></i>
+              {s.map.dots[d.key]}
+            </li>
+          ))}
+        </ul>
+
+        <h3 class="sr-table-label">{s.map.tableLabel}</h3>
+        <div class="sr-table-scroll">
+          <table class="sr-table">
+            <thead>
+              <tr>
+                <th scope="col">{s.map.tableHead}</th>
+                {s.map.columns.map((c) => <th scope="col">{c}</th>)}
+              </tr>
+            </thead>
+            <tbody>
+              {dims.map((dim, r) => (
+                <tr>
+                  <th scope="row">{dim}</th>
+                  {scores[r].map((v) => (
+                    <td>
+                      <span class:list={["sr-rag", `sr-rag-${v}`]}>{s.map.rag[v].letter}</span>
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <ul class="sr-legend" role="list">
+          {ragOrder.map((v) => (
+            <li>
+              <span class:list={["sr-rag", `sr-rag-${v}`]}>{s.map.rag[v].letter}</span> {s.map.rag[v].label}
+            </li>
+          ))}
+        </ul>
+        <ul class="sr-nongreen" role="list">
+          {s.map.notes.map((n) => (
+            <li>
+              <strong>{n.cell}</strong> {n.text}
+            </li>
+          ))}
+        </ul>
+        <p class="sr-binding">
+          {s.map.bindingLead} <strong>{s.map.binding}</strong>
+        </p>
+        <p class="sr-footnote">{s.map.footnote}</p>
+      </article>
+
+      <!-- ============================== PAGE 3 · the three fixes -->
+      <article class="sr-sheet" aria-label={s.fixes.tag}>
+        <p class="sr-sheet-tag">{s.fixes.tag}</p>
+        <h2 class="sr-sheet-title">{s.fixes.title}</h2>
+        <div class="sr-fixes">
+          {s.fixes.items.map((f) => (
+            <div class="sr-fix">
+              <h3 class="sr-fix-head">
+                <span class="sr-verdict-chip sr-chip-kind">{f.kind}</span> {f.name}
+              </h3>
+              <dl class="sr-fields sr-fields--fix">
+                <div><dt>{s.fixes.labels.problem}</dt><dd>{f.problem}</dd></div>
+                <div><dt>{s.fixes.labels.cost}</dt><dd>{f.cost}</dd></div>
+                <div class="sr-field-wide sr-field-key"><dt>{s.fixes.labels.fix}</dt><dd>{f.fix}</dd></div>
+                <div class="sr-field-third"><dt>{s.fixes.labels.effort}</dt><dd>{f.effort}</dd></div>
+                <div class="sr-field-third"><dt>{s.fixes.labels.measure}</dt><dd>{f.measure}</dd></div>
+                <div class="sr-field-third"><dt>{s.fixes.labels.owner}</dt><dd>{f.owner}</dd></div>
+              </dl>
+            </div>
+          ))}
+        </div>
+        <p class="sr-confidence">{s.fixes.confidence}</p>
+      </article>
+
+      <!-- ============================== PAGE 4 · not yet, and next steps -->
+      <article class="sr-sheet" aria-label={s.later.tag}>
+        <p class="sr-sheet-tag">{s.later.tag}</p>
+        <h2 class="sr-sheet-title">{s.later.title}</h2>
+
+        <h3 class="sr-label">{s.later.notYetLabel}</h3>
+        {s.later.items.map((it, i) => (
+          <div class="sr-no">
+            <p class="sr-no-head">
+              <span class:list={["sr-verdict-chip", laterChip[i]]}>{it.chip}</span> {it.name}
+            </p>
+            <p class="sr-body">
+              {it.text} <strong>{it.unlockLabel}</strong> {it.unlock}
+            </p>
+          </div>
+        ))}
+
+        <h3 class="sr-label">{s.later.stepsLabel}</h3>
+        <ol class="sr-steps" role="list">
+          {s.later.steps.map((st) => (
+            <li>
+              <strong>{st.lead}</strong> {st.text}
+            </li>
+          ))}
+        </ol>
+        <div class="sr-map-forward">
+          <p class="sr-foot-label">{s.later.forwardLabel}</p>
+          <ul role="list">
+            {s.later.forward.map((f) => (
+              <li>
+                <strong>{f.lead}</strong> {f.text}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <p class="sr-yours">{s.later.yours}</p>
+      </article>
+
+      <div class="sr-cta">
+        <p class="sr-cta-text">{s.cta.text}</p>
+        <Button href={s.cta.button.href} withArrow>{s.cta.button.label}</Button>
+        <a href={s.cta.ai.href} class="link-arrow sr-alt-link" data-astro-prefetch>
+          {s.cta.ai.label}
+          <span class="arrow" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M3 8h9M8.5 4l3.5 4-3.5 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
+        </a>
+      </div>
+    </Container>
+  </section>
+</Base>

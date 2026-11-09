@@ -4,6 +4,7 @@ import Container from "../components/ui/Container.astro";
 import Button from "../components/ui/Button.astro";
 import AssessmentForm from "../components/sections/AssessmentForm.astro";
 import DiagnosisIllustration from "../components/illustrations/DiagnosisIllustration.astro";
+import FounderStrip from "../components/sections/FounderStrip.astro";
 import { getContent, resolveLocale } from "../content/i18n";
 
 const { pageMeta, assessmentPage: page } = getContent(Astro.url.pathname);
@@ -117,7 +118,26 @@ const meta = pageMeta.assessment;
           </ul>
         </div>
       </div>
-      <p class="az-standards">{page.method.standardsNote}</p>
+      <!-- Gate Zero only matters once the answer is something to build, so it
+           stays folded instead of leading the page. -->
+      <details class="az-build">
+        <summary class="az-build-summary">
+          <span>{page.method.build.label}</span>
+          <span class="az-build-sign" aria-hidden="true"></span>
+        </summary>
+        <div class="az-build-body">
+          <p class="az-build-text">{page.method.build.body}</p>
+          <p class="az-standards">{page.method.build.standards}</p>
+          <a href={page.method.build.link.href} class="link-arrow az-build-link" data-astro-prefetch>
+            {page.method.build.link.label}
+            <span class="arrow" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M3 8h9M8.5 4l3.5 4-3.5 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </span>
+          </a>
+        </div>
+      </details>
     </Container>
   </section>
 
@@ -193,29 +213,8 @@ const meta = pageMeta.assessment;
     </Container>
   </section>
 
-  <!-- 8 · Who runs it -->
-  <section class="az-who bg-bone" aria-labelledby="az-who-heading">
-    <Container>
-      <div class="az-narrow">
-        <p class="eyebrow">{page.whoRuns.eyebrow}</p>
-        <span class="rule" aria-hidden="true"></span>
-        <h2 id="az-who-heading" class="section-title az-block-title az-who-title">
-          {qOpen}{page.whoRuns.heading}{qClose}
-        </h2>
-        <ul class="az-who-facts" role="list">
-          {page.whoRuns.facts.map((f) => <li>{f}</li>)}
-        </ul>
-        <a href={page.whoRuns.link.href} class="link-arrow" data-astro-prefetch>
-          {page.whoRuns.link.label}
-          <span class="arrow" aria-hidden="true">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M3 8h9M8.5 4l3.5 4-3.5 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </span>
-        </a>
-      </div>
-    </Container>
-  </section>
+  <!-- 8 · Who you work with (the same founder note as on the home page) -->
+  <FounderStrip />
 
   <!-- 9 · Apply -->
   <section id="apply" class="az-apply bg-paper" aria-labelledby="az-apply-heading">
@@ -493,12 +492,73 @@ const meta = pageMeta.assessment;
   .az-questions li {
     font-style: italic;
   }
+  /* Folded "when something needs building" panel */
+  .az-build {
+    margin-top: clamp(2.5rem, 5vw, 3.5rem);
+    border-top: 1px solid var(--color-line-dark);
+    border-bottom: 1px solid var(--color-line-dark);
+  }
+  .az-build-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 1.25rem 0;
+    cursor: pointer;
+    list-style: none;
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--color-bone);
+  }
+  .az-build-summary::-webkit-details-marker {
+    display: none;
+  }
+  .az-build-summary:hover {
+    color: #fff;
+  }
+  /* Plus that turns into a minus when open */
+  .az-build-sign {
+    position: relative;
+    flex: none;
+    width: 14px;
+    height: 14px;
+  }
+  .az-build-sign::before,
+  .az-build-sign::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 14px;
+    height: 2px;
+    border-radius: 1px;
+    background-color: var(--color-steel-bright);
+    transition: transform 0.2s var(--ease-out-soft);
+  }
+  .az-build-sign::after {
+    transform: rotate(90deg);
+  }
+  .az-build[open] .az-build-sign::after {
+    transform: rotate(0deg);
+  }
+  .az-build-body {
+    padding-bottom: 1.75rem;
+    max-width: 62ch;
+  }
+  .az-build-text {
+    color: color-mix(in srgb, var(--color-bone) 82%, transparent);
+    font-size: 1rem;
+    line-height: 1.65;
+  }
   .az-standards {
-    margin-top: 2rem;
+    margin-top: 1rem;
     font-size: 0.875rem;
     line-height: 1.6;
     color: color-mix(in srgb, var(--color-bone) 58%, transparent);
-    max-width: 62ch;
+  }
+  .az-build-link {
+    margin-top: 1.25rem;
+    display: inline-flex;
   }
 
   /* ---------- 5 · process ---------- */
@@ -652,43 +712,6 @@ const meta = pageMeta.assessment;
   }
   .az-fit-col-not li::before {
     background-color: var(--color-muted);
-  }
-
-  /* ---------- 8 · who runs it ---------- */
-  .az-who {
-    padding-block: clamp(4rem, 8vw, 6.5rem);
-  }
-  .az-who-title {
-    font-style: italic;
-    font-weight: 500;
-  }
-  .az-who-facts {
-    list-style: none;
-    margin: 2rem 0 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.875rem;
-  }
-  .az-who-facts li {
-    position: relative;
-    padding-left: 1.75rem;
-    color: var(--color-ink);
-    font-size: 1.0313rem;
-    line-height: 1.55;
-  }
-  .az-who-facts li::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0.62em;
-    width: 1rem;
-    height: 2px;
-    background-color: var(--color-steel);
-  }
-  .az-who .link-arrow {
-    margin-top: 1.75rem;
-    display: inline-flex;
   }
 
   /* ---------- 9 · apply ---------- */

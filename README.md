@@ -58,7 +58,9 @@ edit the relevant export:
 - "What we solve" (`/services`), top to bottom: `services` (the four problem areas: what it looks like, what we do, what you get), `layers` (Leadership / Processes / People), `approach`, `engagements` (ways to work together: to start, to solve, for the long run — rename offers or change their duration/price wording here), `servicesFaq` (incl. "Do you work with AI?"), `ctaBand`
 - `contact`, `footer`
 - `trainingPage` — the `/training` page (formats, audiences, process, who teaches it)
-- `assessmentPage`, `scorecardPage`, `aboutPage` — the Diagnostic, Scorecard and About routes
+- `assessmentPage` — the Diagnostic route (`/assessment`); `method.build` is the folded "When something needs building: Gate Zero" panel
+- `sampleDiagnosis` — the sample written diagnosis at `/assessment/sample-diagnosis` (a fictional distributor, no AI). Its scores and map positions live in `src/views/SampleDiagnosisView.astro`; its table rows reuse the dimension names from `assessmentPage.method`. The AI example (the Gate Zero readout at `/assessment/sample-readout`) is written inline in its two page files. Both samples share `src/styles/sample-doc.css`
+- `scorecardPage`, `aboutPage` — the Scorecard and About routes
 - `pageIntros` — the hero blocks on the Services / Contact routes
 - `pageMeta` — per-page `<title>`, meta description, and path (for SEO + canonical)
 - `work` — the **Selected work** portfolio. Each item in `work.projects` renders a card in the home "Work" section and a full page at `/work/<slug>`. Fields include `accent` (per-page colour), `heroDark`, `overview`, `delivered`, `strategic`, `capabilities`, `stack`, `takeaway`, an optional `training` (what the build lets us teach, linked to `/training`), and an `image` (or `diagram: true`). Project images live in `src/assets/work/<key>.png` (optimised by Astro); the `image`/`gallery` keys map to those filenames. Pages link only internally — never out to the projects themselves.
@@ -130,7 +132,7 @@ These live in `config` at the top of [`src/content/site.ts`](src/content/site.ts
 | --- | --- | --- |
 | **Founder photo** | Set — `public/brand/founder.jpg` shows on `/about` + the homepage teaser | Replace the file, or point `config.founderPhoto` elsewhere (empty ⇒ a labelled placeholder) |
 | **Booking link** | None — the primary CTA reads **"Start a conversation"** → `/contact` | Set `config.bookingUrl` to a Cal.com/Calendly URL to switch it to "Book a conversation" → your link |
-| **Assessment fee** | Free — the initial assessment is offered at no fee | To charge later, edit `assessment.body` / `assessment.priceNote` in `site.ts` |
+| **Diagnostic fee** | Free — the Business Diagnostic costs nothing, capped at three a month | To charge later, edit `assessmentPage` (lead, `heroFacts`, `whyFree`, `apply.microcopy`), the Business Diagnostic entry in `engagements` and the cost answer in `servicesFaq`, in both `site.ts` and `site.ro.ts` |
 | **Testimonials** | None — the "What clients say" section does not render | Add real, permissioned quotes to the `testimonials` array in `site.ts` |
 | **Case-study metrics** | None — the qualitative framing stands | Add real figures to a project's optional `impact: [...]` in `work.projects` (never invent numbers) 
 ## Deploying
@@ -175,6 +177,7 @@ public/
 src/
   content/site.ts   ← ALL copy + per-page SEO metadata
   styles/global.css  design tokens (@theme) + component classes
+  styles/sample-doc.css  the "paper sheet" look of the two sample documents
   layouts/Base.astro head, SEO, JSON-LD, favicons, skip-link
   components/
     ui/             Container, Section, SectionHeader, Eyebrow, Button, Reveal, Logo
@@ -187,8 +190,9 @@ src/
     Header.astro, Footer.astro
   scripts/ui.ts     header scroll state, mobile menu, reveals, active-nav
   views/            one view per route, shared by the RO (root) and EN (/en) pages
-  pages/            index, services, training, assessment, scorecard, about,
-                    contact, work/[slug], privacy, terms, 404 (+ the same under en/)
+  pages/            index, services, training, assessment (+ sample-diagnosis,
+                    sample-readout), scorecard, about, contact, work/[slug],
+                    privacy, terms, 404 (+ the same under en/)
 scripts/
   sync-fonts.mjs, gen-og.mjs
 ```
