@@ -144,12 +144,12 @@ export const solve = {
     {
       icon: "flow",
       title: "Muncă manuală și procese care se rup",
-      body: "Date introduse de mai multe ori, aprobări pe email, oameni-cheie de care depinde totul. Regândim fluxul și automatizăm ce merită.",
+      body: "Date introduse de mai multe ori, aprobări pe e-mail, oameni-cheie de care depinde totul. Regândim fluxul și automatizăm ce merită.",
     },
     {
       icon: "chart",
       title: "Cifre și decizii",
-      body: "Rapoarte făcute de mână, cifre diferite în fiecare departament, marjă neclară pe produs sau client. Construim datele și rapoartele pe care le folosiți în ședința de luni.",
+      body: "Rapoarte făcute de mână, cifre diferite în fiecare departament, marjă neclară pe produs sau client. Punem ordine în date și construim rapoartele pe care le folosiți în ședința de luni.",
     },
     {
       icon: "users",
@@ -208,7 +208,7 @@ export const services = {
       title: "Muncă manuală și procese care se rup",
       symptoms: [
         "Aceleași date sunt introduse de mână în mai multe sisteme.",
-        "Aprobările se pierd prin emailuri și prin memoria oamenilor.",
+        "Aprobările se pierd prin e-mailuri și prin memoria oamenilor.",
         "Concediul unui singur om încetinește toată echipa.",
       ],
       body: "Urmărim cum circulă munca în realitate, scoatem pașii care nu aduc nimic și automatizăm ce merită — cu instrumentele pe care le aveți deja sau cu o aplicație internă construită exact pentru asta.",
@@ -255,10 +255,10 @@ export const services = {
       title: "Idei care trebuie construite",
       symptoms: [
         "Știți ce instrument v-ar ajuta, dar nu îl construiește nimeni.",
-        "Un portal pentru clienți, o aplicație internă sau un caz de AI tot se amână.",
+        "Un portal pentru clienți, o aplicație internă sau un proiect de AI tot se amână.",
         "Software-ul gata făcut nu se potrivește cu felul în care lucrați.",
       ],
-      body: "Întâi verificăm dacă merită construit: verdictul „construim, cumpărăm sau așteptăm”. Apoi îl proiectăm, îl construim, îl integrăm cu ce folosiți și îl predăm cum trebuie. Folosim AI acolo unde e cu adevărat instrumentul potrivit — privat sau găzduit la dumneavoastră, dacă datele o cer.",
+      body: "Întâi verificăm dacă merită construit: verdictul „construim, cumpărăm sau așteptăm”. Apoi proiectăm sistemul, îl construim, îl integrăm cu ce folosiți și îl predăm cum trebuie. Folosim AI acolo unde e cu adevărat instrumentul potrivit — privat sau găzduit la dumneavoastră, dacă datele o cer.",
       deliverables: [
         "Un verdict scris „construim / cumpărăm / așteptăm”, cu un interval de cost",
         "Un sistem care rulează în producție, sigur și documentat",
@@ -283,12 +283,12 @@ export const engagements = {
         {
           name: "Discuție de triaj",
           meta: "30 de minute · gratuit",
-          body: "O discuție despre problema dumneavoastră. Plecați cu o primă părere și cu pasul următor recomandat, chiar dacă nu suntem noi.",
+          body: "O discuție despre problema dumneavoastră. Plecați cu o primă părere și cu pasul următor recomandat, chiar dacă nu e cu noi.",
         },
         {
           name: "Diagnosticul firmei",
           meta: "2–4 săptămâni · gratuit, cel mult trei pe lună",
-          body: "O ședință cu echipa de conducere și un diagnostic scris de 3–5 pagini: ce vă ține pe loc, ce rezolvați primul și ce nu merită rezolvat.",
+          body: "O ședință cu echipa de conducere și un diagnostic scris de 3–5 pagini: ce vă ține pe loc, ce rezolvați întâi și ce nu merită rezolvat.",
         },
         {
           name: "Sprint de diagnostic",
@@ -335,7 +335,7 @@ export const servicesFaq = {
   items: [
     {
       q: "Lucrați cu AI?",
-      a: "Da, atunci când e răspunsul potrivit. Am construit sisteme AI de producție, inclusiv un asistent care rulează offline, pe echipamentele firmei. Dar AI-ul e un instrument, nu punctul de plecare: întâi aflăm unde ajută cu adevărat și unde ar fi doar o cheltuială.",
+      a: "Da, atunci când e răspunsul potrivit. Am construit sisteme AI care rulează în producție, inclusiv un asistent care rulează offline, pe echipamentele firmei. Dar AI-ul e un instrument, nu punctul de plecare: întâi aflăm unde ajută cu adevărat și unde ar fi doar o cheltuială.",
     },
     {
       q: "Faceți proiecte de digitalizare?",
@@ -381,7 +381,7 @@ export const assessmentPage = {
     heading: "Aproape toți vin la dumneavoastră cu răspunsul deja pregătit.",
     paragraphs: [
       "Știți că ceva nu merge, dar nu și ce anume. O marjă care exista și acum nu mai e. Aceeași comandă tastată în trei sisteme. O decizie care așteaptă un raport.",
-      "Întrebați un furnizor și primiți înapoi produsul lui. Noi nu luăm comision de la niciun furnizor, așa că ne uităm întâi la firma dumneavoastră — iar cauza e adesea o regulă de preț, o predare de care nu răspunde nimeni sau un raport în care nimeni nu are încredere. Când chiar trebuie construit ceva, îl construim noi.",
+      "Întrebați un furnizor și primiți ca răspuns produsul lui. Noi nu luăm comision de la niciun furnizor, așa că ne uităm întâi la firma dumneavoastră — iar cauza e adesea o regulă de preț, o predare de care nu răspunde nimeni sau un raport în care nimeni nu are încredere. Când chiar trebuie construit ceva, îl construim noi.",
     ],
   },
 
@@ -434,7 +434,7 @@ export const assessmentPage = {
     ],
     build: {
       label: "Când trebuie construit ceva: Gate Zero",
-      body: "Dacă diagnosticul arată că e nevoie de ceva nou — un program, o automatizare, un sistem AI — acesta trece prin Gate Zero înainte să se cheltuiască vreun ban: verificarea go/no-go la care e supus oricum un sistem care lucrează pe viu, făcută dinainte. Primiți verdictul în scris: construiți acum, încă nu sau nu construiți, cu un interval de cost, cât durează până la punerea în funcțiune și condițiile în care ne-am opri.",
+      body: "Dacă diagnosticul arată că e nevoie de ceva nou — un program, o automatizare, un sistem AI — proiectul trece prin Gate Zero înainte să se cheltuiască vreun ban: verificarea go/no-go la care e supus oricum un sistem pus în funcțiune, făcută dinainte. Primiți verdictul în scris: construiți acum, încă nu sau nu construiți, cu un interval de cost, durata până la punerea în funcțiune și condițiile în care ne-am opri.",
       standards:
         "Pentru sistemele AI, verificarea se raportează la EU AI Act (articolul 6 / anexa III), la NIST AI Risk Management Framework și la OWASP Top 10 pentru aplicații LLM.",
       link: { label: "Exemplu: când soluția e un sistem AI", href: "/assessment/sample-readout" } as CTA,
@@ -471,7 +471,7 @@ export const assessmentPage = {
   whyFree: {
     eyebrow: "De ce e gratuit",
     heading: "E un diagnostic, nu tratamentul.",
-    body: "Așa aflăm, de ambele părți, dacă are rost să lucrăm împreună; munca plătită vine după, doar dacă o vreți. Rămâne gratuit pentru că e limitat: le facem pe toate noi — cel mult trei pe lună, unul per firmă.",
+    body: "Așa aflăm, de ambele părți, dacă are rost să lucrăm împreună; munca plătită vine după, doar dacă o vreți. Rămâne gratuit pentru că e limitat: toate diagnosticele le facem noi — cel mult trei pe lună, unul per firmă.",
     branches: [
       {
         name: "Dacă e ceva de rezolvat",
@@ -533,7 +533,7 @@ export const sampleDiagnosis = {
     body: "Conducerea Velmora a adus cinci probleme la ședință. Trei merită rezolvate acum, în această ordine, și doar pentru una dintre ele trebuie construit ceva. Celelalte două pot aștepta: una e în mare parte efectul primei, iar cealaltă e o achiziție de 85.000 € care n-ar rezolva ce nu funcționează de fapt.",
     points: [
       { lead: "Comenzile sunt tastate de trei ori, iar asta costă în jur de 31.000 € pe an.", text: "Fiecare comandă intră în ERP, apoi în lista de pregătire din depozit, apoi în programul de facturare — trei oameni, cam 30 de ore pe săptămână. De aici pornesc majoritatea erorilor din depozit și a facturilor corectate. Soluția e singurul lucru de construit din acest diagnostic: legăm sistemele pe care le aveți deja, ca o comandă să fie introdusă o singură dată." },
-      { lead: "Marja se vede cu șase săptămâni întârziere, iar reducerile se dau pe nevăzute.", text: "Raportul de marjă se face de mână, pe la 12 ale lunii următoare, fără costurile de transport și fără reducerile stabilite la telefon. În trei luni de facturi, 11 dintre primii 40 de clienți erau sub marja țintă, odată ce am pus la socoteală transportul. Soluția e un raport săptămânal și o regulă, nu un sistem nou." },
+      { lead: "Marja se vede cu șase săptămâni de întârziere, iar reducerile se dau pe nevăzute.", text: "Raportul de marjă se face de mână, pe la 12 ale lunii următoare, fără costurile de transport și fără reducerile stabilite la telefon. În trei luni de facturi, 11 dintre primii 40 de clienți erau sub marja țintă, odată ce am pus la socoteală transportul. Soluția e un raport săptămânal și o regulă, nu un sistem nou." },
       { lead: "Problema nu e CRM-ul — nimeni nu le-a arătat oamenilor unde se potrivește în munca lor.", text: "Doi din opt agenți de vânzări îl folosesc, iar ședința săptămânală de vânzări se ține pe tabelele lor personale. Un CRM nou ar repeta povestea, cu altă siglă. Soluția e o schimbare în felul în care se ține ședința și două sesiuni de lucru cu echipa." },
     ],
     anchor: "Ce bănuia deja conducerea, acum cu cifre: plângerea biroului de comenzi că tastează aceeași comandă iar și iar e cea mai scumpă problemă din firmă — mai scumpă decât ERP-ul de care se plânge toată lumea.",
@@ -544,10 +544,10 @@ export const sampleDiagnosis = {
   map: {
     tag: "Pagina 2 · Harta problemelor",
     title: "Cinci probleme, o singură hartă.",
-    ariaLabel: "Harta costului anual al fiecărei probleme, în funcție de cât de ușor se rezolvă. A, comenzi tastate de trei ori: cost mare, destul de ușor de rezolvat — de rezolvat întâi. B, marja văzută prea târziu: cost mare, ușor de rezolvat — de rezolvat întâi. C, CRM-ul pe care nu-l folosește nimeni: cost mai mic, ușor de rezolvat — câștig rapid. D, ERP-ul de care se plânge toată lumea: cost mic, greu de rezolvat — rămâne deocamdată. E, erorile din depozit: cost moderat, greu de rezolvat separat, cauzate mai ales de A — încă nu.",
+    ariaLabel: "Harta costului anual al fiecărei probleme, în funcție de cât de ușor se rezolvă. A, comenzi tastate de trei ori: cost mare, destul de ușor de rezolvat — de rezolvat întâi. B, marja văzută prea târziu: cost mare, ușor de rezolvat — de rezolvat întâi. C, CRM-ul pe care nu-l folosește nimeni: cost mai mic, ușor de rezolvat — câștig rapid. D, ERP-ul de care se plânge toată lumea: cost mic, greu de rezolvat — de lăsat deocamdată. E, erorile din depozit: cost moderat, greu de rezolvat separat, cauzate mai ales de A — încă nu.",
     axisY: "Cât costă pe an →",
     axisX: "Cât de ușor se rezolvă →",
-    quadrants: { tl: "Merită — de planificat", tr: "De rezolvat întâi", bl: "Rămâne deocamdată", br: "Câștiguri rapide" },
+    quadrants: { tl: "Merită — de planificat", tr: "De rezolvat întâi", bl: "De lăsat deocamdată", br: "Câștiguri rapide" },
     dots: {
       a: "A · Comenzi tastate de trei ori",
       b: "B · Marja văzută prea târziu",
@@ -560,13 +560,13 @@ export const sampleDiagnosis = {
     columns: ["A · Comenzi", "B · Marjă", "C · CRM"],
     rag: {
       green: { letter: "V", label: "Solid — nimic de aici nu stă în calea soluției" },
-      amber: { letter: "G", label: "Lipsă rezolvabilă — condiția de îndeplinit este numită" },
+      amber: { letter: "G", label: "Lipsă rezolvabilă — condiția de îndeplinit este precizată" },
       red: { letter: "R", label: "Vine întâi — soluția nu ține până nu se rezolvă asta" },
     },
     notes: [
       { cell: "A / Cum se lucrează (galben):", text: "cam un sfert din comenzi vin pe WhatsApp, în afara oricărei căsuțe de e-mail. Soluția are nevoie de o singură cale de intrare pentru comenzi, stabilită întâi cu agenții de vânzări." },
       { cell: "A / Responsabilitate (galben):", text: "biroul de comenzi, depozitul și financiarul răspund fiecare de o bucată din flux; de fluxul întreg nu răspunde nimeni. Numim un responsabil înainte să se construiască ceva." },
-      { cell: "A / Dependențe (galben):", text: "un singur om știe cum ajung facturile în programul de facturare. Se pune pe hârtie în prima fază, înainte să se schimbe ceva." },
+      { cell: "A / Dependențe (galben):", text: "un singur om știe cum ajung facturile în programul de facturare. Pașii se pun pe hârtie în prima fază, înainte să se schimbe ceva." },
       { cell: "B / Valoare (galben):", text: "scenariul de bază de 25.000 € vine din trei luni de facturi; anul întreg îl va schimba, cel mai probabil în sus." },
       { cell: "B / Realitatea datelor (galben):", text: "reducerile apar doar ca text liber, în observațiile facturilor, iar costurile de transport stau într-un tabel separat. Amândouă au nevoie de un câmp propriu în ERP." },
       { cell: "B / Toleranța la erori (galben):", text: "o cifră de marjă greșită ar împinge reducerile în direcția greșită. Raportul se verifică lunar cu contabilitatea." },
@@ -597,14 +597,14 @@ export const sampleDiagnosis = {
         problem: "Comenzile vin pe e-mail, la telefon și pe WhatsApp și sunt tastate în ERP, apoi în lista de pregătire din depozit, apoi în programul de facturare.",
         cost: "3 oameni × ~10 ore pe săptămână × 46 de săptămâni × 10 €/oră (costul complet al Velmora) ≈ 14.000 € pe an doar pe tastat. La asta se adaugă cam 40 de facturi corectate pe lună și livrările refăcute din cauza comenzilor greșite: ≈ 17.000 €. În total, în jur de 31.000 € pe an.",
         fix: "Legăm ce aveți deja: comanda se introduce o singură dată, în ERP, și ajunge singură în depozit și în programul de facturare. Comenzile de pe WhatsApp intră într-o singură căsuță comună. Niciun sistem nou.",
-        effort: "6–8 săptămâni; mai puțin decât costă problema într-un an, plătit pe faze. Un interval, nu o ofertă.",
+        effort: "6–8 săptămâni; mai puțin decât costă problema într-un an, cu plata pe faze. Un interval, nu o ofertă.",
         measure: "Orele de tastat la 100 de comenzi, facturile corectate pe lună și erorile din depozit — măsurate înainte și la 30 de zile după.",
         owner: "Managerul de operațiuni.",
       },
       {
         name: "B · Marja, văzută în fiecare săptămână",
         kind: "Un raport și o regulă",
-        problem: "Marja se află pe la 12 ale lunii următoare, fără costurile de transport și fără reducerile stabilite la telefon.",
+        problem: "Marja se cunoaște abia pe la 12 ale lunii următoare, fără costurile de transport și fără reducerile stabilite la telefon.",
         cost: "În trei luni de facturi, 11 dintre primii 40 de clienți erau sub marja țintă, cu transportul inclus. Scenariu de bază: cel puțin 25.000 € pe an în reduceri date pe comenzi care erau deja sub țintă.",
         fix: "Un raport săptămânal de marjă pe client și pe produs, făcut din datele din ERP, cu transportul și reducerile incluse. Și o regulă: orice reducere peste 5% trece printr-o verificare de marjă înainte să fie promisă.",
         effort: "2–3 săptămâni; câteva mii de euro. Cea mai mare parte a muncii e să stabilim ce înseamnă „marjă” la Velmora.",
@@ -615,14 +615,14 @@ export const sampleDiagnosis = {
         name: "C · CRM-ul, folosit cu adevărat",
         kind: "Proces și training",
         problem: "Doi din opt agenți de vânzări folosesc CRM-ul cumpărat acum 18 luni; ședința săptămânală de vânzări se ține pe tabelele lor personale.",
-        cost: "4.800 € pe an în licențe, plus ofertele la care nu mai revine nimeni — nemăsurat, deci neinclus.",
+        cost: "4.800 € pe an în licențe, plus ofertele la care nu mai revine nimeni — cost nemăsurat, deci neinclus.",
         fix: "Dați CRM-ului trei roluri: clienți, oferte și revenirea după ofertă. Mutați clienții activi în el. Țineți ședința săptămânală de vânzări din CRM. Două sesiuni de lucru cu agenții, pe clienții lor.",
         effort: "3 săptămâni, mai ales timpul echipei; un atelier de o jumătate de zi.",
         measure: "Ofertele urmate de o revenire în 7 zile și agenții activi în CRM în fiecare săptămână.",
         owner: "Directorul de vânzări.",
       },
     ],
-    confidence: "Nivel de încredere: punctaj la adâncimea discuției ghidate — pe sistemele descrise în ședință, nu inspectate. Ipoteze declarate: costul complet pe oră, din cifrele de salarizare ale Velmora; volumele de comenzi și corecturile, din ultimele trei luni; reducerile, dintr-un eșantion de 600 de facturi.",
+    confidence: "Nivel de încredere: punctaj la nivelul de detaliu al discuției ghidate — pe sistemele descrise în ședință, nu inspectate. Ipoteze declarate: costul complet pe oră, din cifrele de salarizare ale Velmora; volumele de comenzi și corecțiile, din ultimele trei luni; reducerile, dintr-un eșantion de 600 de facturi.",
   },
 
   later: {
@@ -633,14 +633,14 @@ export const sampleDiagnosis = {
       {
         chip: "Nu cumpărați acum",
         name: "D · Înlocuirea ERP-ului",
-        text: "Toată lumea se plânge de ERP și există pe masă o ofertă de 85.000 € pentru înlocuirea lui. Dar nu ERP-ul e cel care nu funcționează: comenzile se tastează pe lângă el, raportul de marjă se face în afara lui, iar CRM-ul stă alături. Un ERP nou ar moșteni toate trei problemele.",
+        text: "Toată lumea se plânge de ERP și există pe masă o ofertă de 85.000 € pentru înlocuirea lui. Dar nu ERP-ul e cel care nu funcționează: comenzile se tastează pe lângă el, raportul de marjă se face în afara lui, iar CRM-ul stă alături. Un ERP nou ar moșteni toate cele trei probleme.",
         unlockLabel: "Ce ar schimba verdictul:",
         unlock: "dacă, la un an după A, B și C, ERP-ul e încă cel care blochează o soluție, revine pe listă — cu un calcul de rentabilitate.",
       },
       {
         chip: "Încă nu",
         name: "E · Scanarea codurilor de bare în depozit",
-        text: "Erorile de pregătire sunt reale — cam 1,5% din comenzi — dar aproximativ două treimi dintre ele pornesc de la o comandă retastată. Scanarea ar costa în jur de 20.000 € ca să rezolve treimea rămasă.",
+        text: "Erorile din depozit sunt reale — cam 1,5% din comenzi — dar aproximativ două treimi dintre ele pornesc de la o comandă retastată. Scanarea ar costa în jur de 20.000 € ca să rezolve treimea rămasă.",
         unlockLabel: "Ce ar schimba verdictul:",
         unlock: "măsurăm din nou la 60 de zile după ce A funcționează. Dacă erorile rămân peste 0,5% din comenzi, scanarea revine, cu un calcul de rentabilitate.",
       },
@@ -691,7 +691,7 @@ export const approach = {
       n: "02",
       icon: "ranking",
       title: "Decidem",
-      body: "Punem o cifră pe fiecare problemă și alegem împreună ce merită rezolvat — inclusiv ce nu.",
+      body: "Calculăm cât costă fiecare problemă și alegem împreună ce merită rezolvat — inclusiv ce nu.",
       output:
         "O listă scurtă, în ordine, cu criteriile de succes stabilite de la început.",
     },
@@ -787,8 +787,8 @@ export const aboutPage = {
   lead: "Sunt Luca-Ștefan Tamaș. Ajut firmele să găsească ce le ține pe loc — muncă manuală, cifre în care nu are nimeni încredere, sisteme pe care nu le folosește nimeni — și construiesc soluția.",
   paragraphs: [
     "Sunt inginer de sisteme și, din 2020, construiesc software care trebuie să funcționeze în firme reale: platforme enterprise, două produse proprii și un asistent AI care rulează offline, pe echipamentele firmei. Ce mă interesează cel mai mult, însă, e problema din spatele sistemului.",
-    "Cele mai multe firme cu care vorbesc nu au nevoie de mai multă tehnologie. Au nevoie să știe unde se duc timpul și banii, ce merită rezolvat întâi și o soluție pe care oamenii chiar o folosesc. Uneori asta înseamnă un proces mai simplu. Alteori, cifre în care toată lumea are încredere. Alteori, un sistem pe care îl construiesc eu.",
-    "LT Strategy Partners e o firmă mică, intenționat. Nu există intermediari și nu sunteți pasați de la un om la altul: cel care stă cu echipa de conducere ca să găsească problema e același care construiește soluția și le arată oamenilor dumneavoastră cum s-o folosească. De aceea lucrez cu puțini clienți în același timp.",
+    "Cele mai multe firme cu care vorbesc nu au nevoie de mai multă tehnologie. Au nevoie să știe unde se duc timpul și banii și ce merită rezolvat întâi — și de o soluție pe care oamenii chiar s-o folosească. Uneori asta înseamnă un proces mai simplu. Alteori, cifre în care toată lumea are încredere. Alteori, un sistem pe care îl construiesc eu.",
+    "LT Strategy Partners e o firmă mică, intenționat. Nu există intermediari și nu sunteți plimbați de la un om la altul: cel care stă cu echipa de conducere ca să găsească problema e același care construiește soluția și le arată oamenilor dumneavoastră cum s-o folosească. De aceea lucrez cu puțini clienți în același timp.",
   ],
   principlesEyebrow: "Cum gândesc",
   principlesHeading: "Cinci reguli după care lucrez.",
@@ -803,10 +803,10 @@ export const aboutPage = {
   workSlugs: ["processly", "atlas-economic", "transit-analytics"],
   glanceHeading: "Pe scurt",
   glance: [
-    "Software pentru firme reale din 2020 — web, mobil, date și AI, pentru clienți din UE și SUA",
+    "Din 2020, software pentru firme reale — web, mobil, date și AI, pentru clienți din UE și SUA",
     "Fondatorul a două produse software, Processly și Mazely; arhitect principal al unei platforme enterprise pentru rapoarte, ERP, documente și automatizarea proceselor",
     "Un asistent AI care rulează offline, pe echipamentele firmei — construit ca datele să nu iasă din firmă",
-    "Inginerie de sisteme de producție într-un mediu critic pentru securitate — de aceea ce construiesc vă protejează datele și funcționează fără întreruperi",
+    "Inginerie de sisteme care rulează în producție, într-un mediu în care securitatea e critică — de aceea ce construiesc vă protejează datele și funcționează fără întreruperi",
   ],
   photoCaption: "Luca-Ștefan Tamaș · Fondator",
   ctaHeading: "Ce problemă vă încurcă cel mai mult?",
@@ -1024,7 +1024,7 @@ export const work = {
       overview:
         "Asistentul de Meniu pentru Restaurante este un sistem AI instalat pe echipamentele localului. Are două părți: un chat gândit pentru chioșcuri și tablete, care îi ajută pe clienți să găsească preparate după gust sau după restricții alimentare, și un panou de administrare pentru produse, categorii, prețuri în mai multe valute, reduceri și imagini. Răspunde folosind retrieval-augmented generation peste meniul propriu al restaurantului și, după instalare, rulează în întregime în rețeaua locală.",
       context: "Restaurantele vor un ajutor AI pentru clienți, dar fără să-și trimită meniul în cloud și fără să plătească pentru fiecare întrebare pusă.",
-      found: "Nu era nevoie de un model mare, în cloud. Un model mic, pe echipamente modeste pe care localul le are deja, e suficient, cu condiția să răspundă doar din meniul restaurantului și ca memoria să fie calculată dinainte.",
+      found: "Nu era nevoie de un model mare, în cloud. Un model mic, pe echipamente modeste pe care localul le are deja, e suficient, cu condiția să răspundă doar din meniul restaurantului și ca memoria să fie dimensionată dinainte.",
       result: "Un asistent care răspunde la întrebările clienților despre meniu, rulează complet în rețeaua locală după instalare și nu costă nimic pe întrebare.",
       delivered: [
         "Un chat pentru chioșcuri și tablete, care răspunde la întrebări despre meniu și găsește preparate după gust sau după restricții alimentare",
@@ -1103,7 +1103,7 @@ export const work = {
         "Surse CC BY 4.0",
       ],
       impact: [
-        "65,38 mld RON în contracte, din care 37,45 mld atribuite unui județ anume",
+        "65,38 mld. RON în contracte, din care 37,45 mld. atribuite unui județ anume",
         "42 de județe acoperite cu aceeași metodologie",
         "Trei runde de verificare adversarială, cu doisprezece recenzenți independenți; două reimplementări de la zero au reprodus fiecare cifră publicată",
       ],
@@ -1131,7 +1131,7 @@ export const work = {
       overview:
         "Îi dați un CUI și scoate un raport de paisprezece secțiuni: identitate și stare juridică din registrul comerțului, statut fiscal interogat pe loc la ANAF, unsprezece exerciții financiare depuse, poziția față de toate firmele din aceeași diviziune CAEN, mărimea pieței și cota firmei, indicatori derivați comparați cu mediana sectorului, un scor de risc de insolvență și expunerea la achiziții publice pe ambele căi — licitații și achiziții sub prag. Merge pe aceleași date ca Atlasul, fără bază de date și fără server: caută direct în fișierele brute ale statului, pentru că un CUI este unic și o scanare îl găsește în 2 GB în mai puțin de o secundă. Distribuțiile pe sector — singurul lucru pe care o astfel de căutare nu îl poate afla — se calculează o dată, în avans.",
       context: "Aproape tot ce ați vrea să știți despre o firmă din România e public, dar împrăștiat în surse care, luate una câte una, sunt aproape inutilizabile.",
-      found: "Situațiile financiare se publică drept douăzeci de indicatori numerotați, fără nume de coloane, în trei formate diferite de-a lungul anilor. Datoriile apar ca o sumă totală și nu există costul bunurilor vândute, așa că mai mulți indicatori clasici trebuie aproximați. Arhiva de achiziții scrie data contractului în patru feluri și lasă 98.064 dintre ele goale. Nimic din toate acestea nu e documentat — iar fiecare defect pierde date în tăcere, în loc să dea o eroare.",
+      found: "Situațiile financiare se publică drept douăzeci de indicatori numerotați, fără nume de coloane, în trei formate diferite de-a lungul anilor. Datoriile apar ca o sumă totală și nu există costul bunurilor vândute, așa că mai mulți indicatori clasici trebuie aproximați. Arhiva de achiziții scrie data contractului în patru feluri și o lasă necompletată în 98.064 de cazuri. Nimic din toate acestea nu e documentat — iar fiecare defect pierde date în tăcere, în loc să dea o eroare.",
       result: "Un CUI la intrare, un dosar în paisprezece secțiuni la ieșire — în HTML și PDF gata de tipărit, în circa douăzeci de secunde, pentru oricare dintre cele 4,2 milioane de entități înregistrate.",
       delivered: [
         "Un generator dintr-o singură comandă: CUI la intrare, HTML stilizat și PDF gata de tipar la ieșire, în circa douăzeci de secunde",
@@ -1175,8 +1175,8 @@ export const work = {
       slug: "transit-analytics",
       name: "Analiza Transportului Public — Iași",
       tagline: "Telemetria flotei, transformată în decizii operaționale.",
-      problem: "Telemetria flotei nu ajungea niciodată într-o decizie.",
-      solution: "Un tablou de bord pe care se pot lua decizii operaționale.",
+      problem: "Telemetria flotei nu stătea niciodată la baza vreunei decizii.",
+      solution: "Un tablou de bord pe baza căruia se pot lua decizii operaționale.",
       figure: { value: "238", label: "de vehicule într-un singur tablou de bord" },
       category: "Date și analiză",
       kind: "analysis",
@@ -1187,13 +1187,13 @@ export const work = {
       overview:
         "Un tablou de bord în timp real pentru flota de transport public a Iașiului, construit în Metabase peste date GPS și de telemetrie. Acoperă 238 de vehicule — autobuze și tramvaie — și urmărește într-un singur loc viteza, siguranța, accesibilitatea și aglomerația. Arată cum telemetria brută a flotei devine o imagine limpede, pe baza căreia o autoritate de transport poate lua decizii.",
       context: "Operatorii de transport public primesc fără oprire date GPS și de telemetrie, dar rar le folosesc în deciziile de zi cu zi.",
-      found: "Cu telemetria adunată într-un singur loc, datele au răspuns direct la întrebările operaționale: autobuzele au mers în medie cu 27,35 km/h, tramvaiele cu 17,52 km/h; 71,85% din vehicule erau accesibile cu scaunul rulant, dar doar 10,08% cu bicicleta; iar cele 58 de depășiri de viteză înregistrate au inclus valori de până la 141 km/h — peste 50 km/h în plus față de limită.",
+      found: "Cu telemetria adunată într-un singur loc, datele au răspuns direct la întrebările operaționale: autobuzele au mers în medie cu 27,35 km/h, tramvaiele cu 17,52 km/h; 71,85% din vehicule erau accesibile pentru scaune rulante, dar doar 10,08% pentru biciclete; iar cele 58 de depășiri de viteză înregistrate au inclus valori de până la 141 km/h — peste 50 km/h în plus față de limită.",
       result: "Un singur tablou de bord live, în care viteza, siguranța, accesibilitatea și aglomerația întregii flote stau una lângă alta.",
       delivered: [
         "O hartă în timp real cu poziția vehiculelor, pentru toată flota orașului",
         "Structura flotei: 238 de vehicule (63% autobuze, 37% tramvaie / metrou ușor)",
         "Indicatori de eficiență a circulației: viteza medie pe intervale orare și pe categorii, plus o histogramă a vitezelor",
-        "Cât din flotă e accesibil cu scaunul rulant și cu bicicleta",
+        "Cât din flotă e accesibil pentru scaune rulante și biciclete",
         "O hartă a punctelor de aglomerație și un tabel al depășirilor de viteză înregistrate, cu valorile extreme scoase în evidență",
       ],
       strategic: [
@@ -1227,7 +1227,7 @@ export const work = {
 export const trainingPage = {
   eyebrow: "Echipe și adopție",
   heading: "Sistemul e cumpărat. Acum trebuie și folosit.",
-  lead: "Training practic pe procesele, datele și instrumentele firmei dumneavoastră, pentru manageri și angajați — ca programele pe care le plătiți să fie folosite, un proces nou să prindă și AI-ul să fie folosit în siguranță, acolo unde ajută. Îl țin oamenii care proiectează și construiesc astfel de sisteme.",
+  lead: "Training practic pe procesele, datele și instrumentele firmei dumneavoastră, pentru manageri și angajați — ca programele pe care le plătiți să fie folosite, un proces nou să prindă și AI-ul să fie folosit în siguranță, acolo unde ajută. Trainingul îl țin oamenii care proiectează și construiesc astfel de sisteme.",
   heroSecondary: { label: "Întrebați-ne despre un training pentru echipă", href: "/contact?topic=training" } as CTA,
 
   why: {
@@ -1254,7 +1254,7 @@ export const trainingPage = {
       { title: "Echipe operaționale", body: "Sistemele, datele și listele de verificare din producție, logistică sau servicii." },
       { title: "Angajați fără profil tehnic", body: "Încredere în instrumentele digitale, pornind de la nivelul la care sunt oamenii azi — fără jargon." },
       { title: "Echipe mixte", body: "Manageri și angajați care învață împreună, ca deciziile de sus și munca de zi cu zi să meargă în aceeași direcție." },
-      { title: "Departamente care adoptă un instrument nou", body: "Training pentru lansarea unui sistem, a unui instrument AI sau a unui flux de lucru — înainte și după punerea în funcțiune." },
+      { title: "Departamente care adoptă un instrument nou", body: "Training pentru lansarea unui sistem, a unui instrument AI sau a unui flux de lucru — înainte de punerea în funcțiune și după." },
     ] as Card[],
   },
 
@@ -1263,7 +1263,7 @@ export const trainingPage = {
     heading: "Puncte de plecare, nu un catalog fix.",
     intro: "Fiecare program se adaptează firmei dumneavoastră. Acestea sunt puncte de plecare obișnuite, pe care le combinăm și le potrivim instrumentelor, rolurilor și problemelor dumneavoastră.",
     items: [
-      { title: "Lansarea unui sistem", icon: "refresh", body: "Training pentru un sistem anume — un ERP, un CRM, un instrument de raportare sau unul construit de noi pentru dumneavoastră — înainte și după punerea în funcțiune, pe datele și sarcinile dumneavoastră." },
+      { title: "Lansarea unui sistem", icon: "refresh", body: "Training pentru un sistem anume — un ERP, un CRM, un instrument de raportare sau unul construit de noi pentru dumneavoastră — înainte de punerea în funcțiune și după, pe datele și sarcinile dumneavoastră." },
       { title: "Procese și automatizare", icon: "flow", body: "Cum se lucrează de fapt, ce pași merită schimbați și micile automatizări care scot munca repetitivă din instrumentele pe care echipa le are deja." },
       { title: "Date și rapoarte", icon: "chart", body: "Cum citiți, verificați și construiți rapoartele pe care se bazează echipa: unde apar erorile între sursă și raport și cum verificați o cifră înainte să se ia o decizie pe baza ei." },
       { title: "AI la locul de muncă, folosit în siguranță", icon: "sparkle", body: "AI practic pentru sarcinile obișnuite — redactare, rezumate, căutare în documente — cu reguli clare despre ce date pot intra în ce instrument și verificări înainte să vă bazați pe un răspuns." },
@@ -1319,13 +1319,13 @@ export const trainingPage = {
   credibility: {
     eyebrow: "Cine predă",
     heading: "Putem preda pentru că construim.",
-    body: "Trainingul îl țin chiar oamenii care proiectează sisteme de producție — platforme de automatizare, fluxuri de date și AI. De aceea sesiunile acoperă ce rezistă de fapt în practică: cum verificați o cifră înainte să aveți încredere în ea, ce presupune păstrarea datelor firmei în siguranță, unde greșește AI-ul — nu doar pe ce butoane se apasă.",
+    body: "Trainingul îl țin chiar oamenii care proiectează sisteme care rulează în producție — platforme de automatizare, fluxuri de date și AI. De aceea sesiunile acoperă ce rezistă de fapt în practică: cum verificați o cifră înainte să aveți încredere în ea, ce presupune păstrarea datelor firmei în siguranță, unde greșește AI-ul — nu doar pe ce butoane se apasă.",
     tiles: [
       { slug: "processly", caption: "Processly, platforma noastră de automatizare a fluxurilor de lucru — de aici vine felul în care învățăm echipele să automatizeze munca repetitivă" },
       { slug: "transit-analytics", caption: "Tablouri de bord construite pe date operaționale brute — de aici vine trainingul nostru de date și rapoarte" },
-      { slug: "restaurant-ai", caption: "Un asistent AI care rulează offline, pe echipamentele firmei — de aici vine felul în care predăm folosirea sigură și privată a AI-ului" },
+      { slug: "restaurant-ai", caption: "Un asistent AI care rulează offline, pe echipamentele firmei — de aici vine felul în care predăm folosirea AI-ului în siguranță, fără ca datele să iasă din firmă" },
     ],
-    note: "Plus experiența în ingineria de securitate pentru sisteme de producție — de aici vine trainingul nostru de securitate.",
+    note: "Plus experiența în ingineria de securitate pentru sisteme care rulează în producție — de aici vine trainingul nostru de securitate.",
     link: { label: "Vedeți proiectele", href: "/work" } as CTA,
   },
 
@@ -1371,8 +1371,8 @@ export const scorecardPage = {
   microcopy:
     "Nu e nevoie de cont ca să răspundeți. Vă cerem adresa de e-mail doar dacă doriți varianta scrisă, mai amplă.",
   dataGateQuestionIndex: 2,
-  dataGateNote: "Un lucru, înainte de toate: chiar acum, informația de care ați avea nevoie stă mai ales în capul oamenilor și în e-mailuri. Până nu ajunge într-un loc unde echipa o poate găsi și verifica, nicio soluție construită peste ea — un proces nou, un raport sau un sistem — nu va ține. Asta merită rezolvat primul.",
-  q10Note: "Aici nu există răspuns greșit — miza mare nu e interzisă, doar cere o soluție mult mai atentă. Această întrebare schimbă recomandarea, nu scorul.",
+  dataGateNote: "Un lucru, înainte de toate: chiar acum, informația de care ați avea nevoie stă mai ales în capul oamenilor și în e-mailuri. Până nu ajunge într-un loc unde echipa o poate găsi și verifica, nicio soluție construită peste ea — un proces nou, un raport sau un sistem — nu va ține. Asta merită rezolvat mai întâi.",
+  q10Note: "Aici nu există răspuns greșit — o activitate cu miză mare nu e exclusă, doar cere o soluție mult mai atentă. Această întrebare schimbă recomandarea, nu scorul.",
   questions: [
     {
       q: "Cât din săptămâna echipei se duce în muncă manuală și repetitivă, după reguli — date reintroduse de mână, aceleași rapoarte formatate din nou, aceleași întrebări la care se răspunde iar, informație mutată dintr-un program în altul?",
@@ -1540,7 +1540,7 @@ export const scorecardPage = {
       max: 34,
       name: "Întâi fundația",
       headline: "Încă nu — și e un răspuns util.",
-      body: "Chiar acum, să plătiți pentru un sistem nou ar fi, cel mai probabil, bani cheltuiți înaintea problemei. Nu e o critică — e cea mai ieftină lecție, pentru că o învățați înainte de factură, nu după. Primul pas nu e un instrument. E să puneți un lucru la punct: o problemă care merită numită, informație la care echipa chiar poate ajunge sau cineva care poate duce munca la capăt. Rezolvați asta și se deschid multe opțiuni, fără să cheltuiți mult. Dacă vreți o a doua părere despre unde să începeți, ajunge o discuție de 30 de minute — iar testul îl puteți relua când terenul e mai solid.",
+      body: "Chiar acum, să plătiți pentru un sistem nou ar fi, cel mai probabil, bani cheltuiți înainte ca problema să fie clară. Nu e o critică — e cea mai ieftină lecție, pentru că o învățați înainte de factură, nu după. Primul pas nu e un instrument. E să puneți un lucru la punct: o problemă clar formulată, informație la care echipa chiar poate ajunge sau cineva care poate duce munca la capăt. Rezolvați asta și se deschid multe opțiuni, fără să cheltuiți mult. Dacă vreți o a doua părere despre unde să începeți, ajunge o discuție de 30 de minute — iar testul îl puteți relua când terenul e mai solid.",
     },
     {
       slug: "real-seed",
@@ -1556,7 +1556,7 @@ export const scorecardPage = {
       max: 79,
       name: "Candidat serios",
       headline: "Merită o privire serioasă.",
-      body: "Aveți cea mai mare parte din ce cere o soluție reală — o problemă numită, informație utilizabilă și destulă pregătire ca să acționați. Riscul, în acest punct, nu e să nu faceți nimic; e să rezolvați bine lucrul greșit sau să alegeți ideea care arată superb în demo și cedează la primul contact cu utilizatori reali. Înainte să alocați buget, aflați limpede ce problemă merită rezolvată întâi și cum. Începeți cu o discuție de 30 de minute; dacă merită mers mai departe, Diagnosticul firmei, gratuit, vă dă răspunsul în scris.",
+      body: "Aveți cea mai mare parte din ce cere o soluție reală — o problemă identificată, informație utilizabilă și destulă pregătire ca să acționați. Riscul, în acest punct, nu e să nu faceți nimic; e să rezolvați bine lucrul greșit sau să alegeți ideea care arată superb în demo și cedează la primul contact cu utilizatori reali. Înainte să alocați buget, aflați limpede ce problemă merită rezolvată întâi și cum. Începeți cu o discuție de 30 de minute; dacă merită mers mai departe, Diagnosticul firmei, gratuit, vă dă răspunsul în scris.",
     },
     {
       slug: "ready-to-move",
@@ -1564,7 +1564,7 @@ export const scorecardPage = {
       max: 100,
       name: "Pregătiți să porniți",
       headline: "Întrebarea nu e „dacă” — ci ce anume, și în ce ordine.",
-      body: "Pe hârtie, sunteți pregătiți: o problemă clar numită, informație la care puteți ajunge, buget, un responsabil și un motiv să acționați. Între dumneavoastră și un câștig real stă un singur lucru: să alegeți prima soluție și să ordonați bine pașii — pentru că, în acest punct, greșeala scumpă e să faceți trei lucruri pe jumătate în loc de unul care se amortizează. Exact aici își merită timpul o părere scurtă și onestă din afară: o discuție de 30 de minute ca să vedeți de unde să începeți, apoi, dacă se potrivește, Diagnosticul firmei, gratuit — ce rezolvați întâi și ce lăsați deoparte, în scris. Nu luăm comisioane de la furnizori, așa că nu avem nimic de câștigat dacă vă vindem ceva de care nu aveți nevoie.",
+      body: "Pe hârtie, sunteți pregătiți: o problemă clar identificată, informație la care puteți ajunge, buget, un responsabil și un motiv să acționați. Între dumneavoastră și un câștig real stă un singur lucru: să alegeți corect soluția cu care începeți și să ordonați bine pașii — pentru că, în acest punct, greșeala scumpă e să faceți trei lucruri pe jumătate în loc de unul care se amortizează. Exact aici își dovedește valoarea o părere scurtă și onestă din afară: o discuție de 30 de minute ca să vedeți de unde să începeți, apoi, dacă se potrivește, Diagnosticul firmei, gratuit — ce rezolvați întâi și ce lăsați deoparte, în scris. Nu luăm comisioane de la furnizori, așa că nu avem nimic de câștigat dacă vă vindem ceva de care nu aveți nevoie.",
     },
   ] as ScorecardTier[],
   ui: {
@@ -1592,7 +1592,7 @@ export const scorecardPage = {
     label: "Programați o discuție de 30 de minute",
     href: site.primaryCta.href,
     external: site.primaryCta.external,
-    microcopy: "Gratuit · 30 de minute · plecați cu o primă părere și un pas următor recomandat, chiar dacă nu suntem noi.",
+    microcopy: "Gratuit · 30 de minute · plecați cu o primă părere și un pas următor recomandat, chiar dacă nu e cu noi.",
   },
   ctaSecondary: {
     label: "Sau cereți Diagnosticul firmei, gratuit",
@@ -1636,12 +1636,12 @@ export const calculatorPage = {
     fteLessThanOne: "≈ {fte} dintr-o normă întreagă",
     fteOne: "≈ o normă întreagă",
     fteMany: "≈ {fte} norme întregi",
-    notCounted: "Nu sunt incluse erorile și corecturile, întârzierile și riscul ca un singur om să țină toată activitatea în cap. Costul real e de obicei mai mare.",
+    notCounted: "Nu sunt incluse erorile și corecțiile, întârzierile și riscul ca un singur om să țină toată activitatea în cap. Costul real e de obicei mai mare.",
   },
   cta: {
     text: "Asta e o singură activitate. Cele mai multe firme au trei-patru ca ea. Vreți să aflați care merită rezolvată întâi?",
     primary: { label: "Programați o discuție de 30 de minute", href: site.primaryCta.href, external: site.primaryCta.external } as CTA,
-    microcopy: "Gratuit · 30 de minute · o primă părere și un pas următor recomandat, chiar dacă nu suntem noi.",
+    microcopy: "Gratuit · 30 de minute · o primă părere și un pas următor recomandat, chiar dacă nu e cu noi.",
     secondary: { label: "Sau faceți verificarea rapidă, de 3 minute", href: "/scorecard" } as CTA,
   },
   method: {
@@ -1765,7 +1765,7 @@ export const ui = {
   workResult: "Rezultatul",
   workStrategic: "De ce contează",
   workCapabilities: "Competențe demonstrate",
-  workStack: "Sub capot",
+  workStack: "Sub capotă",
   workLiveBadge: "Live",
   allWork: "Toate studiile de caz",
   workTakeaway: "Ce înseamnă pentru dumneavoastră",

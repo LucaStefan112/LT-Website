@@ -63,12 +63,22 @@ export interface FteStrings {
   many: string; // "{fte}" is replaced
 }
 
-/** "≈ 0,4 dintr-o normă întreagă", "≈ one full-time job", "≈ 1.2 full-time jobs". */
+/** "≈ 0,4 dintr-o normă întreagă", "≈ one full-time job", "≈ 1.2 full-time jobs",
+    "≈ 24 de norme întregi". */
 export function formatFte(fte: number, numberLocale: string, t: FteStrings): string {
   const rounded = Math.round(fte * 10) / 10;
   if (rounded < 0.1) return t.tiny;
-  const n = formatNumber(rounded, numberLocale, 1);
-  if (rounded < 1) return t.lessThanOne.replace("{fte}", n);
+  if (rounded < 1) return t.lessThanOne.replace("{fte}", formatNumber(rounded, numberLocale, 1));
   if (rounded === 1) return t.one;
+  // One decimal below ten ("1,2", "2"), whole numbers from ten up ("24")
+  const shown = rounded < 10 ? rounded : Math.round(rounded);
+  let n = new Intl.NumberFormat(numberLocale, { maximumFractionDigits: 1 }).format(shown);
+  // Romanian puts "de" between a whole number and its noun from 20 up
+  // ("24 de norme", "120 de norme"), but not when the last two digits are
+  // 1–19 ("101 norme")
+  const lastTwo = shown % 100;
+  if (numberLocale.startsWith("ro") && Number.isInteger(shown) && shown >= 20 && (lastTwo === 0 || lastTwo >= 20)) {
+    n += " de";
+  }
   return t.many.replace("{fte}", n);
 }
