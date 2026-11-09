@@ -7,9 +7,14 @@ import LayersIllustration from "../illustrations/LayersIllustration.astro";
 import { getContent } from "../../content/i18n";
 
 const { layers } = getContent(Astro.url.pathname);
+
+interface Props {
+  variant?: "paper" | "bone";
+}
+const { variant = "paper" } = Astro.props;
 ---
 
-<Section variant="paper" tight labelledby="layers-heading">
+<Section variant={variant} tight labelledby="layers-heading">
   <Container>
     <div class="layers-grid">
       <Reveal class="layers-copy">

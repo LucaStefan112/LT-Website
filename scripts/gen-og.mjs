@@ -25,8 +25,8 @@ const monogram = `
   </g>`;
 
 // The headline mirrors the home hero. CI (ubuntu) has no Archivo, so it renders
-// in the DejaVu Sans fallback: at 72px the longer line is ~990px, which leaves
-// a right margin of ~90px. Re-measure if the wording changes.
+// in the DejaVu Sans fallback: at 72px the longer line is ~906px, which leaves
+// a right margin of ~176px. Re-measure if the wording changes.
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <rect width="1200" height="630" fill="${INK}"/>
   <rect x="0" y="0" width="1200" height="6" fill="${STEEL_BRIGHT}"/>
@@ -35,11 +35,11 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" v
         fill="${STEEL_BRIGHT}" font-weight="500">LT STRATEGY PARTNERS</text>
   <text font-family="Archivo, sans-serif" font-size="72" font-weight="600"
         fill="#FFFFFF" letter-spacing="-1">
-    <tspan x="118" y="370">We help companies work</tspan>
-    <tspan x="118" y="452">better with technology.</tspan>
+    <tspan x="118" y="370">We find what's holding</tspan>
+    <tspan x="118" y="452">your business back.</tspan>
   </text>
   <text x="120" y="522" font-family="Archivo, sans-serif" font-size="27" font-weight="400"
-        fill="${BONE}" opacity="0.82">Digitalization &amp; AI · strategy, training, implementation.</text>
+        fill="${BONE}" opacity="0.82">And build what fixes it. First the problem, then the solution.</text>
 </svg>`;
 
 const outPath = join(root, "public", "og-image.png");

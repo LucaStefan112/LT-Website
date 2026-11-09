@@ -101,7 +101,9 @@ function initActiveNav(): void {
           bestId = id;
         }
       }
-      if (bestId) setActive(bestId);
+      // No linked section in the middle of the screen: clear the highlight,
+      // so a menu item doesn't stay lit after you've scrolled past it.
+      setActive(bestId);
     },
     { rootMargin: "-45% 0px -45% 0px", threshold: [0, 0.25, 0.5, 1] }
   );

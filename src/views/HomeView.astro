@@ -2,31 +2,34 @@
 import Base from '../layouts/Base.astro';
 import Hero from '../components/sections/Hero.astro';
 import Partners from '../components/sections/Partners.astro';
-import IntroBand from '../components/sections/IntroBand.astro';
-import Pillars from '../components/sections/Pillars.astro';
+import Symptoms from '../components/sections/Symptoms.astro';
+import Statement from '../components/sections/Statement.astro';
+import Solve from '../components/sections/Solve.astro';
 import Approach from '../components/sections/Approach.astro';
 import Work from '../components/sections/Work.astro';
-import Statement from '../components/sections/Statement.astro';
+import Pillars from '../components/sections/Pillars.astro';
 import Testimonials from '../components/sections/Testimonials.astro';
-import Layers from '../components/sections/Layers.astro';
-import StartPaths from '../components/sections/StartPaths.astro';
+import FounderStrip from '../components/sections/FounderStrip.astro';
 import CTABand from '../components/sections/CTABand.astro';
 import { getContent } from '../content/i18n';
 
-const { pageMeta, approach } = getContent(Astro.url.pathname);
+const { pageMeta, approach, site } = getContent(Astro.url.pathname);
 const meta = pageMeta.home;
 ---
 
+<!-- Problem first: the promise, proof of real clients, the symptoms an owner
+     recognises, what changes, what we solve, how, the evidence, why us, and
+     the person behind it. -->
 <Base title={meta.title} description={meta.description} path={meta.path}>
   <Hero />
   <Partners />
-  <IntroBand />
-  <Layers />
-  <Approach more={approach.more} compact />
-  <Pillars />
-  <Work />
+  <Symptoms />
   <Statement />
+  <Solve />
+  <Approach more={approach.more} compact />
+  <Work />
+  <Pillars />
   <Testimonials />
-  <StartPaths />
-  <CTABand />
+  <FounderStrip />
+  <CTABand secondary={site.assessmentCta} />
 </Base>

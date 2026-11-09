@@ -1,0 +1,90 @@
+---
+/* "Sound familiar?" — the symptoms owners recognise, beside the re-keying
+   illustration. Problem recognition comes before any talk of solutions. */
+import Section from "../ui/Section.astro";
+import Container from "../ui/Container.astro";
+import RekeyIllustration from "../illustrations/RekeyIllustration.astro";
+import { getContent } from "../../content/i18n";
+
+const { symptoms } = getContent(Astro.url.pathname);
+---
+
+<Section variant="bone" labelledby="symptoms-heading">
+  <Container>
+    <div class="symptoms-grid">
+      <div class="symptoms-text reveal">
+        <p class="eyebrow">{symptoms.eyebrow}</p>
+        <span class="rule" aria-hidden="true"></span>
+        <h2 id="symptoms-heading" class="section-title symptoms-title">{symptoms.heading}</h2>
+        <ul class="symptoms-list" role="list">
+          {symptoms.items.map((s) => <li>{s}</li>)}
+        </ul>
+        <p class="symptoms-closing">{symptoms.closing}</p>
+      </div>
+      <div class="symptoms-visual reveal" style="--reveal-delay:120ms">
+        <RekeyIllustration />
+      </div>
+    </div>
+  </Container>
+</Section>
+
+<style>
+  .symptoms-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(2.5rem, 5vw, 3.5rem);
+    align-items: center;
+  }
+  @media (min-width: 960px) {
+    .symptoms-grid {
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+      gap: clamp(2.5rem, 5vw, 4.5rem);
+    }
+  }
+  .symptoms-title {
+    margin-top: 1.25rem;
+    max-width: 18ch;
+  }
+  .symptoms-list {
+    list-style: none;
+    margin: clamp(1.75rem, 3vw, 2.25rem) 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  .symptoms-list li {
+    position: relative;
+    padding: 0.85rem 1rem 0.85rem 2.25rem;
+    border: 1px solid var(--color-line);
+    border-radius: 12px;
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-size: 1rem;
+    line-height: 1.45;
+  }
+  /* The ember dot marks a problem, as on the problem maps */
+  .symptoms-list li::before {
+    content: "";
+    position: absolute;
+    left: 1rem;
+    top: 1.35rem;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: var(--color-ember);
+  }
+  .symptoms-closing {
+    margin-top: clamp(1.5rem, 3vw, 2rem);
+    max-width: 46ch;
+    color: var(--color-ink);
+    font-size: 1.125rem;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+  .symptoms-visual {
+    max-width: 34rem;
+    width: 100%;
+    justify-self: center;
+  }
+</style>

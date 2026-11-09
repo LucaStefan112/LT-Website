@@ -33,6 +33,7 @@
   --color-paper: #ffffff; /* Base background */
   --color-line: #e3e6ea; /* Hairlines / dividers */
   --color-line-dark: #274363; /* Hairline on Deep Blue surfaces */
+  --color-ember: #c2410c; /* Insight accent: marks the problem found. Never on buttons */
 
   /* Typography */
   --font-sans: "Archivo Variable", ui-sans-serif, system-ui, -apple-system,

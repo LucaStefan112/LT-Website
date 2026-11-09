@@ -8,7 +8,7 @@ import { getContent } from "../../content/i18n";
 const { pillars } = getContent(Astro.url.pathname);
 ---
 
-<Section variant="paper" labelledby="pillars-heading">
+<Section variant="bone" labelledby="pillars-heading">
   <Container>
     <SectionHeader eyebrow={pillars.eyebrow} id="pillars-heading" />
 
@@ -37,10 +37,15 @@ const { pillars } = getContent(Astro.url.pathname);
     grid-template-columns: 1fr;
     gap: 1.25rem;
   }
-  @media (min-width: 768px) {
+  @media (min-width: 640px) {
     .pillars-grid {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 1.5rem;
+    }
+  }
+  @media (min-width: 1100px) {
+    .pillars-grid {
+      grid-template-columns: repeat(4, 1fr);
     }
   }
   .pillar {

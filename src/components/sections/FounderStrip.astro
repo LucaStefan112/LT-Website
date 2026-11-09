@@ -1,0 +1,90 @@
+---
+/* "Who you work with" — a short first-person note from the founder, so the
+   home page ends with a person rather than a company. */
+import Container from "../ui/Container.astro";
+import { getContent, resolveLocale } from "../../content/i18n";
+
+const { founderStrip, config, site } = getContent(Astro.url.pathname);
+const alt =
+  resolveLocale(Astro.url.pathname) === "ro"
+    ? `${site.founder}, fondatorul ${site.name}`
+    : `${site.founder}, founder of ${site.name}`;
+---
+
+<section class="founder-strip" aria-labelledby="founder-strip-heading">
+  <Container>
+    <div class="founder-inner reveal">
+      {
+        config.founderPhoto && (
+          <img
+            class="founder-avatar"
+            src={config.founderPhoto}
+            alt={alt}
+            width="112"
+            height="112"
+            loading="lazy"
+            decoding="async"
+          />
+        )
+      }
+      <div>
+        <h2 id="founder-strip-heading" class="eyebrow">{founderStrip.eyebrow}</h2>
+        <p class="founder-body">{founderStrip.body}</p>
+        <a href={founderStrip.link.href} class="link-arrow founder-link">
+          {founderStrip.link.label}
+          <span class="arrow" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path
+                d="M3 8h9M8.5 4l3.5 4-3.5 4"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
+            </svg>
+          </span>
+        </a>
+      </div>
+    </div>
+  </Container>
+</section>
+
+<style>
+  .founder-strip {
+    padding-block: clamp(3.5rem, 7vw, 5.5rem);
+    background-color: color-mix(in srgb, var(--color-steel) 6%, var(--color-paper));
+    border-block: 1px solid color-mix(in srgb, var(--color-steel) 18%, var(--color-line));
+  }
+  .founder-inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    align-items: center;
+    max-width: 52rem;
+  }
+  @media (min-width: 640px) {
+    .founder-inner {
+      grid-template-columns: auto 1fr;
+      gap: clamp(1.75rem, 4vw, 2.75rem);
+    }
+  }
+  .founder-avatar {
+    width: 112px;
+    height: 112px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: 50% 22%;
+    border: 3px solid var(--color-paper);
+    box-shadow: 0 12px 28px -16px color-mix(in srgb, var(--color-ink) 55%, transparent);
+  }
+  .founder-body {
+    margin-top: 0.85rem;
+    color: var(--color-ink);
+    font-size: clamp(1.0625rem, 1.6vw, 1.1875rem);
+    line-height: 1.6;
+    font-weight: 500;
+  }
+  .founder-link {
+    margin-top: 1rem;
+    font-weight: 600;
+  }
+</style>

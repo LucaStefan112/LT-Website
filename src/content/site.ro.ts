@@ -19,7 +19,6 @@ import type {
   Step,
   Testimonial,
   Layer,
-  StartPath,
   WorkProject,
   FormField,
   ScorecardQuestion,
@@ -47,7 +46,7 @@ export const site = {
   url: "https://ltstrategypartners.com",
   tagline: "Întâi problema. Apoi soluția.",
   description:
-    "Consultanță în digitalizare și AI pentru companii. Aflăm unde se amortizează cu adevărat tehnologia, vă pregătim managerii și echipele să o folosească în munca de zi cu zi, apoi proiectăm și construim noi soluțiile. Independenți față de furnizorii de software.",
+    "Găsim ce vă ține firma pe loc și construim soluția: procese, automatizări, rapoarte, aplicații interne și AI acolo unde se justifică. Independenți, fără comisioane de la furnizori.",
   email: "luca.tamas@ltstrategypartners.com",
   phone: "+40734950060",
   phoneDisplay: "+40 734 950 060",
@@ -67,20 +66,19 @@ export const site = {
 /* ---------------------------------------------------------------- Navigation */
 
 export const nav: NavItem[] = [
-  { label: "Servicii", href: "/services" },
-  { label: "Diagnostic", href: "/assessment" },
-  { label: "Training", href: "/training" },
-  { label: "Proiecte", href: "/#work" },
+  { label: "Ce rezolvăm", href: "/services" },
+  { label: "Cum lucrăm", href: "/assessment" },
+  { label: "Studii de caz", href: "/#work" },
   { label: "Despre", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
 
 export const footerNav: NavItem[] = [
-  { label: "Servicii", href: "/services" },
-  { label: "Diagnostic", href: "/assessment" },
-  { label: "Training", href: "/training" },
+  { label: "Ce rezolvăm", href: "/services" },
+  { label: "Cum lucrăm", href: "/assessment" },
+  { label: "Studii de caz", href: "/#work" },
+  { label: "Training pentru echipe", href: "/training" },
   { label: "Verificare rapidă", href: "/scorecard" },
-  { label: "Proiecte", href: "/#work" },
   { label: "Despre", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
@@ -106,42 +104,89 @@ export const partners = {
 /* --------------------------------------------------------------- Hero */
 
 export const hero = {
-  eyebrow: "Digitalizare și AI pentru companii",
-  headline: "Ajutăm firmele să lucreze mai bine cu tehnologia.",
+  eyebrow: "Întâi problema. Apoi soluția.",
+  headline: "Găsim ce vă ține firma pe loc. Și construim soluția.",
   subhead:
-    "Aflăm unde instrumentele digitale, automatizarea și AI-ul aduc cu adevărat valoare în firma dumneavoastră, vă pregătim managerii și echipele să le folosească în munca de zi cu zi, apoi proiectăm și construim noi soluțiile — și măsurăm ce s-a schimbat de fapt.",
+    "Lucrăm cu antreprenori și manageri care simt că ceva nu merge — marja, timpul, deciziile — dar nu pot spune exact ce. Înțelegem cum funcționează firma de fapt, găsim cauza reală și o rezolvăm: cu un proces mai bun, cu cifre în care puteți avea încredere sau cu un sistem construit de noi.",
   // Role label on the hero portrait name-tag.
   tagRole: "Fondator",
-  primaryCta: site.primaryCta,
-  secondaryCta: site.assessmentCta,
-  trustLine: "Independenți de furnizori · Vă pregătim echipa · Construim ce recomandăm",
+  primaryCta: { ...site.primaryCta, label: "Discutați o problemă" } as CTA,
+  secondaryCta: { label: "Vedeți cum lucrăm", href: "/assessment" } as CTA,
+  trustLine: "Diagnostic înainte de soluție · Construim ce recomandăm · Fără comisioane de la furnizori",
 } as const;
 
-/* -------------------------------------------------- The problem we solve */
+/* ---------------------------------------------- Symptoms ("sună cunoscut?") */
 
-export const intro = {
-  eyebrow: "Începem de la problemă",
-  body: "Marja se subțiază și nimeni nu poate spune unde. Aceeași comandă, trecută de mână în trei sisteme. Un program plătit de firmă, pe care jumătate din echipă îl ocolește. Astfel de probleme rareori se rezolvă doar cu tehnologie — așa că pornim de la felul în care se lucrează de fapt.",
+export const symptoms = {
+  eyebrow: "Sună cunoscut?",
+  heading: "Problemele rareori sunt acolo unde par.",
+  items: [
+    "Marja scade și nimeni nu poate spune exact de ce.",
+    "Aceeași comandă e introdusă de mână în trei locuri.",
+    "Raportul de luni durează o zi — și tot nu are nimeni încredere în el.",
+    "Ați cumpărat un sistem, dar echipa lucrează tot în Excel.",
+    "Totul depinde de doi oameni care știu cum merg lucrurile.",
+    "Aveți o idee bună, dar nu o construiește nimeni.",
+  ],
+  closing:
+    "Fiecare are o cauză. De cele mai multe ori nu e cea la care vă gândiți — de aceea începem cu diagnosticul.",
+} as const;
+
+/* ------------------------------------------------------- What we solve */
+
+export const solve = {
+  eyebrow: "Ce rezolvăm",
+  heading: "Patru tipuri de probleme care apar în aproape orice firmă care crește.",
+  items: [
+    {
+      icon: "flow",
+      title: "Muncă manuală și procese care se rup",
+      body: "Date introduse de mai multe ori, aprobări pe email, oameni-cheie de care depinde totul. Regândim fluxul și automatizăm ce merită.",
+    },
+    {
+      icon: "chart",
+      title: "Cifre și decizii",
+      body: "Rapoarte făcute de mână, cifre diferite în fiecare departament, marjă neclară pe produs sau client. Construim datele și rapoartele pe care le folosiți în ședința de luni.",
+    },
+    {
+      icon: "users",
+      title: "Sisteme pe care nu le folosește nimeni",
+      body: "ERP, CRM sau licențe plătite și ocolite. Aflăm de ce, potrivim procesul și pregătim echipa.",
+    },
+    {
+      icon: "code",
+      title: "Idei care trebuie construite",
+      body: "Un instrument intern, un portal pentru clienți, un produs nou, un caz real pentru AI. Verificăm dacă merită, apoi îl construim.",
+    },
+  ] as Card[],
+  toolbox:
+    "Folosim ce se potrivește problemei: un proces mai bun, automatizări, aplicații interne, date și rapoarte, AI — și uneori nimic nou.",
+  more: { label: "Vedeți ce rezolvăm în detaliu", href: "/services" } as CTA,
 } as const;
 
 /* ------------------------------------------------------- Value pillars */
 
 export const pillars = {
-  eyebrow: "Ce ne diferențiază",
+  eyebrow: "De ce LT",
   items: [
     {
-      title: "Întâi afacerea, apoi tehnologia.",
-      body: "Pornim de la cifrele firmei și de la felul în care se lucrează, nu de la un instrument. Nu revindem software și nu luăm comisioane de la furnizori, deci nimic nu ne influențează recomandarea.",
+      title: "Aceiași oameni, de la diagnostic la sistem.",
+      body: "Cel care înțelege problema e cel care construiește soluția. Nimic nu se pierde pe drum.",
+      icon: "compass",
+    },
+    {
+      title: "Independenți.",
+      body: "Nu luăm comisioane de la furnizori, așa că recomandăm ce vă ajută pe dumneavoastră.",
+      icon: "shield",
+    },
+    {
+      title: "Spunem și „nu”.",
+      body: "Dacă răspunsul e un proces mai simplu sau nimic deocamdată, vă spunem asta în scris.",
       icon: "target",
     },
     {
-      title: "Predăm ce construim.",
-      body: "Trainingul vine de la oameni care construiesc astfel de sisteme: ce funcționează în practică, unde greșește AI-ul și cum îl folosiți în siguranță.",
-      icon: "presentation",
-    },
-    {
-      title: "Construim ce recomandăm.",
-      body: "Proiectăm, construim și integrăm soluția chiar noi și rămânem până când e folosită și rezultatul e măsurat.",
+      title: "Construim cum trebuie.",
+      body: "Sisteme sigure, documentate și predate curat — construim și produse proprii.",
       icon: "code",
     },
   ] as Card[],
@@ -225,45 +270,11 @@ export const services = {
   },
 } as const;
 
-/* ------------------------------------ Where to start: two entry paths */
-
-export const startPaths = {
-  eyebrow: "De unde începem",
-  heading: "Două puncte de plecare. Ambele pot duce la o soluție care funcționează.",
-  intro:
-    "De obicei, firmele vin la noi cu una dintre două întrebări. Oricare e un punct bun de plecare.",
-  paths: [
-    {
-      question: "„Trebuie să aflăm ce merită digitalizat.”",
-      title: "Diagnosticul firmei",
-      body: "În două până la patru săptămâni primiți un diagnostic scris: ce vă ține pe loc, ce rezolvați primul și ce ar presupune fiecare rezolvare.",
-      points: [
-        "Un diagnostic de 3–5 pagini, pe care îl puteți pune în fața conducerii",
-        "Un răspuns tranșant despre ce trebuie rezolvat primul",
-      ],
-      note: "Gratuit — îl facem noi, cel mult trei pe lună.",
-      cta: site.assessmentCta,
-    },
-    {
-      question: "„Vrem ca oamenii noștri să lucreze mai bine cu AI și cu instrumentele digitale.”",
-      title: "Training pentru echipe",
-      body: "Training practic despre AI, automatizare, date și instrumente digitale — pornind de la procesele, aplicațiile și rolurile din firma dumneavoastră.",
-      points: [
-        "Pentru conducere, echipe de birou și echipe operaționale",
-        "Se încheie cu fluxuri de lucru pe care echipa le păstrează",
-      ],
-      note: "Formatul, durata și mărimea grupului se stabilesc împreună cu dumneavoastră.",
-      cta: { label: "Vedeți ce include trainingul", href: "/training" },
-    },
-  ] as StartPath[],
-  footnote:
-    "Adesea, cele două se întâlnesc: trainingul arată ce merită automatizat, iar când există un caz concret, îl construim.",
-} as const;
 
 /* -------------------------- Gate Zero: the /assessment offer page content */
 
 export const assessmentPage = {
-  eyebrow: "Diagnosticul firmei",
+  eyebrow: "Cum lucrăm · Diagnosticul firmei",
   heading:
     "Înainte să vă vândă cineva o soluție, aflați ce vă ține de fapt pe loc.",
   lead: "O ședință structurată cu echipa dumneavoastră de conducere și un diagnostic scris, cu priorități limpezi, despre ce vă costă cel mai mult — inclusiv un „nu construiți nimic” spus pe față, dacă acesta e răspunsul onest. Gratuit, îl facem noi, cu locuri limitate.",
@@ -446,52 +457,52 @@ export const assessmentPage = {
 /* ----------------------------------------------------------- Approach */
 
 export const approach = {
-  eyebrow: "Programul de digitalizare",
-  more: { label: "Vedeți serviciile în detaliu", href: "/services" } as CTA,
+  eyebrow: "Cum lucrăm",
+  more: { label: "Începeți cu diagnosticul", href: "/assessment" } as CTA,
   outputLabel: "Ce obțineți",
-  title: "Cinci etape, de la diagnostic la rezultatul măsurat.",
+  title: "Cinci pași, aceiași oameni de la început la sfârșit.",
   intro:
-    "Un singur program, condus de aceiași oameni de la început până la sfârșit. Puteți începe cu diagnosticul sau cu trainingul și vă puteți opri oricând etapa următoare nu se mai justifică.",
+    "Pornim de la problemă, nu de la o soluție aleasă dinainte — și vă puteți opri după orice pas care nu se mai justifică.",
   steps: [
     {
       n: "01",
       icon: "search",
-      title: "Diagnostic",
-      body: "Urmărim câteva procese reale de la un capăt la altul, ca să vedem unde se duc timpul, banii și munca manuală.",
+      title: "Diagnosticăm",
+      body: "Înțelegem cum circulă munca și banii și găsim cauza, nu simptomul.",
       output:
-        "O imagine scrisă a problemelor și oportunităților reale, ordonate după cât vă costă.",
+        "O imagine scrisă a problemelor reale, ordonate după cât vă costă.",
     },
     {
       n: "02",
       icon: "ranking",
-      title: "Prioritizare",
-      body: "Separăm ce merită făcut de ce nu merită și punem o cifră pe fiecare.",
+      title: "Decidem",
+      body: "Punem o cifră pe fiecare problemă și alegem împreună ce merită rezolvat — inclusiv ce nu.",
       output:
-        "O listă scurtă, în ordine, cu criteriile de succes stabilite de la început — și ce vă recomandăm să nu construiți.",
+        "O listă scurtă, în ordine, cu criteriile de succes stabilite de la început.",
     },
     {
       n: "03",
-      icon: "presentation",
-      title: "Training",
-      body: "Îi învățăm pe manageri și pe angajați să folosească instrumentele și AI-ul de care e nevoie, lucrând pe propriile sarcini.",
+      icon: "code",
+      title: "Construim",
+      body: "Proiectăm și construim soluția: proces, automatizare, raport sau sistem.",
       output:
-        "O echipă care știe să lucreze cu noile instrumente, plus fluxuri de lucru repetabile pe care le păstrează.",
+        "O soluție care rulează în firmă, integrată cu ce folosiți deja.",
     },
     {
       n: "04",
-      icon: "code",
-      title: "Implementare",
-      body: "Proiectăm, construim și integrăm soluția cu sistemele pe care le folosiți deja.",
+      icon: "users",
+      title: "Pregătim echipa",
+      body: "Îi pregătim pe oameni să lucreze în noul mod, pe sarcinile lor reale.",
       output:
-        "Soluții care rulează în producție și sunt folosite de oamenii pentru care au fost făcute.",
+        "O echipă care folosește soluția, cu fluxuri de lucru pe care le păstrează.",
     },
     {
       n: "05",
       icon: "chart",
-      title: "Măsurare",
-      body: "Verificăm dacă s-au schimbat de fapt costul, viteza sau calitatea și ajustăm.",
+      title: "Măsurăm",
+      body: "Verificăm dacă s-a schimbat ce trebuia și ajustăm.",
       output:
-        "Rezultate măsurate pe KPI-urile dumneavoastră și un plan pentru a extinde ce a funcționat.",
+        "Rezultate măsurate pe indicatorii dumneavoastră și un plan pentru ce urmează.",
     },
   ] as Step[],
 } as const;
@@ -499,15 +510,14 @@ export const approach = {
 /* ----------------------------------------------------- Statement band */
 
 export const statement = {
-  eyebrow: "Ce facem, pe scurt",
+  eyebrow: "Ce se schimbă",
   lines: [
-    "Înțelegem afacerea.",
-    "Pregătim oamenii.",
-    "Construim tehnologia.",
-    "Măsurăm rezultatul.",
+    "Știți ce vă costă de fapt.",
+    "Soluția funcționează și e folosită.",
+    "Vedeți rezultatul în cifre.",
   ],
   support:
-    "Un singur partener pentru toate patru — ca strategia, oamenii și sistemul să nu ajungă să tragă în direcții diferite. Și ne puteți judeca după rezultate, nu după livrabile.",
+    "Fiecare problemă, cu cifra ei: ore, bani, risc. O soluție care rulează în firmă, nu un document pe raft. Și rezultatul, măsurat înainte și după, pe indicatori stabiliți împreună.",
 } as const;
 
 /* --------------------------------------------------- Testimonials */
@@ -546,6 +556,14 @@ export const layers = {
 } as const;
 
 
+/* ----------------------------------------------- Founder strip (home) */
+
+export const founderStrip = {
+  eyebrow: "Cine lucrează cu dumneavoastră",
+  body: "Sunt Luca-Ștefan Tamaș. Din 2020 construiesc sisteme software — platforme enterprise, produse proprii, sisteme AI — dar ce mă interesează cu adevărat e problema din spatele lor. Lucrați direct cu mine: cel care înțelege problema e cel care construiește soluția.",
+  link: { label: "Mai multe despre mine", href: "/about" } as CTA,
+} as const;
+
 /* ------------------------------------------------- About: full page */
 
 export const aboutPage = {
@@ -581,8 +599,8 @@ export const aboutPage = {
 /* ------------------------------------------------------- CTA (pre-footer) */
 
 export const ctaBand = {
-  headline: "Care este problema reală din firma dumneavoastră?",
-  body: "Vă propunem o discuție directă, fără presiune, despre ce vă stă în cale — iar dacă răspunsul nu ține de tehnologie, vă spunem și asta.",
+  headline: "Ce nu merge în firma dumneavoastră?",
+  body: "Spuneți-ne problema, chiar dacă nu știți încă de unde vine. Prima discuție e gratuită, fără prezentări și fără ofertă pe loc.",
   cta: site.primaryCta,
 } as const;
 
@@ -593,7 +611,7 @@ export const contact = {
   eyebrow: "Contact",
   headline: "Să vorbim deschis.",
   intro:
-    "Spuneți-ne câteva lucruri despre firma dumneavoastră și despre ce ați vrea să îmbunătățiți — să aflați ce merită digitalizat, să vă pregătiți echipa să lucreze sigur cu AI și cu instrumentele digitale sau să construiți ceva anume. Vă răspundem personal — fără discurs de vânzare, fără presiune.",
+    "Spuneți-ne ce nu merge în firmă, chiar dacă nu știți încă de unde vine. Vă răspundem personal, în cel mult două zile lucrătoare, cu o primă părere — nu cu o ofertă.",
   email: site.email,
   phone: site.phone,
   phoneDisplay: site.phoneDisplay,
@@ -629,7 +647,7 @@ export const contact = {
     },
     {
       name: "message",
-      label: "Ce ați vrea să îmbunătățiți?",
+      label: "Ce problemă vreți să rezolvați?",
       type: "textarea",
       required: true,
     },
@@ -643,8 +661,8 @@ export const contact = {
   asideLead: "Preferați emailul sau vreți să ne contactați direct?",
   asidePoints: [
     "Consultanță independentă, la nivel senior — fără comisioane de la furnizori.",
-    "Strategie, training și implementare, de la aceiași oameni.",
-    "Răspuns în cel mult două zile lucrătoare.",
+    "De la diagnostic la soluția construită, cu aceiași oameni.",
+    "Răspuns în cel mult două zile lucrătoare, cu o primă părere — nu cu o ofertă.",
     "Fără discurs de vânzare, fără presiune.",
   ],
   privacyHtml:
@@ -663,20 +681,22 @@ export const footer = {
   location: site.location,
   linkedin: site.links.companyLinkedin,
   blurb:
-    "Digitalizare și AI, de la strategie la implementare: aflăm unde se amortizează tehnologia, pregătim oamenii care o vor folosi și construim noi soluția — sau vă spunem limpede că nu e nevoie să construiți nimic.",
+    "Găsim ce vă ține firma pe loc și construim soluția — sau vă spunem limpede că nu e nevoie să construiți nimic.",
 } as const;
 
 /* ------------------------------------------------- Selected work / portfolio */
 
 export const work = {
-  eyebrow: "Proiecte alese",
+  eyebrow: "Studii de caz",
   intro:
-    "Câteva lucruri pe care le-am proiectat și construit — dovada că nu dăm doar sfaturi, ci construim. Tot de aici vine și trainingul nostru.",
+    "De la problemă la sistemul care rulează: câteva lucruri pe care le-am proiectat și construit de la zero.",
   projects: [
     {
       slug: "processly",
       name: "Processly",
       tagline: "Proiectați procesul o dată. Rulați-l de câte ori vreți.",
+      problem: "Munca recurentă era refăcută de la zero de fiecare dată.",
+      solution: "Un sistem care o pornește la comandă sau după calendar.",
       category: "Automatizarea fluxurilor de lucru",
       kind: "product",
       label: "Produs · construit cap-coadă",
@@ -725,6 +745,8 @@ export const work = {
       slug: "mazely",
       name: "Mazely",
       tagline: "Fiecare vizitator își găsește drumul. De fiecare dată.",
+      problem: "Vizitatori pierduți în clădiri mari, angajați care pierd timp îndrumându-i.",
+      solution: "Indicații pas cu pas dintr-un cod QR, fără aplicație și fără echipamente.",
       category: "Inginerie de produs",
       kind: "product",
       label: "Produs · construit cap-coadă",
@@ -772,6 +794,8 @@ export const work = {
       slug: "restaurant-ai",
       name: "Asistentul de Meniu pentru Restaurante",
       tagline: "AI aplicat, care rulează pe echipamentele restaurantului.",
+      problem: "AI pentru clienți, fără ca datele meniului să ajungă în cloud.",
+      solution: "Un asistent care rulează offline, pe echipamentele localului.",
       category: "AI aplicat",
       kind: "build",
       label: "Sistem self-hosted",
@@ -820,6 +844,8 @@ export const work = {
       slug: "atlas-economic",
       name: "Atlas Economic",
       tagline: "Banii publici, județ cu județ.",
+      problem: "Date despre achizițiile publice, inutilizabile așa cum sunt publicate.",
+      solution: "Un indicator verificat al fluxurilor de bani pentru toate cele 42 de județe.",
       category: "Date și analiză",
       kind: "analysis",
       label: "Analiză independentă · microsite public",
@@ -871,6 +897,8 @@ export const work = {
       slug: "atlas-company-report",
       name: "Atlas · Raport de firmă",
       tagline: "Un CUI la intrare, un dosar complet la ieșire.",
+      problem: "Date despre firme, împrăștiate în surse greu de folosit.",
+      solution: "Un dosar complet de firmă dintr-un singur CUI.",
       category: "Date și analiză",
       kind: "product",
       label: "Produs propriu · pe aceleași date ca Atlasul",
@@ -923,6 +951,8 @@ export const work = {
       slug: "transit-analytics",
       name: "Analiza Transportului Public — Iași",
       tagline: "Telemetria flotei, transformată în decizii operaționale.",
+      problem: "Telemetria flotei nu ajungea niciodată într-o decizie.",
+      solution: "Un tablou de bord pe care se pot lua decizii operaționale.",
       category: "Date și analiză",
       kind: "analysis",
       label: "Analiză independentă",
@@ -1090,14 +1120,14 @@ export const trainingPage = {
 
 export const pageIntros = {
   services: {
-    eyebrow: "Servicii",
-    title: "Strategie, training și implementare — de la același partener.",
-    lead: "Vă ajutăm să decideți unde merită investit în tehnologie, vă pregătim oamenii să o folosească și o construim — cu aceiași oameni seniori pe tot parcursul. Fără predări între plan, training și cel care scrie codul.",
+    eyebrow: "Ce rezolvăm",
+    title: "De la problemă la soluția care funcționează.",
+    lead: "Găsim cauza, decidem împreună ce merită făcut, construim soluția și ne asigurăm că rămâne folosită — cu aceiași oameni de la început la sfârșit.",
   },
   contact: {
     eyebrow: "Contact",
     title: "Să vorbim deschis.",
-    lead: "Spuneți-ne câteva lucruri despre firma dumneavoastră și despre ce ați vrea să îmbunătățiți — să aflați ce merită digitalizat, să vă pregătiți echipa să lucreze sigur cu AI și cu instrumentele digitale sau să construiți ceva anume. Vă răspundem personal — fără discurs de vânzare, fără presiune.",
+    lead: "Spuneți-ne ce nu merge în firmă, chiar dacă nu știți încă de unde vine. Vă răspundem personal, în cel mult două zile lucrătoare, cu o primă părere — nu cu o ofertă.",
   },
 } as const;
 
@@ -1345,26 +1375,26 @@ export const scorecardPage = {
 export const pageMeta = {
   home: {
     title:
-      "LT Strategy Partners — Consultanță în digitalizare și AI, training și implementare",
+      "LT Strategy Partners — Găsim ce vă ține firma pe loc",
     description: site.description,
     path: "/",
   },
   scorecard: {
-    title: "Verificare AI și tehnologie — LT Strategy Partners",
+    title: "Unde pierde firma timp și bani? — LT Strategy Partners",
     description:
-      "O verificare gratuită de 3 minute: zece întrebări simple și un răspuns onest la întrebarea dacă o investiție în AI sau tehnologie s-ar amortiza deja în firma dumneavoastră — sau ce merită rezolvat înainte.",
+      "O verificare gratuită de 3 minute: zece întrebări simple despre cum merge firma și un răspuns onest despre unde se pierd timpul și banii — și ce merită rezolvat întâi.",
     path: "/scorecard",
   },
   services: {
-    title: "Servicii de digitalizare și AI — LT Strategy Partners",
+    title: "Ce rezolvăm — LT Strategy Partners",
     description:
-      "Consultanță în transformare digitală, training de AI și digitalizare pentru angajați și implementare practică de automatizări și AI — un singur program, de la diagnostic la rezultatul măsurat.",
+      "Muncă manuală, cifre în care nu are nimeni încredere, sisteme nefolosite, idei care trebuie construite: diagnostic, soluție construită, echipă pregătită și rezultat măsurat.",
     path: "/services",
   },
   training: {
-    title: "Training de AI și digitalizare pentru firme — LT Strategy Partners",
+    title: "Training pentru echipe — LT Strategy Partners",
     description:
-      "Training practic de AI pentru firme: AI în munca de zi cu zi, automatizare, date și BI și securitate cibernetică, pentru manageri și angajați — adaptat proceselor și instrumentelor dumneavoastră, predat de oameni care construiesc astfel de sisteme.",
+      "Training practic pentru manageri și angajați, pe procesele și instrumentele firmei: lucrul cu date, automatizări, instrumente digitale și AI folosit în siguranță.",
     path: "/training",
   },
   assessment: {
@@ -1382,13 +1412,13 @@ export const pageMeta = {
   about: {
     title: "Despre — LT Strategy Partners",
     description:
-      "Luca-Ștefan Tamaș, inginer de sisteme care înțelege mai întâi firma, îi pregătește pe oamenii care vor folosi tehnologia și apoi proiectează și construiește el însuși soluția. Sisteme AI de producție, platforme enterprise, două produse SaaS proprii.",
+      "Luca-Ștefan Tamaș, inginer de sisteme care găsește ce ține o firmă pe loc și construiește el însuși soluția. Platforme enterprise, două produse SaaS proprii, sisteme de date și AI.",
     path: "/about",
   },
   contact: {
     title: "Contact — LT Strategy Partners",
     description:
-      "O discuție directă, fără presiune, despre ce ați vrea să îmbunătățiți — digitalizare, adoptarea AI, training pentru angajați sau un proiect anume.",
+      "Spuneți-ne ce nu merge în firmă. O primă discuție gratuită, fără prezentări și fără ofertă pe loc.",
     path: "/contact",
   },
   privacy: {
@@ -1430,7 +1460,9 @@ export const ui = {
   footerContactHeading: "Contact",
   footerAria: "Subsolul paginii",
   footerRights: "Toate drepturile rezervate.",
-  backToWork: "Proiecte alese",
+  backToWork: "Studii de caz",
+  workProblem: "Problema",
+  workSolution: "Ce am construit",
   workContext: "Contextul",
   workDelivered: "Ce am livrat",
   workStrategic: "De ce contează",

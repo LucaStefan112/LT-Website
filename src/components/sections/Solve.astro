@@ -1,0 +1,110 @@
+---
+/* "What we solve" — the four problem areas the brand owns, each named in the
+   client's words. Technology appears once, in the toolbox line. */
+import Section from "../ui/Section.astro";
+import Container from "../ui/Container.astro";
+import SectionHeader from "../ui/SectionHeader.astro";
+import Icon from "../ui/Icon.astro";
+import { getContent } from "../../content/i18n";
+
+const { solve } = getContent(Astro.url.pathname);
+---
+
+<Section id="solve" variant="paper" labelledby="solve-heading">
+  <Container>
+    <SectionHeader eyebrow={solve.eyebrow} title={solve.heading} id="solve-heading" />
+
+    <ul class="solve-grid" role="list">
+      {
+        solve.items.map((item, i) => (
+          <li class="card solve-card reveal" style={`--reveal-delay:${(i % 2) * 90}ms`}>
+            <span class="solve-icon">
+              <Icon name={item.icon ?? "target"} size={24} />
+            </span>
+            <h3 class="card-title">{item.title}</h3>
+            <p class="solve-body">{item.body}</p>
+          </li>
+        ))
+      }
+    </ul>
+
+    <div class="solve-foot reveal">
+      <p class="solve-toolbox">{solve.toolbox}</p>
+      <a href={solve.more.href} class="link-arrow solve-more">
+        {solve.more.label}
+        <span class="arrow" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path
+              d="M3 8h9M8.5 4l3.5 4-3.5 4"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </svg>
+        </span>
+      </a>
+    </div>
+  </Container>
+</Section>
+
+<style>
+  .solve-grid {
+    list-style: none;
+    margin: clamp(2.5rem, 5vw, 3.5rem) 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  @media (min-width: 768px) {
+    .solve-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+  }
+  .solve-card {
+    display: flex;
+    flex-direction: column;
+  }
+  .solve-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    margin-bottom: 1.25rem;
+    border-radius: 14px;
+    color: var(--color-steel);
+    background-color: color-mix(in srgb, var(--color-steel) 10%, var(--color-paper));
+    border: 1px solid color-mix(in srgb, var(--color-steel) 22%, var(--color-paper));
+  }
+  .solve-card .card-title {
+    margin-bottom: 0.6rem;
+  }
+  .solve-body {
+    color: var(--color-muted);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+  .solve-foot {
+    margin-top: clamp(2rem, 4vw, 2.75rem);
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-line);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem 2rem;
+  }
+  .solve-toolbox {
+    margin: 0;
+    max-width: 60ch;
+    color: var(--color-muted);
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+  .solve-more {
+    flex: none;
+    font-weight: 600;
+  }
+</style>

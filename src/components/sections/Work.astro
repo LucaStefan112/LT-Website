@@ -18,7 +18,7 @@ const img = (key?: string) =>
   key ? workImages[`../../assets/work/${key}.png`]?.default : undefined;
 ---
 
-<Section id="work" variant="bone" labelledby="work-heading">
+<Section id="work" variant="paper" labelledby="work-heading">
   <Container>
     <SectionHeader
       eyebrow={work.eyebrow}
@@ -69,7 +69,16 @@ const img = (key?: string) =>
                     <span class="work-card-kind">{p.label}</span>
                   </div>
                   <h3 class="work-card-name">{p.name}</h3>
-                  <p class="work-card-line">{p.oneLiner}</p>
+                  <dl class="work-card-ps">
+                    <div>
+                      <dt class="work-card-ps-problem">{ui.workProblem}</dt>
+                      <dd>{p.problem}</dd>
+                    </div>
+                    <div>
+                      <dt>{ui.workSolution}</dt>
+                      <dd>{p.solution}</dd>
+                    </div>
+                  </dl>
                   {p.liveUrl && <span class="work-card-live">{ui.workLiveBadge}</span>}
                   <span class="work-card-more">
                     {ui.viewProject}
@@ -222,9 +231,25 @@ const img = (key?: string) =>
     padding: 0.15rem 0.55rem;
   }
 
-  .work-card-line {
-    color: var(--color-muted);
-    font-size: 1rem;
+  .work-card-ps {
+    margin: 0.25rem 0 0;
+    display: grid;
+    gap: 0.6rem;
+  }
+  .work-card-ps dt {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-steel);
+  }
+  .work-card-ps dt.work-card-ps-problem {
+    color: var(--color-ember);
+  }
+  .work-card-ps dd {
+    margin: 0.15rem 0 0;
+    color: var(--color-ink);
+    font-size: 0.9375rem;
     line-height: 1.5;
   }
   .work-card-more {

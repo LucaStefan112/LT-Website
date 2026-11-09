@@ -3,6 +3,7 @@ import Base from "../layouts/Base.astro";
 import Container from "../components/ui/Container.astro";
 import Button from "../components/ui/Button.astro";
 import AssessmentForm from "../components/sections/AssessmentForm.astro";
+import DiagnosisIllustration from "../components/illustrations/DiagnosisIllustration.astro";
 import { getContent, resolveLocale } from "../content/i18n";
 
 const { pageMeta, assessmentPage: page } = getContent(Astro.url.pathname);
@@ -15,16 +16,23 @@ const meta = pageMeta.assessment;
   <!-- 1 · Hero -->
   <section class="az-hero bg-paper" aria-labelledby="az-heading">
     <Container>
-      <p class="eyebrow">{page.eyebrow}</p>
-      <span class="rule" aria-hidden="true"></span>
-      <h1 id="az-heading" class="display-lg az-hero-title">{page.heading}</h1>
-      <p class="lead az-hero-lead measure">{page.lead}</p>
-      <div class="az-hero-cta">
-        <Button href={page.heroCta.href} withArrow>{page.heroCta.label}</Button>
+      <div class="az-hero-grid">
+        <div>
+          <p class="eyebrow">{page.eyebrow}</p>
+          <span class="rule" aria-hidden="true"></span>
+          <h1 id="az-heading" class="display-lg az-hero-title">{page.heading}</h1>
+          <p class="lead az-hero-lead measure">{page.lead}</p>
+          <div class="az-hero-cta">
+            <Button href={page.heroCta.href} withArrow>{page.heroCta.label}</Button>
+          </div>
+          <ul class="az-hero-facts" role="list">
+            {page.heroFacts.map((f) => <li>{f}</li>)}
+          </ul>
+        </div>
+        <div class="az-hero-visual">
+          <DiagnosisIllustration />
+        </div>
       </div>
-      <ul class="az-hero-facts" role="list">
-        {page.heroFacts.map((f) => <li>{f}</li>)}
-      </ul>
     </Container>
   </section>
 
@@ -251,6 +259,27 @@ const meta = pageMeta.assessment;
   .az-hero {
     padding-top: clamp(5.5rem, 11vw, 8.5rem);
     padding-bottom: clamp(3rem, 6vw, 5rem);
+  }
+  .az-hero-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(2.5rem, 5vw, 4rem);
+    align-items: center;
+  }
+  @media (min-width: 1024px) {
+    .az-hero-grid {
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+    }
+  }
+  /* The written diagnosis, on the same tinted panel as other page visuals */
+  .az-hero-visual {
+    max-width: 30rem;
+    width: 100%;
+    justify-self: center;
+    padding: clamp(1.25rem, 3vw, 2rem) clamp(1rem, 3vw, 1.75rem) clamp(0.75rem, 2vw, 1.25rem);
+    border-radius: 20px;
+    border: 1px solid var(--color-line);
+    background-color: color-mix(in srgb, var(--color-steel) 7%, var(--color-paper));
   }
   .az-hero-title {
     margin-top: 1.5rem;

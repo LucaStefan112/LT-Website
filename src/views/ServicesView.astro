@@ -3,6 +3,7 @@ import Base from "../layouts/Base.astro";
 import PageIntro from "../components/sections/PageIntro.astro";
 import Services from "../components/sections/Services.astro";
 import Approach from "../components/sections/Approach.astro";
+import Layers from "../components/sections/Layers.astro";
 import CTABand from "../components/sections/CTABand.astro";
 import { getContent } from "../content/i18n";
 
@@ -18,7 +19,8 @@ const intro = pageIntros.services;
     lead={intro.lead}
     headingId="services-page-heading"
   />
-  <Services showHeader={false} variant="paper" />
+  <Services showHeader={false} />
+  <Layers />
   <Approach />
   <CTABand secondary={site.assessmentCta} />
 </Base>

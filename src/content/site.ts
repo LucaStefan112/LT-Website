@@ -42,14 +42,6 @@ export interface Layer {
   detail: string;
 }
 
-export interface StartPath {
-  question: string; // the visitor's own question, in quotes
-  title: string;
-  body: string;
-  points: string[];
-  note: string;
-  cta: CTA;
-}
 
 export interface Step {
   n: string;
@@ -78,6 +70,9 @@ export interface WorkProject {
   accent: string;
   heroDark?: boolean;
   oneLiner: string;
+  // Case-study framing on the home cards: the problem, then what was built.
+  problem: string;
+  solution: string;
   overview: string;
   context: string;
   delivered: string[];
@@ -144,7 +139,7 @@ export const site = {
   url: "https://ltstrategypartners.com",
   tagline: "First the problem. Then the solution.",
   description:
-    "Digitalization and AI consulting for companies. We find where technology will actually pay off, train your managers and teams to use it in their real work, and design and build the solutions ourselves. Independent of any software vendor.",
+    "We find what's holding your business back and build what fixes it: processes, automation, reporting, internal tools and AI where it's justified. Independent, no vendor commissions.",
   email: "luca.tamas@ltstrategypartners.com",
   phone: "+40734950060", // used for the tel: link
   phoneDisplay: "+40 734 950 060", // shown to readers
@@ -169,23 +164,21 @@ export const site = {
    AND footer. About / Work / Services / Contact appear in both. */
 
 export const nav: NavItem[] = [
-  // Services first (the whole offer), then the two entry points: the free
-  // diagnostic ("what should we digitalize?") and training ("help our people
-  // use it"). Same order as footerNav so the two agree.
-  { label: "Services", href: "/en/services" },
-  { label: "Diagnostic", href: "/en/assessment" },
-  { label: "Training", href: "/en/training" },
-  { label: "Work", href: "/en#work" },
+  // Problem-first: what we solve, how we work (the diagnostic page), proof.
+  // Training lives under "What we solve" and in the footer, not up here.
+  { label: "What we solve", href: "/en/services" },
+  { label: "How we work", href: "/en/assessment" },
+  { label: "Case studies", href: "/en#work" },
   { label: "About", href: "/en/about" },
   { label: "Contact", href: "/en/contact" },
 ];
 
 export const footerNav: NavItem[] = [
-  { label: "Services", href: "/en/services" },
-  { label: "Diagnostic", href: "/en/assessment" },
-  { label: "Training", href: "/en/training" },
+  { label: "What we solve", href: "/en/services" },
+  { label: "How we work", href: "/en/assessment" },
+  { label: "Case studies", href: "/en#work" },
+  { label: "Team training", href: "/en/training" },
   { label: "Scorecard", href: "/en/scorecard" },
-  { label: "Work", href: "/en#work" },
   { label: "About", href: "/en/about" },
   { label: "Contact", href: "/en/contact" },
 ];
@@ -213,43 +206,90 @@ export const partners = {
 /* --------------------------------------------------------------- Hero */
 
 export const hero = {
-  eyebrow: "Digitalization & AI for companies",
-  headline: "We help companies work better with technology.",
+  // The brand line leads: the problem comes first.
+  eyebrow: "First the problem. Then the solution.",
+  headline: "We find what's holding your business back. And build what fixes it.",
   subhead:
-    "We find where digital tools, automation and AI will genuinely pay off in your business, train your managers and teams to use them in their real work, and design and build the solutions ourselves — then measure what actually changed.",
+    "We work with owners and managers who can feel something isn't working — margin, time, decisions — but can't pin down why. We learn how your business really runs, find the real cause, and fix it: with a better process, numbers you can trust, or a system we build ourselves.",
   // Role label on the hero portrait name-tag.
   tagRole: "Founder",
-  primaryCta: site.primaryCta,
-  // Low-commitment path alongside the direct one (Task 5).
-  secondaryCta: site.assessmentCta,
-  trustLine: "Independent of vendors · We train the people who use it · We build what we recommend",
+  primaryCta: { ...site.primaryCta, label: "Talk through a problem" } as CTA,
+  secondaryCta: { label: "See how we work", href: "/en/assessment" } as CTA,
+  trustLine: "Diagnosis before solution · We build what we recommend · No vendor commissions",
 } as const;
 
-/* -------------------------------------------------- The problem we solve */
+/* ---------------------------------------------- Symptoms ("sound familiar?") */
 
-export const intro = {
-  eyebrow: "Start with the problem",
-  body: "Margin thinning and nobody can say where. The same order re-keyed into three systems. A tool the company paid for that half the team works around. Problems like these are rarely solved by technology alone — so we start with how the work really runs.",
+export const symptoms = {
+  eyebrow: "Sound familiar?",
+  heading: "Problems are rarely where they seem.",
+  items: [
+    "Margin is shrinking and nobody can say exactly why.",
+    "The same order is typed by hand into three systems.",
+    "The Monday report takes a day, and still nobody trusts it.",
+    "You bought a system; the team still works in Excel.",
+    "Everything depends on two people who know how things work.",
+    "You have a good idea, and nobody is building it.",
+  ],
+  closing:
+    "Each has a cause, and usually not the one you suspect. That's why we start with a diagnosis.",
+} as const;
+
+/* ------------------------------------------------------- What we solve */
+
+export const solve = {
+  eyebrow: "What we solve",
+  heading: "Four kinds of problems that show up in almost every growing company.",
+  items: [
+    {
+      icon: "flow",
+      title: "Manual work and processes that break",
+      body: "Data typed in several times, approvals by email, key people everything depends on. We redesign the flow and automate what's worth it.",
+    },
+    {
+      icon: "chart",
+      title: "Numbers and decisions",
+      body: "Hand-built reports, a different number in every department, unclear margin by product or client. We build the data and reports you use in Monday's meeting.",
+    },
+    {
+      icon: "users",
+      title: "Systems nobody uses",
+      body: "An ERP, CRM or licences paid for and worked around. We find out why, fit the process and prepare the team.",
+    },
+    {
+      icon: "code",
+      title: "Ideas that need building",
+      body: "An internal tool, a client portal, a new product, a real case for AI. We check it's worth it, then build it.",
+    },
+  ] as Card[],
+  toolbox:
+    "We use whatever fits the problem: a better process, automation, internal tools, data and reporting, AI — and sometimes nothing new.",
+  more: { label: "See what we solve in detail", href: "/en/services" } as CTA,
 } as const;
 
 /* ------------------------------------------------------- Value pillars */
 
 export const pillars = {
-  eyebrow: "How we're different",
+  eyebrow: "Why LT",
   items: [
     {
-      title: "Business first, technology second.",
-      body: "We start with your numbers and how the work runs, not with a tool. We don't resell software or take vendor commissions, so nothing tilts the advice.",
+      title: "Same people, from diagnosis to system.",
+      body: "The person who understands the problem builds the fix. Nothing gets lost along the way.",
+      icon: "compass",
+    },
+    {
+      title: "Independent.",
+      body: "No vendor commissions, so we recommend what helps you.",
+      icon: "shield",
+    },
+    {
+      title: "We say \"no\" too.",
+      body: "If the answer is a simpler process, or nothing yet, you get that in writing.",
       icon: "target",
     },
     {
-      title: "We teach what we build.",
-      body: "Our training comes from people who build these systems: what works in practice, where AI goes wrong, and how to use it safely.",
-      icon: "presentation",
-    },
-    {
-      title: "We build what we recommend.",
-      body: "We design, build and integrate the solution ourselves, and stay until it's used and the result is measured.",
+      title: "Built properly.",
+      body: "Secure, documented systems, cleanly handed over — we build products of our own too.",
       icon: "code",
     },
   ] as Card[],
@@ -336,44 +376,6 @@ export const services = {
   },
 } as const;
 
-/* ------------------------------------ Where to start: two entry paths */
-/* Entry A: "what should we digitalize?" -> the free Business Diagnostic.
-   Entry B: "help our people use technology better" -> training. Both can lead
-   to implementation; neither is sold as a funnel. Diagnostic facts here must
-   match assessmentPage (free, 2–4 weeks, 3–5 pages, three per month). */
-
-export const startPaths = {
-  eyebrow: "Where to start",
-  heading: "Two ways in. Either can lead to a working solution.",
-  intro:
-    "Companies usually come to us with one of two questions. Either is a good place to start.",
-  paths: [
-    {
-      question: "“We need to work out what to digitalize.”",
-      title: "The Business Diagnostic",
-      body: "In two to four weeks you get a written diagnosis: what's holding you back, what to fix first, and what each fix would take.",
-      points: [
-        "A 3–5 page diagnosis, built to be shown to your board",
-        "A blunt call on the one thing to fix first",
-      ],
-      note: "Free — we run it ourselves, capped at three per month.",
-      cta: site.assessmentCta,
-    },
-    {
-      question: "“We want our people to get better with AI and digital tools.”",
-      title: "Training & enablement",
-      body: "Practical training on AI, automation, data and digital tools — built on your processes, your software and your people's roles.",
-      points: [
-        "For leadership, office and operational teams",
-        "Ends with workflows the team keeps using",
-      ],
-      note: "Format, length and group size agreed with you.",
-      cta: { label: "Explore the training", href: "/en/training" },
-    },
-  ] as StartPath[],
-  footnote:
-    "The two often meet: training shows what's worth automating, and when there's a concrete case, we build it.",
-} as const;
 
 /* -------------------------- Gate Zero: the /assessment offer page content */
 /* The dedicated landing page for the free Business Diagnostic, run
@@ -385,7 +387,7 @@ export const startPaths = {
      about past work. Never add invented clients, metrics, or history. */
 
 export const assessmentPage = {
-  eyebrow: "The Business Diagnostic",
+  eyebrow: "How we work · The Business Diagnostic",
   heading: "Before anyone sells you a solution, find out what is actually holding you back.",
   lead: "A structured session with your leadership team and a written, prioritized diagnosis of what is costing you most — including a blunt “don't build anything” where that is the honest answer. Free, we run it ourselves, and capped.",
   heroCta: { label: "Apply for a diagnostic", href: "#apply" } as CTA,
@@ -514,47 +516,47 @@ export const assessmentPage = {
 /* ----------------------------------------------------------- Approach */
 
 export const approach = {
-  eyebrow: "The Digitalization Program",
-  // Shown under the steps on the home page, which no longer repeats /services.
-  more: { label: "See the services in detail", href: "/en/services" } as CTA,
+  eyebrow: "How we work",
+  // Shown under the steps on the home page.
+  more: { label: "Start with the diagnostic", href: "/en/assessment" } as CTA,
   outputLabel: "What you get",
-  title: "Five stages, from diagnosis to measured result.",
-  intro: "One program, run by the same people from start to finish. Start with the diagnosis or with training — and stop wherever the next stage isn't worth it.",
+  title: "Five steps, the same people from start to finish.",
+  intro: "We start from the problem, not from a solution chosen in advance — and you can stop after any step that's no longer worth it.",
   steps: [
     {
       n: "01",
       icon: "search",
       title: "Diagnose",
-      body: "We follow a few real processes end to end to see where the time, the money and the manual work go.",
-      output: "A written picture of your real problems and opportunities, ranked by what they cost you.",
+      body: "We learn how work and money flow, and find the cause, not the symptom.",
+      output: "A written picture of the real problems, ranked by what they cost you.",
     },
     {
       n: "02",
       icon: "ranking",
-      title: "Prioritize",
-      body: "We separate what's worth doing from what isn't, and put a number on each.",
-      output: "A ranked shortlist with success measures agreed up front — and what we advise you not to build.",
+      title: "Decide",
+      body: "We put a number on each problem and choose together what to fix — and what not to.",
+      output: "A short, ranked list with success measures agreed up front.",
     },
     {
       n: "03",
-      icon: "presentation",
-      title: "Enable",
-      body: "We train managers and teams on the tools and AI the change needs, using their own work.",
-      output: "A team that knows how to use the tools, and repeatable workflows it keeps using.",
+      icon: "code",
+      title: "Build",
+      body: "We design and build the fix: a process, automation, report or system.",
+      output: "A fix running in your business, integrated with what you already use.",
     },
     {
       n: "04",
-      icon: "code",
-      title: "Implement",
-      body: "We design, build and integrate the solution with the systems you already run.",
-      output: "Working solutions in production, used by the people they're for.",
+      icon: "users",
+      title: "Make it stick",
+      body: "We prepare people to work the new way, on their real tasks.",
+      output: "A team that uses the fix, with workflows it keeps.",
     },
     {
       n: "05",
       icon: "chart",
       title: "Measure",
-      body: "We check whether cost, speed or quality actually moved, and adjust.",
-      output: "Measured results on your KPIs, and a plan to extend what worked.",
+      body: "We check that the right things changed, and adjust.",
+      output: "Measured results on your indicators, and a plan for what comes next.",
     },
   ] as Step[],
 } as const;
@@ -562,16 +564,15 @@ export const approach = {
 /* ----------------------------------------------------- Statement band */
 
 export const statement = {
-  eyebrow: "The whole job, in one line",
+  eyebrow: "What changes",
   // Rendered one sentence per line.
   lines: [
-    "Understand the business.",
-    "Train the people.",
-    "Build the technology.",
-    "Measure the result.",
+    "You know what it really costs.",
+    "The fix works and gets used.",
+    "You see the result in numbers.",
   ],
   support:
-    "One partner across all four — so the strategy, the people and the system never drift apart. And we're judged by outcomes, not output.",
+    "Every problem with its number: hours, money, risk. A fix running in your business, not a document on a shelf. And the result measured before and after, on indicators agreed together.",
 } as const;
 
 /* --------------------------------------------------- Testimonials (Task 3) */
@@ -615,6 +616,14 @@ export const layers = {
 } as const;
 
 
+/* ----------------------------------------------- Founder strip (home) */
+
+export const founderStrip = {
+  eyebrow: "Who you work with",
+  body: "I'm Luca-Ștefan Tamaș. I've been building software systems since 2020 — enterprise platforms, products of my own, AI systems — but what really interests me is the problem behind them. You work with me directly: the person who understands the problem builds the fix.",
+  link: { label: "More about me", href: "/en/about" } as CTA,
+} as const;
+
 /* ------------------------------------------------- About: full page (Task 1) */
 
 export const aboutPage = {
@@ -650,8 +659,8 @@ export const aboutPage = {
 /* ------------------------------------------------------- CTA (pre-footer) */
 
 export const ctaBand = {
-  headline: "What's the real problem in your business?",
-  body: "Let's have a direct, no-pressure conversation about what's getting in the way — and if the answer isn't technology, we'll tell you that plainly.",
+  headline: "What isn't working in your business?",
+  body: "Tell us the problem, even if you don't know yet where it comes from. The first conversation is free, with no slides and no quote on the spot.",
   cta: site.primaryCta,
 } as const;
 
@@ -670,7 +679,7 @@ export const contact = {
   eyebrow: "Contact",
   headline: "Let's have a direct conversation.",
   intro:
-    "Tell us a little about your company and what you'd like to improve — working out what to digitalize, getting your team confident with AI and digital tools, or building something specific. We'll come back to you personally — no sales script, no pressure.",
+    "Tell us what isn't working, even if you don't know yet where it comes from. We'll reply personally within two business days with a first view — not a quote.",
   email: site.email,
   phone: site.phone,
   phoneDisplay: site.phoneDisplay,
@@ -682,7 +691,7 @@ export const contact = {
     { name: "company", label: "Company", type: "text", required: true, autocomplete: "organization" },
     { name: "role", label: "Role", type: "text", required: false, autocomplete: "organization-title" },
     { name: "email", label: "Email", type: "email", required: true, autocomplete: "email" },
-    { name: "message", label: "What would you like to improve?", type: "textarea", required: true },
+    { name: "message", label: "What problem would you like to solve?", type: "textarea", required: true },
   ] as FormField[],
   // Query-param prefills for the message field (e.g. /contact?topic=assessment).
   prefills: {
@@ -694,8 +703,8 @@ export const contact = {
   asideLead: "Prefer email, or want to reach us straight away?",
   asidePoints: [
     "Independent and senior — no vendor commissions.",
-    "Strategy, training and implementation from the same people.",
-    "A reply within two business days.",
+    "From diagnosis to a built fix, with the same people.",
+    "A reply within two business days, with a first view — not a quote.",
     "No sales script, no pressure.",
   ],
   privacyHtml:
@@ -714,21 +723,23 @@ export const footer = {
   location: site.location,
   linkedin: site.links.companyLinkedin,
   blurb:
-    "A hands-on digitalization and AI partner: we work out where technology pays off, train the people who'll use it, and build the solution ourselves — or tell you plainly that nothing needs building.",
+    "We find what's holding your business back and build what fixes it — or tell you plainly that nothing needs building.",
 } as const;
 
 /* ------------------------------------------------- Selected work / portfolio */
 
 export const work = {
-  eyebrow: "Selected work",
+  eyebrow: "Case studies",
   // Founder-led voice (Task 2): no "team".
   intro:
-    "A few things we've designed and built — proof that we don't just advise, we ship. It's also where our training comes from.",
+    "From the problem to the system that runs: a few things we've designed and built from scratch.",
   projects: [
     {
       slug: "processly",
       name: "Processly",
       tagline: "Design your work once. Run it forever.",
+      problem: "Recurring work rebuilt from scratch every time.",
+      solution: "A system that launches it on demand or on a schedule.",
       category: "Workflow automation",
       kind: "product",
       label: "Product · built end to end",
@@ -781,6 +792,8 @@ export const work = {
       slug: "mazely",
       name: "Mazely",
       tagline: "Every visitor finds their way. Every time.",
+      problem: "Visitors lost in large buildings, staff losing time giving directions.",
+      solution: "Step-by-step directions from a QR code, with no app and no hardware.",
       category: "Product engineering",
       kind: "product",
       label: "Product · built end to end",
@@ -828,6 +841,8 @@ export const work = {
       slug: "restaurant-ai",
       name: "Restaurant Menu Assistant",
       tagline: "Applied AI that runs on the restaurant's own hardware.",
+      problem: "AI for diners, without sending the menu data to the cloud.",
+      solution: "An assistant that runs offline, on the venue's own hardware.",
       category: "Applied AI",
       kind: "build",
       label: "Self-hosted build",
@@ -877,6 +892,8 @@ export const work = {
       slug: "atlas-economic",
       name: "Atlas Economic",
       tagline: "Public money, county by county.",
+      problem: "Public procurement data that's unusable as published.",
+      solution: "A verified money-flow indicator for all 42 counties.",
       category: "Data & analytics",
       kind: "analysis",
       label: "Independent analysis · live microsite",
@@ -929,6 +946,8 @@ export const work = {
       slug: "atlas-company-report",
       name: "Atlas Company Report",
       tagline: "One fiscal code in, a full dossier out.",
+      problem: "Company data scattered across sources nobody can use.",
+      solution: "A full company dossier from a single fiscal code.",
       category: "Data & analytics",
       kind: "product",
       label: "Own product · built on the Atlas data spine",
@@ -982,6 +1001,8 @@ export const work = {
       slug: "transit-analytics",
       name: "Public Transport Analytics — Iași",
       tagline: "Turning fleet telemetry into operating decisions.",
+      problem: "Fleet telemetry that never reached a decision.",
+      solution: "A dashboard operating decisions can rest on.",
       category: "Data & analytics",
       kind: "analysis",
       label: "Independent analysis",
@@ -1152,14 +1173,14 @@ export const trainingPage = {
 
 export const pageIntros = {
   services: {
-    eyebrow: "Services",
-    title: "Strategy, training and implementation — from one partner.",
-    lead: "We help companies decide where technology is worth it, get their people ready to use it, and build it — with the same senior people the whole way. No handoffs between the plan, the training and the person writing the code.",
+    eyebrow: "What we solve",
+    title: "From the problem to a fix that works.",
+    lead: "We find the cause, decide with you what's worth doing, build the fix and make sure it stays in use — with the same people from start to finish.",
   },
   contact: {
     eyebrow: "Contact",
     title: "Let's have a direct conversation.",
-    lead: "Tell us a little about your company and what you'd like to improve — working out what to digitalize, getting your team confident with AI and digital tools, or building something specific. We'll come back to you personally — no sales script, no pressure.",
+    lead: "Tell us what isn't working, even if you don't know yet where it comes from. We'll reply personally within two business days with a first view — not a quote.",
   },
 } as const;
 
@@ -1355,26 +1376,26 @@ export const scorecardPage = {
 
 export const pageMeta = {
   home: {
-    title: "LT Strategy Partners — Digitalization & AI consulting, training and implementation",
+    title: "LT Strategy Partners — Business problems, found and fixed",
     description: site.description,
     path: "/en",
   },
   scorecard: {
-    title: "Business Opportunity Scorecard — LT Strategy Partners",
+    title: "Where is your business losing time and money? — LT Strategy Partners",
     description:
-      "A free 3-minute self-check: ten plain questions, then an honest read on whether AI or a technology bet would actually pay off for your business yet — or what to fix first.",
+      "A free 3-minute self-check: ten plain questions about how your business runs, and an honest read on where time and money leak — and what to fix first.",
     path: "/en/scorecard",
   },
   services: {
-    title: "Digitalization & AI Services — LT Strategy Partners",
+    title: "What we solve — LT Strategy Partners",
     description:
-      "Digital transformation consulting, AI and digitalization training for employees, and hands-on implementation of automation and AI — one program, from diagnosis to measured result.",
+      "Manual work, numbers nobody trusts, systems nobody uses, ideas that need building: a diagnosis, a built fix, a trained team and a measured result.",
     path: "/en/services",
   },
   training: {
-    title: "AI & Digitalization Training for Companies — LT Strategy Partners",
+    title: "Team training — LT Strategy Partners",
     description:
-      "Practical AI training for companies: AI at work, automation, data & BI and cybersecurity for managers and employees — tailored to your processes and tools, taught by people who build these systems.",
+      "Practical training for managers and employees, built on your own processes and tools: working with data, automation, digital tools and safe AI use.",
     path: "/en/training",
   },
   assessment: {
@@ -1392,13 +1413,13 @@ export const pageMeta = {
   about: {
     title: "About — LT Strategy Partners",
     description:
-      "Luca-Ștefan Tamaș — a systems engineer who understands the business first, trains the people who'll use the technology, and designs and builds the solution himself. Production AI, enterprise platforms, two SaaS products of his own.",
+      "Luca-Ștefan Tamaș — a systems engineer who finds what's holding a business back and builds the fix himself. Enterprise platforms, two SaaS products of his own, data and AI systems.",
     path: "/en/about",
   },
   contact: {
     title: "Contact — LT Strategy Partners",
     description:
-      "A direct, no-pressure conversation about what you'd like to improve — digitalization, AI adoption, employee training or a specific build.",
+      "Tell us what isn't working in your business. A first conversation that's free, with no slides and no quote on the spot.",
     path: "/en/contact",
   },
   privacy: {
@@ -1437,7 +1458,9 @@ export const ui = {
   footerContactHeading: "Contact",
   footerAria: "Footer",
   footerRights: "All rights reserved.",
-  backToWork: "Selected work",
+  backToWork: "Case studies",
+  workProblem: "The problem",
+  workSolution: "What we built",
   workContext: "The context",
   workDelivered: "What we delivered",
   workStrategic: "Why it matters",

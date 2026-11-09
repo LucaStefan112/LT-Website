@@ -186,6 +186,7 @@ const langNavLabel = locale === "ro" ? "Limbă" : "Language";
     font-weight: 500;
     text-decoration: none;
     letter-spacing: 0.005em;
+    white-space: nowrap; /* multi-word labels ("Studii de caz") never wrap */
     transition: color 0.18s var(--ease-out-soft);
   }
   .header-link::after {
