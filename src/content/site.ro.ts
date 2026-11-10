@@ -95,12 +95,12 @@ export const legalNav: NavItem[] = [
 
 export const partners = {
   eyebrow: "Companii și instituții cu care am lucrat",
-  names: [
-    "ProInvest",
-    "Enovis",
-    "CJRAE Iași",
-    "Casa Bolta Rece",
-    "Carmangeria Boierilor",
+  items: [
+    { name: "ProInvest", logo: "proinvest" },
+    { name: "Casa Bolta Rece", logo: "casa-bolta-rece" },
+    { name: "Enovis", logo: "enovis" },
+    { name: "Carmangeria Boierilor", logo: "carmangeria-boierilor" },
+    { name: "CJRAE Iași", logo: "cjrae-iasi" },
   ],
 } as const;
 

@@ -53,7 +53,7 @@ edit the relevant export:
 
 - `site` — name, tagline, contact email, founder, primary CTA
 - `nav`, `footerNav`, `legalNav` — navigation links
-- `partners` — client names shown as wordmarks under the hero and on About (add a logo only once that company agrees)
+- `partners` — clients shown by their logos under the hero, on About and on the case-studies page. Each `logo` names a single-colour (ink) file in `src/assets/partners/`; an item without one shows its name as text
 - Home, top to bottom: `hero`, `partners`, `symptoms` ("Sound familiar?"), `statement` ("What changes"), `solve` (the four problem areas), `approach` (how we work, five steps), `work` (case studies), `pillars` ("Why LT"), `founderStrip`, `ctaBand`
 - "What we solve" (`/services`), top to bottom: `services` (the four problem areas: what it looks like, what we do, what you get), `layers` (Leadership / Processes / People), `approach`, `engagements` (ways to work together: to start, to solve, for the long run — rename offers or change their durations here; no prices or pricing terms are published), `servicesFaq` (incl. "Do you work with AI?"), `ctaBand`
 - `contact`, `footer`

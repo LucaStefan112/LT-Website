@@ -1,7 +1,11 @@
 ---
-/* Companies and institutions we've worked with, as typographic wordmarks.
-   Names only (no logos) until each one has agreed to its logo being shown;
-   add logo files later without changing the layout. */
+/* Companies and institutions we've worked with, shown by their logos.
+   Each logo is a single-colour (ink) version of the company's own logo, kept
+   in src/assets/partners/<logo>.png|svg; an item without a logo falls back to
+   its name as text. Logos are sized to look equally heavy: a wide logo gets
+   less height than a square one (height ∝ aspect ratio^-0.4). */
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
 import Container from "../ui/Container.astro";
 import { getContent } from "../../content/i18n";
 
@@ -11,6 +15,25 @@ interface Props {
   variant?: "paper" | "bone";
 }
 const { variant = "paper" } = Astro.props;
+
+const logoFiles = import.meta.glob<{ default: ImageMetadata }>("../../assets/partners/*.{png,svg}", {
+  eager: true,
+});
+const logoFor = (key: string) =>
+  Object.entries(logoFiles).find(([path]) => path.replace(/^.*\/|\.\w+$/g, "") === key)?.[1].default;
+
+// Height in px (desktop) for a square logo; wider logos get less
+const SQUARE_HEIGHT = 58;
+// Logos whose name is set small inside the mark get a little more room
+const OPTICAL_SCALE: Record<string, number> = { "cjrae-iasi": 1.25 };
+const items = partners.items.map((item) => {
+  const key: string | undefined = "logo" in item ? item.logo : undefined;
+  const img = key ? logoFor(key) : undefined;
+  if (!key || !img) return { name: item.name };
+  const aspect = img.width / img.height;
+  const height = Math.round(SQUARE_HEIGHT * aspect ** -0.4 * (OPTICAL_SCALE[key] ?? 1));
+  return { name: item.name, img, height, width: Math.round(height * aspect) };
+});
 ---
 
 <section
@@ -21,7 +44,23 @@ const { variant = "paper" } = Astro.props;
     <div class="partners-inner">
       <h2 id="partners-heading" class="partners-label">{partners.eyebrow}</h2>
       <ul class="partners-list" role="list">
-        {partners.names.map((name) => <li class="partners-name">{name}</li>)}
+        {items.map((p) =>
+          p.img ? (
+            <li class="partners-item">
+              <Image
+                src={p.img}
+                alt={p.name}
+                width={p.width}
+                height={p.height}
+                densities={[1, 2]}
+                class="partners-logo"
+                style={`--logo-h: ${p.height}px`}
+              />
+            </li>
+          ) : (
+            <li class="partners-item partners-name">{p.name}</li>
+          ),
+        )}
       </ul>
     </div>
   </Container>
@@ -35,14 +74,7 @@ const { variant = "paper" } = Astro.props;
   .partners-inner {
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
-  }
-  @media (min-width: 1024px) {
-    .partners-inner {
-      flex-direction: row;
-      align-items: center;
-      gap: 3rem;
-    }
+    gap: 1.5rem;
   }
   .partners-label {
     flex: none;
@@ -55,6 +87,7 @@ const { variant = "paper" } = Astro.props;
     color: var(--color-muted);
   }
   .partners-list {
+    --logo-scale: 1;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -63,8 +96,19 @@ const { variant = "paper" } = Astro.props;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    gap: 0.9rem 2rem;
+    gap: 1.25rem 2rem;
   }
+  .partners-item {
+    display: flex;
+    align-items: center;
+  }
+  .partners-logo {
+    display: block;
+    width: auto;
+    height: calc(var(--logo-h) * var(--logo-scale));
+    opacity: 0.85;
+  }
+  /* A partner without a logo yet */
   .partners-name {
     font-size: clamp(1.0625rem, 1.6vw, 1.25rem);
     font-weight: 650;
@@ -72,10 +116,24 @@ const { variant = "paper" } = Astro.props;
     white-space: nowrap;
     color: color-mix(in srgb, var(--color-ink) 72%, var(--color-paper));
   }
+  /* The label sits beside the logos when they all fit next to it on one
+     line; when they don't (around 1024px), they drop under the label */
+  @media (min-width: 1024px) {
+    .partners-inner {
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1.5rem 3rem;
+    }
+    .partners-list {
+      flex: 1 0 max-content;
+    }
+  }
   @media (max-width: 639px) {
     .partners-list {
+      --logo-scale: 0.8;
       justify-content: flex-start;
-      gap: 0.75rem 1.5rem;
+      gap: 1.25rem 2rem;
     }
   }
 </style>

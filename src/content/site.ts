@@ -215,17 +215,19 @@ export const legalNav: NavItem[] = [
 ];
 
 /* ------------------------------------------------------------- Partners */
-/* Clients and institutions supplied by the founder. Names only — add a
-   logo only once that company has agreed to its logo being shown. */
+/* Clients and institutions supplied by the founder. `logo` names a file in
+   src/assets/partners/ (a single-colour version of the company's own logo);
+   leave it out and the name is shown as text instead. The order alternates
+   wide and square logos so the row looks even. */
 
 export const partners = {
   eyebrow: "Companies and institutions we've worked with",
-  names: [
-    "ProInvest",
-    "Enovis",
-    "CJRAE Iași",
-    "Casa Bolta Rece",
-    "Carmangeria Boierilor",
+  items: [
+    { name: "ProInvest", logo: "proinvest" },
+    { name: "Casa Bolta Rece", logo: "casa-bolta-rece" },
+    { name: "Enovis", logo: "enovis" },
+    { name: "Carmangeria Boierilor", logo: "carmangeria-boierilor" },
+    { name: "CJRAE Iași", logo: "cjrae-iasi" },
   ],
 } as const;
 
