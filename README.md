@@ -136,7 +136,7 @@ These live in `config` at the top of [`src/content/site.ts`](src/content/site.ts
 | **Booking link** | None — the primary CTA reads **"Start a conversation"** → `/contact` | Set `config.bookingUrl` to a Cal.com/Calendly URL to switch it to "Book a conversation" → your link |
 | **Diagnostic fee** | Free — the Business Diagnostic costs nothing, capped at three a month | To charge later, edit `assessmentPage` (lead, `heroFacts`, `whyFree`, `apply.microcopy`), the Business Diagnostic entry in `engagements` and the cost answer in `servicesFaq`, in both `site.ts` and `site.ro.ts` |
 | **Testimonials** | None — the "What clients say" section does not render | Add real, permissioned quotes to the `testimonials` array in `site.ts` |
-| **Case-study metrics** | Only verifiable properties of our own work (Atlas, the company report, the transit dashboard) | Add real figures to a project's optional `impact: [...]` or `figure` in `work.projects` (never invent numbers) 
+| **Case-study metrics** | Only verifiable properties of our own work (the company report, the transit dashboard) | Add real figures to a project's optional `impact: [...]` or `figure` in `work.projects` (never invent numbers) 
 ## Deploying
 
 ### GitHub Pages (configured)

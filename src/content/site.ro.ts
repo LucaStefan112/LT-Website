@@ -800,7 +800,7 @@ export const aboutPage = {
     { title: "Rezultatele se măsoară, nu se declară.", body: "Stabilim de la început cum vom ști că a mers, iar eu vă spun deschis ce s-a schimbat — și ce nu." },
   ],
   workHeading: "Câteva lucruri pe care le-am construit",
-  workSlugs: ["processly", "atlas-economic", "transit-analytics"],
+  workSlugs: ["processly", "transit-analytics", "restaurant-ai"],
   glanceHeading: "Pe scurt",
   glance: [
     "Din 2020, software pentru firme reale — web, mobil, date și AI, pentru clienți din UE și SUA",
@@ -906,7 +906,7 @@ export const work = {
   eyebrow: "Studii de caz",
   intro:
     "De la problemă la sistemul care rulează: câteva lucruri pe care le-am proiectat și construit de la zero.",
-  homeSlugs: ["processly", "atlas-economic", "transit-analytics", "restaurant-ai"],
+  homeSlugs: ["processly", "atlas-company-report", "transit-analytics", "restaurant-ai"],
   projects: [
     {
       slug: "processly",
@@ -1061,61 +1061,6 @@ export const work = {
       diagram: true,
     },
     {
-      slug: "atlas-economic",
-      name: "Atlas Economic",
-      tagline: "Banii publici, județ cu județ.",
-      problem: "Date despre achizițiile publice, inutilizabile așa cum sunt publicate.",
-      solution: "Un indicator verificat al fluxurilor de bani pentru toate cele 42 de județe.",
-      figure: { value: "43.591", label: "de contracte publice analizate" },
-      category: "Date și analiză",
-      kind: "analysis",
-      label: "Analiză independentă · microsite public",
-      accent: "#2f6db0",
-      oneLiner:
-        "Un microsite public care arată cum circulă banii din achiziții publice între toate cele 42 de județe ale României, construit exclusiv din date deschise",
-      overview:
-        "Atlas Economic răspunde la o întrebare pe care nicio instituție din România nu o publică: pentru fiecare județ, cât din valoarea atribuită de autoritățile contractante de acolo rămâne la firme cu sediul în județ, unde pleacă restul și cât câștigă firmele locale de la autorități din alte județe. Am legat trei surse deschise — sistemul de achiziții publice, registrul comerțului și nomenclatorul oficial al localităților — într-un registru simetric, cu câte o pagină pentru fiecare județ, pe care oricine o poate deschide și verifica. Este un proiect propriu, făcut ca să arătăm metoda, nu pentru un client; de aceea sunt publice și prelucrarea, și metodologia, și pista de audit.",
-      context: "Nicio instituție din România nu publică cât din cheltuielile publice ale fiecărui județ rămâne la furnizori locali. Datele care ar răspunde sunt publice, dar inutilizabile așa cum apar.",
-      found: "Anunțurile de atribuire nu spun în ce județ e autoritatea, instituțiile publice nu figurează în registrul comerțului, plafoanele acordurilor-cadru par cheltuieli reale, iar același contract apare o dată pentru fiecare membru al asocierii. Un răspuns cere ca fiecare autoritate să fie dusă în județul ei, fiecare furnizor la sediul lui și toți banii într-un registru care se închide.",
-      result: "Un microsite live, cu o pagină pentru fiecare județ și un clasament național — fiecare cifră se poate reproduce din date publice.",
-      delivered: [
-        "O prelucrare reproductibilă peste trei surse deschise — un an întreg de anunțuri SICAP (trei trimestre din patru există doar în Excel, iar singurul CSV publicat e tăiat fără nicio avertizare), registrul ONRC (~3,9 milioane de entități) și nomenclatorul SIRUTA al INS",
-        "Un registru simetric al fluxurilor: fiecare leu care iese dintr-un județ intră în altul, verificat la leu, prin două identități structurale",
-        "42 de pagini de județ și un clasament național, generate ca HTML static, fără nicio dependență externă",
-        "O metodologie publicată, cu fiecare filtru explicat, cu ambele convenții posibile și cu fiecare eroare găsită la verificare",
-        "Un fișier de audit care arată atribuirile slabe și tot ce metoda lasă intenționat neatribuit",
-      ],
-      strategic: [
-        "Transformă date publice împrăștiate într-un indicator pe care nicio instituție nu îl publică; valoarea stă în felul în care se leagă datele, nu în datele brute",
-        "Arată o problemă de măsurare tratată cinstit: limitele sunt cuantificate pe pagină, nu ascunse",
-        "Dovedește o prelucrare care se poate relua la fiecare trimestru, nu un studiu făcut o singură dată",
-      ],
-      capabilities: [
-        "Inginerie de date deschise",
-        "Corelarea entităților",
-        "Proiectare de indicatori economici",
-        "Analiză reproductibilă & piste de audit",
-      ],
-      stack: [
-        "Python (doar biblioteca standard)",
-        "Date deschise SICAP / ONRC / SIRUTA",
-        "HTML static & SVG inline",
-        "Surse CC BY 4.0",
-      ],
-      impact: [
-        "65,38 mld. RON în contracte, din care 37,45 mld. atribuite unui județ anume",
-        "42 de județe acoperite cu aceeași metodologie",
-        "Trei runde de verificare adversarială, cu doisprezece recenzenți independenți; două reimplementări de la zero au reprodus fiecare cifră publicată",
-      ],
-      takeaway:
-        "Este cea mai clară demonstrație a felului în care lucrăm cu datele: luăm surse publice, dar inutilizabile, legăm entitățile pe care nimeni nu le-a pus până acum împreună și publicăm rezultatul cu limitele declarate — ca cifrele să reziste la verificare, nu să cedeze la prima întrebare.",
-      training:
-        "Este disciplina din spatele trainingului nostru de date și rapoarte: unde apar erorile în cifre, între sursă și raport, și cum poate o echipă să verifice o cifră înainte să se ia o decizie pe baza ei.",
-      image: "atlas",
-      liveUrl: "/atlas/",
-      liveLabel: "Deschide Atlasul",
-    },
-    {
       slug: "atlas-company-report",
       name: "Atlas · Raport de firmă",
       tagline: "Un CUI la intrare, un dosar complet la ieșire.",
@@ -1124,12 +1069,12 @@ export const work = {
       figure: { value: "4.201.627", label: "de entități înregistrate acoperite" },
       category: "Date și analiză",
       kind: "product",
-      label: "Produs propriu · pe aceleași date ca Atlasul",
+      label: "Produs propriu · pe date deschise",
       accent: "#285c97",
       oneLiner:
         "Un generator fără bază de date care transformă un singur CUI într-un dosar complet de firmă — unsprezece ani de situații financiare, poziția în sector, un scor de risc de insolvență și expunerea la bani publici — numai din date deschise",
       overview:
-        "Îi dați un CUI și scoate un raport de paisprezece secțiuni: identitate și stare juridică din registrul comerțului, statut fiscal interogat pe loc la ANAF, unsprezece exerciții financiare depuse, poziția față de toate firmele din aceeași diviziune CAEN, mărimea pieței și cota firmei, indicatori derivați comparați cu mediana sectorului, un scor de risc de insolvență și expunerea la achiziții publice pe ambele căi — licitații și achiziții sub prag. Merge pe aceleași date ca Atlasul, fără bază de date și fără server: caută direct în fișierele brute ale statului, pentru că un CUI este unic și o scanare îl găsește în 2 GB în mai puțin de o secundă. Distribuțiile pe sector — singurul lucru pe care o astfel de căutare nu îl poate afla — se calculează o dată, în avans.",
+        "Îi dați un CUI și scoate un raport de paisprezece secțiuni: identitate și stare juridică din registrul comerțului, statut fiscal interogat pe loc la ANAF, unsprezece exerciții financiare depuse, poziția față de toate firmele din aceeași diviziune CAEN, mărimea pieței și cota firmei, indicatori derivați comparați cu mediana sectorului, un scor de risc de insolvență și expunerea la achiziții publice pe ambele căi — licitații și achiziții sub prag. Merge fără bază de date și fără server: caută direct în fișierele brute ale statului, pentru că un CUI este unic și o scanare îl găsește în 2 GB în mai puțin de o secundă. Distribuțiile pe sector — singurul lucru pe care o astfel de căutare nu îl poate afla — se calculează o dată, în avans.",
       context: "Aproape tot ce ați vrea să știți despre o firmă din România e public, dar împrăștiat în surse care, luate una câte una, sunt aproape inutilizabile.",
       found: "Situațiile financiare se publică drept douăzeci de indicatori numerotați, fără nume de coloane, în trei formate diferite de-a lungul anilor. Datoriile apar ca o sumă totală și nu există costul bunurilor vândute, așa că mai mulți indicatori clasici trebuie aproximați. Arhiva de achiziții scrie data contractului în patru feluri și o lasă necompletată în 98.064 de cazuri. Nimic din toate acestea nu e documentat — iar fiecare defect pierde date în tăcere, în loc să dea o eroare.",
       result: "Un CUI la intrare, un dosar în paisprezece secțiuni la ieșire — în HTML și PDF gata de tipărit, în circa douăzeci de secunde, pentru oricare dintre cele 4,2 milioane de entități înregistrate.",
@@ -1143,7 +1088,6 @@ export const work = {
       strategic: [
         "Transformă un CUI — singurul lucru pe care îl știți sigur despre un partener — într-un document pe care se poate lua o decizie, fără abonament și fără baze de date plătite",
         "Ce contează nu sunt datele, ci felul în care se leagă și se verifică: oricine poate descărca aceleași fișiere și nu obține nimic folosibil",
-        "Aceleași date ca Atlasul, deci analiza pe județe și analiza pe firmă nu se pot contrazice niciodată",
       ],
       capabilities: [
         "Inginerie de date deschise",
